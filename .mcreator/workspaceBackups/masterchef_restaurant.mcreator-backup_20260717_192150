@@ -559,15 +559,15 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "dependencyX",
             "type": "number"
           },
           {
             "name": "dependencyZ",
+            "type": "number"
+          },
+          {
+            "name": "restaurantID",
             "type": "number"
           },
           {
@@ -1581,6 +1581,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "restaurantID",
+            "type": "number"
           },
           {
             "name": "x",

@@ -5066,6 +5066,20 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures/States Procedures"
+    },
+    {
+      "name": "Testprocedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "testprocedure",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/TestprocedureProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Testing Procedures"
     }
   ],
   "variable_elements": [
