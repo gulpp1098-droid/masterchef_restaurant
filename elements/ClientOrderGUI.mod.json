@@ -1,0 +1,342 @@
+{
+  "_fv": 85,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 234,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 26,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "ordergui.png",
+          "use1Xscale": false,
+          "x": 125,
+          "y": 3,
+          "locked": true
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 179,
+          "y": 50,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 202,
+          "y": 50,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 225,
+          "y": 50,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 4,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 248,
+          "y": 50,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 5,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 271,
+          "y": 50,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "foodframe_icon.png",
+          "use1Xscale": false,
+          "x": 269,
+          "y": 46,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "foodframe_icon.png",
+          "use1Xscale": false,
+          "x": 246,
+          "y": 46,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "foodframe_icon.png",
+          "use1Xscale": false,
+          "x": 223,
+          "y": 46,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "foodframe_icon.png",
+          "use1Xscale": false,
+          "x": 200,
+          "y": 46,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "foodframe_icon.png",
+          "use1Xscale": false,
+          "x": 177,
+          "y": 46,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ribbon_icon.png",
+          "use1Xscale": false,
+          "x": 168,
+          "y": 12,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 149,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "orderplace_icon.png",
+          "use1Xscale": false,
+          "x": 163,
+          "y": 95,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "plate_icon.png",
+          "use1Xscale": false,
+          "x": 165,
+          "y": 101,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_client_order",
+          "text": {
+            "fixedValue": "Client Order"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 184,
+          "y": 15,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "client_icon.png",
+          "use1Xscale": false,
+          "x": 145,
+          "y": 47,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tick_icon.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OrdersCheckboxesCheckSlot1"
+          },
+          "x": 180,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tick_icon.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OrdersCheckboxesCheckSlot2"
+          },
+          "x": 203,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tick_icon.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OrdersCheckboxesCheckSlot3"
+          },
+          "x": 226,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tick_icon.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OrdersCheckboxesCheckSlot4"
+          },
+          "x": 249,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "tick_icon.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "OrdersCheckboxesCheckSlot5"
+          },
+          "x": 272,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "color": {
+            "value": -6684775,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 163,
+          "y": 95,
+          "locked": false
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "patiance_sprite.png",
+          "spritesCount": 4,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "PatianceReturn"
+          },
+          "x": 149,
+          "y": 78,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_serve_dish",
+          "text": {
+            "fixedValue": "Serve dish"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 186,
+          "y": 100,
+          "locked": false
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "OpenedOrderGUI"
+    },
+    "onTick": {
+      "name": "OpenedOrderGUI"
+    },
+    "onClosed": {
+      "name": "CloseOrderGUI"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

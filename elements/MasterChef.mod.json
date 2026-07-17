@@ -1,0 +1,11 @@
+{
+  "_fv": 85,
+  "_type": "tab",
+  "definition": {
+    "name": "Master Chef",
+    "icon": {
+      "value": "CUSTOM:SpatulaGolden"
+    },
+    "showSearch": false
+  }
+}

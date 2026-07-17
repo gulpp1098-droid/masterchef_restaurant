@@ -1,0 +1,9 @@
+{
+  "parent": "masterchef_restaurant:custom/blocktablenumber",
+  "textures": {
+    "all": "masterchef_restaurant:block/texturetableaa",
+    "particle": "masterchef_restaurant:block/texturetablenosign",
+    "0": "masterchef_restaurant:block/texturetablea"
+  },
+  "render_type": "cutout"
+}

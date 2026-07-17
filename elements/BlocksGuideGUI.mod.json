@@ -1,0 +1,434 @@
+{
+  "_fv": 85,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "bookmarks.png",
+          "use1Xscale": false,
+          "x": 355,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_base_icon",
+          "image": "base_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryMenu"
+          },
+          "x": 361,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_food_icon",
+          "image": "food_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryFood"
+          },
+          "x": 362,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_clients_icon",
+          "image": "clients_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryClients"
+          },
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_appliences_icon",
+          "image": "appliences_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryApplience"
+          },
+          "x": 362,
+          "y": 109,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_stats_icon",
+          "image": "stats_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryStats"
+          },
+          "x": 361,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_overview_wip",
+          "text": {
+            "fixedValue": "Required Blocks - WIP"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 17,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "requirements_icon.png",
+          "use1Xscale": false,
+          "x": 183,
+          "y": 14,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_before_customers_can_visit",
+          "text": {
+            "fixedValue": "Before customers can"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 32,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_visit_your_restaurant",
+          "text": {
+            "fixedValue": "visit, your restaurant"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 44,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_needs_a_few_basic_blocks",
+          "text": {
+            "fixedValue": "needs a few basic blocks."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 58,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_each_block_has_a_job",
+          "text": {
+            "fixedValue": "Each block has its a job."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_at_start_prepare",
+          "text": {
+            "fixedValue": "To get started, prepare:"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 87,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_reception",
+          "text": {
+            "fixedValue": "- Reception"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 103,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_service_table",
+          "text": {
+            "fixedValue": "- Service Table"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 115,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_chair",
+          "text": {
+            "fixedValue": "- Chair"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 70,
+          "y": 128,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_queue_rug_optional",
+          "text": {
+            "fixedValue": "- Queue Rug (optional)"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 70,
+          "y": 141,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "reception_item.png",
+          "use1Xscale": false,
+          "x": 78,
+          "y": 162,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "servicetable_icon.png",
+          "use1Xscale": false,
+          "x": 107,
+          "y": 163,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "chair_icon.png",
+          "use1Xscale": false,
+          "x": 136,
+          "y": 163,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "queue_rug_item.png",
+          "use1Xscale": false,
+          "x": 165,
+          "y": 163,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_reception1",
+          "text": {
+            "fixedValue": "Reception"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 18,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_restaurant_begins_from_this_plac",
+          "text": {
+            "fixedValue": "Your restaurant begins"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 32,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_this_place",
+          "text": {
+            "fixedValue": "here. Customers will"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 45,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_will_wait_in_queue_here",
+          "text": {
+            "fixedValue": "wait in queue here!"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 220,
+          "y": 58,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 215,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 215,
+          "y": 159,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideBlocksP2"
+          },
+          "x": 322,
+          "y": 177,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

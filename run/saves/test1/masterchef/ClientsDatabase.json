@@ -1,0 +1,268 @@
+{
+  "restaurants": [
+    {
+      "ID": 0,
+      "next_spawn_group_time": 7573.0,
+      "next_spawn_group_index": 4.0,
+      "groups": [
+        {
+          "group_id": 0,
+          "spawn_time": 4611,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 1,
+          "spawn_time": 4244,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 2,
+          "spawn_time": 5146,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 3,
+          "spawn_time": 1376,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 4,
+          "spawn_time": 7573,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 5,
+          "spawn_time": 3022,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 6,
+          "spawn_time": 2856,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 7,
+          "spawn_time": 2191,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 8,
+          "spawn_time": 6538,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 9,
+          "spawn_time": 2599,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 10,
+          "spawn_time": 2446,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 11,
+          "spawn_time": 1124,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 12,
+          "spawn_time": 4405,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            },
+            {
+              "leader": false,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 13,
+          "spawn_time": 1168,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": "minecraft:tropical_fish",
+              "patience": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

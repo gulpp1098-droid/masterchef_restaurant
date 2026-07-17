@@ -1,0 +1,26 @@
+{
+  "restaurants": [
+    {
+      "ID": 1,
+      "name": "asdsfa",
+      "owner": "380df991-f603-344c-a090-369bad2a924a",
+      "ownerName": "Dev",
+      "level": 0,
+      "reputation": 0,
+      "coowners": [],
+      "locations": [
+        "-2.0:1.0"
+      ],
+      "open": false,
+      "active_groups": 0,
+      "close_time": 0,
+      "tables": [],
+      "reception": "-9.0:-60.0:9.0",
+      "creation_menu_day": -1.0,
+      "last_day_open": -1,
+      "menu": [
+        "minecraft:glow_berries"
+      ]
+    }
+  ]
+}

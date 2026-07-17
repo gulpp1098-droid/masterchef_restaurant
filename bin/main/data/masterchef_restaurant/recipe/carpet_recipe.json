@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rugs",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:red_carpet"
+    },
+    {
+      "item": "minecraft:red_carpet"
+    }
+  ],
+  "result": {
+    "id": "masterchef_restaurant:rug",
+    "count": 2
+  }
+}

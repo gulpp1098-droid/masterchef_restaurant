@@ -1,0 +1,45 @@
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-07-04 16:03:03 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:plains": "2026-07-04 16:03:21 +0200"
+    },
+    "done": false
+  },
+  "masterchef_restaurant:recipes/chair_recipe": {
+    "criteria": {
+      "has_ingredient_0": "2026-07-04 16:03:32 +0200"
+    },
+    "done": true
+  },
+  "masterchef_restaurant:recipes/service_table_recipe": {
+    "criteria": {
+      "has_ingredient_0": "2026-07-04 16:03:32 +0200"
+    },
+    "done": true
+  },
+  "masterchef_restaurant:recipes/carpet_queue_recipe": {
+    "criteria": {
+      "has_ingredient_0": "2026-07-04 16:03:32 +0200"
+    },
+    "done": true
+  },
+  "masterchef_restaurant:recipes/golden_spatula_recipe": {
+    "criteria": {
+      "has_ingredient_0": "2026-07-04 16:03:32 +0200"
+    },
+    "done": true
+  },
+  "masterchef_restaurant:recipes/reception_recipe": {
+    "criteria": {
+      "has_ingredient_0": "2026-07-04 16:03:32 +0200"
+    },
+    "done": true
+  },
+  "DataVersion": 3955
+}

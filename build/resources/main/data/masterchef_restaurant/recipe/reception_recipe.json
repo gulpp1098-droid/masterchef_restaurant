@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a",
+    "b"
+  ],
+  "key": {
+    "a": {
+      "item": "masterchef_restaurant:chefs_diary"
+    },
+    "b": {
+      "item": "minecraft:lectern"
+    }
+  },
+  "result": {
+    "id": "masterchef_restaurant:reception",
+    "count": 1
+  }
+}

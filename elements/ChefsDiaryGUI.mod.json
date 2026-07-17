@@ -1,0 +1,592 @@
+{
+  "_fv": 85,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "bookmarks.png",
+          "use1Xscale": false,
+          "x": 355,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_base_icon",
+          "image": "base_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryMenu"
+          },
+          "x": 361,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_food_icon",
+          "image": "food_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryFood"
+          },
+          "x": 362,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_clients_icon",
+          "image": "clients_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryClients"
+          },
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_appliences_icon",
+          "image": "appliences_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryApplience"
+          },
+          "x": 362,
+          "y": 109,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_stats_icon",
+          "image": "stats_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryStats"
+          },
+          "x": 361,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_overview_wip",
+          "text": {
+            "fixedValue": "Overview - WIP"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 17,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 68,
+          "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "restaurant_icon.png",
+          "use1Xscale": false,
+          "x": 69,
+          "y": 39,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_welcome_chef",
+          "text": {
+            "fixedValue": "Welcome, Chef!"
+          },
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 112,
+          "y": 41,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_this_diary_will_guide",
+          "text": {
+            "fixedValue": "This diary will"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 112,
+          "y": 51,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_will_guild_you_through",
+          "text": {
+            "fixedValue": "guide you through"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 112,
+          "y": 61,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_the_basics_of_running",
+          "text": {
+            "fixedValue": "the basics of running"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 71,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_your_own_restaurant",
+          "text": {
+            "fixedValue": "your own restaurant."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 80,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_your_goal_is_to_build",
+          "text": {
+            "fixedValue": "Your goal is to build,"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_manage_and_improve",
+          "text": {
+            "fixedValue": "manage and improve a"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_a_restaurant_of_your_dream",
+          "text": {
+            "fixedValue": "restaurant of your dream."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 108,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_a_successful_restaurant",
+          "text": {
+            "fixedValue": "A successful restaurant"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 118,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_needs_more_than_good",
+          "text": {
+            "fixedValue": "needs more than good food."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 128,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_you_will_need_a_proper_equipment",
+          "text": {
+            "fixedValue": "You will need a proper "
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 138,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_equipment_place_and_enough",
+          "text": {
+            "fixedValue": "equipment, place and"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 147,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_enough_patience_to_handle",
+          "text": {
+            "fixedValue": "enough patience to handle"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 157,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_hungry_customers",
+          "text": {
+            "fixedValue": "hungry customers."
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 66,
+          "y": 166,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_setarea_button",
+          "image": "setarea_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideLocation"
+          },
+          "x": 243,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_requirements_button",
+          "image": "requirements_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideBlocks"
+          },
+          "x": 245,
+          "y": 69,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_open_button",
+          "image": "open_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideOpen"
+          },
+          "x": 243,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_serve_button",
+          "image": "serve_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideServe"
+          },
+          "x": 243,
+          "y": 158,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_expcoins_button",
+          "image": "expcoins_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideExpLevel"
+          },
+          "x": 243,
+          "y": 179,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "location_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 84,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "requirements_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "open_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 133,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "serve_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 154,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 174,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 68,
+          "y": 178,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_basic_tutorial",
+          "text": {
+            "fixedValue": "Basic tutorial"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 218,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 214,
+          "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "spatula_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 44,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "hammer_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_spatula_button",
+          "image": "spatula_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideSpatula"
+          },
+          "x": 245,
+          "y": 49,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_setup_button",
+          "image": "setup_button.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "ChefsDiaryGuideSetUp"
+          },
+          "x": 244,
+          "y": 114,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

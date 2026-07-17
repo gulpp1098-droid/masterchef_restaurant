@@ -1,0 +1,28 @@
+{
+  "restaurants": [
+    {
+      "ID": 1,
+      "next_spawn_group_time": 6747.0,
+      "next_spawn_group_index": 0.0,
+      "queue_start": "-5.5:-60.0:7.5",
+      "groups": [
+        {
+          "group_id": 0,
+          "spawn_time": 6747,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": [
+                "minecraft:cod"
+              ],
+              "foodTiers": "0",
+              "patience": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

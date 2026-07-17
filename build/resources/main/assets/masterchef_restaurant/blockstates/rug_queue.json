@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,state=0": {
+      "model": "masterchef_restaurant:block/rug_queue_0"
+    },
+    "facing=north,state=1": {
+      "model": "masterchef_restaurant:block/rug_queue_1"
+    },
+    "facing=north,state=2": {
+      "model": "masterchef_restaurant:block/rug_queue_2"
+    },
+    "facing=north,state=3": {
+      "model": "masterchef_restaurant:block/rug_queue_3"
+    },
+    "facing=east,state=0": {
+      "model": "masterchef_restaurant:block/rug_queue_0",
+      "y": 90
+    },
+    "facing=east,state=1": {
+      "model": "masterchef_restaurant:block/rug_queue_1",
+      "y": 90
+    },
+    "facing=east,state=2": {
+      "model": "masterchef_restaurant:block/rug_queue_2",
+      "y": 90
+    },
+    "facing=east,state=3": {
+      "model": "masterchef_restaurant:block/rug_queue_3",
+      "y": 90
+    },
+    "facing=south,state=0": {
+      "model": "masterchef_restaurant:block/rug_queue_0",
+      "y": 180
+    },
+    "facing=south,state=1": {
+      "model": "masterchef_restaurant:block/rug_queue_1",
+      "y": 180
+    },
+    "facing=south,state=2": {
+      "model": "masterchef_restaurant:block/rug_queue_2",
+      "y": 180
+    },
+    "facing=south,state=3": {
+      "model": "masterchef_restaurant:block/rug_queue_3",
+      "y": 180
+    },
+    "facing=west,state=0": {
+      "model": "masterchef_restaurant:block/rug_queue_0",
+      "y": 270
+    },
+    "facing=west,state=1": {
+      "model": "masterchef_restaurant:block/rug_queue_1",
+      "y": 270
+    },
+    "facing=west,state=2": {
+      "model": "masterchef_restaurant:block/rug_queue_2",
+      "y": 270
+    },
+    "facing=west,state=3": {
+      "model": "masterchef_restaurant:block/rug_queue_3",
+      "y": 270
+    }
+  }
+}

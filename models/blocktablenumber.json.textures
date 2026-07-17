@@ -1,0 +1,28 @@
+{
+  "mappings": {
+    "default": {
+      "name": "default",
+      "map": {
+        "0": "texturetablenosign"
+      }
+    },
+    "a": {
+      "name": "a",
+      "map": {
+        "0": "texturetablea"
+      }
+    },
+    "b": {
+      "name": "b",
+      "map": {
+        "0": "texturetableb"
+      }
+    },
+    "c": {
+      "name": "c",
+      "map": {
+        "0": "texturetablec"
+      }
+    }
+  }
+}

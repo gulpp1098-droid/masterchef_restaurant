@@ -1,0 +1,118 @@
+{
+  "mappings": {
+    "default": {
+      "name": "default",
+      "map": {
+        "3": "rugstreight"
+      }
+    },
+    "edge": {
+      "name": "edge",
+      "map": {
+        "3": "rugedge"
+      }
+    },
+    "corner": {
+      "name": "corner",
+      "map": {
+        "3": "rugcorner"
+      }
+    },
+    "tshape": {
+      "name": "tshape",
+      "map": {
+        "3": "rugtshape"
+      }
+    },
+    "cross": {
+      "name": "cross",
+      "map": {
+        "3": "rugcross"
+      }
+    },
+    "single": {
+      "name": "single",
+      "map": {
+        "3": "rugsingle"
+      }
+    },
+    "cornercorner": {
+      "name": "cornercorner",
+      "map": {
+        "3": "rugcornercorner"
+      }
+    },
+    "cross1": {
+      "name": "cross1",
+      "map": {
+        "3": "rugcross1"
+      }
+    },
+    "cross2": {
+      "name": "cross2",
+      "map": {
+        "3": "rugcross2"
+      }
+    },
+    "cross2diag": {
+      "name": "cross2diag",
+      "map": {
+        "3": "rugcross2diag"
+      }
+    },
+    "cross3": {
+      "name": "cross3",
+      "map": {
+        "3": "rugcross3"
+      }
+    },
+    "cross4": {
+      "name": "cross4",
+      "map": {
+        "3": "rugcross4"
+      }
+    },
+    "tshape1left": {
+      "name": "tshape1left",
+      "map": {
+        "3": "rugtshape1left"
+      }
+    },
+    "tshape1right": {
+      "name": "tshape1right",
+      "map": {
+        "3": "rugtshape1right"
+      }
+    },
+    "tshape2": {
+      "name": "tshape2",
+      "map": {
+        "3": "rugtshape2"
+      }
+    },
+    "queuestreight": {
+      "name": "queuestreight",
+      "map": {
+        "3": "queuestreight"
+      }
+    },
+    "queueedge": {
+      "name": "queueedge",
+      "map": {
+        "3": "queueedge"
+      }
+    },
+    "queuesingle": {
+      "name": "queuesingle",
+      "map": {
+        "3": "queuesingle"
+      }
+    },
+    "queuecorner": {
+      "name": "queuecorner",
+      "map": {
+        "3": "queuecorner"
+      }
+    }
+  }
+}

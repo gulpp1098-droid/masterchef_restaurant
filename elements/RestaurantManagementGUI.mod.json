@@ -1,0 +1,266 @@
+{
+  "_fv": 85,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 131,
+    "height": 142,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "spatulagui.png",
+          "use1Xscale": false,
+          "x": 114,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ribbon_icon.png",
+          "use1Xscale": false,
+          "x": 170,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "spatula_icon.png",
+          "use1Xscale": false,
+          "x": 179,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_management",
+          "text": {
+            "fixedValue": "Management"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 195,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_button_icon",
+          "image": "button_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "OpenCreateRestaurantGUI"
+          },
+          "x": 133,
+          "y": 61,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_create_edit_restaurant",
+          "text": {
+            "fixedValue": "Create / Edit Restaurant"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 152,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_button_icon1",
+          "image": "button_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "SetSpatulaLocationModeTrue"
+          },
+          "x": 133,
+          "y": 94,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_set_location_for_restaurant",
+          "text": {
+            "fixedValue": "Set Location for Restaurant"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 143,
+          "y": 105,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_button_icon2",
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "onClick": {
+            "name": "OpenRestaurantButton"
+          },
+          "x": 217,
+          "y": 132,
+          "locked": false
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "signopenclose_sprite.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OpenCloseReturn"
+          },
+          "x": 145,
+          "y": 127,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_open_close",
+          "text": {
+            "fixedValue": "Open / Close"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 227,
+          "y": 143,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "servicetable_icon.png",
+          "use1Xscale": false,
+          "x": 138,
+          "y": 170,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "localization_icon.png",
+          "use1Xscale": false,
+          "x": 242,
+          "y": 170,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tables",
+          "text": {
+            "fixedValue": "Tables",
+            "name": "MaxTablesReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 154,
+          "y": 175,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "queue_rug_item.png",
+          "use1Xscale": false,
+          "x": 190,
+          "y": 170,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_rugs",
+          "text": {
+            "fixedValue": "Rugs",
+            "name": "MaxQueueReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 208,
+          "y": 175,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_locations",
+          "text": {
+            "fixedValue": "Locations",
+            "name": "MaxLocationsReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 258,
+          "y": 175,
+          "locked": false
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "OpenManagmentGUI"
+    },
+    "onTick": {
+      "name": "OpenManagmentGUI"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

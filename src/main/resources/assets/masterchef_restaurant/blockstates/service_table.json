@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,table_type=1": {
+      "model": "masterchef_restaurant:block/service_table_0"
+    },
+    "facing=north,table_type=2": {
+      "model": "masterchef_restaurant:block/service_table_1"
+    },
+    "facing=north,table_type=3": {
+      "model": "masterchef_restaurant:block/service_table_2"
+    },
+    "facing=north,table_type=0": {
+      "model": "masterchef_restaurant:block/service_table_3"
+    },
+    "facing=east,table_type=1": {
+      "model": "masterchef_restaurant:block/service_table_0",
+      "y": 90
+    },
+    "facing=east,table_type=2": {
+      "model": "masterchef_restaurant:block/service_table_1",
+      "y": 90
+    },
+    "facing=east,table_type=3": {
+      "model": "masterchef_restaurant:block/service_table_2",
+      "y": 90
+    },
+    "facing=east,table_type=0": {
+      "model": "masterchef_restaurant:block/service_table_3",
+      "y": 90
+    },
+    "facing=south,table_type=1": {
+      "model": "masterchef_restaurant:block/service_table_0",
+      "y": 180
+    },
+    "facing=south,table_type=2": {
+      "model": "masterchef_restaurant:block/service_table_1",
+      "y": 180
+    },
+    "facing=south,table_type=3": {
+      "model": "masterchef_restaurant:block/service_table_2",
+      "y": 180
+    },
+    "facing=south,table_type=0": {
+      "model": "masterchef_restaurant:block/service_table_3",
+      "y": 180
+    },
+    "facing=west,table_type=1": {
+      "model": "masterchef_restaurant:block/service_table_0",
+      "y": 270
+    },
+    "facing=west,table_type=2": {
+      "model": "masterchef_restaurant:block/service_table_1",
+      "y": 270
+    },
+    "facing=west,table_type=3": {
+      "model": "masterchef_restaurant:block/service_table_2",
+      "y": 270
+    },
+    "facing=west,table_type=0": {
+      "model": "masterchef_restaurant:block/service_table_3",
+      "y": 270
+    }
+  }
+}

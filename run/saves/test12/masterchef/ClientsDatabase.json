@@ -1,0 +1,98 @@
+{
+  "restaurants": [
+    {
+      "ID": 0,
+      "next_spawn_group_time": 6305.0,
+      "next_spawn_group_index": 0.0,
+      "queue_start": "4.5:-60.0:11.5",
+      "groups": [
+        {
+          "group_id": 0,
+          "spawn_time": 6305,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": [
+                "minecraft:porkchop",
+                "minecraft:salmon",
+                "minecraft:porkchop"
+              ],
+              "foodTiers": "1,0,1",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 1,
+          "spawn_time": 4044,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": [
+                "minecraft:salmon"
+              ],
+              "foodTiers": "0",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 2,
+          "spawn_time": 3337,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": [
+                "minecraft:salmon",
+                "minecraft:salmon"
+              ],
+              "foodTiers": "0,0",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 3,
+          "spawn_time": 3945,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": [
+                "minecraft:porkchop",
+                "minecraft:salmon"
+              ],
+              "foodTiers": "1,0",
+              "patience": 100
+            }
+          ]
+        },
+        {
+          "group_id": 4,
+          "spawn_time": 3118,
+          "spawned": true,
+          "state": "walk",
+          "members": [
+            {
+              "leader": true,
+              "food": [
+                "minecraft:porkchop",
+                "minecraft:salmon",
+                "minecraft:salmon"
+              ],
+              "foodTiers": "1,0,0",
+              "patience": 100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

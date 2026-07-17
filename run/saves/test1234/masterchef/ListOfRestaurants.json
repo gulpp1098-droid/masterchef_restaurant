@@ -1,0 +1,32 @@
+{
+  "restaurants": [
+    {
+      "ID": 1,
+      "name": "dfasdfasdf",
+      "owner": "380df991-f603-344c-a090-369bad2a924a",
+      "ownerName": "Dev",
+      "level": 0,
+      "reputation": 0,
+      "coowners": [],
+      "locations": [
+        "-1.0:2.0",
+        "-2.0:2.0",
+        "-2.0:1.0",
+        "-1.0:1.0"
+      ],
+      "open": true,
+      "active_groups": 0,
+      "close_time": 9038.0,
+      "tables": [
+        "-5.0:-60.0:9.0",
+        "-7.0:-60.0:9.0"
+      ],
+      "reception": "-6.0:-60.0:12.0",
+      "creation_menu_day": -1.0,
+      "last_day_open": 0.0,
+      "menu": [
+        "minecraft:potato"
+      ]
+    }
+  ]
+}

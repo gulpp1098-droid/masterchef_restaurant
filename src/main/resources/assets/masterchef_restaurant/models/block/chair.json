@@ -1,0 +1,9 @@
+{
+  "parent": "masterchef_restaurant:custom/blockchair",
+  "textures": {
+    "all": "masterchef_restaurant:block/texturechair",
+    "particle": "masterchef_restaurant:block/texturechair",
+    "0": "masterchef_restaurant:block/texturechair"
+  },
+  "render_type": "solid"
+}

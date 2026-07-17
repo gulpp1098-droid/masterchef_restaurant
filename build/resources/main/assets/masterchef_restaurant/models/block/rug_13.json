@@ -1,0 +1,9 @@
+{
+  "parent": "masterchef_restaurant:custom/rug",
+  "textures": {
+    "all": "masterchef_restaurant:block/rugtshape1right",
+    "particle": "masterchef_restaurant:block/rugstreight",
+    "3": "masterchef_restaurant:block/rugtshape1right"
+  },
+  "render_type": "solid"
+}

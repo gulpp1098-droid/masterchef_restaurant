@@ -1,0 +1,9 @@
+{
+  "parent": "masterchef_restaurant:custom/rug",
+  "textures": {
+    "all": "masterchef_restaurant:block/queuecorner",
+    "particle": "masterchef_restaurant:block/queuesingle",
+    "3": "masterchef_restaurant:block/queuecorner"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,32 @@
+{
+  "restaurants": [
+    {
+      "ID": 0,
+      "name": "sdfasdf",
+      "owner": "380df991-f603-344c-a090-369bad2a924a",
+      "ownerName": "Dev",
+      "level": 20.0,
+      "reputation": 232.0,
+      "coowners": [],
+      "locations": [
+        "1.0:1.0",
+        "0.0:1.0"
+      ],
+      "open": true,
+      "active_groups": 5.0,
+      "close_time": 10035.0,
+      "tables": [
+        "2.0:-60.0:6.0",
+        "4.0:-60.0:6.0",
+        "6.0:-60.0:6.0"
+      ],
+      "reception": "4.0:-60.0:9.0",
+      "creation_menu_day": 1.0,
+      "last_day_open": 1.0,
+      "menu": [
+        "minecraft:melon_slice",
+        "minecraft:sweet_berries"
+      ]
+    }
+  ]
+}

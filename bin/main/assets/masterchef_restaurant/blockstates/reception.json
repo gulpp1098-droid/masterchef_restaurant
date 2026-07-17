@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "masterchef_restaurant:block/reception"
+    },
+    "facing=east": {
+      "model": "masterchef_restaurant:block/reception",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "masterchef_restaurant:block/reception",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "masterchef_restaurant:block/reception",
+      "y": 270
+    }
+  }
+}
