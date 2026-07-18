@@ -1583,10 +1583,6 @@
             "type": "entity"
           },
           {
-            "name": "restaurantID",
-            "type": "number"
-          },
-          {
             "name": "x",
             "type": "number"
           },

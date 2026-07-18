@@ -6,7 +6,7 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
 public class ClientOnEntityTickUpdateProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, double restaurantID) {
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
 		Entity client = null;
@@ -32,7 +32,7 @@ public class ClientOnEntityTickUpdateProcedure {
 							ClientExpPayProcedure.execute(world, entity);
 							ClientLeaveStateProcedure.execute(world, x, y, z, entity);
 						} else {
-							ClientQueueWaitStateProcedure.execute(world, entity, restaurantID);
+							ClientQueueWaitStateProcedure.execute(world, entity);
 						}
 					} else if ((client.getPersistentData().getString("state")).equals("queue_move")) {
 						ClientQueueMoveStateProcedure.execute(entity);
