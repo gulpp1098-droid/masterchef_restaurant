@@ -54,6 +54,8 @@ public class CreatingNewRestaurantProcedure {
 		com.google.gson.JsonObject RestaurantsClient = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject newClientRestaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject ClientRestaurantObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject dailyStatsObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject lastDayStatsObject = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			Owner = entity;
 			NewRestaurant_Name = (Owner instanceof Player _entity1 && _entity1.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "Restaurant_Name", "") : "";
@@ -112,6 +114,18 @@ public class CreatingNewRestaurantProcedure {
 				}
 				NewRestaurant.addProperty("last_day_open", (-1));
 				NewRestaurant.add("menu", LocationArray);
+				dailyStatsObject.addProperty("customers_served_fully", 0);
+				dailyStatsObject.addProperty("customers_served", 0);
+				dailyStatsObject.addProperty("customers_lost", 0);
+				dailyStatsObject.addProperty("coins_earned", 0);
+				dailyStatsObject.addProperty("reputation", 0);
+				lastDayStatsObject.addProperty("customers_served_fully", 0);
+				lastDayStatsObject.addProperty("customers_served", 0);
+				lastDayStatsObject.addProperty("customers_lost", 0);
+				lastDayStatsObject.addProperty("coins_earned", 0);
+				lastDayStatsObject.addProperty("reputation", 0);
+				NewRestaurant.add("daily_stats", dailyStatsObject);
+				NewRestaurant.add("last_day_stats", lastDayStatsObject);
 				ListOfRestaurants = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);
 				{
 					try {
