@@ -5119,29 +5119,6 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
-    },
-    {
-      "name": "ClientCoinPay2",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "client_coin_pay_2",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ClientCoinPay2Procedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures"
     }
   ],
   "variable_elements": [
