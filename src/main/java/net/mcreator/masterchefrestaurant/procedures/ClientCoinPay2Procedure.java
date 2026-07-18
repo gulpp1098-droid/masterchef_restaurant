@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-public class ClientCoinPayProcedure {
+public class ClientCoinPay2Procedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;

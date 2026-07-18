@@ -118,12 +118,12 @@ public class CreatingNewRestaurantProcedure {
 				dailyStatsObject.addProperty("customers_served", 0);
 				dailyStatsObject.addProperty("customers_lost", 0);
 				dailyStatsObject.addProperty("coins_earned", 0);
-				dailyStatsObject.addProperty("reputation", 0);
+				dailyStatsObject.addProperty("reputation_change", 0);
 				lastDayStatsObject.addProperty("customers_served_fully", 0);
 				lastDayStatsObject.addProperty("customers_served", 0);
 				lastDayStatsObject.addProperty("customers_lost", 0);
 				lastDayStatsObject.addProperty("coins_earned", 0);
-				lastDayStatsObject.addProperty("reputation", 0);
+				lastDayStatsObject.addProperty("reputation_change", 0);
 				NewRestaurant.add("daily_stats", dailyStatsObject);
 				NewRestaurant.add("last_day_stats", lastDayStatsObject);
 				ListOfRestaurants = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);

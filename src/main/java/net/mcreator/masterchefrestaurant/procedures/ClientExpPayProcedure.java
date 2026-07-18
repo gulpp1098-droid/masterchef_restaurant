@@ -30,6 +30,7 @@ public class ClientExpPayProcedure {
 		double RestaurantLevel = 0;
 		double CheckpointReputation = 0;
 		double CheckpointLevel = 0;
+		double RealReputationChange = 0;
 		client = entity;
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -139,6 +140,10 @@ public class ClientExpPayProcedure {
 			ModifyRestaurantNumberParameterProcedure.execute(Math.max(CurrentReputation + EXPTotal, CheckpointReputation), RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
 		}
+		RealReputationChange = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation") - CurrentReputation;
+		ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndex, RealReputationChange, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "reputation_change");
 		RestaurantLevelUpCheckProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 	}
 }
