@@ -7,17 +7,19 @@ import java.io.File;
 import java.io.BufferedReader;
 
 public class ModifyRestaurantObjectParameterProcedure {
-	public static void execute(double numberIndex, String arrayNameDependency, String arrayParameterNameDependency, String fileNameDependency, String filePathDependency, String locationDependency) {
-		if (arrayNameDependency == null || arrayParameterNameDependency == null || fileNameDependency == null || filePathDependency == null || locationDependency == null)
+	public static void execute(double numberIndex, double value, String arrayNameDependency, String fileNameDependency, String filePathDependency, String objectNameDependency, String valueNameDependency) {
+		if (arrayNameDependency == null || fileNameDependency == null || filePathDependency == null || objectNameDependency == null || valueNameDependency == null)
 			return;
 		File ListOfRestaurants = new File("");
-		com.google.gson.JsonObject RestaurantsObject = new com.google.gson.JsonObject();
-		com.google.gson.JsonObject Restaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray RestaurantsArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray EditArrayLocation = new com.google.gson.JsonArray();
 		boolean alreadyExists = false;
+		com.google.gson.JsonObject RestaurantsObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject Restaurant = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		double index = 0;
 		double duplicateLocationIndex = 0;
+		double ObjectProperty = 0;
 		ListOfRestaurants = new File(filePathDependency, File.separator + fileNameDependency);
 		{
 			try {
@@ -32,19 +34,9 @@ public class ModifyRestaurantObjectParameterProcedure {
 				RestaurantsArray = RestaurantsObject.get(arrayNameDependency).getAsJsonArray();
 				index = numberIndex;
 				Restaurant = RestaurantsArray.get((int) index).getAsJsonObject();
-				EditArrayLocation = Restaurant.get(arrayParameterNameDependency).getAsJsonArray();
-				alreadyExists = false;
-				duplicateLocationIndex = 0;
-				for (int index0 = 0; index0 < (int) EditArrayLocation.size(); index0++) {
-					if ((EditArrayLocation.get((int) duplicateLocationIndex).getAsString()).equals(locationDependency)) {
-						alreadyExists = true;
-						break;
-					}
-					duplicateLocationIndex = duplicateLocationIndex + 1;
-				}
-				if (!alreadyExists) {
-					EditArrayLocation.add(locationDependency);
-				}
+				RestaurantObject = Restaurant.get(objectNameDependency).getAsJsonObject();
+				ObjectProperty = RestaurantObject.get(valueNameDependency).getAsDouble();
+				RestaurantObject.addProperty(valueNameDependency, (value + ObjectProperty));
 				{
 					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 					try {

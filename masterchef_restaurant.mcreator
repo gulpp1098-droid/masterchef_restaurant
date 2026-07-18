@@ -5090,11 +5090,11 @@
             "type": "number"
           },
           {
-            "name": "arrayNameDependency",
-            "type": "string"
+            "name": "value",
+            "type": "number"
           },
           {
-            "name": "arrayParameterNameDependency",
+            "name": "arrayNameDependency",
             "type": "string"
           },
           {
@@ -5106,7 +5106,11 @@
             "type": "string"
           },
           {
-            "name": "locationDependency",
+            "name": "objectNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "valueNameDependency",
             "type": "string"
           }
         ],
