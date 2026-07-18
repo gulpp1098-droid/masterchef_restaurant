@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "masterchef_restaurant:item/servicetableitem"
-  },
-  "render_type": "translucent"
-}

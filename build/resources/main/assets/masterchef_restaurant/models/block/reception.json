@@ -1,9 +1,0 @@
-{
-  "parent": "masterchef_restaurant:custom/blockreception",
-  "textures": {
-    "all": "masterchef_restaurant:block/texturereception",
-    "particle": "masterchef_restaurant:block/texturereception",
-    "0": "masterchef_restaurant:block/texturereception"
-  },
-  "render_type": "cutout"
-}
