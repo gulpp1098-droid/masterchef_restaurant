@@ -5076,6 +5076,45 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Testing Procedures"
+    },
+    {
+      "name": "ModifyRestaurantObjectParameter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "modify_restaurant_object_parameter",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "numberIndex",
+            "type": "number"
+          },
+          {
+            "name": "arrayNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "arrayParameterNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "fileNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "filePathDependency",
+            "type": "string"
+          },
+          {
+            "name": "locationDependency",
+            "type": "string"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ModifyRestaurantObjectParameterProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
     }
   ],
   "variable_elements": [
