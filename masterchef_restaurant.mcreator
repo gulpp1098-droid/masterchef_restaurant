@@ -5119,6 +5119,42 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
+    },
+    {
+      "name": "GetRestaurantObjectParameter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_restaurant_object_parameter",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "numberIndex",
+            "type": "number"
+          },
+          {
+            "name": "arrayNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "fileNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "filePathDependency",
+            "type": "string"
+          },
+          {
+            "name": "propertyDependency",
+            "type": "string"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/GetRestaurantObjectParameterProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning"
     }
   ],
   "variable_elements": [
