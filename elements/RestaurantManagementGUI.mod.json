@@ -462,7 +462,8 @@
         "data": {
           "name": "label_80",
           "text": {
-            "fixedValue": "80"
+            "fixedValue": "80",
+            "name": "FullyServedReturn"
           },
           "color": {
             "value": -12829636,
@@ -479,7 +480,8 @@
         "data": {
           "name": "label_801",
           "text": {
-            "fixedValue": "80"
+            "fixedValue": "80",
+            "name": "PartServedReturn"
           },
           "color": {
             "value": -12829636,
@@ -496,7 +498,8 @@
         "data": {
           "name": "label_802",
           "text": {
-            "fixedValue": "80"
+            "fixedValue": "80",
+            "name": "NotServedReturn"
           },
           "color": {
             "value": -12829636,
@@ -513,7 +516,8 @@
         "data": {
           "name": "label_803",
           "text": {
-            "fixedValue": "80"
+            "fixedValue": "80",
+            "name": "CoinsEarnedReturn"
           },
           "color": {
             "value": -12829636,
@@ -530,7 +534,8 @@
         "data": {
           "name": "label_804",
           "text": {
-            "fixedValue": "80"
+            "fixedValue": "80",
+            "name": "ReputationReturn"
           },
           "color": {
             "value": -12829636,

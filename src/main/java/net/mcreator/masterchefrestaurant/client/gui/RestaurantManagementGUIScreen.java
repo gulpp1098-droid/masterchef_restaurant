@@ -14,10 +14,7 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.masterchefrestaurant.world.inventory.RestaurantManagementGUIMenu;
-import net.mcreator.masterchefrestaurant.procedures.OpenCloseReturnProcedure;
-import net.mcreator.masterchefrestaurant.procedures.MaxTablesReturnProcedure;
-import net.mcreator.masterchefrestaurant.procedures.MaxQueueReturnProcedure;
-import net.mcreator.masterchefrestaurant.procedures.MaxLocationsReturnProcedure;
+import net.mcreator.masterchefrestaurant.procedures.*;
 import net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModScreens;
 
@@ -136,11 +133,11 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_not_served"), -111, 64, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_coins_earned"), -117, 90, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_reputation"), -112, 116, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_80"), -83, 25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_801"), -83, 51, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_802"), -83, 77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_803"), -83, 104, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_804"), -83, 130, -12829636, false);
+		guiGraphics.drawString(this.font, FullyServedReturnProcedure.execute(world, entity), -83, 25, -12829636, false);
+		guiGraphics.drawString(this.font, PartServedReturnProcedure.execute(world, entity), -83, 51, -12829636, false);
+		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(world, entity), -83, 77, -12829636, false);
+		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(world, entity), -83, 104, -12829636, false);
+		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(world, entity), -83, 130, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_1"), 188, 15, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_2"), 188, 51, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_3"), 188, 89, -12829636, false);
