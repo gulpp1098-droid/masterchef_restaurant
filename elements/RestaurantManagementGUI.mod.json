@@ -2,11 +2,11 @@
   "_fv": 85,
   "_type": "gui",
   "definition": {
-    "type": 0,
+    "type": 1,
     "width": 131,
     "height": 142,
-    "inventoryOffsetX": 0,
-    "inventoryOffsetY": 0,
+    "inventoryOffsetX": 100,
+    "inventoryOffsetY": 200,
     "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
@@ -245,6 +245,523 @@
           "hasShadow": false,
           "x": 258,
           "y": 175,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "spatulasidegui.png",
+          "use1Xscale": false,
+          "x": 17,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "spatulasidegui.png",
+          "use1Xscale": false,
+          "x": 323,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ribbonsmall_icon.png",
+          "use1Xscale": false,
+          "x": 30,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ribbonsmall_icon.png",
+          "use1Xscale": false,
+          "x": 336,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_stats",
+          "text": {
+            "fixedValue": "Day Stats"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 39,
+          "y": 41,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_day_menu",
+          "text": {
+            "fixedValue": "Day Menu"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 348,
+          "y": 41,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_fully",
+          "text": {
+            "fixedValue": "Fully Served"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 30,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_part_served",
+          "text": {
+            "fixedValue": "Part Served"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 33,
+          "y": 87,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_served",
+          "text": {
+            "fixedValue": "Not Served"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 37,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_coins_earned",
+          "text": {
+            "fixedValue": "Coins Earned"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 31,
+          "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_reputation",
+          "text": {
+            "fixedValue": "Reputation"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 36,
+          "y": 165,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "facehappy_icon.png",
+          "use1Xscale": false,
+          "x": 42,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "facemedium_icon.png",
+          "use1Xscale": false,
+          "x": 42,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "faceangry_icon.png",
+          "use1Xscale": false,
+          "x": 42,
+          "y": 124,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 40,
+          "y": 147,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "reputation_icon.png",
+          "use1Xscale": false,
+          "x": 42,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_80",
+          "text": {
+            "fixedValue": "80"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 65,
+          "y": 74,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_801",
+          "text": {
+            "fixedValue": "80"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 65,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_802",
+          "text": {
+            "fixedValue": "80"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 65,
+          "y": 126,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_803",
+          "text": {
+            "fixedValue": "80"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 65,
+          "y": 153,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_804",
+          "text": {
+            "fixedValue": "80"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 65,
+          "y": 179,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "x": 387,
+          "y": 174,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "x": 334,
+          "y": 174,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 336,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 336,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 336,
+          "y": 152,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_1",
+          "text": {
+            "fixedValue": "Food 1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 336,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_2",
+          "text": {
+            "fixedValue": "Food 2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 336,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_3",
+          "text": {
+            "fixedValue": "Food 3"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 336,
+          "y": 138,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 363,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 363,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 363,
+          "y": 152,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_10",
+          "text": {
+            "fixedValue": "10"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 379,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_20",
+          "text": {
+            "fixedValue": "20"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 379,
+          "y": 118,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_30",
+          "text": {
+            "fixedValue": "30"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 379,
+          "y": 157,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 336,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 336,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 336,
+          "y": 152,
           "locked": false
         }
       }

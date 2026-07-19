@@ -27,7 +27,7 @@ public class SpatulaGoldenInventoryCapability extends ComponentItemHandler {
 	}
 
 	public SpatulaGoldenInventoryCapability(MutableDataComponentHolder parent) {
-		super(parent, DataComponents.CONTAINER, 0);
+		super(parent, DataComponents.CONTAINER, 3);
 	}
 
 	@Override

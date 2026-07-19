@@ -31,6 +31,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	private ImageButton imagebutton_button_icon;
 	private ImageButton imagebutton_button_icon1;
 	private ImageButton imagebutton_button_icon2;
+	private ImageButton imagebutton_next_page_icon;
+	private ImageButton imagebutton_last_page_icon;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("masterchef_restaurant:textures/screens/restaurant_management_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/spatulagui.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("masterchef_restaurant:textures/screens/ribbon_icon.png");
@@ -38,6 +40,21 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("masterchef_restaurant:textures/screens/servicetable_icon.png");
 	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("masterchef_restaurant:textures/screens/localization_icon.png");
 	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("masterchef_restaurant:textures/screens/queue_rug_item.png");
+	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("masterchef_restaurant:textures/screens/spatulasidegui.png");
+	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("masterchef_restaurant:textures/screens/spatulasidegui.png");
+	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("masterchef_restaurant:textures/screens/ribbonsmall_icon.png");
+	private static final ResourceLocation IMAGE_9 = ResourceLocation.parse("masterchef_restaurant:textures/screens/ribbonsmall_icon.png");
+	private static final ResourceLocation IMAGE_10 = ResourceLocation.parse("masterchef_restaurant:textures/screens/facehappy_icon.png");
+	private static final ResourceLocation IMAGE_11 = ResourceLocation.parse("masterchef_restaurant:textures/screens/facemedium_icon.png");
+	private static final ResourceLocation IMAGE_12 = ResourceLocation.parse("masterchef_restaurant:textures/screens/faceangry_icon.png");
+	private static final ResourceLocation IMAGE_13 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_14 = ResourceLocation.parse("masterchef_restaurant:textures/screens/reputation_icon.png");
+	private static final ResourceLocation IMAGE_15 = ResourceLocation.parse("masterchef_restaurant:textures/screens/itemslot_icon.png");
+	private static final ResourceLocation IMAGE_16 = ResourceLocation.parse("masterchef_restaurant:textures/screens/itemslot_icon.png");
+	private static final ResourceLocation IMAGE_17 = ResourceLocation.parse("masterchef_restaurant:textures/screens/itemslot_icon.png");
+	private static final ResourceLocation IMAGE_18 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_19 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_20 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
 	private static final ResourceLocation SPRITE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/signopenclose_sprite.png");
 
 	public RestaurantManagementGUIScreen(RestaurantManagementGUIMenu container, Inventory inventory, Component text) {
@@ -75,6 +92,21 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.blit(IMAGE_3, this.leftPos + -10, this.topPos + 121, 0, 0, 16, 16, 16, 16);
 		guiGraphics.blit(IMAGE_4, this.leftPos + 94, this.topPos + 121, 0, 0, 16, 16, 16, 16);
 		guiGraphics.blit(IMAGE_5, this.leftPos + 42, this.topPos + 121, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(IMAGE_6, this.leftPos + -131, this.topPos + -23, 0, 0, 91, 176, 91, 176);
+		guiGraphics.blit(IMAGE_7, this.leftPos + 175, this.topPos + -23, 0, 0, 91, 176, 91, 176);
+		guiGraphics.blit(IMAGE_8, this.leftPos + -118, this.topPos + -12, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(IMAGE_9, this.leftPos + 188, this.topPos + -12, 0, 0, 65, 20, 65, 20);
+		guiGraphics.blit(IMAGE_10, this.leftPos + -106, this.topPos + 24, 0, 0, 11, 11, 11, 11);
+		guiGraphics.blit(IMAGE_11, this.leftPos + -106, this.topPos + 49, 0, 0, 11, 11, 11, 11);
+		guiGraphics.blit(IMAGE_12, this.leftPos + -106, this.topPos + 75, 0, 0, 11, 11, 11, 11);
+		guiGraphics.blit(IMAGE_13, this.leftPos + -108, this.topPos + 98, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_14, this.leftPos + -106, this.topPos + 128, 0, 0, 11, 11, 11, 11);
+		guiGraphics.blit(IMAGE_15, this.leftPos + 188, this.topPos + 27, 0, 0, 18, 18, 18, 18);
+		guiGraphics.blit(IMAGE_16, this.leftPos + 188, this.topPos + 64, 0, 0, 18, 18, 18, 18);
+		guiGraphics.blit(IMAGE_17, this.leftPos + 188, this.topPos + 103, 0, 0, 18, 18, 18, 18);
+		guiGraphics.blit(IMAGE_18, this.leftPos + 215, this.topPos + 27, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_19, this.leftPos + 215, this.topPos + 64, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_20, this.leftPos + 215, this.topPos + 103, 0, 0, 15, 17, 15, 17);
 		guiGraphics.blit(SPRITE_0, this.leftPos + -3, this.topPos + 78, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
 		RenderSystem.disableBlend();
 	}
@@ -97,6 +129,24 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, MaxTablesReturnProcedure.execute(entity), 6, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxQueueReturnProcedure.execute(entity), 60, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxLocationsReturnProcedure.execute(entity), 110, 126, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_stats"), -109, -8, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_day_menu"), 200, -8, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_fully"), -118, 13, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_part_served"), -115, 38, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_not_served"), -111, 64, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_coins_earned"), -117, 90, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_reputation"), -112, 116, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_80"), -83, 25, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_801"), -83, 51, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_802"), -83, 77, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_803"), -83, 104, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_804"), -83, 130, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_1"), 188, 15, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_2"), 188, 51, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_3"), 188, 89, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_10"), 231, 32, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_20"), 231, 69, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_30"), 231, 108, -12829636, false);
 	}
 
 	@Override
@@ -147,5 +197,23 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			}
 		};
 		this.addRenderableWidget(imagebutton_button_icon2);
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 239, this.topPos + 125, 16, 16,
+				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_next_page_icon);
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + 186, this.topPos + 125, 16, 16,
+				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_last_page_icon);
 	}
 }

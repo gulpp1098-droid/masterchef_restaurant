@@ -15,3 +15,5 @@ out/
 Thumbs.db
 
 .mcreator/workspaceBackups/
+
+.mcreator/modElementThumbnails/

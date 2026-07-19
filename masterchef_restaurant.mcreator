@@ -5584,7 +5584,25 @@
       "gui.masterchef_restaurant.serve_guide_p_2_gui.label_it_lets_you_create": "If patience gets too low,",
       "gui.masterchef_restaurant.serve_guide_p_2_gui.label_more_space_to_claim_for": "Orders",
       "gui.masterchef_restaurant.serve_guide_p_2_gui.label_with_level_you_will_gain": "level.",
-      "gui.masterchef_restaurant.serve_guide_p_2_gui.label_as_well_as_claim_area": "Fast service keeps"
+      "gui.masterchef_restaurant.serve_guide_p_2_gui.label_as_well_as_claim_area": "Fast service keeps",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_not_served": "Not Served",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_801": "80",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_coins_earned": "Coins Earned",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_802": "80",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_803": "80",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_804": "80",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_30": "30",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_20": "20",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_10": "10",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_fully": "Fully Served",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_day_menu": "Day Menu",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_80": "80",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_stats": "Day Stats",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_part_served": "Part Served",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_food_2": "Food 2",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_food_3": "Food 3",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_food_1": "Food 1",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_reputation": "Reputation"
     }
   },
   "metadata": {
