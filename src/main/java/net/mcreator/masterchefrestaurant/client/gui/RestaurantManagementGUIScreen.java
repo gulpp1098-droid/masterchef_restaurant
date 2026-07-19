@@ -127,7 +127,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, MaxQueueReturnProcedure.execute(entity), 60, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxLocationsReturnProcedure.execute(entity), 110, 126, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_stats"), -109, -8, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_day_menu"), 200, -8, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_day_menu"), 198, -8, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_fully"), -118, 13, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_part_served"), -115, 38, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_not_served"), -111, 64, -12829636, false);
@@ -138,12 +138,13 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(world, entity), -83, 77, -12829636, false);
 		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(world, entity), -83, 104, -12829636, false);
 		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(world, entity), -83, 130, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_1"), 188, 15, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_2"), 188, 51, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_food_3"), 188, 89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_10"), 231, 32, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_20"), 231, 69, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_30"), 231, 108, -12829636, false);
+		guiGraphics.drawString(this.font, Food1NameReturnProcedure.execute(entity), 188, 15, -12829636, false);
+		guiGraphics.drawString(this.font, Food2NameReturnProcedure.execute(entity), 188, 51, -12829636, false);
+		guiGraphics.drawString(this.font, Food3NameReturnProcedure.execute(entity), 188, 89, -12829636, false);
+		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(world, entity), 231, 32, -12829636, false);
+		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 231, 69, -12829636, false);
+		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 231, 108, -12829636, false);
+		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 217, 129, -12829636, false);
 	}
 
 	@Override
@@ -196,6 +197,12 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		this.addRenderableWidget(imagebutton_button_icon2);
 		imagebutton_next_page_icon = new ImageButton(this.leftPos + 239, this.topPos + 125, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
+					int x = RestaurantManagementGUIScreen.this.x;
+					int y = RestaurantManagementGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(3, x, y, z));
+						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -205,6 +212,12 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		this.addRenderableWidget(imagebutton_next_page_icon);
 		imagebutton_last_page_icon = new ImageButton(this.leftPos + 186, this.topPos + 125, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
+					int x = RestaurantManagementGUIScreen.this.x;
+					int y = RestaurantManagementGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(4, x, y, z));
+						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

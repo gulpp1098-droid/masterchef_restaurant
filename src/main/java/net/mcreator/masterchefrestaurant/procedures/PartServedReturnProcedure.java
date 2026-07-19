@@ -15,8 +15,8 @@ public class PartServedReturnProcedure {
 		restaurantID = entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID;
 		if (restaurantID > 0) {
 			Stats = GetRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "customers_served");
-			return Stats.get("customers_served_fully").getAsString();
+					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats");
+			return Stats.get("customers_served").getAsString();
 		}
 		return "0";
 	}

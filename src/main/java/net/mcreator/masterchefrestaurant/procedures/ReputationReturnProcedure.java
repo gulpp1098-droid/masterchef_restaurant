@@ -15,8 +15,8 @@ public class ReputationReturnProcedure {
 		restaurantID = entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID;
 		if (restaurantID > 0) {
 			Stats = GetRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation_change");
-			return Stats.get("customers_served_fully").getAsString();
+					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats");
+			return Stats.get("reputation_change").getAsString();
 		}
 		return "0";
 	}

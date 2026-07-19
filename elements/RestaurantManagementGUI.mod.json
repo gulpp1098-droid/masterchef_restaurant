@@ -317,7 +317,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 348,
+          "x": 346,
           "y": 41,
           "locked": false
         }
@@ -553,6 +553,9 @@
           "name": "imagebutton_next_page_icon",
           "image": "next_page_icon.png",
           "hoveredImage": "",
+          "onClick": {
+            "name": "MenuNextPage"
+          },
           "x": 387,
           "y": 174,
           "locked": false
@@ -564,6 +567,9 @@
           "name": "imagebutton_last_page_icon",
           "image": "last_page_icon.png",
           "hoveredImage": "",
+          "onClick": {
+            "name": "MenuPreviousPage"
+          },
           "x": 334,
           "y": 174,
           "locked": false
@@ -604,7 +610,8 @@
         "data": {
           "name": "label_food_1",
           "text": {
-            "fixedValue": "Food 1"
+            "fixedValue": "Food 1",
+            "name": "Food1NameReturn"
           },
           "color": {
             "value": -12829636,
@@ -621,7 +628,8 @@
         "data": {
           "name": "label_food_2",
           "text": {
-            "fixedValue": "Food 2"
+            "fixedValue": "Food 2",
+            "name": "Food2NameReturn"
           },
           "color": {
             "value": -12829636,
@@ -638,7 +646,8 @@
         "data": {
           "name": "label_food_3",
           "text": {
-            "fixedValue": "Food 3"
+            "fixedValue": "Food 3",
+            "name": "Food3NameReturn"
           },
           "color": {
             "value": -12829636,
@@ -685,7 +694,8 @@
         "data": {
           "name": "label_10",
           "text": {
-            "fixedValue": "10"
+            "fixedValue": "10",
+            "name": "Food1RewardReturn"
           },
           "color": {
             "value": -12829636,
@@ -702,7 +712,8 @@
         "data": {
           "name": "label_20",
           "text": {
-            "fixedValue": "20"
+            "fixedValue": "20",
+            "name": "Food2RewardReturn"
           },
           "color": {
             "value": -12829636,
@@ -719,7 +730,8 @@
         "data": {
           "name": "label_30",
           "text": {
-            "fixedValue": "30"
+            "fixedValue": "30",
+            "name": "Food3RewardReturn"
           },
           "color": {
             "value": -12829636,
@@ -767,6 +779,24 @@
           "dropItemsWhenNotBound": false,
           "x": 336,
           "y": 152,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_1",
+          "text": {
+            "fixedValue": "1",
+            "name": "PageReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 365,
+          "y": 178,
           "locked": false
         }
       }

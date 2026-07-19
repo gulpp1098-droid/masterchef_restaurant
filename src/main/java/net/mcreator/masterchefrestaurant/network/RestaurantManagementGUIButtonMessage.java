@@ -18,6 +18,8 @@ import net.minecraft.core.SectionPos;
 import net.mcreator.masterchefrestaurant.procedures.SetSpatulaLocationModeTrueProcedure;
 import net.mcreator.masterchefrestaurant.procedures.OpenRestaurantButtonProcedure;
 import net.mcreator.masterchefrestaurant.procedures.OpenCreateRestaurantGUIProcedure;
+import net.mcreator.masterchefrestaurant.procedures.MenuPreviousPageProcedure;
+import net.mcreator.masterchefrestaurant.procedures.MenuNextPageProcedure;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
@@ -60,6 +62,14 @@ public record RestaurantManagementGUIButtonMessage(int buttonID, int x, int y, i
 		if (buttonID == 2) {
 
 			OpenRestaurantButtonProcedure.execute(world, entity);
+		}
+		if (buttonID == 3) {
+
+			MenuNextPageProcedure.execute(world, entity);
+		}
+		if (buttonID == 4) {
+
+			MenuPreviousPageProcedure.execute(world, entity);
 		}
 	}
 

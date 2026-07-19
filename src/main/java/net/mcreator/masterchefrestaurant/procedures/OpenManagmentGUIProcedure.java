@@ -10,6 +10,7 @@ public class OpenManagmentGUIProcedure {
 		com.google.gson.JsonObject JSONObject = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			CreateGUIDataTransferProcedure.execute(world, entity);
+			FillSlotsMenuProcedure.execute(world, entity);
 		}
 	}
 }
