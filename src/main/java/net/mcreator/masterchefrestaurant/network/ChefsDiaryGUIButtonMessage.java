@@ -15,7 +15,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.masterchefrestaurant.procedures.*;
+import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryStatsProcedure;
+import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryMenuProcedure;
+import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryFoodProcedure;
+import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryClientsProcedure;
+import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryApplienceProcedure;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
@@ -67,33 +71,29 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 5) {
 
-			ChefsDiaryGuideLocationProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 6) {
-
-			ChefsDiaryGuideBlocksProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 7) {
-
-			ChefsDiaryGuideOpenProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 8) {
-
-			ChefsDiaryGuideServeProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 9) {
-
-			ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 10) {
-
-			ChefsDiaryGuideSpatulaProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 11) {
-
-			ChefsDiaryGuideSetUpProcedure.execute(world, x, y, z, entity);
+		guiTools$enhancedImageButton : {
+			if (buttonID == 5) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideSpatulaProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 6) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideBlocksProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 7) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideLocationProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 8) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideSetUpProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 9) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideOpenProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 10) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideServeProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 11) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
+			}
 		}
 	}
 

@@ -26,7 +26,7 @@ public class BlocksGuideP3GUIMenu extends AbstractContainerMenu implements Maste
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 14)
+			if (!this.containsKey(key) && this.size() >= 12)
 				return null;
 			return super.put(key, value);
 		}

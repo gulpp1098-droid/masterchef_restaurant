@@ -118,57 +118,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_restaurant_begins_from_this_plac",
-          "text": {
-            "fixedValue": "Customers love comfort."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 32,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_this_place",
-          "text": {
-            "fixedValue": "Let them sit by the"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_will_wait_in_queue_here",
-          "text": {
-            "fixedValue": "table!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 220,
-          "y": 58,
-          "locked": false
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "separator_icon.png",
@@ -226,57 +175,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_customers_will_gladly",
-          "text": {
-            "fixedValue": "Customers will gladly"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 32,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_come_and_eat_food",
-          "text": {
-            "fixedValue": "come and eat food here!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_just_add_some_chair_as_well",
-          "text": {
-            "fixedValue": "Just do not forget chairs!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 59,
-          "locked": false
-        }
-      },
-      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_last_page_icon",
@@ -301,6 +199,42 @@
           },
           "x": 320,
           "y": 179,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_customers_will_gladly_come_and_e",
+          "text": "Customers will gladly come and eat food here! Just do not forget chairs!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 141,
+          "height": 41,
+          "x": 70,
+          "y": 32,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_customers_love_comfort_let_them",
+          "text": "Customers love comfort. Let them sit by the table!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 120,
+          "height": 40,
+          "x": 219,
+          "y": 32,
           "locked": false
         }
       }

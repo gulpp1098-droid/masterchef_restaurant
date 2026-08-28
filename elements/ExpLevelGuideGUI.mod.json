@@ -120,108 +120,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_every_chef_needs_a_proper_tool",
-          "text": {
-            "fixedValue": "After customers finish"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_tool",
-          "text": {
-            "fixedValue": "eating, they will leave"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_the_golden_spatula_will",
-          "text": {
-            "fixedValue": "money and give experience."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 56,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_be_your_best_friend",
-          "text": {
-            "fixedValue": "Money is left on the table."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 83,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_it_lets_you_create",
-          "text": {
-            "fixedValue": "To collect it, simply"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 96,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_manage_your_restaurant",
-          "text": {
-            "fixedValue": "right-click the table."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_as_well_as_claim_area",
           "text": {
             "fixedValue": "Remember!"
@@ -232,58 +130,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 121,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_check_basic_info_and",
-          "text": {
-            "fixedValue": "A table with waiting"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 134,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_prepare_place_for_customers",
-          "text": {
-            "fixedValue": "payment will not accept"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 148,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_keep_it_close_without_it",
-          "text": {
-            "fixedValue": "new customers."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 160,
+          "y": 124,
           "locked": false
         }
       },
@@ -298,240 +145,56 @@
         }
       },
       {
-        "type": "label",
+        "type": "multiline_label",
         "data": {
-          "name": "label_after_that_you_can_add",
-          "text": {
-            "fixedValue": "Experience is added to"
-          },
+          "name": "multiline_label_after_customers_finish_eating_t",
+          "text": "After customers finish eating, they will leave money and give experience to your restaurant. Money is left on the table. To collect it, simply right-click the table.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 215,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_3_more_but_it_is",
-          "text": {
-            "fixedValue": "your restaurant"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_up_to_you",
-          "text": {
-            "fixedValue": "reputation points."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 57,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_inside_this_area_you_can",
-          "text": {
-            "fixedValue": "you need to complete"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 82,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_place_all_your_fuctional",
-          "text": {
-            "fixedValue": "whole order. Every"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_blocks",
-          "text": {
-            "fixedValue": "missing food lowers the"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_with_level_you_will_gain",
-          "text": {
-            "fixedValue": "experience gain. If too"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 121,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_more_space_to_claim_for",
-          "text": {
-            "fixedValue": "much is missing, you may"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 134,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_is_up_to_you",
-          "text": {
-            "fixedValue": "To get full reward,"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_orders",
-          "text": {
-            "fixedValue": "even lose reputation."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 147,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_with_enough_reputation",
-          "text": {
-            "fixedValue": "With enough reputation,"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 158,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_your_restaurant_will",
-          "text": {
-            "fixedValue": "your restaurant will"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 171,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_level_up",
-          "text": {
-            "fixedValue": "level up!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 183,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_to_your_restaurant",
-          "text": {
-            "fixedValue": "to your restaurant."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
+          "fontScale": 100,
+          "width": 134,
+          "height": 84,
           "x": 69,
-          "y": 70,
+          "y": 28,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_a_table_with_waiting_payment_wil",
+          "text": "A table with waiting payment will not accept new customers.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 131,
+          "height": 48,
+          "x": 69,
+          "y": 136,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_experience_is_added_to_your_rest",
+          "text": "Experience is added to your restaurant reputation points. To get full reward, you need to complete whole order. Every missing food lowers the experience gain. If too much is missing, you may even lose reputation. With enough reputation, your restaurant will level up!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 129,
+          "height": 168,
+          "x": 218,
+          "y": 28,
           "locked": false
         }
       }

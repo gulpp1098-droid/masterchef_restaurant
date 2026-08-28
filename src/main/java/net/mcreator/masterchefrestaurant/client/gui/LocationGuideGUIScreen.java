@@ -80,28 +80,12 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_tool"), -145, -77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_be_your_best_friend"), -144, -52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_it_lets_you_create"), -144, -38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_manage_your_restaurant"), -143, -25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_as_well_as_claim_area"), -143, -12, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_check_basic_info_and"), -143, 0, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_prepare_place_for_customers"), -143, 13, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_keep_it_close_without_it"), -143, 25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_your_restaurant_is_useless_as"), -143, 38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_as_menu_with_no_food"), -143, 52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_after_that_you_can_add"), 1, -89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_3_more_but_it_is"), 1, -77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_up_to_you"), 1, -63, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_inside_this_area_you_can"), 0, -38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_place_all_your_fuctional"), 0, -25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_blocks"), 0, -12, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_with_level_you_will_gain"), -1, 1, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_more_space_to_claim_for"), -1, 14, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_your_restaurant"), -1, 26, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_is_up_to_you"), 1, -50, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"Before placing down your blocks, you need to claim an area for your restaurant!\nTake your Golden Spatula and choose \"Set Location for Restaurant\". you will notice a green 5x5 square on the floor. When you right click on the block, it will set up your first area!",
+				-145, -89, 130, 167, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"After that you can claim 3 more areas at the start but the shape and amount is up to you!\nInside claimed areas, you can place all functional restaurant blocks. As your restaurant level grows, you will unlock more space to claim!",
+				1, -89, 129, 149, -12829636, false, 1.00F);
 	}
 
 	@Override
@@ -182,5 +166,53 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int currentY = 0;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			for (String line : lines) {
+				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
+				currentY += lineStep;
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }
