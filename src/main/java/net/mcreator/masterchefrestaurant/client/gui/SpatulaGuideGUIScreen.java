@@ -84,20 +84,10 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_tool"), -145, -77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_be_your_best_friend"), -144, -52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_it_lets_you_create"), -144, -38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_manage_your_restaurant"), -143, -25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_as_well_as_claim_area"), -143, -12, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_check_basic_info_and"), -143, 0, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_prepare_place_for_customers"), -143, 13, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_keep_it_close_without_it"), -143, 25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_your_restaurant_is_useless_as"), -143, 38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_as_menu_with_no_food"), -143, 52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_no_food"), -143, 63, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_crafting"), 43, -85, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"Every chef needs a proper tool.\nThe Golden Spatula will be your best friend! It lets you create and manage your restaurant, claim area, check basic info and prepare place for your customers. Keep it close. Without it, your restaurant is useless as Menu with no food!",
+				-145, -89, 130, 165, -12829636, false, 1.00F);
 	}
 
 	@Override
@@ -178,5 +168,53 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int currentY = 0;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			for (String line : lines) {
+				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
+				currentY += lineStep;
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }

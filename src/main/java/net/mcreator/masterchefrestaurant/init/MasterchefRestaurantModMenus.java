@@ -41,6 +41,7 @@ public class MasterchefRestaurantModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<ServeGuideGUIMenu>> SERVE_GUIDE_GUI = REGISTRY.register("serve_guide_gui", () -> IMenuTypeExtension.create(ServeGuideGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<ExpLevelGuideGUIMenu>> EXP_LEVEL_GUIDE_GUI = REGISTRY.register("exp_level_guide_gui", () -> IMenuTypeExtension.create(ExpLevelGuideGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<ServeGuideP2GUIMenu>> SERVE_GUIDE_P_2_GUI = REGISTRY.register("serve_guide_p_2_gui", () -> IMenuTypeExtension.create(ServeGuideP2GUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<MenuGUIMenu>> MENU_GUI = REGISTRY.register("menu_gui", () -> IMenuTypeExtension.create(MenuGUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

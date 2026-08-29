@@ -138,57 +138,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_customers_will_gladly",
-          "text": {
-            "fixedValue": "A fancy rug for hungry"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 32,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_come_and_eat_food",
-          "text": {
-            "fixedValue": "customers. They can"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_just_add_some_chair_as_well",
-          "text": {
-            "fixedValue": "wait here in line!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 59,
-          "locked": false
-        }
-      },
-      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_last_page_icon",
@@ -199,6 +148,24 @@
           },
           "x": 80,
           "y": 176,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_a_fancy_rug_for_hungry_customers",
+          "text": "A fancy rug for hungry customers. They can wait here in line!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 120,
+          "height": 40,
+          "x": 70,
+          "y": 32,
           "locked": false
         }
       }

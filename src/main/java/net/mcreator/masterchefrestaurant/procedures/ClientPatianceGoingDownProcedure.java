@@ -27,7 +27,6 @@ public class ClientPatianceGoingDownProcedure {
 					ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_lost");
 				}
-				ClientExpPayProcedure.execute(world, entity);
 				client.getPersistentData().putString("state", "group_wait");
 			}
 		}

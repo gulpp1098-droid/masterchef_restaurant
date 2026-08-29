@@ -120,278 +120,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_every_chef_needs_a_proper_tool",
-          "text": {
-            "fixedValue": "Customers lose patience"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_tool",
-          "text": {
-            "fixedValue": "while waiting in queue,"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_the_golden_spatula_will",
-          "text": {
-            "fixedValue": "waiting to order or"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 56,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_be_your_best_friend",
-          "text": {
-            "fixedValue": "waiting for food."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 68,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_it_lets_you_create",
-          "text": {
-            "fixedValue": "If patience gets too low,"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 81,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_manage_your_restaurant",
-          "text": {
-            "fixedValue": "they may leave unhappy."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_as_well_as_claim_area",
-          "text": {
-            "fixedValue": "Fast service keeps"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_check_basic_info_and",
-          "text": {
-            "fixedValue": "customers satisfied and"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 120,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_prepare_place_for_customers",
-          "text": {
-            "fixedValue": "your restaurant growing!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 133,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_after_that_you_can_add",
-          "text": {
-            "fixedValue": "Some customers may order"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_3_more_but_it_is",
-          "text": {
-            "fixedValue": "more than one food."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_up_to_you",
-          "text": {
-            "fixedValue": "Serve every ordered item"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 57,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_inside_this_area_you_can",
-          "text": {
-            "fixedValue": "eating."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 82,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_place_all_your_fuctional",
-          "text": {
-            "fixedValue": "More dishes will be"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_blocks",
-          "text": {
-            "fixedValue": "unlocked with restaurant"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_with_level_you_will_gain",
-          "text": {
-            "fixedValue": "level."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 121,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_more_space_to_claim_for",
           "text": {
             "fixedValue": "Orders"
@@ -407,23 +135,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_is_up_to_you",
-          "text": {
-            "fixedValue": "before they can start"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_last_page_icon",
@@ -434,6 +145,42 @@
           },
           "x": 79,
           "y": 173,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_customers_lose_patiance_while_wa",
+          "text": "Customers lose patiance while waiting in queue, waiting to order or waiting for food. If patiance gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 130,
+          "height": 137,
+          "x": 69,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_some_customers_may_order_more_th",
+          "text": "Some customers may order more than one food. Serve ever ordered item before they can start eating. More dishes will be unlocked with restaurant level.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 127,
+          "height": 103,
+          "x": 215,
+          "y": 31,
           "locked": false
         }
       }
