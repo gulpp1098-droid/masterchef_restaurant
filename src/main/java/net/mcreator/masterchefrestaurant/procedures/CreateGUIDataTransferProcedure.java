@@ -43,7 +43,11 @@ public class CreateGUIDataTransferProcedure {
 				JSONObject.addProperty("tables", ("Max: " + (int) (Math.floor(restaurantLevel / 10) + 1)));
 				JSONObject.addProperty("queue", ("Max: " + (int) (Math.floor(restaurantLevel / 10) + 2)));
 				JSONObject.addProperty("locations", ("Max: " + (int) Math.min(30, Math.floor(restaurantLevel * (26d / 100)) + 4)));
-				JSONObject.addProperty("customersServed", dailyStatsObject.get("customers_served").getAsDouble());
+				JSONObject.addProperty("customers_served", dailyStatsObject.get("customers_served").getAsDouble());
+				JSONObject.addProperty("customers_served_fully", dailyStatsObject.get("customers_served_fully").getAsDouble());
+				JSONObject.addProperty("customers_lost", dailyStatsObject.get("customers_lost").getAsDouble());
+				JSONObject.addProperty("coins_earned", dailyStatsObject.get("coins_earned").getAsDouble());
+				JSONObject.addProperty("reputation_change", dailyStatsObject.get("reputation_change").getAsDouble());
 			}
 			{
 				MasterchefRestaurantModVariables.PlayerVariables _vars = entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES);

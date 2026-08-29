@@ -133,11 +133,11 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_not_served"), -111, 64, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_coins_earned"), -117, 90, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_reputation"), -112, 116, -12829636, false);
-		guiGraphics.drawString(this.font, FullyServedReturnProcedure.execute(world, entity), -83, 25, -12829636, false);
+		guiGraphics.drawString(this.font, FullyServedReturnProcedure.execute(entity), -83, 25, -12829636, false);
 		guiGraphics.drawString(this.font, PartServedReturnProcedure.execute(entity), -83, 51, -12829636, false);
-		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(world, entity), -83, 77, -12829636, false);
-		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(world, entity), -83, 104, -12829636, false);
-		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(world, entity), -83, 130, -12829636, false);
+		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(entity), -83, 77, -12829636, false);
+		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(entity), -83, 104, -12829636, false);
+		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(entity), -83, 130, -12829636, false);
 		guiGraphics.drawString(this.font, Food1NameReturnProcedure.execute(entity), 188, 15, -12829636, false);
 		guiGraphics.drawString(this.font, Food2NameReturnProcedure.execute(entity), 188, 51, -12829636, false);
 		guiGraphics.drawString(this.font, Food3NameReturnProcedure.execute(entity), 188, 89, -12829636, false);
