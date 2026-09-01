@@ -93,22 +93,7 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_before_customers_can_visit"), -145, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_visit_your_restaurant"), -145, -76, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_needs_a_few_basic_blocks"), -145, -62, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_each_block_has_a_job"), -145, -47, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_at_start_prepare"), -145, -33, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_reception"), -145, -17, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_service_table"), -145, -5, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_chair"), -144, 8, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_queue_rug_optional"), -144, 21, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_reception1"), 5, -102, -12829636, false);
-<<<<<<< Updated upstream
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_restaurant_begins_from_this_plac"), 5, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_this_place"), 5, -75, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_will_wait_in_queue_here"), 6, -62, -12829636, false);
-=======
->>>>>>> Stashed changes
 	}
 
 	@Override

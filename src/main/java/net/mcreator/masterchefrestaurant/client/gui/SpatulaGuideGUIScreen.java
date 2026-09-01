@@ -84,19 +84,6 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_tool"), -145, -77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_be_your_best_friend"), -144, -52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_it_lets_you_create"), -144, -38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_manage_your_restaurant"), -143, -25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_as_well_as_claim_area"), -143, -12, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_check_basic_info_and"), -143, 0, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_prepare_place_for_customers"), -143, 13, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_keep_it_close_without_it"), -143, 25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_your_restaurant_is_useless_as"), -143, 38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_as_menu_with_no_food"), -143, 52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_no_food"), -143, 63, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_crafting"), 43, -85, -12829636, false);
 	}
 

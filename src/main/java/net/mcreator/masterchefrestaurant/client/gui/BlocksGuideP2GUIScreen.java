@@ -88,16 +88,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_reception1"), 5, -102, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_restaurant_begins_from_this_plac"), 5, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_this_place"), 5, -75, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_will_wait_in_queue_here"), 6, -62, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table"), -144, -101, -12829636, false);
-<<<<<<< Updated upstream
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_customers_will_gladly"), -144, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_come_and_eat_food"), -144, -75, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_just_add_some_chair_as_well"), -144, -61, -12829636, false);
-=======
->>>>>>> Stashed changes
 	}
 
 	@Override

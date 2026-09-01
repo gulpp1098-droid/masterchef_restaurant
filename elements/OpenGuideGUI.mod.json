@@ -110,108 +110,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_every_chef_needs_a_proper_tool",
-          "text": {
-            "fixedValue": "When your restaurant is"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_tool",
-          "text": {
-            "fixedValue": "ready, you can open it!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_the_golden_spatula_will",
-          "text": {
-            "fixedValue": "Use the Golden Spatula"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 56,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_be_your_best_friend",
-          "text": {
-            "fixedValue": "to open the restaurant"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 68,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_it_lets_you_create",
-          "text": {
-            "fixedValue": "menu and press the Open"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 82,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_manage_your_restaurant",
-          "text": {
-            "fixedValue": "button."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_as_well_as_claim_area",
           "text": {
             "fixedValue": "Remember!"
@@ -221,144 +119,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 71,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_check_basic_info_and",
-          "text": {
-            "fixedValue": "Restaurant can be open"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 120,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_prepare_place_for_customers",
-          "text": {
-            "fixedValue": "only once per day and"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 133,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_keep_it_close_without_it",
-          "text": {
-            "fixedValue": "between 6.00 and 12.00!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 145,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_your_restaurant_is_useless_as",
-          "text": {
-            "fixedValue": "After that time, you must"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 158,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_as_menu_with_no_food",
-          "text": {
-            "fixedValue": "wait for the next day."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 172,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_after_that_you_can_add",
-          "text": {
-            "fixedValue": "Once open, customers"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_3_more_but_it_is",
-          "text": {
-            "fixedValue": "will begin to arrive,"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_up_to_you",
-          "text": {
-            "fixedValue": "wait in queue, find"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 57,
+          "x": 69,
+          "y": 106,
           "locked": false
         }
       },
@@ -374,127 +136,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 214,
-          "y": 82,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_place_all_your_fuctional",
-          "text": {
-            "fixedValue": "Restaurant is closes"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_blocks",
-          "text": {
-            "fixedValue": "8 hours after opening"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_with_level_you_will_gain",
-          "text": {
-            "fixedValue": "(around 13 minutes)."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 121,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_more_space_to_claim_for",
-          "text": {
-            "fixedValue": "You can also close it"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 134,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_is_up_to_you",
-          "text": {
-            "fixedValue": "tables and order food."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_faster_so_you_do_not",
-          "text": {
-            "fixedValue": "ealier, so you do not"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 212,
-          "y": 146,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_have_to_sit_there_all_the",
-          "text": {
-            "fixedValue": "have to sit there all day."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 158,
+          "x": 220,
+          "y": 81,
           "locked": false
         }
       },
@@ -505,6 +148,78 @@
           "use1Xscale": false,
           "x": 184,
           "y": 13,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_when_your_restaurant_is_ready_y",
+          "text": "When your restaurant is ready, you can open it! Use the Golden Spatula to open the restaurant menu and press the Open button.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 132,
+          "height": 71,
+          "x": 69,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_restaurant_can_be_open_only_once",
+          "text": "Restaurant can be open only once per day and between 6.00 and 12.00! After that time, you must wait for the next day.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 127,
+          "height": 72,
+          "x": 69,
+          "y": 120,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_once_open_customers_will_begin",
+          "text": "Once open, customers will begin to arrive, wait in queue, find tables and order food.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 128,
+          "height": 51,
+          "x": 220,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_restaurant_is_closed_8_hours_aft",
+          "text": "Restaurant is closed 8 hours after opening (around 13 minutes). You can also close it ealier, so you do not have to sit there all day.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 127,
+          "height": 84,
+          "x": 220,
+          "y": 95,
           "locked": false
         }
       }

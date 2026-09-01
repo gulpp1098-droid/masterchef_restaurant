@@ -789,6 +789,30 @@
           "y": 178,
           "locked": false
         }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "button_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon",
+          "text": "Next day menu",
+          "isUndecorated": true,
+          "onClick": "OpenNextDayMenuGUI",
+          "width": 78,
+          "height": 21,
+          "x": 330,
+          "y": 206,
+          "locked": false
+        }
       }
     ],
     "onOpen": "OpenManagmentGUI",

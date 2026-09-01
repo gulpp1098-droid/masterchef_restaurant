@@ -42,10 +42,8 @@ public class ClientGroupWaitStateProcedure {
 				for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 					if (entityiterator instanceof ClientEntity) {
 						if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")) {
-							chairDirection = getDirectionFromBlockState(
-									(world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
-							SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"),
-									client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(), false, "occupied");
+							ClientCoinPayProcedure.execute(world, entityiterator);
+							ClientExpPayProcedure.execute(world, entityiterator);
 							entityiterator.getPersistentData().putString("state", "leave");
 							entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
 							entityiterator.stopRiding();
@@ -53,9 +51,9 @@ public class ClientGroupWaitStateProcedure {
 					}
 				}
 			}
-			client.getPersistentData().putString("state", "leave");
-			client.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
-			client.stopRiding();
+			chairDirection = getDirectionFromBlockState((world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
+			SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(),
+					false, "occupied");
 		}
 	}
 

@@ -85,7 +85,7 @@ public class DeleteClientsDatabaseFileProcedure {
 							lastDayStatsObject.addProperty("customers_served", dailyStatsObject.get("customers_served").getAsDouble());
 							lastDayStatsObject.addProperty("customers_lost", dailyStatsObject.get("customers_lost").getAsDouble());
 							lastDayStatsObject.addProperty("coins_earned", dailyStatsObject.get("coins_earned").getAsDouble());
-							lastDayStatsObject.addProperty("reputation", dailyStatsObject.get("reputation").getAsDouble());
+							lastDayStatsObject.addProperty("reputation_change", dailyStatsObject.get("reputation_change").getAsDouble());
 							restaurantObject.add("last_day_stats", lastDayStatsObject);
 							newDayStatsObject = new Object() {
 								public com.google.gson.JsonObject parse(String rawJson) {
@@ -101,7 +101,7 @@ public class DeleteClientsDatabaseFileProcedure {
 							newDayStatsObject.addProperty("customers_served", 0);
 							newDayStatsObject.addProperty("customers_lost", 0);
 							newDayStatsObject.addProperty("coins_earned", 0);
-							newDayStatsObject.addProperty("reputation", 0);
+							newDayStatsObject.addProperty("reputation_change", 0);
 							restaurantObject.add("daily_stats", newDayStatsObject);
 							index = index + 1;
 						}

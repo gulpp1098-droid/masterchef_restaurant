@@ -25,7 +25,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.masterchefrestaurant.procedures.OpenManagmentGUIProcedure;
+import net.mcreator.masterchefrestaurant.procedures.OpenNextMenuGUIProcedure;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModMenus;
 
 import java.util.function.Supplier;
@@ -99,6 +99,11 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 			private final int slot = 0;
 			private int x = MenuGUIMenu.this.x;
 			private int y = MenuGUIMenu.this.y;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return false;
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -299,6 +304,8 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
+					if (j == 0)
+						continue;
 					if (j == 1)
 						continue;
 					if (j == 2)
@@ -315,6 +322,8 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
+					if (i == 0)
+						continue;
 					if (i == 1)
 						continue;
 					if (i == 2)
@@ -351,7 +360,7 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 			double x = menu.x;
 			double y = menu.y;
 			double z = menu.z;
-			OpenManagmentGUIProcedure.execute(world, entity);
+			OpenNextMenuGUIProcedure.execute(world, entity);
 		}
 	}
 
@@ -363,7 +372,7 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 			double x = menu.x;
 			double y = menu.y;
 			double z = menu.z;
-			OpenManagmentGUIProcedure.execute(world, entity);
+			OpenNextMenuGUIProcedure.execute(world, entity);
 		}
 	}
 }

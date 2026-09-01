@@ -258,9 +258,9 @@
         "data": {
           "id": 0,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 130,
           "y": 76,
           "locked": false
@@ -518,8 +518,8 @@
         }
       }
     ],
-    "onOpen": "OpenManagmentGUI",
-    "onTick": "OpenManagmentGUI",
+    "onOpen": "OpenNextMenuGUI",
+    "onTick": "OpenNextMenuGUI",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

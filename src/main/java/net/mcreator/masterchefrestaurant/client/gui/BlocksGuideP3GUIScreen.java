@@ -83,12 +83,6 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table"), -144, -101, -12829636, false);
-<<<<<<< Updated upstream
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_customers_will_gladly"), -144, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_come_and_eat_food"), -144, -75, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_just_add_some_chair_as_well"), -144, -61, -12829636, false);
-=======
->>>>>>> Stashed changes
 	}
 
 	@Override
