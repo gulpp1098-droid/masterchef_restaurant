@@ -71,6 +71,30 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 		}
+
+		guiTools$enhancedImageButton : {
+			if (buttonID == 5) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideSpatulaProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 6) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideBlocksProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 7) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideLocationProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 8) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideSetUpProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 9) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideOpenProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 10) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideServeProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 11) {
+				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
+			}
+		}
 	}
 
 	@SubscribeEvent

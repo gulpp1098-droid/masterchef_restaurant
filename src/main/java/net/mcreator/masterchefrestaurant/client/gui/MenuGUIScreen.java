@@ -5,7 +5,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.util.Mth;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -42,7 +41,6 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 	private static final ResourceLocation IMAGE_11 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_12 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_13 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
-	private static final ResourceLocation SPRITE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/signopenclose_sprite.png");
 
 	public MenuGUIScreen(MenuGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -87,7 +85,6 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 		guiGraphics.blit(IMAGE_11, this.leftPos + 95, this.topPos + 28, 0, 0, 15, 17, 15, 17);
 		guiGraphics.blit(IMAGE_12, this.leftPos + 95, this.topPos + 64, 0, 0, 15, 17, 15, 17);
 		guiGraphics.blit(IMAGE_13, this.leftPos + 95, this.topPos + 100, 0, 0, 15, 17, 15, 17);
-		guiGraphics.blit(SPRITE_0, this.leftPos + -3, this.topPos + 78, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
 		RenderSystem.disableBlend();
 	}
 

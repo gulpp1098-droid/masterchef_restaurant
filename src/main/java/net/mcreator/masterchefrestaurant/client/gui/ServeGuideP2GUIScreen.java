@@ -80,6 +80,11 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_overview_wip"), -145, -103, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_more_space_to_claim_for"), 0, -102, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"Customers lose patiance while waiting in queue, waiting to order or waiting for food. If patiance gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!", -145, -89, 130, 137,
+				-12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Some customers may order more than one food. Serve ever ordered item before they can start eating. More dishes will be unlocked with restaurant level.", 1, -89, 127, 103, -12829636, false,
+				1.00F);
 	}
 
 	@Override
@@ -175,5 +180,53 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int currentY = 0;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			for (String line : lines) {
+				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
+				currentY += lineStep;
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }

@@ -48,20 +48,6 @@
         }
       },
       {
-        "type": "sprite",
-        "data": {
-          "sprite": "signopenclose_sprite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "OpenCloseReturn"
-          },
-          "x": 145,
-          "y": 127,
-          "locked": false
-        }
-      },
-      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_next_page_icon",

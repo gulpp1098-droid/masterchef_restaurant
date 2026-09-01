@@ -11,6 +11,20 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "sprite",
+        "data": {
+          "sprite": "signopenclose_sprite.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OpenCloseReturn"
+          },
+          "x": 145,
+          "y": 127,
+          "locked": false
+        }
+      },
+      {
         "type": "image",
         "data": {
           "image": "spatulagui.png",
@@ -124,20 +138,6 @@
           "onClick": "OpenRestaurantButton",
           "x": 217,
           "y": 132,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "signopenclose_sprite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "OpenCloseReturn"
-          },
-          "x": 145,
-          "y": 127,
           "locked": false
         }
       },
