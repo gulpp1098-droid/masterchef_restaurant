@@ -36,8 +36,14 @@ public class FillSlotsMenuProcedure {
 			_player.containerMenu.broadcastChanges();
 		}
 		if (restaurantID > 0) {
-			Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+			if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+				Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+			} else {
+				Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "next_menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+			}
 			page = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("page");
 			index1 = page * 3;
 			index2 = page * 3 + 1;

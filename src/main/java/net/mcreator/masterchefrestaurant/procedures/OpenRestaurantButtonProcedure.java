@@ -71,6 +71,7 @@ public class OpenRestaurantButtonProcedure {
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "last_day_open");
 											ModifyRestaurantLogicParameterProcedure.execute(true, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");
+											FillSlotsMenuProcedure.execute(world, entity);
 											ModifyRestaurantNumberParameterProcedure.execute(world.dayTime() % 24000 + 8000, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "close_time");
 											MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.add(owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);

@@ -26,7 +26,6 @@ public class OnWorldTickUpdateProcedure {
 			if (!world.isClientSide()) {
 				ChangingDayAndNightLengthProcedure.execute(world);
 				ClosingRestaurantsProcedure.execute(world);
-				NewMenuGenerateTriggerProcedure.execute();
 				DeleteClientsDatabaseFileProcedure.execute(world);
 				SpawnClientsProcedure.execute(world);
 			}
