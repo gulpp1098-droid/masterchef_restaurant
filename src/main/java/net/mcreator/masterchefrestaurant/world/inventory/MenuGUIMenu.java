@@ -141,6 +141,11 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 			private int y = MenuGUIMenu.this.y;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return false;
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
@@ -151,6 +156,11 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 			private int y = MenuGUIMenu.this.y;
 
 			@Override
+			public boolean mayPickup(Player entity) {
+				return false;
+			}
+
+			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
@@ -159,6 +169,11 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 			private final int slot = 5;
 			private int x = MenuGUIMenu.this.x;
 			private int y = MenuGUIMenu.this.y;
+
+			@Override
+			public boolean mayPickup(Player entity) {
+				return false;
+			}
 
 			@Override
 			public boolean mayPlace(ItemStack stack) {
@@ -288,6 +303,12 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 						continue;
 					if (j == 2)
 						continue;
+					if (j == 3)
+						continue;
+					if (j == 4)
+						continue;
+					if (j == 5)
+						continue;
 					playerIn.drop(internal.getStackInSlot(j), false);
 					if (internal instanceof IItemHandlerModifiable ihm)
 						ihm.setStackInSlot(j, ItemStack.EMPTY);
@@ -297,6 +318,12 @@ public class MenuGUIMenu extends AbstractContainerMenu implements MasterchefRest
 					if (i == 1)
 						continue;
 					if (i == 2)
+						continue;
+					if (i == 3)
+						continue;
+					if (i == 4)
+						continue;
+					if (i == 5)
 						continue;
 					playerIn.getInventory().placeItemBackInInventory(internal.getStackInSlot(i));
 					if (internal instanceof IItemHandlerModifiable ihm)

@@ -15,8 +15,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.masterchefrestaurant.procedures.MenuPreviousPageProcedure;
-import net.mcreator.masterchefrestaurant.procedures.MenuNextPageProcedure;
+import net.mcreator.masterchefrestaurant.procedures.NextMenuPreviousPageProcedure;
+import net.mcreator.masterchefrestaurant.procedures.NextMenuNextPageProcedure;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
@@ -50,11 +50,11 @@ public record MenuGUIButtonMessage(int buttonID, int x, int y, int z) implements
 			return;
 		if (buttonID == 0) {
 
-			MenuNextPageProcedure.execute(world, entity);
+			NextMenuNextPageProcedure.execute(world, entity);
 		}
 		if (buttonID == 1) {
 
-			MenuPreviousPageProcedure.execute(world, entity);
+			NextMenuPreviousPageProcedure.execute(world, entity);
 		}
 	}
 

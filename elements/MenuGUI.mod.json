@@ -67,7 +67,7 @@
           "name": "imagebutton_next_page_icon",
           "image": "next_page_icon.png",
           "hoveredImage": "",
-          "onClick": "MenuNextPage",
+          "onClick": "NextMenuNextPage",
           "x": 285,
           "y": 170,
           "locked": false
@@ -79,7 +79,7 @@
           "name": "imagebutton_last_page_icon",
           "image": "last_page_icon.png",
           "hoveredImage": "",
-          "onClick": "MenuPreviousPage",
+          "onClick": "NextMenuPreviousPage",
           "x": 130,
           "y": 170,
           "locked": false
@@ -483,9 +483,9 @@
         "data": {
           "id": 3,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 219,
           "y": 76,
           "locked": false
@@ -496,9 +496,9 @@
         "data": {
           "id": 4,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 219,
           "y": 112,
           "locked": false
@@ -509,9 +509,9 @@
         "data": {
           "id": 5,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 219,
           "y": 148,
           "locked": false

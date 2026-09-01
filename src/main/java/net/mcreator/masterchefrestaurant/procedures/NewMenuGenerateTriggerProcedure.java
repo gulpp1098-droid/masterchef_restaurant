@@ -5,7 +5,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -49,17 +48,8 @@ public class NewMenuGenerateTriggerProcedure {
 							if (restaurantObject.get("creation_menu_day").getAsDouble() < restaurantObject.get("last_day_open").getAsDouble()) {
 								restaurantID = restaurantObject.get("ID").getAsDouble();
 								restaurantTier = restaurantObject.get("level").getAsDouble();
-								restaurantObject.addProperty("creation_menu_day", currentDay);
-								{
-									com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-									try {
-										FileWriter fileWriter = new FileWriter(ListOfMenus);
-										fileWriter.write(mainGSONBuilderVariable.toJson(restaurantMenus));
-										fileWriter.close();
-									} catch (IOException exception) {
-										exception.printStackTrace();
-									}
-								}
+								ModifyRestaurantNumberParameterProcedure.execute(currentDay, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+										MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "creation_menu_day");
 								GenerateRestaurantMenuProcedure.execute(world, restaurantID, restaurantTier);
 							}
 							index = index + 1;
