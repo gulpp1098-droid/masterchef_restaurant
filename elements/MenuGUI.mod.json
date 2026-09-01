@@ -315,7 +315,8 @@
         "data": {
           "name": "label_food3namereturn",
           "text": {
-            "fixedValue": "Food4Namereturn"
+            "fixedValue": "Food4Namereturn",
+            "name": "Food4NameReturn"
           },
           "color": {
             "value": -12829636,
@@ -332,7 +333,8 @@
         "data": {
           "name": "label_food4namereturn",
           "text": {
-            "fixedValue": "Food5NameReturn"
+            "fixedValue": "Food5NameReturn",
+            "name": "Food5NameReturn"
           },
           "color": {
             "value": -12829636,
@@ -349,7 +351,8 @@
         "data": {
           "name": "label_food6namereturn",
           "text": {
-            "fixedValue": "Food6NameReturn"
+            "fixedValue": "Food6NameReturn",
+            "name": "Food6NameReturn"
           },
           "color": {
             "value": -12829636,
@@ -426,7 +429,8 @@
         "data": {
           "name": "label_food4rewardreturn",
           "text": {
-            "fixedValue": "Food4RewardReturn"
+            "fixedValue": "Food4RewardReturn",
+            "name": "Food4RewardReturn"
           },
           "color": {
             "value": -12829636,
@@ -443,7 +447,8 @@
         "data": {
           "name": "label_food5rewardreturn",
           "text": {
-            "fixedValue": "Food5RewardReturn"
+            "fixedValue": "Food5RewardReturn",
+            "name": "Food5RewardReturn"
           },
           "color": {
             "value": -12829636,
@@ -460,7 +465,8 @@
         "data": {
           "name": "label_food6rewardreturn",
           "text": {
-            "fixedValue": "Food6RewardReturn"
+            "fixedValue": "Food6RewardReturn",
+            "name": "Food6RewardReturn"
           },
           "color": {
             "value": -12829636,
@@ -469,6 +475,45 @@
           "hasShadow": false,
           "x": 258,
           "y": 154,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 219,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 4,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 219,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 5,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 219,
+          "y": 148,
           "locked": false
         }
       }

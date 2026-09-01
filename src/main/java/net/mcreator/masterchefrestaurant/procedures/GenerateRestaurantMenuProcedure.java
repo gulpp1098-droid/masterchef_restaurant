@@ -137,7 +137,7 @@ public class GenerateRestaurantMenuProcedure {
 				menusObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				menusArray = menusObject.get("restaurants").getAsJsonArray();
 				RestaurantObject = menusArray.get((int) RestaurantIndexSearchByIDProcedure.execute(world, restaurantIndexDependency)).getAsJsonObject();
-				RestaurantObject.add("menu", menuArray);
+				RestaurantObject.add("next_menu", menuArray);
 				{
 					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 					try {

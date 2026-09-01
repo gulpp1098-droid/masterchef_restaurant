@@ -4275,7 +4275,7 @@
           "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/RestaurantManagementGUIMenu.java"
         ]
       },
-      "path": "~/Restaurant Functioning/GUIs"
+      "path": "~/Restaurant Functioning/GUIs/Spatula"
     },
     {
       "name": "CreateRestaurantGUI",
@@ -4290,7 +4290,7 @@
           "src/main/java/net/mcreator/masterchefrestaurant/client/gui/CreateRestaurantGUIScreen.java"
         ]
       },
-      "path": "~/Restaurant Functioning/GUIs"
+      "path": "~/Restaurant Functioning/GUIs/Spatula"
     },
     {
       "name": "OpenCloseReturn",
@@ -5167,10 +5167,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5191,10 +5187,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5215,10 +5207,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5239,10 +5227,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5263,10 +5247,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5520,6 +5500,192 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "MenuGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "menu_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/MenuGUIScreen.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/MenuGUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/network/MenuGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/Spatula"
+    },
+    {
+      "name": "Food4NameReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_4_name_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Food4NameReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "Food5NameReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_5_name_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Food5NameReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "Food6NameReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_6_name_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Food6NameReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "Food4RewardReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_4_reward_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Food4RewardReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "Food5RewardReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_5_reward_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Food5RewardReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "Food6RewardReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_6_reward_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Food6RewardReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures/Menu Procedures"
+    },
+    {
+      "name": "ModifyRestaurantWholeArrayParameter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "modify_restaurant_whole_array_parameter",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arrayValueDependency",
+            "type": "jsonarray"
+          },
+          {
+            "name": "numberIndex",
+            "type": "number"
+          },
+          {
+            "name": "arrayNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "arrayParameterNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "fileNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "filePathDependency",
+            "type": "string"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ModifyRestaurantWholeArrayParameterProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures"
     }
   ],
   "variable_elements": [
@@ -5968,7 +6134,24 @@
       "gui.masterchef_restaurant.restaurant_management_gui.label_food_3": "Food 3",
       "gui.masterchef_restaurant.restaurant_management_gui.label_food_1": "Food 1",
       "gui.masterchef_restaurant.restaurant_management_gui.label_reputation": "Reputation",
-      "gui.masterchef_restaurant.restaurant_management_gui.label_1": "1"
+      "gui.masterchef_restaurant.restaurant_management_gui.label_1": "1",
+      "gui.masterchef_restaurant.menu_gui.label_day_menu": "Day Menu",
+      "gui.masterchef_restaurant.menu_gui.label_fully": "Fully Served",
+      "gui.masterchef_restaurant.menu_gui.label_coins_earned": "Coins Earned",
+      "gui.masterchef_restaurant.menu_gui.label_management": "Next Day Menu",
+      "gui.masterchef_restaurant.menu_gui.label_create_edit_restaurant": "Create / Edit Restaurant",
+      "gui.masterchef_restaurant.menu_gui.label_stats": "Day Stats",
+      "gui.masterchef_restaurant.menu_gui.label_not_served": "Not Served",
+      "gui.masterchef_restaurant.menu_gui.label_reputation": "Reputation",
+      "gui.masterchef_restaurant.menu_gui.label_open_close": "Open / Close",
+      "gui.masterchef_restaurant.menu_gui.label_part_served": "Part Served",
+      "gui.masterchef_restaurant.menu_gui.label_set_location_for_restaurant": "Set Location for Restaurant",
+      "gui.masterchef_restaurant.menu_gui.label_food3namereturn": "Food4Namereturn",
+      "gui.masterchef_restaurant.menu_gui.label_food6rewardreturn": "Food6RewardReturn",
+      "gui.masterchef_restaurant.menu_gui.label_food6namereturn": "Food6NameReturn",
+      "gui.masterchef_restaurant.menu_gui.label_food5rewardreturn": "Food5RewardReturn",
+      "gui.masterchef_restaurant.menu_gui.label_food4namereturn": "Food5NameReturn",
+      "gui.masterchef_restaurant.menu_gui.label_food4rewardreturn": "Food4RewardReturn"
     }
   },
   "metadata": {
@@ -5983,15 +6166,35 @@
       "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModItems.java",
       "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModEntities.java",
       "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModEntityRenderers.java",
-      "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModModels.java",
-      "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModTabs.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/entity/CustomEyeOfEnderEntity.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/world/TeleportBlockHandler.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/client/CameraShakeManager.java",
       "src/main/java/net/mcreator/masterchefrestaurant/network/MasterchefRestaurantModVariables.java",
-      "src/main/java/net/mcreator/masterchefrestaurant/network/NbtArrayLists.java",
-      "src/main/java/net/mcreator/masterchefrestaurant/MasterchefRestaurantMod.java",
-      "src/main/resources/META-INF/accesstransformer.cfg",
-      "src/main/resources/pack.mcmeta",
       "src/main/resources/META-INF/neoforge.mods.toml",
-      "src/main/java/net/mcreator/masterchefrestaurant/client/ClientHelper.java"
+      "src/main/java/net/mcreator/masterchefrestaurant/ai/MoveToStructureGoal.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/ai/OrbitPositionGoal.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/client/renderer/CustomFireballRenderer.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/entity/CustomFireballEntity.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModTabs.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/world/BlockDamageHandler.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/MasterchefRestaurantMod.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/masterchefrestaurant/client/ClientHelper.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/network/NetworkRegister.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/math/CallCooldownManager.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/init/MasterchefRestaurantModModels.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/world/BlackHoleSavedData.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/network/CameraShakePayload.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/network/NbtArrayLists.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/ai/MoveToBlockGoal.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/client/CameraShakeClientEvents.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/client/renderer/CustomEyeOfEnderRenderer.java",
+      "src/main/resources/META-INF/accesstransformer.cfg",
+      "src/main/java/net/mcreator/masterchefrestaurant/client/renderer/SemiAquaticRenderer.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/world/PortalSavedData.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/ai/OverrideMovementGoal.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/math/CallCounter.java",
+      "src/main/java/net/mcreator/masterchefrestaurant/world/BlackHoleManager.java"
     ]
   },
   "foldersRoot": {
@@ -6017,6 +6220,10 @@
             "children": [
               {
                 "name": "ChefsDiary",
+                "children": []
+              },
+              {
+                "name": "Spatula",
                 "children": []
               }
             ]
