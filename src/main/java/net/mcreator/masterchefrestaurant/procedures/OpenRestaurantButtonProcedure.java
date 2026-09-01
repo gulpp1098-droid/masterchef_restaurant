@@ -50,6 +50,7 @@ public class OpenRestaurantButtonProcedure {
 						GenerateRestaurantMenuProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID, GetRestaurantNumberParameterProcedure.execute(index, "restaurants",
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
 						CreateGUIDataTransferProcedure.execute(world, entity);
+						FillSlotsMenuProcedure.execute(world, entity);
 						if (owner instanceof Player _player && !_player.level().isClientSide())
 							_player.displayClientMessage(Component.literal("Restaurant is now closed!"), false);
 					} else if (!Restaurant.get("open").getAsBoolean()) {
@@ -71,7 +72,6 @@ public class OpenRestaurantButtonProcedure {
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "last_day_open");
 											ModifyRestaurantLogicParameterProcedure.execute(true, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");
-											FillSlotsMenuProcedure.execute(world, entity);
 											ModifyRestaurantNumberParameterProcedure.execute(world.dayTime() % 24000 + 8000, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "close_time");
 											MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.add(owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
