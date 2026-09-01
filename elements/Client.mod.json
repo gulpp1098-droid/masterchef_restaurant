@@ -4,8 +4,8 @@
   "definition": {
     "mobName": "Client",
     "mobLabel": "",
-    "mobModelName": "ModelClientNew",
-    "mobModelTexture": "textureclientnew.png",
+    "mobModelName": "ModelClientNewV2",
+    "mobModelTexture": "textureclientnewv2.png",
     "transparentModelCondition": {
       "fixedValue": false
     },

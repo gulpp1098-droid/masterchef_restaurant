@@ -75,7 +75,7 @@ public class ClientEntity extends PathfinderMob {
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
-		builder.define(TEXTURE, "textureclientnew");
+		builder.define(TEXTURE, "textureclientnewv2");
 		builder.define(ANIM, 0);
 		builder.define(DATA_Sit, false);
 		builder.define(DATA_Walk, false);
