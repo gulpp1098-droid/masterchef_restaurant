@@ -79,7 +79,7 @@ public class GenerateRestaurantMenuProcedure {
 		totalWeight = 0;
 		loopTier = minTier;
 		amountOfTiers = CurrentTier - minTier + 1;
-		for (int index0 = 0; index0 < (int) (CurrentTier - minTier + 1); index0++) {
+		for (int _i1 = 0; _i1 < (int) (CurrentTier - minTier + 1); _i1++) {
 			distance = CurrentTier - loopTier;
 			totalWeight = totalWeight + 95 * Math.pow(0.6, distance) + 5;
 			loopTier = loopTier + 1;
@@ -93,7 +93,7 @@ public class GenerateRestaurantMenuProcedure {
 			randomWeight = Mth.nextInt(RandomSource.create(), 1, (int) totalWeight);
 			loopTier = minTier;
 			runningWeight = 0;
-			for (int index2 = 0; index2 < (int) (CurrentTier - minTier + 1); index2++) {
+			for (int _i1 = 0; _i1 < (int) (CurrentTier - minTier + 1); _i1++) {
 				distance = CurrentTier - loopTier;
 				weight = 95 * Math.pow(0.6, distance) + 5;
 				runningWeight = runningWeight + weight;
@@ -112,7 +112,7 @@ public class GenerateRestaurantMenuProcedure {
 			} else {
 				indexDuplicate = 0;
 				isDuplicate = false;
-				for (int index3 = 0; index3 < (int) menuArray.size(); index3++) {
+				for (int _i1 = 0; _i1 < (int) menuArray.size(); _i1++) {
 					if ((menuArray.get((int) indexDuplicate).getAsString()).equals(MealID)) {
 						isDuplicate = true;
 						break;

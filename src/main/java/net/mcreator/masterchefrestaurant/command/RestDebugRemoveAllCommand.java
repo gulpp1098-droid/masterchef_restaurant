@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.command;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -19,7 +17,7 @@ import net.mcreator.masterchefrestaurant.procedures.DebugRemoveRestaurantAllProc
 public class RestDebugRemoveAllCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("rest_debug_remove_all").requires(s -> s.hasPermission(4)).executes(arguments -> {
+		event.getDispatcher().register(Commands.literal("rest_debug_remove_all").requires(source -> source.hasPermission(4)).executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();

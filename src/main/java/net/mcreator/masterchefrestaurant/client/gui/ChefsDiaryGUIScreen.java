@@ -202,6 +202,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
+<<<<<<< Updated upstream
 		imagebutton_setarea_button = new ImageButton(this.leftPos + 29, this.topPos + -31, 102, 12,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/setarea_button.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/setarea_button.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -307,5 +308,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_setup_button);
+=======
+>>>>>>> Stashed changes
 	}
 }

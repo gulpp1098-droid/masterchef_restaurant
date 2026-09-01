@@ -19,6 +19,8 @@ public class ClientRenderer extends MobRenderer<ClientEntity, ModelClientNew<Cli
 
 	@Override
 	public ResourceLocation getTextureLocation(ClientEntity entity) {
+		if (entity.getTexture() != "textureclientnew")
+			return ResourceLocation.parse("masterchef_restaurant:textures/entities/" + entity.getTexture() + ".png");
 		return entityTexture;
 	}
 

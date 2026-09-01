@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
@@ -39,96 +37,51 @@ public class ClientExpPayProcedure {
 		CheckpointReputation = CheckpointLevel * 40 + Math.pow(CheckpointLevel, 2) * 6 + Math.pow(CheckpointLevel, 3) * 0.08;
 		foodDelivered = client.getPersistentData().getString("food_delivered");
 		orderedFood = client.getPersistentData().getString("food_tiers");
-		array = new Object() {
-			public ArrayList<Object> convert(String text, String separator) {
-				return new ArrayList<>(Arrays.asList(text.split(separator)));
+		array = string2ArrayList(orderedFood, ",");
+		String _toSplit6 = foodDelivered;
+		String[] _array6 = _toSplit6.split(Pattern.quote(","));
+		for (int _iter6 = 0; _iter6 < Math.max(1, _array6.length); _iter6++) {
+			String stringiterator = _array6.length == 0 ? _toSplit6 : _array6[_iter6];
+			if ((stringiterator).equals("0")) {
+				ordered = ordered + 1;
 			}
-		}.convert(orderedFood, ",");
-		String[] _array6 = foodDelivered.split(Pattern.quote(","));
-		if (_array6.length != 0) {
-			for (String stringiterator : _array6) {
-				if ((stringiterator).equals("0")) {
-					ordered = ordered + 1;
-				}
-				if ((stringiterator).equals("1")) {
-					delivered = delivered + 1;
-					ordered = ordered + 1;
-				}
-			}
-		} else {
-			String stringiterator = foodDelivered;
-			for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-				if ((stringiterator).equals("0")) {
-					ordered = ordered + 1;
-				}
-				if ((stringiterator).equals("1")) {
-					delivered = delivered + 1;
-					ordered = ordered + 1;
-				}
+			if ((stringiterator).equals("1")) {
+				delivered = delivered + 1;
+				ordered = ordered + 1;
 			}
 		}
 		totalMultiplayer = (100 - (ordered - delivered) * 40) / 100;
 		index = 0;
-		String[] _array11 = foodDelivered.split(Pattern.quote(","));
-		if (_array11.length != 0) {
-			for (String stringiterator : _array11) {
-				if (totalMultiplayer > 0) {
-					if ((stringiterator).equals("1")) {
-						EXPsum = (new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
+		String _toSplit11 = foodDelivered;
+		String[] _array11 = _toSplit11.split(Pattern.quote(","));
+		for (int _iter11 = 0; _iter11 < Math.max(1, _array11.length); _iter11++) {
+			String stringiterator = _array11.length == 0 ? _toSplit11 : _array11[_iter11];
+			if (totalMultiplayer > 0) {
+				if ((stringiterator).equals("1")) {
+					EXPsum = (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
 							}
-						}.convert(array.get((int) index) instanceof String _str8 ? _str8 : "") + 1) * 10 + EXPsum;
-					}
-				} else {
-					if ((stringiterator).equals("0")) {
-						EXPsum = (new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
-							}
-						}.convert(array.get((int) index) instanceof String _str10 ? _str10 : "") + 1) * 10 + EXPsum;
-					}
+							return 0;
+						}
+					}.convert(array.get((int) index) instanceof String _str8 ? _str8 : "") + 1) * 10 + EXPsum;
 				}
-				index = index + 1;
-			}
-		} else {
-			String stringiterator = foodDelivered;
-			for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-				if (totalMultiplayer > 0) {
-					if ((stringiterator).equals("1")) {
-						EXPsum = (new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
+			} else {
+				if ((stringiterator).equals("0")) {
+					EXPsum = (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
 							}
-						}.convert(array.get((int) index) instanceof String _str8 ? _str8 : "") + 1) * 10 + EXPsum;
-					}
-				} else {
-					if ((stringiterator).equals("0")) {
-						EXPsum = (new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
-							}
-						}.convert(array.get((int) index) instanceof String _str10 ? _str10 : "") + 1) * 10 + EXPsum;
-					}
+							return 0;
+						}
+					}.convert(array.get((int) index) instanceof String _str10 ? _str10 : "") + 1) * 10 + EXPsum;
 				}
-				index = index + 1;
 			}
+			index = index + 1;
 		}
 		EXPTotal = EXPsum * totalMultiplayer;
 		CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -145,5 +98,9 @@ public class ClientExpPayProcedure {
 		ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndex, RealReputationChange, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "reputation_change");
 		RestaurantLevelUpCheckProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
+	}
+
+	private static ArrayList<Object> string2ArrayList(String text, String separator) {
+		return new ArrayList<>(Arrays.asList(text.split(separator)));
 	}
 }

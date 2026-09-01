@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.Area;
-
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;

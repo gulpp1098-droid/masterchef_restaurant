@@ -1,14 +1,12 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 2,
     "group": "",
     "unlockingItems": [
-      {
-        "value": "CUSTOM:ChefsDiary"
-      }
+      "CUSTOM:ChefsDiary"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -16,37 +14,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Blocks.PLANKS"
-      },
-      {
-        "value": "Blocks.WOODEN_SLAB"
-      },
-      {
-        "value": "Blocks.WOODEN_SLAB"
-      },
-      {
-        "value": "Blocks.WOODEN_SLAB"
-      },
-      {
-        "value": "Blocks.PLANKS"
-      },
-      {
-        "value": "CUSTOM:ChefsDiary"
-      },
-      {
-        "value": "Blocks.PLANKS"
-      }
+      "",
+      "",
+      "Blocks.PLANKS",
+      "Blocks.WOODEN_SLAB",
+      "Blocks.WOODEN_SLAB",
+      "Blocks.WOODEN_SLAB",
+      "Blocks.PLANKS",
+      "CUSTOM:ChefsDiary",
+      "Blocks.PLANKS"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:Chair"
-    },
+    "recipeReturnStack": "CUSTOM:Chair",
     "name": "chair_recipe",
     "namespace": "mod"
   }

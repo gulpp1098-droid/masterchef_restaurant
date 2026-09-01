@@ -76,7 +76,7 @@ public class CreatingNewRestaurantProcedure {
 			} else {
 				Restaurant_Array = GetRestaurantsListArrayProcedure.execute(world);
 				index = 0;
-				for (int index0 = 0; index0 < (int) Restaurant_Array.size(); index0++) {
+				for (int _i1 = 0; _i1 < (int) Restaurant_Array.size(); _i1++) {
 					Restaurant = Restaurant_Array.get((int) index).getAsJsonObject();
 					Restaurant_Name = Restaurant.get("name").getAsString();
 					if ((NewRestaurant_Name).equals(Restaurant_Name)) {

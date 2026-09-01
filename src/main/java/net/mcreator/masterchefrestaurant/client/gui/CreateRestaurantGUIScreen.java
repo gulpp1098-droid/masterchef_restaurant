@@ -96,7 +96,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 	@Override
 	public void init() {
 		super.init();
-		Restaurant_Name = new EditBox(this.font, this.leftPos + -48, this.topPos + 19, 166, 18, Component.translatable("gui.masterchef_restaurant.create_restaurant_gui.Restaurant_Name"));
+		Restaurant_Name = new EditBox(this.font, this.leftPos + -49, this.topPos + 18, 168, 20, Component.translatable("gui.masterchef_restaurant.create_restaurant_gui.Restaurant_Name"));
 		Restaurant_Name.setMaxLength(8192);
 		Restaurant_Name.setResponder(content -> {
 			if (!menuStateUpdateActive)

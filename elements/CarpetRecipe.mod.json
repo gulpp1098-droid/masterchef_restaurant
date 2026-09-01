@@ -1,14 +1,12 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 2,
     "group": "rugs",
     "unlockingItems": [
-      {
-        "value": "Blocks.CARPET#14"
-      }
+      "Blocks.CARPET#14"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -16,37 +14,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": true,
     "recipeSlots": [
-      {
-        "value": "Blocks.CARPET#14"
-      },
-      {
-        "value": "Blocks.CARPET#14"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      }
+      "Blocks.CARPET#14",
+      "Blocks.CARPET#14",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:Rug"
-    },
+    "recipeReturnStack": "CUSTOM:Rug",
     "name": "carpet_recipe",
     "namespace": "mod"
   }

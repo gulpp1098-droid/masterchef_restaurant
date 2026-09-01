@@ -44,7 +44,7 @@ public class NewMenuGenerateTriggerProcedure {
 						restaurantMenus = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						menusArray = restaurantMenus.get("restaurants").getAsJsonArray();
 						AmountOfRestaurant = menusArray.size();
-						for (int index0 = 0; index0 < (int) AmountOfRestaurant; index0++) {
+						for (int _i1 = 0; _i1 < (int) AmountOfRestaurant; _i1++) {
 							restaurantObject = menusArray.get((int) index).getAsJsonObject();
 							if (restaurantObject.get("creation_menu_day").getAsDouble() < restaurantObject.get("last_day_open").getAsDouble()) {
 								restaurantID = restaurantObject.get("ID").getAsDouble();

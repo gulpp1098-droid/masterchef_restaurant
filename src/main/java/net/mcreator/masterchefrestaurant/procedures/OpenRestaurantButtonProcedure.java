@@ -38,7 +38,7 @@ public class OpenRestaurantButtonProcedure {
 					if (Restaurant.get("open").getAsBoolean()) {
 						openedRestaurants = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen;
 						arrayIndex = 0;
-						for (int index0 = 0; index0 < (int) MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.size(); index0++) {
+						for (int _i1 = 0; _i1 < (int) MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.size(); _i1++) {
 							if ((openedRestaurants.get((int) arrayIndex) instanceof Double _doub4 ? _doub4 : 0.0D) == entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID) {
 								MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) arrayIndex);
 								break;

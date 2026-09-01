@@ -19,7 +19,7 @@ public class ClosingRestaurantsProcedure {
 			if (world.dayTime() % 100 == 0) {
 				index = 0;
 				RestaurantsOpen.addAll(MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen);
-				for (int index0 = 0; index0 < (int) RestaurantsOpen.size(); index0++) {
+				for (int _i1 = 0; _i1 < (int) RestaurantsOpen.size(); _i1++) {
 					RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, RestaurantsOpen.get((int) index) instanceof Double _doub5 ? _doub5 : 0.0D);
 					CloseTime = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "close_time");

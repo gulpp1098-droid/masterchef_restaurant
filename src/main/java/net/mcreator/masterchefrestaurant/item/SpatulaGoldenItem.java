@@ -98,4 +98,8 @@ public class SpatulaGoldenItem extends Item {
 		if (selected)
 			SpatulaInHandOnTickProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, itemstack);
 	}
+
+	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+		return slotChanged && !oldStack.equals(newStack);
+	}
 }

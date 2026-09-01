@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -207,9 +207,7 @@
         "data": {
           "image": "tick_icon.png",
           "use1Xscale": false,
-          "displayCondition": {
-            "name": "OrdersCheckboxesCheckSlot1"
-          },
+          "displayCondition": "OrdersCheckboxesCheckSlot1",
           "x": 180,
           "y": 70,
           "locked": false
@@ -220,9 +218,7 @@
         "data": {
           "image": "tick_icon.png",
           "use1Xscale": false,
-          "displayCondition": {
-            "name": "OrdersCheckboxesCheckSlot2"
-          },
+          "displayCondition": "OrdersCheckboxesCheckSlot2",
           "x": 203,
           "y": 70,
           "locked": false
@@ -233,9 +229,7 @@
         "data": {
           "image": "tick_icon.png",
           "use1Xscale": false,
-          "displayCondition": {
-            "name": "OrdersCheckboxesCheckSlot3"
-          },
+          "displayCondition": "OrdersCheckboxesCheckSlot3",
           "x": 226,
           "y": 70,
           "locked": false
@@ -246,9 +240,7 @@
         "data": {
           "image": "tick_icon.png",
           "use1Xscale": false,
-          "displayCondition": {
-            "name": "OrdersCheckboxesCheckSlot4"
-          },
+          "displayCondition": "OrdersCheckboxesCheckSlot4",
           "x": 249,
           "y": 70,
           "locked": false
@@ -259,9 +251,7 @@
         "data": {
           "image": "tick_icon.png",
           "use1Xscale": false,
-          "displayCondition": {
-            "name": "OrdersCheckboxesCheckSlot5"
-          },
+          "displayCondition": "OrdersCheckboxesCheckSlot5",
           "x": 272,
           "y": 70,
           "locked": false
@@ -322,15 +312,9 @@
         }
       }
     ],
-    "onOpen": {
-      "name": "OpenedOrderGUI"
-    },
-    "onTick": {
-      "name": "OpenedOrderGUI"
-    },
-    "onClosed": {
-      "name": "CloseOrderGUI"
-    },
+    "onOpen": "OpenedOrderGUI",
+    "onTick": "OpenedOrderGUI",
+    "onClosed": "CloseOrderGUI",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

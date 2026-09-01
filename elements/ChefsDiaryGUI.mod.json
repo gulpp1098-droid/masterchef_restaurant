@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -36,9 +36,7 @@
           "name": "imagebutton_base_icon",
           "image": "base_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryMenu"
-          },
+          "onClick": "ChefsDiaryMenu",
           "x": 361,
           "y": 22,
           "locked": false
@@ -50,9 +48,7 @@
           "name": "imagebutton_food_icon",
           "image": "food_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryFood"
-          },
+          "onClick": "ChefsDiaryFood",
           "x": 362,
           "y": 52,
           "locked": false
@@ -64,9 +60,7 @@
           "name": "imagebutton_clients_icon",
           "image": "clients_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryClients"
-          },
+          "onClick": "ChefsDiaryClients",
           "x": 363,
           "y": 81,
           "locked": false
@@ -78,9 +72,7 @@
           "name": "imagebutton_appliences_icon",
           "image": "appliences_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryApplience"
-          },
+          "onClick": "ChefsDiaryApplience",
           "x": 362,
           "y": 109,
           "locked": false
@@ -92,9 +84,7 @@
           "name": "imagebutton_stats_icon",
           "image": "stats_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryStats"
-          },
+          "onClick": "ChefsDiaryStats",
           "x": 361,
           "y": 137,
           "locked": false
@@ -558,11 +548,30 @@
           "name": "imagebutton_spatula_button",
           "image": "spatula_button.png",
           "hoveredImage": "",
+<<<<<<< Updated upstream
           "onClick": {
             "name": "ChefsDiaryGuideSpatula"
           },
           "x": 245,
           "y": 49,
+=======
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty",
+          "text": "Golden Spatula",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideSpatula",
+          "width": 78,
+          "height": 20,
+          "x": 244,
+          "y": 43,
+>>>>>>> Stashed changes
           "locked": false
         }
       },
@@ -572,11 +581,150 @@
           "name": "imagebutton_setup_button",
           "image": "setup_button.png",
           "hoveredImage": "",
+<<<<<<< Updated upstream
           "onClick": {
             "name": "ChefsDiaryGuideSetUp"
           },
           "x": 244,
           "y": 114,
+=======
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty_copy",
+          "text": "Required blocks",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideBlocks",
+          "width": 83,
+          "height": 20,
+          "x": 244,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "empty.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty_copy_2",
+          "text": "Set restaurant area",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideLocation",
+          "width": 104,
+          "height": 20,
+          "x": 244,
+          "y": 87,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "empty.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty_copy_3",
+          "text": "Set Up restaurant",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideSetUp",
+          "width": 91,
+          "height": 20,
+          "x": 244,
+          "y": 108,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "empty.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty_copy_4",
+          "text": "Open restaurant",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideOpen",
+          "width": 81,
+          "height": 20,
+          "x": 244,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "empty.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty_copy_5",
+          "text": "Serve Customers",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideServe",
+          "width": 82,
+          "height": 20,
+          "x": 244,
+          "y": 152,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "empty.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_empty_copy_6",
+          "text": "Exp and coins",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGuideExpLevel",
+          "width": 70,
+          "height": 20,
+          "x": 244,
+          "y": 174,
+>>>>>>> Stashed changes
           "locked": false
         }
       }

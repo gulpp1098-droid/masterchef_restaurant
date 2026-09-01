@@ -19,7 +19,7 @@ public class DebugShowAllListsProcedure {
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		Index = 0;
 		Array = GetRestaurantsListArrayProcedure.execute(world);
-		for (int index0 = 0; index0 < (int) Array.size(); index0++) {
+		for (int _i1 = 0; _i1 < (int) Array.size(); _i1++) {
 			RestaurantObject = Array.get((int) Index).getAsJsonObject();
 			if (entity instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(

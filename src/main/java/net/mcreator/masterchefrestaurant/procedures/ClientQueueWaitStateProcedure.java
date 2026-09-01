@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
@@ -140,7 +138,7 @@ public class ClientQueueWaitStateProcedure {
 			TablesArray = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "tables", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			stringIndex = 0;
-			for (int index0 = 0; index0 < (int) TablesArray.size(); index0++) {
+			for (int _i1 = 0; _i1 < (int) TablesArray.size(); _i1++) {
 				tableString = TablesArray.get((int) stringIndex).getAsString();
 				TablePositionsObject = new Object() {
 					public com.google.gson.JsonObject parse(String rawJson) {

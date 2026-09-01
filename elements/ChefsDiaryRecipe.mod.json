@@ -1,17 +1,13 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "",
     "unlockingItems": [
-      {
-        "value": "Items.BREAD"
-      },
-      {
-        "value": "Items.BOOK"
-      }
+      "Items.BREAD",
+      "Items.BOOK"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -19,37 +15,17 @@
     "craftingBookCategory": "EQUIPMENT",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.BREAD"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.BREAD"
-      },
-      {
-        "value": "Items.BOOK"
-      },
-      {
-        "value": "Items.BREAD"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.BREAD"
-      },
-      {
-        "value": ""
-      }
+      "",
+      "Items.BREAD",
+      "",
+      "Items.BREAD",
+      "Items.BOOK",
+      "Items.BREAD",
+      "",
+      "Items.BREAD",
+      ""
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:ChefsDiary"
-    },
+    "recipeReturnStack": "CUSTOM:ChefsDiary",
     "name": "chefs_diary_recipe",
     "namespace": "mod"
   }

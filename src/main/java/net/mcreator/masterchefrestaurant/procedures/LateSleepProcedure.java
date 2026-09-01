@@ -43,7 +43,7 @@ public class LateSleepProcedure {
 				if (!(world instanceof Level _lvl3 && _lvl3.isDay())) {
 					restaurants = GetRestaurantsListArrayProcedure.execute(world);
 					index = 0;
-					for (int index0 = 0; index0 < (int) restaurants.size(); index0++) {
+					for (int _i1 = 0; _i1 < (int) restaurants.size(); _i1++) {
 						if (GetRestaurantLogicParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 							if (event instanceof ICancellableEvent _cancellable) {

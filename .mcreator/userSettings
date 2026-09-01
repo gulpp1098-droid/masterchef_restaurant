@@ -10,12 +10,17 @@
   "leftDockState": {
     "dockSizes": {
       "project_browser": 280,
+      "local_history": 280,
       "shadow_tags": 260
     }
   },
+  "rightDockState": {
+    "dockSizes": {}
+  },
   "bottomDockState": {
+    "expandedDock": "console",
     "dockSizes": {
-      "console": 343,
+      "console": 535,
       "code_viewer": 300,
       "debugger": 264
     }

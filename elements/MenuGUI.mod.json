@@ -1,0 +1,486 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 131,
+    "height": 142,
+    "inventoryOffsetX": 100,
+    "inventoryOffsetY": 200,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "spatulagui.png",
+          "use1Xscale": false,
+          "x": 114,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ribbon_icon.png",
+          "use1Xscale": false,
+          "x": 170,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_management",
+          "text": {
+            "fixedValue": "Next Day Menu"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 182,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "signopenclose_sprite.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OpenCloseReturn"
+          },
+          "x": 145,
+          "y": 127,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "MenuNextPage",
+          "x": 285,
+          "y": 170,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "MenuPreviousPage",
+          "x": 130,
+          "y": 170,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 130,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 130,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 130,
+          "y": 148,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_1",
+          "text": {
+            "fixedValue": "Food 1",
+            "name": "Food1NameReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 130,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_2",
+          "text": {
+            "fixedValue": "Food 2",
+            "name": "Food2NameReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 130,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_3",
+          "text": {
+            "fixedValue": "Food 3",
+            "name": "Food3NameReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 130,
+          "y": 136,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 151,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 152,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 152,
+          "y": 149,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_10",
+          "text": {
+            "fixedValue": "10",
+            "name": "Food1RewardReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 166,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_20",
+          "text": {
+            "fixedValue": "20",
+            "name": "Food2RewardReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 166,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_30",
+          "text": {
+            "fixedValue": "30",
+            "name": "Food3RewardReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 166,
+          "y": 154,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 130,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 130,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 130,
+          "y": 148,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_1",
+          "text": {
+            "fixedValue": "1",
+            "name": "PageReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 198,
+          "y": 174,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food3namereturn",
+          "text": {
+            "fixedValue": "Food4Namereturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food4namereturn",
+          "text": {
+            "fixedValue": "Food5NameReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food6namereturn",
+          "text": {
+            "fixedValue": "Food6NameReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 136,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 219,
+          "y": 76,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 219,
+          "y": 112,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "use1Xscale": false,
+          "x": 219,
+          "y": 148,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 243,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 243,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 243,
+          "y": 149,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food4rewardreturn",
+          "text": {
+            "fixedValue": "Food4RewardReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 258,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food5rewardreturn",
+          "text": {
+            "fixedValue": "Food5RewardReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 258,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food6rewardreturn",
+          "text": {
+            "fixedValue": "Food6RewardReturn"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 258,
+          "y": 154,
+          "locked": false
+        }
+      }
+    ],
+    "onOpen": "OpenManagmentGUI",
+    "onTick": "OpenManagmentGUI",
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

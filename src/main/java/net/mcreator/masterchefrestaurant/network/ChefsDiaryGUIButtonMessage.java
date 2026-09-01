@@ -67,6 +67,7 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 		}
+<<<<<<< Updated upstream
 		if (buttonID == 5) {
 
 			ChefsDiaryGuideLocationProcedure.execute(world, x, y, z, entity);
@@ -95,6 +96,8 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 			ChefsDiaryGuideSetUpProcedure.execute(world, x, y, z, entity);
 		}
+=======
+>>>>>>> Stashed changes
 	}
 
 	@SubscribeEvent

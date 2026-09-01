@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;

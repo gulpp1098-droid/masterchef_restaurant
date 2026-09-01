@@ -16,6 +16,8 @@ public class ChairMobRenderer extends MobRenderer<ChairMobEntity, ModelChairMob<
 
 	@Override
 	public ResourceLocation getTextureLocation(ChairMobEntity entity) {
+		if (entity.getTexture() != "chairmob")
+			return ResourceLocation.parse("masterchef_restaurant:textures/entities/" + entity.getTexture() + ".png");
 		return entityTexture;
 	}
 

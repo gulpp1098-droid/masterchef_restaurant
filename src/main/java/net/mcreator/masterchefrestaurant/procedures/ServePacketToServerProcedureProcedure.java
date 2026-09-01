@@ -33,42 +33,24 @@ public class ServePacketToServerProcedureProcedure {
 			newLength = (dummyString).length();
 			indexString = 0;
 			if (!item.contains("minecraft:air")) {
-				String[] _array9 = ((world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, substringUUID) : null).getPersistentData().getString("food")).split(Pattern.quote(","));
-				if (_array9.length != 0) {
-					for (String stringiterator : _array9) {
-						if ((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\""))).equals(item)) {
-							if (!(newLength == indexString)) {
-								if ((deliveredString.substring((int) (indexString * 2), (int) (indexString * 2 + 1))).equals("0")) {
-									found = true;
-									break;
-								}
-							} else {
-								if ((deliveredString.substring((int) (indexString * 2))).equals("0")) {
-									found = true;
-									break;
-								}
+				String _toSplit9 = ((world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, substringUUID) : null).getPersistentData().getString("food"));
+				String[] _array9 = _toSplit9.split(Pattern.quote(","));
+				for (int _iter9 = 0; _iter9 < Math.max(1, _array9.length); _iter9++) {
+					String stringiterator = _array9.length == 0 ? _toSplit9 : _array9[_iter9];
+					if ((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\""))).equals(item)) {
+						if (!(newLength == indexString)) {
+							if ((deliveredString.substring((int) (indexString * 2), (int) (indexString * 2 + 1))).equals("0")) {
+								found = true;
+								break;
+							}
+						} else {
+							if ((deliveredString.substring((int) (indexString * 2))).equals("0")) {
+								found = true;
+								break;
 							}
 						}
-						indexString = indexString + 1;
 					}
-				} else {
-					String stringiterator = ((world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, substringUUID) : null).getPersistentData().getString("food"));
-					for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-						if ((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\""))).equals(item)) {
-							if (!(newLength == indexString)) {
-								if ((deliveredString.substring((int) (indexString * 2), (int) (indexString * 2 + 1))).equals("0")) {
-									found = true;
-									break;
-								}
-							} else {
-								if ((deliveredString.substring((int) (indexString * 2))).equals("0")) {
-									found = true;
-									break;
-								}
-							}
-						}
-						indexString = indexString + 1;
-					}
+					indexString = indexString + 1;
 				}
 			}
 		}

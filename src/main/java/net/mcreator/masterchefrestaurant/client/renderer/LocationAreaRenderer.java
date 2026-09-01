@@ -16,6 +16,8 @@ public class LocationAreaRenderer extends MobRenderer<LocationAreaEntity, ModelR
 
 	@Override
 	public ResourceLocation getTextureLocation(LocationAreaEntity entity) {
+		if (entity.getTexture() != "texturetwoarea")
+			return ResourceLocation.parse("masterchef_restaurant:textures/entities/" + entity.getTexture() + ".png");
 		return entityTexture;
 	}
 }

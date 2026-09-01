@@ -20,7 +20,7 @@ authors="MCreator"
 [[dependencies.masterchef_restaurant]]
     modId="neoforge"
     type="required"
-    versionRange="[21.1.190,)"
+    versionRange="[21.1.232,)"
     ordering="AFTER"
     side="BOTH"
 

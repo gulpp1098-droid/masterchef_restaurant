@@ -68,7 +68,7 @@ public class DeleteClientsDatabaseFileProcedure {
 						restaurantsFileObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						restaurantsList = restaurantsFileObject.get("restaurants").getAsJsonArray();
 						index = 0;
-						for (int index0 = 0; index0 < (int) restaurantsList.size(); index0++) {
+						for (int _i1 = 0; _i1 < (int) restaurantsList.size(); _i1++) {
 							restaurantObject = restaurantsList.get((int) index).getAsJsonObject();
 							dailyStatsObject = restaurantObject.get("daily_stats").getAsJsonObject();
 							lastDayStatsObject = new Object() {

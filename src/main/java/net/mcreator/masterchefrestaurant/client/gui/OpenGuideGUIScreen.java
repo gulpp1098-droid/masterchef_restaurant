@@ -80,6 +80,7 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+<<<<<<< Updated upstream
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_tool"), -145, -77, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
@@ -103,6 +104,10 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_is_up_to_you"), 1, -50, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_faster_so_you_do_not"), -2, 26, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_have_to_sit_there_all_the"), -1, 38, -12829636, false);
+=======
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_as_well_as_claim_area"), -145, -14, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_inside_this_area_you_can"), 6, -39, -65485, false);
+>>>>>>> Stashed changes
 	}
 
 	@Override

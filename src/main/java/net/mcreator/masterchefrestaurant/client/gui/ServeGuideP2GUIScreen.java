@@ -96,7 +96,10 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_blocks"), 0, -12, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_with_level_you_will_gain"), -1, 1, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_more_space_to_claim_for"), 0, -102, -12829636, false);
+<<<<<<< Updated upstream
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_is_up_to_you"), 1, -50, -12829636, false);
+=======
+>>>>>>> Stashed changes
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.MobSpawnType;
@@ -100,7 +98,7 @@ public class SpawnClientsProcedure {
 									}
 								}.convert(GetPartFromStringProcedure.execute(2, stringReception));
 								condition = false;
-								for (int index0 = 0; index0 < 30; index0++) {
+								for (int _i1 = 0; _i1 < 30; _i1++) {
 									OffsetX = 0;
 									OffsetZ = 0;
 									while (Math.max(Math.abs(OffsetX), Math.abs(OffsetZ)) < 12) {
@@ -131,7 +129,7 @@ public class SpawnClientsProcedure {
 								if (condition) {
 									membersArray = singleGroup.get("members").getAsJsonArray();
 									indexMembers = 0;
-									for (int index3 = 0; index3 < (int) membersArray.size(); index3++) {
+									for (int _i1 = 0; _i1 < (int) membersArray.size(); _i1++) {
 										clientObject = membersArray.get((int) indexMembers).getAsJsonObject();
 										foodDeliveredArray = clientObject.get("food").getAsJsonArray();
 										food = "" + foodDeliveredArray;
@@ -150,7 +148,7 @@ public class SpawnClientsProcedure {
 											Client.getPersistentData().putString("leaderUUID", LeaderUUID);
 										}
 										stringDelivered = "";
-										for (int index4 = 0; index4 < (int) foodDeliveredArray.size(); index4++) {
+										for (int _i2 = 0; _i2 < (int) foodDeliveredArray.size(); _i2++) {
 											stringDelivered = stringDelivered + ",0";
 										}
 										Client.getPersistentData().putString("food", food);
@@ -172,7 +170,7 @@ public class SpawnClientsProcedure {
 									SpawnTimeModify = 0;
 									SpawnIndexModify = 0;
 									newSpawnTimeSet = false;
-									for (int index5 = 0; index5 < (int) groupArray.size(); index5++) {
+									for (int _i1 = 0; _i1 < (int) groupArray.size(); _i1++) {
 										singleGroup = groupArray.get((int) newSpawnGroupIndex).getAsJsonObject();
 										if (!singleGroup.get("spawned").getAsBoolean() && (singleGroup.get("spawn_time").getAsDouble() < SpawnTimeModify || !newSpawnTimeSet)) {
 											newSpawnTimeSet = true;

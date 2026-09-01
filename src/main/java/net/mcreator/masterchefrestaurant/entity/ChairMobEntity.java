@@ -24,6 +24,10 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.procedures.ChairMobOnInitialEntitySpawnProcedure;
@@ -32,11 +36,29 @@ import net.mcreator.masterchefrestaurant.procedures.ChairMobOnEntityTickUpdatePr
 import javax.annotation.Nullable;
 
 public class ChairMobEntity extends PathfinderMob {
+	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ChairMobEntity.class, EntityDataSerializers.STRING);
+	public static final EntityDataAccessor<Integer> ANIM = SynchedEntityData.defineId(ChairMobEntity.class, EntityDataSerializers.INT);
+
 	public ChairMobEntity(EntityType<ChairMobEntity> type, Level world) {
 		super(type, world);
 		xpReward = 0;
 		setNoAi(true);
 		this.moveControl = new FlyingMoveControl(this, 10, true);
+	}
+
+	@Override
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(TEXTURE, "chairmob");
+		builder.define(ANIM, 0);
+	}
+
+	public void setTexture(String texture) {
+		this.entityData.set(TEXTURE, texture);
+	}
+
+	public String getTexture() {
+		return this.entityData.get(TEXTURE);
 	}
 
 	@Override
@@ -98,6 +120,19 @@ public class ChairMobEntity extends PathfinderMob {
 	}
 
 	@Override
+	public void addAdditionalSaveData(CompoundTag compound) {
+		super.addAdditionalSaveData(compound);
+		compound.putString("Texture", this.getTexture());
+	}
+
+	@Override
+	public void readAdditionalSaveData(CompoundTag compound) {
+		super.readAdditionalSaveData(compound);
+		if (compound.contains("Texture"))
+			this.setTexture(compound.getString("Texture"));
+	}
+
+	@Override
 	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
 		ItemStack itemstack = sourceentity.getItemInHand(hand);
 		InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
@@ -146,27 +181,6 @@ public class ChairMobEntity extends PathfinderMob {
 	}
 
 	@Override
-	public void travel(Vec3 dir) {
-		this.travelFlying(dir);
-	}
-
-	private void travelFlying(Vec3 dir) {
-		if (this.isInWater()) {
-			this.moveRelative(0.02F, dir);
-			this.move(MoverType.SELF, this.getDeltaMovement());
-			this.setDeltaMovement(this.getDeltaMovement().scale(0.8));
-		} else if (this.isInLava()) {
-			this.moveRelative(0.02F, dir);
-			this.move(MoverType.SELF, this.getDeltaMovement());
-			this.setDeltaMovement(this.getDeltaMovement().scale(0.5));
-		} else {
-			this.moveRelative((float) this.getAttributeValue(Attributes.FLYING_SPEED), dir);
-			this.move(MoverType.SELF, this.getDeltaMovement());
-			this.setDeltaMovement(this.getDeltaMovement().scale(0.91));
-		}
-	}
-
-	@Override
 	protected void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
 	}
 
@@ -175,9 +189,15 @@ public class ChairMobEntity extends PathfinderMob {
 		super.setNoGravity(true);
 	}
 
+	@Override
 	public void aiStep() {
 		super.aiStep();
 		this.setNoGravity(true);
+	}
+
+	@Override
+	protected float getFlyingSpeed() {
+		return (float) this.getAttributeValue(Attributes.FLYING_SPEED);
 	}
 
 	public static void init(RegisterSpawnPlacementsEvent event) {

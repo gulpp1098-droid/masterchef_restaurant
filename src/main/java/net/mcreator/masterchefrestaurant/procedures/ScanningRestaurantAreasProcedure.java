@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Blocks;
@@ -50,7 +48,7 @@ public class ScanningRestaurantAreasProcedure {
 		TableFound = 0;
 		ChairFound = 0;
 		TablesActive = 0;
-		for (int index0 = 0; index0 < (int) tables.size(); index0++) {
+		for (int _i1 = 0; _i1 < (int) tables.size(); _i1++) {
 			Remove = false;
 			tablesString = tables.get((int) indexTables).getAsString();
 			PosX = new Object() {
@@ -88,7 +86,7 @@ public class ScanningRestaurantAreasProcedure {
 					setBlockNBTLogic(world, PosX, PosY, PosZ, "active", false);
 					indexLocations = 0;
 					if (TablesActive < Math.floor(level / 10) + 1 && TablesActive < 10) {
-						for (int index1 = 0; index1 < (int) locations.size(); index1++) {
+						for (int _i2 = 0; _i2 < (int) locations.size(); _i2++) {
 							locationsString = locations.get((int) indexLocations).getAsString();
 							SectorX = new Object() {
 								double convert(String s) {

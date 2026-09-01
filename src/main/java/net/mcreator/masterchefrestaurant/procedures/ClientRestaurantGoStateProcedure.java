@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
@@ -62,9 +60,12 @@ public class ClientRestaurantGoStateProcedure {
 			} else {
 				{
 					Entity _ent = client;
-					_ent.teleportTo(RugX, (RugY + 0.1), RugZ);
+					double _tx = RugX;
+					double _ty = (RugY + 0.1);
+					double _tz = RugZ;
+					_ent.teleportTo(_tx, _ty, _tz);
 					if (_ent instanceof ServerPlayer _serverPlayer)
-						_serverPlayer.connection.teleport(RugX, (RugY + 0.1), RugZ, _ent.getYRot(), _ent.getXRot());
+						_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
 				}
 				client.getPersistentData().putDouble("stuckCounter", (-1));
 				client.getPersistentData().putString("state", "queue_wait");

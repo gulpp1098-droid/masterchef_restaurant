@@ -80,6 +80,7 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+<<<<<<< Updated upstream
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_tool"), -145, -77, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
@@ -102,6 +103,8 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_more_space_to_claim_for"), -1, 14, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_your_restaurant"), -1, 26, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_is_up_to_you"), 1, -50, -12829636, false);
+=======
+>>>>>>> Stashed changes
 	}
 
 	@Override

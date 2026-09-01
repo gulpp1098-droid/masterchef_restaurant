@@ -69,4 +69,8 @@ public class ChefsDiaryItem extends Item {
 		}
 		return ar;
 	}
+
+	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+		return slotChanged && !oldStack.equals(newStack);
+	}
 }

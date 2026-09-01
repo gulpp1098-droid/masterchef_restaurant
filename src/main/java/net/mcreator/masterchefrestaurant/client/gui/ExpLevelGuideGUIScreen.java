@@ -80,6 +80,7 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+<<<<<<< Updated upstream
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_tool"), -145, -77, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
@@ -104,6 +105,9 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_your_restaurant_will"), 0, 51, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_level_up"), 0, 63, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_to_your_restaurant"), -145, -50, -12829636, false);
+=======
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_as_well_as_claim_area"), -145, 4, -65485, false);
+>>>>>>> Stashed changes
 	}
 
 	@Override

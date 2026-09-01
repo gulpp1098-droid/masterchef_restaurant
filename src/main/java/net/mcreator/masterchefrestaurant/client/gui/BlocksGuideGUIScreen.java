@@ -103,9 +103,12 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_chair"), -144, 8, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_queue_rug_optional"), -144, 21, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_reception1"), 5, -102, -12829636, false);
+<<<<<<< Updated upstream
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_restaurant_begins_from_this_plac"), 5, -88, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_this_place"), 5, -75, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_will_wait_in_queue_here"), 6, -62, -12829636, false);
+=======
+>>>>>>> Stashed changes
 	}
 
 	@Override
