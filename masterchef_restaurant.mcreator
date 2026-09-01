@@ -809,12 +809,7 @@
       "locked_code": false,
       "registry_name": "new_menu_generate_trigger",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
+        "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/masterchefrestaurant/procedures/NewMenuGenerateTriggerProcedure.java"
         ]
