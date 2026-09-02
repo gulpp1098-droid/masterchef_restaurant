@@ -5,6 +5,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.util.Mth;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -13,11 +14,7 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.masterchefrestaurant.world.inventory.ChefsDiaryStatsGUIMenu;
-import net.mcreator.masterchefrestaurant.procedures.ReturnRestaurantReputationProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ReturnRestaurantOwnerProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ReturnRestaurantNameProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ReturnRestaurantLevelProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ReturnRestaurantCloseTimeProcedure;
+import net.mcreator.masterchefrestaurant.procedures.*;
 import net.mcreator.masterchefrestaurant.network.ChefsDiaryStatsGUIButtonMessage;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModScreens;
 
@@ -71,7 +68,7 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 		guiGraphics.blit(IMAGE_2, this.leftPos + -145, this.topPos + -91, 0, 0, 133, 11, 133, 11);
-		guiGraphics.blit(SPRITE_0, this.leftPos + 28, this.topPos + -75, 0, 0, 72, 25, 72, 275);
+		guiGraphics.blit(SPRITE_0, this.leftPos + 28, this.topPos + -75, 0, Mth.clamp((int) ReturnRestaurantStarsProcedure.execute(entity) * 25, 0, 250), 72, 25, 72, 275);
 		RenderSystem.disableBlend();
 	}
 

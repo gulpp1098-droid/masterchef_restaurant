@@ -16,7 +16,8 @@
           "sprite": "stars_sprite_icon.png",
           "spritesCount": 11,
           "spriteIndex": {
-            "fixedValue": 0.0
+            "fixedValue": 0.0,
+            "name": "ReturnRestaurantStars"
           },
           "x": 242,
           "y": 45,
