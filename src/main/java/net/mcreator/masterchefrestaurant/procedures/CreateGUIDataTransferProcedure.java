@@ -38,8 +38,12 @@ public class CreateGUIDataTransferProcedure {
 				JSONObject.addProperty("level", ("Level: " + (int) restaurantLevel));
 				JSONObject.addProperty("name", ("Name: " + RestaurantObject.get("name").getAsString()));
 				JSONObject.addProperty("owner", ("Owner: " + RestaurantObject.get("ownerName").getAsString()));
-				requiredReputation = (restaurantLevel + 1) * 40 + Math.pow(restaurantLevel + 1, 2) * 6 + Math.pow(restaurantLevel + 1, 3) * 0.08;
-				JSONObject.addProperty("reputation", ("Reputation: " + (int) RestaurantObject.get("reputation").getAsDouble() + " / " + (int) requiredReputation));
+				if (restaurantLevel >= 100) {
+					JSONObject.addProperty("reputation", ("Reputation: " + (int) RestaurantObject.get("reputation").getAsDouble() + " / " + "MAX"));
+				} else {
+					requiredReputation = (restaurantLevel + 1) * 40 + Math.pow(restaurantLevel + 1, 2) * 6 + Math.pow(restaurantLevel + 1, 3) * 0.08;
+					JSONObject.addProperty("reputation", ("Reputation: " + (int) RestaurantObject.get("reputation").getAsDouble() + " / " + (int) requiredReputation));
+				}
 				JSONObject.addProperty("tables", ("Max: " + (int) (Math.floor(restaurantLevel / 10) + 1)));
 				JSONObject.addProperty("queue", ("Max: " + (int) (Math.floor(restaurantLevel / 10) + 2)));
 				JSONObject.addProperty("locations", ("Max: " + (int) Math.min(30, Math.floor(restaurantLevel * (26d / 100)) + 4)));
