@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "masterchef_restaurant:gold_coin"
+    }
+  ],
+  "result": {
+    "id": "masterchef_restaurant:silver_coin",
+    "count": 9
+  }
+}

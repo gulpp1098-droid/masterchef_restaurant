@@ -38,7 +38,7 @@ public class OpenRestaurantButtonProcedure {
 					if (Restaurant.get("open").getAsBoolean()) {
 						openedRestaurants = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen;
 						arrayIndex = 0;
-						for (int index0 = 0; index0 < (int) MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.size(); index0++) {
+						for (int _i1 = 0; _i1 < (int) MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.size(); _i1++) {
 							if ((openedRestaurants.get((int) arrayIndex) instanceof Double _doub4 ? _doub4 : 0.0D) == entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID) {
 								MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) arrayIndex);
 								break;
@@ -47,6 +47,8 @@ public class OpenRestaurantButtonProcedure {
 						}
 						ModifyRestaurantLogicParameterProcedure.execute(false, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");
+						CreateGUIDataTransferProcedure.execute(world, entity);
+						FillSlotsMenuProcedure.execute(world, entity);
 						if (owner instanceof Player _player && !_player.level().isClientSide())
 							_player.displayClientMessage(Component.literal("Restaurant is now closed!"), false);
 					} else if (!Restaurant.get("open").getAsBoolean()) {
@@ -60,6 +62,12 @@ public class OpenRestaurantButtonProcedure {
 									if (AmountOfChairs > 0) {
 										if (!(GetRestaurantStringParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 												MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception")).equals("")) {
+											ModifyRestaurantWholeArrayParameterProcedure.execute(
+													GetRestaurantArrayParameterProcedure.execute(index, "restaurants", "next_menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+															MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path),
+													index, "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+											GenerateRestaurantMenuProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID, GetRestaurantNumberParameterProcedure.execute(index, "restaurants",
+													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
 											ModifyRestaurantNumberParameterProcedure.execute(Math.floor(world.dayTime() / 24000d), index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "last_day_open");
 											ModifyRestaurantLogicParameterProcedure.execute(true, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -69,6 +77,7 @@ public class OpenRestaurantButtonProcedure {
 											MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.add(owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
 											MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 											RestaurantIsOpenProcedure.execute(world, entity, ChairsMax, AmountOfTables);
+											CreateGUIDataTransferProcedure.execute(world, entity);
 											if (owner instanceof Player _player && !_player.level().isClientSide())
 												_player.displayClientMessage(Component.literal(("Your tables available: " + new java.text.DecimalFormat("#").format(AmountOfTables))), false);
 											if (owner instanceof Player _player && !_player.level().isClientSide())

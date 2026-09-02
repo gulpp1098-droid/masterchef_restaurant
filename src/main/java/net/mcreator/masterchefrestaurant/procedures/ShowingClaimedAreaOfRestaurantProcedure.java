@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
@@ -41,18 +39,14 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 			if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
 				locationsArray = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants", "locations",
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				locationArray = new Object() {
-					public ArrayList<Object> convert(String text, String separator) {
-						return new ArrayList<>(Arrays.asList(text.split(separator)));
-					}
-				}.convert((((("" + locationsArray).replace("\"", "")).replace("[", "")).replace("]", "")), ",");
+				locationArray = string2ArrayList((((("" + locationsArray).replace("\"", "")).replace("[", "")).replace("]", "")), ",");
 				PosY = y;
 				if (locationsArray.size() > 0) {
 					while (!world.getBlockState(BlockPos.containing(x, PosY, z)).canOcclude()) {
 						PosY = PosY - 1;
 					}
 					index = 0;
-					for (int index1 = 0; index1 < (int) locationsArray.size(); index1++) {
+					for (int _i1 = 0; _i1 < (int) locationsArray.size(); _i1++) {
 						locationString = locationsArray.get((int) index).getAsString();
 						SectionX = new Object() {
 							double convert(String s) {
@@ -107,5 +101,9 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 					_player.displayClientMessage(Component.literal("Create Restaurant first!"), false);
 			}
 		}
+	}
+
+	private static ArrayList<Object> string2ArrayList(String text, String separator) {
+		return new ArrayList<>(Arrays.asList(text.split(separator)));
 	}
 }

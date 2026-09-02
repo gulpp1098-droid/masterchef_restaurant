@@ -8,21 +8,23 @@ import net.minecraft.client.model.HierarchicalModel;
 
 import net.mcreator.masterchefrestaurant.entity.ClientEntity;
 import net.mcreator.masterchefrestaurant.client.model.animations.ClientNewAnimation;
-import net.mcreator.masterchefrestaurant.client.model.ModelClientNew;
+import net.mcreator.masterchefrestaurant.client.model.ModelClientNewV2;
 
-public class ClientRenderer extends MobRenderer<ClientEntity, ModelClientNew<ClientEntity>> {
-	private final ResourceLocation entityTexture = ResourceLocation.parse("masterchef_restaurant:textures/entities/textureclientnew.png");
+public class ClientRenderer extends MobRenderer<ClientEntity, ModelClientNewV2<ClientEntity>> {
+	private final ResourceLocation entityTexture = ResourceLocation.parse("masterchef_restaurant:textures/entities/textureclientnewv2.png");
 
 	public ClientRenderer(EntityRendererProvider.Context context) {
-		super(context, new AnimatedModel(context.bakeLayer(ModelClientNew.LAYER_LOCATION)), 0.5f);
+		super(context, new AnimatedModel(context.bakeLayer(ModelClientNewV2.LAYER_LOCATION)), 0.5f);
 	}
 
 	@Override
 	public ResourceLocation getTextureLocation(ClientEntity entity) {
+		if (entity.getTexture() != "textureclientnewv2")
+			return ResourceLocation.parse("masterchef_restaurant:textures/entities/" + entity.getTexture() + ".png");
 		return entityTexture;
 	}
 
-	private static final class AnimatedModel extends ModelClientNew<ClientEntity> {
+	private static final class AnimatedModel extends ModelClientNewV2<ClientEntity> {
 		private final ModelPart root;
 		private final HierarchicalModel animator = new HierarchicalModel<ClientEntity>() {
 			@Override

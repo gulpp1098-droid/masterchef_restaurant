@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.Area;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.item.component.CustomData;
@@ -55,9 +53,12 @@ public class SpatulaShowingAreaToSelectProcedure {
 							Area = world instanceof ServerLevel _level19 ? getEntityFromUUID(_level19, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null;
 							{
 								Entity _ent = (world instanceof ServerLevel _level20 ? getEntityFromUUID(_level20, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null);
-								_ent.teleportTo(EntityPositionX, (BlockYPos - 1.1), EntityPositionZ);
+								double _tx = EntityPositionX;
+								double _ty = (BlockYPos - 1.1);
+								double _tz = EntityPositionZ;
+								_ent.teleportTo(_tx, _ty, _tz);
 								if (_ent instanceof ServerPlayer _serverPlayer)
-									_serverPlayer.connection.teleport(EntityPositionX, (BlockYPos - 1.1), EntityPositionZ, _ent.getYRot(), _ent.getXRot());
+									_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
 							}
 							{
 								Entity _ent = (world instanceof ServerLevel _level22 ? getEntityFromUUID(_level22, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null);

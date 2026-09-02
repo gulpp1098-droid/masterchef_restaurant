@@ -29,9 +29,12 @@ public class ClientQueueMoveStateProcedure {
 				_entity.getNavigation().stop();
 			{
 				Entity _ent = client;
-				_ent.teleportTo(X, (Y + 0.1), Z);
+				double _tx = X;
+				double _ty = (Y + 0.1);
+				double _tz = Z;
+				_ent.teleportTo(_tx, _ty, _tz);
 				if (_ent instanceof ServerPlayer _serverPlayer)
-					_serverPlayer.connection.teleport(X, (Y + 0.1), Z, _ent.getYRot(), _ent.getXRot());
+					_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
 			}
 			if (client instanceof Mob _mob10)
 				_mob10.setNoAi(true);

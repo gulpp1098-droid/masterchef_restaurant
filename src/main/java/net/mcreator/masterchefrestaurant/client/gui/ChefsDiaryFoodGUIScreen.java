@@ -77,7 +77,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_food_gui.label_food_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_food_gui.label_food_wip"), -145, -98, -12829636, false);
 	}
 
 	@Override

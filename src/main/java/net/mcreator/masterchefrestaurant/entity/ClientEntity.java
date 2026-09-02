@@ -30,6 +30,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.mcreator.masterchefrestaurant.procedures.*;
 
 public class ClientEntity extends PathfinderMob {
+	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ClientEntity.class, EntityDataSerializers.STRING);
+	public static final EntityDataAccessor<Integer> ANIM = SynchedEntityData.defineId(ClientEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Boolean> DATA_Sit = SynchedEntityData.defineId(ClientEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Boolean> DATA_Walk = SynchedEntityData.defineId(ClientEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Boolean> DATA_Idle = SynchedEntityData.defineId(ClientEntity.class, EntityDataSerializers.BOOLEAN);
@@ -44,11 +46,48 @@ public class ClientEntity extends PathfinderMob {
 	}
 
 	@Override
+	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
+		if (ANIM.equals(data)) {
+			switch (this.entityData.get(ANIM)) {
+				case -1 :
+					this.animationState0.stop();
+					break;
+				case -2 :
+					this.animationState1.stop();
+					break;
+				case -3 :
+					this.animationState2.stop();
+					break;
+				case 0 :
+					this.animationState0.start(this.tickCount);
+					break;
+				case 1 :
+					this.animationState1.start(this.tickCount);
+					break;
+				case 2 :
+					this.animationState2.start(this.tickCount);
+					break;
+			}
+		}
+		super.onSyncedDataUpdated(data);
+	}
+
+	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
+		builder.define(TEXTURE, "textureclientnewv2");
+		builder.define(ANIM, 0);
 		builder.define(DATA_Sit, false);
 		builder.define(DATA_Walk, false);
 		builder.define(DATA_Idle, false);
+	}
+
+	public void setTexture(String texture) {
+		this.entityData.set(TEXTURE, texture);
+	}
+
+	public String getTexture() {
+		return this.entityData.get(TEXTURE);
 	}
 
 	@Override
@@ -128,6 +167,7 @@ public class ClientEntity extends PathfinderMob {
 	@Override
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
+		compound.putString("Texture", this.getTexture());
 		compound.putBoolean("DataSit", this.entityData.get(DATA_Sit));
 		compound.putBoolean("DataWalk", this.entityData.get(DATA_Walk));
 		compound.putBoolean("DataIdle", this.entityData.get(DATA_Idle));
@@ -136,6 +176,8 @@ public class ClientEntity extends PathfinderMob {
 	@Override
 	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
+		if (compound.contains("Texture"))
+			this.setTexture(compound.getString("Texture"));
 		if (compound.contains("DataSit"))
 			this.entityData.set(DATA_Sit, compound.getBoolean("DataSit"));
 		if (compound.contains("DataWalk"))

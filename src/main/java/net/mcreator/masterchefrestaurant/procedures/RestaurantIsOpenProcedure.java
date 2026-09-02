@@ -2,8 +2,6 @@ package net.mcreator.masterchefrestaurant.procedures;
 
 import org.spongepowered.asm.mixin.injection.Group;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.neoforged.fml.loading.FMLPaths;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -86,7 +84,7 @@ public class RestaurantIsOpenProcedure {
 				e.printStackTrace();
 			}
 		}
-		for (int index0 = 0; index0 < Mth.nextInt(RandomSource.create(), (int) TablesAmount, (int) (TablesAmount * 2)); index0++) {
+		for (int _i1 = 0; _i1 < Mth.nextInt(RandomSource.create(), (int) TablesAmount, (int) (TablesAmount * 2)); _i1++) {
 			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 500));
 			if (SpawnTime < smallestSpawnTime || indexGroup == 0) {
 				smallestSpawnTime = SpawnTime;
@@ -108,7 +106,7 @@ public class RestaurantIsOpenProcedure {
 			Group.addProperty("spawn_time", ((int) SpawnTime));
 			Group.addProperty("spawned", false);
 			Group.addProperty("state", "walk");
-			for (int index1 = 0; index1 < Mth.nextInt(RandomSource.create(), 1, (int) ChairAmount); index1++) {
+			for (int _i2 = 0; _i2 < Mth.nextInt(RandomSource.create(), 1, (int) ChairAmount); _i2++) {
 				foodArray = emptyArray.deepCopy();
 				FoodDeliveredArray = emptyArray.deepCopy();
 				membersObject = new Object() {
@@ -155,15 +153,15 @@ public class RestaurantIsOpenProcedure {
 				}
 				FoodAmountOrder = Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood);
 				FoodMenu = "";
-				for (int index2 = 0; index2 < (int) FoodAmountOrder; index2++) {
+				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
 					Found = false;
 					chosedFood = foodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (foodList.size() - 1)))).getAsString();
 					foodArray.add(chosedFood);
 					indexObject = 0;
-					for (int index3 = 0; index3 < (int) tiersObject.size(); index3++) {
+					for (int _i4 = 0; _i4 < (int) tiersObject.size(); _i4++) {
 						tierArray = tiersObject.get(("" + (int) indexObject)).getAsJsonArray();
 						indexArray = 0;
-						for (int index4 = 0; index4 < (int) tierArray.size(); index4++) {
+						for (int _i5 = 0; _i5 < (int) tierArray.size(); _i5++) {
 							mealObject = tierArray.get((int) indexArray).getAsJsonObject();
 							if ((mealObject.get("id").getAsString()).equals(chosedFood)) {
 								Found = true;

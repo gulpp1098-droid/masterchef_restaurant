@@ -10,6 +10,7 @@ import net.neoforged.api.distmarker.Dist;
 
 import net.mcreator.masterchefrestaurant.client.model.ModelRestaurantEdge;
 import net.mcreator.masterchefrestaurant.client.model.ModelRestaurantArea;
+import net.mcreator.masterchefrestaurant.client.model.ModelClientNewV2;
 import net.mcreator.masterchefrestaurant.client.model.ModelClientNew;
 import net.mcreator.masterchefrestaurant.client.model.ModelChairMob;
 
@@ -19,6 +20,7 @@ public class MasterchefRestaurantModModels {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelChairMob.LAYER_LOCATION, ModelChairMob::createBodyLayer);
 		event.registerLayerDefinition(ModelClientNew.LAYER_LOCATION, ModelClientNew::createBodyLayer);
+		event.registerLayerDefinition(ModelClientNewV2.LAYER_LOCATION, ModelClientNewV2::createBodyLayer);
 		event.registerLayerDefinition(ModelRestaurantArea.LAYER_LOCATION, ModelRestaurantArea::createBodyLayer);
 		event.registerLayerDefinition(ModelRestaurantEdge.LAYER_LOCATION, ModelRestaurantEdge::createBodyLayer);
 	}

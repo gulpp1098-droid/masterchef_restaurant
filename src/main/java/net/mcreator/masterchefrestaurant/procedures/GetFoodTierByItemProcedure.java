@@ -48,10 +48,10 @@ public class GetFoodTierByItemProcedure {
 			}
 		}
 		tierIndex = 0;
-		for (int index0 = 0; index0 < (int) tiersObject.size(); index0++) {
+		for (int _i1 = 0; _i1 < (int) tiersObject.size(); _i1++) {
 			tierArray = tiersObject.get(("" + (int) tierIndex)).getAsJsonArray();
 			foodIndex = 0;
-			for (int index1 = 0; index1 < (int) tierArray.size(); index1++) {
+			for (int _i2 = 0; _i2 < (int) tierArray.size(); _i2++) {
 				foodObject = tierArray.get((int) foodIndex).getAsJsonObject();
 				if ((foodID).equals(foodObject.get("id").getAsString())) {
 					found = true;

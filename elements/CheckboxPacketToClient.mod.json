@@ -1,9 +1,7 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "packet",
   "definition": {
-    "clientBound": {
-      "name": "CheckboxPacketToClientProcedure"
-    }
+    "clientBound": "CheckboxPacketToClientProcedure"
   }
 }

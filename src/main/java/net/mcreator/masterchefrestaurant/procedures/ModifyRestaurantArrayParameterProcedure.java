@@ -35,7 +35,7 @@ public class ModifyRestaurantArrayParameterProcedure {
 				EditArrayLocation = Restaurant.get(arrayParameterNameDependency).getAsJsonArray();
 				alreadyExists = false;
 				duplicateLocationIndex = 0;
-				for (int index0 = 0; index0 < (int) EditArrayLocation.size(); index0++) {
+				for (int _i1 = 0; _i1 < (int) EditArrayLocation.size(); _i1++) {
 					if ((EditArrayLocation.get((int) duplicateLocationIndex).getAsString()).equals(locationDependency)) {
 						alreadyExists = true;
 						break;

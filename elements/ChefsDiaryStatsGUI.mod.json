@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -10,6 +10,19 @@
     "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "stars_sprite_icon.png",
+          "spritesCount": 11,
+          "spriteIndex": {
+            "fixedValue": 0.0
+          },
+          "x": 242,
+          "y": 45,
+          "locked": false
+        }
+      },
       {
         "type": "image",
         "data": {
@@ -36,9 +49,7 @@
           "name": "imagebutton_base_icon",
           "image": "base_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryMenu"
-          },
+          "onClick": "ChefsDiaryMenu",
           "x": 361,
           "y": 22,
           "locked": false
@@ -50,9 +61,7 @@
           "name": "imagebutton_food_icon",
           "image": "food_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryFood"
-          },
+          "onClick": "ChefsDiaryFood",
           "x": 362,
           "y": 52,
           "locked": false
@@ -64,9 +73,7 @@
           "name": "imagebutton_clients_icon",
           "image": "clients_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryClients"
-          },
+          "onClick": "ChefsDiaryClients",
           "x": 363,
           "y": 81,
           "locked": false
@@ -78,9 +85,7 @@
           "name": "imagebutton_appliences_icon",
           "image": "appliences_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryApplience"
-          },
+          "onClick": "ChefsDiaryApplience",
           "x": 362,
           "y": 109,
           "locked": false
@@ -92,9 +97,7 @@
           "name": "imagebutton_stats_icon",
           "image": "stats_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryStats"
-          },
+          "onClick": "ChefsDiaryStats",
           "x": 361,
           "y": 137,
           "locked": false
@@ -113,7 +116,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
+          "y": 22,
           "locked": false
         }
       },
@@ -159,7 +162,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 57,
+          "y": 58,
           "locked": false
         }
       },
@@ -177,7 +180,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 69,
+          "y": 72,
           "locked": false
         }
       },
@@ -195,7 +198,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 83,
+          "y": 85,
           "locked": false
         }
       },
@@ -216,11 +219,26 @@
           "y": 98,
           "locked": false
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_restaurant_stars",
+          "text": {
+            "fixedValue": "Restaurant stars"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 22,
+          "locked": false
+        }
       }
     ],
-    "onTick": {
-      "name": "CreateGUIDataTransfer"
-    },
+    "onTick": "CreateGUIDataTransfer",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

@@ -26,7 +26,7 @@ public class LocationGuideGUIMenu extends AbstractContainerMenu implements Maste
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 31)
+			if (!this.containsKey(key) && this.size() >= 11)
 				return null;
 			return super.put(key, value);
 		}

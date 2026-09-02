@@ -1,14 +1,12 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "",
     "unlockingItems": [
-      {
-        "value": "CUSTOM:ChefsDiary"
-      }
+      "CUSTOM:ChefsDiary"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -16,37 +14,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "Blocks.WOODEN_SLAB"
-      },
-      {
-        "value": "Blocks.WOODEN_SLAB"
-      },
-      {
-        "value": "Blocks.WOODEN_SLAB"
-      },
-      {
-        "value": "Blocks.PLANKS"
-      },
-      {
-        "value": "CUSTOM:ChefsDiary"
-      },
-      {
-        "value": "Blocks.PLANKS"
-      },
-      {
-        "value": "Blocks.PLANKS"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Blocks.PLANKS"
-      }
+      "Blocks.WOODEN_SLAB",
+      "Blocks.WOODEN_SLAB",
+      "Blocks.WOODEN_SLAB",
+      "Blocks.PLANKS",
+      "CUSTOM:ChefsDiary",
+      "Blocks.PLANKS",
+      "Blocks.PLANKS",
+      "",
+      "Blocks.PLANKS"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:ServiceTable"
-    },
+    "recipeReturnStack": "CUSTOM:ServiceTable",
     "name": "service_table_recipe",
     "namespace": "mod"
   }

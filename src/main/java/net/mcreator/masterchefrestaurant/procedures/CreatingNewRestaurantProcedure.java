@@ -76,7 +76,7 @@ public class CreatingNewRestaurantProcedure {
 			} else {
 				Restaurant_Array = GetRestaurantsListArrayProcedure.execute(world);
 				index = 0;
-				for (int index0 = 0; index0 < (int) Restaurant_Array.size(); index0++) {
+				for (int _i1 = 0; _i1 < (int) Restaurant_Array.size(); _i1++) {
 					Restaurant = Restaurant_Array.get((int) index).getAsJsonObject();
 					Restaurant_Name = Restaurant.get("name").getAsString();
 					if ((NewRestaurant_Name).equals(Restaurant_Name)) {
@@ -107,13 +107,9 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurant.addProperty("close_time", 0);
 				NewRestaurant.add("tables", LocationArray);
 				NewRestaurant.addProperty("reception", "");
-				if (world.dayTime() % 24000 < 9000) {
-					NewRestaurant.addProperty("creation_menu_day", (Math.floor(world.dayTime() / 24000d) - 1));
-				} else {
-					NewRestaurant.addProperty("creation_menu_day", Math.floor(world.dayTime() / 24000d));
-				}
 				NewRestaurant.addProperty("last_day_open", (-1));
 				NewRestaurant.add("menu", LocationArray);
+				NewRestaurant.add("next_menu", LocationArray);
 				dailyStatsObject.addProperty("customers_served_fully", 0);
 				dailyStatsObject.addProperty("customers_served", 0);
 				dailyStatsObject.addProperty("customers_lost", 0);

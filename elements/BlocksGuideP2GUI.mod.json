@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -36,9 +36,7 @@
           "name": "imagebutton_base_icon",
           "image": "base_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryMenu"
-          },
+          "onClick": "ChefsDiaryMenu",
           "x": 361,
           "y": 22,
           "locked": false
@@ -50,9 +48,7 @@
           "name": "imagebutton_food_icon",
           "image": "food_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryFood"
-          },
+          "onClick": "ChefsDiaryFood",
           "x": 362,
           "y": 52,
           "locked": false
@@ -64,9 +60,7 @@
           "name": "imagebutton_clients_icon",
           "image": "clients_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryClients"
-          },
+          "onClick": "ChefsDiaryClients",
           "x": 363,
           "y": 81,
           "locked": false
@@ -78,9 +72,7 @@
           "name": "imagebutton_appliences_icon",
           "image": "appliences_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryApplience"
-          },
+          "onClick": "ChefsDiaryApplience",
           "x": 362,
           "y": 109,
           "locked": false
@@ -92,9 +84,7 @@
           "name": "imagebutton_stats_icon",
           "image": "stats_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryStats"
-          },
+          "onClick": "ChefsDiaryStats",
           "x": 361,
           "y": 137,
           "locked": false
@@ -113,58 +103,7 @@
           },
           "hasShadow": false,
           "x": 219,
-          "y": 18,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_restaurant_begins_from_this_plac",
-          "text": {
-            "fixedValue": "Customers love comfort."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 32,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_this_place",
-          "text": {
-            "fixedValue": "Let them sit by the"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_will_wait_in_queue_here",
-          "text": {
-            "fixedValue": "table!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 220,
-          "y": 58,
+          "y": 22,
           "locked": false
         }
       },
@@ -200,8 +139,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 70,
-          "y": 19,
+          "x": 69,
+          "y": 22,
           "locked": false
         }
       },
@@ -226,67 +165,14 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_customers_will_gladly",
-          "text": {
-            "fixedValue": "Customers will gladly"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 32,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_come_and_eat_food",
-          "text": {
-            "fixedValue": "come and eat food here!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_just_add_some_chair_as_well",
-          "text": {
-            "fixedValue": "Just do not forget chairs!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 59,
-          "locked": false
-        }
-      },
-      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_last_page_icon",
           "image": "last_page_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryGuideBlocks"
-          },
-          "x": 80,
-          "y": 178,
+          "onClick": "ChefsDiaryGuideBlocks",
+          "x": 73,
+          "y": 177,
           "locked": false
         }
       },
@@ -296,11 +182,45 @@
           "name": "imagebutton_next_page_icon",
           "image": "next_page_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryGuideBlocksP3"
+          "onClick": "ChefsDiaryGuideBlocksP3",
+          "x": 322,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_customers_will_gladly_come_and_e",
+          "text": "Customers will gladly come and eat food here! Just do not forget chairs!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
           },
-          "x": 320,
-          "y": 179,
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 141,
+          "height": 41,
+          "x": 69,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_customers_love_comfort_let_them",
+          "text": "Customers love comfort. Let them sit by the table!",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 120,
+          "height": 40,
+          "x": 219,
+          "y": 36,
           "locked": false
         }
       }

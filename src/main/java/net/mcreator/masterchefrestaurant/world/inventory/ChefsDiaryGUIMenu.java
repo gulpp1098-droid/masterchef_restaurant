@@ -26,7 +26,7 @@ public class ChefsDiaryGUIMenu extends AbstractContainerMenu implements Masterch
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 41)
+			if (!this.containsKey(key) && this.size() >= 30)
 				return null;
 			return super.put(key, value);
 		}

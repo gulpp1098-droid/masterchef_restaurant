@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
@@ -58,9 +56,9 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 							AddingArray = true;
 							if (Owner instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal(("Base location was set: [" + (X + ":" + Z + "]"))), false);
-						} else if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 95))) > RestaurantsArray.size()) {
+						} else if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
 							arrayIndex = 0;
-							for (int index0 = 0; index0 < (int) RestaurantsArray.size(); index0++) {
+							for (int _i1 = 0; _i1 < (int) RestaurantsArray.size(); _i1++) {
 								restaurantsString = RestaurantsArray.get((int) arrayIndex).getAsString();
 								PosX = new Object() {
 									double convert(String s) {

@@ -30,6 +30,8 @@ import net.mcreator.masterchefrestaurant.procedures.LocationAreaColorChangeProce
 import javax.annotation.Nullable;
 
 public class LocationAreaEntity extends PathfinderMob {
+	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(LocationAreaEntity.class, EntityDataSerializers.STRING);
+	public static final EntityDataAccessor<Integer> ANIM = SynchedEntityData.defineId(LocationAreaEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> DATA_AreaState = SynchedEntityData.defineId(LocationAreaEntity.class, EntityDataSerializers.INT);
 
 	public LocationAreaEntity(EntityType<LocationAreaEntity> type, Level world) {
@@ -42,7 +44,17 @@ public class LocationAreaEntity extends PathfinderMob {
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
+		builder.define(TEXTURE, "texturetwoarea");
+		builder.define(ANIM, 0);
 		builder.define(DATA_AreaState, 0);
+	}
+
+	public void setTexture(String texture) {
+		this.entityData.set(TEXTURE, texture);
+	}
+
+	public String getTexture() {
+		return this.entityData.get(TEXTURE);
 	}
 
 	@Override
@@ -106,12 +118,15 @@ public class LocationAreaEntity extends PathfinderMob {
 	@Override
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
+		compound.putString("Texture", this.getTexture());
 		compound.putInt("DataAreaState", this.entityData.get(DATA_AreaState));
 	}
 
 	@Override
 	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
+		if (compound.contains("Texture"))
+			this.setTexture(compound.getString("Texture"));
 		if (compound.contains("DataAreaState"))
 			this.entityData.set(DATA_AreaState, compound.getInt("DataAreaState"));
 	}

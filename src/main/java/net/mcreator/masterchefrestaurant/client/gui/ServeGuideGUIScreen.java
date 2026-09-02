@@ -65,7 +65,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -28, this.topPos + -106, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -28, this.topPos + -102, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -80,28 +80,13 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_every_chef_needs_a_proper_tool"), -145, -89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_tool"), -145, -77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_the_golden_spatula_will"), -144, -64, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_be_your_best_friend"), -144, -52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_it_lets_you_create"), -144, -38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_manage_your_restaurant"), -143, -25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_as_well_as_claim_area"), -143, -12, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_check_basic_info_and"), -143, 0, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_prepare_place_for_customers"), -143, 13, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_keep_it_close_without_it"), -143, 25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_your_restaurant_is_useless_as"), -143, 38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_as_menu_with_no_food"), -143, 52, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_after_that_you_can_add"), 1, -89, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_3_more_but_it_is"), 1, -77, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_up_to_you"), 1, -63, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_inside_this_area_you_can"), 0, -38, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_place_all_your_fuctional"), 0, -25, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_blocks"), 0, -12, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_with_level_you_will_gain"), -1, 1, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_more_space_to_claim_for"), -1, 14, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_is_up_to_you"), 1, -50, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patiance. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
+				-145, -84, 132, 161, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"When a customer is ready, you will see icon above their head. Interact with them to see their order. Place the correct food in the input slot. If the food matches, it will be marked as delivered.", 5, -84, 125, 126, -12829636, false,
+				1.00F);
 	}
 
 	@Override
@@ -182,7 +167,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 104, this.topPos + 58, 16, 16,
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
 					int x = ServeGuideGUIScreen.this.x;
 					int y = ServeGuideGUIScreen.this.y;
@@ -197,5 +182,53 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int currentY = 0;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			for (String line : lines) {
+				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
+				currentY += lineStep;
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }

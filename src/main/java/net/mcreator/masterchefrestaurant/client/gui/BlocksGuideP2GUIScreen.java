@@ -87,14 +87,10 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_reception1"), 5, -102, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_restaurant_begins_from_this_plac"), 5, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_this_place"), 5, -75, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_will_wait_in_queue_here"), 6, -62, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table"), -144, -101, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_customers_will_gladly"), -144, -88, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_come_and_eat_food"), -144, -75, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_just_add_some_chair_as_well"), -144, -61, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_reception1"), 5, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table"), -145, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Customers will gladly come and eat food here! Just do not forget chairs!", -145, -84, 141, 41, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Customers love comfort. Let them sit by the table!", 5, -84, 120, 40, -12829636, false, 1.00F);
 	}
 
 	@Override
@@ -175,7 +171,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_last_page_icon = new ImageButton(this.leftPos + -134, this.topPos + 58, 16, 16,
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
 					int x = BlocksGuideP2GUIScreen.this.x;
 					int y = BlocksGuideP2GUIScreen.this.y;
@@ -190,7 +186,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 106, this.topPos + 59, 16, 16,
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
 					int x = BlocksGuideP2GUIScreen.this.x;
 					int y = BlocksGuideP2GUIScreen.this.y;
@@ -205,5 +201,53 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int currentY = 0;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			for (String line : lines) {
+				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
+				currentY += lineStep;
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }

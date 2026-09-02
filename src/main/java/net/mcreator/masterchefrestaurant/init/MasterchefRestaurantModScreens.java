@@ -32,6 +32,7 @@ public class MasterchefRestaurantModScreens {
 		event.register(MasterchefRestaurantModMenus.SERVE_GUIDE_GUI.get(), ServeGuideGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.EXP_LEVEL_GUIDE_GUI.get(), ExpLevelGuideGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.SERVE_GUIDE_P_2_GUI.get(), ServeGuideP2GUIScreen::new);
+		event.register(MasterchefRestaurantModMenus.MENU_GUI.get(), MenuGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

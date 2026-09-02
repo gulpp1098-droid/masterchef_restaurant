@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -10,6 +10,20 @@
     "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "signopenclose_sprite.png",
+          "spritesCount": 2,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "OpenCloseReturn"
+          },
+          "x": 145,
+          "y": 127,
+          "locked": false
+        }
+      },
       {
         "type": "image",
         "data": {
@@ -63,9 +77,7 @@
           "name": "imagebutton_button_icon",
           "image": "button_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "OpenCreateRestaurantGUI"
-          },
+          "onClick": "OpenCreateRestaurantGUI",
           "x": 133,
           "y": 61,
           "locked": false
@@ -94,9 +106,7 @@
           "name": "imagebutton_button_icon1",
           "image": "button_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "SetSpatulaLocationModeTrue"
-          },
+          "onClick": "SetSpatulaLocationModeTrue",
           "x": 133,
           "y": 94,
           "locked": false
@@ -125,25 +135,9 @@
           "name": "imagebutton_button_icon2",
           "image": "openclosebutton_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "OpenRestaurantButton"
-          },
+          "onClick": "OpenRestaurantButton",
           "x": 217,
           "y": 132,
-          "locked": false
-        }
-      },
-      {
-        "type": "sprite",
-        "data": {
-          "sprite": "signopenclose_sprite.png",
-          "spritesCount": 2,
-          "spriteIndex": {
-            "fixedValue": 0.0,
-            "name": "OpenCloseReturn"
-          },
-          "x": 145,
-          "y": 127,
           "locked": false
         }
       },
@@ -310,7 +304,8 @@
         "data": {
           "name": "label_day_menu",
           "text": {
-            "fixedValue": "Day Menu"
+            "fixedValue": "Day Menu",
+            "name": "MenuNameReturn"
           },
           "color": {
             "value": -1,
@@ -553,9 +548,7 @@
           "name": "imagebutton_next_page_icon",
           "image": "next_page_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "MenuNextPage"
-          },
+          "onClick": "MenuNextPage",
           "x": 387,
           "y": 174,
           "locked": false
@@ -567,9 +560,7 @@
           "name": "imagebutton_last_page_icon",
           "image": "last_page_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "MenuPreviousPage"
-          },
+          "onClick": "MenuPreviousPage",
           "x": 334,
           "y": 174,
           "locked": false
@@ -799,14 +790,34 @@
           "y": 178,
           "locked": false
         }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "button_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon",
+          "text": "Next day menu",
+          "isUndecorated": true,
+          "onClick": "OpenNextDayMenuGUI",
+          "width": 78,
+          "height": 21,
+          "x": 330,
+          "y": 206,
+          "locked": false
+        }
       }
     ],
-    "onOpen": {
-      "name": "OpenManagmentGUI"
-    },
-    "onTick": {
-      "name": "OpenManagmentGUI"
-    },
+    "onOpen": "OpenManagmentGUI",
+    "onTick": "OpenManagmentGUI",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

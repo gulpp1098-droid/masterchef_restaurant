@@ -38,7 +38,7 @@ public class RestaurantManagementGUIMenu extends AbstractContainerMenu implement
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 56)
+			if (!this.containsKey(key) && this.size() >= 57)
 				return null;
 			return super.put(key, value);
 		}
@@ -68,7 +68,7 @@ public class RestaurantManagementGUIMenu extends AbstractContainerMenu implement
 			access = ContainerLevelAccess.create(world, pos);
 		}
 		if (pos != null) {
-			if (extraData.readableBytes() == 1) { // bound to item
+			if (extraData.readableBytes() == 1) {
 				byte hand = extraData.readByte();
 				ItemStack itemstack = hand == 0 ? this.entity.getMainHandItem() : this.entity.getOffhandItem();
 				this.boundItemMatcher = () -> itemstack == (hand == 0 ? this.entity.getMainHandItem() : this.entity.getOffhandItem());
@@ -77,8 +77,8 @@ public class RestaurantManagementGUIMenu extends AbstractContainerMenu implement
 					this.internal = cap;
 					this.bound = true;
 				}
-			} else if (extraData.readableBytes() > 1) { // bound to entity
-				extraData.readByte(); // drop padding
+			} else if (extraData.readableBytes() > 1) {
+				extraData.readByte();
 				boundEntity = world.getEntity(extraData.readVarInt());
 				if (boundEntity != null) {
 					IItemHandler cap = boundEntity.getCapability(Capabilities.ItemHandler.ENTITY);
@@ -87,7 +87,7 @@ public class RestaurantManagementGUIMenu extends AbstractContainerMenu implement
 						this.bound = true;
 					}
 				}
-			} else { // might be bound to block
+			} else {
 				boundBlockEntity = this.world.getBlockEntity(pos);
 				if (boundBlockEntity instanceof BaseContainerBlockEntity baseContainerBlockEntity) {
 					this.internal = new InvWrapper(baseContainerBlockEntity);

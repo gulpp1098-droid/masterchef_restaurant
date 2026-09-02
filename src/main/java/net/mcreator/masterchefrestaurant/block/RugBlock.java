@@ -58,10 +58,10 @@ public class RugBlock extends Block implements SimpleWaterloggedBlock, EntityBlo
 	private ImmutableMap<BlockState, VoxelShape> makeShapes() {
 		return this.getShapeForEachState(state -> {
 			return switch (state.getValue(FACING)) {
-				default -> box(0, 0, 0, 16, 0.1, 16);
 				case NORTH -> box(0, 0, 0, 16, 0.1, 16);
 				case EAST -> box(0, 0, 0, 16, 0.1, 16);
 				case WEST -> box(0, 0, 0, 16, 0.1, 16);
+				default -> box(0, 0, 0, 16, 0.1, 16);
 			};
 		});
 	}
@@ -101,8 +101,11 @@ public class RugBlock extends Block implements SimpleWaterloggedBlock, EntityBlo
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		BlockState state = super.getStateForPlacement(context);
+		if (state == null)
+			return null;
 		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
-		return super.getStateForPlacement(context).setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(STATE, 5).setValue(WATERLOGGED, flag);
+		return state.setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(STATE, 5).setValue(WATERLOGGED, flag);
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {

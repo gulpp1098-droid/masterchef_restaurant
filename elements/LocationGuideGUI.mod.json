@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -36,9 +36,7 @@
           "name": "imagebutton_base_icon",
           "image": "base_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryMenu"
-          },
+          "onClick": "ChefsDiaryMenu",
           "x": 361,
           "y": 22,
           "locked": false
@@ -50,9 +48,7 @@
           "name": "imagebutton_food_icon",
           "image": "food_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryFood"
-          },
+          "onClick": "ChefsDiaryFood",
           "x": 362,
           "y": 52,
           "locked": false
@@ -64,9 +60,7 @@
           "name": "imagebutton_clients_icon",
           "image": "clients_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryClients"
-          },
+          "onClick": "ChefsDiaryClients",
           "x": 363,
           "y": 81,
           "locked": false
@@ -78,9 +72,7 @@
           "name": "imagebutton_appliences_icon",
           "image": "appliences_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryApplience"
-          },
+          "onClick": "ChefsDiaryApplience",
           "x": 362,
           "y": 109,
           "locked": false
@@ -92,9 +84,7 @@
           "name": "imagebutton_stats_icon",
           "image": "stats_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "ChefsDiaryStats"
-          },
+          "onClick": "ChefsDiaryStats",
           "x": 361,
           "y": 137,
           "locked": false
@@ -113,211 +103,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_every_chef_needs_a_proper_tool",
-          "text": {
-            "fixedValue": "Before placing down your"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 31,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_tool",
-          "text": {
-            "fixedValue": "blocks, you need to"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_the_golden_spatula_will",
-          "text": {
-            "fixedValue": "claim an area for your"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 56,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_be_your_best_friend",
-          "text": {
-            "fixedValue": "restaurant!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 68,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_it_lets_you_create",
-          "text": {
-            "fixedValue": "Take your Golden Spatula"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 70,
-          "y": 82,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_manage_your_restaurant",
-          "text": {
-            "fixedValue": "and choose \"Set Location"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_as_well_as_claim_area",
-          "text": {
-            "fixedValue": "for Restaurant\"."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_check_basic_info_and",
-          "text": {
-            "fixedValue": "You will notice a green"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 120,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_prepare_place_for_customers",
-          "text": {
-            "fixedValue": "5x5 square on the floor."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 133,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_keep_it_close_without_it",
-          "text": {
-            "fixedValue": "When you right click"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 145,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_your_restaurant_is_useless_as",
-          "text": {
-            "fixedValue": "on the block, it will"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 158,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_as_menu_with_no_food",
-          "text": {
-            "fixedValue": "set up your first area!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 71,
-          "y": 172,
+          "y": 22,
           "locked": false
         }
       },
@@ -327,177 +113,43 @@
           "image": "location_icon.png",
           "use1Xscale": false,
           "x": 153,
-          "y": 14,
+          "y": 16,
           "locked": false
         }
       },
       {
-        "type": "label",
+        "type": "multiline_label",
         "data": {
-          "name": "label_after_that_you_can_add",
-          "text": {
-            "fixedValue": "After that you can claim"
-          },
+          "name": "multiline_label_before_placing_down_your_blocks",
+          "text": "Before placing down your blocks, you need to claim an area for your restaurant!\nTake your Golden Spatula and choose \"Set Location for Restaurant\". you will notice a green 5x5 square on the floor. When you right click on the block, it will set up your first area!",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 215,
-          "y": 31,
+          "fontScale": 100,
+          "width": 130,
+          "height": 167,
+          "x": 69,
+          "y": 36,
           "locked": false
         }
       },
       {
-        "type": "label",
+        "type": "multiline_label",
         "data": {
-          "name": "label_3_more_but_it_is",
-          "text": {
-            "fixedValue": "3 more areas at the start"
-          },
+          "name": "multiline_label_after_that_you_can_claim_3_more",
+          "text": "After that you can claim 3 more areas at the start but the shape and amount is up to you!\nInside claimed areas, you can place all functional restaurant blocks. As your restaurant level grows, you will unlock more space to claim!",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 215,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_up_to_you",
-          "text": {
-            "fixedValue": "but the shape and amount"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 57,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_inside_this_area_you_can",
-          "text": {
-            "fixedValue": "Inside claimed areas, you"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 82,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_place_all_your_fuctional",
-          "text": {
-            "fixedValue": "can place all fuctional"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 95,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_blocks",
-          "text": {
-            "fixedValue": "restaurant blocks."
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 214,
-          "y": 108,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_with_level_you_will_gain",
-          "text": {
-            "fixedValue": "As your restaurant level"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 121,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_more_space_to_claim_for",
-          "text": {
-            "fixedValue": "grows, you will unlock"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 134,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_your_restaurant",
-          "text": {
-            "fixedValue": "more space to claim!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 213,
-          "y": 146,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_is_up_to_you",
-          "text": {
-            "fixedValue": "is up to you!"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 215,
-          "y": 70,
+          "fontScale": 100,
+          "width": 129,
+          "height": 149,
+          "x": 219,
+          "y": 36,
           "locked": false
         }
       }

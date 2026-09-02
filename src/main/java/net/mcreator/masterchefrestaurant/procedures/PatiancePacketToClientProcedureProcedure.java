@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;

@@ -1,5 +1,5 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -38,9 +38,7 @@
           "name": "imagebutton_checkboxon",
           "image": "create_icon.png",
           "hoveredImage": "",
-          "onClick": {
-            "name": "CreatingNewRestaurant"
-          },
+          "onClick": "CreatingNewRestaurant",
           "x": 290,
           "y": 103,
           "locked": false

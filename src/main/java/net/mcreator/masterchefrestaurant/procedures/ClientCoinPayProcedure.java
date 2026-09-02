@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -37,44 +35,24 @@ public class ClientCoinPayProcedure {
 		client = entity;
 		foodDelivered = client.getPersistentData().getString("food_delivered");
 		orderedFood = client.getPersistentData().getString("food_tiers");
-		array = new Object() {
-			public ArrayList<Object> convert(String text, String separator) {
-				return new ArrayList<>(Arrays.asList(text.split(separator)));
-			}
-		}.convert(orderedFood, ",");
+		array = string2ArrayList(orderedFood, ",");
 		index = 0;
-		String[] _array5 = foodDelivered.split(Pattern.quote(","));
-		if (_array5.length != 0) {
-			for (String stringiterator : _array5) {
-				if ((stringiterator).equals("1")) {
-					CoinSum = (new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
+		String _toSplit5 = foodDelivered;
+		String[] _array5 = _toSplit5.split(Pattern.quote(","));
+		for (int _iter5 = 0; _iter5 < Math.max(1, _array5.length); _iter5++) {
+			String stringiterator = _array5.length == 0 ? _toSplit5 : _array5[_iter5];
+			if ((stringiterator).equals("1")) {
+				CoinSum = (new Object() {
+					double convert(String s) {
+						try {
+							return Double.parseDouble(s.trim());
+						} catch (Exception e) {
 						}
-					}.convert(array.get((int) index) instanceof String _str4 ? _str4 : "") + 1) * 2 + CoinSum;
-				}
-				index = index + 1;
+						return 0;
+					}
+				}.convert(array.get((int) index) instanceof String _str4 ? _str4 : "") + 1) * 2 + CoinSum;
 			}
-		} else {
-			String stringiterator = foodDelivered;
-			for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-				if ((stringiterator).equals("1")) {
-					CoinSum = (new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
-						}
-					}.convert(array.get((int) index) instanceof String _str4 ? _str4 : "") + 1) * 2 + CoinSum;
-				}
-				index = index + 1;
-			}
+			index = index + 1;
 		}
 		CoinTotal = CoinSum;
 		restaurantID = client.getPersistentData().getDouble("RestaurantID");
@@ -86,6 +64,10 @@ public class ClientCoinPayProcedure {
 						BlockPos.containing(client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ()), "coins")
 						+ CoinTotal,
 				"coins");
+	}
+
+	private static ArrayList<Object> string2ArrayList(String text, String separator) {
+		return new ArrayList<>(Arrays.asList(text.split(separator)));
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {

@@ -34,7 +34,7 @@ public class GetAmountOfFoodAvailableProcedure {
 				FoodDatabase = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				Tiers = FoodDatabase.get("tiers").getAsJsonObject();
 				index = 0;
-				for (int index0 = 0; index0 < (int) Tiers.size(); index0++) {
+				for (int _i1 = 0; _i1 < (int) Tiers.size(); _i1++) {
 					Tier = Tiers.get((new java.text.DecimalFormat("#").format(index))).getAsJsonArray();
 					TotalAmount = TotalAmount + Tier.size();
 					index = index + 1;

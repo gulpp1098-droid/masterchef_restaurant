@@ -71,6 +71,12 @@ public record RestaurantManagementGUIButtonMessage(int buttonID, int x, int y, i
 
 			MenuPreviousPageProcedure.execute(world, entity);
 		}
+
+		guiTools$enhancedImageButton : {
+			if (buttonID == 5) {
+				net.mcreator.masterchefrestaurant.procedures.OpenNextDayMenuGUIProcedure.execute(world, x, y, z, entity);
+			}
+		}
 	}
 
 	@SubscribeEvent

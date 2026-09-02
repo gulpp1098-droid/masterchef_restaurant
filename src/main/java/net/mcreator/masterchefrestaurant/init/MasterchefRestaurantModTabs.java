@@ -30,6 +30,9 @@ public class MasterchefRestaurantModTabs {
 				tabData.accept(MasterchefRestaurantModBlocks.RUG.get().asItem());
 				tabData.accept(MasterchefRestaurantModBlocks.RUG_QUEUE.get().asItem());
 				tabData.accept(MasterchefRestaurantModItems.CHEFS_DIARY.get());
+				tabData.accept(MasterchefRestaurantModItems.GOLD_COIN.get());
+				tabData.accept(MasterchefRestaurantModItems.SILVER_COIN.get());
+				tabData.accept(MasterchefRestaurantModItems.COPPER_COIN.get());
 			}).build());
 
 	@SubscribeEvent

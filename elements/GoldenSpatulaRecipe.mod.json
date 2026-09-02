@@ -1,14 +1,12 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 1,
     "group": "spatulas",
     "unlockingItems": [
-      {
-        "value": "CUSTOM:ChefsDiary"
-      }
+      "CUSTOM:ChefsDiary"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -16,37 +14,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.GOLD_INGOT"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.GOLD_INGOT"
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": ""
-      }
+      "",
+      "Items.GOLD_INGOT",
+      "",
+      "",
+      "Items.GOLD_INGOT",
+      "",
+      "",
+      "Items.IRON_INGOT",
+      ""
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:SpatulaGolden"
-    },
+    "recipeReturnStack": "CUSTOM:SpatulaGolden",
     "name": "golden_spatula_recipe",
     "namespace": "mod"
   }

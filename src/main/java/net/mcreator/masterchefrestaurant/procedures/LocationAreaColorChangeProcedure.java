@@ -1,8 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-import org.checkerframework.checker.units.qual.Area;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
@@ -37,7 +34,7 @@ public class LocationAreaColorChangeProcedure {
 				if (Area instanceof LocationAreaEntity _datEntSetI)
 					_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 1);
 			} else {
-				for (int index0 = 0; index0 < (int) localizationArray.size(); index0++) {
+				for (int _i1 = 0; _i1 < (int) localizationArray.size(); _i1++) {
 					localizationString = localizationArray.get((int) localizationIndex).getAsString();
 					SectionX = new Object() {
 						double convert(String s) {

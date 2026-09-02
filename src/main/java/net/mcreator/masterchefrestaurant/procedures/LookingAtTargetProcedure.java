@@ -7,7 +7,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ClipContext;
@@ -28,6 +27,7 @@ import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModItems;
 import javax.annotation.Nullable;
 
 import java.util.regex.Pattern;
+import java.util.List;
 import java.util.Comparator;
 
 @EventBusSubscriber
@@ -60,7 +60,7 @@ public class LookingAtTargetProcedure {
 				found = false;
 				blockFound = false;
 				index = 1;
-				for (int index0 = 0; index0 < 10; index0++) {
+				for (int _i1 = 0; _i1 < 10; _i1++) {
 					distance = index * 0.5;
 					checkX = entity.getLookAngle().x * distance + x;
 					checkY = entity.getLookAngle().y * distance + entity.getEyeHeight() + y;
@@ -82,21 +82,16 @@ public class LookingAtTargetProcedure {
 						blockFound = true;
 					}
 					if (found) {
-						if (new CommandGetComponent().execute(entityFound, "data get entity @s NeoForgeData").getString().contains("{")) {
-							textResult = new CommandGetComponent().execute(entityFound, "data get entity @s NeoForgeData").getString().substring(
-									(int) new CommandGetComponent().execute(entityFound, "data get entity @s NeoForgeData").getString().indexOf("{") + "{".length(),
-									(int) new CommandGetComponent().execute(entityFound, "data get entity @s NeoForgeData").getString().lastIndexOf("}"));
+						if (getEntityCommandResult(entityFound, "data get entity @s NeoForgeData").getString().contains("{")) {
+							textResult = getEntityCommandResult(entityFound, "data get entity @s NeoForgeData").getString().substring(
+									(int) getEntityCommandResult(entityFound, "data get entity @s NeoForgeData").getString().indexOf("{") + "{".length(),
+									(int) getEntityCommandResult(entityFound, "data get entity @s NeoForgeData").getString().lastIndexOf("}"));
 							OverlayText = "";
-							String[] _array20 = textResult.split(Pattern.quote(","));
-							if (_array20.length != 0) {
-								for (String stringiterator : _array20) {
-									OverlayText = OverlayText + "\n" + (stringiterator).strip();
-								}
-							} else {
-								String stringiterator = textResult;
-								for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-									OverlayText = OverlayText + "\n" + (stringiterator).strip();
-								}
+							String _toSplit20 = textResult;
+							String[] _array20 = _toSplit20.split(Pattern.quote(","));
+							for (int _iter20 = 0; _iter20 < Math.max(1, _array20.length); _iter20++) {
+								String stringiterator = _array20.length == 0 ? _toSplit20 : _array20[_iter20];
+								OverlayText = OverlayText + "\n" + (stringiterator).strip();
 							}
 							if (entity instanceof ServerPlayer player21)
 								PacketDistributor.sendToPlayer(player21, new OverlayPacketMessage(OverlayText));
@@ -104,28 +99,23 @@ public class LookingAtTargetProcedure {
 						}
 					}
 					if (blockFound) {
-						if (new CommandGetComponent().execute(entity, ("data get block "
+						if (getEntityCommandResult(entity, ("data get block "
 								+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX() + " "
 								+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getY() + " "
 								+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getZ()
 								+ " NeoForgeData")).getString().contains("{")) {
-							textResult = new CommandGetComponent()
-									.execute(entity,
-											("data get block "
-													+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE,
-															entity)).getBlockPos().getX()
-													+ " " + entity
-															.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(
-																	1f).add(
-																			entity.getViewVector(1f).scale(5)),
-																	ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity))
-															.getBlockPos().getY()
-													+ " "
-													+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity))
-															.getBlockPos().getZ()
-													+ " NeoForgeData"))
+							textResult = getEntityCommandResult(entity,
+									("data get block " + entity
+											.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos().getX()
+											+ " "
+											+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos()
+													.getY()
+											+ " "
+											+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity)).getBlockPos()
+													.getZ()
+											+ " NeoForgeData"))
 									.getString().substring(
-											(int) new CommandGetComponent().execute(entity,
+											(int) getEntityCommandResult(entity,
 													("data get block "
 															+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity))
 																	.getBlockPos().getX()
@@ -137,7 +127,7 @@ public class LookingAtTargetProcedure {
 																	.getBlockPos().getZ()
 															+ " NeoForgeData"))
 													.getString().indexOf("{") + "{".length(),
-											(int) new CommandGetComponent().execute(entity,
+											(int) getEntityCommandResult(entity,
 													("data get block "
 															+ entity.level().clip(new ClipContext(entity.getEyePosition(1f), entity.getEyePosition(1f).add(entity.getViewVector(1f).scale(5)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, entity))
 																	.getBlockPos().getX()
@@ -150,16 +140,11 @@ public class LookingAtTargetProcedure {
 															+ " NeoForgeData"))
 													.getString().lastIndexOf("}"));
 							OverlayText = "";
-							String[] _array34 = textResult.split(Pattern.quote(","));
-							if (_array34.length != 0) {
-								for (String stringiterator : _array34) {
-									OverlayText = OverlayText + "\n" + (stringiterator).strip();
-								}
-							} else {
-								String stringiterator = textResult;
-								for (int _yourmother = 0; _yourmother < 1; _yourmother++) {
-									OverlayText = OverlayText + "\n" + (stringiterator).strip();
-								}
+							String _toSplit34 = textResult;
+							String[] _array34 = _toSplit34.split(Pattern.quote(","));
+							for (int _iter34 = 0; _iter34 < Math.max(1, _array34.length); _iter34++) {
+								String stringiterator = _array34.length == 0 ? _toSplit34 : _array34[_iter34];
+								OverlayText = OverlayText + "\n" + (stringiterator).strip();
 							}
 							if (entity instanceof ServerPlayer player35)
 								PacketDistributor.sendToPlayer(player35, new OverlayPacketMessage(OverlayText));
@@ -175,12 +160,20 @@ public class LookingAtTargetProcedure {
 		return true;
 	}
 
-	private static class CommandGetComponent {
-		private MutableComponent _resultComp = Component.empty();
-		private CommandSource _customSource = new CommandSource() {
+	private static MutableComponent getEntityCommandResult(Entity entity, String cmd) {
+		MutableComponent result = Component.empty();
+		if (!entity.level().isClientSide() && entity.getServer() != null)
+			entity.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(customCommandSource(result), entity.position(), entity.getRotationVector(), entity.level() instanceof ServerLevel ? (ServerLevel) entity.level() : null, 4,
+					entity.getName().getString(), entity.getDisplayName(), entity.level().getServer(), entity), cmd);
+		List<Component> siblings = result.getSiblings();
+		return !siblings.isEmpty() ? (MutableComponent) siblings.get(0) : result;
+	}
+
+	private static CommandSource customCommandSource(MutableComponent msgGetter) {
+		return new CommandSource() {
 			@Override
 			public void sendSystemMessage(Component message) {
-				_resultComp = (MutableComponent) message;
+				msgGetter.append(message);
 			}
 
 			@Override
@@ -198,18 +191,5 @@ public class LookingAtTargetProcedure {
 				return false;
 			}
 		};
-
-		private MutableComponent execute(Entity _ent, String _command) {
-			if (!_ent.level().isClientSide() && _ent.getServer() != null)
-				_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(_customSource, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-						_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), _command);
-			return _resultComp;
-		}
-
-		private MutableComponent execute(LevelAccessor world, Vec3 pos, String _command) {
-			if (world instanceof ServerLevel _level)
-				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(_customSource, pos, Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null), _command);
-			return _resultComp;
-		}
 	}
 }

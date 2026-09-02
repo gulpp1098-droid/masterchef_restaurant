@@ -1,14 +1,12 @@
 {
-  "_fv": 85,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
     "recipeRetstackSize": 2,
     "group": "",
     "unlockingItems": [
-      {
-        "value": "CUSTOM:ChefsDiary"
-      }
+      "CUSTOM:ChefsDiary"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -16,37 +14,17 @@
     "craftingBookCategory": "MISC",
     "recipeShapeless": true,
     "recipeSlots": [
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": ""
-      },
-      {
-        "value": "Blocks.CARPET"
-      },
-      {
-        "value": "CUSTOM:ChefsDiary"
-      },
-      {
-        "value": "Blocks.CARPET"
-      }
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Blocks.CARPET",
+      "CUSTOM:ChefsDiary",
+      "Blocks.CARPET"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:RugQueue"
-    },
+    "recipeReturnStack": "CUSTOM:RugQueue",
     "name": "carpet_queue_recipe",
     "namespace": "mod"
   }

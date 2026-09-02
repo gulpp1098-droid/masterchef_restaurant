@@ -16,6 +16,8 @@ public class LocationEdgeLeftRenderer extends MobRenderer<LocationEdgeLeftEntity
 
 	@Override
 	public ResourceLocation getTextureLocation(LocationEdgeLeftEntity entity) {
+		if (entity.getTexture() != "textureedge")
+			return ResourceLocation.parse("masterchef_restaurant:textures/entities/" + entity.getTexture() + ".png");
 		return entityTexture;
 	}
 }

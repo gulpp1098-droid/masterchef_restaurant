@@ -1,7 +1,5 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.LevelAccessor;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
@@ -20,7 +18,7 @@ public class IsInsideRestaurantProcedure {
 		locationsArray = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "locations", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
 		index = 0;
-		for (int index0 = 0; index0 < (int) locationsArray.size(); index0++) {
+		for (int _i1 = 0; _i1 < (int) locationsArray.size(); _i1++) {
 			location = locationsArray.get((int) index).getAsString();
 			ParameterX = new Object() {
 				double convert(String s) {
