@@ -64,7 +64,7 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -106, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -104, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -79,13 +79,13 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"Before placing down your blocks, you need to claim an area for your restaurant!\nTake your Golden Spatula and choose \"Set Location for Restaurant\". you will notice a green 5x5 square on the floor. When you right click on the block, it will set up your first area!",
-				-145, -89, 130, 167, -12829636, false, 1.00F);
+				-145, -84, 130, 167, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"After that you can claim 3 more areas at the start but the shape and amount is up to you!\nInside claimed areas, you can place all functional restaurant blocks. As your restaurant level grows, you will unlock more space to claim!",
-				1, -89, 129, 149, -12829636, false, 1.00F);
+				5, -84, 129, 149, -12829636, false, 1.00F);
 	}
 
 	@Override

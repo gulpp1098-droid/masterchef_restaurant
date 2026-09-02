@@ -84,11 +84,11 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_stats_gui.label_stats_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_stats_gui.label_stats_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, ReturnRestaurantNameProcedure.execute(entity), -145, -75, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantOwnerProcedure.execute(entity), -145, -63, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, -51, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantReputationProcedure.execute(entity), -145, -37, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantOwnerProcedure.execute(entity), -145, -62, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, -48, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantReputationProcedure.execute(entity), -145, -35, -12829636, false);
 		guiGraphics.drawString(this.font, ReturnRestaurantCloseTimeProcedure.execute(entity), -145, -22, -12829636, false);
 	}
 

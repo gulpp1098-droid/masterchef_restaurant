@@ -184,7 +184,6 @@ public class MasterchefRestaurantModVariables {
 		public double RestaurantID = 1.0;
 		public double MaxRestaurantLevel = 100.0;
 		public String FoodDatabase_File_Name = "FoodDatabase.json";
-		public double LastProcessedDay = -1.0;
 		public double ClosingRestaurantDay = -1.0;
 		public double Time_control_tick = 0;
 		public ArrayList<Object> RestaurantsOpen = new ArrayList<>();
@@ -203,7 +202,6 @@ public class MasterchefRestaurantModVariables {
 			RestaurantID = nbt.getDouble("RestaurantID");
 			MaxRestaurantLevel = nbt.getDouble("MaxRestaurantLevel");
 			FoodDatabase_File_Name = nbt.getString("FoodDatabase_File_Name");
-			LastProcessedDay = nbt.getDouble("LastProcessedDay");
 			ClosingRestaurantDay = nbt.getDouble("ClosingRestaurantDay");
 			Time_control_tick = nbt.getDouble("Time_control_tick");
 			RestaurantsOpen = NbtArrayLists.loadGlobalMap(nbt.getList("RestaurantsOpen", Tag.TAG_COMPOUND), lookupProvider);
@@ -218,7 +216,6 @@ public class MasterchefRestaurantModVariables {
 			nbt.putDouble("RestaurantID", RestaurantID);
 			nbt.putDouble("MaxRestaurantLevel", MaxRestaurantLevel);
 			nbt.putString("FoodDatabase_File_Name", FoodDatabase_File_Name);
-			nbt.putDouble("LastProcessedDay", LastProcessedDay);
 			nbt.putDouble("ClosingRestaurantDay", ClosingRestaurantDay);
 			nbt.putDouble("Time_control_tick", Time_control_tick);
 			nbt.put("RestaurantsOpen", NbtArrayLists.saveGlobalMap(RestaurantsOpen, lookupProvider));

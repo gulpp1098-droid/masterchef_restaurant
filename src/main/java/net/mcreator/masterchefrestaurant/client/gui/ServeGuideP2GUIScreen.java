@@ -78,12 +78,12 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_more_space_to_claim_for"), 0, -102, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_more_space_to_claim_for"), 5, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Customers lose patiance while waiting in queue, waiting to order or waiting for food. If patiance gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!", -145, -89, 130, 137,
+				"Customers lose patiance while waiting in queue, waiting to order or waiting for food. If patiance gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!", -145, -84, 130, 137,
 				-12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Some customers may order more than one food. Serve ever ordered item before they can start eating. More dishes will be unlocked with restaurant level.", 1, -89, 127, 103, -12829636, false,
+		this.guiTools$renderMultilineLabel(guiGraphics, "Some customers may order more than one food. Serve ever ordered item before they can start eating. More dishes will be unlocked with restaurant level.", 5, -84, 127, 103, -12829636, false,
 				1.00F);
 	}
 
@@ -165,7 +165,7 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_last_page_icon = new ImageButton(this.leftPos + -135, this.topPos + 53, 16, 16,
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
 					int x = ServeGuideP2GUIScreen.this.x;
 					int y = ServeGuideP2GUIScreen.this.y;

@@ -99,12 +99,12 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_gui.label_overview_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_gui.label_overview_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_gui.label_welcome_chef"), -102, -79, -3407872, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_gui.label_basic_tutorial"), 4, -101, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "This diary will guide you through", -102, -69, 96, 22, -12829636, false, 1.00F);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_gui.label_basic_tutorial"), 5, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, "This diary will guide you through", -102, -68, 96, 22, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"the basics of running your own restaurant. Your goal is to build, manage and improve a restaurant of your dreams. You will need a proper equipment, place and enough patiance to handle hungry customers.", -144, -46, 135, 110,
+				"the basics of running your own restaurant. Your goal is to build, manage and improve a restaurant of your dreams. You will need a proper equipment, place and enough patiance to handle hungry customers.", -145, -46, 135, 110,
 				-12829636, false, 1.00F);
 	}
 
@@ -210,7 +210,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16763905, false);
 					guiGraphics.pose().popPose();
 				}
 			}
@@ -240,7 +240,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
 				}
 			}
@@ -270,7 +270,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
 				}
 			}
@@ -300,7 +300,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
 				}
 			}
@@ -330,7 +330,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
 				}
 			}
@@ -360,7 +360,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
 				}
 			}
@@ -390,7 +390,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -13421773, false);
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
 				}
 			}

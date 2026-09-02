@@ -92,11 +92,11 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_reception1"), 5, -102, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_reception1"), 5, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, "Before customers can visit, your restaurant needs a few basic blocks. \nEach block has its job. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Queue Rug (optional)", -145,
-				-92, 120, 40, -12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Your restaurant begins here. Customers will wait in queue here!", 5, -88, 120, 40, -12829636, false, 1.00F);
+				-84, 120, 40, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Your restaurant begins here. Customers will wait in queue here!", 5, -84, 120, 40, -12829636, false, 1.00F);
 	}
 
 	@Override

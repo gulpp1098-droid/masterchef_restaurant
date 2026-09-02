@@ -65,7 +65,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -28, this.topPos + -106, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -28, this.topPos + -102, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -80,12 +80,12 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patiance. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
-				-145, -89, 132, 161, -12829636, false, 1.00F);
+				-145, -84, 132, 161, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"When a customer is ready, you will see icon above their head. Interact with them to see their order. Place the correct food in the input slot. If the food matches, it will be marked as delivered.", 1, -89, 125, 126, -12829636, false,
+				"When a customer is ready, you will see icon above their head. Interact with them to see their order. Place the correct food in the input slot. If the food matches, it will be marked as delivered.", 5, -84, 125, 126, -12829636, false,
 				1.00F);
 	}
 
@@ -167,7 +167,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 104, this.topPos + 58, 16, 16,
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
 					int x = ServeGuideGUIScreen.this.x;
 					int y = ServeGuideGUIScreen.this.y;

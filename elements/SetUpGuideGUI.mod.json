@@ -103,7 +103,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
+          "y": 22,
           "locked": false
         }
       },
@@ -113,7 +113,7 @@
           "image": "hammer_icon.png",
           "use1Xscale": false,
           "x": 153,
-          "y": 14,
+          "y": 17,
           "locked": false
         }
       },
@@ -131,7 +131,7 @@
           "width": 132,
           "height": 163,
           "x": 69,
-          "y": 31,
+          "y": 36,
           "locked": false
         }
       },
@@ -148,8 +148,8 @@
           "fontScale": 100,
           "width": 126,
           "height": 141,
-          "x": 215,
-          "y": 31,
+          "x": 219,
+          "y": 36,
           "locked": false
         }
       }

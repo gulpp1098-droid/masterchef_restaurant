@@ -87,10 +87,10 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_reception1"), 5, -102, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table"), -144, -101, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Customers will gladly come and eat food here! Just do not forget chairs!", -144, -88, 141, 41, -12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Customers love comfort. Let them sit by the table!", 5, -88, 120, 40, -12829636, false, 1.00F);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_reception1"), 5, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table"), -145, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Customers will gladly come and eat food here! Just do not forget chairs!", -145, -84, 141, 41, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Customers love comfort. Let them sit by the table!", 5, -84, 120, 40, -12829636, false, 1.00F);
 	}
 
 	@Override
@@ -171,7 +171,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_last_page_icon = new ImageButton(this.leftPos + -134, this.topPos + 58, 16, 16,
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
 					int x = BlocksGuideP2GUIScreen.this.x;
 					int y = BlocksGuideP2GUIScreen.this.y;
@@ -186,7 +186,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 106, this.topPos + 59, 16, 16,
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
 					int x = BlocksGuideP2GUIScreen.this.x;
 					int y = BlocksGuideP2GUIScreen.this.y;

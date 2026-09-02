@@ -64,7 +64,7 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -30, this.topPos + -107, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -30, this.topPos + -104, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -79,13 +79,13 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_as_well_as_claim_area"), -145, -14, -65485, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_inside_this_area_you_can"), 6, -39, -65485, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "When your restaurant is ready, you can open it! Use the Golden Spatula to open the restaurant menu and press the Open button.", -145, -89, 132, 71, -12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Restaurant can be open only once per day and between 6.00 and 12.00! After that time, you must wait for the next day.", -145, 0, 127, 72, -12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Once open, customers will begin to arrive, wait in queue, find tables and order food.", 6, -89, 128, 51, -12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Restaurant is closed 8 hours after opening (around 13 minutes). You can also close it ealier, so you do not have to sit there all day.", 6, -25, 127, 84, -12829636, false, 1.00F);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_as_well_as_claim_area"), -145, -18, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.open_guide_gui.label_inside_this_area_you_can"), 5, -39, -65485, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, "When your restaurant is ready, you can open it! Use the Golden Spatula to open the restaurant menu and press the Open button.", -145, -84, 132, 71, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Restaurant can be open only once per day and between 6.00 and 12.00! After that time, you must wait for the next day.", -145, -3, 127, 72, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Once open, customers will begin to arrive, wait in queue, find tables and order food.", 5, -84, 128, 51, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Restaurant is closed 8 hours after opening (around 13 minutes). You can also close it ealier, so you do not have to sit there all day.", 5, -22, 127, 84, -12829636, false, 1.00F);
 	}
 
 	@Override

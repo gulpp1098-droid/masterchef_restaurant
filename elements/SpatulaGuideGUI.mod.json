@@ -103,7 +103,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
+          "y": 22,
           "locked": false
         }
       },
@@ -112,8 +112,8 @@
         "data": {
           "image": "spatula_icon.png",
           "use1Xscale": false,
-          "x": 178,
-          "y": 14,
+          "x": 180,
+          "y": 17,
           "locked": false
         }
       },
@@ -168,7 +168,7 @@
           "width": 130,
           "height": 165,
           "x": 69,
-          "y": 31,
+          "y": 36,
           "locked": false
         }
       }

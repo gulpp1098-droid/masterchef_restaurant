@@ -64,7 +64,7 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -106, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -103, 0, 0, 16, 16, 16, 16);
 		RenderSystem.disableBlend();
 	}
 
@@ -79,12 +79,12 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.set_up_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.set_up_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"Now it is time to prepare your restaurant! You need at least:\n- 1 Reception\n- 1 Service table\n- 1 Chair\nThe reception starts your customer queue and creates the first Queue Rug. Extra Queue Rugs extend the line and give more groups a place to wait.",
-				-145, -89, 132, 163, -12829636, false, 1.00F);
+				-145, -84, 132, 163, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can server larger groups. If a group not fit, it will look for another table.", 1, -89, 126, 141,
+				"Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can server larger groups. If a group not fit, it will look for another table.", 5, -84, 126, 141,
 				-12829636, false, 1.00F);
 	}
 

@@ -82,8 +82,8 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table"), -144, -101, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "A fancy rug for hungry customers. They can wait here in line!", -144, -88, 120, 40, -12829636, false, 1.00F);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table"), -145, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, "A fancy rug for hungry customers. They can wait here in line!", -145, -84, 120, 40, -12829636, false, 1.00F);
 	}
 
 	@Override
@@ -164,7 +164,7 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_last_page_icon = new ImageButton(this.leftPos + -134, this.topPos + 56, 16, 16,
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
 					int x = BlocksGuideP3GUIScreen.this.x;
 					int y = BlocksGuideP3GUIScreen.this.y;

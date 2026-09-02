@@ -66,7 +66,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -36, this.topPos + -106, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -34, this.topPos + -103, 0, 0, 16, 16, 16, 16);
 		guiGraphics.blit(IMAGE_3, this.leftPos + -2, this.topPos + -68, 0, 0, 133, 11, 133, 11);
 		guiGraphics.blit(IMAGE_4, this.leftPos + -1, this.topPos + 51, 0, 0, 133, 11, 133, 11);
 		RenderSystem.disableBlend();
@@ -83,11 +83,11 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_crafting"), 43, -85, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"Every chef needs a proper tool.\nThe Golden Spatula will be your best friend! It lets you create and manage your restaurant, claim area, check basic info and prepare place for your customers. Keep it close. Without it, your restaurant is useless as Menu with no food!",
-				-145, -89, 130, 165, -12829636, false, 1.00F);
+				-145, -84, 130, 165, -12829636, false, 1.00F);
 	}
 
 	@Override

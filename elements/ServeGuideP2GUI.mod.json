@@ -103,7 +103,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
+          "y": 22,
           "locked": false
         }
       },
@@ -119,8 +119,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 214,
-          "y": 18,
+          "x": 219,
+          "y": 22,
           "locked": false
         }
       },
@@ -131,8 +131,8 @@
           "image": "last_page_icon.png",
           "hoveredImage": "",
           "onClick": "ChefsDiaryGuideServe",
-          "x": 79,
-          "y": 173,
+          "x": 73,
+          "y": 177,
           "locked": false
         }
       },
@@ -150,7 +150,7 @@
           "width": 130,
           "height": 137,
           "x": 69,
-          "y": 31,
+          "y": 36,
           "locked": false
         }
       },
@@ -167,8 +167,8 @@
           "fontScale": 100,
           "width": 127,
           "height": 103,
-          "x": 215,
-          "y": 31,
+          "x": 219,
+          "y": 36,
           "locked": false
         }
       }

@@ -103,7 +103,7 @@
           },
           "hasShadow": false,
           "x": 219,
-          "y": 18,
+          "y": 22,
           "locked": false
         }
       },
@@ -139,8 +139,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 70,
-          "y": 19,
+          "x": 69,
+          "y": 22,
           "locked": false
         }
       },
@@ -171,8 +171,8 @@
           "image": "last_page_icon.png",
           "hoveredImage": "",
           "onClick": "ChefsDiaryGuideBlocks",
-          "x": 80,
-          "y": 178,
+          "x": 73,
+          "y": 177,
           "locked": false
         }
       },
@@ -183,8 +183,8 @@
           "image": "next_page_icon.png",
           "hoveredImage": "",
           "onClick": "ChefsDiaryGuideBlocksP3",
-          "x": 320,
-          "y": 179,
+          "x": 322,
+          "y": 177,
           "locked": false
         }
       },
@@ -201,8 +201,8 @@
           "fontScale": 100,
           "width": 141,
           "height": 41,
-          "x": 70,
-          "y": 32,
+          "x": 69,
+          "y": 36,
           "locked": false
         }
       },
@@ -220,7 +220,7 @@
           "width": 120,
           "height": 40,
           "x": 219,
-          "y": 32,
+          "y": 36,
           "locked": false
         }
       }

@@ -64,7 +64,7 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -28, this.topPos + -106, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -34, this.topPos + -104, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -79,14 +79,14 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_overview_wip"), -145, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_as_well_as_claim_area"), -145, 4, -65485, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "After customers finish eating, they will leave money and give experience to your restaurant. Money is left on the table. To collect it, simply right-click the table.", -145, -92, 134, 84,
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_gui.label_as_well_as_claim_area"), -145, -4, -65485, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, "After customers finish eating, they will leave money and give experience to your restaurant. Money is left on the table. To collect it, simply right-click the table.", -145, -84, 134, 84,
 				-12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "A table with waiting payment will not accept new customers.", -145, 16, 131, 48, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "A table with waiting payment will not accept new customers.", -145, 10, 131, 48, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"Experience is added to your restaurant reputation points. To get full reward, you need to complete whole order. Every missing food lowers the experience gain. If too much is missing, you may even lose reputation. With enough reputation, your restaurant will level up!",
-				4, -92, 129, 168, -12829636, false, 1.00F);
+				5, -84, 129, 168, -12829636, false, 1.00F);
 	}
 
 	@Override

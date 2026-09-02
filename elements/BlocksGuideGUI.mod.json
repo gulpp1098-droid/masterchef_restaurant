@@ -103,7 +103,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
+          "y": 22,
           "locked": false
         }
       },
@@ -170,7 +170,7 @@
           },
           "hasShadow": false,
           "x": 219,
-          "y": 18,
+          "y": 22,
           "locked": false
         }
       },
@@ -220,7 +220,7 @@
           "width": 120,
           "height": 40,
           "x": 69,
-          "y": 28,
+          "y": 36,
           "locked": false
         }
       },
@@ -238,7 +238,7 @@
           "width": 120,
           "height": 40,
           "x": 219,
-          "y": 32,
+          "y": 36,
           "locked": false
         }
       }

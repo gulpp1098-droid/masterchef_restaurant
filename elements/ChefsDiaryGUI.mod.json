@@ -103,7 +103,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 17,
+          "y": 22,
           "locked": false
         }
       },
@@ -216,8 +216,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 218,
-          "y": 19,
+          "x": 219,
+          "y": 22,
           "locked": false
         }
       },
@@ -265,7 +265,7 @@
           "width": 96,
           "height": 22,
           "x": 112,
-          "y": 51,
+          "y": 52,
           "locked": false
         }
       },
@@ -282,7 +282,7 @@
           "fontScale": 100,
           "width": 135,
           "height": 110,
-          "x": 70,
+          "x": 69,
           "y": 74,
           "locked": false
         }
@@ -294,7 +294,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16763905,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -318,7 +318,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16776961,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -342,7 +342,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16776961,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -366,7 +366,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16776961,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -390,7 +390,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16776961,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -414,7 +414,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16776961,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -438,7 +438,7 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -13421773,
+            "value": -16776961,
             "falpha": 0.0
           },
           "textShadow": false,
