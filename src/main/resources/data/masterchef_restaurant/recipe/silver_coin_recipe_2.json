@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "masterchef_restaurant:copper_coin"
+    }
+  },
+  "result": {
+    "id": "masterchef_restaurant:silver_coin",
+    "count": 1
+  }
+}

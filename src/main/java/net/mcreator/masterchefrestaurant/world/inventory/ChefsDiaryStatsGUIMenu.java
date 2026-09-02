@@ -31,7 +31,7 @@ public class ChefsDiaryStatsGUIMenu extends AbstractContainerMenu implements Mas
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 14)
+			if (!this.containsKey(key) && this.size() >= 16)
 				return null;
 			return super.put(key, value);
 		}

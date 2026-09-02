@@ -5866,6 +5866,124 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "ReturnRestaurantStars",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_restaurant_stars",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ReturnRestaurantStarsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary/ChefsDiaryStatsProecedures"
+    },
+    {
+      "name": "GoldCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gold_coin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/masterchef_restaurant/models/item/gold_coin.json",
+          "src/main/java/net/mcreator/masterchefrestaurant/item/GoldCoinItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items"
+    },
+    {
+      "name": "SilverCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "silver_coin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/masterchef_restaurant/models/item/silver_coin.json",
+          "src/main/java/net/mcreator/masterchefrestaurant/item/SilverCoinItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items"
+    },
+    {
+      "name": "CopperCoin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_coin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/masterchef_restaurant/models/item/copper_coin.json",
+          "src/main/java/net/mcreator/masterchefrestaurant/item/CopperCoinItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items"
+    },
+    {
+      "name": "CopperCoinRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_coin_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/masterchef_restaurant/advancement/recipes/copper_coin_recipe.json",
+          "src/main/resources/data/masterchef_restaurant/recipe/copper_coin_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes"
+    },
+    {
+      "name": "SilverCoinRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "silver_coin_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/masterchef_restaurant/advancement/recipes/silver_coin_recipe.json",
+          "src/main/resources/data/masterchef_restaurant/recipe/silver_coin_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes"
+    },
+    {
+      "name": "SilverCoinRecipe2",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "silver_coin_recipe_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/masterchef_restaurant/advancement/recipes/silver_coin_recipe_2.json",
+          "src/main/resources/data/masterchef_restaurant/recipe/silver_coin_recipe_2.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes"
+    },
+    {
+      "name": "GoldCoinRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gold_coin_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/masterchef_restaurant/recipe/gold_coin_recipe.json",
+          "src/main/resources/data/masterchef_restaurant/advancement/recipes/gold_coin_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes"
     }
   ],
   "variable_elements": [
@@ -5997,7 +6115,11 @@
     }
   ],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "ITEMS:minecraft:piglin_loved": [
+      "~GoldCoin@CUSTOM:GoldCoin"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
@@ -6325,7 +6447,11 @@
       "gui.masterchef_restaurant.menu_gui.label_food6namereturn": "Food6NameReturn",
       "gui.masterchef_restaurant.menu_gui.label_food5rewardreturn": "Food5RewardReturn",
       "gui.masterchef_restaurant.menu_gui.label_food4namereturn": "Food5NameReturn",
-      "gui.masterchef_restaurant.menu_gui.label_food4rewardreturn": "Food4RewardReturn"
+      "gui.masterchef_restaurant.menu_gui.label_food4rewardreturn": "Food4RewardReturn",
+      "gui.masterchef_restaurant.chefs_diary_stats_gui.label_restaurant_stars": "Restaurant stars",
+      "item.masterchef_restaurant.gold_coin": "Gold Coin",
+      "item.masterchef_restaurant.silver_coin": "Silver Coin",
+      "item.masterchef_restaurant.copper_coin": "Copper Coin"
     }
   },
   "metadata": {

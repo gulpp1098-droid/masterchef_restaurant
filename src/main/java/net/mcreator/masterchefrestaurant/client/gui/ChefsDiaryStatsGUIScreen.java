@@ -37,6 +37,7 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("masterchef_restaurant:textures/screens/bookmarks.png");
 	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("masterchef_restaurant:textures/screens/separator_icon.png");
+	private static final ResourceLocation SPRITE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/stars_sprite_icon.png");
 
 	public ChefsDiaryStatsGUIScreen(ChefsDiaryStatsGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -70,6 +71,7 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 		guiGraphics.blit(IMAGE_2, this.leftPos + -145, this.topPos + -91, 0, 0, 133, 11, 133, 11);
+		guiGraphics.blit(SPRITE_0, this.leftPos + 28, this.topPos + -75, 0, 0, 72, 25, 72, 275);
 		RenderSystem.disableBlend();
 	}
 
@@ -90,6 +92,7 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, -48, -12829636, false);
 		guiGraphics.drawString(this.font, ReturnRestaurantReputationProcedure.execute(entity), -145, -35, -12829636, false);
 		guiGraphics.drawString(this.font, ReturnRestaurantCloseTimeProcedure.execute(entity), -145, -22, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_stats_gui.label_restaurant_stars"), 5, -98, -12829636, false);
 	}
 
 	@Override

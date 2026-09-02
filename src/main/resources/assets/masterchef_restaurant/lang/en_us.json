@@ -323,5 +323,9 @@
   "gui.masterchef_restaurant.menu_gui.label_food6namereturn": "Food6NameReturn",
   "gui.masterchef_restaurant.menu_gui.label_food5rewardreturn": "Food5RewardReturn",
   "gui.masterchef_restaurant.menu_gui.label_food4namereturn": "Food5NameReturn",
-  "gui.masterchef_restaurant.menu_gui.label_food4rewardreturn": "Food4RewardReturn"
+  "gui.masterchef_restaurant.menu_gui.label_food4rewardreturn": "Food4RewardReturn",
+  "gui.masterchef_restaurant.chefs_diary_stats_gui.label_restaurant_stars": "Restaurant stars",
+  "item.masterchef_restaurant.gold_coin": "Gold Coin",
+  "item.masterchef_restaurant.silver_coin": "Silver Coin",
+  "item.masterchef_restaurant.copper_coin": "Copper Coin"
 }

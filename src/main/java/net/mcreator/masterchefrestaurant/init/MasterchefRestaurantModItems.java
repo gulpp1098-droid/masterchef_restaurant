@@ -18,9 +18,7 @@ import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.masterchefrestaurant.item.inventory.SpatulaGoldenInventoryCapability;
 import net.mcreator.masterchefrestaurant.item.inventory.ChefsDiaryInventoryCapability;
-import net.mcreator.masterchefrestaurant.item.SpatulaGoldenItem;
-import net.mcreator.masterchefrestaurant.item.ChefsDiaryItem;
-import net.mcreator.masterchefrestaurant.item.BellItem;
+import net.mcreator.masterchefrestaurant.item.*;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
@@ -35,6 +33,9 @@ public class MasterchefRestaurantModItems {
 	public static final DeferredItem<Item> RUG_QUEUE;
 	public static final DeferredItem<Item> CHEFS_DIARY;
 	public static final DeferredItem<Item> BELL;
+	public static final DeferredItem<Item> GOLD_COIN;
+	public static final DeferredItem<Item> SILVER_COIN;
+	public static final DeferredItem<Item> COPPER_COIN;
 	static {
 		SPATULA_GOLDEN = REGISTRY.register("spatula_golden", SpatulaGoldenItem::new);
 		SERVICE_TABLE = block(MasterchefRestaurantModBlocks.SERVICE_TABLE);
@@ -45,6 +46,9 @@ public class MasterchefRestaurantModItems {
 		RUG_QUEUE = block(MasterchefRestaurantModBlocks.RUG_QUEUE);
 		CHEFS_DIARY = REGISTRY.register("chefs_diary", ChefsDiaryItem::new);
 		BELL = REGISTRY.register("bell", BellItem::new);
+		GOLD_COIN = REGISTRY.register("gold_coin", GoldCoinItem::new);
+		SILVER_COIN = REGISTRY.register("silver_coin", SilverCoinItem::new);
+		COPPER_COIN = REGISTRY.register("copper_coin", CopperCoinItem::new);
 	}
 
 	// Start of user code block custom items

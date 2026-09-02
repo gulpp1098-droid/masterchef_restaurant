@@ -11,6 +11,19 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "sprite",
+        "data": {
+          "sprite": "stars_sprite_icon.png",
+          "spritesCount": 11,
+          "spriteIndex": {
+            "fixedValue": 0.0
+          },
+          "x": 242,
+          "y": 45,
+          "locked": false
+        }
+      },
+      {
         "type": "image",
         "data": {
           "image": "chefsdiary2.png",
@@ -204,6 +217,23 @@
           "hasShadow": false,
           "x": 69,
           "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_restaurant_stars",
+          "text": {
+            "fixedValue": "Restaurant stars"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 22,
           "locked": false
         }
       }
