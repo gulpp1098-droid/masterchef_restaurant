@@ -5814,6 +5814,58 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures"
+    },
+    {
+      "name": "TimeReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "time_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/TimeReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "ClockOverlay",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clock_overlay",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/client/screens/ClockOverlayOverlay.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs"
+    },
+    {
+      "name": "DayLighCycleTurnOff",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "day_ligh_cycle_turn_off",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/DayLighCycleTurnOffProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     }
   ],
   "variable_elements": [
