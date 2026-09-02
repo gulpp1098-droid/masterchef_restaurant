@@ -107,11 +107,6 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurant.addProperty("close_time", 0);
 				NewRestaurant.add("tables", LocationArray);
 				NewRestaurant.addProperty("reception", "");
-				if (world.dayTime() % 24000 < 9000) {
-					NewRestaurant.addProperty("creation_menu_day", (Math.floor(world.dayTime() / 24000d) - 1));
-				} else {
-					NewRestaurant.addProperty("creation_menu_day", Math.floor(world.dayTime() / 24000d));
-				}
 				NewRestaurant.addProperty("last_day_open", (-1));
 				NewRestaurant.add("menu", LocationArray);
 				NewRestaurant.add("next_menu", LocationArray);

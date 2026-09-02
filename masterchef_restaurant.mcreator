@@ -803,20 +803,6 @@
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     },
     {
-      "name": "NewMenuGenerateTrigger",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "new_menu_generate_trigger",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/procedures/NewMenuGenerateTriggerProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures/World On Tick Procedures"
-    },
-    {
       "name": "FindRestaurantInfoByIndexViaID",
       "type": "procedure",
       "compiles": true,
@@ -5866,12 +5852,6 @@
       "type": "string",
       "scope": "map",
       "value": "FoodDatabase.json"
-    },
-    {
-      "name": "LastProcessedDay",
-      "type": "number",
-      "scope": "map",
-      "value": "-1.0"
     },
     {
       "name": "ClosingRestaurantDay",
