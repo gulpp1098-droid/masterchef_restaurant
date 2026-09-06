@@ -20,8 +20,8 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 public class RestDebugModifyNumberCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("rest_debug_modify_number").requires(source -> source.hasPermission(4)).then(
-				Commands.argument("restaurant_ID", DoubleArgumentType.doubleArg(0)).then(Commands.argument("parameter_name", StringArgumentType.word()).then(Commands.argument("value", DoubleArgumentType.doubleArg(0, 100)).executes(arguments -> {
+		event.getDispatcher().register(Commands.literal("rest_debug_modify_number").requires(source -> source.hasPermission(4)).then(Commands.argument("restaurant_ID", DoubleArgumentType.doubleArg(0))
+				.then(Commands.argument("parameter_name", StringArgumentType.word()).then(Commands.argument("value", DoubleArgumentType.doubleArg(0, 1000000000)).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();

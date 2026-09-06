@@ -80,7 +80,7 @@ public class RugQueueBlockEntity extends RandomizableContainerBlockEntity implem
 
 	@Override
 	public Component getDisplayName() {
-		return Component.literal("Rug");
+		return Component.literal("Queue Rug");
 	}
 
 	@Override

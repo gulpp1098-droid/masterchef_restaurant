@@ -7,11 +7,13 @@ import net.minecraft.world.entity.Entity;
 
 import net.mcreator.masterchefrestaurant.network.MenuPacketToServerMessage;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
+import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 public class FillOrderSlotsProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		MasterchefRestaurantMod.LOGGER.info("Client send: " + entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).CurrentClientUUID);
 		if (world.isClientSide())
 			PacketDistributor.sendToServer(new MenuPacketToServerMessage(entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).CurrentClientUUID));
 	}
