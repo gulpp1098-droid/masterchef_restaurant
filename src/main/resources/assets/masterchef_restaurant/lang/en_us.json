@@ -327,5 +327,7 @@
   "gui.masterchef_restaurant.chefs_diary_stats_gui.label_restaurant_stars": "Restaurant stars",
   "item.masterchef_restaurant.gold_coin": "Gold Coin",
   "item.masterchef_restaurant.silver_coin": "Silver Coin",
-  "item.masterchef_restaurant.copper_coin": "Copper Coin"
+  "item.masterchef_restaurant.copper_coin": "Copper Coin",
+  "entity.masterchef_restaurant.critic": "Critic",
+  "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg"
 }

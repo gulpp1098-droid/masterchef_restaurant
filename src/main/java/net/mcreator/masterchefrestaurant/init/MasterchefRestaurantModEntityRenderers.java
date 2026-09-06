@@ -21,5 +21,6 @@ public class MasterchefRestaurantModEntityRenderers {
 		event.registerEntityRenderer(MasterchefRestaurantModEntities.LOCATION_EDGE_DOWN.get(), LocationEdgeDownRenderer::new);
 		event.registerEntityRenderer(MasterchefRestaurantModEntities.CHAIR_MOB.get(), ChairMobRenderer::new);
 		event.registerEntityRenderer(MasterchefRestaurantModEntities.CLIENT.get(), ClientRenderer::new);
+		event.registerEntityRenderer(MasterchefRestaurantModEntities.CRITIC.get(), CriticRenderer::new);
 	}
 }

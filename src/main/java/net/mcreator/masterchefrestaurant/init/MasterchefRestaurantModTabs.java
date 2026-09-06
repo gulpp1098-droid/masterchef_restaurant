@@ -33,12 +33,14 @@ public class MasterchefRestaurantModTabs {
 				tabData.accept(MasterchefRestaurantModItems.GOLD_COIN.get());
 				tabData.accept(MasterchefRestaurantModItems.SILVER_COIN.get());
 				tabData.accept(MasterchefRestaurantModItems.COPPER_COIN.get());
+				tabData.accept(MasterchefRestaurantModItems.CRITIC_SPAWN_EGG.get());
 			}).build());
 
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
 		if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 			tabData.accept(MasterchefRestaurantModItems.CLIENT_SPAWN_EGG.get());
+			tabData.accept(MasterchefRestaurantModItems.CRITIC_SPAWN_EGG.get());
 		}
 	}
 }

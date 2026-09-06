@@ -46,6 +46,7 @@ public class RestaurantIsOpenProcedure {
 		com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject mealObject = new com.google.gson.JsonObject();
 		boolean Found = false;
+		boolean critic = false;
 		double indexGroup = 0;
 		double indexMember = 0;
 		double SpawnTime = 0;
@@ -62,6 +63,7 @@ public class RestaurantIsOpenProcedure {
 		double indexObject = 0;
 		double indexArray = 0;
 		double restaurantIndex = 0;
+		double chairsNumber = 0;
 		indexGroup = 0;
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
 		CloseTime = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -83,6 +85,39 @@ public class RestaurantIsOpenProcedure {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		tier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path,
+				"level");
+		if ((tier + 1) % 10 == 0 && (tier + 1) * 40 + (tier + 1) * 2 * 6 + (tier + 1) * 3 * 8 >= GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants",
+				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation")) {
+			if (Math.random() <= 0.3) {
+				critic = true;
+			}
+		}
+		if ((tier) > ((-1)) && (tier) < (6)) {
+			MinFood = 1;
+			MaxFood = 1;
+		} else if ((tier) > (5) && (tier) < (16)) {
+			MinFood = 1;
+			MaxFood = 2;
+		} else if ((tier) > (15) && (tier) < (26)) {
+			MinFood = 1;
+			MaxFood = 3;
+		} else if ((tier) > (25) && (tier) < (41)) {
+			MinFood = 2;
+			MaxFood = 3;
+		} else if ((tier) > (40) && (tier) < (61)) {
+			MinFood = 2;
+			MaxFood = 4;
+		} else if ((tier) > (60) && (tier) < (71)) {
+			MinFood = 2;
+			MaxFood = 5;
+		} else if ((tier) > (70) && (tier) < (81)) {
+			MinFood = 3;
+			MaxFood = 5;
+		} else {
+			MinFood = 4;
+			MaxFood = 5;
 		}
 		for (int _i1 = 0; _i1 < Mth.nextInt(RandomSource.create(), (int) TablesAmount, (int) (TablesAmount * 2)); _i1++) {
 			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 500));
@@ -106,7 +141,12 @@ public class RestaurantIsOpenProcedure {
 			Group.addProperty("spawn_time", ((int) SpawnTime));
 			Group.addProperty("spawned", false);
 			Group.addProperty("state", "walk");
-			for (int _i2 = 0; _i2 < Mth.nextInt(RandomSource.create(), 1, (int) ChairAmount); _i2++) {
+			if (critic && indexGroup == 0) {
+				chairsNumber = 1;
+			} else {
+				chairsNumber = ChairAmount;
+			}
+			for (int _i2 = 0; _i2 < Mth.nextInt(RandomSource.create(), 1, (int) chairsNumber); _i2++) {
 				foodArray = emptyArray.deepCopy();
 				FoodDeliveredArray = emptyArray.deepCopy();
 				membersObject = new Object() {
@@ -123,33 +163,6 @@ public class RestaurantIsOpenProcedure {
 					membersObject.addProperty("leader", true);
 				} else {
 					membersObject.addProperty("leader", false);
-				}
-				tier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
-				if ((tier) > ((-1)) && (tier) < (6)) {
-					MinFood = 1;
-					MaxFood = 1;
-				} else if ((tier) > (5) && (tier) < (16)) {
-					MinFood = 1;
-					MaxFood = 2;
-				} else if ((tier) > (15) && (tier) < (26)) {
-					MinFood = 1;
-					MaxFood = 3;
-				} else if ((tier) > (25) && (tier) < (41)) {
-					MinFood = 2;
-					MaxFood = 3;
-				} else if ((tier) > (40) && (tier) < (61)) {
-					MinFood = 2;
-					MaxFood = 4;
-				} else if ((tier) > (60) && (tier) < (71)) {
-					MinFood = 2;
-					MaxFood = 5;
-				} else if ((tier) > (70) && (tier) < (81)) {
-					MinFood = 3;
-					MaxFood = 5;
-				} else {
-					MinFood = 4;
-					MaxFood = 5;
 				}
 				FoodAmountOrder = Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood);
 				FoodMenu = "";

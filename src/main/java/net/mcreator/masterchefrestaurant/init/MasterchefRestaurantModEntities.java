@@ -49,6 +49,10 @@ public class MasterchefRestaurantModEntities {
 			EntityType.Builder.<ClientEntity>of(ClientEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
 
 					.sized(0.6f, 1.8f));
+	public static final DeferredHolder<EntityType<?>, EntityType<CriticEntity>> CRITIC = register("critic",
+			EntityType.Builder.<CriticEntity>of(CriticEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
+
+					.sized(0.6f, 1.8f));
 
 	// Start of user code block custom entities
 	// End of user code block custom entities
@@ -65,6 +69,7 @@ public class MasterchefRestaurantModEntities {
 		LocationEdgeDownEntity.init(event);
 		ChairMobEntity.init(event);
 		ClientEntity.init(event);
+		CriticEntity.init(event);
 	}
 
 	@SubscribeEvent
@@ -76,5 +81,6 @@ public class MasterchefRestaurantModEntities {
 		event.put(LOCATION_EDGE_DOWN.get(), LocationEdgeDownEntity.createAttributes().build());
 		event.put(CHAIR_MOB.get(), ChairMobEntity.createAttributes().build());
 		event.put(CLIENT.get(), ClientEntity.createAttributes().build());
+		event.put(CRITIC.get(), CriticEntity.createAttributes().build());
 	}
 }

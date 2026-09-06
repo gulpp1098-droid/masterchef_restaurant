@@ -6022,6 +6022,75 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "Critic",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/client/renderer/CriticRenderer.java",
+          "src/main/resources/assets/masterchef_restaurant/models/item/critic_spawn_egg.json",
+          "src/main/java/net/mcreator/masterchefrestaurant/entity/CriticEntity.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Entities"
+    },
+    {
+      "name": "CriticOnInitialEntitySpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_on_initial_entity_spawn",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticOnInitialEntitySpawnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures"
+    },
+    {
+      "name": "CriticOnEntityTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_on_entity_tick_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticOnEntityTickUpdateProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures"
     }
   ],
   "variable_elements": [
@@ -6489,7 +6558,9 @@
       "gui.masterchef_restaurant.chefs_diary_stats_gui.label_restaurant_stars": "Restaurant stars",
       "item.masterchef_restaurant.gold_coin": "Gold Coin",
       "item.masterchef_restaurant.silver_coin": "Silver Coin",
-      "item.masterchef_restaurant.copper_coin": "Copper Coin"
+      "item.masterchef_restaurant.copper_coin": "Copper Coin",
+      "entity.masterchef_restaurant.critic": "Critic",
+      "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg"
     }
   },
   "metadata": {
@@ -6630,6 +6701,10 @@
                   },
                   {
                     "name": "Chair Mob Procedures",
+                    "children": []
+                  },
+                  {
+                    "name": "Critic Procedures",
                     "children": []
                   }
                 ]

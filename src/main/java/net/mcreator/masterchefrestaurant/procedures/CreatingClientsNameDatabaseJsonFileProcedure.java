@@ -30,6 +30,7 @@ public class CreatingClientsNameDatabaseJsonFileProcedure {
 		File RestaurantsFile = new File("");
 		File ClientsNameListFile = new File("");
 		com.google.gson.JsonArray Array = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray ArrayCritics = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			ClientsNameListFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "ClientsNameList.json");
@@ -48,6 +49,8 @@ public class CreatingClientsNameDatabaseJsonFileProcedure {
 			Array.add("ninjoy");
 			Array.add("tohru");
 			Array.add("wally");
+			Object.add("Critics names", ArrayCritics);
+			ArrayCritics.add("papa_louie");
 			{
 				com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 				try {

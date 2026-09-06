@@ -36,6 +36,7 @@ public class MasterchefRestaurantModItems {
 	public static final DeferredItem<Item> GOLD_COIN;
 	public static final DeferredItem<Item> SILVER_COIN;
 	public static final DeferredItem<Item> COPPER_COIN;
+	public static final DeferredItem<Item> CRITIC_SPAWN_EGG;
 	static {
 		SPATULA_GOLDEN = REGISTRY.register("spatula_golden", SpatulaGoldenItem::new);
 		SERVICE_TABLE = block(MasterchefRestaurantModBlocks.SERVICE_TABLE);
@@ -49,6 +50,7 @@ public class MasterchefRestaurantModItems {
 		GOLD_COIN = REGISTRY.register("gold_coin", GoldCoinItem::new);
 		SILVER_COIN = REGISTRY.register("silver_coin", SilverCoinItem::new);
 		COPPER_COIN = REGISTRY.register("copper_coin", CopperCoinItem::new);
+		CRITIC_SPAWN_EGG = REGISTRY.register("critic_spawn_egg", () -> new DeferredSpawnEggItem(MasterchefRestaurantModEntities.CRITIC, -52327, -1, new Item.Properties()));
 	}
 
 	// Start of user code block custom items
