@@ -38,7 +38,7 @@ public class CriticOnInitialEntitySpawnProcedure {
 				}
 				bufferedReader.close();
 				Object = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				ClientsList = Object.get("Critic names").getAsJsonArray();
+				ClientsList = Object.get("Critics names").getAsJsonArray();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

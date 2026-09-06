@@ -6091,6 +6091,85 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures"
+    },
+    {
+      "name": "CriticAnimationSetUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_animation_set_up",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticAnimationSetUpProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
+    },
+    {
+      "name": "CriticAnimationIdle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_animation_idle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticAnimationIdleProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
+    },
+    {
+      "name": "CriticAnimationSit",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_animation_sit",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticAnimationSitProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
+    },
+    {
+      "name": "CriticAnimationWalk",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_animation_walk",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticAnimationWalkProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
     }
   ],
   "variable_elements": [
@@ -6705,7 +6784,12 @@
                   },
                   {
                     "name": "Critic Procedures",
-                    "children": []
+                    "children": [
+                      {
+                        "name": "Animation Procedures",
+                        "children": []
+                      }
+                    ]
                   }
                 ]
               },

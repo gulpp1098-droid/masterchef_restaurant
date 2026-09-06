@@ -88,7 +88,7 @@ public class RestaurantIsOpenProcedure {
 		}
 		tier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"level");
-		if ((tier + 1) % 10 == 0 && (tier + 1) * 40 + (tier + 1) * 2 * 6 + (tier + 1) * 3 * 8 >= GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants",
+		if ((tier + 1) % 10 == 0 && (tier + 1) * 40 + Math.pow(tier + 1, 2) * 6 + Math.pow(tier + 1, 3) * 0.08 <= GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants",
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation")) {
 			if (Math.random() <= 0.3) {
 				critic = true;
@@ -159,10 +159,16 @@ public class RestaurantIsOpenProcedure {
 						}
 					}
 				}.parse("{}");
-				if (indexMember == 0) {
-					membersObject.addProperty("leader", true);
-				} else {
+				if (critic) {
+					membersObject.addProperty("critic", true);
 					membersObject.addProperty("leader", false);
+				} else {
+					if (indexMember == 0) {
+						membersObject.addProperty("leader", true);
+					} else {
+						membersObject.addProperty("leader", false);
+					}
+					membersObject.addProperty("critic", false);
 				}
 				FoodAmountOrder = Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood);
 				FoodMenu = "";

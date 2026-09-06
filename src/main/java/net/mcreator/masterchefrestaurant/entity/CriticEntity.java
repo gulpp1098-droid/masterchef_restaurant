@@ -216,9 +216,9 @@ public class CriticEntity extends PathfinderMob {
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
-			this.animationState0.animateWhen(ClientAnimationWalkProcedure.execute(this), this.tickCount);
-			this.animationState1.animateWhen(ClientAnimationSitProcedure.execute(this), this.tickCount);
-			this.animationState2.animateWhen(ClientAnimationIdleProcedure.execute(this), this.tickCount);
+			this.animationState0.animateWhen(CriticAnimationWalkProcedure.execute(this), this.tickCount);
+			this.animationState1.animateWhen(CriticAnimationSitProcedure.execute(this), this.tickCount);
+			this.animationState2.animateWhen(CriticAnimationIdleProcedure.execute(this), this.tickCount);
 		}
 	}
 

@@ -26,21 +26,21 @@
       {
         "animation": "CUSTOM:ClientNewAnimation.Walk",
         "speed": 1.0,
-        "condition": "ClientAnimationWalk",
+        "condition": "CriticAnimationWalk",
         "walking": false,
         "amplitude": 1.0
       },
       {
         "animation": "CUSTOM:ClientNewAnimation.Sit",
         "speed": 1.5,
-        "condition": "ClientAnimationSit",
+        "condition": "CriticAnimationSit",
         "walking": false,
         "amplitude": 1.0
       },
       {
         "animation": "CUSTOM:ClientNewAnimation.Idle",
         "speed": 1.0,
-        "condition": "ClientAnimationIdle",
+        "condition": "CriticAnimationIdle",
         "walking": false,
         "amplitude": 1.0
       }
