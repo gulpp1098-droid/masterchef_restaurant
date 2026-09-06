@@ -8,7 +8,6 @@ public class OpenedOrderGUIProcedure {
 		if (entity == null)
 			return;
 		if (world.dayTime() % 5 == 0) {
-			FillOrderSlotsProcedure.execute(world, entity);
 			ClientIsServedProcedure.execute(world, entity);
 			ClosingOrderGUIProcedure.execute(world, entity);
 		}
