@@ -19,6 +19,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
+import net.mcreator.masterchefrestaurant.entity.CriticEntity;
 
 import java.util.UUID;
 
@@ -61,7 +62,9 @@ public class ClientStuckStateProcedure {
 							if ((client.getPersistentData().getString("state")).equals("queue_move") && client.getPersistentData().getDouble("patience") > 0) {
 								client.getPersistentData().putDouble("stuckCounter", 10);
 							} else {
-								ClientExpPayProcedure.execute(world, entity);
+								if (!(client instanceof CriticEntity)) {
+									ClientExpPayProcedure.execute(world, entity);
+								}
 								DestX = client.getPersistentData().getDouble("DestX");
 								DestY = client.getPersistentData().getDouble("DestY");
 								DestZ = client.getPersistentData().getDouble("DestZ");

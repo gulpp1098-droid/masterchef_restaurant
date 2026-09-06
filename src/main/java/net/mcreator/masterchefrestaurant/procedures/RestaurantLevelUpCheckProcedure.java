@@ -27,7 +27,7 @@ public class RestaurantLevelUpCheckProcedure {
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
 		if (restaurantLevel < 100) {
 			requiredReputation = (restaurantLevel + 1) * 40 + Math.pow(restaurantLevel + 1, 2) * 6 + Math.pow(restaurantLevel + 1, 3) * 0.08;
-			if (reputation >= requiredReputation) {
+			if (reputation >= requiredReputation && (restaurantLevel + 1) % 10 != 0) {
 				ModifyRestaurantNumberParameterProcedure.execute(restaurantLevel + 1, RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,

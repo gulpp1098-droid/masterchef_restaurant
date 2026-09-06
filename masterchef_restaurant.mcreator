@@ -6170,6 +6170,29 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
+    },
+    {
+      "name": "CriticGroupWaitState",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_group_wait_state",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticGroupWaitStateProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures"
     }
   ],
   "variable_elements": [

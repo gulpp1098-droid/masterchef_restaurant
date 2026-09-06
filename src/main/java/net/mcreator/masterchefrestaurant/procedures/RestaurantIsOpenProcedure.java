@@ -161,7 +161,7 @@ public class RestaurantIsOpenProcedure {
 				}.parse("{}");
 				if (critic && indexGroup == 0) {
 					membersObject.addProperty("critic", true);
-					membersObject.addProperty("leader", false);
+					membersObject.addProperty("leader", true);
 				} else {
 					if (indexMember == 0) {
 						membersObject.addProperty("leader", true);

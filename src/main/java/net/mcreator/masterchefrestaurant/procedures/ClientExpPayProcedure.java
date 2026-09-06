@@ -29,12 +29,14 @@ public class ClientExpPayProcedure {
 		double CheckpointReputation = 0;
 		double CheckpointLevel = 0;
 		double RealReputationChange = 0;
+		double requiredReputation = 0;
 		client = entity;
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 		CheckpointLevel = Math.floor(RestaurantLevel / 10) * 10;
 		CheckpointReputation = CheckpointLevel * 40 + Math.pow(CheckpointLevel, 2) * 6 + Math.pow(CheckpointLevel, 3) * 0.08;
+		requiredReputation = RestaurantLevel * 40 + Math.pow(RestaurantLevel, 2) * 6 + Math.pow(RestaurantLevel, 3) * 0.08;
 		foodDelivered = client.getPersistentData().getString("food_delivered");
 		orderedFood = client.getPersistentData().getString("food_tiers");
 		array = string2ArrayList(orderedFood, ",");
@@ -87,11 +89,18 @@ public class ClientExpPayProcedure {
 		CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
 		if (EXPTotal > 0) {
-			ModifyRestaurantNumberParameterProcedure.execute(CurrentReputation + EXPTotal, RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
+			if ((RestaurantLevel + 1) % 10 == 0) {
+				ModifyRestaurantNumberParameterProcedure.execute(Math.min(CurrentReputation + EXPTotal, requiredReputation), RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
+			} else {
+				ModifyRestaurantNumberParameterProcedure.execute(CurrentReputation + EXPTotal, RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
+			}
 		} else {
-			ModifyRestaurantNumberParameterProcedure.execute(Math.max(CurrentReputation + EXPTotal, CheckpointReputation), RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
+			if (!((RestaurantLevel + 1) % 10 == 0 && CurrentReputation >= requiredReputation)) {
+				ModifyRestaurantNumberParameterProcedure.execute(Math.max(CurrentReputation + EXPTotal, CheckpointReputation), RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
+			}
 		}
 		RealReputationChange = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation") - CurrentReputation;
