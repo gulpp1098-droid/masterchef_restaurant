@@ -159,7 +159,7 @@ public class RestaurantIsOpenProcedure {
 						}
 					}
 				}.parse("{}");
-				if (critic) {
+				if (critic && indexGroup == 0) {
 					membersObject.addProperty("critic", true);
 					membersObject.addProperty("leader", false);
 				} else {

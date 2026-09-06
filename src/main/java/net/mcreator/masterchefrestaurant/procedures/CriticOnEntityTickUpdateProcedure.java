@@ -10,7 +10,7 @@ public class CriticOnEntityTickUpdateProcedure {
 		if (entity == null)
 			return;
 		Entity client = null;
-		ClientAnimationSetUpProcedure.execute(entity);
+		CriticAnimationSetUpProcedure.execute(entity);
 		client = entity;
 		if (!world.isClientSide()) {
 			if (world.dayTime() % 36 == 0) {

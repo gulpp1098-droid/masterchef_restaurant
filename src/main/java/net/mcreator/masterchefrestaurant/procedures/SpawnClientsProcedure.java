@@ -133,7 +133,11 @@ public class SpawnClientsProcedure {
 										clientObject = membersArray.get((int) indexMembers).getAsJsonObject();
 										foodDeliveredArray = clientObject.get("food").getAsJsonArray();
 										food = "" + foodDeliveredArray;
-										Client = world instanceof ServerLevel _level23 ? MasterchefRestaurantModEntities.CLIENT.get().spawn(_level23, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+										if (clientObject.get("critic").getAsBoolean()) {
+											Client = world instanceof ServerLevel _level24 ? MasterchefRestaurantModEntities.CRITIC.get().spawn(_level24, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+										} else {
+											Client = world instanceof ServerLevel _level25 ? MasterchefRestaurantModEntities.CLIENT.get().spawn(_level25, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+										}
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
 											Client.getPersistentData().putBoolean("leader", true);

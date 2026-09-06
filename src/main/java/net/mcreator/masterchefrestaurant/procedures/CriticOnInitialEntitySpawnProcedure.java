@@ -7,7 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.network.chat.Component;
 
-import net.mcreator.masterchefrestaurant.entity.ClientEntity;
+import net.mcreator.masterchefrestaurant.entity.CriticEntity;
 
 import java.io.IOException;
 import java.io.FileReader;
@@ -53,7 +53,7 @@ public class CriticOnInitialEntitySpawnProcedure {
 		} else {
 			client.setCustomName(Component.literal(((name.substring(0, 1)).toUpperCase() + "" + name.substring(1))));
 		}
-		if (client instanceof ClientEntity customEntity)
+		if (client instanceof CriticEntity customEntity)
 			customEntity.setTexture(("texturecritic" + name));
 	}
 }
