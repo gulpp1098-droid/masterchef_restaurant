@@ -36,7 +36,7 @@ public class CriticOnEntityTickUpdateProcedure {
 				} else if ((client.getPersistentData().getString("state")).equals("table_go")) {
 					ClientTableGoStateProcedure.execute(world, entity);
 				} else if ((client.getPersistentData().getString("state")).equals("group_wait")) {
-					ClientGroupWaitStateProcedure.execute(world, x, y, z, entity);
+					CriticGroupWaitStateProcedure.execute(world, entity);
 				}
 				if ((client.getPersistentData().getString("state")).equals("find_chair")) {
 					ClientFindChairStateProcedure.execute(entity);

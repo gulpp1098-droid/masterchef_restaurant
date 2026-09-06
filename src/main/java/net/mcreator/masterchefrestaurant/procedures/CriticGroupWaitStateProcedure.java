@@ -21,7 +21,7 @@ public class CriticGroupWaitStateProcedure {
 		double restaurantIndex = 0;
 		client = entity;
 		if (!(client.getPersistentData().getString("food_delivered")).contains("" + 0)) {
-			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("restaurantID"));
+			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 			ModifyRestaurantNumberParameterProcedure.execute(
 					GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level") + 1,

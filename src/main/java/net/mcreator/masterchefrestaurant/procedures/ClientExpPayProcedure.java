@@ -36,7 +36,7 @@ public class ClientExpPayProcedure {
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 		CheckpointLevel = Math.floor(RestaurantLevel / 10) * 10;
 		CheckpointReputation = CheckpointLevel * 40 + Math.pow(CheckpointLevel, 2) * 6 + Math.pow(CheckpointLevel, 3) * 0.08;
-		requiredReputation = RestaurantLevel * 40 + Math.pow(RestaurantLevel, 2) * 6 + Math.pow(RestaurantLevel, 3) * 0.08;
+		requiredReputation = (RestaurantLevel + 1) * 40 + Math.pow(RestaurantLevel + 1, 2) * 6 + Math.pow(RestaurantLevel + 1, 3) * 0.08;
 		foodDelivered = client.getPersistentData().getString("food_delivered");
 		orderedFood = client.getPersistentData().getString("food_tiers");
 		array = string2ArrayList(orderedFood, ",");
