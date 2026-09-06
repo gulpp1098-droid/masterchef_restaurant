@@ -6082,6 +6082,10 @@
             "type": "number"
           },
           {
+            "name": "propertyNameDependency",
+            "type": "string"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -6184,6 +6188,10 @@
             "type": "entity"
           },
           {
+            "name": "propertyNameDependency",
+            "type": "string"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -6193,6 +6201,38 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures"
+    },
+    {
+      "name": "LevelUpAnimationReceivedByClient",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "level_up_animation_received_by_client",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/LevelUpAnimationReceivedByClientProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "LevelUpAnimation",
+      "type": "packet",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "level_up_animation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/network/LevelUpAnimationMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [

@@ -2,6 +2,7 @@ package net.mcreator.masterchefrestaurant.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
@@ -13,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModEntities;
 
+import java.util.UUID;
 import java.util.ArrayList;
 
 import ca.weblite.objc.Client;
@@ -21,6 +23,7 @@ public class SpawnClientsProcedure {
 	public static void execute(LevelAccessor world) {
 		ArrayList<Object> OpenRestaurantsArray = new ArrayList<>();
 		Entity Client = null;
+		Entity owner = null;
 		com.google.gson.JsonObject RestaurantsClientsObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject singleGroup = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject clientObject = new com.google.gson.JsonObject();
@@ -135,8 +138,15 @@ public class SpawnClientsProcedure {
 										food = "" + foodDeliveredArray;
 										if (clientObject.get("critic").getAsBoolean()) {
 											Client = world instanceof ServerLevel _level24 ? MasterchefRestaurantModEntities.CRITIC.get().spawn(_level24, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+											owner = world instanceof ServerLevel _level25
+													? getEntityFromUUID(_level25,
+															GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+																	MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
+													: null;
+											if (owner instanceof Player _player && !_player.level().isClientSide())
+												_player.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!"), false);
 										} else {
-											Client = world instanceof ServerLevel _level25 ? MasterchefRestaurantModEntities.CLIENT.get().spawn(_level25, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+											Client = world instanceof ServerLevel _level27 ? MasterchefRestaurantModEntities.CLIENT.get().spawn(_level27, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
 										}
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
@@ -199,6 +209,14 @@ public class SpawnClientsProcedure {
 					}
 				}
 			}
+		}
+	}
+
+	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
+		try {
+			return level.getEntity(UUID.fromString(uuid));
+		} catch (IllegalArgumentException e) {
+			return null;
 		}
 	}
 }

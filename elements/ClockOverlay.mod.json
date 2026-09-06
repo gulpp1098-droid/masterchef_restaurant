@@ -18,8 +18,8 @@
           },
           "hasShadow": false,
           "anchorPoint": "CENTER",
-          "x": 171,
-          "y": 10,
+          "x": 21,
+          "y": 8,
           "locked": false
         }
       },
@@ -29,8 +29,8 @@
           "image": "clock.png",
           "use1Xscale": false,
           "anchorPoint": "CENTER",
-          "x": 152,
-          "y": 9,
+          "x": 0,
+          "y": 5,
           "locked": false
         }
       }
