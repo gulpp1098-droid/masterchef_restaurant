@@ -3,6 +3,7 @@ package net.mcreator.masterchefrestaurant.entity;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.item.ItemStack;
@@ -19,6 +20,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -28,6 +30,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.masterchefrestaurant.procedures.*;
+
+import javax.annotation.Nullable;
 
 public class ClientEntity extends PathfinderMob {
 	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ClientEntity.class, EntityDataSerializers.STRING);
@@ -75,7 +79,7 @@ public class ClientEntity extends PathfinderMob {
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
-		builder.define(TEXTURE, "textureclientnewv2");
+		builder.define(TEXTURE, "textureclient01");
 		builder.define(ANIM, 0);
 		builder.define(DATA_Sit, false);
 		builder.define(DATA_Walk, false);
@@ -162,6 +166,13 @@ public class ClientEntity extends PathfinderMob {
 	@Override
 	public boolean ignoreExplosion(Explosion explosion) {
 		return true;
+	}
+
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata) {
+		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata);
+		ClientOnInitialEntitySpawnProcedure.execute(this);
+		return retval;
 	}
 
 	@Override
