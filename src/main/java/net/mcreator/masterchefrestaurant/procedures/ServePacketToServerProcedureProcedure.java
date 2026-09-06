@@ -1,9 +1,12 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModMenus;
 
@@ -26,41 +29,45 @@ public class ServePacketToServerProcedureProcedure {
 		String dummyString = "";
 		substringUUID = inboundString.substring((int) (inboundString.lastIndexOf(":") + 1));
 		item = inboundString.substring((int) inboundString.indexOf(" ") + " ".length(), (int) inboundString.lastIndexOf(":"));
-		if ((world instanceof ServerLevel _level2 ? getEntityFromUUID(_level2, substringUUID) : null) != null) {
-			deliveredString = (world instanceof ServerLevel _level3 ? getEntityFromUUID(_level3, substringUUID) : null).getPersistentData().getString("food_delivered");
-			oryginalLength = (deliveredString).length();
-			dummyString = deliveredString.replace(",", "");
-			newLength = (dummyString).length();
-			indexString = 0;
-			if (!item.contains("minecraft:air")) {
-				String _toSplit9 = ((world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, substringUUID) : null).getPersistentData().getString("food"));
-				String[] _array9 = _toSplit9.split(Pattern.quote(","));
-				for (int _iter9 = 0; _iter9 < Math.max(1, _array9.length); _iter9++) {
-					String stringiterator = _array9.length == 0 ? _toSplit9 : _array9[_iter9];
-					if ((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\""))).equals(item)) {
-						if (!(newLength == indexString)) {
-							if ((deliveredString.substring((int) (indexString * 2), (int) (indexString * 2 + 1))).equals("0")) {
-								found = true;
-								break;
-							}
-						} else {
-							if ((deliveredString.substring((int) (indexString * 2))).equals("0")) {
-								found = true;
-								break;
+		if (!((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu2 ? _menu2.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())
+				&& (BuiltInRegistries.ITEM.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu4 ? _menu4.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem())
+						.toString()).equals(item)) {
+			if ((world instanceof ServerLevel _level6 ? getEntityFromUUID(_level6, substringUUID) : null) != null) {
+				deliveredString = (world instanceof ServerLevel _level7 ? getEntityFromUUID(_level7, substringUUID) : null).getPersistentData().getString("food_delivered");
+				oryginalLength = (deliveredString).length();
+				dummyString = deliveredString.replace(",", "");
+				newLength = (dummyString).length();
+				indexString = 0;
+				if (!item.contains("minecraft:air")) {
+					String _toSplit13 = ((world instanceof ServerLevel _level9 ? getEntityFromUUID(_level9, substringUUID) : null).getPersistentData().getString("food"));
+					String[] _array13 = _toSplit13.split(Pattern.quote(","));
+					for (int _iter13 = 0; _iter13 < Math.max(1, _array13.length); _iter13++) {
+						String stringiterator = _array13.length == 0 ? _toSplit13 : _array13[_iter13];
+						if ((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\""))).equals(item)) {
+							if (!(newLength == indexString)) {
+								if ((deliveredString.substring((int) (indexString * 2), (int) (indexString * 2 + 1))).equals("0")) {
+									found = true;
+									break;
+								}
+							} else {
+								if ((deliveredString.substring((int) (indexString * 2))).equals("0")) {
+									found = true;
+									break;
+								}
 							}
 						}
+						indexString = indexString + 1;
 					}
-					indexString = indexString + 1;
 				}
 			}
-		}
-		if (found) {
-			if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-				_menu.getSlots().get(0).remove(1);
-				_player.containerMenu.broadcastChanges();
+			if (found) {
+				if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
+					_menu.getSlots().get(0).remove(1);
+					_player.containerMenu.broadcastChanges();
+				}
+				newFoodDelivery = deliveredString.substring(0, (int) (indexString * 2)) + "1" + deliveredString.substring((int) (indexString * 2 + 1));
+				(world instanceof ServerLevel _level15 ? getEntityFromUUID(_level15, substringUUID) : null).getPersistentData().putString("food_delivered", newFoodDelivery);
 			}
-			newFoodDelivery = deliveredString.substring(0, (int) (indexString * 2)) + "1" + deliveredString.substring((int) (indexString * 2 + 1));
-			(world instanceof ServerLevel _level11 ? getEntityFromUUID(_level11, substringUUID) : null).getPersistentData().putString("food_delivered", newFoodDelivery);
 		}
 	}
 
