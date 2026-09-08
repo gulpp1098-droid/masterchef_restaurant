@@ -6,8 +6,8 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
 public class CriticOnEntityTickUpdateProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, String propertyNameDependency) {
-		if (entity == null || propertyNameDependency == null)
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+		if (entity == null)
 			return;
 		Entity client = null;
 		CriticAnimationSetUpProcedure.execute(entity);
@@ -36,7 +36,7 @@ public class CriticOnEntityTickUpdateProcedure {
 				} else if ((client.getPersistentData().getString("state")).equals("table_go")) {
 					ClientTableGoStateProcedure.execute(world, entity);
 				} else if ((client.getPersistentData().getString("state")).equals("group_wait")) {
-					CriticGroupWaitStateProcedure.execute(world, entity, propertyNameDependency);
+					CriticGroupWaitStateProcedure.execute(world, entity);
 				}
 				if ((client.getPersistentData().getString("state")).equals("find_chair")) {
 					ClientFindChairStateProcedure.execute(entity);

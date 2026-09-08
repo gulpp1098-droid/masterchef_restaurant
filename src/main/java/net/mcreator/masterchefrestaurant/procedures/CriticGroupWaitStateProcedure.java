@@ -21,8 +21,8 @@ import net.mcreator.masterchefrestaurant.network.LevelUpAnimationMessage;
 import java.util.UUID;
 
 public class CriticGroupWaitStateProcedure {
-	public static void execute(LevelAccessor world, Entity entity, String propertyNameDependency) {
-		if (entity == null || propertyNameDependency == null)
+	public static void execute(LevelAccessor world, Entity entity) {
+		if (entity == null)
 			return;
 		boolean AllReady = false;
 		Entity client = null;
@@ -33,7 +33,7 @@ public class CriticGroupWaitStateProcedure {
 		owner = world instanceof ServerLevel _level0
 				? getEntityFromUUID(_level0,
 						GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, propertyNameDependency))
+								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
 				: null;
 		if (!(client.getPersistentData().getString("food_delivered")).contains("" + 0)) {
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));

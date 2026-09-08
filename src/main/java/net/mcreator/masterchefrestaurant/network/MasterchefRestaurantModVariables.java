@@ -100,6 +100,7 @@ public class MasterchefRestaurantModVariables {
 		clone.ClientPatiance = original.ClientPatiance;
 		clone.GUIstring = original.GUIstring;
 		clone.CurrentClientFoodDelivered = original.CurrentClientFoodDelivered;
+		clone.OverlayString = original.OverlayString;
 		if (!event.isWasDeath()) {
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
@@ -293,6 +294,7 @@ public class MasterchefRestaurantModVariables {
 		public double ClientPatiance = -1.0;
 		public String GUIstring = "";
 		public String CurrentClientFoodDelivered = "\"\"";
+		public String OverlayString = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -308,6 +310,7 @@ public class MasterchefRestaurantModVariables {
 			nbt.putDouble("ClientPatiance", ClientPatiance);
 			nbt.putString("GUIstring", GUIstring);
 			nbt.putString("CurrentClientFoodDelivered", CurrentClientFoodDelivered);
+			nbt.putString("OverlayString", OverlayString);
 			return nbt;
 		}
 
@@ -324,6 +327,7 @@ public class MasterchefRestaurantModVariables {
 			ClientPatiance = nbt.getDouble("ClientPatiance");
 			GUIstring = nbt.getString("GUIstring");
 			CurrentClientFoodDelivered = nbt.getString("CurrentClientFoodDelivered");
+			OverlayString = nbt.getString("OverlayString");
 		}
 
 		public void markSyncDirty() {

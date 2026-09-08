@@ -269,6 +269,7 @@ public class RestaurantIsOpenProcedure {
 				e.printStackTrace();
 			}
 		}
+		CreateOverlayDataTransferProcedure.execute(world, entity);
 	}
 
 	private static String getBlockNBTString(LevelAccessor world, BlockPos pos, String tag) {

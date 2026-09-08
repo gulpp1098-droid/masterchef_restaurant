@@ -47,6 +47,7 @@ public class OpenRestaurantButtonProcedure {
 						}
 						ModifyRestaurantLogicParameterProcedure.execute(false, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");
+						CreateOverlayDataTransferProcedure.execute(world, entity);
 						CreateGUIDataTransferProcedure.execute(world, entity);
 						FillSlotsMenuProcedure.execute(world, entity);
 						if (owner instanceof Player _player && !_player.level().isClientSide())
