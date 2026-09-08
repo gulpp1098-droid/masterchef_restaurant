@@ -44,14 +44,14 @@ public class TimelineOverlayOverlay {
 				if (true) {
 					int guiTools$xOffset = 0;
 					int guiTools$yOffset = 0;
-					int guiTools$visibleWidth = 120;
+					int guiTools$visibleWidth = Math.max(0, Math.min(120, (int) Math.round(net.mcreator.masterchefrestaurant.procedures.ReturnTimelineProgressProcedure.execute(world, entity))));
 					int guiTools$visibleHeight = 2;
 					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/timelinefull_icon.png"));
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 						event.getGuiGraphics().blit(guiTools$image, w / 2 + -59 + guiTools$xOffset, h / 2 + -108 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 120, 2);
 				}
 				if (true) {
-					int guiTools$xOffset = 0;
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.ReturnTimelineProgressProcedure.execute(world, entity));
 					int guiTools$yOffset = 0;
 					int guiTools$visibleWidth = 5;
 					int guiTools$visibleHeight = 12;

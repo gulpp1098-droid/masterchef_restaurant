@@ -6328,6 +6328,42 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "ReturnTimelineProgress",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_timeline_progress",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ReturnTimelineProgressProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Test",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/client/screens/TestOverlay.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -6803,7 +6839,8 @@
       "item.masterchef_restaurant.silver_coin": "Silver Coin",
       "item.masterchef_restaurant.copper_coin": "Copper Coin",
       "entity.masterchef_restaurant.critic": "Critic",
-      "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg"
+      "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg",
+      "gui.masterchef_restaurant.test.label_empty": "asdfasdf"
     }
   },
   "metadata": {

@@ -21,6 +21,7 @@
         "data": {
           "name": "dynamic_image_1",
           "image": "timelinefull_icon.png",
+          "visibleWidthProcedure": "ReturnTimelineProgress",
           "width": 120,
           "height": 2,
           "x": 154,
@@ -33,6 +34,7 @@
         "data": {
           "name": "dynamic_image_2",
           "image": "slider_icon.png",
+          "xOffsetProcedure": "ReturnTimelineProgress",
           "width": 5,
           "height": 12,
           "x": 152,
