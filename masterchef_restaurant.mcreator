@@ -6354,16 +6354,828 @@
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
     },
     {
-      "name": "Test",
-      "type": "overlay",
+      "name": "CalculateTimelineMarkerX",
+      "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "test",
+      "registry_name": "calculate_timeline_marker_x",
       "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "groupIndex",
+            "type": "number"
+          }
+        ],
+        "return_type": "number",
         "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/client/screens/TestOverlay.java"
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CalculateTimelineMarkerXProcedure.java"
         ]
-      }
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker1SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_1_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker1SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker1Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_1_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker1VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker2SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_2_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker2SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker3SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_3_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker3SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker4SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_4_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker4SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker5SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_5_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker5SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker6SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_6_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker6SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker7SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_7_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker7SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker8SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_8_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker8SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker9SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_9_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker9SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker10SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_10_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker10SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker11SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_11_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker11SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker12SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_12_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker12SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker13SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_13_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker13SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker14SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_14_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker14SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker15SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_15_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker15SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker16SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_16_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker16SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker17SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_17_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker17SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker18SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_18_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker18SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker19SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_19_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker19SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker20SetX",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_20_set_x",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker20SetXProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker2Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_2_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker2VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker3Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_3_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker3VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker4Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_4_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker4VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker5Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_5_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker5VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker6Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_6_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker6VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker7Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_7_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker7VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker8Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_8_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker8VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker9Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_9_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker9VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker10Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_10_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker10VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker11Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_11_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker11VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker12Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_12_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker12VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker13Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_13_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker13VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker14Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_14_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker14VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker15Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_15_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker15VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker16Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_16_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker16VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker17Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_17_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker17VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker18Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_18_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker18VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker19Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_19_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker19VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "Marker20Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "marker_20_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/Marker20VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
     }
   ],
   "variable_elements": [
@@ -6839,8 +7651,7 @@
       "item.masterchef_restaurant.silver_coin": "Silver Coin",
       "item.masterchef_restaurant.copper_coin": "Copper Coin",
       "entity.masterchef_restaurant.critic": "Critic",
-      "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg",
-      "gui.masterchef_restaurant.test.label_empty": "asdfasdf"
+      "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg"
     }
   },
   "metadata": {

@@ -329,6 +329,5 @@
   "item.masterchef_restaurant.silver_coin": "Silver Coin",
   "item.masterchef_restaurant.copper_coin": "Copper Coin",
   "entity.masterchef_restaurant.critic": "Critic",
-  "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg",
-  "gui.masterchef_restaurant.test.label_empty": "asdfasdf"
+  "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg"
 }

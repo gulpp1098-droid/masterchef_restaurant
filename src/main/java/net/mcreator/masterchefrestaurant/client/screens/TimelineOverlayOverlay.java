@@ -77,14 +77,185 @@ public class TimelineOverlayOverlay {
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 						event.getGuiGraphics().blit(guiTools$image, w / 2 + -89 + guiTools$xOffset, h / 2 + -116 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 20, 18);
 				}
-				if (true) {
-					int guiTools$xOffset = 0;
+				if (net.mcreator.masterchefrestaurant.procedures.Marker1VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker1SetXProcedure.execute(entity));
 					int guiTools$yOffset = 0;
 					int guiTools$visibleWidth = 11;
 					int guiTools$visibleHeight = 17;
 					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -102 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker2VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker2SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker3VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker3SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker4VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker4SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker5VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker5SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker6VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker6SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker7VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker7SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker8VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker8SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker9VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker9SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker10VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker10SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker11VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker11SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker12VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker12SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker13VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker13SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker14VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker14SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker15VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker15SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker16VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker16SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker17VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker17SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker18VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker18SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker19VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker19SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
+				}
+				if (net.mcreator.masterchefrestaurant.procedures.Marker20VisibilityProcedure.execute(entity)) {
+					int guiTools$xOffset = (int) Math.round(net.mcreator.masterchefrestaurant.procedures.Marker20SetXProcedure.execute(entity));
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 11;
+					int guiTools$visibleHeight = 17;
+					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/marker_icon.png"));
+					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+						event.getGuiGraphics().blit(guiTools$image, w / 2 + -64 + guiTools$xOffset, h / 2 + -101 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 11, 17);
 				}
 			}
 		}

@@ -71,10 +71,278 @@
         "data": {
           "name": "dynamic_image_5",
           "image": "marker_icon.png",
+          "displayCondition": "Marker1Visibility",
+          "xOffsetProcedure": "Marker1SetX",
           "width": 11,
           "height": 17,
           "x": 149,
-          "y": 18,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_6",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker2Visibility",
+          "xOffsetProcedure": "Marker2SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_7",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker3Visibility",
+          "xOffsetProcedure": "Marker3SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker4Visibility",
+          "xOffsetProcedure": "Marker4SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_9",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker5Visibility",
+          "xOffsetProcedure": "Marker5SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_10",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker6Visibility",
+          "xOffsetProcedure": "Marker6SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_11",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker7Visibility",
+          "xOffsetProcedure": "Marker7SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_12",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker8Visibility",
+          "xOffsetProcedure": "Marker8SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_13",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker9Visibility",
+          "xOffsetProcedure": "Marker9SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_14",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker10Visibility",
+          "xOffsetProcedure": "Marker10SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_15",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker11Visibility",
+          "xOffsetProcedure": "Marker11SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_16",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker12Visibility",
+          "xOffsetProcedure": "Marker12SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_17",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker13Visibility",
+          "xOffsetProcedure": "Marker13SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_18",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker14Visibility",
+          "xOffsetProcedure": "Marker14SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_19",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker15Visibility",
+          "xOffsetProcedure": "Marker15SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_20",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker16Visibility",
+          "xOffsetProcedure": "Marker16SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_21",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker17Visibility",
+          "xOffsetProcedure": "Marker17SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_22",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker18Visibility",
+          "xOffsetProcedure": "Marker18SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_23",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker19Visibility",
+          "xOffsetProcedure": "Marker19SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_24",
+          "image": "marker_icon.png",
+          "displayCondition": "Marker20Visibility",
+          "xOffsetProcedure": "Marker20SetX",
+          "width": 11,
+          "height": 17,
+          "x": 149,
+          "y": 19,
           "locked": false
         }
       }
