@@ -124,13 +124,12 @@ public class ClientQueueWaitStateProcedure {
 			if (Found) {
 				SetLogicNBTProcedure.execute(world, DestX, DestY, DestZ, true, "occupied");
 				SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
-				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putDouble("DestX", DestX);
 				client.getPersistentData().putDouble("DestY", DestY);
 				client.getPersistentData().putDouble("DestZ", DestZ);
 				client.getPersistentData().putString("state", "queue_move");
-				if (client instanceof Mob _mob45)
-					_mob45.setNoAi(false);
+				if (client instanceof Mob _mob44)
+					_mob44.setNoAi(false);
 			}
 		} else {
 			FoundTable = false;
@@ -225,6 +224,7 @@ public class ClientQueueWaitStateProcedure {
 					}
 				}.convert(GetPartFromStringProcedure.execute(2, receptionString));
 				SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
+				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putString("state", "table_go");
 				if (client instanceof Mob _mob66)
 					_mob66.setNoAi(false);
@@ -233,6 +233,7 @@ public class ClientQueueWaitStateProcedure {
 				client.getPersistentData().putDouble("reserved_table_x", PickedTableObject.get("TabX").getAsDouble());
 				client.getPersistentData().putDouble("reserved_table_y", PickedTableObject.get("TabY").getAsDouble());
 				client.getPersistentData().putDouble("reserved_table_z", PickedTableObject.get("TabZ").getAsDouble());
+				client.getPersistentData().putBoolean("table_reserved", true);
 				client.getPersistentData().putDouble("DestX", PickedTableObject.get("TabX").getAsDouble());
 				client.getPersistentData().putDouble("DestY", PickedTableObject.get("TabY").getAsDouble());
 				client.getPersistentData().putDouble("DestZ", PickedTableObject.get("TabZ").getAsDouble());
