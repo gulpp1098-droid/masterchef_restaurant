@@ -151,6 +151,9 @@ public class SpawnClientsProcedure {
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
 											Client.getPersistentData().putBoolean("leader", true);
+											Client.getPersistentData().putBoolean("queue_registered", false);
+											Client.getPersistentData().putBoolean("table_reserved", false);
+											Client.getPersistentData().putBoolean("active_group_finished", false);
 											Client.getPersistentData().putDouble("group_size", membersArray.size());
 											LeaderUUID = Client.getStringUUID();
 											ModifyRestaurantNumberParameterProcedure.execute(
@@ -161,6 +164,7 @@ public class SpawnClientsProcedure {
 										} else {
 											Client.getPersistentData().putString("leaderUUID", LeaderUUID);
 										}
+										Client.getPersistentData().putBoolean("leaving_started", false);
 										stringDelivered = "";
 										for (int _i2 = 0; _i2 < (int) foodDeliveredArray.size(); _i2++) {
 											stringDelivered = stringDelivered + ",0";
