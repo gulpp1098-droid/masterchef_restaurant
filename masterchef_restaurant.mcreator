@@ -6320,6 +6320,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ],
         "return_type": "logic",
@@ -7196,6 +7200,453 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "IsMarkerCritic",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_marker_critic",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "groupIndex",
+            "type": "number"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/IsMarkerCriticProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker1Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_1_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker1VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker2Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_2_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker2VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker3Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_3_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker3VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker4Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_4_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker4VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker5Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_5_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker5VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker6Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_6_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker6VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker7Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_7_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker7VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker8Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_8_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker8VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker9Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_9_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker9VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker10Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_10_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker10VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker11Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_11_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker11VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker12Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_12_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker12VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker13Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_13_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker13VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker14Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_14_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker14VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker15Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_15_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker15VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker16Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_16_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker16VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker17Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_17_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker17VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker18Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_18_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker18VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker19Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_19_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker19VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "CriticMarker20Visibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_marker_20_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CriticMarker20VisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
+    },
+    {
+      "name": "PlayerChangesDimension",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_changes_dimension",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/PlayerChangesDimensionProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Timeline"
     }
   ],
   "variable_elements": [

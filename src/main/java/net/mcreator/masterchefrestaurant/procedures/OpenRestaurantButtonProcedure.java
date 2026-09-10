@@ -56,7 +56,7 @@ public class OpenRestaurantButtonProcedure {
 						if (EnsureClientsDatabaseCurrentDayProcedure.execute(world)) {
 							if (GetRestaurantNumberParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 									MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "last_day_open") < Math.floor(world.dayTime() / 24000d)) {
-								if (world.dayTime() % 24000 >= 50 % 24000 && world.dayTime() % 24000 <= 9000 % 24000) {
+								if (world.dayTime() % 24000 >= 0 % 24000 && world.dayTime() % 24000 <= 9000 % 24000) {
 									AmountOfTables = ScanningRestaurantAreasProcedure.execute(world, entity, "Tables");
 									AmountOfChairs = ScanningRestaurantAreasProcedure.execute(world, entity, "Chairs");
 									ChairsMax = ScanningRestaurantAreasProcedure.execute(world, entity, "ChairsMax");

@@ -5,10 +5,10 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
-public class CalculateTimelineMarkerXProcedure {
-	public static double execute(Entity entity, double groupIndex) {
+public class IsMarkerCriticProcedure {
+	public static boolean execute(Entity entity, double groupIndex) {
 		if (entity == null)
-			return 0;
+			return false;
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject group = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray groups = new com.google.gson.JsonArray();
@@ -29,20 +29,11 @@ public class CalculateTimelineMarkerXProcedure {
 			}.parse(entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).OverlayString);
 			groups = Object.get("groups").getAsJsonArray();
 			if (groupIndex >= groups.size()) {
-				return -1;
+				return false;
 			}
 			group = groups.get((int) groupIndex).getAsJsonObject();
-			spawnTIme = group.get("spawn_time").getAsDouble();
-			openTime = Object.get("openTime").getAsDouble();
-			closeTime = Object.get("closeTime").getAsDouble();
-			progress = (spawnTIme - openTime) / (closeTime - openTime);
-			if (progress < 0) {
-				return 0;
-			} else if (progress > 1) {
-				return 1;
-			}
-			return progress * 120;
+			return group.get("critic").getAsBoolean();
 		}
-		return -1;
+		return false;
 	}
 }
