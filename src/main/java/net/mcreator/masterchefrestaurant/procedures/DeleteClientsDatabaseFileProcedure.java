@@ -27,6 +27,8 @@ public class DeleteClientsDatabaseFileProcedure {
 		com.google.gson.JsonObject dailyStatsObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject lastDayStatsObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject newDayStatsObject = new com.google.gson.JsonObject();
+		boolean ClientsAlreadyReset = false;
+		boolean StatsAlreadyReset = false;
 		currentTime = world.dayTime() % 24000;
 		currentDay = Math.floor(world.dayTime() / 24000d);
 		if (MasterchefRestaurantModVariables.MapVariables.get(world).LastClientsDatabaseResetDay < currentDay && currentTime <= 40) {
@@ -41,16 +43,22 @@ public class DeleteClientsDatabaseFileProcedure {
 					}
 					bufferedReader.close();
 					restaurants = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-					emptyObject.add("restaurants", emptyArray);
-					emptyObject.addProperty("database_day", currentDay);
-					{
-						com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-						try {
-							FileWriter fileWriter = new FileWriter(clientsDatabase);
-							fileWriter.write(mainGSONBuilderVariable.toJson(emptyObject));
-							fileWriter.close();
-						} catch (IOException exception) {
-							exception.printStackTrace();
+					restaurantsList = restaurants.get("restaurants").getAsJsonArray();
+					if ((restaurants.get("database_day").isJsonPrimitive() ? restaurants.get("database_day").getAsJsonPrimitive().isNumber() : false) && restaurants.get("database_day").getAsDouble() == currentDay && restaurantsList.size() == 0) {
+						ClientsAlreadyReset = true;
+					}
+					if (!ClientsAlreadyReset) {
+						emptyObject.add("restaurants", emptyArray);
+						emptyObject.addProperty("database_day", currentDay);
+						{
+							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+							try {
+								FileWriter fileWriter = new FileWriter(clientsDatabase);
+								fileWriter.write(mainGSONBuilderVariable.toJson(emptyObject));
+								fileWriter.close();
+							} catch (IOException exception) {
+								exception.printStackTrace();
+							}
 						}
 					}
 				} catch (IOException e) {
@@ -68,54 +76,60 @@ public class DeleteClientsDatabaseFileProcedure {
 					}
 					bufferedReader.close();
 					restaurantsFileObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-					restaurantsList = restaurantsFileObject.get("restaurants").getAsJsonArray();
-					index = 0;
-					for (int _i1 = 0; _i1 < (int) restaurantsList.size(); _i1++) {
-						restaurantObject = restaurantsList.get((int) index).getAsJsonObject();
-						dailyStatsObject = restaurantObject.get("daily_stats").getAsJsonObject();
-						lastDayStatsObject = new Object() {
-							public com.google.gson.JsonObject parse(String rawJson) {
-								try {
-									return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
-								} catch (Exception e) {
-									MasterchefRestaurantMod.LOGGER.error(e);
-									return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
-								}
-							}
-						}.parse("{}");
-						lastDayStatsObject.addProperty("customers_served_fully", dailyStatsObject.get("customers_served_fully").getAsDouble());
-						lastDayStatsObject.addProperty("customers_served", dailyStatsObject.get("customers_served").getAsDouble());
-						lastDayStatsObject.addProperty("customers_lost", dailyStatsObject.get("customers_lost").getAsDouble());
-						lastDayStatsObject.addProperty("coins_earned", dailyStatsObject.get("coins_earned").getAsDouble());
-						lastDayStatsObject.addProperty("reputation_change", dailyStatsObject.get("reputation_change").getAsDouble());
-						restaurantObject.add("last_day_stats", lastDayStatsObject);
-						newDayStatsObject = new Object() {
-							public com.google.gson.JsonObject parse(String rawJson) {
-								try {
-									return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
-								} catch (Exception e) {
-									MasterchefRestaurantMod.LOGGER.error(e);
-									return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
-								}
-							}
-						}.parse("{}");
-						newDayStatsObject.addProperty("customers_served_fully", 0);
-						newDayStatsObject.addProperty("customers_served", 0);
-						newDayStatsObject.addProperty("customers_lost", 0);
-						newDayStatsObject.addProperty("coins_earned", 0);
-						newDayStatsObject.addProperty("reputation_change", 0);
-						restaurantObject.add("daily_stats", newDayStatsObject);
-						index = index + 1;
+					if ((restaurantsFileObject.get("last_stats_reset_day").isJsonPrimitive() ? restaurantsFileObject.get("last_stats_reset_day").getAsJsonPrimitive().isNumber() : false)
+							&& restaurantsFileObject.get("last_stats_reset_day").getAsDouble() == currentDay) {
+						StatsAlreadyReset = true;
 					}
-					restaurantsFileObject.addProperty("last_stats_reset_day", currentDay);
-					{
-						com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-						try {
-							FileWriter fileWriter = new FileWriter(restaurantFile);
-							fileWriter.write(mainGSONBuilderVariable.toJson(restaurantsFileObject));
-							fileWriter.close();
-						} catch (IOException exception) {
-							exception.printStackTrace();
+					if (!StatsAlreadyReset) {
+						restaurantsList = restaurantsFileObject.get("restaurants").getAsJsonArray();
+						index = 0;
+						for (int _i1 = 0; _i1 < (int) restaurantsList.size(); _i1++) {
+							restaurantObject = restaurantsList.get((int) index).getAsJsonObject();
+							dailyStatsObject = restaurantObject.get("daily_stats").getAsJsonObject();
+							lastDayStatsObject = new Object() {
+								public com.google.gson.JsonObject parse(String rawJson) {
+									try {
+										return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
+									} catch (Exception e) {
+										MasterchefRestaurantMod.LOGGER.error(e);
+										return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+									}
+								}
+							}.parse("{}");
+							lastDayStatsObject.addProperty("customers_served_fully", dailyStatsObject.get("customers_served_fully").getAsDouble());
+							lastDayStatsObject.addProperty("customers_served", dailyStatsObject.get("customers_served").getAsDouble());
+							lastDayStatsObject.addProperty("customers_lost", dailyStatsObject.get("customers_lost").getAsDouble());
+							lastDayStatsObject.addProperty("coins_earned", dailyStatsObject.get("coins_earned").getAsDouble());
+							lastDayStatsObject.addProperty("reputation_change", dailyStatsObject.get("reputation_change").getAsDouble());
+							restaurantObject.add("last_day_stats", lastDayStatsObject);
+							newDayStatsObject = new Object() {
+								public com.google.gson.JsonObject parse(String rawJson) {
+									try {
+										return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
+									} catch (Exception e) {
+										MasterchefRestaurantMod.LOGGER.error(e);
+										return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+									}
+								}
+							}.parse("{}");
+							newDayStatsObject.addProperty("customers_served_fully", 0);
+							newDayStatsObject.addProperty("customers_served", 0);
+							newDayStatsObject.addProperty("customers_lost", 0);
+							newDayStatsObject.addProperty("coins_earned", 0);
+							newDayStatsObject.addProperty("reputation_change", 0);
+							restaurantObject.add("daily_stats", newDayStatsObject);
+							index = index + 1;
+						}
+						restaurantsFileObject.addProperty("last_stats_reset_day", currentDay);
+						{
+							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+							try {
+								FileWriter fileWriter = new FileWriter(restaurantFile);
+								fileWriter.write(mainGSONBuilderVariable.toJson(restaurantsFileObject));
+								fileWriter.close();
+							} catch (IOException exception) {
+								exception.printStackTrace();
+							}
 						}
 					}
 				} catch (IOException e) {

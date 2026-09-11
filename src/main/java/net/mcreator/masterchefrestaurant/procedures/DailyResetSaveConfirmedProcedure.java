@@ -18,6 +18,7 @@ public class DailyResetSaveConfirmedProcedure {
 		double currentDay = 0;
 		boolean ClientsSaveConfirm = false;
 		boolean RestaurantSaveConfirm = false;
+		com.google.gson.JsonArray restaurantsArray = new com.google.gson.JsonArray();
 		currentDay = Math.floor(world.dayTime() / 24000d);
 		clientDatabaseFile = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).ClientsDatabase_File_Name);
 		{
@@ -30,7 +31,8 @@ public class DailyResetSaveConfirmedProcedure {
 				}
 				bufferedReader.close();
 				clientDatabaseObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				if (clientDatabaseObject.get("database_day").getAsDouble() == currentDay) {
+				restaurantsArray = clientDatabaseObject.get("restaurants").getAsJsonArray();
+				if (clientDatabaseObject.get("database_day").getAsDouble() == currentDay && restaurantsArray.size() == 0) {
 					ClientsSaveConfirm = true;
 				}
 			} catch (IOException e) {
@@ -48,7 +50,8 @@ public class DailyResetSaveConfirmedProcedure {
 				}
 				bufferedReader.close();
 				restaurantsObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				if (restaurantsObject.get("last_stats_reset_day").getAsDouble() == currentDay) {
+				restaurantsArray = clientDatabaseObject.get("restaurants").getAsJsonArray();
+				if (restaurantsObject.get("last_stats_reset_day").getAsDouble() == currentDay && restaurantsArray.size() == 0) {
 					RestaurantSaveConfirm = true;
 				}
 			} catch (IOException e) {
