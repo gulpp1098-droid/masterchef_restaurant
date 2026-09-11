@@ -42,6 +42,7 @@ public class DeleteClientsDatabaseFileProcedure {
 					bufferedReader.close();
 					restaurants = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					emptyObject.add("restaurants", emptyArray);
+					emptyObject.addProperty("database_day", currentDay);
 					{
 						com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 						try {
@@ -106,6 +107,7 @@ public class DeleteClientsDatabaseFileProcedure {
 						restaurantObject.add("daily_stats", newDayStatsObject);
 						index = index + 1;
 					}
+					restaurantsFileObject.addProperty("last_stats_reset_day", currentDay);
 					{
 						com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 						try {
@@ -120,8 +122,12 @@ public class DeleteClientsDatabaseFileProcedure {
 					e.printStackTrace();
 				}
 			}
-			MasterchefRestaurantModVariables.MapVariables.get(world).LastClientsDatabaseResetDay = currentDay;
-			MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
+			if (DailyResetSaveConfirmedProcedure.execute(world)) {
+				MasterchefRestaurantModVariables.MapVariables.get(world).LastClientsDatabaseResetDay = currentDay;
+				MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
+			} else {
+				MasterchefRestaurantMod.LOGGER.info("DeleteClientsDatabaseFile: daily reset was not saved correctly.");
+			}
 		}
 	}
 }

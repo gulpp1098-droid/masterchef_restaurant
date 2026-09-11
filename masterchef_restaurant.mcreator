@@ -7588,6 +7588,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "DailyResetSaveConfirmed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "daily_reset_save_confirmed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/DailyResetSaveConfirmedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
