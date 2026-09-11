@@ -50,8 +50,7 @@ public class DailyResetSaveConfirmedProcedure {
 				}
 				bufferedReader.close();
 				restaurantsObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				restaurantsArray = clientDatabaseObject.get("restaurants").getAsJsonArray();
-				if (restaurantsObject.get("last_stats_reset_day").getAsDouble() == currentDay && restaurantsArray.size() == 0) {
+				if (restaurantsObject.get("last_stats_reset_day").getAsDouble() == currentDay) {
 					RestaurantSaveConfirm = true;
 				}
 			} catch (IOException e) {
