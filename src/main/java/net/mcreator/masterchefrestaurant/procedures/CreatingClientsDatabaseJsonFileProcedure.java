@@ -47,6 +47,7 @@ public class CreatingClientsDatabaseJsonFileProcedure {
 					exception.printStackTrace();
 				}
 				Object.add("restaurants", Array);
+				Object.addProperty("database_day", Math.floor(world.dayTime() / 24000d));
 				{
 					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 					try {
