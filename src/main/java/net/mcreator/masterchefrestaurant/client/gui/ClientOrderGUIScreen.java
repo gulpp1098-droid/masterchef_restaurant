@@ -79,7 +79,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 		guiGraphics.blit(IMAGE_8, this.leftPos + 37, this.topPos + 92, 0, 0, 18, 18, 18, 18);
 		guiGraphics.blit(IMAGE_9, this.leftPos + 39, this.topPos + 98, 0, 0, 14, 8, 14, 8);
 		guiGraphics.blit(IMAGE_10, this.leftPos + 19, this.topPos + 44, 0, 0, 20, 27, 20, 27);
-		if (OrdersCheckboxesCheckSlot1Procedure.execute(world, entity)) {
+		if (OrdersCheckboxesCheckSlot1Procedure.execute(entity)) {
 			guiGraphics.blit(IMAGE_11, this.leftPos + 54, this.topPos + 67, 0, 0, 16, 16, 16, 16);
 		}
 		if (OrdersCheckboxesCheckSlot2Procedure.execute(entity)) {
