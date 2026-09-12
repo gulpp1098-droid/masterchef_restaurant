@@ -739,9 +739,9 @@
         "data": {
           "id": 0,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 336,
           "y": 76,
           "locked": false

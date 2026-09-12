@@ -30,7 +30,7 @@ public class ClientOrderWaitStateProcedure {
 				_vars.markSyncDirty();
 			}
 			if (sourceentity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = BlockPos.containing(x, y + 1000, z);
 				_ent.openMenu(new MenuProvider() {
 					@Override
 					public Component getDisplayName() {

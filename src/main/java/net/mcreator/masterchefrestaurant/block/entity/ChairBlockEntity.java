@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 import java.util.stream.IntStream;
 
 public class ChairBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
-	private NonNullList<ItemStack> stacks = NonNullList.withSize(9, ItemStack.EMPTY);
+	private NonNullList<ItemStack> stacks = NonNullList.withSize(0, ItemStack.EMPTY);
 
 	public ChairBlockEntity(BlockPos position, BlockState state) {
 		super(MasterchefRestaurantModBlockEntities.CHAIR.get(), position, state);

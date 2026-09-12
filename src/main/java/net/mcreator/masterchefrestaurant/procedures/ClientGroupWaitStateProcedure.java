@@ -37,23 +37,41 @@ public class ClientGroupWaitStateProcedure {
 			}
 		}
 		if (AllReady) {
-			{
-				final Vec3 _center = new Vec3(x, y, z);
-				for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
-					if (entityiterator instanceof ClientEntity) {
-						if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")) {
-							ClientCoinPayProcedure.execute(world, entityiterator);
-							ClientExpPayProcedure.execute(world, entityiterator);
-							entityiterator.getPersistentData().putString("state", "leave");
-							entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
-							entityiterator.stopRiding();
+			if (client.getPersistentData().getBoolean("queue_registered")) {
+				{
+					final Vec3 _center = new Vec3(x, y, z);
+					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+						if (entityiterator instanceof ClientEntity) {
+							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")) {
+								ClientExpPayProcedure.execute(world, entityiterator);
+								ClientBeginLeavingProcedure.execute(world, entityiterator);
+								entityiterator.getPersistentData().putString("state", "leave");
+								entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
+								entityiterator.stopRiding();
+							}
+						}
+					}
+				}
+			} else {
+				{
+					final Vec3 _center = new Vec3(x, y, z);
+					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+						if (entityiterator instanceof ClientEntity) {
+							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")) {
+								ClientCoinPayProcedure.execute(world, entityiterator);
+								ClientExpPayProcedure.execute(world, entityiterator);
+								entityiterator.getPersistentData().putString("state", "leave");
+								entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
+								entityiterator.stopRiding();
+								chairDirection = getDirectionFromBlockState(
+										(world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
+								SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"),
+										client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(), false, "occupied");
+							}
 						}
 					}
 				}
 			}
-			chairDirection = getDirectionFromBlockState((world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
-			SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(),
-					false, "occupied");
 		}
 	}
 

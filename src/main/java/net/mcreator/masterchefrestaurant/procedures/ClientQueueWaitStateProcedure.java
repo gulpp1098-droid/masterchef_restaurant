@@ -224,11 +224,16 @@ public class ClientQueueWaitStateProcedure {
 					}
 				}.convert(GetPartFromStringProcedure.execute(2, receptionString));
 				SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
+				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putString("state", "table_go");
-				if (client instanceof Mob _mob65)
-					_mob65.setNoAi(false);
+				if (client instanceof Mob _mob66)
+					_mob66.setNoAi(false);
 				SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
 				PickedTableObject = PossibleTablesArray.get((int) RandomTable).getAsJsonObject();
+				client.getPersistentData().putDouble("reserved_table_x", PickedTableObject.get("TabX").getAsDouble());
+				client.getPersistentData().putDouble("reserved_table_y", PickedTableObject.get("TabY").getAsDouble());
+				client.getPersistentData().putDouble("reserved_table_z", PickedTableObject.get("TabZ").getAsDouble());
+				client.getPersistentData().putBoolean("table_reserved", true);
 				client.getPersistentData().putDouble("DestX", PickedTableObject.get("TabX").getAsDouble());
 				client.getPersistentData().putDouble("DestY", PickedTableObject.get("TabY").getAsDouble());
 				client.getPersistentData().putDouble("DestZ", PickedTableObject.get("TabZ").getAsDouble());
