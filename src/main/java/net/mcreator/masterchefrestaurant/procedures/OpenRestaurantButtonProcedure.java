@@ -109,6 +109,9 @@ public class OpenRestaurantButtonProcedure {
 									_player.displayClientMessage(Component.literal("You cannot open restaurant twice same day!"), false);
 							}
 						}
+					} else {
+						if (owner instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("You cannot do it outside the overworld!"), false);
 					}
 				} else {
 					if (owner instanceof Player _player && !_player.level().isClientSide())
