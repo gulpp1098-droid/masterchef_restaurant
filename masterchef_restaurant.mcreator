@@ -3076,6 +3076,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -4304,10 +4308,6 @@
       "registry_name": "rug_queue_is_destroyed_with_reception",
       "metadata": {
         "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
           {
             "name": "x",
             "type": "number"
@@ -7728,6 +7728,41 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "CleanupRestaurantQueueFromRug",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cleanup_restaurant_queue_from_rug",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CleanupRestaurantQueueFromRugProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Rug Procedures"
     }
   ],
   "variable_elements": [

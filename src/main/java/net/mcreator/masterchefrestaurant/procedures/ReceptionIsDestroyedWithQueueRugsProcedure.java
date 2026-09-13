@@ -16,6 +16,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 
 import javax.annotation.Nullable;
@@ -35,21 +36,31 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 		if (entity == null)
 			return;
 		if (MasterchefRestaurantModBlocks.RECEPTION.get() == (world.getBlockState(BlockPos.containing(x, y, z))).getBlock()) {
-			if (IsQueueRugForRestaurantProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
-					(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z, getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID"))) {
-				RugQueueIsDestroyedWithReceptionProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
-						(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z, entity);
-				{
-					BlockPos _pos = BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
+			if (entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
+					&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
+							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+				if (IsQueueRugForRestaurantProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
+						(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z, getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID"))) {
+					RugQueueIsDestroyedWithReceptionProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
 							(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z);
-					Block.dropResources(world.getBlockState(_pos), world,
-							BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z),
-							null);
-					world.destroyBlock(_pos, false);
+					{
+						BlockPos _pos = BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
+								(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z);
+						Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
+								(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z), null);
+						world.destroyBlock(_pos, false);
+					}
+					ReceptionBlockDestroyedProcedure.execute(world, entity);
 				}
-				ReceptionBlockDestroyedProcedure.execute(world, entity);
 			}
 		}
+	}
+
+	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		if (blockEntity != null)
+			return blockEntity.getPersistentData().getDouble(tag);
+		return -1;
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {
@@ -58,13 +69,6 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 			return blockState.getValue(dp);
 		prop = getPropertyByName(blockState, "axis");
 		return prop instanceof EnumProperty ep && ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) blockState.getValue(ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
-	}
-
-	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
-		BlockEntity blockEntity = world.getBlockEntity(pos);
-		if (blockEntity != null)
-			return blockEntity.getPersistentData().getDouble(tag);
-		return -1;
 	}
 
 	private static Property<?> getPropertyByName(BlockState state, String name) {
