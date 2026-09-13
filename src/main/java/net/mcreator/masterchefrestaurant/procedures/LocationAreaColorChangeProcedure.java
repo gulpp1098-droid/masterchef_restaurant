@@ -42,7 +42,6 @@ public class LocationAreaColorChangeProcedure {
 				}
 			} else {
 				for (int _i1 = 0; _i1 < (int) localizationArray.size(); _i1++) {
-					PosX = 0;
 					localizationString = localizationArray.get((int) localizationIndex).getAsString();
 					SectionX = new Object() {
 						double convert(String s) {
