@@ -51,7 +51,7 @@ public class ClientQueueWaitStateProcedure {
 		RugNumber = client.getPersistentData().getDouble("current_position") - 1;
 		if (client.getPersistentData().getDouble("current_position") > 1 && getBlockNBTNumber(world, BlockPos.containing(X, Y, Z), "queue") > 0) {
 			for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-				if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ(), entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
+				if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ(), client.getPersistentData().getDouble("RestaurantID"))) {
 					if (getBlockNBTNumber(world, BlockPos.containing(X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ()), "queue") == RugNumber - 1) {
 						if (directioniterator == Direction.SOUTH) {
 							{
@@ -127,8 +127,8 @@ public class ClientQueueWaitStateProcedure {
 				client.getPersistentData().putDouble("DestY", DestY);
 				client.getPersistentData().putDouble("DestZ", DestZ);
 				client.getPersistentData().putString("state", "queue_move");
-				if (client instanceof Mob _mob42)
-					_mob42.setNoAi(false);
+				if (client instanceof Mob _mob43)
+					_mob43.setNoAi(false);
 			}
 		} else {
 			FoundTable = false;
@@ -225,8 +225,8 @@ public class ClientQueueWaitStateProcedure {
 				SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
 				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putString("state", "table_go");
-				if (client instanceof Mob _mob64)
-					_mob64.setNoAi(false);
+				if (client instanceof Mob _mob65)
+					_mob65.setNoAi(false);
 				SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
 				PickedTableObject = PossibleTablesArray.get((int) RandomTable).getAsJsonObject();
 				client.getPersistentData().putDouble("reserved_table_x", PickedTableObject.get("TabX").getAsDouble());

@@ -29,7 +29,7 @@ public class RugQueueIsDestroyedWithReceptionProcedure {
 			while (CanBreak) {
 				CanBreak = false;
 				for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-					if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), Y, z + directioniterator.getStepZ(), ID)
+					if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ(), ID)
 							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z), "queue") == NBT + 1) {
 						{
 							BlockPos _pos = BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z);
@@ -41,7 +41,7 @@ public class RugQueueIsDestroyedWithReceptionProcedure {
 						NBT = NBT + 1;
 						CanBreak = true;
 						break;
-					} else if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), Y + 1, z + directioniterator.getStepZ(), ID)
+					} else if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y + 1, Z + directioniterator.getStepZ(), ID)
 							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z), "queue") == NBT + 1) {
 						{
 							BlockPos _pos = BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z);
@@ -54,7 +54,7 @@ public class RugQueueIsDestroyedWithReceptionProcedure {
 						NBT = NBT + 1;
 						CanBreak = true;
 						break;
-					} else if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), Y - 1, z + directioniterator.getStepZ(), ID)
+					} else if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y - 1, Z + directioniterator.getStepZ(), ID)
 							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z), "queue") == NBT + 1) {
 						{
 							BlockPos _pos = BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z);
