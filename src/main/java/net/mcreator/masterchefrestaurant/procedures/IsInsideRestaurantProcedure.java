@@ -39,11 +39,11 @@ public class IsInsideRestaurantProcedure {
 				}
 			}.convert(GetPartFromStringProcedure.execute(1, location)) * 5;
 			minX = ParameterX;
-			maxX = ParameterX + 4;
+			maxX = ParameterX + 5;
 			minZ = ParameterZ;
-			maxZ = ParameterZ + 4;
-			if (dependencyX >= minX && dependencyX <= maxX) {
-				if (dependencyZ >= minZ && dependencyZ <= maxZ) {
+			maxZ = ParameterZ + 5;
+			if (dependencyX >= minX && dependencyX < maxX) {
+				if (dependencyZ >= minZ && dependencyZ < maxZ) {
 					return true;
 				}
 			}

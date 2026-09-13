@@ -7676,6 +7676,34 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Rug Procedures"
+    },
+    {
+      "name": "IsInsideAnyRestaurant",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_inside_any_restaurant",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "dependencyX",
+            "type": "number"
+          },
+          {
+            "name": "dependencyZ",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/IsInsideAnyRestaurantProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
     }
   ],
   "variable_elements": [

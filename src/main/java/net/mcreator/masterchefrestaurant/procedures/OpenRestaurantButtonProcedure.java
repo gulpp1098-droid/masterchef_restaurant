@@ -1,6 +1,8 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
@@ -52,7 +54,7 @@ public class OpenRestaurantButtonProcedure {
 						FillSlotsMenuProcedure.execute(world, entity);
 						if (owner instanceof Player _player && !_player.level().isClientSide())
 							_player.displayClientMessage(Component.literal("Restaurant is now closed!"), false);
-					} else if (!Restaurant.get("open").getAsBoolean()) {
+					} else if (!Restaurant.get("open").getAsBoolean() && (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) {
 						if (EnsureClientsDatabaseCurrentDayProcedure.execute(world)) {
 							if (GetRestaurantNumberParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 									MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "last_day_open") < Math.floor(world.dayTime() / 24000d)) {

@@ -110,7 +110,7 @@ public class SpawnClientsProcedure {
 									}
 									SpawnX = RecX + OffsetX;
 									SpawnZ = RecZ + OffsetZ;
-									if (!IsInsideRestaurantProcedure.execute(world, SpawnX, SpawnZ, restaurantID)) {
+									if (!IsInsideAnyRestaurantProcedure.execute(world, SpawnX, SpawnZ)) {
 										SpawnY = RecY;
 										if (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY, SpawnZ)) && world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY + 1, SpawnZ))) {
 											while (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ)) && RecY - 25 <= SpawnY) {
