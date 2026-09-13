@@ -45,9 +45,6 @@ public class ClientGroupWaitStateProcedure {
 							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")) {
 								ClientExpPayProcedure.execute(world, entityiterator);
 								ClientBeginLeavingProcedure.execute(world, entityiterator);
-								entityiterator.getPersistentData().putString("state", "leave");
-								entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
-								entityiterator.stopRiding();
 							}
 						}
 					}

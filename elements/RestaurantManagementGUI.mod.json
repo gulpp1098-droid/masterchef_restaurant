@@ -302,24 +302,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_day_menu",
-          "text": {
-            "fixedValue": "Day Menu",
-            "name": "MenuNameReturn"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 346,
-          "y": 41,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_fully",
           "text": {
             "fixedValue": "Fully Served"
@@ -812,6 +794,25 @@
           "height": 21,
           "x": 330,
           "y": 206,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_first_linesecond_line",
+          "text": "Current\nMenu",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "textProcedure": "MenuNameReturn",
+          "width": 64,
+          "height": 43,
+          "x": 352,
+          "y": 37,
           "locked": false
         }
       }

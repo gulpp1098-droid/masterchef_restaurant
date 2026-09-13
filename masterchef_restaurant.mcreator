@@ -7608,6 +7608,38 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "CanClaimRestaurantLocation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "can_claim_restaurant_location",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "candidateX",
+            "type": "number"
+          },
+          {
+            "name": "candidateZ",
+            "type": "number"
+          },
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CanClaimRestaurantLocationProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
