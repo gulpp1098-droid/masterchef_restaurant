@@ -17,7 +17,7 @@ public class CanUseCurrentClientOrderSessionProcedure {
 		if (entity == null)
 			return false;
 		Entity client = null;
-		if (entity instanceof Player _plr0 && _plr0.containerMenu instanceof ClientOrderGUIMenu) {
+		if (!(entity instanceof Player _plr0 && _plr0.containerMenu instanceof ClientOrderGUIMenu)) {
 			return false;
 		}
 		client = world instanceof ServerLevel _level1 ? getEntityFromUUID(_level1, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).CurrentClientUUID) : null;

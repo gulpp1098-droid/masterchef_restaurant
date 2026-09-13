@@ -22,11 +22,12 @@ public class ClientOrderWaitStateProcedure {
 			return;
 		Entity client = null;
 		client = entity;
-		if ((client.getPersistentData().getString("state")).equals("food_wait") || (client.getPersistentData().getString("state")).equals("order_wait")) {
+		if (sourceentity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == client.getPersistentData().getDouble("RestaurantID")
+				&& ((client.getPersistentData().getString("state")).equals("food_wait") || (client.getPersistentData().getString("state")).equals("order_wait"))) {
 			client.getPersistentData().putString("state", "food_wait");
 			{
 				MasterchefRestaurantModVariables.PlayerVariables _vars = sourceentity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES);
-				_vars.CurrentClientUUID = entity.getStringUUID();
+				_vars.CurrentClientUUID = client.getStringUUID();
 				_vars.markSyncDirty();
 			}
 			if (sourceentity instanceof ServerPlayer _ent) {
