@@ -14,6 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Display;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModItems;
 
 import java.util.Comparator;
@@ -22,16 +23,26 @@ public class ServiceTableRightClickedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") > 0) {
-			if (entity instanceof Player _player) {
-				ItemStack _setstack = new ItemStack(MasterchefRestaurantModItems.COPPER_COIN.get()).copy();
-				_setstack.setCount((int) getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins"));
-				ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-			}
-			setBlockNBTNumber(world, x, y, z, "coins", 0);
-			if (!((findEntityInWorldRange(world, Display.TextDisplay.class, (x + 0.5), (y + 1), (z + 0.5), 0.5)) == null)) {
-				if (!(findEntityInWorldRange(world, Display.TextDisplay.class, (x + 0.5), (y + 1), (z + 0.5), 0.5)).level().isClientSide())
-					(findEntityInWorldRange(world, Display.TextDisplay.class, (x + 0.5), (y + 1), (z + 0.5), 0.5)).discard();
+		double tabelRestaurantID = 0;
+		double X = 0;
+		double Y = 0;
+		double Z = 0;
+		if (!world.isClientSide()) {
+			tabelRestaurantID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
+			X = x;
+			Y = y;
+			Z = z;
+			if (getBlockNBTNumber(world, BlockPos.containing(X, Y, Z), "coins") > 0 && tabelRestaurantID == entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID) {
+				if (entity instanceof Player _player) {
+					ItemStack _setstack = new ItemStack(MasterchefRestaurantModItems.COPPER_COIN.get()).copy();
+					_setstack.setCount((int) getBlockNBTNumber(world, BlockPos.containing(X, Y, Z), "coins"));
+					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
+				}
+				setBlockNBTNumber(world, X, Y, Z, "coins", 0);
+				if (!((findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)) == null)) {
+					if (!(findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).level().isClientSide())
+						(findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).discard();
+				}
 			}
 		}
 	}

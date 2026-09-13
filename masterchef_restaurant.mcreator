@@ -7704,6 +7704,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
+    },
+    {
+      "name": "CanUseCurrentClientOrderSession",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "can_use_current_client_order_session",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CanUseCurrentClientOrderSessionProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
