@@ -12,7 +12,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
-import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 
 public class RugQueueBlockIsPlacedByProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -57,7 +56,7 @@ public class RugQueueBlockIsPlacedByProcedure {
 			Placeable = false;
 			NBTnumber = getBlockNBTNumber(world, BlockPos.containing(X, Y, Z), "queue");
 			for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-				if ((world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()))).getBlock() == MasterchefRestaurantModBlocks.RUG_QUEUE.get()
+				if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), y, z + directioniterator.getStepZ(), entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID)
 						&& getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBTnumber) {
 					Placeable = true;
 				}

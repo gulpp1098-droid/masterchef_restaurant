@@ -8,7 +8,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
-import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 
 public class RugQueueIsDestroyedWithReceptionProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
@@ -30,7 +29,7 @@ public class RugQueueIsDestroyedWithReceptionProcedure {
 			while (CanBreak) {
 				CanBreak = false;
 				for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-					if (MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z))).getBlock()
+					if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), Y, z + directioniterator.getStepZ(), ID)
 							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z), "queue") == NBT + 1) {
 						{
 							BlockPos _pos = BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z);
@@ -42,7 +41,7 @@ public class RugQueueIsDestroyedWithReceptionProcedure {
 						NBT = NBT + 1;
 						CanBreak = true;
 						break;
-					} else if (MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z))).getBlock()
+					} else if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), Y + 1, z + directioniterator.getStepZ(), ID)
 							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z), "queue") == NBT + 1) {
 						{
 							BlockPos _pos = BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z);
@@ -55,7 +54,7 @@ public class RugQueueIsDestroyedWithReceptionProcedure {
 						NBT = NBT + 1;
 						CanBreak = true;
 						break;
-					} else if (MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z))).getBlock()
+					} else if (IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), Y - 1, z + directioniterator.getStepZ(), ID)
 							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z), "queue") == NBT + 1) {
 						{
 							BlockPos _pos = BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z);

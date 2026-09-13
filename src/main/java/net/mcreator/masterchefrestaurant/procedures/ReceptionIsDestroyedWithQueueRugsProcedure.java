@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
@@ -34,9 +35,8 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 		if (entity == null)
 			return;
 		if (MasterchefRestaurantModBlocks.RECEPTION.get() == (world.getBlockState(BlockPos.containing(x, y, z))).getBlock()) {
-			if (MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(
-					BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z)))
-					.getBlock()) {
+			if (IsQueueRugForRestaurantProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
+					(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z, getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID"))) {
 				RugQueueIsDestroyedWithReceptionProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
 						(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z, entity);
 				{
@@ -58,6 +58,13 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 			return blockState.getValue(dp);
 		prop = getPropertyByName(blockState, "axis");
 		return prop instanceof EnumProperty ep && ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) blockState.getValue(ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
+	}
+
+	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		if (blockEntity != null)
+			return blockEntity.getPersistentData().getDouble(tag);
+		return -1;
 	}
 
 	private static Property<?> getPropertyByName(BlockState state, String name) {

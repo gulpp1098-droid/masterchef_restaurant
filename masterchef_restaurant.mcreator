@@ -7640,6 +7640,42 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "IsQueueRugForRestaurant",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_queue_rug_for_restaurant",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/IsQueueRugForRestaurantProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Rug Procedures"
     }
   ],
   "variable_elements": [
