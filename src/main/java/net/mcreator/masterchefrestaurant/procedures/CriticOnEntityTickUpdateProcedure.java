@@ -20,14 +20,14 @@ public class CriticOnEntityTickUpdateProcedure {
 				if ((client.getPersistentData().getString("state")).equals("restaurant_go")) {
 					if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-						ClientLeaveStateProcedure.execute(world, x, y, z, entity);
+						ClientBeginLeavingProcedure.execute(world, entity);
 					} else {
 						ClientRestaurantGoStateProcedure.execute(world, entity);
 					}
 				} else if ((client.getPersistentData().getString("state")).equals("queue_wait")) {
 					if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-						ClientLeaveStateProcedure.execute(world, x, y, z, entity);
+						ClientBeginLeavingProcedure.execute(world, entity);
 					} else {
 						ClientQueueWaitStateProcedure.execute(world, entity);
 					}
