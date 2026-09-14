@@ -7759,6 +7759,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Rug Procedures"
+    },
+    {
+      "name": "GetMasterchefWorldPath",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "get_masterchef_world_path",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/GetMasterchefWorldPathProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
