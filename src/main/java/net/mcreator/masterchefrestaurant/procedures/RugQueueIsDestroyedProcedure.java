@@ -47,7 +47,7 @@ public class RugQueueIsDestroyedProcedure {
 				if (entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == ID
 						&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-					CleanupRestaurantQueueFromRugProcedure.execute(world, x, y, z, entity);
+					CleanupRestaurantQueueFromRugProcedure.execute(world, x, y, z);
 				} else {
 					if (event instanceof ICancellableEvent _cancellable) {
 						_cancellable.setCanceled(true);
