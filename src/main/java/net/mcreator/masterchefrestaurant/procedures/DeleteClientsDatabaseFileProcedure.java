@@ -17,7 +17,6 @@ public class DeleteClientsDatabaseFileProcedure {
 		com.google.gson.JsonArray restaurantsList = new com.google.gson.JsonArray();
 		double currentDay = 0;
 		double index = 0;
-		double currentTime = 0;
 		File clientsDatabase = new File("");
 		File restaurantFile = new File("");
 		com.google.gson.JsonObject restaurants = new com.google.gson.JsonObject();
@@ -29,9 +28,8 @@ public class DeleteClientsDatabaseFileProcedure {
 		com.google.gson.JsonObject newDayStatsObject = new com.google.gson.JsonObject();
 		boolean ClientsAlreadyReset = false;
 		boolean StatsAlreadyReset = false;
-		currentTime = world.dayTime() % 24000;
 		currentDay = Math.floor(world.dayTime() / 24000d);
-		if (MasterchefRestaurantModVariables.MapVariables.get(world).LastClientsDatabaseResetDay < currentDay && currentTime <= 40) {
+		if (MasterchefRestaurantModVariables.MapVariables.get(world).LastClientsDatabaseResetDay < currentDay) {
 			clientsDatabase = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).ClientsDatabase_File_Name);
 			{
 				try {
