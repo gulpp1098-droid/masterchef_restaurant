@@ -47,6 +47,7 @@ public class ClientEntity extends PathfinderMob {
 		super(type, world);
 		xpReward = 0;
 		setNoAi(false);
+		setPersistenceRequired();
 	}
 
 	@Override
@@ -120,6 +121,11 @@ public class ClientEntity extends PathfinderMob {
 		});
 		this.goalSelector.addGoal(2, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(3, new FloatGoal(this));
+	}
+
+	@Override
+	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+		return false;
 	}
 
 	@Override
