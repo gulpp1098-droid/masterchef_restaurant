@@ -61,17 +61,18 @@ public class CleanupRestaurantQueueFromRugProcedure {
 				}.convert(GetPartFromStringProcedure.execute(2, receptionString));
 				SetNumberNBTProcedure.execute(world, receX, receY, receZ, NBT - 1, "queue");
 				for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-					if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ(), ID)) {
-						if (getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z), "queue") == newNBT) {
-							SetStringNBTProcedure.execute(world, receX, receY, receZ, "last_rug", (directioniterator.getStepX() + X + 0.5) + ":" + Y + ":" + (directioniterator.getStepZ() + Z + 0.5));
-							break;
-						} else if (getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z), "queue") == newNBT) {
-							SetStringNBTProcedure.execute(world, receX, receY, receZ, "last_rug", (directioniterator.getStepX() + X + 0.5) + ":" + (Y + 1) + ":" + (directioniterator.getStepZ() + Z + 0.5));
-							break;
-						} else if (getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z), "queue") == newNBT) {
-							SetStringNBTProcedure.execute(world, receX, receY, receZ, "last_rug", (directioniterator.getStepX() + X + 0.5) + ":" + (Y - 1) + ":" + (directioniterator.getStepZ() + Z + 0.5));
-							break;
-						}
+					if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ(), ID)
+							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y, directioniterator.getStepZ() + Z), "queue") == newNBT) {
+						SetStringNBTProcedure.execute(world, receX, receY, receZ, "last_rug", (directioniterator.getStepX() + X + 0.5) + ":" + Y + ":" + (directioniterator.getStepZ() + Z + 0.5));
+						break;
+					} else if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y - 1, Z + directioniterator.getStepZ(), ID)
+							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y - 1, directioniterator.getStepZ() + Z), "queue") == newNBT) {
+						SetStringNBTProcedure.execute(world, receX, receY, receZ, "last_rug", (directioniterator.getStepX() + X + 0.5) + ":" + (Y - 1) + ":" + (directioniterator.getStepZ() + Z + 0.5));
+						break;
+					} else if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y + 1, Z + directioniterator.getStepZ(), ID)
+							&& getBlockNBTNumber(world, BlockPos.containing(directioniterator.getStepX() + X, Y + 1, directioniterator.getStepZ() + Z), "queue") == newNBT) {
+						SetStringNBTProcedure.execute(world, receX, receY, receZ, "last_rug", (directioniterator.getStepX() + X + 0.5) + ":" + (Y + 1) + ":" + (directioniterator.getStepZ() + Z + 0.5));
+						break;
 					}
 				}
 				CanBreak = true;
