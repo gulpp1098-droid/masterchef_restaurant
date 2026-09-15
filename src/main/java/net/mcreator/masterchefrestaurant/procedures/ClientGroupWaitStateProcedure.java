@@ -48,8 +48,7 @@ public class ClientGroupWaitStateProcedure {
 					final Vec3 _center = new Vec3(x, y, z);
 					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(16 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator instanceof ClientEntity) {
-							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")
-									&& client.getPersistentData().getDouble("RestaurantID") == entityiterator.getPersistentData().getDouble("RestaurantID")) {
+							if (IsMemberOfClientGroupProcedure.execute(entityiterator, client)) {
 								ClientExpPayProcedure.execute(world, entityiterator);
 								ClientBeginLeavingProcedure.execute(world, entityiterator);
 							}
@@ -61,17 +60,16 @@ public class ClientGroupWaitStateProcedure {
 					final Vec3 _center = new Vec3(x, y, z);
 					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(16 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator instanceof ClientEntity) {
-							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")
-									&& client.getPersistentData().getDouble("RestaurantID") == entityiterator.getPersistentData().getDouble("RestaurantID")) {
+							if (IsMemberOfClientGroupProcedure.execute(entityiterator, client)) {
 								ClientCoinPayProcedure.execute(world, entityiterator);
 								ClientExpPayProcedure.execute(world, entityiterator);
 								entityiterator.getPersistentData().putString("state", "leave");
 								entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
 								entityiterator.stopRiding();
 								chairDirection = getDirectionFromBlockState(
-										(world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
-								SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"),
-										client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(), false, "occupied");
+										(world.getBlockState(BlockPos.containing(entityiterator.getPersistentData().getDouble("DestX"), entityiterator.getPersistentData().getDouble("DestY"), entityiterator.getPersistentData().getDouble("DestZ")))));
+								SetLogicNBTProcedure.execute(world, entityiterator.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), entityiterator.getPersistentData().getDouble("DestY"),
+										entityiterator.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(), false, "occupied");
 							}
 						}
 					}
