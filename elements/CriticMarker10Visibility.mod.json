@@ -1,0 +1,8 @@
+{
+  "_fv": 89,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"Number\" id=\"Xvalue\">Xvalue</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"procedure_retval_logic\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" inputs=\"1\"></mutation><field name=\"procedure\">IsMarkerCritic</field><field name=\"name0\">groupIndex</field><value name=\"arg0\"><block type=\"math_number\"><field name=\"NUM\">9</field></block></value></block></value><statement name=\"DO0\"><block type=\"return_gui_image\"><value name=\"return\"><block type=\"gui_tools_screen_texture\"><field name=\"texture\">markercritic_icon</field></block></value></block></statement><next><block type=\"return_gui_image\"><value name=\"return\"><block type=\"gui_tools_screen_texture\"><field name=\"texture\">marker_icon</field></block></value></block></next></block></next></block></xml>",
+    "skipDependencyNullCheck": false
+  }
+}

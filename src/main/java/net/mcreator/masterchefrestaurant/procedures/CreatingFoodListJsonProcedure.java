@@ -55,6 +55,21 @@ public class CreatingFoodListJsonProcedure {
 			// RECIPE MANAGER
 			// =====================================================
 			net.minecraft.world.item.crafting.RecipeManager recipeManager = level.getRecipeManager();
+			java.util.Map<String, Double> customPoints = new java.util.HashMap<>();
+			customPoints.put("minecraft:tropical_fish", 6.0);
+			customPoints.put("minecraft:glow_berries", 3.0);
+			java.util.Map<String, java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>>> recipesByOutput = new java.util.HashMap<>();
+			for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
+				net.minecraft.world.item.crafting.Recipe<?> recipe = recipeHolder.value();
+				net.minecraft.world.item.ItemStack result = recipe.getResultItem(level.registryAccess());
+				if (result.isEmpty())
+					continue;
+				var resultId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(result.getItem());
+				if (resultId == null)
+					continue;
+				String resultName = resultId.toString();
+				recipesByOutput.computeIfAbsent(resultName, key -> new java.util.ArrayList<>()).add(recipeHolder);
+			}
 			// =====================================================
 			// ETAP 1 - FOOD WITH RECIPES
 			// =====================================================
@@ -153,7 +168,8 @@ public class CreatingFoodListJsonProcedure {
 					preparePoints = 5;
 				}
 				ingredientPoints = Math.sqrt(ingredientPoints) * 2;
-				double score = hungerPoints + saturationPoints + effectPoints + preparePoints + ingredientPoints;
+				double customScore = customPoints.getOrDefault(itemName, 0.0);
+				double score = hungerPoints + saturationPoints + effectPoints + preparePoints + ingredientPoints + customScore;
 				// =================================================
 				// FOOD OBJECT
 				// =================================================
@@ -167,6 +183,7 @@ public class CreatingFoodListJsonProcedure {
 				foodObject.addProperty("negativeEffects", negativeEffectsArray.size());
 				foodObject.add("positiveEffectsList", positiveEffectsArray);
 				foodObject.add("negativeEffectsList", negativeEffectsArray);
+				foodObject.addProperty("customPoints", customScore);
 				foodObject.addProperty("score", score);
 				if (negativeEffectsArray.size() > 0) {
 					disabledFoodsArray.add(foodObject);
@@ -230,7 +247,8 @@ public class CreatingFoodListJsonProcedure {
 				double effectPoints = positiveEffectsArray.size() * 4 - negativeEffectsArray.size() * 8;
 				double preparePoints = 0;
 				double ingredientPoints = 0;
-				double score = hungerPoints + saturationPoints + effectPoints + preparePoints + ingredientPoints;
+				double customScore = customPoints.getOrDefault(itemName, 0.0);
+				double score = hungerPoints + saturationPoints + effectPoints + preparePoints + ingredientPoints + customScore;
 				// =================================================
 				// FOOD OBJECT
 				// =================================================
@@ -244,6 +262,7 @@ public class CreatingFoodListJsonProcedure {
 				foodObject.addProperty("negativeEffects", negativeEffectsArray.size());
 				foodObject.add("positiveEffectsList", positiveEffectsArray);
 				foodObject.add("negativeEffectsList", negativeEffectsArray);
+				foodObject.addProperty("customPoints", customScore);
 				foodObject.addProperty("score", score);
 				// =================================================
 				// DISABLED FOOD CHECK

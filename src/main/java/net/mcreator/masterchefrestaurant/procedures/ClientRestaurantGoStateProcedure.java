@@ -104,6 +104,7 @@ public class ClientRestaurantGoStateProcedure {
 					}
 				}.convert(GetPartFromStringProcedure.execute(2, ReceptionPosition));
 				SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") + 1, "queue_length");
+				client.getPersistentData().putBoolean("queue_registered", true);
 				SetLogicNBTProcedure.execute(world, RugX, RugY, RugZ, true, "occupied");
 			}
 		}
