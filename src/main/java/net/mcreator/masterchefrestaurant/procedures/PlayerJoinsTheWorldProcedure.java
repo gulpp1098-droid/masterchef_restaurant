@@ -7,6 +7,12 @@ import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.AdvancementHolder;
+
+import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
 import javax.annotation.Nullable;
 
@@ -24,6 +30,23 @@ public class PlayerJoinsTheWorldProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		if (!entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).BookGained) {
+			if (entity instanceof ServerPlayer _player) {
+				AdvancementHolder _adv = _player.server.getAdvancements().get(ResourceLocation.parse("masterchef_restaurant:cooking_time"));
+				if (_adv != null) {
+					AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+					if (!_ap.isDone()) {
+						for (String criteria : _ap.getRemainingCriteria())
+							_player.getAdvancements().award(_adv, criteria);
+					}
+				}
+			}
+			{
+				MasterchefRestaurantModVariables.PlayerVariables _vars = entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES);
+				_vars.BookGained = true;
+				_vars.markSyncDirty();
+			}
+		}
 		CreateOverlayDataTransferProcedure.execute(world, entity);
 	}
 }

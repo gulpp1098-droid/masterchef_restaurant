@@ -333,5 +333,7 @@
   "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_as_well_as_claim_area": "Remember!",
   "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_overview_wip": "Exp and Coins",
   "gui.masterchef_restaurant.location_guide_p_2_gui.label_overview_wip": "Set area",
-  "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table_copy": "Queue Rules"
+  "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table_copy": "Queue Rules",
+  "advancements.cooking_time.title": "Cooking Time",
+  "advancements.cooking_time.descr": "It is cooking time!"
 }
