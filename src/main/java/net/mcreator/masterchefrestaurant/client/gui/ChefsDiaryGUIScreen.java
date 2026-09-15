@@ -127,7 +127,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_gui.label_basic_tutorial"), 5, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, "This diary will guide you through", -102, -68, 96, 22, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"the basics of running your own restaurant. Your goal is to build, manage and improve a restaurant of your dreams. You will need a proper equipment, place and enough patiance to handle hungry customers.", -145, -46, 135, 110,
+				"the basics of running your own restaurant. Your goal is to build, manage and improve a restaurant of your dreams. You will need a proper equipment, place and enough patience to handle hungry customers.", -145, -46, 135, 110,
 				-12829636, false, 1.00F);
 	}
 

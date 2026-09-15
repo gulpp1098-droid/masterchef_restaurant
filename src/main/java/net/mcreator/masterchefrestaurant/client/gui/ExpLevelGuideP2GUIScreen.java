@@ -12,13 +12,13 @@ import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
-import net.mcreator.masterchefrestaurant.world.inventory.ServeGuideGUIMenu;
-import net.mcreator.masterchefrestaurant.network.ServeGuideGUIButtonMessage;
+import net.mcreator.masterchefrestaurant.world.inventory.ExpLevelGuideP2GUIMenu;
+import net.mcreator.masterchefrestaurant.network.ExpLevelGuideP2GUIButtonMessage;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMenu> implements MasterchefRestaurantModScreens.ScreenAccessor {
+public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGuideP2GUIMenu> implements MasterchefRestaurantModScreens.ScreenAccessor {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
@@ -28,13 +28,13 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 	private ImageButton imagebutton_clients_icon;
 	private ImageButton imagebutton_appliences_icon;
 	private ImageButton imagebutton_stats_icon;
-	private ImageButton imagebutton_next_page_icon;
-	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("masterchef_restaurant:textures/screens/serve_guide_gui.png");
+	private ImageButton imagebutton_last_page_icon;
+	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("masterchef_restaurant:textures/screens/exp_level_guide_p_2_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("masterchef_restaurant:textures/screens/bookmarks.png");
-	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("masterchef_restaurant:textures/screens/serve_icon.png");
+	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("masterchef_restaurant:textures/screens/coin_icon.png");
 
-	public ServeGuideGUIScreen(ServeGuideGUIMenu container, Inventory inventory, Component text) {
+	public ExpLevelGuideP2GUIScreen(ExpLevelGuideP2GUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
@@ -65,7 +65,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -28, this.topPos + -102, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -34, this.topPos + -104, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -80,13 +80,13 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patience. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
-				-145, -84, 132, 161, -12829636, false, 1.00F);
+				"Earn reputation by serving customers. Most levels are gained automatically after reaching the required reputation. \nEvery tenth level awards a new restaurant star and requires a successful critic visit.", -145, -84, 134, 84,
+				-12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"When a customer is ready, you will see icon above their head. Interact with them to see their order. Place the correct food in the input slot. If the food matches, it will be marked as delivered.", 5, -84, 125, 126, -12829636, false,
-				1.00F);
+				"When you reach the reputation required for a new star, your restaurant will wait for a critic. Each time the restaurant opens, there is a 30% chance that a critic will visit. Complete the critic's entire order correctly to earn the next level and restaurant star. An unsuccessful visit can be attempted again on another day.",
+				5, -84, 129, 168, -12829636, false, 1.00F);
 	}
 
 	@Override
@@ -94,11 +94,11 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		super.init();
 		imagebutton_base_icon = new ImageButton(this.leftPos + 147, this.topPos + -98, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/base_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/base_icon.png")), e -> {
-					int x = ServeGuideGUIScreen.this.x;
-					int y = ServeGuideGUIScreen.this.y;
+					int x = ExpLevelGuideP2GUIScreen.this.x;
+					int y = ExpLevelGuideP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new ServeGuideGUIButtonMessage(0, x, y, z));
-						ServeGuideGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+						PacketDistributor.sendToServer(new ExpLevelGuideP2GUIButtonMessage(0, x, y, z));
+						ExpLevelGuideP2GUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {
 			@Override
@@ -109,11 +109,11 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		this.addRenderableWidget(imagebutton_base_icon);
 		imagebutton_food_icon = new ImageButton(this.leftPos + 148, this.topPos + -68, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/food_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/food_icon.png")), e -> {
-					int x = ServeGuideGUIScreen.this.x;
-					int y = ServeGuideGUIScreen.this.y;
+					int x = ExpLevelGuideP2GUIScreen.this.x;
+					int y = ExpLevelGuideP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new ServeGuideGUIButtonMessage(1, x, y, z));
-						ServeGuideGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+						PacketDistributor.sendToServer(new ExpLevelGuideP2GUIButtonMessage(1, x, y, z));
+						ExpLevelGuideP2GUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 					}
 				}) {
 			@Override
@@ -124,11 +124,11 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		this.addRenderableWidget(imagebutton_food_icon);
 		imagebutton_clients_icon = new ImageButton(this.leftPos + 149, this.topPos + -39, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/clients_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/clients_icon.png")), e -> {
-					int x = ServeGuideGUIScreen.this.x;
-					int y = ServeGuideGUIScreen.this.y;
+					int x = ExpLevelGuideP2GUIScreen.this.x;
+					int y = ExpLevelGuideP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new ServeGuideGUIButtonMessage(2, x, y, z));
-						ServeGuideGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+						PacketDistributor.sendToServer(new ExpLevelGuideP2GUIButtonMessage(2, x, y, z));
+						ExpLevelGuideP2GUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {
 			@Override
@@ -139,11 +139,11 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		this.addRenderableWidget(imagebutton_clients_icon);
 		imagebutton_appliences_icon = new ImageButton(this.leftPos + 148, this.topPos + -11, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/appliences_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/appliences_icon.png")), e -> {
-					int x = ServeGuideGUIScreen.this.x;
-					int y = ServeGuideGUIScreen.this.y;
+					int x = ExpLevelGuideP2GUIScreen.this.x;
+					int y = ExpLevelGuideP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new ServeGuideGUIButtonMessage(3, x, y, z));
-						ServeGuideGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+						PacketDistributor.sendToServer(new ExpLevelGuideP2GUIButtonMessage(3, x, y, z));
+						ExpLevelGuideP2GUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 					}
 				}) {
 			@Override
@@ -154,11 +154,11 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		this.addRenderableWidget(imagebutton_appliences_icon);
 		imagebutton_stats_icon = new ImageButton(this.leftPos + 147, this.topPos + 17, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/stats_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/stats_icon.png")), e -> {
-					int x = ServeGuideGUIScreen.this.x;
-					int y = ServeGuideGUIScreen.this.y;
+					int x = ExpLevelGuideP2GUIScreen.this.x;
+					int y = ExpLevelGuideP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new ServeGuideGUIButtonMessage(4, x, y, z));
-						ServeGuideGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+						PacketDistributor.sendToServer(new ExpLevelGuideP2GUIButtonMessage(4, x, y, z));
+						ExpLevelGuideP2GUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 					}
 				}) {
 			@Override
@@ -167,13 +167,13 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
-					int x = ServeGuideGUIScreen.this.x;
-					int y = ServeGuideGUIScreen.this.y;
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
+				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/last_page_icon.png")), e -> {
+					int x = ExpLevelGuideP2GUIScreen.this.x;
+					int y = ExpLevelGuideP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new ServeGuideGUIButtonMessage(5, x, y, z));
-						ServeGuideGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+						PacketDistributor.sendToServer(new ExpLevelGuideP2GUIButtonMessage(5, x, y, z));
+						ExpLevelGuideP2GUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
 					}
 				}) {
 			@Override
@@ -181,7 +181,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addRenderableWidget(imagebutton_next_page_icon);
+		this.addRenderableWidget(imagebutton_last_page_icon);
 	}
 
 	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();

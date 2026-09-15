@@ -90,7 +90,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.create_restaurant_gui.label_management"), 17, -7, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.create_restaurant_gui.label_management"), 36, -7, -1, false);
 	}
 
 	@Override

@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Before placing down your blocks, you need to claim an area for your restaurant!\nTake your Golden Spatula and choose \"Set Location for Restaurant\". you will notice a green 5x5 square on the floor. When you right click on the block, it will set up your first area!",
+          "text": "New areas must connect directly to one of your existing restaurant areas.\nYour maximum number of claimed areas increases with the restaurant level.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -139,7 +139,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "After that you can claim 3 more areas at the start but the shape and amount is up to you!\nInside claimed areas, you can place all functional restaurant blocks. As your restaurant level grows, you will unlock more space to claim!",
+          "text": "Restaurant areas cannot overlap.\nAt least one full 5x5 area must remain between areas belonging to different restaurants. The first area must also be placed at least five areas away from another restaurant's first area.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -156,11 +156,11 @@
       {
         "type": "imagebutton",
         "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
           "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideLocationP2",
-          "x": 322,
+          "onClick": "ChefsDiaryGuideLocation",
+          "x": 73,
           "y": 177,
           "locked": false
         }

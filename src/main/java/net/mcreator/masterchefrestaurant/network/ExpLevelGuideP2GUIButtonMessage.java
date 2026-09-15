@@ -19,21 +19,21 @@ import net.mcreator.masterchefrestaurant.procedures.*;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
-public record LocationGuideGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
-	public static final Type<LocationGuideGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(MasterchefRestaurantMod.MODID, "location_guide_gui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, LocationGuideGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, LocationGuideGUIButtonMessage message) -> {
+public record ExpLevelGuideP2GUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+	public static final Type<ExpLevelGuideP2GUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(MasterchefRestaurantMod.MODID, "exp_level_guide_p_2_gui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, ExpLevelGuideP2GUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, ExpLevelGuideP2GUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new LocationGuideGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new ExpLevelGuideP2GUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 
 	@Override
-	public Type<LocationGuideGUIButtonMessage> type() {
+	public Type<ExpLevelGuideP2GUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final LocationGuideGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final ExpLevelGuideP2GUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
@@ -69,12 +69,12 @@ public record LocationGuideGUIButtonMessage(int buttonID, int x, int y, int z) i
 		}
 		if (buttonID == 5) {
 
-			ChefsDiaryGuideLocationP2Procedure.execute(world, x, y, z, entity);
+			ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
 		}
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		MasterchefRestaurantMod.addNetworkMessage(LocationGuideGUIButtonMessage.TYPE, LocationGuideGUIButtonMessage.STREAM_CODEC, LocationGuideGUIButtonMessage::handleData);
+		MasterchefRestaurantMod.addNetworkMessage(ExpLevelGuideP2GUIButtonMessage.TYPE, ExpLevelGuideP2GUIButtonMessage.STREAM_CODEC, ExpLevelGuideP2GUIButtonMessage::handleData);
 	}
 }

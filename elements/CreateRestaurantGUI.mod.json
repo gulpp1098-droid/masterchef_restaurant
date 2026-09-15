@@ -59,14 +59,14 @@
         "data": {
           "name": "label_management",
           "text": {
-            "fixedValue": "Create / Edit"
+            "fixedValue": "Create"
           },
           "color": {
             "value": -1,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 176,
+          "x": 195,
           "y": 81,
           "locked": false
         }

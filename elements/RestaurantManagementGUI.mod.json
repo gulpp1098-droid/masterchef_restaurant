@@ -88,14 +88,14 @@
         "data": {
           "name": "label_create_edit_restaurant",
           "text": {
-            "fixedValue": "Create / Edit Restaurant"
+            "fixedValue": "Create Restaurant"
           },
           "color": {
             "value": -16777216,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 152,
+          "x": 174,
           "y": 73,
           "locked": false
         }

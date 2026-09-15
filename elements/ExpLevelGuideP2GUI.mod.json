@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Set area"
+            "fixedValue": "Exp and Coins"
           },
           "color": {
             "value": -12829636,
@@ -110,9 +110,9 @@
       {
         "type": "image",
         "data": {
-          "image": "location_icon.png",
+          "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 153,
+          "x": 180,
           "y": 16,
           "locked": false
         }
@@ -120,16 +120,16 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Before placing down your blocks, you need to claim an area for your restaurant!\nTake your Golden Spatula and choose \"Set Location for Restaurant\". you will notice a green 5x5 square on the floor. When you right click on the block, it will set up your first area!",
+          "name": "multiline_label_after_customers_finish_eating_t",
+          "text": "Earn reputation by serving customers. Most levels are gained automatically after reaching the required reputation. \nEvery tenth level awards a new restaurant star and requires a successful critic visit.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 130,
-          "height": 167,
+          "width": 134,
+          "height": 84,
           "x": 69,
           "y": 36,
           "locked": false
@@ -138,8 +138,8 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "After that you can claim 3 more areas at the start but the shape and amount is up to you!\nInside claimed areas, you can place all functional restaurant blocks. As your restaurant level grows, you will unlock more space to claim!",
+          "name": "multiline_label_experience_is_added_to_your_rest",
+          "text": "When you reach the reputation required for a new star, your restaurant will wait for a critic. Each time the restaurant opens, there is a 30% chance that a critic will visit. Complete the critic's entire order correctly to earn the next level and restaurant star. An unsuccessful visit can be attempted again on another day.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -147,7 +147,7 @@
           "hasShadow": false,
           "fontScale": 100,
           "width": 129,
-          "height": 149,
+          "height": 168,
           "x": 219,
           "y": 36,
           "locked": false
@@ -156,11 +156,11 @@
       {
         "type": "imagebutton",
         "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
           "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideLocationP2",
-          "x": 322,
+          "onClick": "ChefsDiaryGuideExpLevel",
+          "x": 73,
           "y": 177,
           "locked": false
         }
