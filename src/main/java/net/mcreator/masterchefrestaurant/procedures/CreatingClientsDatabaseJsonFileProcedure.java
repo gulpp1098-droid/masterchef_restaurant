@@ -4,7 +4,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -35,23 +37,25 @@ public class CreatingClientsDatabaseJsonFileProcedure {
 			MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path = GetMasterchefWorldPathProcedure.execute(world);
 			MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 			RestaurantsFile = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).ClientsDatabase_File_Name);
-			if (!RestaurantsFile.exists()) {
-				try {
-					RestaurantsFile.getParentFile().mkdirs();
-					RestaurantsFile.createNewFile();
-				} catch (IOException exception) {
-					exception.printStackTrace();
-				}
-				Object.add("restaurants", Array);
-				Object.addProperty("database_day", Math.floor(world.dayTime() / 24000d));
-				{
-					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+			if ((world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) {
+				if (!RestaurantsFile.exists()) {
 					try {
-						FileWriter fileWriter = new FileWriter(RestaurantsFile);
-						fileWriter.write(mainGSONBuilderVariable.toJson(Object));
-						fileWriter.close();
+						RestaurantsFile.getParentFile().mkdirs();
+						RestaurantsFile.createNewFile();
 					} catch (IOException exception) {
 						exception.printStackTrace();
+					}
+					Object.add("restaurants", Array);
+					Object.addProperty("database_day", Math.floor(world.dayTime() / 24000d));
+					{
+						com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+						try {
+							FileWriter fileWriter = new FileWriter(RestaurantsFile);
+							fileWriter.write(mainGSONBuilderVariable.toJson(Object));
+							fileWriter.close();
+						} catch (IOException exception) {
+							exception.printStackTrace();
+						}
 					}
 				}
 			}

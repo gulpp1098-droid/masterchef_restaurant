@@ -33,6 +33,9 @@ public class CreatingFoodListJsonProcedure {
 			if (!(world instanceof net.minecraft.server.level.ServerLevel level)) {
 				return;
 			}
+			if (!level.dimension().equals(net.minecraft.world.level.Level.OVERWORLD)) {
+				return;
+			}
 			// =====================================================
 			// SETTINGS
 			// =====================================================
@@ -44,6 +47,7 @@ public class CreatingFoodListJsonProcedure {
 			java.util.Map<String, Double> customPoints = new java.util.HashMap<>();
 			customPoints.put("minecraft:tropical_fish", 6.0);
 			customPoints.put("minecraft:glow_berries", 3.0);
+			customPoints.put("minecraft:chorus_fruit", 8.0);
 			java.util.List<com.google.gson.JsonObject> allFoods = new java.util.ArrayList<>();
 			com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
 			com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
@@ -344,9 +348,6 @@ public class CreatingFoodListJsonProcedure {
 				int tier = (int) (percentile * tierCount);
 				if (tier >= tierCount)
 					tier = tierCount - 1;
-				String itemId = food.get("id").getAsString();
-				if (itemId.equals("minecraft:chorus_fruit"))
-					tier = 4;
 				food.addProperty("tier", tier);
 				switch (tier) {
 					case 0 :
