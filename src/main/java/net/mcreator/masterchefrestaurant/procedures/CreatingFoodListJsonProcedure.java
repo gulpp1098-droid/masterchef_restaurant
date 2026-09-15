@@ -130,9 +130,9 @@ public class CreatingFoodListJsonProcedure {
 					} else {
 						// A raw ingredient can still exist even if its only known recipes
 						// are cyclic. Return the raw fallback without caching it.
-						return Math.max(0.0, 1.0 + customScore);
+						return Math.max(1.0, 1.0 + customScore);
 					}
-					resolvedScore = Math.max(0.0, resolvedScore + customScore);
+					resolvedScore = Math.max(1.0, resolvedScore + customScore);
 					scoreCache.put(itemName, resolvedScore);
 					if (Double.isFinite(bestRecipeScore)) {
 						recipeScoreCache.put(itemName, bestRecipeScore);
