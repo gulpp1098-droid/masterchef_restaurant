@@ -5,7 +5,10 @@ import net.neoforged.fml.loading.FMLPaths;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandSource;
 
 import net.mcreator.masterchefrestaurant.entity.CriticEntity;
 
@@ -27,7 +30,13 @@ public class CriticOnInitialEntitySpawnProcedure {
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray ClientsList = new com.google.gson.JsonArray();
 		client = entity;
-		client.invulnerableTime = (int) Double.POSITIVE_INFINITY;
+		{
+			Entity _ent = client;
+			if (!_ent.level().isClientSide() && _ent.getServer() != null) {
+				_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
+						_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "data merge entity @s {Invulnerable:1b}");
+			}
+		}
 		ClientsNameList = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "ClientsNameList.json");
 		{
 			try {
