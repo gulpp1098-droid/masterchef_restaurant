@@ -55,6 +55,18 @@ public class CreatingFoodListJsonProcedure {
 			// RECIPE MANAGER
 			// =====================================================
 			net.minecraft.world.item.crafting.RecipeManager recipeManager = level.getRecipeManager();
+			java.util.Map<String, java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>>> recipesByOutput = new java.util.HashMap<>();
+			for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
+				net.minecraft.world.item.crafting.Recipe<?> recipe = recipeHolder.value();
+				net.minecraft.world.item.ItemStack result = recipe.getResultItem(level.registryAccess());
+				if (result.isEmpty())
+					continue;
+				var resultId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(result.getItem());
+				if (resultId == null)
+					continue;
+				String resultName = resultId.toString();
+				recipesByOutput.computeIfAbsent(resultName, key -> new java.util.ArrayList<>()).add(recipeHolder);
+			}
 			// =====================================================
 			// ETAP 1 - FOOD WITH RECIPES
 			// =====================================================
