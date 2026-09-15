@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Serve Customers - WIP"
+            "fixedValue": "Serve Customers"
           },
           "color": {
             "value": -12829636,
@@ -133,7 +133,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_are_the_heart_of_your",
-          "text": "Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patiance. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
+          "text": "Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patience. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

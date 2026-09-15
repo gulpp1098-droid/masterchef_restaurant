@@ -27,6 +27,7 @@ public class ClientOnInitialEntitySpawnProcedure {
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray ClientsList = new com.google.gson.JsonArray();
 		client = entity;
+		client.invulnerableTime = (int) Double.POSITIVE_INFINITY;
 		ClientsNameList = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "ClientsNameList.json");
 		{
 			try {

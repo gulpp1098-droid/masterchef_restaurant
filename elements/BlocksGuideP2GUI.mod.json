@@ -123,7 +123,7 @@
           "image": "separator_icon.png",
           "use1Xscale": false,
           "x": 215,
-          "y": 159,
+          "y": 169,
           "locked": false
         }
       },
@@ -160,7 +160,7 @@
           "image": "separator_icon.png",
           "use1Xscale": false,
           "x": 69,
-          "y": 159,
+          "y": 169,
           "locked": false
         }
       },
@@ -221,6 +221,30 @@
           "height": 40,
           "x": 219,
           "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "servicetable_crafting.png",
+          "width": 80,
+          "height": 80,
+          "x": 94,
+          "y": 85,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1",
+          "image": "chair_crafting.png",
+          "width": 80,
+          "height": 80,
+          "x": 242,
+          "y": 85,
           "locked": false
         }
       }

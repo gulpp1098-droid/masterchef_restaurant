@@ -21,8 +21,8 @@ public class MenuNameReturnProcedure {
 			}
 		}.parse(entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).GUIstring);
 		if (JSONObject != null && !(JSONObject.size() == 0) && JSONObject.get("open").getAsBoolean()) {
-			return "Current Menu";
+			return "Current" + "\n" + "Menu";
 		}
-		return "Incoming Menu";
+		return "Incoming" + "\n" + "Menu";
 	}
 }

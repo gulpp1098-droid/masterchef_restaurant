@@ -1,0 +1,406 @@
+{
+  "_fv": 89,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "timelineempty_icon.png",
+          "width": 140,
+          "height": 10,
+          "anchorPoint": "TOP_CENTER",
+          "x": 144,
+          "y": 8,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1",
+          "image": "timelinefull_icon.png",
+          "visibleWidthProcedure": "ReturnTimelineProgress",
+          "width": 120,
+          "height": 2,
+          "anchorPoint": "TOP_CENTER",
+          "x": 154,
+          "y": 12,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_2",
+          "image": "slider_icon.png",
+          "xOffsetProcedure": "ReturnTimelineProgress",
+          "width": 5,
+          "height": 12,
+          "anchorPoint": "TOP_CENTER",
+          "x": 152,
+          "y": 7,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_3",
+          "image": "moon_icon.png",
+          "width": 20,
+          "height": 18,
+          "anchorPoint": "TOP_CENTER",
+          "x": 284,
+          "y": 4,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_4",
+          "image": "openrestaurant_icon.png",
+          "width": 20,
+          "height": 18,
+          "anchorPoint": "TOP_CENTER",
+          "x": 124,
+          "y": 4,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_5",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker1Visibility",
+          "displayCondition": "Marker1Visibility",
+          "xOffsetProcedure": "Marker1SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_6",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker2Visibility",
+          "displayCondition": "Marker2Visibility",
+          "xOffsetProcedure": "Marker2SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_7",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker3Visibility",
+          "displayCondition": "Marker3Visibility",
+          "xOffsetProcedure": "Marker3SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker4Visibility",
+          "displayCondition": "Marker4Visibility",
+          "xOffsetProcedure": "Marker4SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_9",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker5Visibility",
+          "displayCondition": "Marker5Visibility",
+          "xOffsetProcedure": "Marker5SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_10",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker6Visibility",
+          "displayCondition": "Marker6Visibility",
+          "xOffsetProcedure": "Marker6SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_11",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker7Visibility",
+          "displayCondition": "Marker7Visibility",
+          "xOffsetProcedure": "Marker7SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_12",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker8Visibility",
+          "displayCondition": "Marker8Visibility",
+          "xOffsetProcedure": "Marker8SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_13",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker9Visibility",
+          "displayCondition": "Marker9Visibility",
+          "xOffsetProcedure": "Marker9SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_14",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker10Visibility",
+          "displayCondition": "Marker10Visibility",
+          "xOffsetProcedure": "Marker10SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_15",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker11Visibility",
+          "displayCondition": "Marker11Visibility",
+          "xOffsetProcedure": "Marker11SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_16",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker12Visibility",
+          "displayCondition": "Marker12Visibility",
+          "xOffsetProcedure": "Marker12SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_17",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker13Visibility",
+          "displayCondition": "Marker13Visibility",
+          "xOffsetProcedure": "Marker13SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_18",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker14Visibility",
+          "displayCondition": "Marker14Visibility",
+          "xOffsetProcedure": "Marker14SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_19",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker15Visibility",
+          "displayCondition": "Marker15Visibility",
+          "xOffsetProcedure": "Marker15SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_20",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker16Visibility",
+          "displayCondition": "Marker16Visibility",
+          "xOffsetProcedure": "Marker16SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_21",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker17Visibility",
+          "displayCondition": "Marker17Visibility",
+          "xOffsetProcedure": "Marker17SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_22",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker18Visibility",
+          "displayCondition": "Marker18Visibility",
+          "xOffsetProcedure": "Marker18SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_23",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker19Visibility",
+          "displayCondition": "Marker19Visibility",
+          "xOffsetProcedure": "Marker19SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_24",
+          "image": "marker_icon.png",
+          "imageProcedure": "CriticMarker20Visibility",
+          "displayCondition": "Marker20Visibility",
+          "xOffsetProcedure": "Marker20SetX",
+          "width": 11,
+          "height": 17,
+          "anchorPoint": "TOP_CENTER",
+          "x": 149,
+          "y": 19,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "displayCondition": "ReturnTimelineOpenRestaurant",
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

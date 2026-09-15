@@ -42,7 +42,7 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 				locationArray = string2ArrayList((((("" + locationsArray).replace("\"", "")).replace("[", "")).replace("]", "")), ",");
 				PosY = y;
 				if (locationsArray.size() > 0) {
-					while (!world.getBlockState(BlockPos.containing(x, PosY, z)).canOcclude()) {
+					while (!world.getBlockState(BlockPos.containing(x, PosY, z)).canOcclude() && PosY > -64) {
 						PosY = PosY - 1;
 					}
 					index = 0;

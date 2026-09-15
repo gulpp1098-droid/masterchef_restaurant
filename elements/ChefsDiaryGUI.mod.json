@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Overview - WIP"
+            "fixedValue": "Overview"
           },
           "color": {
             "value": -12829636,
@@ -273,7 +273,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_the_basics_of_running_your_own_r",
-          "text": "the basics of running your own restaurant. Your goal is to build, manage and improve a restaurant of your dreams. You will need a proper equipment, place and enough patiance to handle hungry customers.",
+          "text": "the basics of running your own restaurant. Your goal is to build, manage and improve a restaurant of your dreams. You will need a proper equipment, place and enough patience to handle hungry customers.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

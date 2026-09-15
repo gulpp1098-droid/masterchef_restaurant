@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Golden Spatula - WIP"
+            "fixedValue": "Golden Spatula"
           },
           "color": {
             "value": -12829636,
@@ -169,6 +169,18 @@
           "height": 165,
           "x": 69,
           "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "spatula_crafting.png",
+          "width": 80,
+          "height": 80,
+          "x": 240,
+          "y": 75,
           "locked": false
         }
       }

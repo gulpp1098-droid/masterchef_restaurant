@@ -81,9 +81,9 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_p_2_gui.label_more_space_to_claim_for"), 5, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Customers lose patiance while waiting in queue, waiting to order or waiting for food. If patiance gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!", -145, -84, 130, 137,
+				"Customers lose patience while waiting in queue, waiting to order or waiting for food. If patience gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!", -145, -84, 130, 137,
 				-12829636, false, 1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Some customers may order more than one food. Serve ever ordered item before they can start eating. More dishes will be unlocked with restaurant level.", 5, -84, 127, 103, -12829636, false,
+		this.guiTools$renderMultilineLabel(guiGraphics, "Some customers may order more than one food. Serve every ordered item before they can start eating. More dishes will be unlocked with restaurant level.", 5, -84, 127, 103, -12829636, false,
 				1.00F);
 	}
 
