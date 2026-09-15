@@ -22,13 +22,16 @@ public class ClientGroupWaitStateProcedure {
 		boolean AllReady = false;
 		Entity client = null;
 		Direction chairDirection = Direction.NORTH;
+		double FoundMembers = 0;
 		client = entity;
 		AllReady = true;
+		FoundMembers = 0;
 		{
 			final Vec3 _center = new Vec3(x, y, z);
-			for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+			for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(16 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 				if (entityiterator instanceof ClientEntity) {
-					if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group") && client.getPersistentData().getDouble("RestaurantID") == entityiterator.getPersistentData().getDouble("RestaurantID")) {
+					if (IsMemberOfClientGroupProcedure.execute(entityiterator, client)) {
+						FoundMembers = FoundMembers + 1;
 						if (!(entityiterator.getPersistentData().getString("state")).equals("group_wait")) {
 							AllReady = false;
 						}
@@ -36,11 +39,14 @@ public class ClientGroupWaitStateProcedure {
 				}
 			}
 		}
+		if (client.getPersistentData().getDouble("group_size") != FoundMembers) {
+			AllReady = false;
+		}
 		if (AllReady) {
 			if (client.getPersistentData().getBoolean("queue_registered")) {
 				{
 					final Vec3 _center = new Vec3(x, y, z);
-					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(16 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator instanceof ClientEntity) {
 							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")
 									&& client.getPersistentData().getDouble("RestaurantID") == entityiterator.getPersistentData().getDouble("RestaurantID")) {
@@ -53,7 +59,7 @@ public class ClientGroupWaitStateProcedure {
 			} else {
 				{
 					final Vec3 _center = new Vec3(x, y, z);
-					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(16 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator instanceof ClientEntity) {
 							if (client.getPersistentData().getDouble("group") == entityiterator.getPersistentData().getDouble("group")
 									&& client.getPersistentData().getDouble("RestaurantID") == entityiterator.getPersistentData().getDouble("RestaurantID")) {
