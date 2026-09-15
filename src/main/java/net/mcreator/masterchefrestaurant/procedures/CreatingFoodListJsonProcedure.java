@@ -34,30 +34,34 @@ public class CreatingFoodListJsonProcedure {
 				return;
 			}
 			// =====================================================
-			// EXCLUDED FOODS
+			// SETTINGS
 			// =====================================================
 			java.util.Set<String> excludedFoods = new java.util.HashSet<>();
 			excludedFoods.add("minecraft:ominous_bottle");
 			excludedFoods.add("minecraft:enchanted_golden_apple");
 			excludedFoods.add("minecraft:suspicious_stew");
+			// Additional acquisition/rarity points. These points propagate through recipes.
+			java.util.Map<String, Double> customPoints = new java.util.HashMap<>();
+			customPoints.put("minecraft:tropical_fish", 6.0);
+			customPoints.put("minecraft:glow_berries", 3.0);
 			java.util.List<com.google.gson.JsonObject> allFoods = new java.util.ArrayList<>();
-			// =====================================================
-			// MAIN JSON
-			// =====================================================
 			com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
 			com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
 			com.google.gson.JsonArray disabledFoodsArray = new com.google.gson.JsonArray();
 			// =====================================================
-			// DUPLICATE PROTECTION
+			// ITEMS BY ID
 			// =====================================================
-			java.util.Set<String> processedFoods = new java.util.HashSet<>();
+			java.util.Map<String, net.minecraft.world.item.Item> itemsById = new java.util.HashMap<>();
+			for (net.minecraft.world.item.Item item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
+				var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
+				if (itemId != null) {
+					itemsById.put(itemId.toString(), item);
+				}
+			}
 			// =====================================================
-			// RECIPE MANAGER
+			// ALL RECIPES GROUPED BY OUTPUT
 			// =====================================================
 			net.minecraft.world.item.crafting.RecipeManager recipeManager = level.getRecipeManager();
-			java.util.Map<String, Double> customPoints = new java.util.HashMap<>();
-			customPoints.put("minecraft:tropical_fish", 6.0);
-			customPoints.put("minecraft:glow_berries", 3.0);
 			java.util.Map<String, java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>>> recipesByOutput = new java.util.HashMap<>();
 			for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
 				net.minecraft.world.item.crafting.Recipe<?> recipe = recipeHolder.value();
@@ -67,22 +71,188 @@ public class CreatingFoodListJsonProcedure {
 				var resultId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(result.getItem());
 				if (resultId == null)
 					continue;
-				String resultName = resultId.toString();
-				recipesByOutput.computeIfAbsent(resultName, key -> new java.util.ArrayList<>()).add(recipeHolder);
+				recipesByOutput.computeIfAbsent(resultId.toString(), key -> new java.util.ArrayList<>()).add(recipeHolder);
 			}
 			// =====================================================
-			// ETAP 1 - FOOD WITH RECIPES
+			// RECURSIVE SCORE RESOLVER
 			// =====================================================
-			for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
-				net.minecraft.world.item.crafting.Recipe<?> recipe = recipeHolder.value();
-				net.minecraft.world.item.ItemStack result = recipe.getResultItem(level.registryAccess());
-				if (result.isEmpty())
-					continue;
-				net.minecraft.world.item.Item item = result.getItem();
-				// =================================================
-				// CHECK IF FOOD
-				// =================================================
-				if (item.getFoodProperties(result, null) == null)
+			class FoodScoreResolver {
+				static final int MAX_DEPTH = 12;
+				static final double INVALID = Double.POSITIVE_INFINITY;
+				final java.util.Map<String, Double> scoreCache = new java.util.HashMap<>();
+				final java.util.Map<String, Double> recipeScoreCache = new java.util.HashMap<>();
+				final java.util.Map<String, net.minecraft.world.item.crafting.RecipeHolder<?>> chosenRecipeCache = new java.util.HashMap<>();
+				final java.util.Map<String, java.util.List<String>> chosenIngredientsCache = new java.util.HashMap<>();
+				final java.util.Set<String> resolving = new java.util.HashSet<>();
+
+				double resolve(String itemName) {
+					return resolve(itemName, 0);
+				}
+
+				double resolve(String itemName, int depth) {
+					Double cached = scoreCache.get(itemName);
+					if (cached != null)
+						return cached;
+					if (depth >= MAX_DEPTH || resolving.contains(itemName))
+						return INVALID;
+					net.minecraft.world.item.Item item = itemsById.get(itemName);
+					if (item == null)
+						return INVALID;
+					net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
+					boolean isFood = item.getFoodProperties(stack, null) != null;
+					double qualityScore = isFood ? getQualityScore(itemName) : 1.0;
+					java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>> recipes = recipesByOutput.get(itemName);
+					boolean hasRecipes = recipes != null && !recipes.isEmpty();
+					double bestRecipeScore = INVALID;
+					net.minecraft.world.item.crafting.RecipeHolder<?> bestRecipe = null;
+					java.util.List<String> bestIngredients = null;
+					resolving.add(itemName);
+					if (hasRecipes) {
+						for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipes) {
+							java.util.List<String> selectedIngredients = new java.util.ArrayList<>();
+							double currentRecipeScore = calculateRecipeScore(recipeHolder, itemName, depth + 1, selectedIngredients);
+							if (Double.isFinite(currentRecipeScore) && currentRecipeScore < bestRecipeScore) {
+								bestRecipeScore = currentRecipeScore;
+								bestRecipe = recipeHolder;
+								bestIngredients = selectedIngredients;
+							}
+						}
+					}
+					resolving.remove(itemName);
+					double customScore = customPoints.getOrDefault(itemName, 0.0);
+					double resolvedScore;
+					if (isFood) {
+						resolvedScore = Double.isFinite(bestRecipeScore) ? Math.max(qualityScore, bestRecipeScore) : qualityScore;
+					} else if (Double.isFinite(bestRecipeScore)) {
+						resolvedScore = bestRecipeScore;
+					} else if (!hasRecipes) {
+						resolvedScore = 1.0;
+					} else {
+						// A raw ingredient can still exist even if its only known recipes
+						// are cyclic. Return the raw fallback without caching it.
+						return Math.max(0.0, 1.0 + customScore);
+					}
+					resolvedScore = Math.max(0.0, resolvedScore + customScore);
+					scoreCache.put(itemName, resolvedScore);
+					if (Double.isFinite(bestRecipeScore)) {
+						recipeScoreCache.put(itemName, bestRecipeScore);
+						chosenRecipeCache.put(itemName, bestRecipe);
+						chosenIngredientsCache.put(itemName, bestIngredients);
+					} else {
+						recipeScoreCache.put(itemName, 0.0);
+						chosenIngredientsCache.put(itemName, new java.util.ArrayList<>());
+					}
+					return resolvedScore;
+				}
+
+				double calculateRecipeScore(net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder, String outputItemName, int depth, java.util.List<String> selectedIngredients) {
+					if (depth >= MAX_DEPTH)
+						return INVALID;
+					net.minecraft.world.item.crafting.Recipe<?> recipe = recipeHolder.value();
+					java.util.List<net.minecraft.world.item.crafting.Ingredient> ingredients = recipe.getIngredients();
+					if (ingredients == null || ingredients.isEmpty())
+						return INVALID;
+					net.minecraft.world.item.ItemStack result = recipe.getResultItem(level.registryAccess());
+					if (result.isEmpty())
+						return INVALID;
+					int outputCount = Math.max(1, result.getCount());
+					double ingredientTotal = 0.0;
+					for (net.minecraft.world.item.crafting.Ingredient ingredient : ingredients) {
+						net.minecraft.world.item.ItemStack[] alternatives = ingredient.getItems();
+						if (alternatives == null || alternatives.length == 0)
+							return INVALID;
+						double cheapestAlternative = INVALID;
+						String cheapestAlternativeName = null;
+						for (net.minecraft.world.item.ItemStack alternative : alternatives) {
+							if (alternative == null || alternative.isEmpty())
+								continue;
+							var alternativeId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(alternative.getItem());
+							if (alternativeId == null)
+								continue;
+							String alternativeName = alternativeId.toString();
+							// Ignore an unpacking alternative such as hay block -> 9 wheat
+							// when the reverse packing recipe also exists.
+							if (outputCount > 1 && hasRecipeUsingItem(alternativeName, outputItemName)) {
+								continue;
+							}
+							double alternativeScore = resolve(alternativeName, depth + 1);
+							if (Double.isFinite(alternativeScore) && alternativeScore < cheapestAlternative) {
+								cheapestAlternative = alternativeScore;
+								cheapestAlternativeName = alternativeName;
+							}
+						}
+						if (!Double.isFinite(cheapestAlternative) || cheapestAlternativeName == null) {
+							return INVALID;
+						}
+						// Duplicate slots are intentionally counted separately.
+						ingredientTotal += cheapestAlternative;
+						selectedIngredients.add(cheapestAlternativeName);
+					}
+					double preparePoints = getPreparePoints(recipe.getType().toString());
+					return (ingredientTotal + preparePoints) / outputCount;
+				}
+
+				boolean hasRecipeUsingItem(String producedItemName, String requiredItemName) {
+					java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>> reverseRecipes = recipesByOutput.get(producedItemName);
+					if (reverseRecipes == null)
+						return false;
+					for (net.minecraft.world.item.crafting.RecipeHolder<?> reverseRecipeHolder : reverseRecipes) {
+						for (net.minecraft.world.item.crafting.Ingredient reverseIngredient : reverseRecipeHolder.value().getIngredients()) {
+							for (net.minecraft.world.item.ItemStack reverseAlternative : reverseIngredient.getItems()) {
+								if (reverseAlternative == null || reverseAlternative.isEmpty())
+									continue;
+								var reverseId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(reverseAlternative.getItem());
+								if (reverseId != null && reverseId.toString().equals(requiredItemName)) {
+									return true;
+								}
+							}
+						}
+					}
+					return false;
+				}
+
+				double getPreparePoints(String recipeType) {
+					if (recipeType.contains("smoking") || recipeType.contains("campfire_cooking") || recipeType.contains("smelting")) {
+						return 3.0;
+					}
+					if (recipeType.contains("crafting"))
+						return 4.0;
+					if (recipeType.contains("cutting"))
+						return 2.5;
+					return 5.0;
+				}
+
+				double getQualityScore(String itemName) {
+					net.minecraft.world.item.Item item = itemsById.get(itemName);
+					if (item == null)
+						return 0.0;
+					net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
+					net.minecraft.world.food.FoodProperties food = item.getFoodProperties(stack, null);
+					if (food == null)
+						return 0.0;
+					int positiveEffects = 0;
+					int negativeEffects = 0;
+					for (net.minecraft.world.food.FoodProperties.PossibleEffect possibleEffect : food.effects()) {
+						var mobEffectInstance = possibleEffect.effect();
+						if (mobEffectInstance == null || mobEffectInstance.getEffect() == null)
+							continue;
+						if (mobEffectInstance.getEffect().value().isBeneficial()) {
+							positiveEffects++;
+						} else {
+							negativeEffects++;
+						}
+					}
+					return food.nutrition() + food.saturation() * 1.5 + positiveEffects * 4.0 - negativeEffects * 8.0;
+				}
+			}
+			FoodScoreResolver scoreResolver = new FoodScoreResolver();
+			// =====================================================
+			// BUILD EVERY FOOD OBJECT
+			// =====================================================
+			for (net.minecraft.world.item.Item item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
+				net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
+				net.minecraft.world.food.FoodProperties food = item.getFoodProperties(stack, null);
+				if (food == null)
 					continue;
 				var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
 				if (itemId == null)
@@ -90,31 +260,15 @@ public class CreatingFoodListJsonProcedure {
 				String itemName = itemId.toString();
 				if (excludedFoods.contains(itemName))
 					continue;
-				// =================================================
-				// DUPLICATE CHECK
-				// =================================================
-				if (processedFoods.contains(itemName))
-					continue;
-				processedFoods.add(itemName);
-				// =================================================
-				// FOOD PROPERTIES
-				// =================================================
-				net.minecraft.world.food.FoodProperties food = item.getFoodProperties(result, null);
 				int hunger = food.nutrition();
 				float saturation = food.saturation();
-				// =================================================
-				// EFFECTS
-				// =================================================
 				com.google.gson.JsonArray positiveEffectsArray = new com.google.gson.JsonArray();
 				com.google.gson.JsonArray negativeEffectsArray = new com.google.gson.JsonArray();
-				for (net.minecraft.world.food.FoodProperties.PossibleEffect pe : food.effects()) {
-					var mei = pe.effect();
-					if (mei == null)
+				for (net.minecraft.world.food.FoodProperties.PossibleEffect possibleEffect : food.effects()) {
+					var mobEffectInstance = possibleEffect.effect();
+					if (mobEffectInstance == null || mobEffectInstance.getEffect() == null)
 						continue;
-					var holder = mei.getEffect();
-					if (holder == null)
-						continue;
-					var effect = holder.value();
+					var effect = mobEffectInstance.getEffect().value();
 					var effectId = net.minecraft.core.registries.BuiltInRegistries.MOB_EFFECT.getKey(effect);
 					if (effectId == null)
 						continue;
@@ -124,149 +278,42 @@ public class CreatingFoodListJsonProcedure {
 						negativeEffectsArray.add(effectId.toString());
 					}
 				}
-				// =================================================
-				// INGREDIENTS
-				// =================================================
-				com.google.gson.JsonArray ingredientsArray = new com.google.gson.JsonArray();
-				java.util.Set<String> ingredientSet = new java.util.HashSet<>();
-				double ingredientPoints = 0;
-				for (net.minecraft.world.item.crafting.Ingredient ing : recipe.getIngredients()) {
-					for (net.minecraft.world.item.ItemStack stack : ing.getItems()) {
-						var ingId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());
-						if (ingId != null) {
-							String ingredientName = ingId.toString();
-							if (!ingredientSet.contains(ingredientName)) {
-								ingredientSet.add(ingredientName);
-								ingredientsArray.add(ingredientName);
-								ingredientPoints += 1;
-								if (stack.getItem().getFoodProperties(stack, null) != null) {
-									ingredientPoints += 1.5;
-								}
-							}
-							break;
-						}
-					}
-				}
-				// =================================================
-				// RECIPE TYPE
-				// =================================================
-				String recipeType = recipe.getType().toString();
-				// =================================================
-				// SCORE
-				// =================================================
-				double hungerPoints = hunger;
-				double saturationPoints = saturation * 1.5;
-				double effectPoints = positiveEffectsArray.size() * 4 - negativeEffectsArray.size() * 8;
-				double preparePoints = 1;
-				if (recipeType.contains("smoking") || recipeType.contains("campfire_cooking") || recipeType.contains("smelting")) {
-					preparePoints = 3;
-				} else if (recipeType.contains("crafting")) {
-					preparePoints = 4;
-				} else if (recipeType.contains("cutting")) {
-					preparePoints = 2.5;
-				} else {
-					preparePoints = 5;
-				}
-				ingredientPoints = Math.sqrt(ingredientPoints) * 2;
+				double qualityScore = scoreResolver.getQualityScore(itemName);
 				double customScore = customPoints.getOrDefault(itemName, 0.0);
-				double score = hungerPoints + saturationPoints + effectPoints + preparePoints + ingredientPoints + customScore;
-				// =================================================
-				// FOOD OBJECT
-				// =================================================
+				double score = scoreResolver.resolve(itemName);
+				if (!Double.isFinite(score)) {
+					score = Math.max(0.0, qualityScore + customScore);
+				}
+				double recipeScore = scoreResolver.recipeScoreCache.getOrDefault(itemName, 0.0);
+				net.minecraft.world.item.crafting.RecipeHolder<?> chosenRecipe = scoreResolver.chosenRecipeCache.get(itemName);
+				java.util.List<String> selectedIngredients = scoreResolver.chosenIngredientsCache.getOrDefault(itemName, new java.util.ArrayList<>());
+				com.google.gson.JsonArray ingredientsArray = new com.google.gson.JsonArray();
+				for (String ingredientName : selectedIngredients) {
+					ingredientsArray.add(ingredientName);
+				}
+				String recipeType = chosenRecipe == null ? "none" : chosenRecipe.value().getType().toString();
+				int recipeOutputCount = 0;
+				if (chosenRecipe != null) {
+					net.minecraft.world.item.ItemStack recipeResult = chosenRecipe.value().getResultItem(level.registryAccess());
+					recipeOutputCount = Math.max(1, recipeResult.getCount());
+				}
+				int recipeCount = recipesByOutput.getOrDefault(itemName, java.util.Collections.emptyList()).size();
 				com.google.gson.JsonObject foodObject = new com.google.gson.JsonObject();
 				foodObject.addProperty("id", itemName);
 				foodObject.addProperty("nutrition", hunger);
 				foodObject.addProperty("saturation", saturation);
 				foodObject.add("ingredients", ingredientsArray);
 				foodObject.addProperty("method", recipeType);
+				foodObject.addProperty("recipeCount", recipeCount);
+				foodObject.addProperty("recipeOutputCount", recipeOutputCount);
 				foodObject.addProperty("positiveEffects", positiveEffectsArray.size());
 				foodObject.addProperty("negativeEffects", negativeEffectsArray.size());
 				foodObject.add("positiveEffectsList", positiveEffectsArray);
 				foodObject.add("negativeEffectsList", negativeEffectsArray);
+				foodObject.addProperty("qualityScore", qualityScore);
+				foodObject.addProperty("recipeScore", recipeScore);
 				foodObject.addProperty("customPoints", customScore);
 				foodObject.addProperty("score", score);
-				if (negativeEffectsArray.size() > 0) {
-					disabledFoodsArray.add(foodObject);
-				} else {
-					allFoods.add(foodObject);
-				}
-			}
-			// =====================================================
-			// ETAP 2 - FOOD WITHOUT RECIPES
-			// =====================================================
-			for (net.minecraft.world.item.Item item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
-				net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
-				if (item.getFoodProperties(stack, null) == null)
-					continue;
-				var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
-				if (itemId == null)
-					continue;
-				String itemName = itemId.toString();
-				if (excludedFoods.contains(itemName))
-					continue;
-				// =================================================
-				// DUPLICATE CHECK
-				// =================================================
-				if (processedFoods.contains(itemName))
-					continue;
-				processedFoods.add(itemName);
-				// =================================================
-				// FOOD PROPERTIES
-				// =================================================
-				var food = item.getFoodProperties(stack, null);
-				int hunger = food.nutrition();
-				float saturation = food.saturation();
-				// =================================================
-				// EFFECTS
-				// =================================================
-				com.google.gson.JsonArray positiveEffectsArray = new com.google.gson.JsonArray();
-				com.google.gson.JsonArray negativeEffectsArray = new com.google.gson.JsonArray();
-				for (var pe : food.effects()) {
-					var mei = pe.effect();
-					if (mei == null)
-						continue;
-					var holder = mei.getEffect();
-					if (holder == null)
-						continue;
-					var effect = holder.value();
-					var effectId = net.minecraft.core.registries.BuiltInRegistries.MOB_EFFECT.getKey(effect);
-					if (effectId == null)
-						continue;
-					if (effect.isBeneficial()) {
-						positiveEffectsArray.add(effectId.toString());
-					} else {
-						negativeEffectsArray.add(effectId.toString());
-					}
-				}
-				// =================================================
-				// SCORE
-				// =================================================
-				String recipeType = "none";
-				double hungerPoints = hunger;
-				double saturationPoints = saturation * 1.5;
-				double effectPoints = positiveEffectsArray.size() * 4 - negativeEffectsArray.size() * 8;
-				double preparePoints = 0;
-				double ingredientPoints = 0;
-				double customScore = customPoints.getOrDefault(itemName, 0.0);
-				double score = hungerPoints + saturationPoints + effectPoints + preparePoints + ingredientPoints + customScore;
-				// =================================================
-				// FOOD OBJECT
-				// =================================================
-				com.google.gson.JsonObject foodObject = new com.google.gson.JsonObject();
-				foodObject.addProperty("id", itemName);
-				foodObject.addProperty("nutrition", hunger);
-				foodObject.addProperty("saturation", saturation);
-				foodObject.add("ingredients", new com.google.gson.JsonArray());
-				foodObject.addProperty("method", "none");
-				foodObject.addProperty("positiveEffects", positiveEffectsArray.size());
-				foodObject.addProperty("negativeEffects", negativeEffectsArray.size());
-				foodObject.add("positiveEffectsList", positiveEffectsArray);
-				foodObject.add("negativeEffectsList", negativeEffectsArray);
-				foodObject.addProperty("customPoints", customScore);
-				foodObject.addProperty("score", score);
-				// =================================================
-				// DISABLED FOOD CHECK
-				// =================================================
 				if (negativeEffectsArray.size() > 0) {
 					disabledFoodsArray.add(foodObject);
 				} else {
@@ -276,7 +323,7 @@ public class CreatingFoodListJsonProcedure {
 			// =====================================================
 			// SORTING JSON
 			// =====================================================
-			allFoods.sort(java.util.Comparator.comparingDouble(food -> food.get("score").getAsDouble()));
+			allFoods.sort(java.util.Comparator.<com.google.gson.JsonObject>comparingDouble(food -> food.get("score").getAsDouble()).thenComparing(food -> food.get("id").getAsString()));
 			com.google.gson.JsonArray tier0Array = new com.google.gson.JsonArray();
 			com.google.gson.JsonArray tier1Array = new com.google.gson.JsonArray();
 			com.google.gson.JsonArray tier2Array = new com.google.gson.JsonArray();
@@ -349,16 +396,12 @@ public class CreatingFoodListJsonProcedure {
 			tiersObject.add("9", tier9Array);
 			foodDatabase.add("tiers", tiersObject);
 			foodDatabase.addProperty("tier_count", tierCount);
+			foodDatabase.addProperty("scoring_version", 2);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
 			// =====================================================
 			// FINAL RESULT
 			// =====================================================
 			// foodDatabase
-			//
-			// Możesz teraz:
-			// - zapisać do pliku
-			// - wrzucić do variable
-			// - debug print gson.toJson(foodDatabase)
 			FoodDatabaseObject = foodDatabase;
 			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "FoodDatabase.json");
 			try {
