@@ -4,12 +4,16 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.*;
@@ -23,6 +27,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.procedures.LocationEdgeOnInitialEntitySpawnProcedure;
 
@@ -37,6 +42,7 @@ public class LocationEdgeRightEntity extends PathfinderMob {
 		xpReward = 0;
 		setNoAi(true);
 		setPersistenceRequired();
+		this.moveControl = new FlyingMoveControl(this, 10, true);
 	}
 
 	@Override
@@ -55,6 +61,11 @@ public class LocationEdgeRightEntity extends PathfinderMob {
 	}
 
 	@Override
+	protected PathNavigation createNavigation(Level world) {
+		return new FlyingPathNavigation(this, world);
+	}
+
+	@Override
 	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
 		return false;
 	}
@@ -67,6 +78,11 @@ public class LocationEdgeRightEntity extends PathfinderMob {
 	@Override
 	public SoundEvent getDeathSound() {
 		return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("entity.generic.death"));
+	}
+
+	@Override
+	public boolean causeFallDamage(float l, float d, DamageSource source) {
+		return false;
 	}
 
 	@Override
@@ -158,6 +174,26 @@ public class LocationEdgeRightEntity extends PathfinderMob {
 	protected void pushEntities() {
 	}
 
+	@Override
+	protected void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
+	}
+
+	@Override
+	public void setNoGravity(boolean ignored) {
+		super.setNoGravity(true);
+	}
+
+	@Override
+	public void aiStep() {
+		super.aiStep();
+		this.setNoGravity(true);
+	}
+
+	@Override
+	protected float getFlyingSpeed() {
+		return (float) this.getAttributeValue(Attributes.FLYING_SPEED);
+	}
+
 	public static void init(RegisterSpawnPlacementsEvent event) {
 	}
 
@@ -169,6 +205,7 @@ public class LocationEdgeRightEntity extends PathfinderMob {
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
 		builder = builder.add(Attributes.STEP_HEIGHT, 0);
+		builder = builder.add(Attributes.FLYING_SPEED, 0);
 		return builder;
 	}
 }
