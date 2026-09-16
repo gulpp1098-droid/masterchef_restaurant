@@ -7959,6 +7959,38 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "CanDeleteRestaurant",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "can_delete_restaurant",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "ForceDelete",
+            "type": "logic"
+          },
+          {
+            "name": "RestaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CanDeleteRestaurantProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures/DeleteRestaurant"
     }
   ],
   "variable_elements": [
@@ -8621,7 +8653,12 @@
               },
               {
                 "name": "System Procedures",
-                "children": []
+                "children": [
+                  {
+                    "name": "DeleteRestaurant",
+                    "children": []
+                  }
+                ]
               },
               {
                 "name": "Set NBT procedures",
