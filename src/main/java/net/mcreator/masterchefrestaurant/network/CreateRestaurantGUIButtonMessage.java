@@ -51,6 +51,12 @@ public record CreateRestaurantGUIButtonMessage(int buttonID, int x, int y, int z
 
 			CreatingNewRestaurantProcedure.execute(world, x, y, z, entity);
 		}
+
+		guiTools$enhancedImageButton : {
+			if (buttonID == 1) {
+				net.mcreator.masterchefrestaurant.procedures.DeleteRestaurantProcedure.execute(world, entity);
+			}
+		}
 	}
 
 	@SubscribeEvent

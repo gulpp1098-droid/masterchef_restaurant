@@ -23,11 +23,11 @@ public class CanDeleteRestaurantProcedure {
 		boolean tableReady = false;
 		restaurantID = RestaurantID;
 		owner = entity;
-		if (restaurantID < 0) {
+		if (restaurantID <= 0) {
 			return false;
 		}
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
-		if (restaurantIndex <= 0) {
+		if (restaurantIndex < 0) {
 			return false;
 		}
 		if ((GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path,
