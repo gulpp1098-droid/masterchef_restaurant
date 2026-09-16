@@ -8,7 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
 public class CanDeleteRestaurantProcedure {
-	public static boolean execute(LevelAccessor world, Entity entity, boolean ForceDelete, double RestaurantID) {
+	public static boolean execute(LevelAccessor world, Entity entity, double RestaurantID) {
 		if (entity == null)
 			return false;
 		double restaurantID = 0;
@@ -21,20 +21,17 @@ public class CanDeleteRestaurantProcedure {
 		String tableZ = "";
 		String tableString = "";
 		boolean tableReady = false;
-		restaurantID = restaurantID;
+		restaurantID = RestaurantID;
 		owner = entity;
-		if (RestaurantID < 0) {
+		if (restaurantID < 0) {
 			return false;
 		}
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
-		if (restaurantIndex < 0) {
+		if (restaurantIndex <= 0) {
 			return false;
 		}
-		if (ForceDelete) {
-			return true;
-		}
-		if (owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == restaurantID && (GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants",
-				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner")).equals(owner.getStringUUID())) {
+		if ((GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path,
+				"owner")).equals(owner.getStringUUID())) {
 			if (!GetRestaurantLogicParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")
 					&& GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,

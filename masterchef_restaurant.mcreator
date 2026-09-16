@@ -7973,10 +7973,6 @@
             "type": "entity"
           },
           {
-            "name": "ForceDelete",
-            "type": "logic"
-          },
-          {
             "name": "RestaurantID",
             "type": "number"
           },
@@ -7988,6 +7984,83 @@
         "return_type": "logic",
         "files": [
           "src/main/java/net/mcreator/masterchefrestaurant/procedures/CanDeleteRestaurantProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures/DeleteRestaurant"
+    },
+    {
+      "name": "DeleteRestaurant",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "delete_restaurant",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/DeleteRestaurantProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures/DeleteRestaurant"
+    },
+    {
+      "name": "DetachQueueRugs",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "detach_queue_rugs",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/DetachQueueRugsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures/DeleteRestaurant"
+    },
+    {
+      "name": "RemoveRestaurantFromFile",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "remove_restaurant_from_file",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/RemoveRestaurantFromFileProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures/DeleteRestaurant"
