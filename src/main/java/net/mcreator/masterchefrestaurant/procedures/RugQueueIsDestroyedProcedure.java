@@ -43,19 +43,21 @@ public class RugQueueIsDestroyedProcedure {
 		double newNBT = 0;
 		if (MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(x, y, z))).getBlock()) {
 			ID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
-			if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "queue") > 0) {
-				if (entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == ID
-						&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
-								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-					CleanupRestaurantQueueFromRugProcedure.execute(world, x, y, z);
+			if (ID != 0) {
+				if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "queue") > 0) {
+					if (entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == ID
+							&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
+									MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+						CleanupRestaurantQueueFromRugProcedure.execute(world, x, y, z);
+					} else {
+						if (event instanceof ICancellableEvent _cancellable) {
+							_cancellable.setCanceled(true);
+						}
+					}
 				} else {
 					if (event instanceof ICancellableEvent _cancellable) {
 						_cancellable.setCanceled(true);
 					}
-				}
-			} else {
-				if (event instanceof ICancellableEvent _cancellable) {
-					_cancellable.setCanceled(true);
 				}
 			}
 		}
