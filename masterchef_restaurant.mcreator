@@ -7929,6 +7929,36 @@
         ]
       },
       "path": "~/Restaurant Functioning/Advancments"
+    },
+    {
+      "name": "CreateSpecialFoodBonusMap",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_special_food_bonus_map",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CreateSpecialFoodBonusMapProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "CreateFoodCategoryBonusMap",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_food_category_bonus_map",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CreateFoodCategoryBonusMapProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     }
   ],
   "variable_elements": [
