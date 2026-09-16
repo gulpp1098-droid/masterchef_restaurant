@@ -43,11 +43,10 @@ public class CreatingFoodListJsonProcedure {
 			excludedFoods.add("minecraft:ominous_bottle");
 			excludedFoods.add("minecraft:enchanted_golden_apple");
 			excludedFoods.add("minecraft:suspicious_stew");
-			// Additional acquisition/rarity points. These points propagate through recipes.
-			java.util.Map<String, Double> customPoints = new java.util.HashMap<>();
-			customPoints.put("minecraft:tropical_fish", 6.0);
-			customPoints.put("minecraft:glow_berries", 3.0);
-			customPoints.put("minecraft:chorus_fruit", 8.0);
+			com.google.gson.JsonObject loadedSpecialFoodBonuses = CreateSpecialFoodBonusMapProcedure.execute();
+			final com.google.gson.JsonObject specialFoodBonuses = loadedSpecialFoodBonuses != null ? loadedSpecialFoodBonuses : new com.google.gson.JsonObject();
+			com.google.gson.JsonObject loadedFoodCategoryBonuses = CreateFoodCategoryBonusMapProcedure.execute();
+			final com.google.gson.JsonObject foodCategoryBonuses = loadedFoodCategoryBonuses != null ? loadedFoodCategoryBonuses : new com.google.gson.JsonObject();
 			java.util.List<com.google.gson.JsonObject> allFoods = new java.util.ArrayList<>();
 			com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
 			com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
@@ -123,7 +122,7 @@ public class CreatingFoodListJsonProcedure {
 						}
 					}
 					resolving.remove(itemName);
-					double customScore = customPoints.getOrDefault(itemName, 0.0);
+					double customScore = getSpecialFoodBonus(itemName);
 					double resolvedScore;
 					if (isFood) {
 						resolvedScore = Double.isFinite(bestRecipeScore) ? Math.max(qualityScore, bestRecipeScore) : qualityScore;
@@ -132,8 +131,6 @@ public class CreatingFoodListJsonProcedure {
 					} else if (!hasRecipes) {
 						resolvedScore = 1.0;
 					} else {
-						// A raw ingredient can still exist even if its only known recipes
-						// are cyclic. Return the raw fallback without caching it.
 						return Math.max(1.0, 1.0 + customScore);
 					}
 					resolvedScore = Math.max(1.0, resolvedScore + customScore);
@@ -147,6 +144,20 @@ public class CreatingFoodListJsonProcedure {
 						chosenIngredientsCache.put(itemName, new java.util.ArrayList<>());
 					}
 					return resolvedScore;
+				}
+
+				double getSpecialFoodBonus(String itemName) {
+					if (itemName == null || !specialFoodBonuses.has(itemName))
+						return 0.0;
+					com.google.gson.JsonElement bonusElement = specialFoodBonuses.get(itemName);
+					if (bonusElement == null || !bonusElement.isJsonPrimitive() || !bonusElement.getAsJsonPrimitive().isNumber()) {
+						return 0.0;
+					}
+					try {
+						return bonusElement.getAsDouble();
+					} catch (Exception ignored) {
+						return 0.0;
+					}
 				}
 
 				double calculateRecipeScore(net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder, String outputItemName, int depth, java.util.List<String> selectedIngredients) {
@@ -174,8 +185,6 @@ public class CreatingFoodListJsonProcedure {
 							if (alternativeId == null)
 								continue;
 							String alternativeName = alternativeId.toString();
-							// Ignore an unpacking alternative such as hay block -> 9 wheat
-							// when the reverse packing recipe also exists.
 							if (outputCount > 1 && hasRecipeUsingItem(alternativeName, outputItemName)) {
 								continue;
 							}
@@ -188,7 +197,6 @@ public class CreatingFoodListJsonProcedure {
 						if (!Double.isFinite(cheapestAlternative) || cheapestAlternativeName == null) {
 							return INVALID;
 						}
-						// Duplicate slots are intentionally counted separately.
 						ingredientTotal += cheapestAlternative;
 						selectedIngredients.add(cheapestAlternativeName);
 					}
@@ -203,8 +211,9 @@ public class CreatingFoodListJsonProcedure {
 					for (net.minecraft.world.item.crafting.RecipeHolder<?> reverseRecipeHolder : reverseRecipes) {
 						for (net.minecraft.world.item.crafting.Ingredient reverseIngredient : reverseRecipeHolder.value().getIngredients()) {
 							for (net.minecraft.world.item.ItemStack reverseAlternative : reverseIngredient.getItems()) {
-								if (reverseAlternative == null || reverseAlternative.isEmpty())
+								if (reverseAlternative == null || reverseAlternative.isEmpty()) {
 									continue;
+								}
 								var reverseId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(reverseAlternative.getItem());
 								if (reverseId != null && reverseId.toString().equals(requiredItemName)) {
 									return true;
@@ -238,8 +247,9 @@ public class CreatingFoodListJsonProcedure {
 					int negativeEffects = 0;
 					for (net.minecraft.world.food.FoodProperties.PossibleEffect possibleEffect : food.effects()) {
 						var mobEffectInstance = possibleEffect.effect();
-						if (mobEffectInstance == null || mobEffectInstance.getEffect() == null)
+						if (mobEffectInstance == null || mobEffectInstance.getEffect() == null) {
 							continue;
+						}
 						if (mobEffectInstance.getEffect().value().isBeneficial()) {
 							positiveEffects++;
 						} else {
@@ -270,8 +280,9 @@ public class CreatingFoodListJsonProcedure {
 				com.google.gson.JsonArray negativeEffectsArray = new com.google.gson.JsonArray();
 				for (net.minecraft.world.food.FoodProperties.PossibleEffect possibleEffect : food.effects()) {
 					var mobEffectInstance = possibleEffect.effect();
-					if (mobEffectInstance == null || mobEffectInstance.getEffect() == null)
+					if (mobEffectInstance == null || mobEffectInstance.getEffect() == null) {
 						continue;
+					}
 					var effect = mobEffectInstance.getEffect().value();
 					var effectId = net.minecraft.core.registries.BuiltInRegistries.MOB_EFFECT.getKey(effect);
 					if (effectId == null)
@@ -283,7 +294,7 @@ public class CreatingFoodListJsonProcedure {
 					}
 				}
 				double qualityScore = scoreResolver.getQualityScore(itemName);
-				double customScore = customPoints.getOrDefault(itemName, 0.0);
+				double customScore = scoreResolver.getSpecialFoodBonus(itemName);
 				double score = scoreResolver.resolve(itemName);
 				if (!Double.isFinite(score)) {
 					score = Math.max(0.0, qualityScore + customScore);
