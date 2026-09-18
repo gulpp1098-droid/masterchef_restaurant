@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.io.File;
 
 public class OpenRestaurantButtonProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity, double RestaurantID) {
 		if (entity == null)
 			return;
 		Entity owner = null;
@@ -49,6 +49,13 @@ public class OpenRestaurantButtonProcedure {
 						}
 						ModifyRestaurantLogicParameterProcedure.execute(false, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");
+						if (AreAllRestaurantGroupsSpawnedProcedure.execute(world, RestaurantID)) {
+							ModifyRestaurantLogicParameterProcedure.execute(true, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+									MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready");
+						} else {
+							ModifyRestaurantLogicParameterProcedure.execute(false, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+									MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready");
+						}
 						CreateOverlayDataTransferProcedure.execute(world, entity);
 						CreateGUIDataTransferProcedure.execute(world, entity);
 						FillSlotsMenuProcedure.execute(world, entity);

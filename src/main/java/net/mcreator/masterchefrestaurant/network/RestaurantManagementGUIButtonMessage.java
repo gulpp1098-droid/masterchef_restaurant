@@ -61,7 +61,7 @@ public record RestaurantManagementGUIButtonMessage(int buttonID, int x, int y, i
 		}
 		if (buttonID == 2) {
 
-			OpenRestaurantButtonProcedure.execute(world, entity);
+			OpenRestaurantButtonProcedure.execute(world, entity, RestaurantID);
 		}
 		if (buttonID == 3) {
 
