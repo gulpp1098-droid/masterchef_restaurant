@@ -13,9 +13,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 import net.mcreator.masterchefrestaurant.block.ChairBlock;
 
@@ -25,26 +27,39 @@ import javax.annotation.Nullable;
 public class ServiceTableBlockIsDestroyedProcedure {
 	@SubscribeEvent
 	public static void onBlockBreak(BlockEvent.BreakEvent event) {
-		execute(event, event.getLevel(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
+		execute(event, event.getLevel(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), event.getPlayer());
 	}
 
-	public static void execute(LevelAccessor world, double x, double y, double z) {
-		execute(null, world, x, y, z);
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+		execute(null, world, x, y, z, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z) {
+	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
+		if (entity == null)
+			return;
 		BlockState ChairBlock = Blocks.AIR.defaultBlockState();
 		double ChairAmount = 0;
 		double chairIndex = 0;
 		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == MasterchefRestaurantModBlocks.SERVICE_TABLE.get()) {
-			for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-				ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
-				if (ChairBlock.getBlock() == MasterchefRestaurantModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
-					setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "TableNumber", (-1));
-					setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "ChairNumber", (-1));
+			if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID") == 0 || entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
+					&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
+							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+				for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
+					ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
+					if (ChairBlock.getBlock() == MasterchefRestaurantModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
+						setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "TableNumber", (-1));
+						setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "ChairNumber", (-1));
+					}
 				}
 			}
 		}
+	}
+
+	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		if (blockEntity != null)
+			return blockEntity.getPersistentData().getDouble(tag);
+		return -1;
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {

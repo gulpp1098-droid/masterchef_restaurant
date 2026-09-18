@@ -1,7 +1,0 @@
-{
-  "_fv": 89,
-  "_type": "packet",
-  "definition": {
-    "serverBound": "ClosingOrderGUIPacketToServerProcedure"
-  }
-}

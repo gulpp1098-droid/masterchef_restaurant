@@ -3,6 +3,7 @@ package net.mcreator.masterchefrestaurant.procedures;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
@@ -37,6 +38,9 @@ public class ScanningRestaurantAreasProcedure {
 		double RestaurantIndex = 0;
 		String tablesString = "";
 		String locationsString = "";
+		if (!((world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD)) {
+			return 0;
+		}
 		restaurantObject = FindRestaurantInfoByIndexViaIDProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
 		locations = restaurantObject.get("locations").getAsJsonArray();
 		tables = restaurantObject.get("tables").getAsJsonArray();

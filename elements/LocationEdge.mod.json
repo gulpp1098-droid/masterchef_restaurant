@@ -68,7 +68,7 @@
     "pushedByFluids": {
       "fixedValue": false
     },
-    "flyingMob": false,
+    "flyingMob": true,
     "inventorySize": 9,
     "inventoryStackSize": 99,
     "disableCollisions": true,

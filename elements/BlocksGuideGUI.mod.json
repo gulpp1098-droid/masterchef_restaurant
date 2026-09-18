@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Required Blocks - WIP"
+            "fixedValue": "Required Blocks"
           },
           "color": {
             "value": -12829636,
@@ -190,7 +190,7 @@
           "image": "separator_icon.png",
           "use1Xscale": false,
           "x": 215,
-          "y": 159,
+          "y": 169,
           "locked": false
         }
       },
@@ -239,6 +239,18 @@
           "height": 40,
           "x": 219,
           "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "reception_crafting.png",
+          "width": 80,
+          "height": 80,
+          "x": 242,
+          "y": 85,
           "locked": false
         }
       }

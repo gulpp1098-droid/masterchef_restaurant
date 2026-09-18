@@ -123,7 +123,7 @@
           "image": "separator_icon.png",
           "use1Xscale": false,
           "x": 69,
-          "y": 159,
+          "y": 169,
           "locked": false
         }
       },
@@ -154,6 +154,53 @@
           "height": 40,
           "x": 69,
           "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "queuerug_crafting.png",
+          "width": 80,
+          "height": 80,
+          "x": 92,
+          "y": 85,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_service_table_copy",
+          "text": {
+            "fixedValue": "Queue Rules"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_queue_rugs_extend_the_line_start",
+          "text": "Queue Rugs extend the line starting from the Reception.\nEach new rug must connect to the previous part of the same restaurant's queue. Removing a rug also removes every later part of that queue.\nRestaurant queue blocks cannot be modified by other restaurant owners.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 124,
+          "height": 152,
+          "x": 219,
+          "y": 37,
           "locked": false
         }
       }

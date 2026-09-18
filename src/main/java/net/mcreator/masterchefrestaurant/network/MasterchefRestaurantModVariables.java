@@ -17,7 +17,6 @@ import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
@@ -94,12 +93,12 @@ public class MasterchefRestaurantModVariables {
 		clone.CurrentClientUUID = original.CurrentClientUUID;
 		clone.currentNBT = original.currentNBT;
 		clone.TableNumber = original.TableNumber;
-		clone.OrderSlot0Item = original.OrderSlot0Item;
 		clone.Debug = original.Debug;
 		clone.owner = original.owner;
 		clone.ClientPatiance = original.ClientPatiance;
 		clone.GUIstring = original.GUIstring;
 		clone.CurrentClientFoodDelivered = original.CurrentClientFoodDelivered;
+		clone.OverlayString = original.OverlayString;
 		if (!event.isWasDeath()) {
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
@@ -287,12 +286,12 @@ public class MasterchefRestaurantModVariables {
 		public String CurrentClientUUID = "\"\"";
 		public String currentNBT = "\"\"";
 		public double TableNumber = 0;
-		public ItemStack OrderSlot0Item = ItemStack.EMPTY;
 		public String Debug = "\"\"";
 		public String owner = "\"\"";
 		public double ClientPatiance = -1.0;
 		public String GUIstring = "";
 		public String CurrentClientFoodDelivered = "\"\"";
+		public String OverlayString = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -302,12 +301,12 @@ public class MasterchefRestaurantModVariables {
 			nbt.putString("CurrentClientUUID", CurrentClientUUID);
 			nbt.putString("currentNBT", currentNBT);
 			nbt.putDouble("TableNumber", TableNumber);
-			nbt.put("OrderSlot0Item", OrderSlot0Item.saveOptional(lookupProvider));
 			nbt.putString("Debug", Debug);
 			nbt.putString("owner", owner);
 			nbt.putDouble("ClientPatiance", ClientPatiance);
 			nbt.putString("GUIstring", GUIstring);
 			nbt.putString("CurrentClientFoodDelivered", CurrentClientFoodDelivered);
+			nbt.putString("OverlayString", OverlayString);
 			return nbt;
 		}
 
@@ -318,12 +317,12 @@ public class MasterchefRestaurantModVariables {
 			CurrentClientUUID = nbt.getString("CurrentClientUUID");
 			currentNBT = nbt.getString("currentNBT");
 			TableNumber = nbt.getDouble("TableNumber");
-			OrderSlot0Item = ItemStack.parseOptional(lookupProvider, nbt.getCompound("OrderSlot0Item"));
 			Debug = nbt.getString("Debug");
 			owner = nbt.getString("owner");
 			ClientPatiance = nbt.getDouble("ClientPatiance");
 			GUIstring = nbt.getString("GUIstring");
 			CurrentClientFoodDelivered = nbt.getString("CurrentClientFoodDelivered");
+			OverlayString = nbt.getString("OverlayString");
 		}
 
 		public void markSyncDirty() {

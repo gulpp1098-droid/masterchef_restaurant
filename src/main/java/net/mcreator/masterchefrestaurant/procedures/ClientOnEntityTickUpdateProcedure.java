@@ -22,7 +22,7 @@ public class ClientOnEntityTickUpdateProcedure {
 						if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 							ClientExpPayProcedure.execute(world, entity);
-							ClientLeaveStateProcedure.execute(world, x, y, z, entity);
+							ClientBeginLeavingProcedure.execute(world, entity);
 						} else {
 							ClientRestaurantGoStateProcedure.execute(world, entity);
 						}
@@ -30,7 +30,7 @@ public class ClientOnEntityTickUpdateProcedure {
 						if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 							ClientExpPayProcedure.execute(world, entity);
-							ClientLeaveStateProcedure.execute(world, x, y, z, entity);
+							ClientBeginLeavingProcedure.execute(world, entity);
 						} else {
 							ClientQueueWaitStateProcedure.execute(world, entity);
 						}

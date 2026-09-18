@@ -1,13 +1,10 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import net.neoforged.neoforge.server.ServerLifecycleHooks;
-import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.client.Minecraft;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -35,8 +32,7 @@ public class CreatingRestaurantJsonFileProcedure {
 		com.google.gson.JsonArray Array = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
-			MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path = FMLPaths.GAMEDIR.get().toString() + "/saves/"
-					+ (world.isClientSide() ? Minecraft.getInstance().getSingleplayerServer().getWorldData().getLevelName() : ServerLifecycleHooks.getCurrentServer().getWorldData().getLevelName()) + "/masterchef";
+			MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path = GetMasterchefWorldPathProcedure.execute(world);
 			MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 			RestaurantsFile = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);
 			if (!RestaurantsFile.exists()) {
@@ -47,6 +43,7 @@ public class CreatingRestaurantJsonFileProcedure {
 					exception.printStackTrace();
 				}
 				Object.add("restaurants", Array);
+				Object.addProperty("last_stats_reset_day", Math.floor(world.dayTime() / 24000d));
 				{
 					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
 					try {

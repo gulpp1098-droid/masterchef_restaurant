@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Set up - WIP"
+            "fixedValue": "Set up"
           },
           "color": {
             "value": -12829636,
@@ -139,7 +139,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_service_tables_are_where_custome",
-          "text": "Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can server larger groups. If a group not fit, it will look for another table.",
+          "text": "Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can serve larger groups. If a group does not fit, it will look for another table.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

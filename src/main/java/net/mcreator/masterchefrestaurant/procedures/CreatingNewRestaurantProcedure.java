@@ -16,6 +16,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.masterchefrestaurant.world.inventory.RestaurantManagementGUIMenu;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModMenus;
+import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 import java.io.IOException;
 import java.io.FileWriter;
@@ -31,6 +32,7 @@ public class CreatingNewRestaurantProcedure {
 			return;
 		Entity Owner = null;
 		boolean IsNameAccepted = false;
+		boolean SaveConfirmed = false;
 		String Restaurant_Name = "";
 		String NewRestaurant_Name = "";
 		double index = 0;
@@ -150,34 +152,42 @@ public class CreatingNewRestaurantProcedure {
 						e.printStackTrace();
 					}
 				}
-				{
-					MasterchefRestaurantModVariables.PlayerVariables _vars = entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES);
-					_vars.Restaurant_ID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID;
-					_vars.markSyncDirty();
-				}
-				GenerateRestaurantMenuProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID, 0);
-				if (Owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Restaurant was created!"), false);
-				MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + 1;
-				MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
-				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = BlockPos.containing(x, y, z);
-					_ent.openMenu(new MenuProvider() {
-						@Override
-						public Component getDisplayName() {
-							return Component.literal("RestaurantManagementGUI");
-						}
+				SaveConfirmed = RestaurantIndexSearchByIDProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID) >= 0;
+				if (SaveConfirmed) {
+					{
+						MasterchefRestaurantModVariables.PlayerVariables _vars = entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES);
+						_vars.Restaurant_ID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID;
+						_vars.markSyncDirty();
+					}
+					GenerateRestaurantMenuProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID, 0);
+					if (Owner instanceof Player _player && !_player.level().isClientSide())
+						_player.displayClientMessage(Component.literal("Restaurant was created!"), false);
+					MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + 1;
+					MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
+					if (entity instanceof ServerPlayer _ent) {
+						BlockPos _bpos = BlockPos.containing(x, y, z);
+						_ent.openMenu(new MenuProvider() {
+							@Override
+							public Component getDisplayName() {
+								return Component.literal("RestaurantManagementGUI");
+							}
 
-						@Override
-						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-							return false;
-						}
+							@Override
+							public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+								return false;
+							}
 
-						@Override
-						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-							return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
-						}
-					}, _bpos);
+							@Override
+							public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+								return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+							}
+						}, _bpos);
+					}
+				} else {
+					if (Owner instanceof Player _player && !_player.level().isClientSide())
+						_player.displayClientMessage(Component.literal("ERROR: Restaurant data could not be saved!"), false);
+					MasterchefRestaurantMod.LOGGER.info("CreatingNewRestaurant: save verification failed." + "\n" + "Restaurant ID: " + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + "\n" + "File: "
+							+ MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path + "/" + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);
 				}
 			} else {
 				if (Owner instanceof Player _player && !_player.level().isClientSide())

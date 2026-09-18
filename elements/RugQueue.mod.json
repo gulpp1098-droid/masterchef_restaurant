@@ -232,7 +232,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.1,
     "jumpFactor": 1.0,
-    "reactionToPushing": "DESTROY",
+    "reactionToPushing": "BLOCK",
     "isNotColidable": false,
     "soundOnStep": "CLOTH",
     "isCustomSoundType": false,

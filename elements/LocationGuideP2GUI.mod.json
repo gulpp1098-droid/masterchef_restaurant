@@ -1,0 +1,177 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "bookmarks.png",
+          "use1Xscale": false,
+          "x": 355,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_base_icon",
+          "image": "base_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryMenu",
+          "x": 361,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_food_icon",
+          "image": "food_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryFood",
+          "x": 362,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_clients_icon",
+          "image": "clients_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryClients",
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_appliences_icon",
+          "image": "appliences_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryApplience",
+          "x": 362,
+          "y": 109,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_stats_icon",
+          "image": "stats_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryStats",
+          "x": 361,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_overview_wip",
+          "text": {
+            "fixedValue": "Set area"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "location_icon.png",
+          "use1Xscale": false,
+          "x": 153,
+          "y": 16,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_before_placing_down_your_blocks",
+          "text": "New areas must connect directly to one of your existing restaurant areas.\nYour maximum number of claimed areas increases with the restaurant level.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 130,
+          "height": 167,
+          "x": 69,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_after_that_you_can_claim_3_more",
+          "text": "Restaurant areas cannot overlap.\nAt least one full 5x5 area must remain between areas belonging to different restaurants. The first area must also be placed at least five areas away from another restaurant's first area.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 129,
+          "height": 149,
+          "x": 219,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryGuideLocation",
+          "x": 73,
+          "y": 177,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
