@@ -29,6 +29,8 @@ public class ClosingRestaurantsProcedure {
 					if (CloseTime <= world.dayTime() % 24000) {
 						ModifyRestaurantLogicParameterProcedure.execute(false, RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");
+						ModifyRestaurantLogicParameterProcedure.execute(true, RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready");
 						MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen
 								.remove((int) MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantsOpen.indexOf((RestaurantsOpen.get((int) index) instanceof Double _doub7 ? _doub7 : 0.0D)));
 						if (world instanceof ServerLevel _level) {

@@ -356,10 +356,6 @@
             "type": "entity"
           },
           {
-            "name": "RestaurantID",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }

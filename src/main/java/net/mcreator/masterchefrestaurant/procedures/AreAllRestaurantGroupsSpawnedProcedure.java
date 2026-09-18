@@ -18,10 +18,13 @@ public class AreAllRestaurantGroupsSpawnedProcedure {
 		restaurants = GetClientDatabaseListArrayProcedure.execute(world);
 		restaurantObject = restaurants.get((int) ClientDatabaseIndex).getAsJsonObject();
 		groups = restaurantObject.get("groups").getAsJsonArray();
+		if (groups.size() <= 0) {
+			return false;
+		}
 		allGroupsSpawned = true;
-		for (int _i1 = 0; _i1 < (int) restaurants.size(); _i1++) {
+		for (int _i1 = 0; _i1 < (int) groups.size(); _i1++) {
 			group = groups.get((int) groupIndex).getAsJsonObject();
-			if (!restaurantObject.get("spawned").getAsBoolean()) {
+			if (!group.get("spawned").getAsBoolean()) {
 				allGroupsSpawned = false;
 			}
 			groupIndex = groupIndex + 1;

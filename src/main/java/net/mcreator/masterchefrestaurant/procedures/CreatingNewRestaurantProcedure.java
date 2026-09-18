@@ -112,7 +112,7 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurant.addProperty("last_day_open", (-1));
 				NewRestaurant.add("menu", LocationArray);
 				NewRestaurant.add("next_menu", LocationArray);
-				dailyStatsObject.addProperty("menu_advance_ready", false);
+				NewRestaurant.addProperty("menu_advance_ready", false);
 				dailyStatsObject.addProperty("customers_served_fully", 0);
 				dailyStatsObject.addProperty("customers_served", 0);
 				dailyStatsObject.addProperty("customers_lost", 0);
