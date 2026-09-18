@@ -23,6 +23,7 @@ public class OpenRestaurantButtonProcedure {
 		com.google.gson.JsonObject RestaurantChange = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray Restaurants = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray locationsArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray menu = new com.google.gson.JsonArray();
 		ArrayList<Object> openedRestaurants = new ArrayList<>();
 		double index = 0;
 		double AmountOfTables = 0;
@@ -73,12 +74,19 @@ public class OpenRestaurantButtonProcedure {
 										if (AmountOfChairs > 0) {
 											if (!(GetRestaurantStringParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 													MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception")).equals("")) {
-												ModifyRestaurantWholeArrayParameterProcedure.execute(
-														GetRestaurantArrayParameterProcedure.execute(index, "restaurants", "next_menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-																MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path),
-														index, "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
-												GenerateRestaurantMenuProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID, GetRestaurantNumberParameterProcedure.execute(index, "restaurants",
-														MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
+												menu = GetRestaurantArrayParameterProcedure.execute(index, "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+														MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+												if (menu.size() == 0 || GetRestaurantLogicParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+														MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready")) {
+													ModifyRestaurantWholeArrayParameterProcedure.execute(
+															GetRestaurantArrayParameterProcedure.execute(index, "restaurants", "next_menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+																	MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path),
+															index, "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+													GenerateRestaurantMenuProcedure.execute(world, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID, GetRestaurantNumberParameterProcedure.execute(index, "restaurants",
+															MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
+													ModifyRestaurantLogicParameterProcedure.execute(false, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+															MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready");
+												}
 												ModifyRestaurantNumberParameterProcedure.execute(Math.floor(world.dayTime() / 24000d), index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 														MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "last_day_open");
 												ModifyRestaurantLogicParameterProcedure.execute(true, index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,

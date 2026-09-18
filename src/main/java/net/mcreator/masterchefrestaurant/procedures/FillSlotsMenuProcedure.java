@@ -18,6 +18,7 @@ public class FillSlotsMenuProcedure {
 		if (entity == null)
 			return;
 		com.google.gson.JsonArray Menu = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray checkMenu = new com.google.gson.JsonArray();
 		String Food1 = "";
 		String Food2 = "";
 		String Food3 = "";
@@ -41,10 +42,10 @@ public class FillSlotsMenuProcedure {
 				Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			} else {
+				checkMenu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready")
-						|| (GetRestaurantStringParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu")).equals("")) {
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready") || checkMenu.size() == 0) {
 					Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "next_menu", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				} else {
@@ -59,27 +60,27 @@ public class FillSlotsMenuProcedure {
 			if (Menu.size() > index1) {
 				Food1 = Menu.get((int) index1).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack8 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food1).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack8.setCount(1);
-					_menu.getSlots().get(0).set(_setstack8);
+					ItemStack _setstack9 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food1).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					_setstack9.setCount(1);
+					_menu.getSlots().get(0).set(_setstack9);
 					_player.containerMenu.broadcastChanges();
 				}
 			}
 			if (Menu.size() > index2) {
 				Food2 = Menu.get((int) index2).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack12 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food2).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack12.setCount(1);
-					_menu.getSlots().get(1).set(_setstack12);
+					ItemStack _setstack13 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food2).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					_setstack13.setCount(1);
+					_menu.getSlots().get(1).set(_setstack13);
 					_player.containerMenu.broadcastChanges();
 				}
 			}
 			if (Menu.size() > index3) {
 				Food3 = Menu.get((int) index3).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack16 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food3).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack16.setCount(1);
-					_menu.getSlots().get(2).set(_setstack16);
+					ItemStack _setstack17 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food3).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					_setstack17.setCount(1);
+					_menu.getSlots().get(2).set(_setstack17);
 					_player.containerMenu.broadcastChanges();
 				}
 			}
