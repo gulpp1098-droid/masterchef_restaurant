@@ -31,6 +31,7 @@ public class ClientInteractWithChairProcedure {
 				client.startRiding(chair);
 				client.getPersistentData().putDouble("stuckCounter", (-1));
 				client.getPersistentData().putString("state", "order_pick");
+				StopClientPatienceProcedure.execute(entity);
 				client.getPersistentData().putDouble("order_pick_time", (Mth.nextInt(RandomSource.create(), 20, 100) + world.dayTime()));
 			}
 		}

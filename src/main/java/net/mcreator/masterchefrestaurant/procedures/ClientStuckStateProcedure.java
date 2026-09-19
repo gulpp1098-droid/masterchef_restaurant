@@ -59,7 +59,7 @@ public class ClientStuckStateProcedure {
 							client.getPersistentData().putBoolean("alertSent", true);
 							client.getPersistentData().putDouble("stuckCounter", 10);
 						} else {
-							if ((client.getPersistentData().getString("state")).equals("queue_move") && client.getPersistentData().getDouble("patience") > 0) {
+							if ((client.getPersistentData().getString("state")).equals("queue_move") && client.getPersistentData().getBoolean("patience_needed") && world.dayTime() < client.getPersistentData().getDouble("patience_end_time")) {
 								client.getPersistentData().putDouble("stuckCounter", 10);
 							} else {
 								if (!(client instanceof CriticEntity)) {
@@ -110,6 +110,7 @@ public class ClientStuckStateProcedure {
 									}
 								}
 								client.getPersistentData().putString("state", "leave");
+								StopClientPatienceProcedure.execute(entity);
 							}
 						}
 					}

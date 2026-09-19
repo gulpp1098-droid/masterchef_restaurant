@@ -173,6 +173,9 @@ public class SpawnClientsProcedure {
 										Client.getPersistentData().putString("food_delivered", (stringDelivered.substring(1)));
 										Client.getPersistentData().putString("food_tiers", clientObject.get("foodTiers").getAsString());
 										Client.getPersistentData().putString("state", "restaurant_go");
+										Client.getPersistentData().putBoolean("patience_needed", false);
+										Client.getPersistentData().putDouble("patience_end_time", 0);
+										Client.getPersistentData().putDouble("client_expire_time", (world.dayTime() + 8000));
 										Client.getPersistentData().putString("last_rug", RestaurantsClientsObject.get("queue_start").getAsString());
 										Client.getPersistentData().putDouble("group", singleGroup.get("group_id").getAsDouble());
 										Client.getPersistentData().putDouble("patience", patience);

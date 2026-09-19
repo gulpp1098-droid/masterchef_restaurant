@@ -14,6 +14,7 @@ public class ClientFoodWaitStateProcedure {
 		if (!(client.getPersistentData().getString("food_delivered")).contains("0")) {
 			client.getPersistentData().putDouble("food_eat_time", (Mth.nextInt(RandomSource.create(), 200, 400) + world.dayTime()));
 			client.getPersistentData().putString("state", "food_eat");
+			StopClientPatienceProcedure.execute(entity);
 		}
 	}
 }

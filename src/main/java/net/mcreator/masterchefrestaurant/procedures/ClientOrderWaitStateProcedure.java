@@ -24,7 +24,10 @@ public class ClientOrderWaitStateProcedure {
 		client = entity;
 		if (sourceentity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID == client.getPersistentData().getDouble("RestaurantID")
 				&& ((client.getPersistentData().getString("state")).equals("food_wait") || (client.getPersistentData().getString("state")).equals("order_wait"))) {
-			client.getPersistentData().putString("state", "food_wait");
+			if ((client.getPersistentData().getString("state")).equals("order_wait")) {
+				client.getPersistentData().putString("state", "food_wait");
+				StartClientPatienceProcedure.execute(world, entity, 3600);
+			}
 			{
 				MasterchefRestaurantModVariables.PlayerVariables _vars = sourceentity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES);
 				_vars.CurrentClientUUID = client.getStringUUID();

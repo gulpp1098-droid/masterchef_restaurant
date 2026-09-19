@@ -60,6 +60,7 @@ public class ClientBeginLeavingProcedure {
 				}
 			}
 			client.getPersistentData().putString("state", "leave");
+			StopClientPatienceProcedure.execute(entity);
 			client.getPersistentData().putDouble("stuckCounter", (-1));
 			client.stopRiding();
 			client.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));

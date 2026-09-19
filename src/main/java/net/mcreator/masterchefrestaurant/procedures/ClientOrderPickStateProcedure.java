@@ -11,6 +11,7 @@ public class ClientOrderPickStateProcedure {
 		client = entity;
 		if (client.getPersistentData().getDouble("order_pick_time") <= world.dayTime()) {
 			client.getPersistentData().putString("state", "order_wait");
+			StartClientPatienceProcedure.execute(world, entity, 3600);
 		}
 	}
 }

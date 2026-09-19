@@ -225,6 +225,7 @@ public class ClientQueueWaitStateProcedure {
 				SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
 				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putString("state", "table_go");
+				StopClientPatienceProcedure.execute(entity);
 				if (client instanceof Mob _mob65)
 					_mob65.setNoAi(false);
 				SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
