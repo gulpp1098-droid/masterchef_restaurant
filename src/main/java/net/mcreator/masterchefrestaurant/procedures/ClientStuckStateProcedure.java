@@ -57,10 +57,10 @@ public class ClientStuckStateProcedure {
 							if ((client.getPersistentData().getString("state")).equals("queue_move") && client.getPersistentData().getBoolean("patience_needed") && world.dayTime() < client.getPersistentData().getDouble("patience_end_time")) {
 								client.getPersistentData().putDouble("stuckCounter", 10);
 							} else {
-								if (!(client instanceof CriticEntity)) {
-									ClientExpPayProcedure.execute(world, entity);
-								}
 								if (client.getPersistentData().getBoolean("leader")) {
+									if (!(client instanceof CriticEntity)) {
+										ClientExpPayProcedure.execute(world, entity);
+									}
 									ClientBeginLeavingProcedure.execute(world, entity);
 								} else {
 									leader = world instanceof ServerLevel _level29 ? getEntityFromUUID(_level29, (client.getPersistentData().getString("leaderUUID"))) : null;
