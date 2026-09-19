@@ -8166,6 +8166,44 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "PlayerGoesToBed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_goes_to_bed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/PlayerGoesToBedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
+    },
+    {
+      "name": "PlayerWakesUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_wakes_up",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/PlayerWakesUpProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
     }
   ],
   "variable_elements": [
