@@ -13,7 +13,7 @@ public class ClientPatianceGoingDownProcedure {
 		double nbtPatience = 0;
 		double restaurantID = 0;
 		client = entity;
-		if (client.getPersistentData().getBoolean("patience_needed") && world.dayTime() >= client.getPersistentData().getDouble("patience_end_time") && client.getPersistentData().getBoolean("leaving_started")) {
+		if (client.getPersistentData().getBoolean("patience_needed") && world.dayTime() >= client.getPersistentData().getDouble("patience_end_time") && !client.getPersistentData().getBoolean("leaving_started")) {
 			client.getPersistentData().putBoolean("patience_needed", false);
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
 			if ((client.getPersistentData().getString("food_delivered")).contains("" + 1)) {
