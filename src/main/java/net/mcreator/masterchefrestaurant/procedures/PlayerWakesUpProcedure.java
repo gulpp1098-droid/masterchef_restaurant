@@ -1,6 +1,6 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @EventBusSubscriber
 public class PlayerWakesUpProcedure {
 	@SubscribeEvent
-	public static void onPlayerInBed(CanPlayerSleepEvent event) {
+	public static void onEntityEndSleep(PlayerWakeUpEvent event) {
 		execute(event, event.getEntity().level());
 	}
 
