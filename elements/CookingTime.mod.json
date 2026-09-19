@@ -1,0 +1,22 @@
+{
+  "_fv": 89,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Cooking Time",
+    "achievementDescription": "It is cooking time!",
+    "achievementIcon": "CUSTOM:ChefsDiary",
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [
+      "ChefsDiaryLoot"
+    ],
+    "rewardRecipes": [],
+    "rewardXP": 0,
+    "achievementType": "goal",
+    "parent": "No parent: root",
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"advancement_trigger\" deletable=\"false\" x=\"40\" y=\"80\"><next><shadow type=\"custom_trigger\"></shadow></next></block></xml>"
+  }
+}

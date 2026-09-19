@@ -20,6 +20,7 @@ public class LocationAreaColorChangeProcedure {
 		double SectionZ = 0;
 		boolean ReturnYellow = false;
 		boolean ReturnGreen = false;
+		boolean LocationAvailable = false;
 		String localizationString = "";
 		if (!world.isClientSide()) {
 			Area = entity;
@@ -30,9 +31,15 @@ public class LocationAreaColorChangeProcedure {
 			RestaurantID = Area.getPersistentData().getDouble("RestaurantID");
 			localizationArray = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, RestaurantID), "restaurants", "locations", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+			LocationAvailable = CanClaimRestaurantLocationProcedure.execute(world, PosX, PosZ, RestaurantID);
 			if (localizationArray.isEmpty()) {
-				if (Area instanceof LocationAreaEntity _datEntSetI)
-					_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 1);
+				if (LocationAvailable) {
+					if (Area instanceof LocationAreaEntity _datEntSetI)
+						_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 1);
+				} else {
+					if (Area instanceof LocationAreaEntity _datEntSetI)
+						_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 2);
+				}
 			} else {
 				for (int _i1 = 0; _i1 < (int) localizationArray.size(); _i1++) {
 					localizationString = localizationArray.get((int) localizationIndex).getAsString();
@@ -59,7 +66,9 @@ public class LocationAreaColorChangeProcedure {
 						ReturnGreen = true;
 						break;
 					} else if (Math.abs(PosX - SectionX) + Math.abs(PosZ - SectionZ) == 1) {
-						ReturnYellow = true;
+						if (LocationAvailable) {
+							ReturnYellow = true;
+						}
 					}
 				}
 				if (ReturnGreen) {

@@ -110,7 +110,7 @@ public class SpawnClientsProcedure {
 									}
 									SpawnX = RecX + OffsetX;
 									SpawnZ = RecZ + OffsetZ;
-									if (!IsInsideRestaurantProcedure.execute(world, SpawnX, SpawnZ, restaurantID)) {
+									if (!IsInsideAnyRestaurantProcedure.execute(world, SpawnX, SpawnZ)) {
 										SpawnY = RecY;
 										if (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY, SpawnZ)) && world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY + 1, SpawnZ))) {
 											while (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ)) && RecY - 25 <= SpawnY) {
@@ -151,6 +151,9 @@ public class SpawnClientsProcedure {
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
 											Client.getPersistentData().putBoolean("leader", true);
+											Client.getPersistentData().putBoolean("queue_registered", false);
+											Client.getPersistentData().putBoolean("table_reserved", false);
+											Client.getPersistentData().putBoolean("active_group_finished", false);
 											Client.getPersistentData().putDouble("group_size", membersArray.size());
 											LeaderUUID = Client.getStringUUID();
 											ModifyRestaurantNumberParameterProcedure.execute(
@@ -161,6 +164,7 @@ public class SpawnClientsProcedure {
 										} else {
 											Client.getPersistentData().putString("leaderUUID", LeaderUUID);
 										}
+										Client.getPersistentData().putBoolean("leaving_started", false);
 										stringDelivered = "";
 										for (int _i2 = 0; _i2 < (int) foodDeliveredArray.size(); _i2++) {
 											stringDelivered = stringDelivered + ",0";
@@ -169,6 +173,9 @@ public class SpawnClientsProcedure {
 										Client.getPersistentData().putString("food_delivered", (stringDelivered.substring(1)));
 										Client.getPersistentData().putString("food_tiers", clientObject.get("foodTiers").getAsString());
 										Client.getPersistentData().putString("state", "restaurant_go");
+										Client.getPersistentData().putBoolean("patience_needed", false);
+										Client.getPersistentData().putDouble("patience_end_time", 0);
+										Client.getPersistentData().putDouble("client_expire_time", (world.dayTime() + 8000));
 										Client.getPersistentData().putString("last_rug", RestaurantsClientsObject.get("queue_start").getAsString());
 										Client.getPersistentData().putDouble("group", singleGroup.get("group_id").getAsDouble());
 										Client.getPersistentData().putDouble("patience", patience);

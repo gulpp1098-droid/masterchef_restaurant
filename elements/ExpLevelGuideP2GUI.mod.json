@@ -1,0 +1,177 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": true
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "bookmarks.png",
+          "use1Xscale": false,
+          "x": 355,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_base_icon",
+          "image": "base_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryMenu",
+          "x": 361,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_food_icon",
+          "image": "food_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryFood",
+          "x": 362,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_clients_icon",
+          "image": "clients_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryClients",
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_appliences_icon",
+          "image": "appliences_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryApplience",
+          "x": 362,
+          "y": 109,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_stats_icon",
+          "image": "stats_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryStats",
+          "x": 361,
+          "y": 137,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_overview_wip",
+          "text": {
+            "fixedValue": "Exp and Coins"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 69,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coin_icon.png",
+          "use1Xscale": false,
+          "x": 180,
+          "y": 16,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_after_customers_finish_eating_t",
+          "text": "Earn reputation by serving customers. Most levels are gained automatically after reaching the required reputation. \nEvery tenth level awards a new restaurant star and requires a successful critic visit.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 134,
+          "height": 84,
+          "x": 69,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_experience_is_added_to_your_rest",
+          "text": "When you reach the reputation required for a new star, your restaurant will wait for a critic. Each time the restaurant opens, there is a 30% chance that a critic will visit. Complete the critic's entire order correctly to earn the next level and restaurant star. An unsuccessful visit can be attempted again on another day.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "width": 129,
+          "height": 168,
+          "x": 219,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryGuideExpLevel",
+          "x": 73,
+          "y": 177,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

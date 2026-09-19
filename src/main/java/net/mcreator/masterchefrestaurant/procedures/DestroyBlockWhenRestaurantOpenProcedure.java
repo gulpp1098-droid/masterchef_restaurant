@@ -48,6 +48,21 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 					_cancellable.setCanceled(true);
 				}
 			}
+		} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == MasterchefRestaurantModBlocks.RUG_QUEUE.get()) {
+			restaurantID = getBlockNBTNumber(world, BlockPos.containing(x, y + 1, z), "RestaurantID");
+			if (restaurantID == entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID) {
+				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+					if (event instanceof ICancellableEvent _cancellable) {
+						_cancellable.setCanceled(true);
+					}
+				}
+			} else if (restaurantID == 0) {
+			} else {
+				if (event instanceof ICancellableEvent _cancellable) {
+					_cancellable.setCanceled(true);
+				}
+			}
 		}
 	}
 

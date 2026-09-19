@@ -109,7 +109,7 @@
         "data": {
           "name": "label_stats_wip",
           "text": {
-            "fixedValue": "Stats - WIP"
+            "fixedValue": "Stats"
           },
           "color": {
             "value": -12829636,

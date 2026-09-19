@@ -59,15 +59,39 @@
         "data": {
           "name": "label_management",
           "text": {
-            "fixedValue": "Create / Edit"
+            "fixedValue": "Create"
           },
           "color": {
             "value": -1,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 176,
+          "x": 195,
           "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "trash_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_trash_icon",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "DeleteRestaurant",
+          "width": 16,
+          "height": 16,
+          "x": 327,
+          "y": 23,
           "locked": false
         }
       }

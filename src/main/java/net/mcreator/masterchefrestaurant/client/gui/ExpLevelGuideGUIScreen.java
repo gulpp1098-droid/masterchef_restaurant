@@ -28,6 +28,7 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 	private ImageButton imagebutton_clients_icon;
 	private ImageButton imagebutton_appliences_icon;
 	private ImageButton imagebutton_stats_icon;
+	private ImageButton imagebutton_next_page_icon;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("masterchef_restaurant:textures/screens/exp_level_guide_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("masterchef_restaurant:textures/screens/bookmarks.png");
@@ -167,6 +168,21 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
+				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
+					int x = ExpLevelGuideGUIScreen.this.x;
+					int y = ExpLevelGuideGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new ExpLevelGuideGUIButtonMessage(5, x, y, z));
+						ExpLevelGuideGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_next_page_icon);
 	}
 
 	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();

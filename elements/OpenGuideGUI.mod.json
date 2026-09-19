@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Open Restaurant - WIP"
+            "fixedValue": "Open Restaurant"
           },
           "color": {
             "value": -12829636,
@@ -173,7 +173,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_restaurant_can_be_open_only_once",
-          "text": "Restaurant can be open only once per day and between 6.00 and 12.00! After that time, you must wait for the next day.",
+          "text": "Restaurant can be open only once per day and between 6.00 and 15.00! After that time, you must wait for the next day.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -209,7 +209,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_restaurant_is_closed_8_hours_aft",
-          "text": "Restaurant is closed 8 hours after opening (around 13 minutes). You can also close it ealier, so you do not have to sit there all day.",
+          "text": "Restaurant is closed 8 hours after opening (around 13 minutes). You can also close it earlier, so you do not have to sit there all day.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

@@ -82,7 +82,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.serve_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patiance. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
+				"Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patience. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
 				-145, -84, 132, 161, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				"When a customer is ready, you will see icon above their head. Interact with them to see their order. Place the correct food in the input slot. If the food matches, it will be marked as delivered.", 5, -84, 125, 126, -12829636, false,

@@ -64,9 +64,14 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiGraphics.blit(IMAGE_0, this.leftPos + -66, this.topPos + -20, 0, 0, 250, 88, 250, 88);
-		guiGraphics.blit(IMAGE_1, this.leftPos + 4, this.topPos + -10, 0, 0, 93, 21, 93, 21);
+		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiTools$orderedImages : {
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -66, this.topPos + -20, 0, 0, 250, 88, 250, 88);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 4, this.topPos + -10, 0, 0, 93, 21, 93, 21);
+			if (this.enhanced_image_button_trash_icon != null && this.enhanced_image_button_trash_icon.visible) {
+				this.enhanced_image_button_trash_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -90,7 +95,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.create_restaurant_gui.label_management"), 17, -7, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.create_restaurant_gui.label_management"), 36, -7, -1, false);
 	}
 
 	@Override
@@ -115,9 +120,64 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_checkboxon);
+		enhanced_image_button_trash_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 168, this.topPos + -65, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/trash_icon.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/trash_icon.png")), e -> {
+					int x = CreateRestaurantGUIScreen.this.x;
+					int y = CreateRestaurantGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.CreateRestaurantGUIButtonMessage(1, x, y, z));
+						net.mcreator.masterchefrestaurant.network.CreateRestaurantGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/trash_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(enhanced_image_button_trash_icon);
+	}
+
+	private static final boolean guiTools$enhancedImageButton = true;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_trash_icon;
+
+	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("masterchef_restaurant", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
+		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
+		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+		try {
+			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
+		} finally {
+			if (!wasBlending)
+				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
+		}
 	}
 }

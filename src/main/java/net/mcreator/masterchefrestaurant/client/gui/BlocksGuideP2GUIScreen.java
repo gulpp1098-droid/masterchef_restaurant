@@ -66,13 +66,33 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + 1, this.topPos + -49, 0, 0, 133, 11, 133, 11);
-		guiGraphics.blit(IMAGE_3, this.leftPos + 1, this.topPos + 39, 0, 0, 133, 11, 133, 11);
-		guiGraphics.blit(IMAGE_4, this.leftPos + -146, this.topPos + -49, 0, 0, 133, 11, 133, 11);
-		guiGraphics.blit(IMAGE_5, this.leftPos + -145, this.topPos + 39, 0, 0, 133, 11, 133, 11);
+		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiTools$orderedImages : {
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 1, this.topPos + -49, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -146, this.topPos + -49, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -145, this.topPos + 49, 0, 0, 133, 11, 133, 11);
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 80;
+				int guiTools$visibleHeight = 80;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/servicetable_crafting.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -120 + guiTools$xOffset, this.topPos + -35 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 80, 80);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 80;
+				int guiTools$visibleHeight = 80;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/chair_crafting.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 28 + guiTools$xOffset, this.topPos + -35 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 80, 80);
+			}
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -107,7 +127,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_base_icon);
@@ -122,7 +142,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_food_icon);
@@ -137,7 +157,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_clients_icon);
@@ -152,7 +172,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_appliences_icon);
@@ -167,7 +187,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
@@ -182,7 +202,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
@@ -197,7 +217,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
@@ -249,5 +269,36 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			lines.add(line.toString());
 		}
 		return java.util.List.copyOf(lines);
+	}
+
+	private static net.minecraft.resources.ResourceLocation guiTools$dynamicTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("masterchef_restaurant", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
+		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
+		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+		try {
+			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
+		} finally {
+			if (!wasBlending)
+				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
+		}
 	}
 }

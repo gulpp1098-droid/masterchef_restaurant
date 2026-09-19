@@ -26,7 +26,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.procedures.OpenedOrderGUIProcedure;
-import net.mcreator.masterchefrestaurant.procedures.CloseOrderGUIProcedure;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModMenus;
 
 import java.util.function.Supplier;
@@ -292,7 +291,6 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Masterc
 	@Override
 	public void removed(Player playerIn) {
 		super.removed(playerIn);
-		CloseOrderGUIProcedure.execute(entity);
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {

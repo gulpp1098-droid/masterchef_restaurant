@@ -12,7 +12,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
-import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 public class ClientQueueWaitStateProcedure {
@@ -52,7 +51,7 @@ public class ClientQueueWaitStateProcedure {
 		RugNumber = client.getPersistentData().getDouble("current_position") - 1;
 		if (client.getPersistentData().getDouble("current_position") > 1 && getBlockNBTNumber(world, BlockPos.containing(X, Y, Z), "queue") > 0) {
 			for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-				if ((world.getBlockState(BlockPos.containing(X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ()))).getBlock() == MasterchefRestaurantModBlocks.RUG_QUEUE.get()) {
+				if (IsQueueRugForRestaurantProcedure.execute(world, X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ(), client.getPersistentData().getDouble("RestaurantID"))) {
 					if (getBlockNBTNumber(world, BlockPos.containing(X + directioniterator.getStepX(), Y, Z + directioniterator.getStepZ()), "queue") == RugNumber - 1) {
 						if (directioniterator == Direction.SOUTH) {
 							{
@@ -128,8 +127,8 @@ public class ClientQueueWaitStateProcedure {
 				client.getPersistentData().putDouble("DestY", DestY);
 				client.getPersistentData().putDouble("DestZ", DestZ);
 				client.getPersistentData().putString("state", "queue_move");
-				if (client instanceof Mob _mob44)
-					_mob44.setNoAi(false);
+				if (client instanceof Mob _mob43)
+					_mob43.setNoAi(false);
 			}
 		} else {
 			FoundTable = false;
@@ -224,11 +223,17 @@ public class ClientQueueWaitStateProcedure {
 					}
 				}.convert(GetPartFromStringProcedure.execute(2, receptionString));
 				SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
+				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putString("state", "table_go");
+				StopClientPatienceProcedure.execute(entity);
 				if (client instanceof Mob _mob65)
 					_mob65.setNoAi(false);
 				SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
 				PickedTableObject = PossibleTablesArray.get((int) RandomTable).getAsJsonObject();
+				client.getPersistentData().putDouble("reserved_table_x", PickedTableObject.get("TabX").getAsDouble());
+				client.getPersistentData().putDouble("reserved_table_y", PickedTableObject.get("TabY").getAsDouble());
+				client.getPersistentData().putDouble("reserved_table_z", PickedTableObject.get("TabZ").getAsDouble());
+				client.getPersistentData().putBoolean("table_reserved", true);
 				client.getPersistentData().putDouble("DestX", PickedTableObject.get("TabX").getAsDouble());
 				client.getPersistentData().putDouble("DestY", PickedTableObject.get("TabY").getAsDouble());
 				client.getPersistentData().putDouble("DestZ", PickedTableObject.get("TabZ").getAsDouble());

@@ -31,6 +31,7 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 		com.google.gson.JsonObject Restaurants = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		boolean AddingArray = false;
+		boolean locationAvailable = false;
 		double IndexNumber = 0;
 		double arrayIndex = 0;
 		double PosX = 0;
@@ -52,10 +53,16 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 						RestaurantsArray = GetRestaurantArrayParameterProcedure.execute(IndexNumber, "restaurants", "locations", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+						locationAvailable = CanClaimRestaurantLocationProcedure.execute(world, X, Z, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
 						if (RestaurantsArray.size() < 1) {
-							AddingArray = true;
-							if (Owner instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal(("Base location was set: [" + (X + ":" + Z + "]"))), false);
+							if (locationAvailable) {
+								AddingArray = true;
+								if (Owner instanceof Player _player && !_player.level().isClientSide())
+									_player.displayClientMessage(Component.literal(("Base location was set: [" + (X + ":" + Z + "]"))), false);
+							} else {
+								if (Owner instanceof Player _player && !_player.level().isClientSide())
+									_player.displayClientMessage(Component.literal("This area is too close to another restaurant!"), false);
+							}
 						} else if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
 							arrayIndex = 0;
 							for (int _i1 = 0; _i1 < (int) RestaurantsArray.size(); _i1++) {
@@ -79,10 +86,15 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 									}
 								}.convert(GetPartFromStringProcedure.execute(1, restaurantsString));
 								if (Math.abs(X - PosX) + Math.abs(PosZ - Z) == 1) {
-									AddingArray = true;
-									if (Owner instanceof Player _player && !_player.level().isClientSide())
-										_player.displayClientMessage(Component.literal(("New location was added: [" + (X + ":" + Z + "]"))), false);
-									break;
+									if (locationAvailable) {
+										AddingArray = true;
+										if (Owner instanceof Player _player && !_player.level().isClientSide())
+											_player.displayClientMessage(Component.literal(("New location was added: [" + (X + ":" + Z + "]"))), false);
+										break;
+									} else {
+										if (Owner instanceof Player _player && !_player.level().isClientSide())
+											_player.displayClientMessage(Component.literal("This area is too close to another restaurant!"), false);
+									}
 								}
 								arrayIndex = arrayIndex + 1;
 							}

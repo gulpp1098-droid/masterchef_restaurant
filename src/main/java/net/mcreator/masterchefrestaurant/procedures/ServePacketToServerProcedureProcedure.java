@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.registries.BuiltInRegistries;
 
+import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModMenus;
 
 import java.util.regex.Pattern;
@@ -29,7 +30,8 @@ public class ServePacketToServerProcedureProcedure {
 		String dummyString = "";
 		substringUUID = inboundString.substring((int) (inboundString.lastIndexOf(":") + 1));
 		item = inboundString.substring((int) inboundString.indexOf(" ") + " ".length(), (int) inboundString.lastIndexOf(":"));
-		if (!((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu2 ? _menu2.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())
+		if (CanUseCurrentClientOrderSessionProcedure.execute(world, entity) && (substringUUID).equals(entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).CurrentClientUUID)
+				&& !((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu2 ? _menu2.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())
 				&& (BuiltInRegistries.ITEM.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu4 ? _menu4.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem())
 						.toString()).equals(item)) {
 			if ((world instanceof ServerLevel _level6 ? getEntityFromUUID(_level6, substringUUID) : null) != null) {

@@ -10,8 +10,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
-
 public class RugUpdateStateQueueProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		boolean North = false;
@@ -20,25 +18,27 @@ public class RugUpdateStateQueueProcedure {
 		boolean West = false;
 		double amountRugs = 0;
 		double NBT = 0;
+		double RestaurantID = 0;
 		amountRugs = 0;
 		NBT = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "queue");
+		RestaurantID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
 		for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-			if (directioniterator == Direction.NORTH && MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()))).getBlock()
+			if (directioniterator == Direction.NORTH && IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), y, z + directioniterator.getStepZ(), RestaurantID)
 					&& (getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT + 1
 							|| getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT - 1)) {
 				amountRugs = amountRugs + 1;
 				North = true;
-			} else if (directioniterator == Direction.SOUTH && MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()))).getBlock()
+			} else if (directioniterator == Direction.SOUTH && IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), y, z + directioniterator.getStepZ(), RestaurantID)
 					&& (getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT + 1
 							|| getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT - 1)) {
 				amountRugs = amountRugs + 1;
 				South = true;
-			} else if (directioniterator == Direction.WEST && MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()))).getBlock()
+			} else if (directioniterator == Direction.WEST && IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), y, z + directioniterator.getStepZ(), RestaurantID)
 					&& (getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT + 1
 							|| getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT - 1)) {
 				amountRugs = amountRugs + 1;
 				West = true;
-			} else if (directioniterator == Direction.EAST && MasterchefRestaurantModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()))).getBlock()
+			} else if (directioniterator == Direction.EAST && IsQueueRugForRestaurantProcedure.execute(world, x + directioniterator.getStepX(), y, z + directioniterator.getStepZ(), RestaurantID)
 					&& (getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT + 1
 							|| getBlockNBTNumber(world, BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ()), "queue") == NBT - 1)) {
 				amountRugs = amountRugs + 1;
