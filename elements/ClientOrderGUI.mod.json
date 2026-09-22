@@ -250,7 +250,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_1",
-          "displayId": 0,
+          "displayId": 1,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
@@ -270,7 +270,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_2",
-          "displayId": 0,
+          "displayId": 2,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
@@ -290,7 +290,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_3",
-          "displayId": 0,
+          "displayId": 3,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
@@ -310,7 +310,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_4",
-          "displayId": 0,
+          "displayId": 4,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
@@ -330,7 +330,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_5",
-          "displayId": 0,
+          "displayId": 5,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,

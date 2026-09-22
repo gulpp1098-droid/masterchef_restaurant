@@ -27,43 +27,33 @@ public class MenuPacketToClientProcedureProcedure {
 			String stringiterator = _array21.length == 0 ? _toSplit21 : _array21[_iter21];
 			if (foodIndex == 0) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack4 = new ItemStack(
+					ItemStack _displayStack4 = new ItemStack(
 							BuiltInRegistries.ITEM.get(ResourceLocation.parse(((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\"")))).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack4.setCount(1);
-					_menu.getSlots().get(1).set(_setstack4);
-					_player.containerMenu.broadcastChanges();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack4, true);
 				}
 			} else if (foodIndex == 1) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack8 = new ItemStack(
+					ItemStack _displayStack8 = new ItemStack(
 							BuiltInRegistries.ITEM.get(ResourceLocation.parse(((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\"")))).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack8.setCount(1);
-					_menu.getSlots().get(2).set(_setstack8);
-					_player.containerMenu.broadcastChanges();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack8, true);
 				}
 			} else if (foodIndex == 2) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack12 = new ItemStack(
+					ItemStack _displayStack12 = new ItemStack(
 							BuiltInRegistries.ITEM.get(ResourceLocation.parse(((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\"")))).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack12.setCount(1);
-					_menu.getSlots().get(3).set(_setstack12);
-					_player.containerMenu.broadcastChanges();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(3), _displayStack12, true);
 				}
 			} else if (foodIndex == 3) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack16 = new ItemStack(
+					ItemStack _displayStack16 = new ItemStack(
 							BuiltInRegistries.ITEM.get(ResourceLocation.parse(((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\"")))).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack16.setCount(1);
-					_menu.getSlots().get(4).set(_setstack16);
-					_player.containerMenu.broadcastChanges();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(4), _displayStack16, true);
 				}
 			} else {
 				if (entity instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack20 = new ItemStack(
+					ItemStack _displayStack20 = new ItemStack(
 							BuiltInRegistries.ITEM.get(ResourceLocation.parse(((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\"")))).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack20.setCount(1);
-					_menu.getSlots().get(5).set(_setstack20);
-					_player.containerMenu.broadcastChanges();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(5), _displayStack20, true);
 				}
 			}
 			foodIndex = foodIndex + 1;

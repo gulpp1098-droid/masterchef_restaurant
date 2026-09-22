@@ -69,7 +69,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				boolean guiTools$displayMasked0 = false;
 				if (guiTools$displayMasked0)
 					break guiTools$itemDisplayTooltip0;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack0 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack0 == null || guiTools$tooltipStack0.isEmpty())
 					break guiTools$itemDisplayTooltip0;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack0, mouseX, mouseY);
@@ -82,7 +82,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				boolean guiTools$displayMasked1 = false;
 				if (guiTools$displayMasked1)
 					break guiTools$itemDisplayTooltip1;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack1 == null || guiTools$tooltipStack1.isEmpty())
 					break guiTools$itemDisplayTooltip1;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack1, mouseX, mouseY);
@@ -95,7 +95,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				boolean guiTools$displayMasked2 = false;
 				if (guiTools$displayMasked2)
 					break guiTools$itemDisplayTooltip2;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack2 == null || guiTools$tooltipStack2.isEmpty())
 					break guiTools$itemDisplayTooltip2;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack2, mouseX, mouseY);
@@ -108,7 +108,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				boolean guiTools$displayMasked3 = false;
 				if (guiTools$displayMasked3)
 					break guiTools$itemDisplayTooltip3;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack3 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack3 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack3 == null || guiTools$tooltipStack3.isEmpty())
 					break guiTools$itemDisplayTooltip3;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack3, mouseX, mouseY);
@@ -121,7 +121,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				boolean guiTools$displayMasked4 = false;
 				if (guiTools$displayMasked4)
 					break guiTools$itemDisplayTooltip4;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack4 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack4 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack4 == null || guiTools$tooltipStack4.isEmpty())
 					break guiTools$itemDisplayTooltip4;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack4, mouseX, mouseY);
@@ -166,7 +166,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
-				net.minecraft.world.item.ItemStack guiTools$displayStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack0 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack0 == null || guiTools$displayStack0.isEmpty())
 					break guiTools$itemDisplay0;
 				boolean guiTools$displayMasked0 = false;
@@ -186,7 +186,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$itemDisplay1 : {
 				if (!(true))
 					break guiTools$itemDisplay1;
-				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack1 == null || guiTools$displayStack1.isEmpty())
 					break guiTools$itemDisplay1;
 				boolean guiTools$displayMasked1 = false;
@@ -206,7 +206,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$itemDisplay2 : {
 				if (!(true))
 					break guiTools$itemDisplay2;
-				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
 					break guiTools$itemDisplay2;
 				boolean guiTools$displayMasked2 = false;
@@ -226,7 +226,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$itemDisplay3 : {
 				if (!(true))
 					break guiTools$itemDisplay3;
-				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack3 == null || guiTools$displayStack3.isEmpty())
 					break guiTools$itemDisplay3;
 				boolean guiTools$displayMasked3 = false;
@@ -246,7 +246,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$itemDisplay4 : {
 				if (!(true))
 					break guiTools$itemDisplay4;
-				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack4 == null || guiTools$displayStack4.isEmpty())
 					break guiTools$itemDisplay4;
 				boolean guiTools$displayMasked4 = false;
