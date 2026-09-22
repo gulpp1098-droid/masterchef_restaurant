@@ -9,6 +9,10 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Entity;
+
+import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 import javax.annotation.Nullable;
 
@@ -16,16 +20,22 @@ import javax.annotation.Nullable;
 public class PlayerGoesToBedProcedure {
 	@SubscribeEvent
 	public static void onPlayerInBed(CanPlayerSleepEvent event) {
-		execute(event, event.getEntity().level());
+		execute(event, event.getEntity().level(), event.getEntity());
 	}
 
-	public static void execute(LevelAccessor world) {
-		execute(null, world);
+	public static void execute(LevelAccessor world, Entity entity) {
+		execute(null, world, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world) {
+	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
+		if (entity == null)
+			return;
 		if (!world.isClientSide() && Level.OVERWORLD == (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD))) {
-			world.getLevelData().getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(true, world.getServer());
+			MasterchefRestaurantMod.queueServerWork(1, () -> {
+				if (entity instanceof LivingEntity _livEnt4 && _livEnt4.isSleeping()) {
+					world.getLevelData().getGameRules().getRule(GameRules.RULE_DAYLIGHT).set(true, world.getServer());
+				}
+			});
 		}
 	}
 }

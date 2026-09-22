@@ -33,6 +33,11 @@ public record MenuStateUpdateMessage(int elementType, String name, Object elemen
 		} else if (message.elementType == 2 && message.elementState instanceof Number n) {
 			buffer.writeDouble(n.doubleValue());
 		}
+
+		// guiTools$itemDisplayState
+		else if (message.elementType == 3 && message.elementState instanceof net.minecraft.world.item.ItemStack stack) {
+			net.minecraft.world.item.ItemStack.OPTIONAL_STREAM_CODEC.encode((net.minecraft.network.RegistryFriendlyByteBuf) buffer, stack);
+		}
 	}
 
 	public static MenuStateUpdateMessage read(FriendlyByteBuf buffer) {
@@ -45,6 +50,10 @@ public record MenuStateUpdateMessage(int elementType, String name, Object elemen
 			elementState = buffer.readBoolean();
 		} else if (elementType == 2) {
 			elementState = buffer.readDouble();
+		}
+		// guiTools$itemDisplayState
+		else if (elementType == 3) {
+			elementState = net.minecraft.world.item.ItemStack.OPTIONAL_STREAM_CODEC.decode((net.minecraft.network.RegistryFriendlyByteBuf) buffer);
 		}
 		return new MenuStateUpdateMessage(elementType, name, elementState);
 	}
