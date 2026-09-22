@@ -20,6 +20,8 @@ public class ClientFollowStateProcedure {
 			leader = world instanceof ServerLevel _level8 ? getEntityFromUUID(_level8, (client.getPersistentData().getString("leaderUUID"))) : null;
 			client.getPersistentData().putString("state", (leader.getPersistentData().getString("state")));
 			client.getPersistentData().putDouble("stuckCounter", 10);
+			client.getPersistentData().putBoolean("patience_needed", (leader.getPersistentData().getBoolean("patience_needed")));
+			client.getPersistentData().putDouble("patience_end_time", (leader.getPersistentData().getDouble("patience_end_time")));
 			client.getPersistentData().putDouble("DestX", (leader.getPersistentData().getDouble("DestX")));
 			client.getPersistentData().putDouble("DestY", (leader.getPersistentData().getDouble("DestY")));
 			client.getPersistentData().putDouble("DestZ", (leader.getPersistentData().getDouble("DestZ")));

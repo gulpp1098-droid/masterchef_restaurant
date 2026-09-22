@@ -42,6 +42,9 @@ public class MasterchefRestaurantModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<ExpLevelGuideGUIMenu>> EXP_LEVEL_GUIDE_GUI = REGISTRY.register("exp_level_guide_gui", () -> IMenuTypeExtension.create(ExpLevelGuideGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<ServeGuideP2GUIMenu>> SERVE_GUIDE_P_2_GUI = REGISTRY.register("serve_guide_p_2_gui", () -> IMenuTypeExtension.create(ServeGuideP2GUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<MenuGUIMenu>> MENU_GUI = REGISTRY.register("menu_gui", () -> IMenuTypeExtension.create(MenuGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ExpLevelGuideP2GUIMenu>> EXP_LEVEL_GUIDE_P_2_GUI = REGISTRY.register("exp_level_guide_p_2_gui", () -> IMenuTypeExtension.create(ExpLevelGuideP2GUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<LocationGuideP2GUIMenu>> LOCATION_GUIDE_P_2_GUI = REGISTRY.register("location_guide_p_2_gui", () -> IMenuTypeExtension.create(LocationGuideP2GUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChefsDiaryFoodTierGUIMenu>> CHEFS_DIARY_FOOD_TIER_GUI = REGISTRY.register("chefs_diary_food_tier_gui", () -> IMenuTypeExtension.create(ChefsDiaryFoodTierGUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

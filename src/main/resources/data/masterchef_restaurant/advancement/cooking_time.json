@@ -1,0 +1,29 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "id": "masterchef_restaurant:chefs_diary"
+    },
+    "title": {
+      "translate": "advancements.cooking_time.title"
+    },
+    "description": {
+      "translate": "advancements.cooking_time.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cooking_time_0": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 0,
+    "loot": [
+      "masterchef_restaurant:entities/client"
+    ]
+  }
+}

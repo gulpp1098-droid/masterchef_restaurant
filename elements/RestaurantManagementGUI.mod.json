@@ -11,6 +11,16 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "image",
+        "data": {
+          "image": "spatulagui.png",
+          "use1Xscale": false,
+          "x": 114,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
         "type": "sprite",
         "data": {
           "sprite": "signopenclose_sprite.png",
@@ -19,19 +29,9 @@
             "fixedValue": 0.0,
             "name": "OpenCloseReturn"
           },
-          "x": 145,
-          "y": 127,
+          "x": 140,
+          "y": 130,
           "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "spatulagui.png",
-          "use1Xscale": false,
-          "x": 114,
-          "y": 26,
-          "locked": true
         }
       },
       {
@@ -88,14 +88,14 @@
         "data": {
           "name": "label_create_edit_restaurant",
           "text": {
-            "fixedValue": "Create / Edit Restaurant"
+            "fixedValue": "Create Restaurant"
           },
           "color": {
             "value": -16777216,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 152,
+          "x": 174,
           "y": 73,
           "locked": false
         }
@@ -295,24 +295,6 @@
           },
           "hasShadow": false,
           "x": 39,
-          "y": 41,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_day_menu",
-          "text": {
-            "fixedValue": "Day Menu",
-            "name": "MenuNameReturn"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 346,
           "y": 41,
           "locked": false
         }
@@ -739,9 +721,9 @@
         "data": {
           "id": 0,
           "disablePickup": {
-            "fixedValue": false
+            "fixedValue": true
           },
-          "dropItemsWhenNotBound": true,
+          "dropItemsWhenNotBound": false,
           "x": 336,
           "y": 76,
           "locked": false
@@ -812,6 +794,25 @@
           "height": 21,
           "x": 330,
           "y": 206,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_first_linesecond_line",
+          "text": "Current\nMenu",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "textProcedure": "MenuNameReturn",
+          "width": 64,
+          "height": 43,
+          "x": 352,
+          "y": 37,
           "locked": false
         }
       }

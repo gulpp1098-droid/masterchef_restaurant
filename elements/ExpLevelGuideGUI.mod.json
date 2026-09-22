@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Exp and Coins - WIP"
+            "fixedValue": "Exp and Coins"
           },
           "color": {
             "value": -12829636,
@@ -185,6 +185,18 @@
           "height": 168,
           "x": 219,
           "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryGuideExpLevelP2",
+          "x": 322,
+          "y": 177,
           "locked": false
         }
       }

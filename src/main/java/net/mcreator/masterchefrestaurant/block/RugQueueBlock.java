@@ -52,7 +52,7 @@ public class RugQueueBlock extends Block implements SimpleWaterloggedBlock, Enti
 	private final ImmutableMap<BlockState, VoxelShape> shapes = this.makeShapes();
 
 	public RugQueueBlock() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(0.3f, 20f).speedFactor(1.1f).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of().sound(SoundType.WOOL).strength(0.3f, 20f).speedFactor(1.1f).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(STATE, 0).setValue(WATERLOGGED, false));
 	}
 

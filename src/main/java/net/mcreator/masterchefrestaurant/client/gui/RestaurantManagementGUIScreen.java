@@ -82,29 +82,34 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiGraphics.blit(IMAGE_0, this.leftPos + -34, this.topPos + -23, 0, 0, 203, 176, 203, 176);
-		guiGraphics.blit(IMAGE_1, this.leftPos + 22, this.topPos + -12, 0, 0, 93, 21, 93, 21);
-		guiGraphics.blit(IMAGE_2, this.leftPos + 31, this.topPos + -13, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_3, this.leftPos + -10, this.topPos + 121, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_4, this.leftPos + 94, this.topPos + 121, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_5, this.leftPos + 42, this.topPos + 121, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_6, this.leftPos + -131, this.topPos + -23, 0, 0, 91, 176, 91, 176);
-		guiGraphics.blit(IMAGE_7, this.leftPos + 175, this.topPos + -23, 0, 0, 91, 176, 91, 176);
-		guiGraphics.blit(IMAGE_8, this.leftPos + -118, this.topPos + -12, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_9, this.leftPos + 188, this.topPos + -12, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(IMAGE_10, this.leftPos + -106, this.topPos + 24, 0, 0, 11, 11, 11, 11);
-		guiGraphics.blit(IMAGE_11, this.leftPos + -106, this.topPos + 49, 0, 0, 11, 11, 11, 11);
-		guiGraphics.blit(IMAGE_12, this.leftPos + -106, this.topPos + 75, 0, 0, 11, 11, 11, 11);
-		guiGraphics.blit(IMAGE_13, this.leftPos + -108, this.topPos + 98, 0, 0, 15, 17, 15, 17);
-		guiGraphics.blit(IMAGE_14, this.leftPos + -106, this.topPos + 128, 0, 0, 11, 11, 11, 11);
-		guiGraphics.blit(IMAGE_15, this.leftPos + 188, this.topPos + 27, 0, 0, 18, 18, 18, 18);
-		guiGraphics.blit(IMAGE_16, this.leftPos + 188, this.topPos + 64, 0, 0, 18, 18, 18, 18);
-		guiGraphics.blit(IMAGE_17, this.leftPos + 188, this.topPos + 103, 0, 0, 18, 18, 18, 18);
-		guiGraphics.blit(IMAGE_18, this.leftPos + 215, this.topPos + 27, 0, 0, 15, 17, 15, 17);
-		guiGraphics.blit(IMAGE_19, this.leftPos + 215, this.topPos + 64, 0, 0, 15, 17, 15, 17);
-		guiGraphics.blit(IMAGE_20, this.leftPos + 215, this.topPos + 103, 0, 0, 15, 17, 15, 17);
-		guiGraphics.blit(SPRITE_0, this.leftPos + -3, this.topPos + 78, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
+		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiTools$orderedImages : {
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -34, this.topPos + -23, 0, 0, 203, 176, 203, 176);
+			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + -8, this.topPos + 81, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 22, this.topPos + -12, 0, 0, 93, 21, 93, 21);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 31, this.topPos + -13, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -10, this.topPos + 121, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 94, this.topPos + 121, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 42, this.topPos + 121, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -131, this.topPos + -23, 0, 0, 91, 176, 91, 176);
+			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 175, this.topPos + -23, 0, 0, 91, 176, 91, 176);
+			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + -118, this.topPos + -12, 0, 0, 65, 20, 65, 20);
+			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + 188, this.topPos + -12, 0, 0, 65, 20, 65, 20);
+			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + -106, this.topPos + 24, 0, 0, 11, 11, 11, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + -106, this.topPos + 49, 0, 0, 11, 11, 11, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + -106, this.topPos + 75, 0, 0, 11, 11, 11, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + -108, this.topPos + 98, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + -106, this.topPos + 128, 0, 0, 11, 11, 11, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 188, this.topPos + 27, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + 188, this.topPos + 64, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + 188, this.topPos + 103, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + 215, this.topPos + 27, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_19, this.leftPos + 215, this.topPos + 64, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_20, this.leftPos + 215, this.topPos + 103, 0, 0, 15, 17, 15, 17);
+			if (this.enhanced_image_button_button_icon != null && this.enhanced_image_button_button_icon.visible) {
+				this.enhanced_image_button_button_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -120,14 +125,13 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_management"), 47, -9, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant"), 4, 24, -16777216, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant"), 26, 24, -16777216, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_set_location_for_restaurant"), -5, 56, -16777216, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_open_close"), 79, 94, -16777216, false);
 		guiGraphics.drawString(this.font, MaxTablesReturnProcedure.execute(entity), 6, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxQueueReturnProcedure.execute(entity), 60, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxLocationsReturnProcedure.execute(entity), 110, 126, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_stats"), -109, -8, -1, false);
-		guiGraphics.drawString(this.font, MenuNameReturnProcedure.execute(entity), 198, -8, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_fully"), -118, 13, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_part_served"), -115, 38, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_not_served"), -111, 64, -12829636, false);
@@ -145,6 +149,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 231, 69, -12829636, false);
 		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 231, 108, -12829636, false);
 		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 217, 129, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.MenuNameReturnProcedure.execute(entity), ""), 204, -12, 64, 43, -1, false, 0.75F);
 	}
 
 	@Override
@@ -161,7 +166,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_button_icon);
@@ -176,7 +181,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_button_icon1);
@@ -191,7 +196,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_button_icon2);
@@ -206,7 +211,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
@@ -221,7 +226,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
@@ -242,7 +247,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 				String guiTools$buttonText = "Next day menu";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
@@ -254,7 +259,55 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}
 			}
 		};
-		this.addRenderableWidget(enhanced_image_button_button_icon);
+		this.addWidget(enhanced_image_button_button_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int currentY = 0;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			for (String line : lines) {
+				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
+				currentY += lineStep;
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 
 	private static final boolean guiTools$enhancedImageButton = true;
@@ -276,6 +329,18 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("masterchef_restaurant", "textures/screens/" + texture);
 		} catch (RuntimeException ignored) {
 			return fallback;
+		}
+	}
+
+	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
+		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
+		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+		try {
+			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
+		} finally {
+			if (!wasBlending)
+				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
 		}
 	}
 }

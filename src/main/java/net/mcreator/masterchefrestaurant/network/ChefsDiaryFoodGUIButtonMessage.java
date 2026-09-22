@@ -71,6 +71,9 @@ public record ChefsDiaryFoodGUIButtonMessage(int buttonID, int x, int y, int z) 
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 		}
+
+		guiTools$enhancedImageButton : {
+		}
 	}
 
 	@SubscribeEvent

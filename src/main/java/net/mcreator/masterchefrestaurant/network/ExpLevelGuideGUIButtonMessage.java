@@ -15,11 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryStatsProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryMenuProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryFoodProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryClientsProcedure;
-import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryApplienceProcedure;
+import net.mcreator.masterchefrestaurant.procedures.*;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
@@ -70,6 +66,10 @@ public record ExpLevelGuideGUIButtonMessage(int buttonID, int x, int y, int z) i
 		if (buttonID == 4) {
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 5) {
+
+			ChefsDiaryGuideExpLevelP2Procedure.execute(world, x, y, z, entity);
 		}
 	}
 

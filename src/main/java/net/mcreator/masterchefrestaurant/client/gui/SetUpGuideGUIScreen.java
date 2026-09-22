@@ -84,7 +84,7 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 				"Now it is time to prepare your restaurant! You need at least:\n- 1 Reception\n- 1 Service table\n- 1 Chair\nThe reception starts your customer queue and creates the first Queue Rug. Extra Queue Rugs extend the line and give more groups a place to wait.",
 				-145, -84, 132, 163, -12829636, false, 1.00F);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can server larger groups. If a group not fit, it will look for another table.", 5, -84, 126, 141,
+				"Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can serve larger groups. If a group does not fit, it will look for another table.", 5, -84, 126, 141,
 				-12829636, false, 1.00F);
 	}
 

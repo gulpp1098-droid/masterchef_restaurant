@@ -1,10 +1,6 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
@@ -12,13 +8,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
-import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 import net.mcreator.masterchefrestaurant.entity.CriticEntity;
 
 import java.util.UUID;
@@ -28,6 +22,7 @@ public class ClientStuckStateProcedure {
 		if (entity == null)
 			return;
 		Entity client = null;
+		Entity leader = null;
 		String ownerString = "";
 		String receptionString = "";
 		BlockState block = Blocks.AIR.defaultBlockState();
@@ -59,57 +54,33 @@ public class ClientStuckStateProcedure {
 							client.getPersistentData().putBoolean("alertSent", true);
 							client.getPersistentData().putDouble("stuckCounter", 10);
 						} else {
-							if ((client.getPersistentData().getString("state")).equals("queue_move") && client.getPersistentData().getDouble("patience") > 0) {
+							if ((client.getPersistentData().getString("state")).equals("queue_move") && client.getPersistentData().getBoolean("patience_needed") && world.dayTime() < client.getPersistentData().getDouble("patience_end_time")) {
 								client.getPersistentData().putDouble("stuckCounter", 10);
 							} else {
-								if (!(client instanceof CriticEntity)) {
-									ClientExpPayProcedure.execute(world, entity);
-								}
-								DestX = client.getPersistentData().getDouble("DestX");
-								DestY = client.getPersistentData().getDouble("DestY");
-								DestZ = client.getPersistentData().getDouble("DestZ");
-								block = (world.getBlockState(BlockPos.containing(DestX, DestY, DestZ)));
-								if (block.getBlock() == MasterchefRestaurantModBlocks.RUG_QUEUE.get()) {
-									SetLogicNBTProcedure.execute(world, DestX, DestY, DestZ, false, "occupied");
-									receptionString = GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-											MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception");
-									RecX = new Object() {
-										double convert(String s) {
-											try {
-												return Double.parseDouble(s.trim());
-											} catch (Exception e) {
-											}
-											return 0;
+								if (client.getPersistentData().getBoolean("leader")) {
+									if (!(client instanceof CriticEntity)) {
+										ClientExpPayProcedure.execute(world, entity);
+									}
+									ClientBeginLeavingProcedure.execute(world, entity);
+								} else {
+									leader = world instanceof ServerLevel _level29 ? getEntityFromUUID(_level29, (client.getPersistentData().getString("leaderUUID"))) : null;
+									if (leader != null) {
+										client.stopRiding();
+										{
+											Entity _ent = client;
+											double _tx = (leader.getX());
+											double _ty = (leader.getY());
+											double _tz = (leader.getZ());
+											_ent.teleportTo(_tx, _ty, _tz);
+											if (_ent instanceof ServerPlayer _serverPlayer)
+												_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
 										}
-									}.convert(GetPartFromStringProcedure.execute(0, receptionString));
-									RecY = new Object() {
-										double convert(String s) {
-											try {
-												return Double.parseDouble(s.trim());
-											} catch (Exception e) {
-											}
-											return 0;
-										}
-									}.convert(GetPartFromStringProcedure.execute(1, receptionString));
-									RecZ = new Object() {
-										double convert(String s) {
-											try {
-												return Double.parseDouble(s.trim());
-											} catch (Exception e) {
-											}
-											return 0;
-										}
-									}.convert(GetPartFromStringProcedure.execute(2, receptionString));
-									SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
-								} else if (block.getBlock() == MasterchefRestaurantModBlocks.SERVICE_TABLE.get() && client.getPersistentData().getBoolean("leader")) {
-									SetLogicNBTProcedure.execute(world, DestX, DestY, DestZ, false, "occupied");
-								} else if (block.getBlock() == MasterchefRestaurantModBlocks.CHAIR.get() && client.getPersistentData().getBoolean("leader")) {
-									if ((world.getBlockState(BlockPos.containing(DestX + (getDirectionFromBlockState(block)).getStepX(), DestY, DestZ + (getDirectionFromBlockState(block)).getStepZ())))
-											.getBlock() == MasterchefRestaurantModBlocks.SERVICE_TABLE.get()) {
-										SetLogicNBTProcedure.execute(world, DestX + (getDirectionFromBlockState(block)).getStepX(), DestY, DestZ + (getDirectionFromBlockState(block)).getStepZ(), false, "occupied");
+										client.getPersistentData().putDouble("stuckCounter", 10);
+										client.getPersistentData().putBoolean("alertSent", false);
+									} else {
+										ClientBeginLeavingProcedure.execute(world, entity);
 									}
 								}
-								client.getPersistentData().putString("state", "leave");
 							}
 						}
 					}
@@ -124,29 +95,5 @@ public class ClientStuckStateProcedure {
 		} catch (IllegalArgumentException e) {
 			return null;
 		}
-	}
-
-	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
-		BlockEntity blockEntity = world.getBlockEntity(pos);
-		if (blockEntity != null)
-			return blockEntity.getPersistentData().getDouble(tag);
-		return -1;
-	}
-
-	private static Direction getDirectionFromBlockState(BlockState blockState) {
-		Property<?> prop = getPropertyByName(blockState, "facing");
-		if (prop instanceof DirectionProperty dp)
-			return blockState.getValue(dp);
-		prop = getPropertyByName(blockState, "axis");
-		return prop instanceof EnumProperty ep && ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) blockState.getValue(ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
-	}
-
-	private static Property<?> getPropertyByName(BlockState state, String name) {
-		for (Property<?> property : state.getProperties()) {
-			if (property.getName().equals(name)) {
-				return property;
-			}
-		}
-		return null;
 	}
 }
