@@ -10,10 +10,28 @@ public class Food3NameReturnProcedure {
 	public static String execute(Entity entity) {
 		if (entity == null)
 			return "";
-		return ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu0 ? _menu0.getSlots().get(2).getItem() : ItemStack.EMPTY).getDisplayName().getString()).substring(
-				(int) ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu0 ? _menu0.getSlots().get(2).getItem() : ItemStack.EMPTY).getDisplayName().getString()).indexOf("[")
-						+ "[".length(),
-				(int) ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu0 ? _menu0.getSlots().get(2).getItem() : ItemStack.EMPTY).getDisplayName().getString())
-						.indexOf("]"));
+		if ((((entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu0
+				? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
+				: ItemStack.EMPTY).getDisplayName().getString())
+				.substring(
+						(int) ((entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu0
+								? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
+								: ItemStack.EMPTY).getDisplayName().getString()).indexOf("[") + "[".length(),
+						(int) ((entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu0
+								? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
+								: ItemStack.EMPTY).getDisplayName().getString()).lastIndexOf("]")))
+				.equals("Air")) {
+			return "";
+		}
+		return ((entity instanceof Player _guiToolsDisplayPlayer3 && _guiToolsDisplayPlayer3.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu3
+				? _guiToolsDisplayMenu3.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
+				: ItemStack.EMPTY).getDisplayName().getString())
+				.substring(
+						(int) ((entity instanceof Player _guiToolsDisplayPlayer3 && _guiToolsDisplayPlayer3.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu3
+								? _guiToolsDisplayMenu3.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
+								: ItemStack.EMPTY).getDisplayName().getString()).indexOf("[") + "[".length(),
+						(int) ((entity instanceof Player _guiToolsDisplayPlayer3 && _guiToolsDisplayPlayer3.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu3
+								? _guiToolsDisplayMenu3.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
+								: ItemStack.EMPTY).getDisplayName().getString()).indexOf("]"));
 	}
 }

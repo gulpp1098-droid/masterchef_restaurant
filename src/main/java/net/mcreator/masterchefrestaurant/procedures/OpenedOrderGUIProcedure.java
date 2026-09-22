@@ -13,7 +13,9 @@ public class OpenedOrderGUIProcedure {
 		if (entity == null)
 			return;
 		if (world.getLevelData().getGameTime() % 5 == 0) {
-			if ((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu1 ? _menu1.getSlots().get(1).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem()) {
+			if ((entity instanceof Player _guiToolsDisplayPlayer1 && _guiToolsDisplayPlayer1.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu1
+					? _guiToolsDisplayMenu1.getMenuState(3, Integer.toString(1), ItemStack.EMPTY)
+					: ItemStack.EMPTY).getItem() == Blocks.AIR.asItem()) {
 				FillOrderSlotsProcedure.execute(world, entity);
 			}
 			if (!((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu3 ? _menu3.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())) {

@@ -12,7 +12,10 @@ public class Food6RewardReturnProcedure {
 		if (entity == null)
 			return "";
 		double tier = 0;
-		tier = GetFoodTierByItemProcedure.execute(world, entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu0 ? _menu0.getSlots().get(5).getItem() : ItemStack.EMPTY);
+		tier = GetFoodTierByItemProcedure.execute(world,
+				entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _guiToolsDisplayMenu0
+						? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(5), ItemStack.EMPTY)
+						: ItemStack.EMPTY);
 		if (tier == -1) {
 			return "-";
 		}

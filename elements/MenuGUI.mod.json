@@ -240,45 +240,6 @@
         }
       },
       {
-        "type": "outputslot",
-        "data": {
-          "id": 0,
-          "disablePickup": {
-            "fixedValue": true
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 130,
-          "y": 76,
-          "locked": false
-        }
-      },
-      {
-        "type": "outputslot",
-        "data": {
-          "id": 1,
-          "disablePickup": {
-            "fixedValue": true
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 130,
-          "y": 112,
-          "locked": false
-        }
-      },
-      {
-        "type": "outputslot",
-        "data": {
-          "id": 2,
-          "disablePickup": {
-            "fixedValue": true
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 130,
-          "y": 148,
-          "locked": false
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_1",
@@ -465,41 +426,122 @@
         }
       },
       {
-        "type": "outputslot",
+        "type": "item_display",
         "data": {
-          "id": 3,
-          "disablePickup": {
-            "fixedValue": true
+          "name": "item_display_0",
+          "displayId": 0,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
           },
-          "dropItemsWhenNotBound": false,
-          "x": 219,
-          "y": 76,
+          "maskOpacity": 100,
+          "x": 131,
+          "y": 77,
           "locked": false
         }
       },
       {
-        "type": "outputslot",
+        "type": "item_display",
         "data": {
-          "id": 4,
-          "disablePickup": {
-            "fixedValue": true
+          "name": "item_display_1",
+          "displayId": 1,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
           },
-          "dropItemsWhenNotBound": false,
-          "x": 219,
-          "y": 112,
+          "maskOpacity": 100,
+          "x": 131,
+          "y": 113,
           "locked": false
         }
       },
       {
-        "type": "outputslot",
+        "type": "item_display",
         "data": {
-          "id": 5,
-          "disablePickup": {
-            "fixedValue": true
+          "name": "item_display_2",
+          "displayId": 2,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
           },
-          "dropItemsWhenNotBound": false,
-          "x": 219,
-          "y": 148,
+          "maskOpacity": 100,
+          "x": 131,
+          "y": 149,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_3",
+          "displayId": 3,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "x": 220,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_4",
+          "displayId": 4,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "x": 220,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_5",
+          "displayId": 5,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "x": 220,
+          "y": 149,
           "locked": false
         }
       }

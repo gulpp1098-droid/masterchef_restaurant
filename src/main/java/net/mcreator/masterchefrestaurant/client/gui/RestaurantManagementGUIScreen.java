@@ -75,6 +75,47 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		guiTools$itemDisplayTooltips : {
+			guiTools$itemDisplayTooltip0 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip0;
+				if (mouseX < this.leftPos + 189 || mouseX >= this.leftPos + 205 || mouseY < this.topPos + 28 || mouseY >= this.topPos + 44)
+					break guiTools$itemDisplayTooltip0;
+				boolean guiTools$displayMasked0 = false;
+				if (guiTools$displayMasked0)
+					break guiTools$itemDisplayTooltip0;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack0 == null || guiTools$tooltipStack0.isEmpty())
+					break guiTools$itemDisplayTooltip0;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack0, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip1 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip1;
+				if (mouseX < this.leftPos + 189 || mouseX >= this.leftPos + 205 || mouseY < this.topPos + 65 || mouseY >= this.topPos + 81)
+					break guiTools$itemDisplayTooltip1;
+				boolean guiTools$displayMasked1 = false;
+				if (guiTools$displayMasked1)
+					break guiTools$itemDisplayTooltip1;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack1 == null || guiTools$tooltipStack1.isEmpty())
+					break guiTools$itemDisplayTooltip1;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack1, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip2 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip2;
+				if (mouseX < this.leftPos + 189 || mouseX >= this.leftPos + 205 || mouseY < this.topPos + 104 || mouseY >= this.topPos + 120)
+					break guiTools$itemDisplayTooltip2;
+				boolean guiTools$displayMasked2 = false;
+				if (guiTools$displayMasked2)
+					break guiTools$itemDisplayTooltip2;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack2 == null || guiTools$tooltipStack2.isEmpty())
+					break guiTools$itemDisplayTooltip2;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack2, mouseX, mouseY);
+			}
+		}
 	}
 
 	@Override
@@ -108,6 +149,66 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			guiTools$alphaBlit(guiGraphics, IMAGE_20, this.leftPos + 215, this.topPos + 103, 0, 0, 15, 17, 15, 17);
 			if (this.enhanced_image_button_button_icon != null && this.enhanced_image_button_button_icon.visible) {
 				this.enhanced_image_button_button_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			guiTools$itemDisplay0 : {
+				if (!(true))
+					break guiTools$itemDisplay0;
+				net.minecraft.world.item.ItemStack guiTools$displayStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack0 == null || guiTools$displayStack0.isEmpty())
+					break guiTools$itemDisplay0;
+				boolean guiTools$displayMasked0 = false;
+				if (guiTools$displayMasked0) {
+					com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+					try {
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 189, this.topPos + 28);
+					} finally {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+					}
+				} else {
+					guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 189, this.topPos + 28);
+				}
+				if (!guiTools$displayMasked0)
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + 189, this.topPos + 28);
+			}
+			guiTools$itemDisplay1 : {
+				if (!(true))
+					break guiTools$itemDisplay1;
+				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack1 == null || guiTools$displayStack1.isEmpty())
+					break guiTools$itemDisplay1;
+				boolean guiTools$displayMasked1 = false;
+				if (guiTools$displayMasked1) {
+					com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+					try {
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 189, this.topPos + 65);
+					} finally {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+					}
+				} else {
+					guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 189, this.topPos + 65);
+				}
+				if (!guiTools$displayMasked1)
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + 189, this.topPos + 65);
+			}
+			guiTools$itemDisplay2 : {
+				if (!(true))
+					break guiTools$itemDisplay2;
+				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
+					break guiTools$itemDisplay2;
+				boolean guiTools$displayMasked2 = false;
+				if (guiTools$displayMasked2) {
+					com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+					try {
+						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 189, this.topPos + 104);
+					} finally {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+					}
+				} else {
+					guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 189, this.topPos + 104);
+				}
+				if (!guiTools$displayMasked2)
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + 189, this.topPos + 104);
 			}
 		}
 		RenderSystem.disableBlend();
@@ -149,7 +250,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 231, 69, -12829636, false);
 		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 231, 108, -12829636, false);
 		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 217, 129, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.MenuNameReturnProcedure.execute(entity), ""), 204, -12, 64, 43, -1, false, 0.75F);
+		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.MenuNameReturnProcedure.execute(entity), ""), 204, -12, 64, 43, -1, false, 0.75F, 0);
 	}
 
 	@Override
@@ -264,26 +365,77 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 
 	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
 
-	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode) {
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int currentY = 0;
-		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
+		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(cacheKey, key -> this.guiTools$displayMultilineText(text, wrapWidth, maxLines, overflowMode));
 		if (this.guiTools$multilineCache.size() > 64)
 			this.guiTools$multilineCache.clear();
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
 		guiGraphics.pose().pushPose();
 		try {
 			guiGraphics.pose().translate(x, y, 0.0F);
 			guiGraphics.pose().scale(scale, scale, 1.0F);
+			int currentY = 0;
 			for (String line : lines) {
 				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
 				currentY += lineStep;
 			}
 		} finally {
 			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
 		}
+	}
+
+	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
+		if (text == null || overflowMode == 0 || scale <= 0.0F)
+			return false;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
+		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
+		for (String line : lines)
+			if (this.font.width(line) > wrapWidth)
+				return true;
+		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
+	}
+
+	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
+		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
+		if (overflowMode != 2)
+			return wrapped;
+		if (maxLines <= 0)
+			return java.util.List.of();
+		boolean verticalOverflow = wrapped.size() > maxLines;
+		java.util.List<String> result = new java.util.ArrayList<>();
+		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
+			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
+		}
+		return java.util.List.copyOf(result);
+	}
+
+	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
+		if (!forceEllipsis && this.font.width(value) <= maxWidth)
+			return value;
+		String ellipsis = "…";
+		if (this.font.width(ellipsis) > maxWidth)
+			return "";
+		int low = 0, high = value.length();
+		while (low < high) {
+			int middle = (low + high + 1) >>> 1;
+			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
+				low = middle;
+			else
+				high = middle - 1;
+		}
+		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

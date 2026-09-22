@@ -1,5 +1,6 @@
 package net.mcreator.masterchefrestaurant.procedures;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
@@ -31,10 +32,12 @@ public class FillSlotsMenuProcedure {
 		player = entity;
 		restaurantID = player.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID;
 		if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-			_menu.getSlots().get(0).set(ItemStack.EMPTY);
-			_menu.getSlots().get(1).set(ItemStack.EMPTY);
-			_menu.getSlots().get(2).set(ItemStack.EMPTY);
-			_player.containerMenu.broadcastChanges();
+			ItemStack _displayStack0 = new ItemStack(Blocks.AIR).copy();
+			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack0, true);
+			ItemStack _displayStack1 = new ItemStack(Blocks.AIR).copy();
+			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack1, true);
+			ItemStack _displayStack2 = new ItemStack(Blocks.AIR).copy();
+			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack2, true);
 		}
 		if (restaurantID > 0) {
 			if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -60,28 +63,22 @@ public class FillSlotsMenuProcedure {
 			if (Menu.size() > index1) {
 				Food1 = Menu.get((int) index1).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack9 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food1).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack9.setCount(1);
-					_menu.getSlots().get(0).set(_setstack9);
-					_player.containerMenu.broadcastChanges();
+					ItemStack _displayStack9 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food1).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack9, true);
 				}
 			}
 			if (Menu.size() > index2) {
 				Food2 = Menu.get((int) index2).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack13 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food2).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack13.setCount(1);
-					_menu.getSlots().get(1).set(_setstack13);
-					_player.containerMenu.broadcastChanges();
+					ItemStack _displayStack13 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food2).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack13, true);
 				}
 			}
 			if (Menu.size() > index3) {
 				Food3 = Menu.get((int) index3).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu) {
-					ItemStack _setstack17 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food3).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					_setstack17.setCount(1);
-					_menu.getSlots().get(2).set(_setstack17);
-					_player.containerMenu.broadcastChanges();
+					ItemStack _displayStack17 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food3).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack17, true);
 				}
 			}
 		}

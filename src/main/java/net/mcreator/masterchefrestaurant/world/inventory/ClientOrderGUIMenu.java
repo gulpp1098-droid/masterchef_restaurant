@@ -58,7 +58,7 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Masterc
 		super(MasterchefRestaurantModMenus.CLIENT_ORDER_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(6);
+		this.internal = new ItemStackHandler(1);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -95,81 +95,6 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Masterc
 				}
 			}
 		}
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 54, 48) {
-			private final int slot = 1;
-			private int x = ClientOrderGUIMenu.this.x;
-			private int y = ClientOrderGUIMenu.this.y;
-
-			@Override
-			public boolean mayPickup(Player entity) {
-				return false;
-			}
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return false;
-			}
-		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 77, 48) {
-			private final int slot = 2;
-			private int x = ClientOrderGUIMenu.this.x;
-			private int y = ClientOrderGUIMenu.this.y;
-
-			@Override
-			public boolean mayPickup(Player entity) {
-				return false;
-			}
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return false;
-			}
-		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 100, 48) {
-			private final int slot = 3;
-			private int x = ClientOrderGUIMenu.this.x;
-			private int y = ClientOrderGUIMenu.this.y;
-
-			@Override
-			public boolean mayPickup(Player entity) {
-				return false;
-			}
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return false;
-			}
-		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 123, 48) {
-			private final int slot = 4;
-			private int x = ClientOrderGUIMenu.this.x;
-			private int y = ClientOrderGUIMenu.this.y;
-
-			@Override
-			public boolean mayPickup(Player entity) {
-				return false;
-			}
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return false;
-			}
-		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 146, 48) {
-			private final int slot = 5;
-			private int x = ClientOrderGUIMenu.this.x;
-			private int y = ClientOrderGUIMenu.this.y;
-
-			@Override
-			public boolean mayPickup(Player entity) {
-				return false;
-			}
-
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return false;
-			}
-		}));
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 38, 93) {
 			private final int slot = 0;
 			private int x = ClientOrderGUIMenu.this.x;
@@ -202,16 +127,16 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Masterc
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 6) {
-				if (!this.moveItemStackTo(itemstack1, 6, this.slots.size(), true))
+			if (index < 1) {
+				if (!this.moveItemStackTo(itemstack1, 1, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 6, false)) {
-				if (index < 6 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 6 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
+				if (index < 1 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 1 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 6, 6 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 1, 1 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;
@@ -294,32 +219,12 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Masterc
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
-					if (j == 1)
-						continue;
-					if (j == 2)
-						continue;
-					if (j == 3)
-						continue;
-					if (j == 4)
-						continue;
-					if (j == 5)
-						continue;
 					playerIn.drop(internal.getStackInSlot(j), false);
 					if (internal instanceof IItemHandlerModifiable ihm)
 						ihm.setStackInSlot(j, ItemStack.EMPTY);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
-					if (i == 1)
-						continue;
-					if (i == 2)
-						continue;
-					if (i == 3)
-						continue;
-					if (i == 4)
-						continue;
-					if (i == 5)
-						continue;
 					playerIn.getInventory().placeItemBackInInventory(internal.getStackInSlot(i));
 					if (internal instanceof IItemHandlerModifiable ihm)
 						ihm.setStackInSlot(i, ItemStack.EMPTY);
