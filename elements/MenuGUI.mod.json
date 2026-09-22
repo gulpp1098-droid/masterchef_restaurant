@@ -102,60 +102,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_food_1",
-          "text": {
-            "fixedValue": "Food 1",
-            "name": "Food1NameReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 130,
-          "y": 64,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_food_2",
-          "text": {
-            "fixedValue": "Food 2",
-            "name": "Food2NameReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 130,
-          "y": 100,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_food_3",
-          "text": {
-            "fixedValue": "Food 3",
-            "name": "Food3NameReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 130,
-          "y": 136,
-          "locked": false
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "coin_icon.png",
@@ -254,60 +200,6 @@
           "hasShadow": false,
           "x": 198,
           "y": 174,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_food3namereturn",
-          "text": {
-            "fixedValue": "Food4Namereturn",
-            "name": "Food4NameReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 65,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_food4namereturn",
-          "text": {
-            "fixedValue": "Food5NameReturn",
-            "name": "Food5NameReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 100,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_food6namereturn",
-          "text": {
-            "fixedValue": "Food6NameReturn",
-            "name": "Food6NameReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 136,
           "locked": false
         }
       },
@@ -542,6 +434,132 @@
           "maskOpacity": 100,
           "x": 220,
           "y": 149,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_food_1",
+          "text": "Food 1 Name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "Food1NameReturn",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 85,
+          "height": 10,
+          "x": 130,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_food_2",
+          "text": "Food 2 Name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "Food2NameReturn",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 85,
+          "height": 10,
+          "x": 130,
+          "y": 101,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_food_3",
+          "text": "Food 3 Name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "Food3NameReturn",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 85,
+          "height": 10,
+          "x": 130,
+          "y": 136,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_food_4",
+          "text": "Food 4 Name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "Food4NameReturn",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 85,
+          "height": 10,
+          "x": 219,
+          "y": 65,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_food_5",
+          "text": "Food 5 Name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "Food5NameReturn",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 85,
+          "height": 10,
+          "x": 219,
+          "y": 101,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_food_6",
+          "text": "Food 6 Name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "Food6NameReturn",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 85,
+          "height": 10,
+          "x": 219,
+          "y": 137,
           "locked": false
         }
       }

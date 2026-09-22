@@ -75,6 +75,17 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		guiTools$sizedTextLabelTooltips : {
+			String guiTools$sizedLabelText0 = java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food1NameReturnProcedure.execute(entity), "");
+			if (true && mouseX >= this.leftPos + 188 && mouseX < this.leftPos + 253 && mouseY >= this.topPos + 16 && mouseY < this.topPos + 26 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 65, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
+			String guiTools$sizedLabelText1 = java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food2NameReturnProcedure.execute(entity), "");
+			if (true && mouseX >= this.leftPos + 188 && mouseX < this.leftPos + 253 && mouseY >= this.topPos + 52 && mouseY < this.topPos + 62 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 65, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
+			String guiTools$sizedLabelText2 = java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food3NameReturnProcedure.execute(entity), "");
+			if (true && mouseX >= this.leftPos + 188 && mouseX < this.leftPos + 253 && mouseY >= this.topPos + 90 && mouseY < this.topPos + 100 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 65, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText2), mouseX, mouseY);
+		}
 		guiTools$itemDisplayTooltips : {
 			guiTools$itemDisplayTooltip0 : {
 				if (!(true))
@@ -243,13 +254,16 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(entity), -83, 77, -12829636, false);
 		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(entity), -83, 104, -12829636, false);
 		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(entity), -83, 130, -12829636, false);
-		guiGraphics.drawString(this.font, Food1NameReturnProcedure.execute(entity), 188, 15, -12829636, false);
-		guiGraphics.drawString(this.font, Food2NameReturnProcedure.execute(entity), 188, 51, -12829636, false);
-		guiGraphics.drawString(this.font, Food3NameReturnProcedure.execute(entity), 188, 89, -12829636, false);
 		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(world, entity), 231, 32, -12829636, false);
 		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 231, 69, -12829636, false);
 		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 231, 108, -12829636, false);
 		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 217, 129, -12829636, false);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food1NameReturnProcedure.execute(entity), ""), 188, 16, 65, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food2NameReturnProcedure.execute(entity), ""), 188, 52, 65, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food3NameReturnProcedure.execute(entity), ""), 188, 90, 65, -12829636, false, 1.00F, 2);
 		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.MenuNameReturnProcedure.execute(entity), ""), 204, -12, 64, 43, -1, false, 0.75F, 0);
 	}
 
@@ -361,6 +375,47 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			}
 		};
 		this.addWidget(enhanced_image_button_button_icon);
+	}
+
+	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0)
+			return;
+		int textWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		String displayed = overflowMode == 2 ? this.guiTools$ellipsizeSizedText(text, textWidth) : text;
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + Math.max(1, (int) Math.ceil(this.font.lineHeight * scale)));
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			guiGraphics.drawString(this.font, displayed, 0, 0, color, shadow);
+		} finally {
+			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
+		}
+	}
+
+	private boolean guiTools$isSizedTextTruncated(String text, int boxWidth, float scale) {
+		return text != null && scale > 0.0F && this.font.width(text) > Math.max(1, (int) Math.floor(boxWidth / scale));
+	}
+
+	private String guiTools$ellipsizeSizedText(String value, int maxWidth) {
+		if (this.font.width(value) <= maxWidth)
+			return value;
+		String ellipsis = "…";
+		if (this.font.width(ellipsis) > maxWidth)
+			return "";
+		int low = 0, high = value.length();
+		while (low < high) {
+			int middle = (low + high + 1) >>> 1;
+			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
+				low = middle;
+			else
+				high = middle - 1;
+		}
+		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();

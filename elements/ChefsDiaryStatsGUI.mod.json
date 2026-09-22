@@ -134,42 +134,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_name",
-          "text": {
-            "fixedValue": "Name:",
-            "name": "ReturnRestaurantName"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 45,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_owner",
-          "text": {
-            "fixedValue": "Owner:",
-            "name": "ReturnRestaurantOwner"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 58,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_level",
           "text": {
             "fixedValue": "Level:",
@@ -235,6 +199,48 @@
           "hasShadow": false,
           "x": 219,
           "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "restaurant_s_name",
+          "text": "Restaurant's name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ReturnRestaurantName",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 130,
+          "height": 10,
+          "x": 69,
+          "y": 46,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "restaurant_s_owner",
+          "text": "Restaurant's name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ReturnRestaurantOwner",
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 130,
+          "height": 10,
+          "x": 69,
+          "y": 59,
           "locked": false
         }
       }
