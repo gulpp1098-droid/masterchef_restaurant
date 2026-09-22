@@ -1,14 +1,16 @@
 modLoader="javafml"
 loaderVersion="[4,)"
-license="Not specified"
+license="Custom license"
 
 [[mods]]
 modId="masterchef_restaurant"
-version="1.0.0"
-displayName="MasterChef Restaurant"
+version="0.6.0"
+displayName="MasterChef Restaurant RPG"
 displayURL="https://mcreator.net"
+logoFile="logo.png"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
-authors="MCreator"
+authors="Maeestry"
+description="Manage your own Restaurant and become the best chef!"
 
 # Start of user code block mod configuration
 # End of user code block mod configuration

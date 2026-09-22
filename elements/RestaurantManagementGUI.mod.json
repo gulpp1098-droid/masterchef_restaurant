@@ -11,6 +11,16 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "image",
+        "data": {
+          "image": "spatulagui.png",
+          "use1Xscale": false,
+          "x": 114,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
         "type": "sprite",
         "data": {
           "sprite": "signopenclose_sprite.png",
@@ -19,19 +29,9 @@
             "fixedValue": 0.0,
             "name": "OpenCloseReturn"
           },
-          "x": 145,
-          "y": 127,
+          "x": 140,
+          "y": 130,
           "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "spatulagui.png",
-          "use1Xscale": false,
-          "x": 114,
-          "y": 26,
-          "locked": true
         }
       },
       {
