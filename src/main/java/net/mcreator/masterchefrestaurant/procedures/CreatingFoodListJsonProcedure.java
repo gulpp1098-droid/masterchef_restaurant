@@ -27,7 +27,8 @@ public class CreatingFoodListJsonProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		com.google.gson.JsonObject FoodDatabaseObject = new com.google.gson.JsonObject();
 		File FoodDatabase = new File("");
-		if (!world.isClientSide()) {// =====================================================
+		double moddedFoodBonus = 0;
+		if (!world.isClientSide()) { // =====================================================
 			// SERVER SIDE ONLY
 			// =====================================================
 			if (!(world instanceof net.minecraft.server.level.ServerLevel level)) {
@@ -52,6 +53,7 @@ public class CreatingFoodListJsonProcedure {
 			com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
 			com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
 			com.google.gson.JsonArray disabledFoodsArray = new com.google.gson.JsonArray();
+			final double MODDED_FOOD_BONUS = 2.0;
 			// =====================================================
 			// ITEMS BY ID
 			// =====================================================
@@ -172,7 +174,25 @@ public class CreatingFoodListJsonProcedure {
 				}
 
 				double getAppliedAcquisitionBonus(String itemName) {
-					return hasSpecialFoodBonus(itemName) ? getSpecialFoodBonus(itemName) : getCategoryBonus(itemName);
+					return (hasSpecialFoodBonus(itemName) ? getSpecialFoodBonus(itemName) : getCategoryBonus(itemName)) + getModdedFoodBonus(itemName);
+				}
+
+				double getModdedFoodBonus(String itemName) {
+					if (itemName == null)
+						return 0.0;
+					net.minecraft.world.item.Item item = itemsById.get(itemName);
+					if (item == null)
+						return 0.0;
+					net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
+					if (item.getFoodProperties(stack, null) == null)
+						return 0.0;
+					var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
+					if (itemId == null)
+						return 0.0;
+					String namespace = itemId.getNamespace();
+					if ("minecraft".equals(namespace) || "masterchef_restaurant".equals(namespace))
+						return 0.0;
+					return MODDED_FOOD_BONUS;
 				}
 
 				double getCategoryBonus(String itemName) {
@@ -363,6 +383,7 @@ public class CreatingFoodListJsonProcedure {
 				double qualityScore = scoreResolver.getQualityScore(itemName);
 				double specialBonus = scoreResolver.getSpecialFoodBonus(itemName);
 				double categoryBonus = scoreResolver.getCategoryBonus(itemName);
+				double moddedFoodBonus = scoreResolver.getModdedFoodBonus(itemName);
 				double appliedAcquisitionBonus = scoreResolver.getAppliedAcquisitionBonus(itemName);
 				double score = scoreResolver.resolve(itemName);
 				if (!Double.isFinite(score)) {
@@ -403,6 +424,7 @@ public class CreatingFoodListJsonProcedure {
 				foodObject.add("categories", categoriesArray);
 				foodObject.addProperty("categoryBonus", categoryBonus);
 				foodObject.addProperty("specialBonus", specialBonus);
+				foodObject.addProperty("moddedFoodBonus", moddedFoodBonus);
 				foodObject.addProperty("appliedAcquisitionBonus", appliedAcquisitionBonus);
 				foodObject.addProperty("score", score);
 				if (negativeEffectsArray.size() > 0) {
@@ -429,6 +451,7 @@ public class CreatingFoodListJsonProcedure {
 			int tierCount = totalFoods / 40;
 			tierCount = Math.max(6, tierCount);
 			tierCount = Math.min(10, tierCount);
+			// First assign tiers normally from score/percentile.
 			for (int i = 0; i < totalFoods; i++) {
 				com.google.gson.JsonObject food = allFoods.get(i);
 				double percentile = (double) i / totalFoods;
@@ -436,6 +459,41 @@ public class CreatingFoodListJsonProcedure {
 				if (tier >= tierCount)
 					tier = tierCount - 1;
 				food.addProperty("tier", tier);
+			}
+			// Lookup only foods that participate in the tier system.
+			java.util.Map<String, com.google.gson.JsonObject> foodObjectsById = new java.util.HashMap<>();
+			for (com.google.gson.JsonObject food : allFoods) {
+				foodObjectsById.put(food.get("id").getAsString(), food);
+			}
+			// A prepared dish can never be below any selected FOOD ingredient.
+			// Repeat until stable because an ingredient may itself be a prepared dish
+			// whose tier was promoted by its own ingredients.
+			boolean tierChanged;
+			do {
+				tierChanged = false;
+				for (com.google.gson.JsonObject food : allFoods) {
+					if (!food.has("ingredients") || !food.get("ingredients").isJsonArray())
+						continue;
+					int currentTier = food.get("tier").getAsInt();
+					int requiredTier = currentTier;
+					for (com.google.gson.JsonElement ingredientElement : food.getAsJsonArray("ingredients")) {
+						if (ingredientElement == null || !ingredientElement.isJsonPrimitive())
+							continue;
+						String ingredientId = ingredientElement.getAsString();
+						com.google.gson.JsonObject ingredientFood = foodObjectsById.get(ingredientId);
+						if (ingredientFood == null || !ingredientFood.has("tier"))
+							continue;
+						requiredTier = Math.max(requiredTier, ingredientFood.get("tier").getAsInt());
+					}
+					if (requiredTier > currentTier) {
+						food.addProperty("tier", requiredTier);
+						tierChanged = true;
+					}
+				}
+			} while (tierChanged);
+			// Build arrays only after all tier promotions are finished.
+			for (com.google.gson.JsonObject food : allFoods) {
+				int tier = food.get("tier").getAsInt();
 				switch (tier) {
 					case 0 :
 						tier0Array.add(food);
@@ -484,7 +542,7 @@ public class CreatingFoodListJsonProcedure {
 			tiersObject.add("9", tier9Array);
 			foodDatabase.add("tiers", tiersObject);
 			foodDatabase.addProperty("tier_count", tierCount);
-			foodDatabase.addProperty("scoring_version", 3);
+			foodDatabase.addProperty("scoring_version", 4);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
 			// =====================================================
 			// FINAL RESULT
