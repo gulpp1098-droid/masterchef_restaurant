@@ -42,7 +42,7 @@ public class PlaceBlockWhenRestaurantOpenProcedure {
 					if (entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID > 0) {
 						if (!IsInsideRestaurantProcedure.execute(world, x, z, entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
 							if (entity instanceof Player _player13 && !_player13.level().isClientSide())
-								_player13.displayClientMessage(Component.literal("You cannot place restaurant blocks inside another restaurant!").withStyle(ChatFormatting.RED), true);
+								_player13.displayClientMessage(Component.literal("You cannot place restaurant blocks inside another restaurant.").withStyle(ChatFormatting.RED), true);
 							if (event instanceof ICancellableEvent _cancellable) {
 								_cancellable.setCanceled(true);
 							}

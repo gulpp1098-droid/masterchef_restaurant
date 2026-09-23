@@ -53,7 +53,7 @@ public class LateSleepProcedure {
 								_cancellable.setCanceled(true);
 							}
 							if (entity instanceof Player _player7 && !_player7.level().isClientSide())
-								_player7.displayClientMessage(Component.literal("You cannot sleep while a restaurants are still open.").withStyle(ChatFormatting.RED), true);
+								_player7.displayClientMessage(Component.literal("You cannot sleep while restaurants are still open.").withStyle(ChatFormatting.RED), true);
 							break;
 						} else {
 							index = index + 1;

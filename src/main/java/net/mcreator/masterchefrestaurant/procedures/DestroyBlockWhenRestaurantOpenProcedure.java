@@ -50,7 +50,7 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 			} else if (restaurantID == 0) {
 			} else {
 				if (entity instanceof Player _player15 && !_player15.level().isClientSide())
-					_player15.displayClientMessage(Component.literal("This block does not belong to your restaurant!").withStyle(ChatFormatting.RED), true);
+					_player15.displayClientMessage(Component.literal("This block does not belong to your restaurant.").withStyle(ChatFormatting.RED), true);
 				if (event instanceof ICancellableEvent _cancellable) {
 					_cancellable.setCanceled(true);
 				}
@@ -69,7 +69,7 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 			} else if (restaurantID == 0) {
 			} else {
 				if (entity instanceof Player _player25 && !_player25.level().isClientSide())
-					_player25.displayClientMessage(Component.literal("This block does not belong to your restaurant!").withStyle(ChatFormatting.RED), true);
+					_player25.displayClientMessage(Component.literal("This block does not belong to your restaurant.").withStyle(ChatFormatting.RED), true);
 				if (event instanceof ICancellableEvent _cancellable) {
 					_cancellable.setCanceled(true);
 				}

@@ -84,7 +84,7 @@ public class CreatingNewRestaurantProcedure {
 					Restaurant_Name = Restaurant.get("name").getAsString();
 					if ((NewRestaurant_Name).equals(Restaurant_Name)) {
 						if (Owner instanceof Player _player16 && !_player16.level().isClientSide())
-							_player16.displayClientMessage(Component.literal("A restaurant with this name already exists").withStyle(ChatFormatting.RED), false);
+							_player16.displayClientMessage(Component.literal("A restaurant with this name already exists.").withStyle(ChatFormatting.RED), false);
 						IsNameAccepted = false;
 						break;
 					}

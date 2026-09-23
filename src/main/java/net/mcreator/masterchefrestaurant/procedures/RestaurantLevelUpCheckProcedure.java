@@ -33,7 +33,7 @@ public class RestaurantLevelUpCheckProcedure {
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
 				if (entity instanceof Player _player3 && !_player3.level().isClientSide())
-					_player3.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel - 1) + "!")).withStyle(ChatFormatting.GREEN), false);
+					_player3.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel + 1) + "!")).withStyle(ChatFormatting.GREEN), false);
 				return restaurantLevel + 1;
 			}
 		}
@@ -46,7 +46,7 @@ public class RestaurantLevelUpCheckProcedure {
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
 				if (entity instanceof Player _player7 && !_player7.level().isClientSide())
-					_player7.displayClientMessage(Component.literal(("Your restaurant dropped to Level" + (int) (restaurantLevel - 1) + ".")).withStyle(ChatFormatting.RED), false);
+					_player7.displayClientMessage(Component.literal(("Your restaurant dropped to Level " + (int) (restaurantLevel - 1) + ".")).withStyle(ChatFormatting.RED), false);
 				return restaurantLevel - 1;
 			}
 		}

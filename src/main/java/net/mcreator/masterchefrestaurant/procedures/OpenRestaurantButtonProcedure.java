@@ -110,7 +110,7 @@ public class OpenRestaurantButtonProcedure {
 											}
 										} else {
 											if (owner instanceof Player _player31 && !_player31.level().isClientSide())
-												_player31.displayClientMessage(Component.literal("Your restaurant needs at least one Chair").withStyle(ChatFormatting.RED), true);
+												_player31.displayClientMessage(Component.literal("Your restaurant needs at least one Chair.").withStyle(ChatFormatting.RED), true);
 										}
 									} else {
 										if (owner instanceof Player _player34 && !_player34.level().isClientSide())

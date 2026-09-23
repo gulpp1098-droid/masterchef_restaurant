@@ -89,7 +89,7 @@ public class RugQueueBlockIsPlacedByProcedure {
 			}
 		} else {
 			if (entity instanceof Player _player25 && !_player25.level().isClientSide())
-				_player25.displayClientMessage(Component.literal("You do not have Restaurant yet!").withStyle(ChatFormatting.RED), true);
+				_player25.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
 		}
 	}
 

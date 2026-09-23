@@ -60,7 +60,7 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 							if (locationAvailable) {
 								AddingArray = true;
 								if (Owner instanceof Player _player9 && !_player9.level().isClientSide())
-									_player9.displayClientMessage(Component.literal("Base restaurant area selected.").withStyle(ChatFormatting.GREEN), false);
+									_player9.displayClientMessage(Component.literal("Base restaurant area selected.").withStyle(ChatFormatting.GREEN), true);
 							} else {
 								if (Owner instanceof Player _player12 && !_player12.level().isClientSide())
 									_player12.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
@@ -93,11 +93,11 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 									if (locationAvailable) {
 										AddingArray = true;
 										if (Owner instanceof Player _player18 && !_player18.level().isClientSide())
-											_player18.displayClientMessage(Component.literal("Restaurant area expanded.").withStyle(ChatFormatting.GREEN), false);
+											_player18.displayClientMessage(Component.literal("Restaurant area expanded.").withStyle(ChatFormatting.GREEN), true);
 										break;
 									} else {
 										if (Owner instanceof Player _player21 && !_player21.level().isClientSide())
-											_player21.displayClientMessage(Component.literal("This area is too close to another restaurant").withStyle(ChatFormatting.RED), true);
+											_player21.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
 									}
 								}
 								arrayIndex = arrayIndex + 1;
@@ -128,13 +128,13 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 			}
-			if (!isConnectedToRestaurant) {
-				if (Owner instanceof Player _player36 && !_player36.level().isClientSide())
-					_player36.displayClientMessage(Component.literal("New restaurant areas must connect to your existing area.").withStyle(ChatFormatting.RED), true);
+			if (!isConnectedToRestaurant && RestaurantsArray.size() >= 1 && Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
+				if (Owner instanceof Player _player38 && !_player38.level().isClientSide())
+					_player38.displayClientMessage(Component.literal("New restaurant areas must connect to your existing area.").withStyle(ChatFormatting.RED), true);
 			}
 		} else {
-			if (Owner instanceof Player _player39 && !_player39.level().isClientSide())
-				_player39.displayClientMessage(Component.literal("Location has to be set in overworld.").withStyle(ChatFormatting.RED), true);
+			if (Owner instanceof Player _player41 && !_player41.level().isClientSide())
+				_player41.displayClientMessage(Component.literal("Location has to be set in overworld.").withStyle(ChatFormatting.RED), true);
 		}
 	}
 }
