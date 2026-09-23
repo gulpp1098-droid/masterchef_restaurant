@@ -39,8 +39,11 @@ public class SetSpatulaLocationModeTrueProcedure {
 				}
 			} else {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("You can NOT edit restaurant when it is open!"), false);
+					_player.displayClientMessage(Component.literal("You can NOT edit restaurant when it is open!"), true);
 			}
+		} else {
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("You need to create a restaurant first!"), true);
 		}
 	}
 }

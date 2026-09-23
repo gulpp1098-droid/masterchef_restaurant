@@ -41,7 +41,7 @@ public class RugIsPlacedwithReceptionProcedure {
 					world.destroyBlock(_pos, false);
 				}
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("No valid position for Receptions Queue!"), false);
+					_player.displayClientMessage(Component.literal("No valid position for Receptions Queue!"), true);
 			}
 		}
 	}

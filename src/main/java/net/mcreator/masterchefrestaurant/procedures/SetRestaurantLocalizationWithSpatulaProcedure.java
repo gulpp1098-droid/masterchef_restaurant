@@ -58,12 +58,13 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 							if (locationAvailable) {
 								AddingArray = true;
 								if (Owner instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal(("Base location was set: [" + (X + ":" + Z + "]"))), false);
+									_player.displayClientMessage(Component.literal(("Base location was set: [" + (X + ":" + Z + "]"))), true);
 							} else {
 								if (Owner instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal("This area is too close to another restaurant!"), false);
+									_player.displayClientMessage(Component.literal("This area is too close to another restaurant!"), true);
 							}
-						} else if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
+						}
+						if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
 							arrayIndex = 0;
 							for (int _i1 = 0; _i1 < (int) RestaurantsArray.size(); _i1++) {
 								restaurantsString = RestaurantsArray.get((int) arrayIndex).getAsString();
@@ -89,15 +90,18 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 									if (locationAvailable) {
 										AddingArray = true;
 										if (Owner instanceof Player _player && !_player.level().isClientSide())
-											_player.displayClientMessage(Component.literal(("New location was added: [" + (X + ":" + Z + "]"))), false);
+											_player.displayClientMessage(Component.literal(("New location was added: [" + (X + ":" + Z + "]"))), true);
 										break;
 									} else {
 										if (Owner instanceof Player _player && !_player.level().isClientSide())
-											_player.displayClientMessage(Component.literal("This area is too close to another restaurant!"), false);
+											_player.displayClientMessage(Component.literal("This area is too close to another restaurant!"), true);
 									}
 								}
 								arrayIndex = arrayIndex + 1;
 							}
+						} else {
+							if (Owner instanceof Player _player && !_player.level().isClientSide())
+								_player.displayClientMessage(Component.literal("You have reached your current restaurant area limit!"), true);
 						}
 					}
 				}
@@ -122,11 +126,11 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 				}
 			} else {
 				if (Owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Location was not added!"), false);
+					_player.displayClientMessage(Component.literal("Location was not added!"), true);
 			}
 		} else {
 			if (Owner instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("Location has to be set in overworld!"), false);
+				_player.displayClientMessage(Component.literal("Location has to be set in overworld!"), true);
 		}
 	}
 }

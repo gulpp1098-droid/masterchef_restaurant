@@ -227,7 +227,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "restaurant_s_owner",
-          "text": "Restaurant's name",
+          "text": "Restaurant's owner",
           "color": {
             "value": -12829636,
             "falpha": 0.0

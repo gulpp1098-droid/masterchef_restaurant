@@ -48,14 +48,14 @@ public class ReceptionBlockIsPlacedByProcedure {
 								if (MasterchefRestaurantModBlocks.RUG_QUEUE.get().defaultBlockState().canSurvive(world, BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))
 										&& world.isEmptyBlock(BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))) {
 									if (owner instanceof Player _player && !_player.level().isClientSide())
-										_player.displayClientMessage(Component.literal("Reception is inside restaurant!"), false);
+										_player.displayClientMessage(Component.literal("Reception is inside restaurant!"), true);
 									setBlockNBTNumber(world, x, y, z, "RestaurantID", RestaurantID);
 									ModifyRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 											MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception", x + ":" + y + ":" + z);
 									RugIsPlacedwithReceptionProcedure.execute(world, x, y, z, entity);
 								} else {
 									if (owner instanceof Player _player && !_player.level().isClientSide())
-										_player.displayClientMessage(Component.literal("No valid position for Reception Queue!"), false);
+										_player.displayClientMessage(Component.literal("No valid position for Reception Queue!"), true);
 									{
 										BlockPos _pos = BlockPos.containing(x, y, z);
 										Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -64,7 +64,7 @@ public class ReceptionBlockIsPlacedByProcedure {
 								}
 							} else {
 								if (owner instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal("You already have Reception in your restaurant!"), false);
+									_player.displayClientMessage(Component.literal("You already have Reception in your restaurant!"), true);
 								{
 									BlockPos _pos = BlockPos.containing(x, y, z);
 									Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -73,7 +73,7 @@ public class ReceptionBlockIsPlacedByProcedure {
 							}
 						} else {
 							if (owner instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("Reception is NOT inside restaurant! Replace it!"), false);
+								_player.displayClientMessage(Component.literal("Reception is NOT inside restaurant! Replace it!"), true);
 							{
 								BlockPos _pos = BlockPos.containing(x, y, z);
 								Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -83,12 +83,17 @@ public class ReceptionBlockIsPlacedByProcedure {
 					}
 				} else {
 					if (owner instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("You do not have Restaurant yet!"), false);
+						_player.displayClientMessage(Component.literal("You do not have Restaurant yet!"), true);
+					{
+						BlockPos _pos = BlockPos.containing(x, y, z);
+						Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
+						world.destroyBlock(_pos, false);
+					}
 				}
 			}
 		} else {
 			if (owner instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("Reception is NOT in the overworld!"), false);
+				_player.displayClientMessage(Component.literal("Reception is NOT in the overworld!"), true);
 			{
 				BlockPos _pos = BlockPos.containing(x, y, z);
 				Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
