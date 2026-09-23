@@ -62,7 +62,7 @@ public class CreatingNewRestaurantProcedure {
 			Owner = entity;
 			NewRestaurant_Name = (Owner instanceof Player _entity1 && _entity1.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "Restaurant_Name", "") : "";
 			IsNameAccepted = true;
-			if ((NewRestaurant_Name).length() < 3 || (NewRestaurant_Name).length() >= 30) {
+			if ((NewRestaurant_Name).length() < 3 || (NewRestaurant_Name).length() > 30) {
 				if (Owner instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("Restaurant name has to be between 3 and 30 characters"), false);
 				IsNameAccepted = false;

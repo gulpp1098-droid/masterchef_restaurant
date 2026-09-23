@@ -102,35 +102,35 @@ public class OpenRestaurantButtonProcedure {
 												if (owner instanceof Player _player && !_player.level().isClientSide())
 													_player.displayClientMessage(Component.literal(("Your chairs available: " + new java.text.DecimalFormat("#").format(AmountOfChairs))), false);
 												if (owner instanceof Player _player && !_player.level().isClientSide())
-													_player.displayClientMessage(Component.literal("Restaurant is now open!"), false);
+													_player.displayClientMessage(Component.literal("Restaurant is now open!"), true);
 											} else {
 												if (owner instanceof Player _player && !_player.level().isClientSide())
-													_player.displayClientMessage(Component.literal("You do NOT have reception in your restaurant area!"), false);
+													_player.displayClientMessage(Component.literal("You do NOT have reception in your restaurant area!"), true);
 											}
 										} else {
 											if (owner instanceof Player _player && !_player.level().isClientSide())
-												_player.displayClientMessage(Component.literal("You do NOT have any chairs in your restaurant area!"), false);
+												_player.displayClientMessage(Component.literal("You do NOT have any chairs in your restaurant area!"), true);
 										}
 									} else {
 										if (owner instanceof Player _player && !_player.level().isClientSide())
-											_player.displayClientMessage(Component.literal("You do NOT have any tables in your restaurant area!"), false);
+											_player.displayClientMessage(Component.literal("You do NOT have any tables in your restaurant area!"), true);
 									}
 								} else {
 									if (owner instanceof Player _player && !_player.level().isClientSide())
-										_player.displayClientMessage(Component.literal("You can open restaurant only between 6.00 AM and 12.00 PM"), false);
+										_player.displayClientMessage(Component.literal("The restaurant can only be opened between 6:00 and 15:00."), true);
 								}
 							} else {
 								if (owner instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal("You cannot open restaurant twice same day!"), false);
+									_player.displayClientMessage(Component.literal("You cannot open restaurant twice same day!"), true);
 							}
 						}
 					} else {
 						if (owner instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("You cannot do it outside the overworld!"), false);
+							_player.displayClientMessage(Component.literal("You cannot do it outside the overworld!"), true);
 					}
 				} else {
 					if (owner instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("You do NOT have selected restaurant area yet!"), false);
+						_player.displayClientMessage(Component.literal("You do NOT have selected restaurant area yet!"), true);
 				}
 			}
 		}

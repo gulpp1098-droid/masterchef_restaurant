@@ -40,7 +40,7 @@ public class ServiceTableBlockIsPlacedByProcedure {
 								_player.displayClientMessage(Component.literal("Table is inside restaurant!"), false);
 						} else {
 							if (owner instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("Table is NOT inside restaurant!"), false);
+								_player.displayClientMessage(Component.literal("This table is outside your restaurant area and will remain inactive."), false);
 						}
 						setBlockNBTNumber(world, x, y, z, "RestaurantID", RestaurantID);
 						setBlockNBTNumber(world, x, y, z, "TableNumber", owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).TableNumber);

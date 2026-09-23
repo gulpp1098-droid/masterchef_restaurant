@@ -2,7 +2,9 @@ package net.mcreator.masterchefrestaurant.procedures;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
@@ -24,56 +26,67 @@ public class CanDeleteRestaurantProcedure {
 		restaurantID = RestaurantID;
 		owner = entity;
 		if (restaurantID <= 0) {
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("You do not have restaurant!"), true);
 			return false;
 		}
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 		if (restaurantIndex < 0) {
+			if (entity instanceof Player _player && !_player.level().isClientSide())
+				_player.displayClientMessage(Component.literal("Restaurant does not exist!"), true);
 			return false;
 		}
 		if ((GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"owner")).equals(owner.getStringUUID())) {
 			if (!GetRestaurantLogicParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")
-					&& GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "active_groups") == 0) {
-				tableList = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "tables", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				tableIndex = 0;
-				for (int _i1 = 0; _i1 < (int) tableList.size(); _i1++) {
-					tableString = tableList.get((int) tableIndex).getAsString();
-					tableX = GetPartFromStringProcedure.execute(0, tableString);
-					tableY = GetPartFromStringProcedure.execute(1, tableString);
-					tableZ = GetPartFromStringProcedure.execute(2, tableString);
-					if (getBlockNBTNumber(world, BlockPos.containing(new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
+					MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+				if (GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "active_groups") == 0) {
+					tableList = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "tables", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+							MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);
+					tableIndex = 0;
+					for (int _i1 = 0; _i1 < (int) tableList.size(); _i1++) {
+						tableString = tableList.get((int) tableIndex).getAsString();
+						tableX = GetPartFromStringProcedure.execute(0, tableString);
+						tableY = GetPartFromStringProcedure.execute(1, tableString);
+						tableZ = GetPartFromStringProcedure.execute(2, tableString);
+						if (getBlockNBTNumber(world, BlockPos.containing(new Object() {
+							double convert(String s) {
+								try {
+									return Double.parseDouble(s.trim());
+								} catch (Exception e) {
+								}
+								return 0;
 							}
-							return 0;
-						}
-					}.convert(tableX), new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
+						}.convert(tableX), new Object() {
+							double convert(String s) {
+								try {
+									return Double.parseDouble(s.trim());
+								} catch (Exception e) {
+								}
+								return 0;
 							}
-							return 0;
-						}
-					}.convert(tableY), new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
+						}.convert(tableY), new Object() {
+							double convert(String s) {
+								try {
+									return Double.parseDouble(s.trim());
+								} catch (Exception e) {
+								}
+								return 0;
 							}
-							return 0;
+						}.convert(tableZ)), "coins") > 0) {
+							return false;
 						}
-					}.convert(tableZ)), "coins") > 0) {
-						return false;
+						tableIndex = tableIndex + 1;
 					}
-					tableIndex = tableIndex + 1;
+					return true;
+				} else {
+					if (entity instanceof Player _player && !_player.level().isClientSide())
+						_player.displayClientMessage(Component.literal("You cannot delete the restaurant while customers are still active."), true);
 				}
-				return true;
+			} else {
+				if (entity instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("Close your restaurant before deleting it."), true);
 			}
 		}
 		return false;
