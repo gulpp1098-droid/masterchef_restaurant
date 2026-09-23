@@ -22,11 +22,11 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-public class BlocksGuideGUIMenu extends AbstractContainerMenu implements MasterchefRestaurantModMenus.MenuAccessor {
+public class BlocksGuideP4GUIMenu extends AbstractContainerMenu implements MasterchefRestaurantModMenus.MenuAccessor {
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 18)
+			if (!this.containsKey(key) && this.size() >= 14)
 				return null;
 			return super.put(key, value);
 		}
@@ -42,8 +42,8 @@ public class BlocksGuideGUIMenu extends AbstractContainerMenu implements Masterc
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public BlocksGuideGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(MasterchefRestaurantModMenus.BLOCKS_GUIDE_GUI.get(), id);
+	public BlocksGuideP4GUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_4_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(0);

@@ -27,7 +27,6 @@ public class CreatingFoodListJsonProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		com.google.gson.JsonObject FoodDatabaseObject = new com.google.gson.JsonObject();
 		File FoodDatabase = new File("");
-		double moddedFoodBonus = 0;
 		if (!world.isClientSide()) { // =====================================================
 			// SERVER SIDE ONLY
 			// =====================================================

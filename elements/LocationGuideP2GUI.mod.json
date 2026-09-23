@@ -121,13 +121,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "New areas must connect directly to one of your existing restaurant areas.\nYour maximum number of claimed areas increases with the restaurant level.",
+          "text": "Each new area must connect directly to one of your existing areas by a side. Diagonal connections do not count.\nYour maximum number of claimed areas increases with your restaurant level.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 130,
           "height": 167,
           "x": 69,
@@ -139,14 +142,17 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "Restaurant areas cannot overlap.\nAt least one full 5x5 area must remain between areas belonging to different restaurants. The first area must also be placed at least five areas away from another restaurant's first area.",
+          "text": "Restaurant areas cannot overlap or be placed directly next to another restaurant's claimed areas.\nThe first area of a new restaurant must also be placed farther away from other restaurants.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 129,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 124,
           "height": 149,
           "x": 219,
           "y": 36,
@@ -162,6 +168,18 @@
           "onClick": "ChefsDiaryGuideLocation",
           "x": 73,
           "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "location.png",
+          "width": 84,
+          "height": 57,
+          "x": 241,
+          "y": 132,
           "locked": false
         }
       }

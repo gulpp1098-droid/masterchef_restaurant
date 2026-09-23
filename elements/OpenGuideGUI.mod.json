@@ -120,7 +120,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 102,
+          "y": 90,
           "locked": false
         }
       },
@@ -137,7 +137,7 @@
           },
           "hasShadow": false,
           "x": 219,
-          "y": 81,
+          "y": 86,
           "locked": false
         }
       },
@@ -155,13 +155,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_when_your_restaurant_is_ready_y",
-          "text": "When your restaurant is ready, you can open it! Use the Golden Spatula to open the restaurant menu and press the Open button.",
+          "text": "When your restaurant is ready, use the Golden Spatula to open the restaurant menu and press the Open button.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 132,
           "height": 71,
           "x": 69,
@@ -173,17 +176,20 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_restaurant_can_be_open_only_once",
-          "text": "Restaurant can be open only once per day and between 6.00 and 15.00! After that time, you must wait for the next day.",
+          "text": "Your restaurant can only be opened once per day, between 6:00 and 15:00. After that, you will need to wait until the next day.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 127,
           "height": 72,
           "x": 69,
-          "y": 117,
+          "y": 105,
           "locked": false
         }
       },
@@ -191,13 +197,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_once_open_customers_will_begin",
-          "text": "Once open, customers will begin to arrive, wait in queue, find tables and order food.",
+          "text": "Once opened, customers will begin arriving, wait in the queue, find a table and place their orders.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 128,
           "height": 51,
           "x": 219,
@@ -209,13 +218,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_restaurant_is_closed_8_hours_aft",
-          "text": "Restaurant is closed 8 hours after opening (around 13 minutes). You can also close it earlier, so you do not have to sit there all day.",
+          "text": "Your restaurant closes automatically 8 in-game hours after opening (around 13 minutes). You can also close it earlier whenever you are done serving customers.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 127,
           "height": 84,
           "x": 219,

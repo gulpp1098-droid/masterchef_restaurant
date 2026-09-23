@@ -25,7 +25,6 @@ public class MasterchefRestaurantModScreens {
 		event.register(MasterchefRestaurantModMenus.SPATULA_GUIDE_GUI.get(), SpatulaGuideGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_GUI.get(), BlocksGuideGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_2_GUI.get(), BlocksGuideP2GUIScreen::new);
-		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_3_GUI.get(), BlocksGuideP3GUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.LOCATION_GUIDE_GUI.get(), LocationGuideGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.SET_UP_GUIDE_GUI.get(), SetUpGuideGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.OPEN_GUIDE_GUI.get(), OpenGuideGUIScreen::new);
@@ -36,6 +35,9 @@ public class MasterchefRestaurantModScreens {
 		event.register(MasterchefRestaurantModMenus.EXP_LEVEL_GUIDE_P_2_GUI.get(), ExpLevelGuideP2GUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.LOCATION_GUIDE_P_2_GUI.get(), LocationGuideP2GUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.CHEFS_DIARY_FOOD_TIER_GUI.get(), ChefsDiaryFoodTierGUIScreen::new);
+		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_3_GUI.get(), BlocksGuideP3GUIScreen::new);
+		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_4_GUI.get(), BlocksGuideP4GUIScreen::new);
+		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_5_GUI.get(), BlocksGuideP5GUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

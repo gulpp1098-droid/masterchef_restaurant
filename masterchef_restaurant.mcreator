@@ -4501,21 +4501,6 @@
       "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
     },
     {
-      "name": "BlocksGuideP3GUI",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "blocks_guide_p_3_gui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/BlocksGuideP3GUIMenu.java",
-          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/BlocksGuideP3GUIScreen.java",
-          "src/main/java/net/mcreator/masterchefrestaurant/network/BlocksGuideP3GUIButtonMessage.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
-    },
-    {
       "name": "LocationGuideGUI",
       "type": "gui",
       "compiles": true,
@@ -8231,6 +8216,121 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "BlocksGuideP3GUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blocks_guide_p_3_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/BlocksGuideP3GUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/BlocksGuideP3GUIScreen.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/network/BlocksGuideP3GUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "BlocksGuideP4GUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blocks_guide_p_4_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/BlocksGuideP4GUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/BlocksGuideP4GUIScreen.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/network/BlocksGuideP4GUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "BlocksGuideP5GUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blocks_guide_p_5_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/BlocksGuideP5GUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/BlocksGuideP5GUIScreen.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/network/BlocksGuideP5GUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryGuideBlocksP4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_guide_blocks_p_4",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChefsDiaryGuideBlocksP4Procedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning"
+    },
+    {
+      "name": "ChefsDiaryGuideBlocksP5",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_guide_blocks_p_5",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChefsDiaryGuideBlocksP5Procedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning"
     }
   ],
   "variable_elements": [
@@ -8435,8 +8535,8 @@
       "gui.masterchef_restaurant.restaurant_management_gui.button_create_restaurant_edit_name": "Create Restaurant / Edit Name",
       "gui.masterchef_restaurant.restaurant_management_gui.label_management": "Management",
       "gui.masterchef_restaurant.create_restaurant_gui.label_management": "Create",
-      "gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant": "Create Restaurant",
-      "gui.masterchef_restaurant.restaurant_management_gui.label_set_location_for_restaurant": "Set Location for Restaurant",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant": "Create / Delete Restaurant",
+      "gui.masterchef_restaurant.restaurant_management_gui.label_set_location_for_restaurant": "Set Restaurant Area",
       "gui.masterchef_restaurant.restaurant_management_gui.label_open_close": "Open / Close",
       "gui.masterchef_restaurant.spatula_guide_gui.label_manage_and_improve": "manage and improve a",
       "gui.masterchef_restaurant.spatula_guide_gui.label_a_successful_restaurant": "A successful restaurant",
@@ -8496,7 +8596,7 @@
       "gui.masterchef_restaurant.blocks_guide_gui.label_reception": "- Reception",
       "gui.masterchef_restaurant.blocks_guide_gui.label_each_block_has_a_job": "Each block has its a job.",
       "gui.masterchef_restaurant.blocks_guide_gui.label_queue_rug_optional": "- Queue Rug (optional)",
-      "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table": "Service Table",
+      "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_service_table": "Reception",
       "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_chair": "- Chair",
       "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_visit_your_restaurant": "visit, your restaurant",
       "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_overview_wip": "Required Blocks - WIP",
@@ -8514,7 +8614,6 @@
       "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_customers_will_gladly": "Customers will gladly",
       "gui.masterchef_restaurant.blocks_guide_p_2_gui.label_just_add_some_chair_as_well": "Just do not forget chairs!",
       "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_customers_will_gladly": "A fancy rug for hungry",
-      "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table": "Queue Rug",
       "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_just_add_some_chair_as_well": "wait here in line!",
       "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_reception1": "Chair",
       "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_this_place": "So let them sit by the",
@@ -8710,7 +8809,6 @@
       "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_as_well_as_claim_area": "Remember!",
       "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_overview_wip": "Exp and Coins",
       "gui.masterchef_restaurant.location_guide_p_2_gui.label_overview_wip": "Set area",
-      "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table_copy": "Queue Rules",
       "advancements.cooking_time.title": "Cooking Time",
       "advancements.cooking_time.descr": "It is cooking time!",
       "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food_wip": "Tier Nr",
@@ -8731,7 +8829,10 @@
       "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food1_copy": "Food2",
       "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food1_copy_2_copy_2": "Food5",
       "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food1_copy_2_copy_7_copy_8": "Food18",
-      "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food1": "Food1"
+      "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food1": "Food1",
+      "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table": "Service Table",
+      "gui.masterchef_restaurant.blocks_guide_p_4_gui.label_service_table": "Chair",
+      "gui.masterchef_restaurant.blocks_guide_p_5_gui.label_service_table": "Queue Rug"
     }
   },
   "metadata": {

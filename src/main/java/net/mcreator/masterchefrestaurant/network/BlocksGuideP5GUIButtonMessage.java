@@ -19,21 +19,21 @@ import net.mcreator.masterchefrestaurant.procedures.*;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
-public record BlocksGuideP3GUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
-	public static final Type<BlocksGuideP3GUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(MasterchefRestaurantMod.MODID, "blocks_guide_p_3_gui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, BlocksGuideP3GUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, BlocksGuideP3GUIButtonMessage message) -> {
+public record BlocksGuideP5GUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+	public static final Type<BlocksGuideP5GUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(MasterchefRestaurantMod.MODID, "blocks_guide_p_5_gui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, BlocksGuideP5GUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, BlocksGuideP5GUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new BlocksGuideP3GUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new BlocksGuideP5GUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 
 	@Override
-	public Type<BlocksGuideP3GUIButtonMessage> type() {
+	public Type<BlocksGuideP5GUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final BlocksGuideP3GUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final BlocksGuideP5GUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
@@ -69,16 +69,12 @@ public record BlocksGuideP3GUIButtonMessage(int buttonID, int x, int y, int z) i
 		}
 		if (buttonID == 5) {
 
-			ChefsDiaryGuideBlocksP2Procedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 6) {
-
 			ChefsDiaryGuideBlocksP4Procedure.execute(world, x, y, z, entity);
 		}
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		MasterchefRestaurantMod.addNetworkMessage(BlocksGuideP3GUIButtonMessage.TYPE, BlocksGuideP3GUIButtonMessage.STREAM_CODEC, BlocksGuideP3GUIButtonMessage::handleData);
+		MasterchefRestaurantMod.addNetworkMessage(BlocksGuideP5GUIButtonMessage.TYPE, BlocksGuideP5GUIButtonMessage.STREAM_CODEC, BlocksGuideP5GUIButtonMessage::handleData);
 	}
 }

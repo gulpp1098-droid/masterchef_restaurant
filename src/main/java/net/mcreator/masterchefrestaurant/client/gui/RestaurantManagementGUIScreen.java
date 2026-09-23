@@ -237,8 +237,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_management"), 47, -9, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant"), 26, 24, -16777216, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_set_location_for_restaurant"), -5, 56, -16777216, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant"), -1, 24, -16777216, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_set_location_for_restaurant"), 18, 56, -16777216, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_open_close"), 79, 94, -16777216, false);
 		guiGraphics.drawString(this.font, MaxTablesReturnProcedure.execute(entity), 6, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxQueueReturnProcedure.execute(entity), 60, 126, -12829636, false);
@@ -264,7 +264,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food2NameReturnProcedure.execute(entity), ""), 188, 52, 65, -12829636, false, 1.00F, 2);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.Food3NameReturnProcedure.execute(entity), ""), 188, 90, 65, -12829636, false, 1.00F, 2);
-		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.MenuNameReturnProcedure.execute(entity), ""), 204, -12, 64, 43, -1, false, 0.75F, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.masterchefrestaurant.procedures.MenuNameReturnProcedure.execute(entity), ""), 200, -11, 42, 13, -1, false, 0.75F, 0, 2);
 	}
 
 	@Override
@@ -363,7 +363,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Next day menu";
+				String guiTools$buttonText = "View Next Menu";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
@@ -418,9 +418,9 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
-	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
 
-	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode) {
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
@@ -428,7 +428,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		int lineStep = this.font.lineHeight + 1;
 		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
 		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
-		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(cacheKey, key -> this.guiTools$displayMultilineText(text, wrapWidth, maxLines, overflowMode));
+		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
+				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
 			this.guiTools$multilineCache.clear();
 		boolean clip = overflowMode != 0;
@@ -439,9 +440,24 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			guiGraphics.pose().translate(x, y, 0.0F);
 			guiGraphics.pose().scale(scale, scale, 1.0F);
 			int currentY = 0;
-			for (String line : lines) {
-				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
-				currentY += lineStep;
+			for (java.util.List<String> lines : paragraphs) {
+				for (int index = 0; index < lines.size(); index++) {
+					String line = lines.get(index);
+					int remaining = wrapWidth - this.font.width(line);
+					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
+						String[] words = line.split(" ");
+						int advance = 0;
+						for (int word = 0; word < words.length; word++) {
+							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
+							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
+							advance += this.font.width(words[word] + " ");
+						}
+					} else {
+						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
+						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
+					}
+					currentY += lineStep;
+				}
 			}
 		} finally {
 			guiGraphics.pose().popPose();

@@ -120,7 +120,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 116,
+          "y": 126,
           "locked": false
         }
       },
@@ -129,8 +129,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 180,
-          "y": 16,
+          "x": 157,
+          "y": 18,
           "locked": false
         }
       },
@@ -138,14 +138,17 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_customers_finish_eating_t",
-          "text": "After customers finish eating, they will leave money and give experience to your restaurant. Money is left on the table. To collect it, simply right-click the table.",
+          "text": "After customers finish eating, they will leave money and give reputation to your restaurant. Money is left on the Service Table. To collect it, simply right-click the table.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 134,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 132,
           "height": 84,
           "x": 69,
           "y": 36,
@@ -156,17 +159,20 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_a_table_with_waiting_payment_wil",
-          "text": "A table with waiting payment will not accept new customers.",
+          "text": "A Service Table with uncollected payment will not accept new customers.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 131,
           "height": 48,
           "x": 69,
-          "y": 130,
+          "y": 138,
           "locked": false
         }
       },
@@ -174,14 +180,17 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_experience_is_added_to_your_rest",
-          "text": "Experience is added to your restaurant reputation points. To get full reward, you need to complete whole order. Every missing food lowers the experience gain. If too much is missing, you may even lose reputation. With enough reputation, your restaurant will level up!",
+          "text": "Serving customers earns reputation for your restaurant. To receive the full reward, complete the entire order. Every missing food reduces the reputation gained, and a badly incomplete order may even make you lose reputation.\nEarn enough reputation and your restaurant will level up!",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 129,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 124,
           "height": 168,
           "x": 219,
           "y": 36,

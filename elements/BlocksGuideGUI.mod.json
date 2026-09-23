@@ -112,8 +112,8 @@
         "data": {
           "image": "requirements_icon.png",
           "use1Xscale": false,
-          "x": 183,
-          "y": 14,
+          "x": 162,
+          "y": 19,
           "locked": false
         }
       },
@@ -158,29 +158,12 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_reception1",
-          "text": {
-            "fixedValue": "Reception"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 219,
-          "y": 22,
-          "locked": false
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "separator_icon.png",
           "use1Xscale": false,
           "x": 215,
-          "y": 71,
+          "y": 22,
           "locked": false
         }
       },
@@ -210,34 +193,19 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_customers_can_visit_your",
-          "text": "Before customers can visit, your restaurant needs a few basic blocks. \nEach block has its job. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Queue Rug (optional)",
+          "text": "Before customers can visit, your restaurant needs a few basic blocks. Each one has a different role. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Queue Rug (optional)",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 120,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 130,
           "height": 40,
           "x": 69,
-          "y": 36,
-          "locked": false
-        }
-      },
-      {
-        "type": "multiline_label",
-        "data": {
-          "name": "multiline_label_your_restaurant_begins_here_cus",
-          "text": "Your restaurant begins here. Customers will wait in queue here!",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "width": 120,
-          "height": 40,
-          "x": 219,
           "y": 36,
           "locked": false
         }
@@ -246,11 +214,11 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_0",
-          "image": "reception_crafting.png",
-          "width": 80,
-          "height": 80,
-          "x": 242,
-          "y": 85,
+          "image": "restaurant_setup.png",
+          "width": 112,
+          "height": 100,
+          "x": 225,
+          "y": 49,
           "locked": false
         }
       }

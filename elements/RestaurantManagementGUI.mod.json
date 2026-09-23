@@ -88,14 +88,14 @@
         "data": {
           "name": "label_create_edit_restaurant",
           "text": {
-            "fixedValue": "Create Restaurant"
+            "fixedValue": "Create / Delete Restaurant"
           },
           "color": {
             "value": -16777216,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 174,
+          "x": 147,
           "y": 73,
           "locked": false
         }
@@ -117,14 +117,14 @@
         "data": {
           "name": "label_set_location_for_restaurant",
           "text": {
-            "fixedValue": "Set Location for Restaurant"
+            "fixedValue": "Set Restaurant Area"
           },
           "color": {
             "value": -16777216,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 143,
+          "x": 166,
           "y": 105,
           "locked": false
         }
@@ -694,7 +694,7 @@
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_button_icon",
-          "text": "Next day menu",
+          "text": "View Next Menu",
           "isUndecorated": true,
           "onClick": "OpenNextDayMenuGUI",
           "width": 78,
@@ -718,10 +718,11 @@
           "textProcedure": "MenuNameReturn",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
-          "width": 64,
-          "height": 43,
-          "x": 352,
-          "y": 37,
+          "alignment": "CENTER",
+          "width": 42,
+          "height": 13,
+          "x": 348,
+          "y": 38,
           "locked": false
         }
       },

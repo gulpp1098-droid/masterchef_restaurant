@@ -118,19 +118,12 @@
         }
       },
       {
-        "type": "label",
+        "type": "image",
         "data": {
-          "name": "label_crafting",
-          "text": {
-            "fixedValue": "Crafting"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 257,
-          "y": 35,
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 215,
+          "y": 30,
           "locked": false
         }
       },
@@ -139,18 +132,8 @@
         "data": {
           "image": "separator_icon.png",
           "use1Xscale": false,
-          "x": 212,
-          "y": 52,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "separator_icon.png",
-          "use1Xscale": false,
-          "x": 213,
-          "y": 171,
+          "x": 215,
+          "y": 160,
           "locked": false
         }
       },
@@ -158,13 +141,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_every_chef_needs_a_proper_tool",
-          "text": "Every chef needs a proper tool.\nThe Golden Spatula will be your best friend! It lets you create and manage your restaurant, claim area, check basic info and prepare place for your customers. Keep it close. Without it, your restaurant is useless as Menu with no food!",
+          "text": "Every chef needs the right tool, and the Golden Spatula will be your best friend.\nUse it to create and manage your restaurant, claim new areas, open the restaurant menu and check important information. Keep it close — running a restaurant without it would be like serving dinner without food!",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 130,
           "height": 165,
           "x": 69,
@@ -177,10 +163,10 @@
         "data": {
           "name": "dynamic_image_0",
           "image": "spatula_crafting.png",
-          "width": 80,
-          "height": 80,
-          "x": 240,
-          "y": 75,
+          "width": 90,
+          "height": 90,
+          "x": 235,
+          "y": 55,
           "locked": false
         }
       }

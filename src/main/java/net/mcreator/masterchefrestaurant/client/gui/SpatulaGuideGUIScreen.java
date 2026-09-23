@@ -68,16 +68,16 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -34, this.topPos + -103, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -2, this.topPos + -68, 0, 0, 133, 11, 133, 11);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -1, this.topPos + 51, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 1, this.topPos + -90, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 1, this.topPos + 40, 0, 0, 133, 11, 133, 11);
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 80;
-				int guiTools$visibleHeight = 80;
+				int guiTools$visibleWidth = 90;
+				int guiTools$visibleHeight = 90;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/spatula_crafting.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 26 + guiTools$xOffset, this.topPos + -45 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 80, 80);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 21 + guiTools$xOffset, this.topPos + -65 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 90, 90);
 			}
 		}
 		RenderSystem.disableBlend();
@@ -95,10 +95,9 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.spatula_guide_gui.label_crafting"), 43, -85, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Every chef needs a proper tool.\nThe Golden Spatula will be your best friend! It lets you create and manage your restaurant, claim area, check basic info and prepare place for your customers. Keep it close. Without it, your restaurant is useless as Menu with no food!",
-				-145, -84, 130, 165, -12829636, false, 1.00F);
+				"Every chef needs the right tool, and the Golden Spatula will be your best friend.\nUse it to create and manage your restaurant, claim new areas, open the restaurant menu and check important information. Keep it close \u2014 running a restaurant without it would be like serving dinner without food!",
+				-145, -84, 130, 165, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -181,28 +180,95 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 		this.addRenderableWidget(imagebutton_stats_icon);
 	}
 
-	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
 
-	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int currentY = 0;
-		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
+		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
+				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
 			this.guiTools$multilineCache.clear();
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
 		guiGraphics.pose().pushPose();
 		try {
 			guiGraphics.pose().translate(x, y, 0.0F);
 			guiGraphics.pose().scale(scale, scale, 1.0F);
-			for (String line : lines) {
-				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
-				currentY += lineStep;
+			int currentY = 0;
+			for (java.util.List<String> lines : paragraphs) {
+				for (int index = 0; index < lines.size(); index++) {
+					String line = lines.get(index);
+					int remaining = wrapWidth - this.font.width(line);
+					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
+						String[] words = line.split(" ");
+						int advance = 0;
+						for (int word = 0; word < words.length; word++) {
+							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
+							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
+							advance += this.font.width(words[word] + " ");
+						}
+					} else {
+						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
+						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
+					}
+					currentY += lineStep;
+				}
 			}
 		} finally {
 			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
 		}
+	}
+
+	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
+		if (text == null || overflowMode == 0 || scale <= 0.0F)
+			return false;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
+		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
+		for (String line : lines)
+			if (this.font.width(line) > wrapWidth)
+				return true;
+		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
+	}
+
+	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
+		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
+		if (overflowMode != 2)
+			return wrapped;
+		if (maxLines <= 0)
+			return java.util.List.of();
+		boolean verticalOverflow = wrapped.size() > maxLines;
+		java.util.List<String> result = new java.util.ArrayList<>();
+		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
+			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
+		}
+		return java.util.List.copyOf(result);
+	}
+
+	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
+		if (!forceEllipsis && this.font.width(value) <= maxWidth)
+			return value;
+		String ellipsis = "…";
+		if (this.font.width(ellipsis) > maxWidth)
+			return "";
+		int low = 0, high = value.length();
+		while (low < high) {
+			int middle = (low + high + 1) >>> 1;
+			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
+				low = middle;
+			else
+				high = middle - 1;
+		}
+		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

@@ -121,13 +121,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_now_it_is_time_to_prepare_your_r",
-          "text": "Now it is time to prepare your restaurant! You need at least:\n- 1 Reception\n- 1 Service table\n- 1 Chair\nThe reception starts your customer queue and creates the first Queue Rug. Extra Queue Rugs extend the line and give more groups a place to wait.",
+          "text": "Now it is time to prepare your restaurant! You need at least:\n- 1 Reception\n- 1 Service Table\n- 1 Chair\nThe Reception starts your customer queue and creates the first Queue Rug automatically. Extra Queue Rugs extend the line and give more groups a place to wait.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 132,
           "height": 163,
           "x": 69,
@@ -139,14 +142,17 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_service_tables_are_where_custome",
-          "text": "Service Tables are where customers sit, eat and pay. Place Chairs next to tables so customers can sit. A table with more Chairs can serve larger groups. If a group does not fit, it will look for another table.",
+          "text": "Service Tables are where customer groups sit, eat and leave payment. Place Chairs next to a Service Table to create seats for that table. More Chairs allow it to serve larger groups. If a group does not fit, it will look for another available table.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 126,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 123,
           "height": 141,
           "x": 219,
           "y": 36,

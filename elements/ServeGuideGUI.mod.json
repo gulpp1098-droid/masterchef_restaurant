@@ -112,7 +112,7 @@
         "data": {
           "image": "serve_icon.png",
           "use1Xscale": false,
-          "x": 186,
+          "x": 165,
           "y": 18,
           "locked": false
         }
@@ -133,13 +133,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_are_the_heart_of_your",
-          "text": "Customers are the heart of your restaurant. They arrive in groups, wait for tables, choose orders and expect to be served.\nEach customer has patience. It goes down while they wait too long. Keep an eye on them. Hungry guests are calm... to the time.",
+          "text": "Customers are the heart of your restaurant. They arrive in groups, wait for a table, place their orders and expect to be served.\nEach customer has patience. It decreases while they wait, so keep an eye on them and try not to leave them waiting for too long.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 132,
           "height": 161,
           "x": 69,
@@ -151,13 +154,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_when_a_customer_is_ready_you_wi",
-          "text": "When a customer is ready, you will see icon above their head. Interact with them to see their order. Place the correct food in the input slot. If the food matches, it will be marked as delivered.",
+          "text": "When a customer is ready, an icon will appear above their head. Interact with them to view their order. Place the correct food in the input slot. If it matches the order, it will be marked as delivered.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 125,
           "height": 126,
           "x": 219,

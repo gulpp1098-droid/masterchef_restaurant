@@ -112,8 +112,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 180,
-          "y": 16,
+          "x": 157,
+          "y": 18,
           "locked": false
         }
       },
@@ -121,13 +121,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_customers_finish_eating_t",
-          "text": "Earn reputation by serving customers. Most levels are gained automatically after reaching the required reputation. \nEvery tenth level awards a new restaurant star and requires a successful critic visit.",
+          "text": "Earn reputation by serving customers. Most levels are gained automatically once you reach the required reputation.\nEvery tenth level awards a new restaurant star and requires a successful visit from a Critic.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 134,
           "height": 84,
           "x": 69,
@@ -139,17 +142,20 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_experience_is_added_to_your_rest",
-          "text": "When you reach the reputation required for a new star, your restaurant will wait for a critic. Each time the restaurant opens, there is a 30% chance that a critic will visit. Complete the critic's entire order correctly to earn the next level and restaurant star. An unsuccessful visit can be attempted again on another day.",
+          "text": "When you reach the reputation required for a new star, your restaurant becomes eligible for a Critic visit. Each time you open the restaurant, there is a 30% chance that a Critic will appear.\nComplete the Critic's entire order to earn the next level and a new restaurant star. If you fail, another Critic can visit on a later day.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 129,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 128,
           "height": 168,
           "x": 219,
-          "y": 36,
+          "y": 22,
           "locked": false
         }
       },

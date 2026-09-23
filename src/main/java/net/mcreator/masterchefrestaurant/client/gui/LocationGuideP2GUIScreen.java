@@ -62,10 +62,21 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -104, 0, 0, 15, 17, 15, 17);
+		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiTools$orderedImages : {
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -61, this.topPos + -104, 0, 0, 15, 17, 15, 17);
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 84;
+				int guiTools$visibleHeight = 57;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/location.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 27 + guiTools$xOffset, this.topPos + 12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 84, 57);
+			}
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -81,11 +92,10 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.location_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "New areas must connect directly to one of your existing restaurant areas.\nYour maximum number of claimed areas increases with the restaurant level.", -145, -84, 130, 167, -12829636, false,
-				1.00F);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Restaurant areas cannot overlap.\nAt least one full 5x5 area must remain between areas belonging to different restaurants. The first area must also be placed at least five areas away from another restaurant's first area.", 5, -84,
-				129, 149, -12829636, false, 1.00F);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Each new area must connect directly to one of your existing areas by a side. Diagonal connections do not count.\nYour maximum number of claimed areas increases with your restaurant level.",
+				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Restaurant areas cannot overlap or be placed directly next to another restaurant's claimed areas.\nThe first area of a new restaurant must also be placed farther away from other restaurants.",
+				5, -84, 124, 149, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -102,7 +112,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_base_icon);
@@ -117,7 +127,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_food_icon);
@@ -132,7 +142,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_clients_icon);
@@ -147,7 +157,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_appliences_icon);
@@ -162,7 +172,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
@@ -177,34 +187,101 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
 	}
 
-	private final java.util.Map<String, java.util.List<String>> guiTools$multilineCache = new java.util.HashMap<>();
+	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
 
-	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale) {
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int currentY = 0;
-		java.util.List<String> lines = this.guiTools$multilineCache.computeIfAbsent(text + "\u0000" + wrapWidth, key -> this.guiTools$wrapMultilineText(text, wrapWidth));
+		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
+		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
+				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
 			this.guiTools$multilineCache.clear();
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
 		guiGraphics.pose().pushPose();
 		try {
 			guiGraphics.pose().translate(x, y, 0.0F);
 			guiGraphics.pose().scale(scale, scale, 1.0F);
-			for (String line : lines) {
-				guiGraphics.drawString(this.font, line, 0, currentY, color, shadow);
-				currentY += lineStep;
+			int currentY = 0;
+			for (java.util.List<String> lines : paragraphs) {
+				for (int index = 0; index < lines.size(); index++) {
+					String line = lines.get(index);
+					int remaining = wrapWidth - this.font.width(line);
+					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
+						String[] words = line.split(" ");
+						int advance = 0;
+						for (int word = 0; word < words.length; word++) {
+							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
+							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
+							advance += this.font.width(words[word] + " ");
+						}
+					} else {
+						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
+						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
+					}
+					currentY += lineStep;
+				}
 			}
 		} finally {
 			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
 		}
+	}
+
+	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
+		if (text == null || overflowMode == 0 || scale <= 0.0F)
+			return false;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
+		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
+		for (String line : lines)
+			if (this.font.width(line) > wrapWidth)
+				return true;
+		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
+	}
+
+	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
+		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
+		if (overflowMode != 2)
+			return wrapped;
+		if (maxLines <= 0)
+			return java.util.List.of();
+		boolean verticalOverflow = wrapped.size() > maxLines;
+		java.util.List<String> result = new java.util.ArrayList<>();
+		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
+			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
+		}
+		return java.util.List.copyOf(result);
+	}
+
+	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
+		if (!forceEllipsis && this.font.width(value) <= maxWidth)
+			return value;
+		String ellipsis = "…";
+		if (this.font.width(ellipsis) > maxWidth)
+			return "";
+		int low = 0, high = value.length();
+		while (low < high) {
+			int middle = (low + high + 1) >>> 1;
+			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
+				low = middle;
+			else
+				high = middle - 1;
+		}
+		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
@@ -229,5 +306,36 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 			lines.add(line.toString());
 		}
 		return java.util.List.copyOf(lines);
+	}
+
+	private static net.minecraft.resources.ResourceLocation guiTools$dynamicTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("masterchef_restaurant", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
+		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
+		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+		try {
+			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
+		} finally {
+			if (!wasBlending)
+				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
+		}
 	}
 }

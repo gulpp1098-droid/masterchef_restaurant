@@ -115,7 +115,7 @@
         "data": {
           "name": "label_service_table",
           "text": {
-            "fixedValue": "Reception"
+            "fixedValue": "Chair"
           },
           "color": {
             "value": -12829636,
@@ -133,7 +133,7 @@
           "name": "imagebutton_last_page_icon",
           "image": "last_page_icon.png",
           "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideBlocks",
+          "onClick": "ChefsDiaryGuideBlocksP3",
           "x": 73,
           "y": 177,
           "locked": false
@@ -145,7 +145,7 @@
           "name": "imagebutton_next_page_icon",
           "image": "next_page_icon.png",
           "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideBlocksP3",
+          "onClick": "ChefsDiaryGuideBlocksP5",
           "x": 322,
           "y": 177,
           "locked": false
@@ -155,7 +155,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_will_gladly_come_and_e",
-          "text": "The Reception is the starting point for your customers. When placed, it automatically creates the first Queue Rug next to it, giving customers a place to wait.\nEach restaurant can have only one Reception. ",
+          "text": "Chairs provide seats for customers at your Service Tables. Place them next to a Service Table to make them part of that table.\nThe number of Chairs determines how many customers can sit together at the table. Make sure every group has enough room to sit!",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -176,7 +176,7 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_1",
-          "image": "reception_crafting.png",
+          "image": "chair_crafting.png",
           "width": 90,
           "height": 90,
           "x": 235,

@@ -140,13 +140,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_lose_patiance_while_wa",
-          "text": "Customers lose patience while waiting in queue, waiting to order or waiting for food. If patience gets too low, they may leave unhappy. Fast service keeps customers satisfied and your restaurant growing!",
+          "text": "Customers lose patience while waiting in the queue, waiting to order or waiting for food. If their patience gets too low, they may leave unhappy. Serve them quickly to keep your customers satisfied and your restaurant growing!",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 130,
           "height": 137,
           "x": 69,
@@ -158,13 +161,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_some_customers_may_order_more_th",
-          "text": "Some customers may order more than one food. Serve every ordered item before they can start eating. More dishes will be unlocked with restaurant level.",
+          "text": "Some customers may order more than one dish. Serve every ordered item before they can start eating. More dishes become available as your restaurant level increases.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 127,
           "height": 103,
           "x": 219,

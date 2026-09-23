@@ -121,13 +121,16 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Before placing down your blocks, you need to claim an area for your restaurant!\nTake your Golden Spatula and choose \"Set Location for Restaurant\". you will notice a green 5x5 square on the floor. When you right click on the block, it will set up your first area!",
+          "text": "Before placing your restaurant blocks, you need to claim an area for your restaurant.\nTake your Golden Spatula and choose \"Set Location for Restaurant\". A green 5x5 area will appear on the ground. Right-click to claim it as your first restaurant area.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
           "width": 130,
           "height": 167,
           "x": 69,
@@ -139,14 +142,17 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "After that you can claim 3 more areas at the start but the shape and amount is up to you!\nInside claimed areas, you can place all functional restaurant blocks. As your restaurant level grows, you will unlock more space to claim!",
+          "text": "You can claim up to 4 areas at the start. Additional areas let you shape and expand your restaurant within the grid.\nFunctional restaurant blocks are active only inside your claimed areas. As your restaurant level increases, you will unlock more areas to claim.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
-          "width": 129,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 125,
           "height": 149,
           "x": 219,
           "y": 36,
