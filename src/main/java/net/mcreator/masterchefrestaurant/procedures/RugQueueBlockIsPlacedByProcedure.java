@@ -10,6 +10,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -69,6 +70,8 @@ public class RugQueueBlockIsPlacedByProcedure {
 					setBlockNBTText(world, X, Y, Z, "last_rug", ((x + 0.5) + ":" + y + ":" + (z + 0.5)));
 					RugUpdateStateQueueProcedure.execute(world, x, y, z);
 				} else {
+					if (entity instanceof Player _player17 && !_player17.level().isClientSide())
+						_player17.displayClientMessage(Component.literal("You have reached your current Queue Rug limit.").withStyle(ChatFormatting.RED), true);
 					{
 						BlockPos _pos = BlockPos.containing(x, y, z);
 						Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -76,6 +79,8 @@ public class RugQueueBlockIsPlacedByProcedure {
 					}
 				}
 			} else {
+				if (entity instanceof Player _player21 && !_player21.level().isClientSide())
+					_player21.displayClientMessage(Component.literal("Queue Rugs must connect to the end of your restaurant queue.").withStyle(ChatFormatting.RED), true);
 				{
 					BlockPos _pos = BlockPos.containing(x, y, z);
 					Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -83,8 +88,8 @@ public class RugQueueBlockIsPlacedByProcedure {
 				}
 			}
 		} else {
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("You do not have Restaurant yet!"), false);
+			if (entity instanceof Player _player25 && !_player25.level().isClientSide())
+				_player25.displayClientMessage(Component.literal("You do not have Restaurant yet!").withStyle(ChatFormatting.RED), true);
 		}
 	}
 

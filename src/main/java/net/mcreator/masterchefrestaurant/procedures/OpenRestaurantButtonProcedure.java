@@ -6,6 +6,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -60,8 +61,8 @@ public class OpenRestaurantButtonProcedure {
 						CreateOverlayDataTransferProcedure.execute(world, entity);
 						CreateGUIDataTransferProcedure.execute(world, entity);
 						FillSlotsMenuProcedure.execute(world, entity);
-						if (owner instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("Restaurant is now closed!"), false);
+						if (owner instanceof Player _player8 && !_player8.level().isClientSide())
+							_player8.displayClientMessage(Component.literal("Restaurant closed.").withStyle(ChatFormatting.WHITE), true);
 					} else if (!Restaurant.get("open").getAsBoolean() && (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) {
 						if (EnsureClientsDatabaseCurrentDayProcedure.execute(world)) {
 							if (GetRestaurantNumberParameterProcedure.execute(index, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -97,40 +98,40 @@ public class OpenRestaurantButtonProcedure {
 												MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 												RestaurantIsOpenProcedure.execute(world, entity, ChairsMax, AmountOfTables);
 												CreateGUIDataTransferProcedure.execute(world, entity);
-												if (owner instanceof Player _player && !_player.level().isClientSide())
-													_player.displayClientMessage(Component.literal(("Your tables available: " + new java.text.DecimalFormat("#").format(AmountOfTables))), false);
-												if (owner instanceof Player _player && !_player.level().isClientSide())
-													_player.displayClientMessage(Component.literal(("Your chairs available: " + new java.text.DecimalFormat("#").format(AmountOfChairs))), false);
-												if (owner instanceof Player _player && !_player.level().isClientSide())
-													_player.displayClientMessage(Component.literal("Restaurant is now open!"), true);
+												if (owner instanceof Player _player22 && !_player22.level().isClientSide())
+													_player22.displayClientMessage(Component.literal("Restaurant opened successfully.").withStyle(ChatFormatting.GREEN), true);
+												if (owner instanceof Player _player25 && !_player25.level().isClientSide())
+													_player25.displayClientMessage(Component
+															.literal(("Available setup: " + new java.text.DecimalFormat("#").format(AmountOfTables) + " Service Tables, " + new java.text.DecimalFormat("#").format(AmountOfChairs) + " Chairs."))
+															.withStyle(ChatFormatting.WHITE), false);
 											} else {
-												if (owner instanceof Player _player && !_player.level().isClientSide())
-													_player.displayClientMessage(Component.literal("You do NOT have reception in your restaurant area!"), true);
+												if (owner instanceof Player _player28 && !_player28.level().isClientSide())
+													_player28.displayClientMessage(Component.literal("Your restaurant needs a Reception.").withStyle(ChatFormatting.RED), true);
 											}
 										} else {
-											if (owner instanceof Player _player && !_player.level().isClientSide())
-												_player.displayClientMessage(Component.literal("You do NOT have any chairs in your restaurant area!"), true);
+											if (owner instanceof Player _player31 && !_player31.level().isClientSide())
+												_player31.displayClientMessage(Component.literal("Your restaurant needs at least one Chair").withStyle(ChatFormatting.RED), true);
 										}
 									} else {
-										if (owner instanceof Player _player && !_player.level().isClientSide())
-											_player.displayClientMessage(Component.literal("You do NOT have any tables in your restaurant area!"), true);
+										if (owner instanceof Player _player34 && !_player34.level().isClientSide())
+											_player34.displayClientMessage(Component.literal("Your restaurant needs at least one Service Table.").withStyle(ChatFormatting.RED), true);
 									}
 								} else {
-									if (owner instanceof Player _player && !_player.level().isClientSide())
-										_player.displayClientMessage(Component.literal("The restaurant can only be opened between 6:00 and 15:00."), true);
+									if (owner instanceof Player _player37 && !_player37.level().isClientSide())
+										_player37.displayClientMessage(Component.literal("Your restaurant can only be opened between 6:00 and 15:00.").withStyle(ChatFormatting.RED), true);
 								}
 							} else {
-								if (owner instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal("You cannot open restaurant twice same day!"), true);
+								if (owner instanceof Player _player40 && !_player40.level().isClientSide())
+									_player40.displayClientMessage(Component.literal("You have already opened your restaurant today.").withStyle(ChatFormatting.RED), true);
 							}
 						}
 					} else {
-						if (owner instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("You cannot do it outside the overworld!"), true);
+						if (owner instanceof Player _player43 && !_player43.level().isClientSide())
+							_player43.displayClientMessage(Component.literal("Restaurants can only be opened in the Overworld.").withStyle(ChatFormatting.RED), true);
 					}
 				} else {
-					if (owner instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("You do NOT have selected restaurant area yet!"), true);
+					if (owner instanceof Player _player46 && !_player46.level().isClientSide())
+						_player46.displayClientMessage(Component.literal("You need to select a restaurant area first.").withStyle(ChatFormatting.RED), true);
 				}
 			}
 		}

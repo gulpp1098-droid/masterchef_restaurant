@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
@@ -40,16 +41,16 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 			if (restaurantID == entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID) {
 				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("You cannot modify the reception while your restaurant is open!"), true);
+					if (entity instanceof Player _player11 && !_player11.level().isClientSide())
+						_player11.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
 					if (event instanceof ICancellableEvent _cancellable) {
 						_cancellable.setCanceled(true);
 					}
 				}
 			} else if (restaurantID == 0) {
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("This block does not belong to your restaurant!"), true);
+				if (entity instanceof Player _player15 && !_player15.level().isClientSide())
+					_player15.displayClientMessage(Component.literal("This block does not belong to your restaurant!").withStyle(ChatFormatting.RED), true);
 				if (event instanceof ICancellableEvent _cancellable) {
 					_cancellable.setCanceled(true);
 				}
@@ -59,16 +60,16 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 			if (restaurantID == entity.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID) {
 				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("You cannot modify the reception while your restaurant is open!"), true);
+					if (entity instanceof Player _player21 && !_player21.level().isClientSide())
+						_player21.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
 					if (event instanceof ICancellableEvent _cancellable) {
 						_cancellable.setCanceled(true);
 					}
 				}
 			} else if (restaurantID == 0) {
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("This block does not belong to your restaurant!"), true);
+				if (entity instanceof Player _player25 && !_player25.level().isClientSide())
+					_player25.displayClientMessage(Component.literal("This block does not belong to your restaurant!").withStyle(ChatFormatting.RED), true);
 				if (event instanceof ICancellableEvent _cancellable) {
 					_cancellable.setCanceled(true);
 				}

@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.world.inventory.RestaurantManagementGUIMenu;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
@@ -63,17 +64,17 @@ public class CreatingNewRestaurantProcedure {
 			NewRestaurant_Name = (Owner instanceof Player _entity1 && _entity1.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "Restaurant_Name", "") : "";
 			IsNameAccepted = true;
 			if ((NewRestaurant_Name).length() < 3 || (NewRestaurant_Name).length() > 30) {
-				if (Owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Restaurant name has to be between 3 and 30 characters"), false);
+				if (Owner instanceof Player _player4 && !_player4.level().isClientSide())
+					_player4.displayClientMessage(Component.literal("Restaurant name must be between 3 and 30 characters.").withStyle(ChatFormatting.RED), false);
 				IsNameAccepted = false;
 			} else if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
-				if (Owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("You are already owning restaurant!"), false);
+				if (Owner instanceof Player _player7 && !_player7.level().isClientSide())
+					_player7.displayClientMessage(Component.literal("You already own a restaurant.").withStyle(ChatFormatting.RED), false);
 				IsNameAccepted = false;
 			} else if (NewRestaurant_Name.contains("!") || NewRestaurant_Name.contains("@") || NewRestaurant_Name.contains("%") || NewRestaurant_Name.contains("^") || NewRestaurant_Name.contains("(") || NewRestaurant_Name.contains(")")
 					|| NewRestaurant_Name.contains("=") || NewRestaurant_Name.contains("\\") || NewRestaurant_Name.contains("/") || NewRestaurant_Name.contains("<") || NewRestaurant_Name.contains(">")) {
-				if (Owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("You cannot use some special characters!"), false);
+				if (Owner instanceof Player _player10 && !_player10.level().isClientSide())
+					_player10.displayClientMessage(Component.literal("The restaurant name contains unsupported characters.").withStyle(ChatFormatting.RED), false);
 				IsNameAccepted = false;
 			} else {
 				Restaurant_Array = GetRestaurantsListArrayProcedure.execute(world);
@@ -82,8 +83,8 @@ public class CreatingNewRestaurantProcedure {
 					Restaurant = Restaurant_Array.get((int) index).getAsJsonObject();
 					Restaurant_Name = Restaurant.get("name").getAsString();
 					if ((NewRestaurant_Name).equals(Restaurant_Name)) {
-						if (Owner instanceof Player _player && !_player.level().isClientSide())
-							_player.displayClientMessage(Component.literal("Restaurant with this name already exists!"), false);
+						if (Owner instanceof Player _player16 && !_player16.level().isClientSide())
+							_player16.displayClientMessage(Component.literal("A restaurant with this name already exists").withStyle(ChatFormatting.RED), false);
 						IsNameAccepted = false;
 						break;
 					}
@@ -161,8 +162,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					GenerateRestaurantMenuProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID, 0);
-					if (Owner instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("Restaurant was created!"), false);
+					if (Owner instanceof Player _player62 && !_player62.level().isClientSide())
+						_player62.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + 1;
 					MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
@@ -185,14 +186,11 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("ERROR: Restaurant data could not be saved!"), false);
+					if (Owner instanceof Player _player66 && !_player66.level().isClientSide())
+						_player66.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					MasterchefRestaurantMod.LOGGER.info("CreatingNewRestaurant: save verification failed." + "\n" + "Restaurant ID: " + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + "\n" + "File: "
 							+ MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path + "/" + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);
 				}
-			} else {
-				if (Owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("ERROR: Restaurant was NOT created!"), false);
 			}
 		}
 	}

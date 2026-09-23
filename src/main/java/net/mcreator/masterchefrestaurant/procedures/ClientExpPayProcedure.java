@@ -106,7 +106,7 @@ public class ClientExpPayProcedure {
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation") - CurrentReputation;
 		ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndex, RealReputationChange, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 				MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "reputation_change");
-		RestaurantLevelUpCheckProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
+		RestaurantLevelUpCheckProcedure.execute(world, entity, client.getPersistentData().getDouble("RestaurantID"));
 	}
 
 	private static ArrayList<Object> string2ArrayList(String text, String separator) {

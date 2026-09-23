@@ -3,15 +3,15 @@ package net.mcreator.masterchefrestaurant.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
-import java.util.UUID;
-
 public class RestaurantLevelUpCheckProcedure {
-	public static double execute(LevelAccessor world, double IDrestaurant) {
+	public static double execute(LevelAccessor world, Entity entity, double IDrestaurant) {
+		if (entity == null)
+			return 0;
 		String owner = "";
 		double restaurantID = 0;
 		double restaurantLevel = 0;
@@ -32,8 +32,8 @@ public class RestaurantLevelUpCheckProcedure {
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
-				if ((world instanceof ServerLevel _level1 ? getEntityFromUUID(_level1, owner) : null) instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("Your restaurant has leveled up to: " + (int) (restaurantLevel + 1) + " level!")), false);
+				if (entity instanceof Player _player3 && !_player3.level().isClientSide())
+					_player3.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel - 1) + "!")).withStyle(ChatFormatting.GREEN), false);
 				return restaurantLevel + 1;
 			}
 		}
@@ -45,19 +45,11 @@ public class RestaurantLevelUpCheckProcedure {
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
-				if ((world instanceof ServerLevel _level4 ? getEntityFromUUID(_level4, owner) : null) instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("Your restaurant has leveled down to: " + (int) (restaurantLevel - 1) + " level!")), false);
+				if (entity instanceof Player _player7 && !_player7.level().isClientSide())
+					_player7.displayClientMessage(Component.literal(("Your restaurant dropped to Level" + (int) (restaurantLevel - 1) + ".")).withStyle(ChatFormatting.RED), false);
 				return restaurantLevel - 1;
 			}
 		}
 		return restaurantLevel;
-	}
-
-	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
-		try {
-			return level.getEntity(UUID.fromString(uuid));
-		} catch (IllegalArgumentException e) {
-			return null;
-		}
 	}
 }

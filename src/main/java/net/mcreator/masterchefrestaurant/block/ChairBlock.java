@@ -120,7 +120,7 @@ public class ChairBlock extends Block implements EntityBlock {
 	@Override
 	public void setPlacedBy(Level world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
 		super.setPlacedBy(world, pos, blockstate, entity, itemstack);
-		ChairBlockIsPlacedByProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		ChairBlockIsPlacedByProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 
 	@Override

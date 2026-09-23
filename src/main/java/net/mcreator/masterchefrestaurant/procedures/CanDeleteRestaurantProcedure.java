@@ -6,6 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -26,14 +27,14 @@ public class CanDeleteRestaurantProcedure {
 		restaurantID = RestaurantID;
 		owner = entity;
 		if (restaurantID <= 0) {
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("You do not have restaurant!"), true);
+			if (owner instanceof Player _player2 && !_player2.level().isClientSide())
+				_player2.displayClientMessage(Component.literal("You do not have restaurant!").withStyle(ChatFormatting.RED), false);
 			return false;
 		}
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 		if (restaurantIndex < 0) {
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("Restaurant does not exist!"), true);
+			if (owner instanceof Player _player5 && !_player5.level().isClientSide())
+				_player5.displayClientMessage(Component.literal("Restaurant does not exist!").withStyle(ChatFormatting.RED), false);
 			return false;
 		}
 		if ((GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name, MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path,
@@ -75,19 +76,24 @@ public class CanDeleteRestaurantProcedure {
 								return 0;
 							}
 						}.convert(tableZ)), "coins") > 0) {
+							if (owner instanceof Player _player12 && !_player12.level().isClientSide())
+								_player12.displayClientMessage(Component.literal("Collect all coins from your Service Tables before deleting the restaurant.").withStyle(ChatFormatting.RED), false);
 							return false;
 						}
 						tableIndex = tableIndex + 1;
 					}
 					return true;
 				} else {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("You cannot delete the restaurant while customers are still active."), true);
+					if (owner instanceof Player _player15 && !_player15.level().isClientSide())
+						_player15.displayClientMessage(Component.literal("You cannot delete the restaurant while customers are still active.").withStyle(ChatFormatting.RED), false);
 				}
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Close your restaurant before deleting it."), true);
+				if (owner instanceof Player _player18 && !_player18.level().isClientSide())
+					_player18.displayClientMessage(Component.literal("Close your restaurant before deleting it.").withStyle(ChatFormatting.RED), false);
 			}
+		} else {
+			if (owner instanceof Player _player21 && !_player21.level().isClientSide())
+				_player21.displayClientMessage(Component.literal("Only the restaurant owner can delete the restaurant.").withStyle(ChatFormatting.RED), false);
 		}
 		return false;
 	}

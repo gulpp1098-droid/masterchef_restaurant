@@ -14,6 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Display;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModItems;
@@ -46,8 +47,8 @@ public class ServiceTableRightClickedProcedure {
 							(findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).discard();
 					}
 				} else {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("This table belongs to another restaurant"), true);
+					if (entity instanceof Player _player12 && !_player12.level().isClientSide())
+						_player12.displayClientMessage(Component.literal("This Service Table belongs to another restaurant.").withStyle(ChatFormatting.RED), true);
 				}
 			}
 		}

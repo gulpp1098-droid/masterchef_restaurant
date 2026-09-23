@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModEntities;
@@ -97,8 +98,8 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, itemstack, tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Create Restaurant first!"), false);
+				if (entity instanceof Player _player22 && !_player22.level().isClientSide())
+					_player22.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
 			}
 		}
 	}

@@ -15,6 +15,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -51,8 +52,8 @@ public class LateSleepProcedure {
 							if (event instanceof ICancellableEvent _cancellable) {
 								_cancellable.setCanceled(true);
 							}
-							if (entity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("You can NOT sleep yet due to restaurants being opened!"), false);
+							if (entity instanceof Player _player7 && !_player7.level().isClientSide())
+								_player7.displayClientMessage(Component.literal("You cannot sleep while a restaurants are still open.").withStyle(ChatFormatting.RED), true);
 							break;
 						} else {
 							index = index + 1;

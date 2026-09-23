@@ -8,6 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 
@@ -38,12 +39,12 @@ public class SetSpatulaLocationModeTrueProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 			} else {
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("You can NOT edit restaurant when it is open!"), true);
+				if (Owner instanceof Player _player9 && !_player9.level().isClientSide())
+					_player9.displayClientMessage(Component.literal("You cannot edit your restaurant while it is open.").withStyle(ChatFormatting.RED), true);
 			}
 		} else {
-			if (entity instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("You need to create a restaurant first!"), true);
+			if (Owner instanceof Player _player12 && !_player12.level().isClientSide())
+				_player12.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
 		}
 	}
 }

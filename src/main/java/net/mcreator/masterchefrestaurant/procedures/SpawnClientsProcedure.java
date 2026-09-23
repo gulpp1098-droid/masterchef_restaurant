@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModEntities;
@@ -64,6 +65,11 @@ public class SpawnClientsProcedure {
 						restaurantID = arraylistiterator instanceof Double _doub5 ? _doub5 : 0.0D;
 						clientDatabaseIndex = ClientDatabaseIndexSearchByIDProcedure.execute(world, restaurantID);
 						restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
+						owner = world instanceof ServerLevel _level6
+								? getEntityFromUUID(_level6,
+										GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
+												MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
+								: null;
 						RestaurantsClientsObject = ClientsData.get((int) clientDatabaseIndex).getAsJsonObject();
 						nextSpawnGroupTime = RestaurantsClientsObject.get("next_spawn_group_time").getAsDouble();
 						if (world.dayTime() % 24000 >= nextSpawnGroupTime) {
@@ -137,16 +143,11 @@ public class SpawnClientsProcedure {
 										foodDeliveredArray = clientObject.get("food").getAsJsonArray();
 										food = "" + foodDeliveredArray;
 										if (clientObject.get("critic").getAsBoolean()) {
-											Client = world instanceof ServerLevel _level24 ? MasterchefRestaurantModEntities.CRITIC.get().spawn(_level24, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
-											owner = world instanceof ServerLevel _level25
-													? getEntityFromUUID(_level25,
-															GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
-																	MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
-													: null;
-											if (owner instanceof Player _player && !_player.level().isClientSide())
-												_player.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!"), false);
+											Client = world instanceof ServerLevel _level25 ? MasterchefRestaurantModEntities.CRITIC.get().spawn(_level25, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+											if (owner instanceof Player _player28 && !_player28.level().isClientSide())
+												_player28.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
 										} else {
-											Client = world instanceof ServerLevel _level27 ? MasterchefRestaurantModEntities.CLIENT.get().spawn(_level27, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+											Client = world instanceof ServerLevel _level29 ? MasterchefRestaurantModEntities.CLIENT.get().spawn(_level29, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
 										}
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
@@ -207,9 +208,8 @@ public class SpawnClientsProcedure {
 												MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (world instanceof ServerLevel _level) {
-										_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("Failed to spawn client group for restaurant!"), false);
-									}
+									if (owner instanceof Player _player66 && !_player66.level().isClientSide())
+										_player66.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}

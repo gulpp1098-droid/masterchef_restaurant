@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.block.ChairBlock;
@@ -33,14 +34,11 @@ public class ServiceTableBlockIsPlacedByProcedure {
 			if (owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID > -1) {
 				setIntegerBlockState(world, x, y, z, "table_type", 0);
 				RestaurantID = owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID;
-				if ((owner.level().dimension().location().toString()).equals("minecraft:overworld")) {
+				if (true) {
 					if (RestaurantID >= 0) {
-						if (IsInsideRestaurantProcedure.execute(world, x, z, RestaurantID)) {
-							if (owner instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("Table is inside restaurant!"), false);
-						} else {
-							if (owner instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("This table is outside your restaurant area and will remain inactive."), false);
+						if (!IsInsideRestaurantProcedure.execute(world, x, z, RestaurantID)) {
+							if (owner instanceof Player _player4 && !_player4.level().isClientSide())
+								_player4.displayClientMessage(Component.literal("This Service Table is outside your restaurant area and will remain inactive.").withStyle(ChatFormatting.YELLOW), true);
 						}
 						setBlockNBTNumber(world, x, y, z, "RestaurantID", RestaurantID);
 						setBlockNBTNumber(world, x, y, z, "TableNumber", owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).TableNumber);
@@ -56,8 +54,8 @@ public class ServiceTableBlockIsPlacedByProcedure {
 					}
 				}
 			} else {
-				if (owner instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("You do not have Restaurant yet!"), false);
+				if (owner instanceof Player _player9 && !_player9.level().isClientSide())
+					_player9.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
 			}
 		}
 	}

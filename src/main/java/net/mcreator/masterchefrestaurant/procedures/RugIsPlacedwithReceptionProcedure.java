@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModBlocks;
 
@@ -40,8 +41,8 @@ public class RugIsPlacedwithReceptionProcedure {
 					Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
 					world.destroyBlock(_pos, false);
 				}
-				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("No valid position for Receptions Queue!"), true);
+				if (entity instanceof Player _player15 && !_player15.level().isClientSide())
+					_player15.displayClientMessage(Component.literal("There is no valid position for the first Queue Rug.").withStyle(ChatFormatting.RED), true);
 			}
 		}
 	}

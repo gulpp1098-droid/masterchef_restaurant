@@ -11,6 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.entity.CriticEntity;
@@ -46,8 +47,8 @@ public class ClientStuckStateProcedure {
 							ownerString = GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 									MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
 							if ((world instanceof ServerLevel _level12 ? getEntityFromUUID(_level12, ownerString) : null) != null) {
-								if ((world instanceof ServerLevel _level16 ? getEntityFromUUID(_level16, ownerString) : null) instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal(("Hey! I might be stuck at: " + (int) x + " " + (int) y + " " + (int) z + " ! Please check this out!")), false);
+								if ((world instanceof ServerLevel _level18 ? getEntityFromUUID(_level18, ownerString) : null) instanceof Player _player19 && !_player19.level().isClientSide())
+									_player19.displayClientMessage(Component.literal(("A customer appears to be stuck at: " + (int) x + ", " + (int) y + ", " + (int) z + ". Please check the area.")).withStyle(ChatFormatting.YELLOW), false);
 							}
 							if (client instanceof LivingEntity _entity && !_entity.level().isClientSide())
 								_entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 300, 1));
@@ -63,7 +64,7 @@ public class ClientStuckStateProcedure {
 									}
 									ClientBeginLeavingProcedure.execute(world, entity);
 								} else {
-									leader = world instanceof ServerLevel _level29 ? getEntityFromUUID(_level29, (client.getPersistentData().getString("leaderUUID"))) : null;
+									leader = world instanceof ServerLevel _level31 ? getEntityFromUUID(_level31, (client.getPersistentData().getString("leaderUUID"))) : null;
 									if (leader != null) {
 										client.stopRiding();
 										{
