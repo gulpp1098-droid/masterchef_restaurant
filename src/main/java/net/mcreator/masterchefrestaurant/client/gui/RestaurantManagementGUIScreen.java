@@ -26,7 +26,6 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
 	private ImageButton imagebutton_button_icon;
-	private ImageButton imagebutton_button_icon1;
 	private ImageButton imagebutton_button_icon2;
 	private ImageButton imagebutton_next_page_icon;
 	private ImageButton imagebutton_last_page_icon;
@@ -221,6 +220,12 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				if (!guiTools$displayMasked2)
 					guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + 189, this.topPos + 104);
 			}
+			if (this.enhanced_image_button_button_icon1 != null && this.enhanced_image_button_button_icon1.visible) {
+				this.enhanced_image_button_button_icon1.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			if (this.enhanced_image_button_button_icon1_copy != null && this.enhanced_image_button_button_icon1_copy.visible) {
+				this.enhanced_image_button_button_icon1_copy.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -238,7 +243,6 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_management"), 47, -9, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_create_edit_restaurant"), -1, 24, -16777216, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_set_location_for_restaurant"), 18, 56, -16777216, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.restaurant_management_gui.label_open_close"), 79, 94, -16777216, false);
 		guiGraphics.drawString(this.font, MaxTablesReturnProcedure.execute(entity), 6, 126, -12829636, false);
 		guiGraphics.drawString(this.font, MaxQueueReturnProcedure.execute(entity), 60, 126, -12829636, false);
@@ -285,28 +289,13 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			}
 		};
 		this.addRenderableWidget(imagebutton_button_icon);
-		imagebutton_button_icon1 = new ImageButton(this.leftPos + -15, this.topPos + 45, 165, 31,
-				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/button_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/button_icon.png")), e -> {
-					int x = RestaurantManagementGUIScreen.this.x;
-					int y = RestaurantManagementGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(1, x, y, z));
-						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_button_icon1);
 		imagebutton_button_icon2 = new ImageButton(this.leftPos + 69, this.topPos + 83, 81, 31,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png")), e -> {
 					int x = RestaurantManagementGUIScreen.this.x;
 					int y = RestaurantManagementGUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(2, x, y, z));
-						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(1, x, y, z));
+						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 					}
 				}) {
 			@Override
@@ -320,8 +309,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 					int x = RestaurantManagementGUIScreen.this.x;
 					int y = RestaurantManagementGUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(3, x, y, z));
-						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(2, x, y, z));
+						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {
 			@Override
@@ -335,8 +324,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 					int x = RestaurantManagementGUIScreen.this.x;
 					int y = RestaurantManagementGUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(4, x, y, z));
-						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+						PacketDistributor.sendToServer(new RestaurantManagementGUIButtonMessage(3, x, y, z));
+						RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 					}
 				}) {
 			@Override
@@ -350,8 +339,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 					int x = RestaurantManagementGUIScreen.this.x;
 					int y = RestaurantManagementGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage(5, x, y, z));
-						net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage(4, x, y, z));
+						net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 					}
 				}) {
 			@Override
@@ -375,6 +364,64 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			}
 		};
 		this.addWidget(enhanced_image_button_button_icon);
+		enhanced_image_button_button_icon1 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -15, this.topPos + 45, 81, 31,
+				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png"),
+						net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png")),
+				e -> {
+					int x = RestaurantManagementGUIScreen.this.x;
+					int y = RestaurantManagementGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage(5, x, y, z));
+						net.mcreator.masterchefrestaurant.network.RestaurantManagementGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				String guiTools$buttonText = "Set Area";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					guiGraphics.pose().popPose();
+				}
+			}
+		};
+		this.addWidget(enhanced_image_button_button_icon1);
+		enhanced_image_button_button_icon1_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 69, this.topPos + 45, 81, 31,
+				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png"),
+						net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png")),
+				e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/openclosebutton_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				String guiTools$buttonText = "Relocate Area";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					guiGraphics.pose().popPose();
+				}
+			}
+		};
+		this.addWidget(enhanced_image_button_button_icon1_copy);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -535,6 +582,8 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 
 	private static final boolean guiTools$enhancedImageButton = true;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_button_icon;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_button_icon1;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_button_icon1_copy;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

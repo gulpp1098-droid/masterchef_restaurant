@@ -1,0 +1,127 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "newrestaurantgui.png",
+          "width": 250,
+          "height": 88,
+          "x": 94,
+          "y": 32,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -16724992,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_openclosebutton_icon",
+          "text": "Confirm",
+          "isUndecorated": true,
+          "onClick": "ConfirmRestaurantRelocation",
+          "width": 81,
+          "height": 31,
+          "x": 95,
+          "y": 133,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -256,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_openclosebutton_icon_copy",
+          "text": "Repick area",
+          "isUndecorated": true,
+          "onClick": "ChooseAnotherArea",
+          "width": 81,
+          "height": 31,
+          "x": 178,
+          "y": 133,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_your_restaurant_progress_will_be",
+          "text": "Your restaurant progress will be preserved. All current restaurant areas will be replaced by the selected base area. The current Reception and Queue Rugs will be detached.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "JUSTIFY",
+          "width": 205,
+          "height": 51,
+          "x": 117,
+          "y": 51,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_openclosebutton_icon_copy_copy",
+          "text": "Cancel",
+          "isUndecorated": true,
+          "onClick": "CancelPickArea",
+          "width": 81,
+          "height": 31,
+          "x": 261,
+          "y": 133,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

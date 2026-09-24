@@ -38,6 +38,7 @@ public class MasterchefRestaurantModScreens {
 		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_3_GUI.get(), BlocksGuideP3GUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_4_GUI.get(), BlocksGuideP4GUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.BLOCKS_GUIDE_P_5_GUI.get(), BlocksGuideP5GUIScreen::new);
+		event.register(MasterchefRestaurantModMenus.RELOCATE_CONFIRMATION_GUI.get(), RelocateConfirmationGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

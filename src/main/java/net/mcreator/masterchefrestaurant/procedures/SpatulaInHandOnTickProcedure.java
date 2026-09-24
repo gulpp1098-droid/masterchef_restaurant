@@ -31,12 +31,13 @@ public class SpatulaInHandOnTickProcedure {
 		double EntityPositionZ = 0;
 		if (!world.isClientSide()) {
 			Owner = entity;
-			if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")) {
+			if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
+					|| itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant")) {
 				SpatulaShowingAreaToSelectProcedure.execute(world, entity, itemstack);
 			} else {
-				if ((world instanceof ServerLevel _level3 ? getEntityFromUUID(_level3, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
-					if (!(world instanceof ServerLevel _level4 ? getEntityFromUUID(_level4, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null).level().isClientSide())
-						(world instanceof ServerLevel _level4 ? getEntityFromUUID(_level4, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null).discard();
+				if ((world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
+					if (!(world instanceof ServerLevel _level6 ? getEntityFromUUID(_level6, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null).level().isClientSide())
+						(world instanceof ServerLevel _level6 ? getEntityFromUUID(_level6, Owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).PreviewUUID) : null).discard();
 				}
 			}
 			if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("ShowRestaurantArea") && itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SpawnArea")) {

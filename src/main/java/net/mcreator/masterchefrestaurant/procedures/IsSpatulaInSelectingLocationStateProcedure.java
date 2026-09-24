@@ -6,7 +6,8 @@ import net.minecraft.core.component.DataComponents;
 
 public class IsSpatulaInSelectingLocationStateProcedure {
 	public static boolean execute(ItemStack itemstack) {
-		if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")) {
+		if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
+				|| itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant")) {
 			return false;
 		}
 		return true;

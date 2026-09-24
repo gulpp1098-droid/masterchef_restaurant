@@ -15,7 +15,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.masterchefrestaurant.procedures.SetSpatulaLocationModeTrueProcedure;
 import net.mcreator.masterchefrestaurant.procedures.OpenRestaurantButtonProcedure;
 import net.mcreator.masterchefrestaurant.procedures.OpenCreateRestaurantGUIProcedure;
 import net.mcreator.masterchefrestaurant.procedures.MenuPreviousPageProcedure;
@@ -57,24 +56,23 @@ public record RestaurantManagementGUIButtonMessage(int buttonID, int x, int y, i
 		}
 		if (buttonID == 1) {
 
-			SetSpatulaLocationModeTrueProcedure.execute(world, entity);
+			OpenRestaurantButtonProcedure.execute(world, entity);
 		}
 		if (buttonID == 2) {
 
-			OpenRestaurantButtonProcedure.execute(world, entity);
-		}
-		if (buttonID == 3) {
-
 			MenuNextPageProcedure.execute(world, entity);
 		}
-		if (buttonID == 4) {
+		if (buttonID == 3) {
 
 			MenuPreviousPageProcedure.execute(world, entity);
 		}
 
 		guiTools$enhancedImageButton : {
-			if (buttonID == 5) {
+			if (buttonID == 4) {
 				net.mcreator.masterchefrestaurant.procedures.OpenNextDayMenuGUIProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 5) {
+				net.mcreator.masterchefrestaurant.procedures.SetSpatulaLocationModeTrueProcedure.execute(world, entity);
 			}
 		}
 	}

@@ -103,35 +103,6 @@
       {
         "type": "imagebutton",
         "data": {
-          "name": "imagebutton_button_icon1",
-          "image": "button_icon.png",
-          "hoveredImage": "",
-          "onClick": "SetSpatulaLocationModeTrue",
-          "x": 133,
-          "y": 94,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_set_location_for_restaurant",
-          "text": {
-            "fixedValue": "Set Restaurant Area"
-          },
-          "color": {
-            "value": -16777216,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 166,
-          "y": 105,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
           "name": "imagebutton_button_icon2",
           "image": "openclosebutton_icon.png",
           "hoveredImage": "",
@@ -846,6 +817,53 @@
           "height": 10,
           "x": 336,
           "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon1",
+          "text": "Set Area",
+          "isUndecorated": true,
+          "onClick": "SetSpatulaLocationModeTrue",
+          "width": 81,
+          "height": 31,
+          "x": 133,
+          "y": 94,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon1_copy",
+          "text": "Relocate Area",
+          "isUndecorated": true,
+          "width": 81,
+          "height": 31,
+          "x": 217,
+          "y": 94,
           "locked": false
         }
       }
