@@ -193,7 +193,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_customers_can_visit_your",
-          "text": "Before customers can visit, your restaurant needs a few basic blocks. Each one has a different role. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Queue Rug (optional)",
+          "text": "Before customers can visit, your restaurant needs a few basic blocks. Each one has a different role. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Additional Queue Rug (optional)",
           "color": {
             "value": -12829636,
             "falpha": 0.0

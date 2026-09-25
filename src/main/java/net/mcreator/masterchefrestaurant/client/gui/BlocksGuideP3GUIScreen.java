@@ -96,8 +96,8 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Service Tables are where customers place their orders and receive their food. Each table can serve one group of customers at a time.\nMore Service Tables allow your restaurant to serve more groups at once.", -145, -84, 129, 41,
-				-12829636, false, 1.00F, 0, 0);
+				"Service Tables are where customer groups are seated and where you collect their payment. Your restaurant can only use a limited number of active Service Tables at a time. This limit increases as your restaurant levels up. The more Service Tables you have, the more clients your restaurant can handle.",
+				-145, -84, 129, 41, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

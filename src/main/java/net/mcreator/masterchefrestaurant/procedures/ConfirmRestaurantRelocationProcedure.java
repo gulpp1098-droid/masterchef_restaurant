@@ -31,11 +31,10 @@ public class ConfirmRestaurantRelocationProcedure {
 					if ((owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant")
 							&& (owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocationCandidateSet")) {
 						if (CanRelocateRestaurantProcedure.execute(world, entity)) {
-							CandidateX = (owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("CandidateX");
-							CandidateZ = (owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("CandidateZ");
+							CandidateX = (owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("RelocationCandidateX");
+							CandidateZ = (owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("RelocationCandidateZ");
 							restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
-							if (CanClaimRestaurantLocationProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID,
-									owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
+							if (CanClaimRestaurantLocationProcedure.execute(world, CandidateX, CandidateZ, owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
 								newLocations.add((CandidateX + ":" + CandidateZ));
 								ModifyRestaurantWholeArrayParameterProcedure.execute(newLocations, restaurantIndex, "restaurants", "locations", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 										MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path);

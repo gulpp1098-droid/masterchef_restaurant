@@ -48,6 +48,9 @@ public class MasterchefRestaurantModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<BlocksGuideP4GUIMenu>> BLOCKS_GUIDE_P_4_GUI = REGISTRY.register("blocks_guide_p_4_gui", () -> IMenuTypeExtension.create(BlocksGuideP4GUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlocksGuideP5GUIMenu>> BLOCKS_GUIDE_P_5_GUI = REGISTRY.register("blocks_guide_p_5_gui", () -> IMenuTypeExtension.create(BlocksGuideP5GUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<RelocateConfirmationGUIMenu>> RELOCATE_CONFIRMATION_GUI = REGISTRY.register("relocate_confirmation_gui", () -> IMenuTypeExtension.create(RelocateConfirmationGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChefsDiaryMenuGUIMenu>> CHEFS_DIARY_MENU_GUI = REGISTRY.register("chefs_diary_menu_gui", () -> IMenuTypeExtension.create(ChefsDiaryMenuGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChefsDiaryTipsGUIMenu>> CHEFS_DIARY_TIPS_GUI = REGISTRY.register("chefs_diary_tips_gui", () -> IMenuTypeExtension.create(ChefsDiaryTipsGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChefsDiaryTipsP2GUIMenu>> CHEFS_DIARY_TIPS_P_2_GUI = REGISTRY.register("chefs_diary_tips_p_2_gui", () -> IMenuTypeExtension.create(ChefsDiaryTipsP2GUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

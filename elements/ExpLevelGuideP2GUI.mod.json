@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Exp and Coins"
+            "fixedValue": "Reputation and Coins"
           },
           "color": {
             "value": -12829636,
@@ -112,7 +112,7 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 157,
+          "x": 180,
           "y": 18,
           "locked": false
         }

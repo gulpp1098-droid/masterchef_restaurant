@@ -42,6 +42,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 	private static final ResourceLocation IMAGE_10 = ResourceLocation.parse("masterchef_restaurant:textures/screens/separator_icon.png");
 	private static final ResourceLocation IMAGE_11 = ResourceLocation.parse("masterchef_restaurant:textures/screens/spatula_icon.png");
 	private static final ResourceLocation IMAGE_12 = ResourceLocation.parse("masterchef_restaurant:textures/screens/hammer_icon.png");
+	private static final ResourceLocation IMAGE_13 = ResourceLocation.parse("masterchef_restaurant:textures/screens/questionmark_icon.png");
 
 	public ChefsDiaryGUIScreen(ChefsDiaryGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -77,15 +78,15 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -146, this.topPos + -90, 0, 0, 133, 11, 133, 11);
 			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -145, this.topPos + -81, 0, 0, 39, 32, 39, 32);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 10, this.topPos + -33, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 10, this.topPos + -55, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 10, this.topPos + 10, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 10, this.topPos + 32, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 10, this.topPos + 54, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 10, this.topPos + -39, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 10, this.topPos + -58, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 10, this.topPos + -1, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 10, this.topPos + 18, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 10, this.topPos + 38, 0, 0, 15, 17, 15, 17);
 			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + -146, this.topPos + 58, 0, 0, 133, 11, 133, 11);
 			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + 0, this.topPos + -90, 0, 0, 133, 11, 133, 11);
-			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + 10, this.topPos + -76, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + 10, this.topPos + -11, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + 10, this.topPos + -77, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + 10, this.topPos + -19, 0, 0, 16, 16, 16, 16);
 			if (this.enhanced_image_button_empty != null && this.enhanced_image_button_empty.visible) {
 				this.enhanced_image_button_empty.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -107,6 +108,10 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			if (this.enhanced_image_button_empty_copy_6 != null && this.enhanced_image_button_empty_copy_6.visible) {
 				this.enhanced_image_button_empty_copy_6.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
+			if (this.enhanced_image_button_empty_copy_6_copy != null && this.enhanced_image_button_empty_copy_6_copy.visible) {
+				this.enhanced_image_button_empty_copy_6_copy.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + 10, this.topPos + 57, 0, 0, 16, 16, 16, 16);
 		}
 		RenderSystem.disableBlend();
 	}
@@ -208,7 +213,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		enhanced_image_button_empty = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -77, 78, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -81, 78, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -238,7 +243,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty);
-		enhanced_image_button_empty_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 31, this.topPos + -55, 93, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -61, 93, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -268,7 +273,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy);
-		enhanced_image_button_empty_copy_2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -33, 104, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty_copy_2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -41, 104, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -298,7 +303,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_2);
-		enhanced_image_button_empty_copy_3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -11, 95, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty_copy_3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -21, 95, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -328,7 +333,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_3);
-		enhanced_image_button_empty_copy_4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 10, 81, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty_copy_4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -1, 81, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -358,7 +363,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_4);
-		enhanced_image_button_empty_copy_5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 32, 82, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty_copy_5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 19, 82, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -388,7 +393,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_5);
-		enhanced_image_button_empty_copy_6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 54, 70, 20, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_empty_copy_6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 39, 98, 16, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
 					int y = ChefsDiaryGUIScreen.this.y;
@@ -406,7 +411,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Exp and coins";
+				String guiTools$buttonText = "Reputation and coins";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
@@ -418,6 +423,36 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_6);
+		enhanced_image_button_empty_copy_6_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 59, 52, 16, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png")), e -> {
+					int x = ChefsDiaryGUIScreen.this.x;
+					int y = ChefsDiaryGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.ChefsDiaryGUIButtonMessage(12, x, y, z));
+						net.mcreator.masterchefrestaurant.network.ChefsDiaryGUIButtonMessage.handleButtonAction(entity, 12, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/empty.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				String guiTools$buttonText = "More Tips";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
+					guiGraphics.pose().popPose();
+				}
+			}
+		};
+		this.addWidget(enhanced_image_button_empty_copy_6_copy);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -543,6 +578,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_4;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_5;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_6;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_6_copy;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

@@ -23,21 +23,21 @@ import net.mcreator.masterchefrestaurant.procedures.ChefsDiaryApplienceProcedure
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
 
 @EventBusSubscriber
-public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
-	public static final Type<ChefsDiaryGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(MasterchefRestaurantMod.MODID, "chefs_diary_gui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, ChefsDiaryGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, ChefsDiaryGUIButtonMessage message) -> {
+public record ChefsDiaryTipsP2GUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+	public static final Type<ChefsDiaryTipsP2GUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(MasterchefRestaurantMod.MODID, "chefs_diary_tips_p_2_gui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, ChefsDiaryTipsP2GUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, ChefsDiaryTipsP2GUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new ChefsDiaryGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new ChefsDiaryTipsP2GUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 
 	@Override
-	public Type<ChefsDiaryGUIButtonMessage> type() {
+	public Type<ChefsDiaryTipsP2GUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final ChefsDiaryGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final ChefsDiaryTipsP2GUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
@@ -71,37 +71,10 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 		}
-
-		guiTools$enhancedImageButton : {
-			if (buttonID == 5) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideSpatulaProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 6) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideBlocksProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 7) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideLocationProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 8) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideSetUpProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 9) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideOpenProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 10) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideServeProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 11) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 12) {
-				net.mcreator.masterchefrestaurant.procedures.ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
-			}
-		}
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		MasterchefRestaurantMod.addNetworkMessage(ChefsDiaryGUIButtonMessage.TYPE, ChefsDiaryGUIButtonMessage.STREAM_CODEC, ChefsDiaryGUIButtonMessage::handleData);
+		MasterchefRestaurantMod.addNetworkMessage(ChefsDiaryTipsP2GUIButtonMessage.TYPE, ChefsDiaryTipsP2GUIButtonMessage.STREAM_CODEC, ChefsDiaryTipsP2GUIButtonMessage::handleData);
 	}
 }

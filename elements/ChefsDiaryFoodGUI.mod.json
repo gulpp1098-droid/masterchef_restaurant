@@ -15,8 +15,8 @@
         "data": {
           "image": "chefsdiary2.png",
           "use1Xscale": false,
-          "x": 36,
-          "y": -5,
+          "x": 39,
+          "y": 0,
           "locked": false
         }
       },
@@ -95,14 +95,14 @@
         "data": {
           "name": "label_food_wip",
           "text": {
-            "fixedValue": "Food - WIP"
+            "fixedValue": "Food"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 69,
+          "x": 74,
           "y": 22,
           "locked": false
         }
@@ -111,7 +111,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_food_is_categoried_into_multiple",
-          "text": "Food is categoried into multiple tiers. Each tier is unlocked with leveling up your restaurant to certain level. Each tier represents your journey as chef. The more skill you have, the more new food you can discover and serve to your clients. Of course with tier comes also better rewards!",
+          "text": "Food is divided into Tiers based on its value, ingredients and how difficult it is to prepare. Simple foods and ingredients are generally found in lower tiers, while more valuable and complex dishes belong to higher tiers. As your restaurant levels up, new Food Tiers become available, giving your customers access to more advanced dishes. ",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -123,7 +123,7 @@
           "alignment": "LEFT",
           "width": 126,
           "height": 155,
-          "x": 69,
+          "x": 74,
           "y": 33,
           "locked": false
         }
@@ -144,10 +144,10 @@
           "name": "enhanced_image_button_empty",
           "text": "Tier 0",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 28,
+          "x": 266,
+          "y": 81,
           "locked": false
         }
       },
@@ -167,10 +167,10 @@
           "name": "enhanced_image_button_empty_copy",
           "text": "Tier 1",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 44,
+          "x": 222,
+          "y": 106,
           "locked": false
         }
       },
@@ -190,10 +190,10 @@
           "name": "enhanced_image_button_empty_copy_2",
           "text": "Tier 2",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 60,
+          "x": 266,
+          "y": 106,
           "locked": false
         }
       },
@@ -213,10 +213,10 @@
           "name": "enhanced_image_button_empty_copy_3",
           "text": "Tier 3",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 75,
+          "x": 310,
+          "y": 106,
           "locked": false
         }
       },
@@ -236,10 +236,10 @@
           "name": "enhanced_image_button_empty_copy_4",
           "text": "Tier 4",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 91,
+          "x": 222,
+          "y": 133,
           "locked": false
         }
       },
@@ -259,10 +259,10 @@
           "name": "enhanced_image_button_empty_copy_5",
           "text": "Tier 5",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 107,
+          "x": 265,
+          "y": 132,
           "locked": false
         }
       },
@@ -282,10 +282,10 @@
           "name": "enhanced_image_button_empty_copy_6",
           "text": "Tier 6",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 123,
+          "x": 310,
+          "y": 132,
           "locked": false
         }
       },
@@ -305,10 +305,10 @@
           "name": "enhanced_image_button_empty_copy_7",
           "text": "Tier 7",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 138,
+          "x": 222,
+          "y": 159,
           "locked": false
         }
       },
@@ -328,10 +328,10 @@
           "name": "enhanced_image_button_empty_copy_8",
           "text": "Tier 8",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 154,
+          "x": 265,
+          "y": 159,
           "locked": false
         }
       },
@@ -351,10 +351,54 @@
           "name": "enhanced_image_button_empty_copy_9",
           "text": "Tier 9",
           "isUndecorated": true,
-          "width": 18,
+          "width": 30,
           "height": 18,
-          "x": 268,
-          "y": 170,
+          "x": 310,
+          "y": 159,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_highertier_food_also_provides_m",
+          "text": "Higher-tier food also provides more Coins and Reputation when successfully served.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 120,
+          "height": 40,
+          "x": 220,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_next_page_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 16,
+          "height": 16,
+          "x": 324,
+          "y": 180,
           "locked": false
         }
       }

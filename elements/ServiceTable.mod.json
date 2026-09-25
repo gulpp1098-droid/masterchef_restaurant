@@ -16,7 +16,7 @@
     "displayFluidOverlay": false,
     "states": [
       {
-        "texture": "texturetableaa",
+        "texture": "texturetablenosign",
         "textureTop": "",
         "textureLeft": "",
         "textureFront": "",
@@ -153,7 +153,7 @@
       }
     ],
     "animations": [],
-    "itemTexture": "servicetableitem",
+    "itemTexture": "servicetable",
     "particleTexture": "",
     "blockSetType": "OAK",
     "leavesParticleChance": 0.0,

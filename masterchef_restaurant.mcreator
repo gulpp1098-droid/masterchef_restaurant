@@ -8295,7 +8295,7 @@
           "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChefsDiaryGuideBlocksP4Procedure.java"
         ]
       },
-      "path": "~/Restaurant Functioning"
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
     },
     {
       "name": "ChefsDiaryGuideBlocksP5",
@@ -8330,7 +8330,7 @@
           "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChefsDiaryGuideBlocksP5Procedure.java"
         ]
       },
-      "path": "~/Restaurant Functioning"
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
     },
     {
       "name": "CanRelocateRestaurant",
@@ -8508,6 +8508,51 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs/Spatula"
+    },
+    {
+      "name": "ChefsDiaryMenuGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_menu_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/ChefsDiaryMenuGUIScreen.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/ChefsDiaryMenuGUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/network/ChefsDiaryMenuGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryTipsGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_tips_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/network/ChefsDiaryTipsGUIButtonMessage.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/ChefsDiaryTipsGUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/ChefsDiaryTipsGUIScreen.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryTipsP2GUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_tips_p_2_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/ChefsDiaryTipsP2GUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/ChefsDiaryTipsP2GUIScreen.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/network/ChefsDiaryTipsP2GUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
     }
   ],
   "variable_elements": [
@@ -8683,7 +8728,7 @@
       "gui.masterchef_restaurant.chefs_diary_gui.label_overview_wip": "Overview",
       "gui.masterchef_restaurant.chefs_diary_applience_gui.label_appliences_wip": "Appliances - WIP",
       "gui.masterchef_restaurant.chefs_diary_clients_gui.label_clients_wip": "Clients - WIP",
-      "gui.masterchef_restaurant.chefs_diary_food_gui.label_food_wip": "Food - WIP",
+      "gui.masterchef_restaurant.chefs_diary_food_gui.label_food_wip": "Food",
       "gui.masterchef_restaurant.chefs_diary_stats_gui.label_stats_wip": "Stats",
       "gui.masterchef_restaurant.chefs_diary_gui.label_welcome_chef": "Welcome, Chef!",
       "gui.masterchef_restaurant.chefs_diary_gui.label_equipment_place_and_enough": "equipment, place and",
@@ -8900,7 +8945,7 @@
       "gui.masterchef_restaurant.exp_level_guide_gui.label_place_all_your_fuctional": "whole order. Every",
       "gui.masterchef_restaurant.exp_level_guide_gui.label_be_your_best_friend": "Money is left on the table.",
       "gui.masterchef_restaurant.exp_level_guide_gui.label_your_restaurant_is_useless_as": "Hungry guests are calm...",
-      "gui.masterchef_restaurant.exp_level_guide_gui.label_overview_wip": "Exp and Coins",
+      "gui.masterchef_restaurant.exp_level_guide_gui.label_overview_wip": "Reputation and Coins",
       "gui.masterchef_restaurant.exp_level_guide_gui.label_check_basic_info_and": "A table with waiting",
       "gui.masterchef_restaurant.exp_level_guide_gui.label_up_to_you": "reputation points.",
       "gui.masterchef_restaurant.exp_level_guide_gui.label_with_level_you_will_gain": "experience gain. If too",
@@ -8984,7 +9029,7 @@
       "entity.masterchef_restaurant.critic": "Critic",
       "item.masterchef_restaurant.critic_spawn_egg": "Critic Spawn Egg",
       "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_as_well_as_claim_area": "Remember!",
-      "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_overview_wip": "Exp and Coins",
+      "gui.masterchef_restaurant.exp_level_guide_p_2_gui.label_overview_wip": "Reputation and Coins",
       "gui.masterchef_restaurant.location_guide_p_2_gui.label_overview_wip": "Set area",
       "advancements.cooking_time.title": "Cooking Time",
       "advancements.cooking_time.descr": "It is cooking time!",
@@ -9009,7 +9054,16 @@
       "gui.masterchef_restaurant.chefs_diary_food_tier_gui.label_food1": "Food1",
       "gui.masterchef_restaurant.blocks_guide_p_3_gui.label_service_table": "Service Table",
       "gui.masterchef_restaurant.blocks_guide_p_4_gui.label_service_table": "Chair",
-      "gui.masterchef_restaurant.blocks_guide_p_5_gui.label_service_table": "Queue Rug"
+      "gui.masterchef_restaurant.blocks_guide_p_5_gui.label_service_table": "Queue Rug",
+      "gui.masterchef_restaurant.chefs_diary_menu_gui.label_food_wip": "Menu",
+      "gui.masterchef_restaurant.chefs_diary_menu_gui.label_current_menu_copy": "Incoming menu",
+      "gui.masterchef_restaurant.chefs_diary_menu_gui.label_current_menu": "Current Menu",
+      "gui.masterchef_restaurant.chefs_diary_tips_gui.label_current_menu": "Current Menu",
+      "gui.masterchef_restaurant.chefs_diary_tips_gui.label_food_wip": "Timeline",
+      "gui.masterchef_restaurant.chefs_diary_tips_gui.label_current_menu_copy": "Incoming menu",
+      "gui.masterchef_restaurant.chefs_diary_tips_gui.label_food_wip_copy": "Closing Restaurant",
+      "gui.masterchef_restaurant.chefs_diary_tips_p_2_gui.label_food_wip": "Daily Statistics",
+      "gui.masterchef_restaurant.chefs_diary_tips_p_2_gui.label_food_wip_copy": "Closing Restaurant"
     }
   },
   "metadata": {

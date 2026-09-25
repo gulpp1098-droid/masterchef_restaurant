@@ -1,7 +1,7 @@
 {
   "parent": "masterchef_restaurant:custom/blocktablenumber",
   "textures": {
-    "all": "masterchef_restaurant:block/texturetableaa",
+    "all": "masterchef_restaurant:block/texturetablenosign",
     "particle": "masterchef_restaurant:block/texturetablenosign",
     "0": "masterchef_restaurant:block/texturetablea"
   },

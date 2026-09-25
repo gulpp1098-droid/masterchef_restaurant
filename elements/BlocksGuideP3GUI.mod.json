@@ -155,7 +155,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_will_gladly_come_and_e",
-          "text": "Service Tables are where customers place their orders and receive their food. Each table can serve one group of customers at a time.\nMore Service Tables allow your restaurant to serve more groups at once.",
+          "text": "Service Tables are where customer groups are seated and where you collect their payment. Your restaurant can only use a limited number of active Service Tables at a time. This limit increases as your restaurant levels up. The more Service Tables you have, the more clients your restaurant can handle.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

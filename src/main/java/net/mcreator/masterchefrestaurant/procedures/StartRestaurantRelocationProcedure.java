@@ -24,27 +24,27 @@ public class StartRestaurantRelocationProcedure {
 				{
 					final String _tagName = "RelocatingRestaurant";
 					final boolean _tagValue = true;
-					CustomData.update(DataComponents.CUSTOM_DATA, spat, tag -> tag.putBoolean(_tagName, _tagValue));
+					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
 					final String _tagName = "RelocationCandidateSet";
 					final boolean _tagValue = false;
-					CustomData.update(DataComponents.CUSTOM_DATA, spat, tag -> tag.putBoolean(_tagName, _tagValue));
+					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
 					final String _tagName = "SelectingRestaurantLocation";
 					final boolean _tagValue = false;
-					CustomData.update(DataComponents.CUSTOM_DATA, spat, tag -> tag.putBoolean(_tagName, _tagValue));
+					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
 					final String _tagName = "ShowRestaurantArea";
 					final boolean _tagValue = false;
-					CustomData.update(DataComponents.CUSTOM_DATA, spat, tag -> tag.putBoolean(_tagName, _tagValue));
+					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
 					final String _tagName = "SpawnArea";
 					final boolean _tagValue = false;
-					CustomData.update(DataComponents.CUSTOM_DATA, spat, tag -> tag.putBoolean(_tagName, _tagValue));
+					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("Select a new base area for your restaurant. Right-click a block with the Golden Spatula."), true);

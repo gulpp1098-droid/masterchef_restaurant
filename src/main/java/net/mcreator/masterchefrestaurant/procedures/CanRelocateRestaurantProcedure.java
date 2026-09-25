@@ -12,13 +12,15 @@ public class CanRelocateRestaurantProcedure {
 		Entity owner = null;
 		com.google.gson.JsonObject restaurantObject = new com.google.gson.JsonObject();
 		double restaurantIndex = 0;
+		com.google.gson.JsonArray locationArray = new com.google.gson.JsonArray();
 		owner = entity;
 		if (true) {
 			if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
 				restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, owner.getData(MasterchefRestaurantModVariables.PLAYER_VARIABLES).Restaurant_ID);
 				if (restaurantIndex >= 0) {
 					restaurantObject = FindRestaurantInfoByIndexViaIDProcedure.execute(world, restaurantIndex);
-					if (!(restaurantObject.get("locations").getAsString()).equals("")) {
+					locationArray = restaurantObject.get("locations").getAsJsonArray();
+					if (!locationArray.isEmpty()) {
 						if (!GetRestaurantLogicParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,
 								MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 							if (GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name,

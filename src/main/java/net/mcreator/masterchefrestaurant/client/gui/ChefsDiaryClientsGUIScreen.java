@@ -78,6 +78,9 @@ public class ChefsDiaryClientsGUIScreen extends AbstractContainerScreen<ChefsDia
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_clients_gui.label_clients_wip"), -145, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				"Customers visit your restaurant in groups. The number of groups expected during a shift depends on active Service Tables in your restaurant. Group sizes depend on the chairs available at your active tables. Larger tables allow larger groups. A group will only choose a Service Table with enough chairs for every member of the group.",
+				-145, -87, 126, 40, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -158,5 +161,120 @@ public class ChefsDiaryClientsGUIScreen extends AbstractContainerScreen<ChefsDia
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
+		int lineStep = this.font.lineHeight + 1;
+		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
+		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
+				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			int currentY = 0;
+			for (java.util.List<String> lines : paragraphs) {
+				for (int index = 0; index < lines.size(); index++) {
+					String line = lines.get(index);
+					int remaining = wrapWidth - this.font.width(line);
+					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
+						String[] words = line.split(" ");
+						int advance = 0;
+						for (int word = 0; word < words.length; word++) {
+							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
+							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
+							advance += this.font.width(words[word] + " ");
+						}
+					} else {
+						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
+						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
+					}
+					currentY += lineStep;
+				}
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
+		}
+	}
+
+	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
+		if (text == null || overflowMode == 0 || scale <= 0.0F)
+			return false;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
+		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
+		for (String line : lines)
+			if (this.font.width(line) > wrapWidth)
+				return true;
+		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
+	}
+
+	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
+		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
+		if (overflowMode != 2)
+			return wrapped;
+		if (maxLines <= 0)
+			return java.util.List.of();
+		boolean verticalOverflow = wrapped.size() > maxLines;
+		java.util.List<String> result = new java.util.ArrayList<>();
+		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
+			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
+		}
+		return java.util.List.copyOf(result);
+	}
+
+	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
+		if (!forceEllipsis && this.font.width(value) <= maxWidth)
+			return value;
+		String ellipsis = "…";
+		if (this.font.width(ellipsis) > maxWidth)
+			return "";
+		int low = 0, high = value.length();
+		while (low < high) {
+			int middle = (low + high + 1) >>> 1;
+			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
+				low = middle;
+			else
+				high = middle - 1;
+		}
+		return value.substring(0, low).stripTrailing() + ellipsis;
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }

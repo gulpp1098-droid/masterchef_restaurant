@@ -12,13 +12,13 @@ import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
-import net.mcreator.masterchefrestaurant.world.inventory.BlocksGuideGUIMenu;
-import net.mcreator.masterchefrestaurant.network.BlocksGuideGUIButtonMessage;
+import net.mcreator.masterchefrestaurant.world.inventory.ChefsDiaryTipsP2GUIMenu;
+import net.mcreator.masterchefrestaurant.network.ChefsDiaryTipsP2GUIButtonMessage;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUIMenu> implements MasterchefRestaurantModScreens.ScreenAccessor {
+public class ChefsDiaryTipsP2GUIScreen extends AbstractContainerScreen<ChefsDiaryTipsP2GUIMenu> implements MasterchefRestaurantModScreens.ScreenAccessor {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
@@ -28,19 +28,11 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	private ImageButton imagebutton_clients_icon;
 	private ImageButton imagebutton_appliences_icon;
 	private ImageButton imagebutton_stats_icon;
-	private ImageButton imagebutton_next_page_icon;
-	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("masterchef_restaurant:textures/screens/blocks_guide_gui.png");
+	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("masterchef_restaurant:textures/screens/chefs_diary_tips_p_2_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("masterchef_restaurant:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("masterchef_restaurant:textures/screens/bookmarks.png");
-	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("masterchef_restaurant:textures/screens/requirements_icon.png");
-	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("masterchef_restaurant:textures/screens/reception_item.png");
-	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("masterchef_restaurant:textures/screens/servicetable_icon.png");
-	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("masterchef_restaurant:textures/screens/chair_icon.png");
-	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("masterchef_restaurant:textures/screens/queue_rug_item.png");
-	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("masterchef_restaurant:textures/screens/separator_icon.png");
-	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("masterchef_restaurant:textures/screens/separator_icon.png");
 
-	public BlocksGuideGUIScreen(BlocksGuideGUIMenu container, Inventory inventory, Component text) {
+	public ChefsDiaryTipsP2GUIScreen(ChefsDiaryTipsP2GUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
@@ -68,27 +60,9 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiTools$orderedImages : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -52, this.topPos + -101, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -136, this.topPos + 42, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -107, this.topPos + 43, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -78, this.topPos + 43, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -49, this.topPos + 43, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 1, this.topPos + -98, 0, 0, 133, 11, 133, 11);
-			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
-			if (true) {
-				int guiTools$xOffset = 0;
-				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 112;
-				int guiTools$visibleHeight = 100;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/restaurant_setup.png"));
-				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 11 + guiTools$xOffset, this.topPos + -71 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 112, 100);
-			}
-		}
+		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiGraphics.blit(IMAGE_0, this.leftPos + -175, this.topPos + -120, 0, 0, 340, 230, 340, 230);
+		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 		RenderSystem.disableBlend();
 	}
 
@@ -103,10 +77,11 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.blocks_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.masterchef_restaurant.chefs_diary_tips_p_2_gui.label_food_wip"), -140, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Before customers can visit, your restaurant needs a few basic blocks. Each one has a different role. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Additional Queue Rug (optional)", -145, -84, 130, 40, -12829636,
-				false, 1.00F, 0, 0);
+				"Fully Served \u2014 Customers whose entire order was successfully delivered.\nPart Served \u2014 Customers who received only part of their order.\nNot Served \u2014 Customers who left without receiving any of their order.\n", -140,
+				-87, 126, 43, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, "Coins Earned \u2014 Coins earned from serving customers during the shift.\nReputation \u2014 Reputation gained or lost during the shift.", 8, -87, 126, 43, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -114,94 +89,79 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 		super.init();
 		imagebutton_base_icon = new ImageButton(this.leftPos + 147, this.topPos + -98, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/base_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/base_icon.png")), e -> {
-					int x = BlocksGuideGUIScreen.this.x;
-					int y = BlocksGuideGUIScreen.this.y;
+					int x = ChefsDiaryTipsP2GUIScreen.this.x;
+					int y = ChefsDiaryTipsP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new BlocksGuideGUIButtonMessage(0, x, y, z));
-						BlocksGuideGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+						PacketDistributor.sendToServer(new ChefsDiaryTipsP2GUIButtonMessage(0, x, y, z));
+						ChefsDiaryTipsP2GUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_base_icon);
 		imagebutton_food_icon = new ImageButton(this.leftPos + 148, this.topPos + -68, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/food_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/food_icon.png")), e -> {
-					int x = BlocksGuideGUIScreen.this.x;
-					int y = BlocksGuideGUIScreen.this.y;
+					int x = ChefsDiaryTipsP2GUIScreen.this.x;
+					int y = ChefsDiaryTipsP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new BlocksGuideGUIButtonMessage(1, x, y, z));
-						BlocksGuideGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+						PacketDistributor.sendToServer(new ChefsDiaryTipsP2GUIButtonMessage(1, x, y, z));
+						ChefsDiaryTipsP2GUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_food_icon);
 		imagebutton_clients_icon = new ImageButton(this.leftPos + 149, this.topPos + -39, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/clients_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/clients_icon.png")), e -> {
-					int x = BlocksGuideGUIScreen.this.x;
-					int y = BlocksGuideGUIScreen.this.y;
+					int x = ChefsDiaryTipsP2GUIScreen.this.x;
+					int y = ChefsDiaryTipsP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new BlocksGuideGUIButtonMessage(2, x, y, z));
-						BlocksGuideGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+						PacketDistributor.sendToServer(new ChefsDiaryTipsP2GUIButtonMessage(2, x, y, z));
+						ChefsDiaryTipsP2GUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_clients_icon);
 		imagebutton_appliences_icon = new ImageButton(this.leftPos + 148, this.topPos + -11, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/appliences_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/appliences_icon.png")), e -> {
-					int x = BlocksGuideGUIScreen.this.x;
-					int y = BlocksGuideGUIScreen.this.y;
+					int x = ChefsDiaryTipsP2GUIScreen.this.x;
+					int y = ChefsDiaryTipsP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new BlocksGuideGUIButtonMessage(3, x, y, z));
-						BlocksGuideGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+						PacketDistributor.sendToServer(new ChefsDiaryTipsP2GUIButtonMessage(3, x, y, z));
+						ChefsDiaryTipsP2GUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_appliences_icon);
 		imagebutton_stats_icon = new ImageButton(this.leftPos + 147, this.topPos + 17, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/stats_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/stats_icon.png")), e -> {
-					int x = BlocksGuideGUIScreen.this.x;
-					int y = BlocksGuideGUIScreen.this.y;
+					int x = ChefsDiaryTipsP2GUIScreen.this.x;
+					int y = ChefsDiaryTipsP2GUIScreen.this.y;
 					if (true) {
-						PacketDistributor.sendToServer(new BlocksGuideGUIButtonMessage(4, x, y, z));
-						BlocksGuideGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+						PacketDistributor.sendToServer(new ChefsDiaryTipsP2GUIButtonMessage(4, x, y, z));
+						ChefsDiaryTipsP2GUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png"), ResourceLocation.parse("masterchef_restaurant:textures/screens/next_page_icon.png")), e -> {
-					int x = BlocksGuideGUIScreen.this.x;
-					int y = BlocksGuideGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new BlocksGuideGUIButtonMessage(5, x, y, z));
-						BlocksGuideGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_next_page_icon);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -317,36 +277,5 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 			lines.add(line.toString());
 		}
 		return java.util.List.copyOf(lines);
-	}
-
-	private static net.minecraft.resources.ResourceLocation guiTools$dynamicTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
-		if (value == null || value.isBlank())
-			return fallback;
-		try {
-			String texture = value.trim().replace('\\', '/');
-			if (texture.indexOf(':') >= 0)
-				return net.minecraft.resources.ResourceLocation.parse(texture);
-			while (texture.startsWith("/"))
-				texture = texture.substring(1);
-			if (texture.startsWith("textures/screens/"))
-				texture = texture.substring("textures/screens/".length());
-			if (!texture.endsWith(".png"))
-				texture += ".png";
-			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("masterchef_restaurant", "textures/screens/" + texture);
-		} catch (RuntimeException ignored) {
-			return fallback;
-		}
-	}
-
-	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
-		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
-		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
-		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
-		try {
-			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
-		} finally {
-			if (!wasBlending)
-				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
-		}
 	}
 }

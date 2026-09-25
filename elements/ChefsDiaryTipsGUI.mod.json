@@ -15,9 +15,9 @@
         "data": {
           "image": "chefsdiary2.png",
           "use1Xscale": false,
-          "x": 36,
-          "y": -5,
-          "locked": true
+          "x": 39,
+          "y": 0,
+          "locked": false
         }
       },
       {
@@ -93,52 +93,63 @@
       {
         "type": "label",
         "data": {
-          "name": "label_overview_wip",
+          "name": "label_food_wip",
           "text": {
-            "fixedValue": "Reputation and Coins"
+            "fixedValue": "Timeline"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 69,
+          "x": 74,
           "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_food_is_categoried_into_multiple",
+          "text": "The Timeline shows the customer groups scheduled to visit your restaurant during the current shift. Each marker represents one group, and its position on the Timeline shows when that group is expected to spawn. Critics have their own special marker, making them easy to spot before they arrive.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 126,
+          "height": 43,
+          "x": 74,
+          "y": 33,
           "locked": false
         }
       },
       {
         "type": "label",
         "data": {
-          "name": "label_as_well_as_claim_area",
+          "name": "label_food_wip_copy",
           "text": {
-            "fixedValue": "Remember!"
+            "fixedValue": "Closing Restaurant"
           },
           "color": {
-            "value": -65485,
+            "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 69,
-          "y": 126,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 180,
-          "y": 18,
+          "x": 222,
+          "y": 22,
           "locked": false
         }
       },
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_after_customers_finish_eating_t",
-          "text": "After customers finish eating, they will leave money and give reputation to your restaurant. Money is left on the Service Table. To collect it, simply right-click the table.",
+          "name": "multiline_label_food_is_categoried_into_multiple_copy",
+          "text": "Your restaurant will close automatically at the end of the shift, but you can also close it early. After closing, no new customer groups will arrive. Customers who haven't been seated yet will leave, while customers already seated at a Service Table can finish their visit normally. Once closed, the restaurant cannot be reopened until the next day.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -148,64 +159,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 132,
-          "height": 84,
-          "x": 69,
-          "y": 36,
-          "locked": false
-        }
-      },
-      {
-        "type": "multiline_label",
-        "data": {
-          "name": "multiline_label_a_table_with_waiting_payment_wil",
-          "text": "A Service Table with uncollected payment will not accept new customers.",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "overflowMode": "VISIBLE",
-          "tooltipWhenTruncated": false,
-          "alignment": "LEFT",
-          "width": 131,
-          "height": 48,
-          "x": 69,
-          "y": 138,
-          "locked": false
-        }
-      },
-      {
-        "type": "multiline_label",
-        "data": {
-          "name": "multiline_label_experience_is_added_to_your_rest",
-          "text": "Serving customers earns reputation for your restaurant. To receive the full reward, complete the entire order. Every missing food reduces the reputation gained, and a badly incomplete order may even make you lose reputation.\nEarn enough reputation and your restaurant will level up!",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "overflowMode": "VISIBLE",
-          "tooltipWhenTruncated": false,
-          "alignment": "LEFT",
-          "width": 124,
-          "height": 168,
-          "x": 219,
-          "y": 36,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideExpLevelP2",
-          "x": 322,
-          "y": 177,
+          "width": 126,
+          "height": 43,
+          "x": 222,
+          "y": 33,
           "locked": false
         }
       }

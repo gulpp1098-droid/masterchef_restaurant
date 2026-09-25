@@ -15,9 +15,9 @@
         "data": {
           "image": "chefsdiary2.png",
           "use1Xscale": false,
-          "x": 36,
-          "y": -5,
-          "locked": true
+          "x": 39,
+          "y": 0,
+          "locked": false
         }
       },
       {
@@ -93,52 +93,86 @@
       {
         "type": "label",
         "data": {
-          "name": "label_overview_wip",
+          "name": "label_food_wip",
           "text": {
-            "fixedValue": "Reputation and Coins"
+            "fixedValue": "Menu"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 69,
+          "x": 74,
           "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_food_is_categoried_into_multiple",
+          "text": "Your restaurant uses two menus: the Current Menu and the Incoming Menu. When a new shift begins, the Incoming Menu becomes the new Current Menu and a new Incoming Menu is generated. As your restaurant grows, more dishes and higher Food Tiers can appear on your menus.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 126,
+          "height": 43,
+          "x": 74,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_next_page_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 16,
+          "height": 16,
+          "x": 79,
+          "y": 180,
           "locked": false
         }
       },
       {
         "type": "label",
         "data": {
-          "name": "label_as_well_as_claim_area",
+          "name": "label_current_menu",
           "text": {
-            "fixedValue": "Remember!"
+            "fixedValue": "Current Menu"
           },
           "color": {
-            "value": -65485,
+            "value": -3407821,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 69,
-          "y": 126,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 180,
-          "y": 18,
+          "x": 221,
+          "y": 34,
           "locked": false
         }
       },
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_after_customers_finish_eating_t",
-          "text": "After customers finish eating, they will leave money and give reputation to your restaurant. Money is left on the Service Table. To collect it, simply right-click the table.",
+          "name": "multiline_label_contains_the_dishes_your_custome",
+          "text": "Contains the dishes your customers can order during the current shift.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -148,18 +182,35 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 132,
-          "height": 84,
-          "x": 69,
-          "y": 36,
+          "width": 125,
+          "height": 40,
+          "x": 221,
+          "y": 45,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_current_menu_copy",
+          "text": {
+            "fixedValue": "Incoming menu"
+          },
+          "color": {
+            "value": -3407821,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 221,
+          "y": 85,
           "locked": false
         }
       },
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_a_table_with_waiting_payment_wil",
-          "text": "A Service Table with uncollected payment will not accept new customers.",
+          "name": "multiline_label_contains_the_dishes_your_custome_copy",
+          "text": "Shows what will be available during the next shift, giving you time to prepare the required food in advance.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -169,43 +220,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 131,
-          "height": 48,
-          "x": 69,
-          "y": 138,
-          "locked": false
-        }
-      },
-      {
-        "type": "multiline_label",
-        "data": {
-          "name": "multiline_label_experience_is_added_to_your_rest",
-          "text": "Serving customers earns reputation for your restaurant. To receive the full reward, complete the entire order. Every missing food reduces the reputation gained, and a badly incomplete order may even make you lose reputation.\nEarn enough reputation and your restaurant will level up!",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "overflowMode": "VISIBLE",
-          "tooltipWhenTruncated": false,
-          "alignment": "LEFT",
-          "width": 124,
-          "height": 168,
-          "x": 219,
-          "y": 36,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideExpLevelP2",
-          "x": 322,
-          "y": 177,
+          "width": 125,
+          "height": 40,
+          "x": 221,
+          "y": 97,
           "locked": false
         }
       }
