@@ -42,6 +42,7 @@ public class MasterchefRestaurantModScreens {
 		event.register(MasterchefRestaurantModMenus.CHEFS_DIARY_MENU_GUI.get(), ChefsDiaryMenuGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.CHEFS_DIARY_TIPS_GUI.get(), ChefsDiaryTipsGUIScreen::new);
 		event.register(MasterchefRestaurantModMenus.CHEFS_DIARY_TIPS_P_2_GUI.get(), ChefsDiaryTipsP2GUIScreen::new);
+		event.register(MasterchefRestaurantModMenus.CARDS_PICK_GUI.get(), CardsPickGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

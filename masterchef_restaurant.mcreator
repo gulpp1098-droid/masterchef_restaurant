@@ -8553,6 +8553,20 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "CardsPickGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cards_pick_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/world/inventory/CardsPickGUIMenu.java",
+          "src/main/java/net/mcreator/masterchefrestaurant/client/gui/CardsPickGUIScreen.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs"
     }
   ],
   "variable_elements": [
@@ -9063,7 +9077,9 @@
       "gui.masterchef_restaurant.chefs_diary_tips_gui.label_current_menu_copy": "Incoming menu",
       "gui.masterchef_restaurant.chefs_diary_tips_gui.label_food_wip_copy": "Closing Restaurant",
       "gui.masterchef_restaurant.chefs_diary_tips_p_2_gui.label_food_wip": "Daily Statistics",
-      "gui.masterchef_restaurant.chefs_diary_tips_p_2_gui.label_food_wip_copy": "Closing Restaurant"
+      "gui.masterchef_restaurant.chefs_diary_tips_p_2_gui.label_food_wip_copy": "Closing Restaurant",
+      "gui.masterchef_restaurant.cards_pick_gui.label_new_recipe_unlocked": "New recipe unlocked!!!",
+      "gui.masterchef_restaurant.cards_pick_gui.label_pick_one_of_cards_to_unlock_new": "Pick one of cards to unlock new recipe!"
     }
   },
   "metadata": {
