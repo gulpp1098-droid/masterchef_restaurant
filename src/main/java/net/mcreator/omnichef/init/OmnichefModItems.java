@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
 
-import net.mcreator.omnichef.item.inventory.SpatulaGoldenInventoryCapability;
 import net.mcreator.omnichef.item.inventory.ChefsDiaryInventoryCapability;
 import net.mcreator.omnichef.item.*;
 import net.mcreator.omnichef.OmnichefMod;
@@ -57,7 +56,6 @@ public class OmnichefModItems {
 	// End of user code block custom items
 	@SubscribeEvent
 	public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, context) -> new SpatulaGoldenInventoryCapability(stack), SPATULA_GOLDEN.get());
 		event.registerItem(Capabilities.ItemHandler.ITEM, (stack, context) -> new ChefsDiaryInventoryCapability(stack), CHEFS_DIARY.get());
 	}
 

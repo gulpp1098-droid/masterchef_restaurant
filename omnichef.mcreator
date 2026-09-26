@@ -20,8 +20,7 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/omnichef/models/item/spatula_golden.json",
-          "src/main/java/net/mcreator/omnichef/item/SpatulaGoldenItem.java",
-          "src/main/java/net/mcreator/omnichef/item/inventory/SpatulaGoldenInventoryCapability.java"
+          "src/main/java/net/mcreator/omnichef/item/SpatulaGoldenItem.java"
         ]
       },
       "path": "~/Restaurant Functioning/Items"
