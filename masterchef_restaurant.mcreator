@@ -8695,6 +8695,111 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "ChooseCard1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_card_1",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChooseCard1Procedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "ChooseCard2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_card_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChooseCard2Procedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "ChooseCard3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_card_3",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChooseCard3Procedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
     }
   ],
   "variable_elements": [

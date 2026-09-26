@@ -202,6 +202,12 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		super.init();
 		enhanced_image_button_cardbigtier0 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -134, this.topPos + -32, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png")), e -> {
+					int x = CardsPickGUIScreen.this.x;
+					int y = CardsPickGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.CardsPickGUIButtonMessage(0, x, y, z));
+						net.mcreator.masterchefrestaurant.network.CardsPickGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -217,6 +223,12 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		this.addWidget(enhanced_image_button_cardbigtier0);
 		enhanced_image_button_cardbigtier1 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -24, this.topPos + -32, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png")), e -> {
+					int x = CardsPickGUIScreen.this.x;
+					int y = CardsPickGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.CardsPickGUIButtonMessage(1, x, y, z));
+						net.mcreator.masterchefrestaurant.network.CardsPickGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -232,6 +244,12 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		this.addWidget(enhanced_image_button_cardbigtier1);
 		enhanced_image_button_cardbigtier2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 86, this.topPos + -33, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png")), e -> {
+					int x = CardsPickGUIScreen.this.x;
+					int y = CardsPickGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.masterchefrestaurant.network.CardsPickGUIButtonMessage(2, x, y, z));
+						net.mcreator.masterchefrestaurant.network.CardsPickGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

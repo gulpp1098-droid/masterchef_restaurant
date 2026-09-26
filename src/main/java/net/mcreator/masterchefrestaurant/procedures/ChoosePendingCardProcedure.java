@@ -37,7 +37,7 @@ public class ChoosePendingCardProcedure {
 				selectedFood = pendingCards.get((int) cardIndex).getAsString();
 				ModifyRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
-				RemoveRestaurantArrayParameterIndexProcedure.execute(restaurantIndex, "restaurants", "unlocked_options", MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+				RemoveRestaurantArrayParameterIndexProcedure.execute(restaurantIndex, "restaurants", "unlock_options", MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
 				remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, "starter_unlocks_remaining");
