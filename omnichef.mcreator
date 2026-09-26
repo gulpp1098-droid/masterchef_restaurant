@@ -369,7 +369,7 @@
     {
       "name": "CreatingRestaurantJsonFile",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "creating_restaurant_json_file",
       "metadata": {
@@ -1726,7 +1726,7 @@
     {
       "name": "CreatingClientsDatabaseJsonFile",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "creating_clients_database_json_file",
       "metadata": {
@@ -2212,7 +2212,7 @@
     {
       "name": "ClientRestaurantGoState",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "client_restaurant_go_state",
       "metadata": {
@@ -2254,7 +2254,7 @@
     {
       "name": "ClientQueueWaitState",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "client_queue_wait_state",
       "metadata": {
@@ -2958,7 +2958,7 @@
     {
       "name": "ClientGroupWaitState",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "client_group_wait_state",
       "metadata": {
@@ -3433,7 +3433,7 @@
     {
       "name": "ClientCoinPay",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "client_coin_pay",
       "metadata": {
@@ -7570,7 +7570,7 @@
     {
       "name": "ClientBeginLeaving",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "client_begin_leaving",
       "metadata": {
@@ -7733,7 +7733,7 @@
     {
       "name": "CleanupRestaurantQueueFromRug",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "cleanup_restaurant_queue_from_rug",
       "metadata": {
@@ -7992,7 +7992,7 @@
     {
       "name": "DeleteRestaurant",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "delete_restaurant",
       "metadata": {
@@ -8015,7 +8015,7 @@
     {
       "name": "DetachQueueRugs",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "detach_queue_rugs",
       "metadata": {
@@ -8572,7 +8572,7 @@
     {
       "name": "CreatingRestaurantFoodJsonFile",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "creating_restaurant_food_json_file",
       "metadata": {

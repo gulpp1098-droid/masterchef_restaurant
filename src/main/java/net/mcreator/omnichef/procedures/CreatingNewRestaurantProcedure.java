@@ -202,7 +202,6 @@ public class CreatingNewRestaurantProcedure {
 						_vars.Restaurant_ID = OmnichefModVariables.MapVariables.get(world).RestaurantID;
 						_vars.markSyncDirty();
 					}
-					GenerateRestaurantMenuProcedure.execute(world, OmnichefModVariables.MapVariables.get(world).RestaurantID, 0);
 					if (Owner instanceof Player _player77 && !_player77.level().isClientSide())
 						_player77.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;

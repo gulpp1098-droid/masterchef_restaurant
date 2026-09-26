@@ -23,6 +23,7 @@ public class GenerateRestaurantMenuProcedure {
 		com.google.gson.JsonArray Tier = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray menusArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray menuArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray UnlockedFood = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject Tiers = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject Meal = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject FoodDatabase = new com.google.gson.JsonObject();
@@ -52,6 +53,10 @@ public class GenerateRestaurantMenuProcedure {
 		double MenuSize = 0;
 		double indexDuplicate = 0;
 		double amountOfTiers = 0;
+		double restaurantIndex = 0;
+		double randomFoodIndex = 0;
+		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantIndexDependency);
+		UnlockedFood = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 		MaxRestaurantLevel = OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel;
 		CurrentRestaurantLevel = restaurantLevelDependency;
 		ListOfFood = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
@@ -88,40 +93,24 @@ public class GenerateRestaurantMenuProcedure {
 		minMenuPercent = 0.05;
 		maxMenuPercent = 0.5;
 		menuPercent = minMenuPercent + (maxMenuPercent - minMenuPercent) * LevelProgress;
-		MenuSize = Math.ceil(GetAmountOfFoodAvailableInTiersProcedure.execute(world, amountOfTiers, minTier) * menuPercent);
+		MenuSize = Math.ceil(UnlockedFood.size() * menuPercent);
+		if (MenuSize > UnlockedFood.size()) {
+			MenuSize = UnlockedFood.size();
+		}
 		while (menuArray.size() < MenuSize) {
-			randomWeight = Mth.nextInt(RandomSource.create(), 1, (int) totalWeight);
-			loopTier = minTier;
-			runningWeight = 0;
-			for (int _i1 = 0; _i1 < (int) (CurrentTier - minTier + 1); _i1++) {
-				distance = CurrentTier - loopTier;
-				weight = 95 * Math.pow(0.6, distance) + 5;
-				runningWeight = runningWeight + weight;
-				if (randomWeight <= runningWeight) {
-					selectedTier = loopTier;
+			randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (UnlockedFood.size() - 1));
+			MealID = UnlockedFood.get((int) randomFoodIndex).getAsString();
+			indexDuplicate = 0;
+			isDuplicate = false;
+			for (int _i1 = 0; _i1 < (int) menuArray.size(); _i1++) {
+				if ((menuArray.get((int) indexDuplicate).getAsString()).equals(MealID)) {
+					isDuplicate = true;
 					break;
 				}
-				loopTier = loopTier + 1;
+				indexDuplicate = indexDuplicate + 1;
 			}
-			Tier = Tiers.get((new java.text.DecimalFormat("0").format(selectedTier))).getAsJsonArray();
-			TierSize = Tier.size();
-			Meal = Tier.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (TierSize - 1)))).getAsJsonObject();
-			MealID = Meal.get("id").getAsString();
-			if (menuArray.size() <= 0) {
+			if (!isDuplicate) {
 				menuArray.add(MealID);
-			} else {
-				indexDuplicate = 0;
-				isDuplicate = false;
-				for (int _i1 = 0; _i1 < (int) menuArray.size(); _i1++) {
-					if ((menuArray.get((int) indexDuplicate).getAsString()).equals(MealID)) {
-						isDuplicate = true;
-						break;
-					}
-					indexDuplicate = indexDuplicate + 1;
-				}
-				if (!isDuplicate) {
-					menuArray.add(MealID);
-				}
 			}
 		}
 		Menufile = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
@@ -136,7 +125,7 @@ public class GenerateRestaurantMenuProcedure {
 				bufferedReader.close();
 				menusObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				menusArray = menusObject.get("restaurants").getAsJsonArray();
-				RestaurantObject = menusArray.get((int) RestaurantIndexSearchByIDProcedure.execute(world, restaurantIndexDependency)).getAsJsonObject();
+				RestaurantObject = menusArray.get((int) restaurantIndex).getAsJsonObject();
 				RestaurantObject.add("next_menu", menuArray);
 				{
 					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
