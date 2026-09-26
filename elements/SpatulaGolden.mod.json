@@ -43,6 +43,7 @@
     },
     "inventorySize": 3,
     "inventoryStackSize": 98,
+    "onRightClickedInAir": "OpenSpatulaGUI",
     "onRightClickedOnBlock": "SetRestaurantLocalizationWithSpatula",
     "onItemInUseTick": "SpatulaInHandOnTick",
     "enableRanged": false,
