@@ -1,4 +1,4 @@
-package net.mcreator.masterchefrestaurant.procedures;
+package net.mcreator.omnichef.procedures;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.LevelAccessor;

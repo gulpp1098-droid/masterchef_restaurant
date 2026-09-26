@@ -189,7 +189,7 @@ public class CreatingFoodListJsonProcedure {
 					if (itemId == null)
 						return 0.0;
 					String namespace = itemId.getNamespace();
-					if ("minecraft".equals(namespace) || "masterchef_restaurant".equals(namespace))
+					if ("minecraft".equals(namespace) || "omnichef".equals(namespace))
 						return 0.0;
 					return MODDED_FOOD_BONUS;
 				}

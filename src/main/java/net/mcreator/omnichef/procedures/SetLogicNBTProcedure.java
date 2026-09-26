@@ -1,4 +1,4 @@
-package net.mcreator.masterchefrestaurant.procedures;
+package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;

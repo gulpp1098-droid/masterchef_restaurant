@@ -3298,7 +3298,7 @@
       "registry_name": "debug_overlay",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/client/screens/DebugOverlayOverlay.java"
+          "src/main/java/net/mcreator/omnichef/client/screens/DebugOverlayOverlay.java"
         ]
       },
       "path": "~/Restaurant Functioning/Debug"
