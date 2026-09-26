@@ -52,7 +52,7 @@
     {
       "name": "CreatingNewRestaurant",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "creating_new_restaurant",
       "metadata": {

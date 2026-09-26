@@ -163,8 +163,8 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurantFoodUnlock.addProperty("stage_tier", 0);
 				NewRestaurantFoodUnlock.addProperty("stage_unlocks", 0);
 				NewRestaurantFoodUnlock.addProperty("starter_unlocks_remaining", 3);
-				NewRestaurantFoodUnlock.addProperty("unlocked", LocationArray);
-				NewRestaurantFoodUnlock.addProperty("unlock_options", LocationArray);
+				NewRestaurantFoodUnlock.add("unlocked", LocationArray);
+				NewRestaurantFoodUnlock.add("unlock_options", LocationArray);
 				RestaurantsFoodUnlock = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name);
 				{
 					try {
