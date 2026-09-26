@@ -38,9 +38,9 @@ public class AddRecipeDiscoveryExpProcedure {
 					} else {
 						if (discoveryExp > OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
 							discoveryExp = OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired;
-							ModifyRestaurantNumberParameterProcedure.execute(discoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
 						}
+						ModifyRestaurantNumberParameterProcedure.execute(discoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
 					}
 				}
 			}

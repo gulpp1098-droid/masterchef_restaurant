@@ -4,6 +4,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
+import net.mcreator.omnichef.entity.ClientEntity;
 
 public class ClientFoodEatStateProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
@@ -16,6 +17,9 @@ public class ClientFoodEatStateProcedure {
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
 			ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_served_fully");
+			if (client instanceof ClientEntity) {
+				AddRecipeDiscoveryExpProcedure.execute(world, restaurantID);
+			}
 			client.getPersistentData().putString("state", "group_wait");
 			StopClientPatienceProcedure.execute(entity);
 		}
