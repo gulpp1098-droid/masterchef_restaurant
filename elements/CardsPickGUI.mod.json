@@ -142,8 +142,72 @@
           "y": 158,
           "locked": false
         }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0",
+          "displayId": 0,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 200,
+          "x": 97,
+          "y": 95,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1",
+          "displayId": 1,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 200,
+          "x": 207,
+          "y": 96,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_2",
+          "displayId": 1,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 200,
+          "x": 317,
+          "y": 96,
+          "locked": false
+        }
       }
     ],
+    "onOpen": "FillCardsPickGUI",
     "gridSettings": {
       "sx": 18,
       "sy": 18,
