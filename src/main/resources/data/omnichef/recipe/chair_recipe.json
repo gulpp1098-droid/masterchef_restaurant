@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  a",
+    "bbb",
+    "aca"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:planks"
+    },
+    "b": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "c": {
+      "item": "omnichef:chefs_diary"
+    }
+  },
+  "result": {
+    "id": "omnichef:chair",
+    "count": 2
+  }
+}

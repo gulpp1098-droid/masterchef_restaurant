@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aaa",
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "omnichef:silver_coin"
+    }
+  },
+  "result": {
+    "id": "omnichef:gold_coin",
+    "count": 1
+  }
+}

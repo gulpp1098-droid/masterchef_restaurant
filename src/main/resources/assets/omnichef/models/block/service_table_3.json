@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/blocktablenumber",
+  "textures": {
+    "all": "omnichef:block/texturetablenosign",
+    "particle": "omnichef:block/texturetablenosign",
+    "0": "omnichef:block/texturetablenosign"
+  },
+  "render_type": "cutout"
+}

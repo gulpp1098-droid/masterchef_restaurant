@@ -3,9 +3,9 @@ loaderVersion="[4,)"
 license="Custom license"
 
 [[mods]]
-modId="masterchef_restaurant"
-version="0.6.0"
-displayName="MasterChef Restaurant RPG"
+modId="omnichef"
+version="0.6.3"
+displayName="OmniChef - Restaurant sim RPG mod"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
@@ -19,14 +19,14 @@ description="Manage your own Restaurant and become the best chef!"
 # Start of user code block custom mixins
 # End of user code block custom mixins
 
-[[dependencies.masterchef_restaurant]]
+[[dependencies.omnichef]]
     modId="neoforge"
     type="required"
     versionRange="[21.1.232,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.masterchef_restaurant]]
+[[dependencies.omnichef]]
     modId="minecraft"
     type="required"
     versionRange="[1.21.1]"

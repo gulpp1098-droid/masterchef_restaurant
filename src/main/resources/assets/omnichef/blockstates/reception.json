@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "omnichef:block/reception"
+    },
+    "facing=east": {
+      "model": "omnichef:block/reception",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "omnichef:block/reception",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "omnichef:block/reception",
+      "y": 270
+    }
+  }
+}

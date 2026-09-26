@@ -261,6 +261,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 180,
           "y": 52,
           "locked": false
@@ -281,6 +282,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 203,
           "y": 52,
           "locked": false
@@ -301,6 +303,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 226,
           "y": 52,
           "locked": false
@@ -321,6 +324,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 249,
           "y": 52,
           "locked": false
@@ -341,6 +345,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 272,
           "y": 52,
           "locked": false

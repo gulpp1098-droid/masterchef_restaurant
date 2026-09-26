@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/rug",
+  "textures": {
+    "all": "omnichef:block/rugcorner",
+    "particle": "omnichef:block/rugstreight",
+    "3": "omnichef:block/rugcorner"
+  },
+  "render_type": "solid"
+}

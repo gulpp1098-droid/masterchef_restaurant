@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:gold_coin"
+    }
+  ],
+  "result": {
+    "id": "omnichef:silver_coin",
+    "count": 9
+  }
+}

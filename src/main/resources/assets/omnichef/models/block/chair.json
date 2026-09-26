@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/blockchair",
+  "textures": {
+    "all": "omnichef:block/texturechair",
+    "particle": "omnichef:block/texturechair",
+    "0": "omnichef:block/texturechair"
+  },
+  "render_type": "solid"
+}

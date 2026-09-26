@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/rug",
+  "textures": {
+    "all": "omnichef:block/queuecorner",
+    "particle": "omnichef:block/queuesingle",
+    "3": "omnichef:block/queuecorner"
+  },
+  "render_type": "solid"
+}

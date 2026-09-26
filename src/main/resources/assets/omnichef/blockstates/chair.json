@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "omnichef:block/chair"
+    },
+    "facing=east": {
+      "model": "omnichef:block/chair",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "omnichef:block/chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "omnichef:block/chair",
+      "y": 270
+    }
+  }
+}

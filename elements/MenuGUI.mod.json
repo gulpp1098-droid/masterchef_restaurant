@@ -332,6 +332,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 131,
           "y": 77,
           "locked": false
@@ -352,6 +353,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 131,
           "y": 113,
           "locked": false
@@ -372,6 +374,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 131,
           "y": 149,
           "locked": false
@@ -392,6 +395,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 220,
           "y": 77,
           "locked": false
@@ -412,6 +416,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 220,
           "y": 113,
           "locked": false
@@ -432,6 +437,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 220,
           "y": 149,
           "locked": false

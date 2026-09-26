@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/blockreception",
+  "textures": {
+    "all": "omnichef:block/texturereception",
+    "particle": "omnichef:block/texturereception",
+    "0": "omnichef:block/texturereception"
+  },
+  "render_type": "cutout"
+}

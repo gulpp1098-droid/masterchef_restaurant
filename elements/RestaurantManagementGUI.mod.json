@@ -712,6 +712,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 337,
           "y": 77,
           "locked": false
@@ -732,6 +733,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 337,
           "y": 114,
           "locked": false
@@ -752,6 +754,7 @@
             "falpha": 0.0
           },
           "maskOpacity": 100,
+          "scale": 100,
           "x": 337,
           "y": 153,
           "locked": false
