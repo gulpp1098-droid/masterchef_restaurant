@@ -41,16 +41,45 @@ public class ChoosePendingCardProcedure {
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
 				remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"starter_unlocks_remaining");
-				ModifyRestaurantNumberParameterProcedure.execute(remaining - 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						"starter_unlocks_remaining");
-				if (remaining - 1 > 0) {
-					GeneratePendingCardsProcedure.execute(world, restaurantID);
-					FillCardsPickGUIProcedure.execute(world, entity);
+				if (remaining > 0) {
+					ModifyRestaurantNumberParameterProcedure.execute(remaining - 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "starter_unlocks_remaining");
+					if (remaining - 1 > 0) {
+						GeneratePendingCardsProcedure.execute(world, restaurantID);
+						FillCardsPickGUIProcedure.execute(world, entity);
+					} else {
+						ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+						GenerateRestaurantMenuProcedure.execute(world, restaurantID, GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
+						if (entity instanceof ServerPlayer _ent) {
+							BlockPos _bpos = BlockPos.containing(x, y, z);
+							_ent.openMenu(new MenuProvider() {
+								@Override
+								public Component getDisplayName() {
+									return Component.literal("RestaurantManagementGUI");
+								}
+
+								@Override
+								public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+									return false;
+								}
+
+								@Override
+								public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+									return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+								}
+							}, _bpos);
+						}
+					}
 				} else {
 					ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-					GenerateRestaurantMenuProcedure.execute(world, restaurantID,
-							GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
+					ModifyRestaurantNumberParameterProcedure
+							.execute(
+									GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks") + 1,
+									restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks");
 					if (entity instanceof ServerPlayer _ent) {
 						BlockPos _bpos = BlockPos.containing(x, y, z);
 						_ent.openMenu(new MenuProvider() {
