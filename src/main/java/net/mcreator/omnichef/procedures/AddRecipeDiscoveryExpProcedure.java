@@ -19,20 +19,28 @@ public class AddRecipeDiscoveryExpProcedure {
 						"starter_unlocks_remaining");
 				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+				unlockOptions = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				restaurantIndex = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+				stageUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"stage_unlocks");
 				if (starterRemaining <= 0 && pendingCards.isEmpty() && !unlockOptions.isEmpty()) {
 					discoveryExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 							"discovery_exp") + 1;
-					if (discoveryExp >= OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
-						ModifyRestaurantNumberParameterProcedure.execute(0, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-								"discovery_exp");
-						GeneratePendingCardsProcedure.execute(world, restaurantID);
+					if (stageUnlocks < OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryStageLimit) {
+						if (discoveryExp >= OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
+							ModifyRestaurantNumberParameterProcedure.execute(0, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+									"discovery_exp");
+							GeneratePendingCardsProcedure.execute(world, restaurantID);
+						} else {
+							ModifyRestaurantNumberParameterProcedure.execute(discoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
+						}
 					} else {
-						ModifyRestaurantNumberParameterProcedure.execute(discoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
+						if (discoveryExp > OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
+							discoveryExp = OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired;
+							ModifyRestaurantNumberParameterProcedure.execute(discoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
+						}
 					}
 				}
 			}
