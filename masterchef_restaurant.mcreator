@@ -52,7 +52,7 @@
     {
       "name": "CreatingNewRestaurant",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "creating_new_restaurant",
       "metadata": {
@@ -8655,7 +8655,46 @@
           "src/main/java/net/mcreator/masterchefrestaurant/procedures/FillCardsPickGUIProcedure.java"
         ]
       },
-      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "ChoosePendingCard",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choose_pending_card",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "indexCard",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/ChoosePendingCardProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
     }
   ],
   "variable_elements": [
@@ -9421,6 +9460,10 @@
                   },
                   {
                     "name": "Timeline",
+                    "children": []
+                  },
+                  {
+                    "name": "PickCard",
                     "children": []
                   }
                 ]

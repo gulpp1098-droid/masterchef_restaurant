@@ -76,7 +76,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				boolean guiTools$displayMasked2 = false;
 				if (guiTools$displayMasked2)
 					break guiTools$itemDisplayTooltip2;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack2 == null || guiTools$tooltipStack2.isEmpty())
 					break guiTools$itemDisplayTooltip2;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack2, mouseX, mouseY);
@@ -92,32 +92,14 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
 		guiTools$orderedImages : {
-			if (true) {
-				int guiTools$xOffset = 0;
-				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 64;
-				int guiTools$visibleHeight = 64;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"));
-				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -24 + guiTools$xOffset, this.topPos + -32 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 64, 64);
+			if (this.enhanced_image_button_cardbigtier0 != null && this.enhanced_image_button_cardbigtier0.visible) {
+				this.enhanced_image_button_cardbigtier0.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
-			if (true) {
-				int guiTools$xOffset = 0;
-				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 64;
-				int guiTools$visibleHeight = 64;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"));
-				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 86 + guiTools$xOffset, this.topPos + -32 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 64, 64);
+			if (this.enhanced_image_button_cardbigtier1 != null && this.enhanced_image_button_cardbigtier1.visible) {
+				this.enhanced_image_button_cardbigtier1.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
-			if (true) {
-				int guiTools$xOffset = 0;
-				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 64;
-				int guiTools$visibleHeight = 64;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"));
-				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -134 + guiTools$xOffset, this.topPos + -32 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 64, 64);
+			if (this.enhanced_image_button_cardbigtier2 != null && this.enhanced_image_button_cardbigtier2.visible) {
+				this.enhanced_image_button_cardbigtier2.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
 			guiTools$itemDisplay0 : {
 				if (!(true))
@@ -172,7 +154,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 			guiTools$itemDisplay2 : {
 				if (!(true))
 					break guiTools$itemDisplay2;
-				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
 					break guiTools$itemDisplay2;
 				boolean guiTools$displayMasked2 = false;
@@ -218,6 +200,51 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 	@Override
 	public void init() {
 		super.init();
+		enhanced_image_button_cardbigtier0 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -134, this.topPos + -32, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(enhanced_image_button_cardbigtier0);
+		enhanced_image_button_cardbigtier1 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -24, this.topPos + -32, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(enhanced_image_button_cardbigtier1);
+		enhanced_image_button_cardbigtier2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 86, this.topPos + -33, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("masterchef_restaurant:textures/screens/card-big-tier0.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(enhanced_image_button_cardbigtier2);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -335,7 +362,12 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		return java.util.List.copyOf(lines);
 	}
 
-	private static net.minecraft.resources.ResourceLocation guiTools$dynamicTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+	private static final boolean guiTools$enhancedImageButton = true;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_cardbigtier0;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_cardbigtier1;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_cardbigtier2;
+
+	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())
 			return fallback;
 		try {

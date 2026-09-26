@@ -14,7 +14,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.ChatFormatting;
 
-import net.mcreator.masterchefrestaurant.world.inventory.RestaurantManagementGUIMenu;
+import net.mcreator.masterchefrestaurant.world.inventory.CardsPickGUIMenu;
 import net.mcreator.masterchefrestaurant.network.MasterchefRestaurantModVariables;
 import net.mcreator.masterchefrestaurant.init.MasterchefRestaurantModMenus;
 import net.mcreator.masterchefrestaurant.MasterchefRestaurantMod;
@@ -212,7 +212,7 @@ public class CreatingNewRestaurantProcedure {
 						_ent.openMenu(new MenuProvider() {
 							@Override
 							public Component getDisplayName() {
-								return Component.literal("RestaurantManagementGUI");
+								return Component.literal("CardsPickGUI");
 							}
 
 							@Override
@@ -222,7 +222,7 @@ public class CreatingNewRestaurantProcedure {
 
 							@Override
 							public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-								return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+								return new CardsPickGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 							}
 						}, _bpos);
 					}

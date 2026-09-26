@@ -11,42 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "dynamic_image",
-        "data": {
-          "name": "dynamic_image_0",
-          "image": "card-big-tier0.png",
-          "width": 64,
-          "height": 64,
-          "x": 190,
-          "y": 88,
-          "locked": false
-        }
-      },
-      {
-        "type": "dynamic_image",
-        "data": {
-          "name": "dynamic_image_0_copy",
-          "image": "card-big-tier0.png",
-          "width": 64,
-          "height": 64,
-          "x": 300,
-          "y": 88,
-          "locked": false
-        }
-      },
-      {
-        "type": "dynamic_image",
-        "data": {
-          "name": "dynamic_image_0_copy_2",
-          "image": "card-big-tier0.png",
-          "width": 64,
-          "height": 64,
-          "x": 80,
-          "y": 88,
-          "locked": false
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_new_recipe_unlocked",
@@ -144,6 +108,75 @@
         }
       },
       {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "card-big-tier0.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_cardbigtier0",
+          "text": "",
+          "isUndecorated": true,
+          "width": 64,
+          "height": 64,
+          "x": 80,
+          "y": 88,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "card-big-tier0.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_cardbigtier1",
+          "text": "",
+          "isUndecorated": true,
+          "width": 64,
+          "height": 64,
+          "x": 190,
+          "y": 88,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "card-big-tier0.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_cardbigtier2",
+          "text": "",
+          "isUndecorated": true,
+          "width": 64,
+          "height": 64,
+          "x": 300,
+          "y": 87,
+          "locked": false
+        }
+      },
+      {
         "type": "item_display",
         "data": {
           "name": "item_display_0",
@@ -189,7 +222,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_2",
-          "displayId": 1,
+          "displayId": 2,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
