@@ -42,6 +42,7 @@ public class ChoosePendingCardProcedure {
 				ModifyRestaurantNumberParameterProcedure.execute(GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks") + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks");
+				AdvanceRecipeDiscoveryStageProcedure.execute(world, restaurantID);
 				remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"starter_unlocks_remaining");
 				if (remaining > 0) {
