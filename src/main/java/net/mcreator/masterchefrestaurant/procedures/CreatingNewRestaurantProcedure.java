@@ -194,6 +194,7 @@ public class CreatingNewRestaurantProcedure {
 						e.printStackTrace();
 					}
 				}
+				GeneratePendingCardsProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID);
 				SaveConfirmed = RestaurantIndexSearchByIDProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID) >= 0;
 				if (SaveConfirmed) {
 					{
