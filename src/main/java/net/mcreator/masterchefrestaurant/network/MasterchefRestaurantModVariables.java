@@ -189,7 +189,7 @@ public class MasterchefRestaurantModVariables {
 		public ArrayList<Object> RestaurantsOpen = new ArrayList<>();
 		public String ClientsDatabase_File_Name = "ClientsDatabase.json";
 		public double LastClientsDatabaseResetDay = 0;
-		public String RestaurantFood_File_Name = "RestaurantsFoodUnlock";
+		public String RestaurantFood_File_Name = "RestaurantsFoodUnlock.json";
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();

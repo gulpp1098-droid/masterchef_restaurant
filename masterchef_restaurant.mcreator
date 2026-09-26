@@ -8586,6 +8586,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "GetFoodListFromTier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_list_from_tier",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "tier",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/GetFoodListFromTierProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
@@ -8725,7 +8749,7 @@
       "name": "RestaurantFood_File_Name",
       "type": "string",
       "scope": "map",
-      "value": "RestaurantsFoodUnlock"
+      "value": "RestaurantsFoodUnlock.json"
     }
   ],
   "sound_elements": [],

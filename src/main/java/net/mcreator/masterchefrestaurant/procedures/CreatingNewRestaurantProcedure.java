@@ -164,7 +164,8 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurantFoodUnlock.addProperty("stage_unlocks", 0);
 				NewRestaurantFoodUnlock.addProperty("starter_unlocks_remaining", 3);
 				NewRestaurantFoodUnlock.add("unlocked", LocationArray);
-				NewRestaurantFoodUnlock.add("unlock_options", LocationArray);
+				NewRestaurantFoodUnlock.add("unlock_options", GetFoodListFromTierProcedure.execute(world, 0));
+				NewRestaurantFoodUnlock.add("pending_cards", LocationArray);
 				RestaurantsFoodUnlock = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name);
 				{
 					try {
@@ -201,8 +202,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					GenerateRestaurantMenuProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID, 0);
-					if (Owner instanceof Player _player76 && !_player76.level().isClientSide())
-						_player76.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
+					if (Owner instanceof Player _player77 && !_player77.level().isClientSide())
+						_player77.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + 1;
 					MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
@@ -225,8 +226,8 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player80 && !_player80.level().isClientSide())
-						_player80.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
+					if (Owner instanceof Player _player81 && !_player81.level().isClientSide())
+						_player81.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					MasterchefRestaurantMod.LOGGER.info("CreatingNewRestaurant: save verification failed." + "\n" + "Restaurant ID: " + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + "\n" + "File: "
 							+ MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path + "/" + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);
 				}
