@@ -21,7 +21,7 @@ public class MaxQueueReturnProcedure {
 				}
 			}
 		}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring);
-		if (JSONObject != null && !(JSONObject.size() == 0)) {
+		if (JSONObject != null && entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring.contains("queue")) {
 			return JSONObject.get("queue").getAsString();
 		}
 		return " - ";

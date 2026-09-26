@@ -21,7 +21,9 @@ public class ReturnRestaurantNameProcedure {
 					}
 				}
 			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring);
-			return Data.get("name").getAsString();
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring.contains("name")) {
+				return Data.get("name").getAsString();
+			}
 		}
 		return "Name: -";
 	}

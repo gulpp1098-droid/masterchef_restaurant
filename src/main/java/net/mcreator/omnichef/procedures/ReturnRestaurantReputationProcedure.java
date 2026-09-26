@@ -21,7 +21,9 @@ public class ReturnRestaurantReputationProcedure {
 					}
 				}
 			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring);
-			return Data.get("reputation").getAsString();
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring.contains("name")) {
+				return Data.get("reputation").getAsString();
+			}
 		}
 		return "Reputation: -";
 	}

@@ -21,7 +21,9 @@ public class ReturnRestaurantLevelProcedure {
 					}
 				}
 			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring);
-			return Data.get("level").getAsString();
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring.contains("name")) {
+				return Data.get("level").getAsString();
+			}
 		}
 		return "Level: -";
 	}

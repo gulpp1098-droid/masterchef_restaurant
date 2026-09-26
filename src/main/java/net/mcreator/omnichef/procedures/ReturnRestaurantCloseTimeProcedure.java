@@ -22,8 +22,10 @@ public class ReturnRestaurantCloseTimeProcedure {
 					}
 				}
 			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring);
-			if (Data.get("open").getAsBoolean()) {
-				return Data.get("closeTime").getAsString();
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring.contains("name")) {
+				if (Data.get("open").getAsBoolean()) {
+					return Data.get("closeTime").getAsString();
+				}
 			}
 		}
 		return "Close time: -";

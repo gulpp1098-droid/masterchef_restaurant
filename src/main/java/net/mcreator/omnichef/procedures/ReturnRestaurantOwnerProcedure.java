@@ -21,7 +21,9 @@ public class ReturnRestaurantOwnerProcedure {
 					}
 				}
 			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring);
-			return Data.get("owner").getAsString();
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).GUIstring.contains("name")) {
+				return Data.get("owner").getAsString();
+			}
 		}
 		return "Owner: -";
 	}
