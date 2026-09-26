@@ -8567,6 +8567,25 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs"
+    },
+    {
+      "name": "CreatingRestaurantFoodJsonFile",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "creating_restaurant_food_json_file",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/masterchefrestaurant/procedures/CreatingRestaurantFoodJsonFileProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     }
   ],
   "variable_elements": [
@@ -8701,6 +8720,12 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "RestaurantFood_File_Name",
+      "type": "string",
+      "scope": "map",
+      "value": "RestaurantsFoodUnlock"
     }
   ],
   "sound_elements": [],

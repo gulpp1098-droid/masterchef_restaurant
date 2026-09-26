@@ -79,6 +79,69 @@
           "y": 60,
           "locked": false
         }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_tier_nrfood_name",
+          "text": "Tier Nr\nFood Name",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "CENTER",
+          "width": 54,
+          "height": 22,
+          "x": 86,
+          "y": 158,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_tier_nrfood_name_copy",
+          "text": "Tier Nr\nFood Name",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "CENTER",
+          "width": 54,
+          "height": 22,
+          "x": 196,
+          "y": 158,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_tier_nrfood_name_copy_2",
+          "text": "Tier Nr\nFood Name",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "CENTER",
+          "width": 54,
+          "height": 22,
+          "x": 306,
+          "y": 158,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {

@@ -40,6 +40,7 @@ public class CreatingNewRestaurantProcedure {
 		File ListOfRestaurants = new File("");
 		File MenuFile = new File("");
 		File ClientsFile = new File("");
+		File RestaurantsFoodUnlock = new File("");
 		com.google.gson.JsonArray Restaurant_Array = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray NewRestaurantArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray LocationArray = new com.google.gson.JsonArray();
@@ -47,6 +48,7 @@ public class CreatingNewRestaurantProcedure {
 		com.google.gson.JsonArray menus_array = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray ClientsGroup = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray ClientsArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray NewFoodRestaurantArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject Restaurants = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject Restaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject NewRestaurant = new com.google.gson.JsonObject();
@@ -59,6 +61,8 @@ public class CreatingNewRestaurantProcedure {
 		com.google.gson.JsonObject ClientRestaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject dailyStatsObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject lastDayStatsObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject NewRestaurantFood = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject NewRestaurantFoodUnlock = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			Owner = entity;
 			NewRestaurant_Name = (Owner instanceof Player _entity1 && _entity1.containerMenu instanceof MasterchefRestaurantModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "Restaurant_Name", "") : "";
@@ -154,6 +158,41 @@ public class CreatingNewRestaurantProcedure {
 						e.printStackTrace();
 					}
 				}
+				NewRestaurantFoodUnlock.addProperty("ID", ((int) MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID));
+				NewRestaurantFoodUnlock.addProperty("discovery_exp", 0);
+				NewRestaurantFoodUnlock.addProperty("stage_tier", 0);
+				NewRestaurantFoodUnlock.addProperty("stage_unlocks", 0);
+				NewRestaurantFoodUnlock.addProperty("starter_unlocks_remaining", 3);
+				NewRestaurantFoodUnlock.addProperty("unlocked", LocationArray);
+				NewRestaurantFoodUnlock.addProperty("unlock_options", LocationArray);
+				RestaurantsFoodUnlock = new File(MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantFood_File_Name);
+				{
+					try {
+						BufferedReader bufferedReader = new BufferedReader(new FileReader(RestaurantsFoodUnlock));
+						StringBuilder jsonstringbuilder = new StringBuilder();
+						String line;
+						while ((line = bufferedReader.readLine()) != null) {
+							jsonstringbuilder.append(line);
+						}
+						bufferedReader.close();
+						NewRestaurantFood = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+						NewFoodRestaurantArray = NewRestaurantFood.get("restaurants").getAsJsonArray();
+						NewFoodRestaurantArray.add(NewRestaurantFoodUnlock);
+						NewRestaurantFood.add("restaurants", NewFoodRestaurantArray);
+						{
+							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+							try {
+								FileWriter fileWriter = new FileWriter(RestaurantsFoodUnlock);
+								fileWriter.write(mainGSONBuilderVariable.toJson(NewRestaurantFood));
+								fileWriter.close();
+							} catch (IOException exception) {
+								exception.printStackTrace();
+							}
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 				SaveConfirmed = RestaurantIndexSearchByIDProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID) >= 0;
 				if (SaveConfirmed) {
 					{
@@ -162,8 +201,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					GenerateRestaurantMenuProcedure.execute(world, MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID, 0);
-					if (Owner instanceof Player _player62 && !_player62.level().isClientSide())
-						_player62.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
+					if (Owner instanceof Player _player76 && !_player76.level().isClientSide())
+						_player76.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID = MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + 1;
 					MasterchefRestaurantModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
@@ -186,8 +225,8 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player66 && !_player66.level().isClientSide())
-						_player66.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
+					if (Owner instanceof Player _player80 && !_player80.level().isClientSide())
+						_player80.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					MasterchefRestaurantMod.LOGGER.info("CreatingNewRestaurant: save verification failed." + "\n" + "Restaurant ID: " + MasterchefRestaurantModVariables.MapVariables.get(world).RestaurantID + "\n" + "File: "
 							+ MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_Info_Path + "/" + MasterchefRestaurantModVariables.MapVariables.get(world).Restaurant_File_Name);
 				}

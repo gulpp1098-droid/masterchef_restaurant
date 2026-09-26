@@ -189,6 +189,7 @@ public class MasterchefRestaurantModVariables {
 		public ArrayList<Object> RestaurantsOpen = new ArrayList<>();
 		public String ClientsDatabase_File_Name = "ClientsDatabase.json";
 		public double LastClientsDatabaseResetDay = 0;
+		public String RestaurantFood_File_Name = "RestaurantsFoodUnlock";
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -207,6 +208,7 @@ public class MasterchefRestaurantModVariables {
 			RestaurantsOpen = NbtArrayLists.loadGlobalMap(nbt.getList("RestaurantsOpen", Tag.TAG_COMPOUND), lookupProvider);
 			ClientsDatabase_File_Name = nbt.getString("ClientsDatabase_File_Name");
 			LastClientsDatabaseResetDay = nbt.getDouble("LastClientsDatabaseResetDay");
+			RestaurantFood_File_Name = nbt.getString("RestaurantFood_File_Name");
 		}
 
 		@Override
@@ -221,6 +223,7 @@ public class MasterchefRestaurantModVariables {
 			nbt.put("RestaurantsOpen", NbtArrayLists.saveGlobalMap(RestaurantsOpen, lookupProvider));
 			nbt.putString("ClientsDatabase_File_Name", ClientsDatabase_File_Name);
 			nbt.putDouble("LastClientsDatabaseResetDay", LastClientsDatabaseResetDay);
+			nbt.putString("RestaurantFood_File_Name", RestaurantFood_File_Name);
 			return nbt;
 		}
 
