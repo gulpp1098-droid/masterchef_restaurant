@@ -39,6 +39,9 @@ public class ChoosePendingCardProcedure {
 						selectedFood);
 				RemoveRestaurantArrayParameterIndexProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
+				ModifyRestaurantNumberParameterProcedure.execute(GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks") + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks");
 				remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"starter_unlocks_remaining");
 				if (remaining > 0) {
@@ -75,11 +78,6 @@ public class ChoosePendingCardProcedure {
 				} else {
 					ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-					ModifyRestaurantNumberParameterProcedure
-							.execute(
-									GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks") + 1,
-									restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks");
 					if (entity instanceof ServerPlayer _ent) {
 						BlockPos _bpos = BlockPos.containing(x, y, z);
 						_ent.openMenu(new MenuProvider() {

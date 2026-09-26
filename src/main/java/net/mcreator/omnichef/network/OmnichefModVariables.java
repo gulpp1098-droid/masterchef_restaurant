@@ -190,6 +190,8 @@ public class OmnichefModVariables {
 		public String ClientsDatabase_File_Name = "ClientsDatabase.json";
 		public double LastClientsDatabaseResetDay = 0;
 		public String RestaurantFood_File_Name = "RestaurantsFoodUnlock.json";
+		public double RecipeDiscoveryExpRequired = 0;
+		public double RecipeDiscoveryStageLimit = 0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -209,6 +211,8 @@ public class OmnichefModVariables {
 			ClientsDatabase_File_Name = nbt.getString("ClientsDatabase_File_Name");
 			LastClientsDatabaseResetDay = nbt.getDouble("LastClientsDatabaseResetDay");
 			RestaurantFood_File_Name = nbt.getString("RestaurantFood_File_Name");
+			RecipeDiscoveryExpRequired = nbt.getDouble("RecipeDiscoveryExpRequired");
+			RecipeDiscoveryStageLimit = nbt.getDouble("RecipeDiscoveryStageLimit");
 		}
 
 		@Override
@@ -224,6 +228,8 @@ public class OmnichefModVariables {
 			nbt.putString("ClientsDatabase_File_Name", ClientsDatabase_File_Name);
 			nbt.putDouble("LastClientsDatabaseResetDay", LastClientsDatabaseResetDay);
 			nbt.putString("RestaurantFood_File_Name", RestaurantFood_File_Name);
+			nbt.putDouble("RecipeDiscoveryExpRequired", RecipeDiscoveryExpRequired);
+			nbt.putDouble("RecipeDiscoveryStageLimit", RecipeDiscoveryStageLimit);
 			return nbt;
 		}
 
