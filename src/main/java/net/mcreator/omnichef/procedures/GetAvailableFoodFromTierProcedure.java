@@ -18,7 +18,7 @@ public class GetAvailableFoodFromTierProcedure {
 			foodID = tierFoods.get((int) tierIndex).getAsString();
 			optionIndex = 0;
 			for (int _i2 = 0; _i2 < (int) optionsArray.size(); _i2++) {
-				if ((foodID).equals(tierFoods.get((int) optionIndex).getAsString())) {
+				if ((foodID).equals(optionsArray.get((int) optionIndex).getAsString())) {
 					availableFoods.add(foodID);
 					break;
 				}
