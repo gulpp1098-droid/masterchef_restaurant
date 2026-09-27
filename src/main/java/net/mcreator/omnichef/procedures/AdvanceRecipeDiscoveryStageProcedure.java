@@ -38,6 +38,9 @@ public class AdvanceRecipeDiscoveryStageProcedure {
 						ModifyRestaurantNumberParameterProcedure.execute(0, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"stage_unlocks");
 					}
+				} else {
+					ModifyRestaurantNumberParameterProcedure.execute(0, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+							"stage_unlocks");
 				}
 			}
 		}
