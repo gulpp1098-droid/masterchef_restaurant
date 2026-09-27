@@ -9067,6 +9067,94 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodTierFromID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_tier_from_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "foodID",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodTierFromIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "Card1InfoReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "card_1_info_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/Card1InfoReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "Card2InfoReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "card_2_info_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/Card2InfoReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "Card3InfoReturn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "card_3_info_return",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/Card3InfoReturnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
     }
   ],
   "variable_elements": [
@@ -9212,7 +9300,7 @@
       "name": "RecipeDiscoveryExpRequired",
       "type": "number",
       "scope": "map",
-      "value": "1.0"
+      "value": "10.0"
     },
     {
       "name": "RecipeDiscoveryStageLimit",

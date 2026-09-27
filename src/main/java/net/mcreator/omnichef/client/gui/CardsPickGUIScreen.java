@@ -192,9 +192,9 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.cards_pick_gui.label_new_recipe_unlocked"), -47, -75, -256, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.cards_pick_gui.label_pick_one_of_cards_to_unlock_new"), -90, -60, -1, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Tier Nr\nFood Name", -128, 38, 54, 22, -1, false, 1.00F, 0, 2);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Tier Nr\nFood Name", -18, 38, 54, 22, -1, false, 1.00F, 0, 2);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Tier Nr\nFood Name", 92, 38, 54, 22, -1, false, 1.00F, 0, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Card1InfoReturnProcedure.execute(entity), ""), -128, 38, 54, 22, -1, false, 1.00F, 0, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Card2InfoReturnProcedure.execute(entity), ""), -18, 38, 54, 22, -1, false, 1.00F, 0, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Card3InfoReturnProcedure.execute(world, entity), ""), 92, 38, 54, 22, -1, false, 1.00F, 0, 2);
 	}
 
 	@Override
