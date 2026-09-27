@@ -12,11 +12,9 @@ public class IsMarkerCriticProcedure {
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject group = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray groups = new com.google.gson.JsonArray();
-		double spawnTIme = 0;
-		double progress = 0;
-		double openTime = 0;
-		double closeTime = 0;
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0) {
+		String overlayString = "";
+		overlayString = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString;
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0 && overlayString.contains("groups") && overlayString.contains("critic")) {
 			Object = new Object() {
 				public com.google.gson.JsonObject parse(String rawJson) {
 					try {
@@ -26,9 +24,9 @@ public class IsMarkerCriticProcedure {
 						return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
 					}
 				}
-			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
+			}.parse(overlayString);
 			groups = Object.get("groups").getAsJsonArray();
-			if (groupIndex >= groups.size()) {
+			if (groupIndex >= groups.size() && groupIndex < 0) {
 				return false;
 			}
 			group = groups.get((int) groupIndex).getAsJsonObject();

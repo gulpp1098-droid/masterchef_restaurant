@@ -16,8 +16,8 @@ public class ReturnTimelineProgressProcedure {
 		double closeTime = 0;
 		String String = "";
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0) {
-			String = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString;
+		String = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString;
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0 && String.contains("openTime") && String.contains("closeTime")) {
 			Object = new Object() {
 				public com.google.gson.JsonObject parse(String rawJson) {
 					try {
@@ -30,9 +30,14 @@ public class ReturnTimelineProgressProcedure {
 			}.parse(String);
 			openTime = Object.get("openTime").getAsDouble();
 			closeTime = Object.get("closeTime").getAsDouble();
+			if (openTime <= 0) {
+				return 0;
+			}
 			progress = (world.dayTime() % 24000 - openTime) / (closeTime - openTime);
 			if (progress < 0) {
 				return 0;
+			} else if (progress >= 1) {
+				return 120;
 			}
 			visiblePart = 120 * progress;
 			return visiblePart;

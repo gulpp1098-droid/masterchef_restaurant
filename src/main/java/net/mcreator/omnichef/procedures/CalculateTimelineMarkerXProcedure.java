@@ -16,7 +16,9 @@ public class CalculateTimelineMarkerXProcedure {
 		double progress = 0;
 		double openTime = 0;
 		double closeTime = 0;
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0) {
+		String overlayString = "";
+		overlayString = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString;
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0 && overlayString.contains("groups") && overlayString.contains("spawn_time") && overlayString.contains("openTime") && overlayString.contains("closeTime")) {
 			Object = new Object() {
 				public com.google.gson.JsonObject parse(String rawJson) {
 					try {
@@ -26,20 +28,23 @@ public class CalculateTimelineMarkerXProcedure {
 						return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
 					}
 				}
-			}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
+			}.parse(overlayString);
 			groups = Object.get("groups").getAsJsonArray();
-			if (groupIndex >= groups.size()) {
+			if (groupIndex >= groups.size() && groupIndex < 0) {
 				return -1;
 			}
 			group = groups.get((int) groupIndex).getAsJsonObject();
 			spawnTIme = group.get("spawn_time").getAsDouble();
 			openTime = Object.get("openTime").getAsDouble();
 			closeTime = Object.get("closeTime").getAsDouble();
+			if (closeTime <= spawnTIme) {
+				return -1;
+			}
 			progress = (spawnTIme - openTime) / (closeTime - openTime);
 			if (progress < 0) {
 				return 0;
 			} else if (progress > 1) {
-				return 1;
+				return 120;
 			}
 			return progress * 120;
 		}

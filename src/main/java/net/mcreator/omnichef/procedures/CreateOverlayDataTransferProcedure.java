@@ -16,6 +16,7 @@ public class CreateOverlayDataTransferProcedure {
 		double restaurantIndex = 0;
 		double groupsIndex = 0;
 		double memberIndex = 0;
+		double clientDatabaseIndex = 0;
 		com.google.gson.JsonObject JSONObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject dailyStatsObject = new com.google.gson.JsonObject();
@@ -39,13 +40,17 @@ public class CreateOverlayDataTransferProcedure {
 				}
 			}.parse("{}");
 			JSONObject.addProperty("open", false);
+			JSONObject.addProperty("closeTime", 0);
+			JSONObject.addProperty("openTime", 0);
+			JSONObject.add("groups", timelineGroupsArray);
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 			if (restaurantIndex >= 0 && entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID > -1) {
 				RestaurantObject = FindRestaurantInfoByIndexViaIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 				closeTime = RestaurantObject.get("close_time").getAsDouble();
 				JSONObject.addProperty("closeTime", closeTime);
 				JSONObject.addProperty("openTime", (closeTime - 8000));
-				if (RestaurantObject.get("open").getAsBoolean()) {
+				if (RestaurantObject.get("open").getAsBoolean() && clientDatabaseIndex >= 0) {
+					clientDatabaseIndex = ClientDatabaseIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 					ClientsObject = FindClientsInfoByIndexViaIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 					groupsArray = ClientsObject.get("groups").getAsJsonArray();
 					groupsIndex = 0;

@@ -13,8 +13,10 @@ public class ReturnTimelineOpenRestaurantProcedure {
 		if (entity == null)
 			return false;
 		com.google.gson.JsonObject Data = new com.google.gson.JsonObject();
+		String overlayString = "";
 		if (Level.OVERWORLD == (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD))) {
-			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0) {
+			overlayString = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString;
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0 && overlayString.contains("open")) {
 				Data = new Object() {
 					public com.google.gson.JsonObject parse(String rawJson) {
 						try {
@@ -24,7 +26,7 @@ public class ReturnTimelineOpenRestaurantProcedure {
 							return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
 						}
 					}
-				}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
+				}.parse(overlayString);
 				return Data.get("open").getAsBoolean();
 			}
 		}
