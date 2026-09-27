@@ -28,6 +28,7 @@ public class RestaurantLevelUpCheckProcedure {
 			if (reputation >= requiredReputation && (restaurantLevel + 1) % 10 != 0) {
 				ModifyRestaurantNumberParameterProcedure.execute(restaurantLevel + 1, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
+				AdvanceRecipeDiscoveryStageProcedure.execute(world, restaurantID);
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
 				if (entity instanceof Player _player3 && !_player3.level().isClientSide())
 					_player3.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel + 1) + "!")).withStyle(ChatFormatting.GREEN), false);

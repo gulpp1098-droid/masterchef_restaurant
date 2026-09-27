@@ -8,7 +8,6 @@ public class AdvanceRecipeDiscoveryStageProcedure {
 	public static void execute(LevelAccessor world, double restaurantID) {
 		double restaurantIndex = 0;
 		double stageTier = 0;
-		double stageUnlocks = 0;
 		double index = 0;
 		double tierCount = 0;
 		double restaurantLevel = 0;

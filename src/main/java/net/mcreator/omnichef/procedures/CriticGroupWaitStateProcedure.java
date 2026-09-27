@@ -38,6 +38,7 @@ public class CriticGroupWaitStateProcedure {
 			ModifyRestaurantNumberParameterProcedure.execute(
 					GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level") + 1,
 					restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
+			AdvanceRecipeDiscoveryStageProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		} else {
 			if (owner instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal("Critic is leaving unsatisfied. Try better next time!"), false);
