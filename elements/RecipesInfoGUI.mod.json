@@ -82,27 +82,6 @@
         }
       },
       {
-        "type": "sized_text_label",
-        "data": {
-          "name": "sized_text_label_recipe_tier_1_copy_copy",
-          "text": "Tier progress: 3 / 6",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "textProcedure": "ReturnRecipeStageProgress",
-          "overflowMode": "ELLIPSIS",
-          "tooltipWhenTruncated": true,
-          "width": 118,
-          "height": 10,
-          "x": 157,
-          "y": 87,
-          "locked": false
-        }
-      },
-      {
         "type": "enhanced_image_button",
         "data": {
           "image": "last_page_icon.png",

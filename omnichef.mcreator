@@ -9301,12 +9301,6 @@
       "type": "number",
       "scope": "map",
       "value": "10.0"
-    },
-    {
-      "name": "RecipeDiscoveryStageLimit",
-      "type": "number",
-      "scope": "map",
-      "value": "6.0"
     }
   ],
   "sound_elements": [],

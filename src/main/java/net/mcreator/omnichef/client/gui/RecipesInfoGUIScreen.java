@@ -48,9 +48,6 @@ public class RecipesInfoGUIScreen extends AbstractContainerScreen<RecipesInfoGUI
 			String guiTools$sizedLabelText1 = java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeDiscoveryExpProcedure.execute(entity), "");
 			if (true && mouseX >= this.leftPos + -57 && mouseX < this.leftPos + 61 && mouseY >= this.topPos + -48 && mouseY < this.topPos + -38 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 118, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
-			String guiTools$sizedLabelText2 = java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeStageProgressProcedure.execute(entity), "");
-			if (true && mouseX >= this.leftPos + -57 && mouseX < this.leftPos + 61 && mouseY >= this.topPos + -33 && mouseY < this.topPos + -23 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 118, 1.00F))
-				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText2), mouseX, mouseY);
 		}
 	}
 
@@ -93,8 +90,6 @@ public class RecipesInfoGUIScreen extends AbstractContainerScreen<RecipesInfoGUI
 			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeTierProcedure.execute(entity), ""), -57, -63, 112, -12829636, false, 1.00F, 2);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeDiscoveryExpProcedure.execute(entity), ""), -57, -48, 118, -12829636, false, 1.00F, 2);
-		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeStageProgressProcedure.execute(entity), ""), -57, -33, 118, -12829636, false, 1.00F, 2);
 	}
 
 	@Override
