@@ -30,14 +30,14 @@ public class CalculateTimelineMarkerXProcedure {
 				}
 			}.parse(overlayString);
 			groups = Object.get("groups").getAsJsonArray();
-			if (groupIndex >= groups.size() && groupIndex < 0) {
+			if (groupIndex >= groups.size() || groupIndex < 0) {
 				return -1;
 			}
 			group = groups.get((int) groupIndex).getAsJsonObject();
 			spawnTIme = group.get("spawn_time").getAsDouble();
 			openTime = Object.get("openTime").getAsDouble();
 			closeTime = Object.get("closeTime").getAsDouble();
-			if (closeTime <= spawnTIme) {
+			if (closeTime <= openTime) {
 				return -1;
 			}
 			progress = (spawnTIme - openTime) / (closeTime - openTime);

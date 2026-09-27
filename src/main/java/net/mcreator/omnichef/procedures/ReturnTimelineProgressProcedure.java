@@ -30,7 +30,7 @@ public class ReturnTimelineProgressProcedure {
 			}.parse(String);
 			openTime = Object.get("openTime").getAsDouble();
 			closeTime = Object.get("closeTime").getAsDouble();
-			if (openTime <= 0) {
+			if (closeTime <= openTime) {
 				return 0;
 			}
 			progress = (world.dayTime() % 24000 - openTime) / (closeTime - openTime);

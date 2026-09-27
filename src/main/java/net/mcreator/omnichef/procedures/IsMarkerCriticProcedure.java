@@ -26,7 +26,7 @@ public class IsMarkerCriticProcedure {
 				}
 			}.parse(overlayString);
 			groups = Object.get("groups").getAsJsonArray();
-			if (groupIndex >= groups.size() && groupIndex < 0) {
+			if (groupIndex >= groups.size() || groupIndex < 0) {
 				return false;
 			}
 			group = groups.get((int) groupIndex).getAsJsonObject();

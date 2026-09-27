@@ -16,7 +16,7 @@ public class ReturnTimelineOpenRestaurantProcedure {
 		String overlayString = "";
 		if (Level.OVERWORLD == (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD))) {
 			overlayString = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString;
-			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0 && overlayString.contains("open")) {
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID >= 0 && overlayString.contains("\"open\"")) {
 				Data = new Object() {
 					public com.google.gson.JsonObject parse(String rawJson) {
 						try {

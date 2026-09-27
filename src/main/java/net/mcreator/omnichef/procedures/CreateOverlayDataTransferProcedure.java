@@ -49,8 +49,8 @@ public class CreateOverlayDataTransferProcedure {
 				closeTime = RestaurantObject.get("close_time").getAsDouble();
 				JSONObject.addProperty("closeTime", closeTime);
 				JSONObject.addProperty("openTime", (closeTime - 8000));
+				clientDatabaseIndex = ClientDatabaseIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 				if (RestaurantObject.get("open").getAsBoolean() && clientDatabaseIndex >= 0) {
-					clientDatabaseIndex = ClientDatabaseIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 					ClientsObject = FindClientsInfoByIndexViaIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 					groupsArray = ClientsObject.get("groups").getAsJsonArray();
 					groupsIndex = 0;
