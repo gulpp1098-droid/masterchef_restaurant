@@ -62,7 +62,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedImages : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -175, this.topPos + -120, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 			if (this.enhanced_image_button_empty != null && this.enhanced_image_button_empty.visible) {
 				this.enhanced_image_button_empty.render(guiGraphics, mouseX, mouseY, partialTicks);

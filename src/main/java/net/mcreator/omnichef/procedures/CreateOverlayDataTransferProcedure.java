@@ -39,7 +39,8 @@ public class CreateOverlayDataTransferProcedure {
 				}
 			}.parse("{}");
 			JSONObject.addProperty("open", false);
-			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID > -1) {
+			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+			if (restaurantIndex >= 0 && entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID > -1) {
 				RestaurantObject = FindRestaurantInfoByIndexViaIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 				closeTime = RestaurantObject.get("close_time").getAsDouble();
 				JSONObject.addProperty("closeTime", closeTime);
@@ -101,6 +102,12 @@ public class CreateOverlayDataTransferProcedure {
 				JSONObject.addProperty("customers_lost", dailyStatsObject.get("customers_lost").getAsDouble());
 				JSONObject.addProperty("coins_earned", dailyStatsObject.get("coins_earned").getAsDouble());
 				JSONObject.addProperty("reputation_change", dailyStatsObject.get("reputation_change").getAsDouble());
+			} else {
+				{
+					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+					_vars.Restaurant_ID = -1;
+					_vars.markSyncDirty();
+				}
 			}
 			{
 				OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
