@@ -541,6 +541,12 @@ public class CreatingFoodListJsonProcedure {
 			tiersObject.add("9", tier9Array);
 			foodDatabase.add("tiers", tiersObject);
 			foodDatabase.addProperty("tier_count", tierCount);
+			foodDatabase.addProperty("food_count", totalFoods);
+			double discoveryExpRequired = Math.ceil(10.0 * Math.sqrt(100.0 / Math.max(1, totalFoods)));
+			discoveryExpRequired = Math.max(3.0, Math.min(10.0, discoveryExpRequired));
+			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired = discoveryExpRequired;
+			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).markSyncDirty();
+			foodDatabase.addProperty("recipe_discovery_exp_required", discoveryExpRequired);
 			foodDatabase.addProperty("scoring_version", 4);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
 			// =====================================================
