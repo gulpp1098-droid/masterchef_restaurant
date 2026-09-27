@@ -9,7 +9,7 @@ public class GetMasterchefWorldPathProcedure {
 		if (world instanceof ServerLevel serverLevel) {
 			return serverLevel.getServer()
 					.getWorldPath(LevelResource.ROOT)
-					.resolve("masterchef")
+					.resolve("omnichef")
 					.toString();
 		}
 		return "";

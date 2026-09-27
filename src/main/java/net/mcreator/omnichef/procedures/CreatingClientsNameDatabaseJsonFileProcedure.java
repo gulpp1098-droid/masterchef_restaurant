@@ -36,7 +36,7 @@ public class CreatingClientsNameDatabaseJsonFileProcedure {
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			if (Level.OVERWORLD == (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD))) {
-				ClientsNameListFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "ClientsNameList.json");
+				ClientsNameListFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "ClientsNameList.json");
 				try {
 					ClientsNameListFile.getParentFile().mkdirs();
 					ClientsNameListFile.createNewFile();

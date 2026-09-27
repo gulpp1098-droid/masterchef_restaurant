@@ -59,7 +59,7 @@ public class GenerateRestaurantMenuProcedure {
 		UnlockedFood = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 		MaxRestaurantLevel = OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel;
 		CurrentRestaurantLevel = restaurantLevelDependency;
-		ListOfFood = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
+		ListOfFood = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(ListOfFood));

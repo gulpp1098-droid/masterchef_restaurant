@@ -23,7 +23,7 @@ public class GetFoodTierFromIDProcedure {
 		double tierIndex = 0;
 		double foodIndex = 0;
 		double tierCount = 0;
-		FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
+		FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(FoodDatabase));

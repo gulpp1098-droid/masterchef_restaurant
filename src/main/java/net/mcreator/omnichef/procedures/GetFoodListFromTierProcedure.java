@@ -20,7 +20,7 @@ public class GetFoodListFromTierProcedure {
 		com.google.gson.JsonArray tierArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		double foodIndex = 0;
-		FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
+		FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(FoodDatabase));

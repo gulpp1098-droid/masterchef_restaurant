@@ -21,7 +21,7 @@ public class GetAmountOfFoodAvailableProcedure {
 		com.google.gson.JsonArray Tier = new com.google.gson.JsonArray();
 		double TotalAmount = 0;
 		double index = 0;
-		FoodFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
+		FoodFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(FoodFile));

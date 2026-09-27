@@ -548,7 +548,7 @@ public class CreatingFoodListJsonProcedure {
 			// =====================================================
 			// foodDatabase
 			FoodDatabaseObject = foodDatabase;
-			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "FoodDatabase.json");
+			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
 			try {
 				FoodDatabase.getParentFile().mkdirs();
 				FoodDatabase.createNewFile();

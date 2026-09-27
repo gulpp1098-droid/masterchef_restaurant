@@ -68,7 +68,7 @@ public class RestaurantIsOpenProcedure {
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 		CloseTime = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "close_time");
 		foodList = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-		foodDatabaseFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "FoodDatabase.json");
+		foodDatabaseFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(foodDatabaseFile));

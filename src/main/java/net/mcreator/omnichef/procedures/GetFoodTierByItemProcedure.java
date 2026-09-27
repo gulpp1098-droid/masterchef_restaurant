@@ -31,7 +31,7 @@ public class GetFoodTierByItemProcedure {
 		if ((foodID).equals("minecraft:air")) {
 			return tier;
 		}
-		foodDatabaseFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
+		foodDatabaseFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(foodDatabaseFile));

@@ -37,7 +37,7 @@ public class CriticOnInitialEntitySpawnProcedure {
 						_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "data merge entity @s {Invulnerable:1b}");
 			}
 		}
-		ClientsNameList = new File((FMLPaths.GAMEDIR.get().toString() + "/config/masterchef"), File.separator + "ClientsNameList.json");
+		ClientsNameList = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "ClientsNameList.json");
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(ClientsNameList));
