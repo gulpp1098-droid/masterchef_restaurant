@@ -9,7 +9,7 @@ public class RemoveFoodFromArrayProcedure {
 		result = array;
 		for (int _i1 = 0; _i1 < (int) result.size(); _i1++) {
 			if ((foodID).equals(result.get((int) index).getAsString())) {
-				result.remove(index);
+				result.remove(((int) index));
 				break;
 			}
 			index = index + 1;

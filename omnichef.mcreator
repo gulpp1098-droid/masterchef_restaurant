@@ -9212,13 +9212,13 @@
       "name": "RecipeDiscoveryExpRequired",
       "type": "number",
       "scope": "map",
-      "value": "0"
+      "value": "1.0"
     },
     {
       "name": "RecipeDiscoveryStageLimit",
       "type": "number",
       "scope": "map",
-      "value": "0"
+      "value": "6.0"
     }
   ],
   "sound_elements": [],

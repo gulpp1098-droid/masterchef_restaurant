@@ -190,8 +190,8 @@ public class OmnichefModVariables {
 		public String ClientsDatabase_File_Name = "ClientsDatabase.json";
 		public double LastClientsDatabaseResetDay = 0;
 		public String RestaurantFood_File_Name = "RestaurantsFoodUnlock.json";
-		public double RecipeDiscoveryExpRequired = 0;
-		public double RecipeDiscoveryStageLimit = 0;
+		public double RecipeDiscoveryExpRequired = 1.0;
+		public double RecipeDiscoveryStageLimit = 6.0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
