@@ -36,7 +36,7 @@ public class AddRecipeDiscoveryExpProcedure {
 						"stage_unlocks");
 				if (starterRemaining <= 0 && pendingCards.isEmpty() && !unlockOptions.isEmpty()) {
 					discoveryExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-							"discovery_exp") + 1;
+							"discovery_exp");
 					if (stageUnlocks < OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryStageLimit) {
 						newDiscoveryExp = Math.min(discoveryExp + 1, OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired);
 						if (newDiscoveryExp >= OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
@@ -48,7 +48,7 @@ public class AddRecipeDiscoveryExpProcedure {
 									_player.displayClientMessage(Component.literal("New recipe cards are ready! Use the Golden Spatula."), true);
 							}
 						} else {
-							ModifyRestaurantNumberParameterProcedure.execute(discoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							ModifyRestaurantNumberParameterProcedure.execute(newDiscoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
 						}
 					} else {
