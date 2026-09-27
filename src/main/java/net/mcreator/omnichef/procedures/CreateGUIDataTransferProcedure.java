@@ -14,6 +14,9 @@ public class CreateGUIDataTransferProcedure {
 		double restaurantLevel = 0;
 		double requiredReputation = 0;
 		double restaurantIndex = 0;
+		double recipeTier = 0;
+		double recipeDiscoveryExp = 0;
+		double recipeStageUnlocks = 0;
 		com.google.gson.JsonObject JSONObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject dailyStatsObject = new com.google.gson.JsonObject();
@@ -34,6 +37,20 @@ public class CreateGUIDataTransferProcedure {
 				restaurantLevel = RestaurantObject.get("level").getAsDouble();
 				JSONObject.addProperty("open", RestaurantObject.get("open").getAsBoolean());
 				closeTime = RestaurantObject.get("close_time").getAsDouble();
+				restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+				if (restaurantIndex >= 0) {
+					recipeTier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+							"stage_tier");
+					recipeDiscoveryExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
+					recipeStageUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "stage_unlocks");
+				}
+				JSONObject.addProperty("recipe_tier", ("Recipe tier: " + new java.text.DecimalFormat("0").format(recipeTier + 1)));
+				JSONObject.addProperty("recipe_discovery_exp",
+						("Recipe discovery: " + new java.text.DecimalFormat("0").format(recipeDiscoveryExp) + " / " + new java.text.DecimalFormat("0").format(OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired)));
+				JSONObject.addProperty("recipe_stage_unlocks",
+						("Tier progress: " + new java.text.DecimalFormat("0").format(recipeStageUnlocks) + " / " + new java.text.DecimalFormat("0").format(OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryStageLimit)));
 				JSONObject.addProperty("closeTime", ("Close time: " + (int) Math.floor(closeTime / 1000 + 6) + ":" + new java.text.DecimalFormat("00").format(Math.floor((closeTime % 1000) * (60d / 1000)))));
 				JSONObject.addProperty("level", ("Level: " + (int) restaurantLevel));
 				JSONObject.addProperty("name", ("Name: " + RestaurantObject.get("name").getAsString()));
