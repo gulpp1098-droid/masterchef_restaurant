@@ -15,8 +15,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.OpenRestaurantButtonProcedure;
-import net.mcreator.omnichef.procedures.OpenCreateRestaurantGUIProcedure;
 import net.mcreator.omnichef.procedures.MenuPreviousPageProcedure;
 import net.mcreator.omnichef.procedures.MenuNextPageProcedure;
 import net.mcreator.omnichef.OmnichefMod;
@@ -52,27 +50,28 @@ public record RestaurantManagementGUIButtonMessage(int buttonID, int x, int y, i
 			return;
 		if (buttonID == 0) {
 
-			OpenCreateRestaurantGUIProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 1) {
-
-			OpenRestaurantButtonProcedure.execute(world, entity);
-		}
-		if (buttonID == 2) {
-
 			MenuNextPageProcedure.execute(world, entity);
 		}
-		if (buttonID == 3) {
+		if (buttonID == 1) {
 
 			MenuPreviousPageProcedure.execute(world, entity);
 		}
 
 		guiTools$enhancedImageButton : {
-			if (buttonID == 4) {
+			if (buttonID == 2) {
 				net.mcreator.omnichef.procedures.OpenNextDayMenuGUIProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 5) {
+			if (buttonID == 3) {
+				net.mcreator.omnichef.procedures.OpenCreateRestaurantGUIProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 4) {
 				net.mcreator.omnichef.procedures.SetSpatulaLocationModeTrueProcedure.execute(world, entity);
+			}
+			if (buttonID == 6) {
+				net.mcreator.omnichef.procedures.OpenRestaurantButtonProcedure.execute(world, entity);
+			}
+			if (buttonID == 7) {
+				net.mcreator.omnichef.procedures.OpenRecipeInfoGUIProcedure.execute(world, x, y, z, entity);
 			}
 		}
 	}

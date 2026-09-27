@@ -3,8 +3,8 @@
   "_type": "gui",
   "definition": {
     "type": 0,
-    "width": 131,
-    "height": 142,
+    "width": 0,
+    "height": 0,
     "inventoryOffsetX": 100,
     "inventoryOffsetY": 200,
     "renderBgLayer": true,
@@ -29,7 +29,7 @@
             "fixedValue": 0.0,
             "name": "OpenCloseReturn"
           },
-          "x": 140,
+          "x": 144,
           "y": 130,
           "locked": false
         }
@@ -68,64 +68,6 @@
           "hasShadow": false,
           "x": 195,
           "y": 40,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_button_icon",
-          "image": "button_icon.png",
-          "hoveredImage": "",
-          "onClick": "OpenCreateRestaurantGUI",
-          "x": 133,
-          "y": 61,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_create_edit_restaurant",
-          "text": {
-            "fixedValue": "Create / Delete Restaurant"
-          },
-          "color": {
-            "value": -16777216,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 147,
-          "y": 73,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_button_icon2",
-          "image": "openclosebutton_icon.png",
-          "hoveredImage": "",
-          "onClick": "OpenRestaurantButton",
-          "x": 217,
-          "y": 132,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_open_close",
-          "text": {
-            "fixedValue": "Open / Close"
-          },
-          "color": {
-            "value": -16777216,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 227,
-          "y": 143,
           "locked": false
         }
       },
@@ -826,7 +768,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "openclosebutton_icon.png",
+          "image": "button_icon.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -836,14 +778,14 @@
           "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
-          "name": "enhanced_image_button_button_icon1",
-          "text": "Set Area",
+          "name": "enhanced_image_button_button_icon2",
+          "text": "Create / Delete Restaurant",
           "isUndecorated": true,
-          "onClick": "SetSpatulaLocationModeTrue",
-          "width": 81,
-          "height": 31,
+          "onClick": "OpenCreateRestaurantGUI",
+          "width": 165,
+          "height": 20,
           "x": 133,
-          "y": 94,
+          "y": 61,
           "locked": false
         }
       },
@@ -860,13 +802,85 @@
           "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
-          "name": "enhanced_image_button_button_icon1_copy",
+          "name": "enhanced_image_button_button_icon2_copy",
+          "text": "Set Area",
+          "isUndecorated": true,
+          "onClick": "SetSpatulaLocationModeTrue",
+          "width": 81,
+          "height": 20,
+          "x": 133,
+          "y": 84,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon2_copy_copy",
           "text": "Relocate Area",
           "isUndecorated": true,
           "width": 81,
-          "height": 31,
+          "height": 20,
           "x": 217,
-          "y": 94,
+          "y": 84,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon2_copy_copy_2",
+          "text": "Open / Close",
+          "isUndecorated": true,
+          "onClick": "OpenRestaurantButton",
+          "width": 81,
+          "height": 20,
+          "x": 133,
+          "y": 107,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "openclosebutton_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_button_icon2_copy_copy_2_copy",
+          "text": "Recipes Info",
+          "isUndecorated": true,
+          "onClick": "OpenRecipeInfoGUI",
+          "width": 81,
+          "height": 20,
+          "x": 217,
+          "y": 107,
           "locked": false
         }
       }

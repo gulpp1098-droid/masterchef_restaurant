@@ -2,10 +2,6 @@ package net.mcreator.omnichef.world.inventory;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerContainerEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -19,7 +15,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.omnichef.procedures.OpenManagmentGUIProcedure;
 import net.mcreator.omnichef.init.OmnichefModMenus;
 
 import java.util.function.Supplier;
@@ -27,12 +22,11 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
-@EventBusSubscriber
-public class RestaurantManagementGUIMenu extends AbstractContainerMenu implements OmnichefModMenus.MenuAccessor {
+public class RecipesInfoGUIMenu extends AbstractContainerMenu implements OmnichefModMenus.MenuAccessor {
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 56)
+			if (!this.containsKey(key) && this.size() >= 6)
 				return null;
 			return super.put(key, value);
 		}
@@ -48,8 +42,8 @@ public class RestaurantManagementGUIMenu extends AbstractContainerMenu implement
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public RestaurantManagementGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(OmnichefModMenus.RESTAURANT_MANAGEMENT_GUI.get(), id);
+	public RecipesInfoGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(OmnichefModMenus.RECIPES_INFO_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(0);
@@ -89,29 +83,5 @@ public class RestaurantManagementGUIMenu extends AbstractContainerMenu implement
 	@Override
 	public Map<String, Object> getMenuState() {
 		return menuState;
-	}
-
-	@SubscribeEvent
-	public static void onPlayerTick(PlayerTickEvent.Post event) {
-		Player entity = event.getEntity();
-		if (entity.containerMenu instanceof RestaurantManagementGUIMenu menu) {
-			Level world = menu.world;
-			double x = menu.x;
-			double y = menu.y;
-			double z = menu.z;
-			OpenManagmentGUIProcedure.execute(world, entity);
-		}
-	}
-
-	@SubscribeEvent
-	public static void onContainerOpen(PlayerContainerEvent.Open event) {
-		Player entity = event.getEntity();
-		if (event.getContainer() instanceof RestaurantManagementGUIMenu menu) {
-			Level world = menu.world;
-			double x = menu.x;
-			double y = menu.y;
-			double z = menu.z;
-			OpenManagmentGUIProcedure.execute(world, entity);
-		}
 	}
 }
