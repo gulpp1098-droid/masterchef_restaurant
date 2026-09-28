@@ -490,40 +490,41 @@ public class CreatingFoodListJsonProcedure {
 					}
 				}
 			} while (tierChanged);
-			// Build arrays only after all tier promotions are finished.
-			for (com.google.gson.JsonObject food : allFoods) {
-				int tier = food.get("tier").getAsInt();
-				switch (tier) {
-					case 0 :
-						tier0Array.add(food);
-						break;
-					case 1 :
-						tier1Array.add(food);
-						break;
-					case 2 :
-						tier2Array.add(food);
-						break;
-					case 3 :
-						tier3Array.add(food);
-						break;
-					case 4 :
-						tier4Array.add(food);
-						break;
-					case 5 :
-						tier5Array.add(food);
-						break;
-					case 6 :
-						tier6Array.add(food);
-						break;
-					case 7 :
-						tier7Array.add(food);
-						break;
-					case 8 :
-						tier8Array.add(food);
-						break;
-					case 9 :
-						tier9Array.add(food);
-						break;
+			// =====================================================
+			// FINAL TIER SORTING AND BASE EXP
+			// =====================================================
+			// Arrays were created earlier, but are still empty here.
+			java.util.List<com.google.gson.JsonArray> finalTierArrays = java.util.Arrays.asList(tier0Array, tier1Array, tier2Array, tier3Array, tier4Array, tier5Array, tier6Array, tier7Array, tier8Array, tier9Array);
+			// The lowest tier begins at 10 EXP and the highest at 100 EXP.
+			double tierStep = tierCount > 1 ? 90.0 / (tierCount - 1) : 90.0;
+			for (int finalTierIndex = 0; finalTierIndex < tierCount; finalTierIndex++) {
+				java.util.List<com.google.gson.JsonObject> foodsInTier = new java.util.ArrayList<>();
+				// Collect foods assigned to this tier after all ingredient promotions.
+				for (com.google.gson.JsonObject food : allFoods) {
+					if (food.get("tier").getAsInt() == finalTierIndex) {
+						foodsInTier.add(food);
+					}
+				}
+				// Sort the final contents of the tier by score.
+				foodsInTier.sort((com.google.gson.JsonObject foodA, com.google.gson.JsonObject foodB) -> {
+					int scoreComparison = Double.compare(foodA.get("score").getAsDouble(), foodB.get("score").getAsDouble());
+					if (scoreComparison != 0) {
+						return scoreComparison;
+					}
+					return foodA.get("id").getAsString().compareTo(foodB.get("id").getAsString());
+				});
+				int finalTierSize = foodsInTier.size();
+				for (int foodIndexInTier = 0; foodIndexInTier < finalTierSize; foodIndexInTier++) {
+					com.google.gson.JsonObject food = foodsInTier.get(foodIndexInTier);
+					// A single food in a tier receives the middle score position.
+					double scorePosition = finalTierSize <= 1 ? 0.5 : (double) foodIndexInTier / (finalTierSize - 1);
+					double tierMinimumExp = 10.0 + finalTierIndex * tierStep;
+					// Score may use 80% of the distance between this tier and the next.
+					double scoreBonus = 0.8 * tierStep * scorePosition;
+					int baseExp = (int) Math.round(tierMinimumExp + scoreBonus);
+					food.addProperty("score_position", scorePosition);
+					food.addProperty("base_exp", baseExp);
+					finalTierArrays.get(finalTierIndex).add(food);
 				}
 			}
 			// =====================================================
@@ -547,7 +548,7 @@ public class CreatingFoodListJsonProcedure {
 			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired = discoveryExpRequired;
 			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 			foodDatabase.addProperty("recipe_discovery_exp_required", discoveryExpRequired);
-			foodDatabase.addProperty("scoring_version", 4);
+			foodDatabase.addProperty("scoring_version", 5);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
 			// =====================================================
 			// FINAL RESULT
