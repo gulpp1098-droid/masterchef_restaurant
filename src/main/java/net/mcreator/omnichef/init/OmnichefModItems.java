@@ -36,6 +36,7 @@ public class OmnichefModItems {
 	public static final DeferredItem<Item> SILVER_COIN;
 	public static final DeferredItem<Item> COPPER_COIN;
 	public static final DeferredItem<Item> CRITIC_SPAWN_EGG;
+	public static final DeferredItem<Item> STAR;
 	static {
 		SPATULA_GOLDEN = REGISTRY.register("spatula_golden", SpatulaGoldenItem::new);
 		SERVICE_TABLE = block(OmnichefModBlocks.SERVICE_TABLE);
@@ -50,6 +51,7 @@ public class OmnichefModItems {
 		SILVER_COIN = REGISTRY.register("silver_coin", SilverCoinItem::new);
 		COPPER_COIN = REGISTRY.register("copper_coin", CopperCoinItem::new);
 		CRITIC_SPAWN_EGG = REGISTRY.register("critic_spawn_egg", () -> new DeferredSpawnEggItem(OmnichefModEntities.CRITIC, -52327, -1, new Item.Properties()));
+		STAR = REGISTRY.register("star", StarItem::new);
 	}
 
 	// Start of user code block custom items

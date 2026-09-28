@@ -9203,6 +9203,20 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "Star",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "star",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/StarItem.java",
+          "src/main/resources/assets/omnichef/models/item/star.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/DisplayItems"
     }
   ],
   "variable_elements": [
@@ -9458,7 +9472,8 @@
       "gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip": "Daily Statistics",
       "gui.omnichef.cards_pick_gui.label_new_recipe_unlocked": "New recipe unlocked!!!",
       "gui.omnichef.cards_pick_gui.label_pick_one_of_cards_to_unlock_new": "Pick one of cards to unlock new recipe!",
-      "gui.omnichef.recipes_info_gui.label_recipes_info": "Recipes Info"
+      "gui.omnichef.recipes_info_gui.label_recipes_info": "Recipes Info",
+      "item.omnichef.star": "Star"
     }
   },
   "metadata": {

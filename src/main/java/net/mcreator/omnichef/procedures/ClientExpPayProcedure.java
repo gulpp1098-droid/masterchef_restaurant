@@ -32,6 +32,8 @@ public class ClientExpPayProcedure {
 		double requiredReputation = 0;
 		double dishEXP = 0;
 		double missingpentaltyMultiplier = 0;
+		double missingEXP = 0;
+		double missingCount = 0;
 		client = entity;
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
@@ -42,7 +44,6 @@ public class ClientExpPayProcedure {
 		orderedFood = client.getPersistentData().getString("food_exp");
 		array = string2ArrayList(orderedFood, ",");
 		index = 0;
-		missingpentaltyMultiplier = 1.25;
 		String _toSplit7 = foodDelivered;
 		String[] _array7 = _toSplit7.split(Pattern.quote(","));
 		for (int _iter7 = 0; _iter7 < Math.max(1, _array7.length); _iter7++) {
@@ -59,11 +60,17 @@ public class ClientExpPayProcedure {
 			if ((stringiterator).equals("1")) {
 				EXPsum = EXPsum + dishEXP;
 			} else if ((stringiterator).equals("0")) {
-				EXPsum = EXPsum - missingpentaltyMultiplier * dishEXP;
+				missingEXP = missingEXP + dishEXP;
+				missingCount = missingCount + 1;
 			}
 			index = index + 1;
 		}
-		EXPTotal = Math.round(EXPsum);
+		totalMultiplayer = (100 - missingCount * 40) / 100;
+		if (totalMultiplayer > 0) {
+			EXPTotal = Math.round(EXPsum * totalMultiplayer);
+		} else {
+			EXPTotal = Math.round(missingEXP * totalMultiplayer);
+		}
 		CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"reputation");
 		if (EXPTotal > 0) {
