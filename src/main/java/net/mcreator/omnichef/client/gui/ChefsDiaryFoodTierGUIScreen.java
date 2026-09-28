@@ -124,7 +124,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip5 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip5;
-				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + -39 || mouseY >= this.topPos + -23)
+				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
 					break guiTools$itemDisplayTooltip5;
 				boolean guiTools$displayMasked5 = !(false);
 				if (guiTools$displayMasked5)
@@ -290,6 +290,240 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					break guiTools$itemDisplayTooltip17;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack17, mouseX, mouseY);
 			}
+			guiTools$itemDisplayTooltip18 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip18;
+				if (mouseX < this.leftPos + -128 || mouseX >= this.leftPos + -112 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+					break guiTools$itemDisplayTooltip18;
+				boolean guiTools$displayMasked18 = false;
+				if (guiTools$displayMasked18)
+					break guiTools$itemDisplayTooltip18;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack18 = menu.getMenuState(3, "19", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack18 == null || guiTools$tooltipStack18.isEmpty())
+					break guiTools$itemDisplayTooltip18;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack18, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip19 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip19;
+				if (mouseX < this.leftPos + -86 || mouseX >= this.leftPos + -70 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+					break guiTools$itemDisplayTooltip19;
+				boolean guiTools$displayMasked19 = false;
+				if (guiTools$displayMasked19)
+					break guiTools$itemDisplayTooltip19;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack19 = menu.getMenuState(3, "20", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack19 == null || guiTools$tooltipStack19.isEmpty())
+					break guiTools$itemDisplayTooltip19;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack19, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip20 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip20;
+				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+					break guiTools$itemDisplayTooltip20;
+				boolean guiTools$displayMasked20 = false;
+				if (guiTools$displayMasked20)
+					break guiTools$itemDisplayTooltip20;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack20 = menu.getMenuState(3, "21", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack20 == null || guiTools$tooltipStack20.isEmpty())
+					break guiTools$itemDisplayTooltip20;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack20, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip21 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip21;
+				if (mouseX < this.leftPos + -128 || mouseX >= this.leftPos + -112 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+					break guiTools$itemDisplayTooltip21;
+				boolean guiTools$displayMasked21 = false;
+				if (guiTools$displayMasked21)
+					break guiTools$itemDisplayTooltip21;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack21 = menu.getMenuState(3, "22", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack21 == null || guiTools$tooltipStack21.isEmpty())
+					break guiTools$itemDisplayTooltip21;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack21, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip22 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip22;
+				if (mouseX < this.leftPos + -86 || mouseX >= this.leftPos + -70 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+					break guiTools$itemDisplayTooltip22;
+				boolean guiTools$displayMasked22 = false;
+				if (guiTools$displayMasked22)
+					break guiTools$itemDisplayTooltip22;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack22 = menu.getMenuState(3, "23", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack22 == null || guiTools$tooltipStack22.isEmpty())
+					break guiTools$itemDisplayTooltip22;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack22, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip23 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip23;
+				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+					break guiTools$itemDisplayTooltip23;
+				boolean guiTools$displayMasked23 = false;
+				if (guiTools$displayMasked23)
+					break guiTools$itemDisplayTooltip23;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack23 = menu.getMenuState(3, "24", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack23 == null || guiTools$tooltipStack23.isEmpty())
+					break guiTools$itemDisplayTooltip23;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack23, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip24 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip24;
+				if (mouseX < this.leftPos + -128 || mouseX >= this.leftPos + -112 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+					break guiTools$itemDisplayTooltip24;
+				boolean guiTools$displayMasked24 = false;
+				if (guiTools$displayMasked24)
+					break guiTools$itemDisplayTooltip24;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack24 = menu.getMenuState(3, "25", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack24 == null || guiTools$tooltipStack24.isEmpty())
+					break guiTools$itemDisplayTooltip24;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack24, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip25 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip25;
+				if (mouseX < this.leftPos + -86 || mouseX >= this.leftPos + -70 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+					break guiTools$itemDisplayTooltip25;
+				boolean guiTools$displayMasked25 = false;
+				if (guiTools$displayMasked25)
+					break guiTools$itemDisplayTooltip25;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack25 = menu.getMenuState(3, "26", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack25 == null || guiTools$tooltipStack25.isEmpty())
+					break guiTools$itemDisplayTooltip25;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack25, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip26 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip26;
+				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+					break guiTools$itemDisplayTooltip26;
+				boolean guiTools$displayMasked26 = false;
+				if (guiTools$displayMasked26)
+					break guiTools$itemDisplayTooltip26;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack26 = menu.getMenuState(3, "27", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack26 == null || guiTools$tooltipStack26.isEmpty())
+					break guiTools$itemDisplayTooltip26;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack26, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip27 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip27;
+				if (mouseX < this.leftPos + 17 || mouseX >= this.leftPos + 33 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+					break guiTools$itemDisplayTooltip27;
+				boolean guiTools$displayMasked27 = false;
+				if (guiTools$displayMasked27)
+					break guiTools$itemDisplayTooltip27;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack27 = menu.getMenuState(3, "28", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack27 == null || guiTools$tooltipStack27.isEmpty())
+					break guiTools$itemDisplayTooltip27;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack27, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip28 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip28;
+				if (mouseX < this.leftPos + 58 || mouseX >= this.leftPos + 74 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+					break guiTools$itemDisplayTooltip28;
+				boolean guiTools$displayMasked28 = false;
+				if (guiTools$displayMasked28)
+					break guiTools$itemDisplayTooltip28;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack28 = menu.getMenuState(3, "29", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack28 == null || guiTools$tooltipStack28.isEmpty())
+					break guiTools$itemDisplayTooltip28;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack28, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip29 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip29;
+				if (mouseX < this.leftPos + 99 || mouseX >= this.leftPos + 115 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+					break guiTools$itemDisplayTooltip29;
+				boolean guiTools$displayMasked29 = false;
+				if (guiTools$displayMasked29)
+					break guiTools$itemDisplayTooltip29;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack29 = menu.getMenuState(3, "30", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack29 == null || guiTools$tooltipStack29.isEmpty())
+					break guiTools$itemDisplayTooltip29;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack29, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip30 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip30;
+				if (mouseX < this.leftPos + 17 || mouseX >= this.leftPos + 33 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+					break guiTools$itemDisplayTooltip30;
+				boolean guiTools$displayMasked30 = false;
+				if (guiTools$displayMasked30)
+					break guiTools$itemDisplayTooltip30;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack30 = menu.getMenuState(3, "31", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack30 == null || guiTools$tooltipStack30.isEmpty())
+					break guiTools$itemDisplayTooltip30;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack30, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip31 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip31;
+				if (mouseX < this.leftPos + 58 || mouseX >= this.leftPos + 74 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+					break guiTools$itemDisplayTooltip31;
+				boolean guiTools$displayMasked31 = false;
+				if (guiTools$displayMasked31)
+					break guiTools$itemDisplayTooltip31;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack31 = menu.getMenuState(3, "32", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack31 == null || guiTools$tooltipStack31.isEmpty())
+					break guiTools$itemDisplayTooltip31;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack31, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip32 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip32;
+				if (mouseX < this.leftPos + 99 || mouseX >= this.leftPos + 115 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+					break guiTools$itemDisplayTooltip32;
+				boolean guiTools$displayMasked32 = false;
+				if (guiTools$displayMasked32)
+					break guiTools$itemDisplayTooltip32;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack32 = menu.getMenuState(3, "33", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack32 == null || guiTools$tooltipStack32.isEmpty())
+					break guiTools$itemDisplayTooltip32;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack32, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip33 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip33;
+				if (mouseX < this.leftPos + 17 || mouseX >= this.leftPos + 33 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+					break guiTools$itemDisplayTooltip33;
+				boolean guiTools$displayMasked33 = false;
+				if (guiTools$displayMasked33)
+					break guiTools$itemDisplayTooltip33;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack33 = menu.getMenuState(3, "34", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack33 == null || guiTools$tooltipStack33.isEmpty())
+					break guiTools$itemDisplayTooltip33;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack33, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip34 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip34;
+				if (mouseX < this.leftPos + 58 || mouseX >= this.leftPos + 74 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+					break guiTools$itemDisplayTooltip34;
+				boolean guiTools$displayMasked34 = false;
+				if (guiTools$displayMasked34)
+					break guiTools$itemDisplayTooltip34;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack34 = menu.getMenuState(3, "35", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack34 == null || guiTools$tooltipStack34.isEmpty())
+					break guiTools$itemDisplayTooltip34;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack34, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip35 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip35;
+				if (mouseX < this.leftPos + 99 || mouseX >= this.leftPos + 115 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+					break guiTools$itemDisplayTooltip35;
+				boolean guiTools$displayMasked35 = false;
+				if (guiTools$displayMasked35)
+					break guiTools$itemDisplayTooltip35;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack35 = menu.getMenuState(3, "36", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack35 == null || guiTools$tooltipStack35.isEmpty())
+					break guiTools$itemDisplayTooltip35;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack35, mouseX, mouseY);
+			}
 		}
 	}
 
@@ -446,20 +680,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked5 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -39), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked5) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -44, this.topPos + -39);
+							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -44, this.topPos + -37);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -44, this.topPos + -39);
+						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -44, this.topPos + -37);
 					}
 					if (!guiTools$displayMasked5)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + -44, this.topPos + -39);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + -44, this.topPos + -37);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -784,6 +1018,456 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					}
 					if (!guiTools$displayMasked17)
 						guiGraphics.renderItemDecorations(font, guiTools$displayStack17, this.leftPos + 99, this.topPos + 10);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay18 : {
+				if (!(true))
+					break guiTools$itemDisplay18;
+				net.minecraft.world.item.ItemStack guiTools$displayStack18 = menu.getMenuState(3, "19", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack18 == null || guiTools$displayStack18.isEmpty())
+					break guiTools$itemDisplay18;
+				boolean guiTools$displayMasked18 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked18) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack18, this.leftPos + -128, this.topPos + -80);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack18, this.leftPos + -128, this.topPos + -80);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay19 : {
+				if (!(true))
+					break guiTools$itemDisplay19;
+				net.minecraft.world.item.ItemStack guiTools$displayStack19 = menu.getMenuState(3, "20", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack19 == null || guiTools$displayStack19.isEmpty())
+					break guiTools$itemDisplay19;
+				boolean guiTools$displayMasked19 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked19) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack19, this.leftPos + -86, this.topPos + -80);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack19, this.leftPos + -86, this.topPos + -80);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay20 : {
+				if (!(true))
+					break guiTools$itemDisplay20;
+				net.minecraft.world.item.ItemStack guiTools$displayStack20 = menu.getMenuState(3, "21", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack20 == null || guiTools$displayStack20.isEmpty())
+					break guiTools$itemDisplay20;
+				boolean guiTools$displayMasked20 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked20) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack20, this.leftPos + -44, this.topPos + -80);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack20, this.leftPos + -44, this.topPos + -80);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay21 : {
+				if (!(true))
+					break guiTools$itemDisplay21;
+				net.minecraft.world.item.ItemStack guiTools$displayStack21 = menu.getMenuState(3, "22", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack21 == null || guiTools$displayStack21.isEmpty())
+					break guiTools$itemDisplay21;
+				boolean guiTools$displayMasked21 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked21) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack21, this.leftPos + -128, this.topPos + -37);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack21, this.leftPos + -128, this.topPos + -37);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay22 : {
+				if (!(true))
+					break guiTools$itemDisplay22;
+				net.minecraft.world.item.ItemStack guiTools$displayStack22 = menu.getMenuState(3, "23", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack22 == null || guiTools$displayStack22.isEmpty())
+					break guiTools$itemDisplay22;
+				boolean guiTools$displayMasked22 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked22) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack22, this.leftPos + -86, this.topPos + -37);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack22, this.leftPos + -86, this.topPos + -37);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay23 : {
+				if (!(true))
+					break guiTools$itemDisplay23;
+				net.minecraft.world.item.ItemStack guiTools$displayStack23 = menu.getMenuState(3, "24", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack23 == null || guiTools$displayStack23.isEmpty())
+					break guiTools$itemDisplay23;
+				boolean guiTools$displayMasked23 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked23) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack23, this.leftPos + -44, this.topPos + -37);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack23, this.leftPos + -44, this.topPos + -37);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay24 : {
+				if (!(true))
+					break guiTools$itemDisplay24;
+				net.minecraft.world.item.ItemStack guiTools$displayStack24 = menu.getMenuState(3, "25", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack24 == null || guiTools$displayStack24.isEmpty())
+					break guiTools$itemDisplay24;
+				boolean guiTools$displayMasked24 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked24) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack24, this.leftPos + -128, this.topPos + 10);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack24, this.leftPos + -128, this.topPos + 10);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay25 : {
+				if (!(true))
+					break guiTools$itemDisplay25;
+				net.minecraft.world.item.ItemStack guiTools$displayStack25 = menu.getMenuState(3, "26", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack25 == null || guiTools$displayStack25.isEmpty())
+					break guiTools$itemDisplay25;
+				boolean guiTools$displayMasked25 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked25) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack25, this.leftPos + -86, this.topPos + 10);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack25, this.leftPos + -86, this.topPos + 10);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay26 : {
+				if (!(true))
+					break guiTools$itemDisplay26;
+				net.minecraft.world.item.ItemStack guiTools$displayStack26 = menu.getMenuState(3, "27", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack26 == null || guiTools$displayStack26.isEmpty())
+					break guiTools$itemDisplay26;
+				boolean guiTools$displayMasked26 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked26) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack26, this.leftPos + -44, this.topPos + 10);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack26, this.leftPos + -44, this.topPos + 10);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay27 : {
+				if (!(true))
+					break guiTools$itemDisplay27;
+				net.minecraft.world.item.ItemStack guiTools$displayStack27 = menu.getMenuState(3, "28", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack27 == null || guiTools$displayStack27.isEmpty())
+					break guiTools$itemDisplay27;
+				boolean guiTools$displayMasked27 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked27) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack27, this.leftPos + 17, this.topPos + -80);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack27, this.leftPos + 17, this.topPos + -80);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay28 : {
+				if (!(true))
+					break guiTools$itemDisplay28;
+				net.minecraft.world.item.ItemStack guiTools$displayStack28 = menu.getMenuState(3, "29", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack28 == null || guiTools$displayStack28.isEmpty())
+					break guiTools$itemDisplay28;
+				boolean guiTools$displayMasked28 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked28) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack28, this.leftPos + 58, this.topPos + -80);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack28, this.leftPos + 58, this.topPos + -80);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay29 : {
+				if (!(true))
+					break guiTools$itemDisplay29;
+				net.minecraft.world.item.ItemStack guiTools$displayStack29 = menu.getMenuState(3, "30", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack29 == null || guiTools$displayStack29.isEmpty())
+					break guiTools$itemDisplay29;
+				boolean guiTools$displayMasked29 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked29) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack29, this.leftPos + 99, this.topPos + -80);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack29, this.leftPos + 99, this.topPos + -80);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay30 : {
+				if (!(true))
+					break guiTools$itemDisplay30;
+				net.minecraft.world.item.ItemStack guiTools$displayStack30 = menu.getMenuState(3, "31", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack30 == null || guiTools$displayStack30.isEmpty())
+					break guiTools$itemDisplay30;
+				boolean guiTools$displayMasked30 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked30) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack30, this.leftPos + 17, this.topPos + -37);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack30, this.leftPos + 17, this.topPos + -37);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay31 : {
+				if (!(true))
+					break guiTools$itemDisplay31;
+				net.minecraft.world.item.ItemStack guiTools$displayStack31 = menu.getMenuState(3, "32", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack31 == null || guiTools$displayStack31.isEmpty())
+					break guiTools$itemDisplay31;
+				boolean guiTools$displayMasked31 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked31) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack31, this.leftPos + 58, this.topPos + -37);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack31, this.leftPos + 58, this.topPos + -37);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay32 : {
+				if (!(true))
+					break guiTools$itemDisplay32;
+				net.minecraft.world.item.ItemStack guiTools$displayStack32 = menu.getMenuState(3, "33", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack32 == null || guiTools$displayStack32.isEmpty())
+					break guiTools$itemDisplay32;
+				boolean guiTools$displayMasked32 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked32) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack32, this.leftPos + 99, this.topPos + -37);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack32, this.leftPos + 99, this.topPos + -37);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay33 : {
+				if (!(true))
+					break guiTools$itemDisplay33;
+				net.minecraft.world.item.ItemStack guiTools$displayStack33 = menu.getMenuState(3, "34", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack33 == null || guiTools$displayStack33.isEmpty())
+					break guiTools$itemDisplay33;
+				boolean guiTools$displayMasked33 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked33) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack33, this.leftPos + 17, this.topPos + 10);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack33, this.leftPos + 17, this.topPos + 10);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay34 : {
+				if (!(true))
+					break guiTools$itemDisplay34;
+				net.minecraft.world.item.ItemStack guiTools$displayStack34 = menu.getMenuState(3, "35", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack34 == null || guiTools$displayStack34.isEmpty())
+					break guiTools$itemDisplay34;
+				boolean guiTools$displayMasked34 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked34) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack34, this.leftPos + 58, this.topPos + 10);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack34, this.leftPos + 58, this.topPos + 10);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay35 : {
+				if (!(true))
+					break guiTools$itemDisplay35;
+				net.minecraft.world.item.ItemStack guiTools$displayStack35 = menu.getMenuState(3, "36", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack35 == null || guiTools$displayStack35.isEmpty())
+					break guiTools$itemDisplay35;
+				boolean guiTools$displayMasked35 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked35) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack35, this.leftPos + 99, this.topPos + 10);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack35, this.leftPos + 99, this.topPos + 10);
+					}
 				} finally {
 					guiGraphics.pose().popPose();
 				}

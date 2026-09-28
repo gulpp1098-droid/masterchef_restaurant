@@ -1,0 +1,78 @@
+package net.mcreator.omnichef.procedures;
+
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+
+import net.mcreator.omnichef.network.OmnichefModVariables;
+import net.mcreator.omnichef.init.OmnichefModMenus;
+
+public class FillChefsDiaryFoodTierProcedure {
+	public static void execute(LevelAccessor world, Entity entity) {
+		if (entity == null)
+			return;
+		double index = 0;
+		double tier = 0;
+		double page = 0;
+		double startIndex = 0;
+		double restaurantIndex = 0;
+		double slotIndex = 0;
+		double foodIndex = 0;
+		double unlockedIndex = 0;
+		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray unlockedArray = new com.google.gson.JsonArray();
+		String foodID = "";
+		ItemStack displayStack = ItemStack.EMPTY;
+		boolean isUnlocked = false;
+		if (!world.isClientSide()) {
+			index = 1;
+			for (int _i1 = 0; _i1 < 36; _i1++) {
+				if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+					ItemStack _displayStack1 = new ItemStack(Blocks.AIR).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) index), _displayStack1, true);
+				}
+				index = index + 1;
+			}
+			tier = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodTier;
+			page = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
+			startIndex = page * 18;
+			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+			foodArray = GetFoodListFromTierProcedure.execute(world, tier);
+			if (restaurantIndex >= 0) {
+				unlockedArray = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				for (int _i1 = 0; _i1 < 18; _i1++) {
+					foodIndex = startIndex + slotIndex;
+					if (foodIndex < foodArray.size()) {
+						foodID = foodArray.get((int) foodIndex).getAsString();
+						displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+						isUnlocked = false;
+						unlockedIndex = 0;
+						for (int _i2 = 0; _i2 < (int) unlockedArray.size(); _i2++) {
+							if ((foodID).equals(unlockedArray.get((int) unlockedIndex).getAsString())) {
+								isUnlocked = true;
+							}
+							unlockedIndex = unlockedIndex + 1;
+						}
+						if (isUnlocked) {
+							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+								ItemStack _displayStack7 = displayStack.copy();
+								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 19)), _displayStack7, true);
+							}
+						} else {
+							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+								ItemStack _displayStack8 = displayStack.copy();
+								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack8, true);
+							}
+						}
+					}
+					slotIndex = slotIndex + 1;
+				}
+			}
+		}
+	}
+}

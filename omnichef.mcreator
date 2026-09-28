@@ -9217,6 +9217,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Items/DisplayItems"
+    },
+    {
+      "name": "FillChefsDiaryFoodTier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fill_chefs_diary_food_tier",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
     }
   ],
   "variable_elements": [
@@ -9363,6 +9383,18 @@
       "type": "number",
       "scope": "map",
       "value": "10.0"
+    },
+    {
+      "name": "DiaryFoodTier",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "DiaryFoodPage",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [],

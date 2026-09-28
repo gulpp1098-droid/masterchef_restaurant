@@ -557,7 +557,7 @@
           "maskOpacity": 100,
           "scale": 100,
           "x": 170,
-          "y": 81,
+          "y": 83,
           "locked": false
         }
       },
@@ -801,6 +801,384 @@
           "showTooltip": true,
           "showTooltipWhenMasked": false,
           "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 313,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18",
+          "displayId": 19,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 86,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy",
+          "displayId": 20,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 128,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_2",
+          "displayId": 21,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 170,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_3",
+          "displayId": 22,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 86,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_4",
+          "displayId": 23,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 128,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_5",
+          "displayId": 24,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 170,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_6",
+          "displayId": 25,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 86,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_7",
+          "displayId": 26,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 128,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_8",
+          "displayId": 27,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 170,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_9",
+          "displayId": 28,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 231,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_10",
+          "displayId": 29,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 272,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_11",
+          "displayId": 30,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 313,
+          "y": 40,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_12",
+          "displayId": 31,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 231,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_13",
+          "displayId": 32,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 272,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_14",
+          "displayId": 33,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 313,
+          "y": 83,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_15",
+          "displayId": 34,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 231,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_16",
+          "displayId": 35,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 272,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_18_copy_17",
+          "displayId": 36,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,

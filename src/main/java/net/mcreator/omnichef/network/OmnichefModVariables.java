@@ -100,6 +100,8 @@ public class OmnichefModVariables {
 		clone.CurrentClientFoodDelivered = original.CurrentClientFoodDelivered;
 		clone.OverlayString = original.OverlayString;
 		clone.BookGained = original.BookGained;
+		clone.DiaryFoodTier = original.DiaryFoodTier;
+		clone.DiaryFoodPage = original.DiaryFoodPage;
 		if (!event.isWasDeath()) {
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
@@ -300,6 +302,8 @@ public class OmnichefModVariables {
 		public String CurrentClientFoodDelivered = "\"\"";
 		public String OverlayString = "\"\"";
 		public boolean BookGained = false;
+		public double DiaryFoodTier = 0;
+		public double DiaryFoodPage = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -316,6 +320,8 @@ public class OmnichefModVariables {
 			nbt.putString("CurrentClientFoodDelivered", CurrentClientFoodDelivered);
 			nbt.putString("OverlayString", OverlayString);
 			nbt.putBoolean("BookGained", BookGained);
+			nbt.putDouble("DiaryFoodTier", DiaryFoodTier);
+			nbt.putDouble("DiaryFoodPage", DiaryFoodPage);
 			return nbt;
 		}
 
@@ -333,6 +339,8 @@ public class OmnichefModVariables {
 			CurrentClientFoodDelivered = nbt.getString("CurrentClientFoodDelivered");
 			OverlayString = nbt.getString("OverlayString");
 			BookGained = nbt.getBoolean("BookGained");
+			DiaryFoodTier = nbt.getDouble("DiaryFoodTier");
+			DiaryFoodPage = nbt.getDouble("DiaryFoodPage");
 		}
 
 		public void markSyncDirty() {
