@@ -99,7 +99,7 @@ public class GenerateRestaurantMenuProcedure {
 				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
 				if (Tier.size() > 0) {
 					distance = CurrentTier - loopTier;
-					weight = Math.round(95 * Math.pow(0.6, loopTier) + 5);
+					weight = Math.round(95 * Math.pow(0.6, distance) + 5);
 					totalWeight = totalWeight + weight;
 				}
 				loopTier = loopTier + 1;
@@ -116,7 +116,7 @@ public class GenerateRestaurantMenuProcedure {
 				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
 				if (Tier.size() > 0) {
 					distance = CurrentTier - loopTier;
-					weight = Math.round(95 * Math.pow(0.6, loopTier) + 5);
+					weight = Math.round(95 * Math.pow(0.6, distance) + 5);
 					runningWeight = runningWeight + weight;
 					if (randomWeight <= runningWeight) {
 						selectedTier = loopTier;
