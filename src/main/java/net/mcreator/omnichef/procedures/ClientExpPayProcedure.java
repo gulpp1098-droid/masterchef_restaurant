@@ -36,8 +36,8 @@ public class ClientExpPayProcedure {
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 		CheckpointLevel = Math.floor(RestaurantLevel / 10) * 10;
-		CheckpointReputation = CheckpointLevel * 40 + Math.pow(CheckpointLevel, 2) * 6 + Math.pow(CheckpointLevel, 3) * 0.08;
-		requiredReputation = (RestaurantLevel + 1) * 40 + Math.pow(RestaurantLevel + 1, 2) * 6 + Math.pow(RestaurantLevel + 1, 3) * 0.08;
+		CheckpointReputation = GetRequiredReputationForLevelProcedure.execute(world, CheckpointLevel);
+		requiredReputation = GetRequiredReputationForLevelProcedure.execute(world, RestaurantLevel + 1);
 		foodDelivered = client.getPersistentData().getString("food_delivered");
 		orderedFood = client.getPersistentData().getString("food_exp");
 		array = string2ArrayList(orderedFood, ",");

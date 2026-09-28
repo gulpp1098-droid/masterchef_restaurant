@@ -24,7 +24,7 @@ public class RestaurantLevelUpCheckProcedure {
 		restaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 		reputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
 		if (restaurantLevel < 100) {
-			requiredReputation = (restaurantLevel + 1) * 40 + Math.pow(restaurantLevel + 1, 2) * 6 + Math.pow(restaurantLevel + 1, 3) * 0.08;
+			requiredReputation = GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel + 1);
 			if (reputation >= requiredReputation && (restaurantLevel + 1) % 10 != 0) {
 				ModifyRestaurantNumberParameterProcedure.execute(restaurantLevel + 1, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
@@ -36,7 +36,7 @@ public class RestaurantLevelUpCheckProcedure {
 			}
 		}
 		if (restaurantLevel > 0 && !(restaurantLevel % 10 == 0)) {
-			requiredReputation = restaurantLevel * 40 + Math.pow(restaurantLevel, 2) * 6 + Math.pow(restaurantLevel, 3) * 0.08;
+			requiredReputation = GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel);
 			requiredDown = requiredReputation * 0.8;
 			if (reputation < requiredDown) {
 				ModifyRestaurantNumberParameterProcedure.execute(restaurantLevel - 1, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,

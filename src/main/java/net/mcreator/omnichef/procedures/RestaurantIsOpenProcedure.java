@@ -86,8 +86,8 @@ public class RestaurantIsOpenProcedure {
 			}
 		}
 		tier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
-		if ((tier + 1) % 10 == 0 && (tier + 1) * 40 + Math.pow(tier + 1, 2) * 6 + Math.pow(tier + 1, 3) * 0.08 <= GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants",
-				OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation")) {
+		if ((tier + 1) % 10 == 0 && GetRequiredReputationForLevelProcedure.execute(world, tier + 1) <= GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation")) {
 			if (Math.random() <= 0.3) {
 				critic = true;
 			}
