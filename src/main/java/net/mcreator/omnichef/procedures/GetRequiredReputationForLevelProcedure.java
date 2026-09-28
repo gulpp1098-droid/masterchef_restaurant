@@ -40,10 +40,10 @@ public class GetRequiredReputationForLevelProcedure {
 				avarageDishes = 4.5;
 			}
 			referenceDishEXP = 64 * (serviceLevel / maxLevel) + 16;
-			referenceClientEXP = Math.round(targetClients * referenceDishEXP);
+			referenceClientEXP = Math.round(avarageDishes * referenceDishEXP);
 			levelCost = Math.round(targetClients * referenceClientEXP);
-			requiredReputation = requiredReputation * levelCost;
-			levelIndex = levelIndex * 1;
+			requiredReputation = requiredReputation + levelCost;
+			levelIndex = levelIndex + 1;
 		}
 		return Math.round(requiredReputation);
 	}

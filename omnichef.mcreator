@@ -9186,6 +9186,22 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_required_reputation_for_level",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "level",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetRequiredReputationForLevelProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
