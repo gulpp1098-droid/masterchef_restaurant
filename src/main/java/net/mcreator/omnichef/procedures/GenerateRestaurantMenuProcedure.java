@@ -29,6 +29,7 @@ public class GenerateRestaurantMenuProcedure {
 		com.google.gson.JsonObject FoodDatabase = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject menusObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject availableTiers = new com.google.gson.JsonObject();
 		String MealID = "";
 		String MealDuplicate = "";
 		boolean isDuplicate = false;
@@ -91,12 +92,17 @@ public class GenerateRestaurantMenuProcedure {
 		if (MenuSize > UnlockedFood.size()) {
 			MenuSize = UnlockedFood.size();
 		}
+		for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
+			Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
+			Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+			availableTiers.add(("" + (int) loopTier), Tier);
+			loopTier = loopTier + 1;
+		}
 		while (menuArray.size() < MenuSize) {
 			totalWeight = 0;
 			loopTier = 0;
 			for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
-				Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
-				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+				Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
 				if (Tier.size() > 0) {
 					distance = CurrentTier - loopTier;
 					weight = Math.round(95 * Math.pow(0.6, distance) + 5);
@@ -112,8 +118,7 @@ public class GenerateRestaurantMenuProcedure {
 			selectedTier = -1;
 			loopTier = 0;
 			for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
-				Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
-				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+				Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
 				if (Tier.size() > 0) {
 					distance = CurrentTier - loopTier;
 					weight = Math.round(95 * Math.pow(0.6, distance) + 5);
@@ -130,7 +135,7 @@ public class GenerateRestaurantMenuProcedure {
 			randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (Tier.size() - 1));
 			MealID = Tier.get((int) randomFoodIndex).getAsString();
 			menuArray.add(MealID);
-			UnlockedFood = RemoveFoodFromArrayProcedure.execute(UnlockedFood, MealID);
+			Tier = RemoveFoodFromArrayProcedure.execute(Tier, MealID);
 		}
 		Menufile = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 		{
