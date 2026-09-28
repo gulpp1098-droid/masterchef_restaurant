@@ -63,7 +63,7 @@ public class ClientExpPayProcedure {
 			}
 			index = index + 1;
 		}
-		EXPTotal = Math.floor(EXPsum);
+		EXPTotal = Math.round(EXPsum);
 		CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"reputation");
 		if (EXPTotal > 0) {
