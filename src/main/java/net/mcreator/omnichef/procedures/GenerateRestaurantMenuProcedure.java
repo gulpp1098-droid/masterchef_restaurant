@@ -78,16 +78,10 @@ public class GenerateRestaurantMenuProcedure {
 		}
 		CurrentTier = Math.floor((CurrentRestaurantLevel / MaxRestaurantLevel) * TierCount);
 		if (CurrentTier >= TierCount) {
-			CurrentTier = CurrentTier - 1;
+			CurrentTier = TierCount - 1;
 		}
-		minTier = 0;
-		totalWeight = 0;
-		loopTier = minTier;
-		amountOfTiers = CurrentTier - minTier + 1;
-		for (int _i1 = 0; _i1 < (int) (CurrentTier - minTier + 1); _i1++) {
-			distance = CurrentTier - loopTier;
-			totalWeight = totalWeight + 95 * Math.pow(0.6, distance) + 5;
-			loopTier = loopTier + 1;
+		if (CurrentTier < 0) {
+			CurrentTier = 0;
 		}
 		LevelProgress = CurrentRestaurantLevel / MaxRestaurantLevel;
 		minMenuPercent = 0.05;
@@ -98,20 +92,38 @@ public class GenerateRestaurantMenuProcedure {
 			MenuSize = UnlockedFood.size();
 		}
 		while (menuArray.size() < MenuSize) {
-			randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (UnlockedFood.size() - 1));
-			MealID = UnlockedFood.get((int) randomFoodIndex).getAsString();
-			indexDuplicate = 0;
-			isDuplicate = false;
-			for (int _i1 = 0; _i1 < (int) menuArray.size(); _i1++) {
-				if ((menuArray.get((int) indexDuplicate).getAsString()).equals(MealID)) {
-					isDuplicate = true;
+			totalWeight = 0;
+			loopTier = 0;
+			for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
+				Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
+				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+			}
+			if (totalWeight <= 0) {
+				break;
+			}
+			randomWeight = Mth.nextInt(RandomSource.create(), 1, (int) totalWeight);
+			runningWeight = 0;
+			selectedTier = -1;
+			loopTier = 0;
+			for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
+				Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
+				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+			}
+			if (menuArray.size() > 0) {
+				distance = CurrentTier - loopTier;
+				weight = Math.round(95 * Math.pow(0.6, loopTier) + 5);
+				if (randomWeight <= runningWeight) {
+					selectedTier = loopTier;
 					break;
 				}
-				indexDuplicate = indexDuplicate + 1;
 			}
-			if (!isDuplicate) {
-				menuArray.add(MealID);
-			}
+			loopTier = loopTier + 1;
+			Tier = Tiers.get(("" + (int) selectedTier)).getAsJsonArray();
+			Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+			randomFoodIndex = Tier.size() - 1;
+			MealID = Tier.get((int) randomFoodIndex).getAsString();
+			menuArray.add(MealID);
+			UnlockedFood = RemoveFoodFromArrayProcedure.execute(UnlockedFood, MealID);
 		}
 		Menufile = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 		{
