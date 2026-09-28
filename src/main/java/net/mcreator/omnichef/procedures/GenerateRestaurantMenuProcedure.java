@@ -97,6 +97,12 @@ public class GenerateRestaurantMenuProcedure {
 			for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
 				Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
 				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+				if (Tier.size() > 0) {
+					distance = CurrentTier - loopTier;
+					weight = Math.round(95 * Math.pow(0.6, loopTier) + 5);
+					totalWeight = totalWeight + weight;
+				}
+				loopTier = loopTier + 1;
 			}
 			if (totalWeight <= 0) {
 				break;
@@ -108,19 +114,20 @@ public class GenerateRestaurantMenuProcedure {
 			for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
 				Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
 				Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
-			}
-			if (menuArray.size() > 0) {
-				distance = CurrentTier - loopTier;
-				weight = Math.round(95 * Math.pow(0.6, loopTier) + 5);
-				if (randomWeight <= runningWeight) {
-					selectedTier = loopTier;
-					break;
+				if (Tier.size() > 0) {
+					distance = CurrentTier - loopTier;
+					weight = Math.round(95 * Math.pow(0.6, loopTier) + 5);
+					runningWeight = runningWeight + weight;
+					if (randomWeight <= runningWeight) {
+						selectedTier = loopTier;
+						break;
+					}
 				}
+				loopTier = loopTier + 1;
 			}
-			loopTier = loopTier + 1;
 			Tier = Tiers.get(("" + (int) selectedTier)).getAsJsonArray();
 			Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
-			randomFoodIndex = Tier.size() - 1;
+			randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (Tier.size() - 1));
 			MealID = Tier.get((int) randomFoodIndex).getAsString();
 			menuArray.add(MealID);
 			UnlockedFood = RemoveFoodFromArrayProcedure.execute(UnlockedFood, MealID);
