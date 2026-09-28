@@ -514,12 +514,20 @@ public class CreatingFoodListJsonProcedure {
 					return foodA.get("id").getAsString().compareTo(foodB.get("id").getAsString());
 				});
 				int finalTierSize = foodsInTier.size();
+				double minimumTierScore = finalTierSize > 0 ? foodsInTier.get(0).get("score").getAsDouble() : 0.0;
+				double maximumTierScore = finalTierSize > 0 ? foodsInTier.get(finalTierSize - 1).get("score").getAsDouble() : 0.0;
+				double tierScoreRange = maximumTierScore - minimumTierScore;
 				for (int foodIndexInTier = 0; foodIndexInTier < finalTierSize; foodIndexInTier++) {
 					com.google.gson.JsonObject food = foodsInTier.get(foodIndexInTier);
-					// A single food in a tier receives the middle score position.
-					double scorePosition = finalTierSize <= 1 ? 0.5 : (double) foodIndexInTier / (finalTierSize - 1);
+					double currentFoodScore = food.get("score").getAsDouble();
+					double scorePosition;
+					if (finalTierSize <= 1 || tierScoreRange <= 0.0000001) {
+						scorePosition = 0.5;
+					} else {
+						scorePosition = (currentFoodScore - minimumTierScore) / tierScoreRange;
+					}
+					scorePosition = Math.max(0.0, Math.min(1.0, scorePosition));
 					double tierMinimumExp = 10.0 + finalTierIndex * tierStep;
-					// Score may use 80% of the distance between this tier and the next.
 					double scoreBonus = 0.8 * tierStep * scorePosition;
 					int baseExp = (int) Math.round(tierMinimumExp + scoreBonus);
 					food.addProperty("score_position", scorePosition);
