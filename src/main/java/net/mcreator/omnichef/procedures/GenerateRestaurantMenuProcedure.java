@@ -130,12 +130,12 @@ public class GenerateRestaurantMenuProcedure {
 				}
 				loopTier = loopTier + 1;
 			}
-			Tier = Tiers.get(("" + (int) selectedTier)).getAsJsonArray();
-			Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
+			Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
 			randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (Tier.size() - 1));
 			MealID = Tier.get((int) randomFoodIndex).getAsString();
 			menuArray.add(MealID);
 			Tier = RemoveFoodFromArrayProcedure.execute(Tier, MealID);
+			availableTiers.add(("" + (int) selectedTier), Tier);
 		}
 		Menufile = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 		{
