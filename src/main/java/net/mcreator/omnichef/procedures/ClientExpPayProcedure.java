@@ -30,6 +30,8 @@ public class ClientExpPayProcedure {
 		double CheckpointLevel = 0;
 		double RealReputationChange = 0;
 		double requiredReputation = 0;
+		double dishEXP = 0;
+		double missingpentaltyMultiplier = 0;
 		client = entity;
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
@@ -37,54 +39,31 @@ public class ClientExpPayProcedure {
 		CheckpointReputation = CheckpointLevel * 40 + Math.pow(CheckpointLevel, 2) * 6 + Math.pow(CheckpointLevel, 3) * 0.08;
 		requiredReputation = (RestaurantLevel + 1) * 40 + Math.pow(RestaurantLevel + 1, 2) * 6 + Math.pow(RestaurantLevel + 1, 3) * 0.08;
 		foodDelivered = client.getPersistentData().getString("food_delivered");
-		orderedFood = client.getPersistentData().getString("food_tiers");
+		orderedFood = client.getPersistentData().getString("food_exp");
 		array = string2ArrayList(orderedFood, ",");
-		String _toSplit6 = foodDelivered;
-		String[] _array6 = _toSplit6.split(Pattern.quote(","));
-		for (int _iter6 = 0; _iter6 < Math.max(1, _array6.length); _iter6++) {
-			String stringiterator = _array6.length == 0 ? _toSplit6 : _array6[_iter6];
-			if ((stringiterator).equals("0")) {
-				ordered = ordered + 1;
-			}
-			if ((stringiterator).equals("1")) {
-				delivered = delivered + 1;
-				ordered = ordered + 1;
-			}
-		}
-		totalMultiplayer = (100 - (ordered - delivered) * 40) / 100;
 		index = 0;
-		String _toSplit11 = foodDelivered;
-		String[] _array11 = _toSplit11.split(Pattern.quote(","));
-		for (int _iter11 = 0; _iter11 < Math.max(1, _array11.length); _iter11++) {
-			String stringiterator = _array11.length == 0 ? _toSplit11 : _array11[_iter11];
-			if (totalMultiplayer > 0) {
-				if ((stringiterator).equals("1")) {
-					EXPsum = (new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
-						}
-					}.convert(array.get((int) index) instanceof String _str8 ? _str8 : "") + 1) * 10 + EXPsum;
+		missingpentaltyMultiplier = 1.25;
+		String _toSplit7 = foodDelivered;
+		String[] _array7 = _toSplit7.split(Pattern.quote(","));
+		for (int _iter7 = 0; _iter7 < Math.max(1, _array7.length); _iter7++) {
+			String stringiterator = _array7.length == 0 ? _toSplit7 : _array7[_iter7];
+			dishEXP = new Object() {
+				double convert(String s) {
+					try {
+						return Double.parseDouble(s.trim());
+					} catch (Exception e) {
+					}
+					return 0;
 				}
-			} else {
-				if ((stringiterator).equals("0")) {
-					EXPsum = (new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
-						}
-					}.convert(array.get((int) index) instanceof String _str10 ? _str10 : "") + 1) * 10 + EXPsum;
-				}
+			}.convert(array.get((int) index) instanceof String _str4 ? _str4 : "");
+			if ((stringiterator).equals("1")) {
+				EXPsum = EXPsum + dishEXP;
+			} else if ((stringiterator).equals("0")) {
+				EXPsum = EXPsum - missingpentaltyMultiplier * dishEXP;
 			}
 			index = index + 1;
 		}
-		EXPTotal = EXPsum * totalMultiplayer;
+		EXPTotal = Math.floor(EXPsum);
 		CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"reputation");
 		if (EXPTotal > 0) {
