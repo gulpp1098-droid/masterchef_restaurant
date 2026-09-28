@@ -97,6 +97,9 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 			if (this.enhanced_image_button_next_page_icon != null && this.enhanced_image_button_next_page_icon.visible) {
 				this.enhanced_image_button_next_page_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
+			if (this.enhanced_image_button_requirements_icon != null && this.enhanced_image_button_requirements_icon.visible) {
+				this.enhanced_image_button_requirements_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -462,6 +465,27 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 			}
 		};
 		this.addWidget(enhanced_image_button_next_page_icon);
+		enhanced_image_button_requirements_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 161, this.topPos + 57, 15, 17, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/requirements_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/requirements_icon.png")), e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(16, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 16, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/requirements_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(enhanced_image_button_requirements_icon);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -591,6 +615,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_8;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_9;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_next_page_icon;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_requirements_icon;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

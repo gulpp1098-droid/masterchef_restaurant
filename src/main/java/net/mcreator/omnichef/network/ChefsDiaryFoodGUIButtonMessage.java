@@ -73,6 +73,9 @@ public record ChefsDiaryFoodGUIButtonMessage(int buttonID, int x, int y, int z) 
 		}
 
 		guiTools$enhancedImageButton : {
+			if (buttonID == 16) {
+				net.mcreator.omnichef.procedures.ChefsDiaryFoodTiersProcedure.execute(world, x, y, z, entity);
+			}
 		}
 	}
 
