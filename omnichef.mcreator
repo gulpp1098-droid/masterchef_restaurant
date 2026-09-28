@@ -9179,6 +9179,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetRequiredReputationForLevel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_required_reputation_for_level",
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
