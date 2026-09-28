@@ -37,6 +37,7 @@ public class RestaurantIsOpenProcedure {
 		String receptionString = "";
 		String chosedFood = "";
 		String FoodMenu = "";
+		String foodEXP = "";
 		com.google.gson.JsonObject Group = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject membersObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject emptyObject = new com.google.gson.JsonObject();
@@ -169,6 +170,7 @@ public class RestaurantIsOpenProcedure {
 				}
 				FoodAmountOrder = Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood);
 				FoodMenu = "";
+				foodEXP = "";
 				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
 					Found = false;
 					chosedFood = foodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (foodList.size() - 1)))).getAsString();
@@ -192,10 +194,12 @@ public class RestaurantIsOpenProcedure {
 					}
 					if (Found) {
 						FoodMenu = FoodMenu + "," + (int) mealObject.get("tier").getAsDouble();
+						foodEXP = foodEXP + "," + (int) mealObject.get("base_exp").getAsDouble();
 					}
 				}
 				membersObject.add("food", foodArray);
 				membersObject.addProperty("foodTiers", (FoodMenu.substring(1)));
+				membersObject.addProperty("foodExp", (foodEXP.substring(1)));
 				membersObject.addProperty("patience", 100);
 				members.add(membersObject);
 				indexMember = indexMember + 1;
