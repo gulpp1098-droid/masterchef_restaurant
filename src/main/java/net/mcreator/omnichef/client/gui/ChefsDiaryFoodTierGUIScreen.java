@@ -1588,6 +1588,12 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 		this.addRenderableWidget(imagebutton_stats_icon);
 		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(5, x, y, z));
+						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -1597,6 +1603,12 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 		this.addRenderableWidget(imagebutton_last_page_icon);
 		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(6, x, y, z));
+						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

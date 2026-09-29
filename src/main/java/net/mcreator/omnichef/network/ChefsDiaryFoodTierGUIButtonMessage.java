@@ -15,11 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryMenuProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure;
+import net.mcreator.omnichef.procedures.*;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -70,6 +66,14 @@ public record ChefsDiaryFoodTierGUIButtonMessage(int buttonID, int x, int y, int
 		if (buttonID == 4) {
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 5) {
+
+			ChefsDiaryFoodPreviousPageProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 6) {
+
+			ChefsDiaryFoodNextPageProcedure.execute(world, x, y, z, entity);
 		}
 	}
 
