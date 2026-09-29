@@ -20,7 +20,7 @@ public class ChefsDiaryFoodNextPageProcedure {
 			currentPage = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
 			tierCount = GetFoodListTierCountProcedure.execute(world);
 			foodArray = GetFoodListFromTierProcedure.execute(world, currentTier);
-			if ((currentPage + 1) * 18 == foodArray.size()) {
+			if ((currentPage + 1) * 18 < foodArray.size()) {
 				{
 					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 					_vars.DiaryFoodPage = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage + 1;
@@ -35,6 +35,7 @@ public class ChefsDiaryFoodNextPageProcedure {
 						{
 							OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 							_vars.DiaryFoodTier = nextTier + 1;
+							_vars.DiaryFoodPage = 0;
 							_vars.markSyncDirty();
 						}
 						foundTier = true;
