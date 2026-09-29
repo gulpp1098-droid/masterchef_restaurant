@@ -17,7 +17,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "anchorPoint": "CENTER",
+          "anchorPoint": "TOP_LEFT",
           "x": 21,
           "y": 8,
           "locked": false
@@ -28,7 +28,7 @@
         "data": {
           "image": "clock.png",
           "use1Xscale": false,
-          "anchorPoint": "CENTER",
+          "anchorPoint": "TOP_LEFT",
           "x": 0,
           "y": 5,
           "locked": false

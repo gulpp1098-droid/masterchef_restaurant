@@ -43,11 +43,11 @@ public class ClockOverlayOverlay {
 		RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		if (true) {
-			event.getGuiGraphics().blit(IMAGE_0, w / 2 + -213, h / 2 + -115, 0, 0, 16, 16, 16, 16);
+			event.getGuiGraphics().blit(IMAGE_0, 0, 5, 0, 0, 16, 16, 16, 16);
 
 			event.getGuiGraphics().drawString(Minecraft.getInstance().font,
 
-					TimeReturnProcedure.execute(world), w / 2 + -192, h / 2 + -112, -1, false);
+					TimeReturnProcedure.execute(world), 21, 8, -1, false);
 		}
 		RenderSystem.depthMask(true);
 		RenderSystem.defaultBlendFunc();

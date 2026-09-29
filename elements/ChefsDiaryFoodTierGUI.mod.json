@@ -95,7 +95,8 @@
         "data": {
           "name": "label_food_wip",
           "text": {
-            "fixedValue": "Tier Nr"
+            "fixedValue": "Tier Nr",
+            "name": "ChefsDiaryFoodTierPageText"
           },
           "color": {
             "value": -12829636,

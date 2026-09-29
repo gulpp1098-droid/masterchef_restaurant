@@ -13,6 +13,7 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.omnichef.world.inventory.ChefsDiaryFoodTierGUIMenu;
+import net.mcreator.omnichef.procedures.ChefsDiaryFoodTierPageTextProcedure;
 import net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage;
 import net.mcreator.omnichef.init.OmnichefModScreens;
 
@@ -1487,7 +1488,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_tier_gui.label_food_wip"), -135, -98, -12829636, false);
+		guiGraphics.drawString(this.font, ChefsDiaryFoodTierPageTextProcedure.execute(entity), -135, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_tier_gui.label_food1"), -133, -59, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy"), -91, -59, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy_2"), -49, -59, -12829636, false);
