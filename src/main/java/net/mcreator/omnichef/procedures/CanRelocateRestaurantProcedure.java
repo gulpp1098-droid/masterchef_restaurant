@@ -1,6 +1,8 @@
 package net.mcreator.omnichef.procedures;
 
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
@@ -14,11 +16,11 @@ public class CanRelocateRestaurantProcedure {
 		double restaurantIndex = 0;
 		com.google.gson.JsonArray locationArray = new com.google.gson.JsonArray();
 		owner = entity;
-		if (true) {
+		if ((world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) {
 			if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
 				restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, owner.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 				if (restaurantIndex >= 0) {
-					restaurantObject = FindRestaurantInfoByIndexViaIDProcedure.execute(world, restaurantIndex);
+					restaurantObject = FindRestaurantInfoByIndexViaIDProcedure.execute(world, owner.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 					locationArray = restaurantObject.get("locations").getAsJsonArray();
 					if (!locationArray.isEmpty()) {
 						if (!GetRestaurantLogicParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {

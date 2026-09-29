@@ -91,7 +91,7 @@ public class ClientExpPayProcedure {
 				"reputation") - CurrentReputation;
 		ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndex, RealReputationChange, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"daily_stats", "reputation_change");
-		RestaurantLevelUpCheckProcedure.execute(world, entity, client.getPersistentData().getDouble("RestaurantID"));
+		RestaurantLevelUpCheckProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 	}
 
 	private static ArrayList<Object> string2ArrayList(String text, String separator) {

@@ -3270,10 +3270,6 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "IDrestaurant",
             "type": "number"
           },

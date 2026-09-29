@@ -45,33 +45,33 @@ public class FillChefsDiaryFoodTierProcedure {
 			if (restaurantIndex >= 0) {
 				unlockedArray = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				for (int _i1 = 0; _i1 < 18; _i1++) {
-					foodIndex = startIndex + slotIndex;
-					if (foodIndex < foodArray.size()) {
-						foodID = foodArray.get((int) foodIndex).getAsString();
-						displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-						isUnlocked = false;
-						unlockedIndex = 0;
-						for (int _i2 = 0; _i2 < (int) unlockedArray.size(); _i2++) {
-							if ((foodID).equals(unlockedArray.get((int) unlockedIndex).getAsString())) {
-								isUnlocked = true;
-							}
-							unlockedIndex = unlockedIndex + 1;
+			}
+			for (int _i1 = 0; _i1 < 18; _i1++) {
+				foodIndex = startIndex + slotIndex;
+				if (foodIndex < foodArray.size()) {
+					foodID = foodArray.get((int) foodIndex).getAsString();
+					displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+					isUnlocked = false;
+					unlockedIndex = 0;
+					for (int _i2 = 0; _i2 < (int) unlockedArray.size(); _i2++) {
+						if ((foodID).equals(unlockedArray.get((int) unlockedIndex).getAsString())) {
+							isUnlocked = true;
 						}
-						if (isUnlocked) {
-							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-								ItemStack _displayStack7 = displayStack.copy();
-								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 19)), _displayStack7, true);
-							}
-						} else {
-							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-								ItemStack _displayStack8 = displayStack.copy();
-								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack8, true);
-							}
+						unlockedIndex = unlockedIndex + 1;
+					}
+					if (isUnlocked) {
+						if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+							ItemStack _displayStack7 = displayStack.copy();
+							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 19)), _displayStack7, true);
+						}
+					} else {
+						if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+							ItemStack _displayStack8 = displayStack.copy();
+							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack8, true);
 						}
 					}
-					slotIndex = slotIndex + 1;
 				}
+				slotIndex = slotIndex + 1;
 			}
 		}
 	}

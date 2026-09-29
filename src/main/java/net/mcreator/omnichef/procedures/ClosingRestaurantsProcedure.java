@@ -1,12 +1,14 @@
 package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
+import java.util.UUID;
 import java.util.ArrayList;
 
 public class ClosingRestaurantsProcedure {
@@ -17,6 +19,8 @@ public class ClosingRestaurantsProcedure {
 		double CloseTime = 0;
 		double RestaurantIndex = 0;
 		double RestaurantID = 0;
+		String owner = "";
+		Entity ownerEntity = null;
 		if (world.dayTime() % 24000 >= 7900 && world.dayTime() % 24000 <= 18000) {
 			if (world.dayTime() % 100 == 0) {
 				index = 0;
@@ -32,19 +36,26 @@ public class ClosingRestaurantsProcedure {
 						ModifyRestaurantLogicParameterProcedure.execute(true, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"menu_advance_ready");
 						OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.indexOf((RestaurantsOpen.get((int) index) instanceof Double _doub7 ? _doub7 : 0.0D)));
-						if (world instanceof ServerLevel _level) {
-							_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("restaurant has been closed: " + GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants",
-									OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "name"))), false);
-						}
-						for (Entity entityiterator : new ArrayList<>(world.players())) {
-							if (RestaurantID == entityiterator.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID) {
-								CreateOverlayDataTransferProcedure.execute(world, entityiterator);
-							}
+						owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+								"owner");
+						ownerEntity = world instanceof ServerLevel _level10 ? getEntityFromUUID(_level10, owner) : null;
+						if (ownerEntity != null) {
+							if (ownerEntity instanceof Player _player && !_player.level().isClientSide())
+								_player.displayClientMessage(Component.literal("Your restaurant has been closed!"), false);
+							CreateOverlayDataTransferProcedure.execute(world, ownerEntity);
 						}
 					}
 					index = index + 1;
 				}
 			}
+		}
+	}
+
+	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
+		try {
+			return level.getEntity(UUID.fromString(uuid));
+		} catch (IllegalArgumentException e) {
+			return null;
 		}
 	}
 }
