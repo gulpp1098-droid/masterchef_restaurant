@@ -35,7 +35,7 @@ public class ChefsDiaryFoodPreviousPageProcedure {
 						{
 							OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 							_vars.DiaryFoodTier = previousTier;
-							_vars.DiaryFoodPage = Math.floor((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage - 1) / 18);
+							_vars.DiaryFoodPage = Math.floor((foodArray.size() - 1) / 18);
 							_vars.markSyncDirty();
 						}
 						foundTier = true;

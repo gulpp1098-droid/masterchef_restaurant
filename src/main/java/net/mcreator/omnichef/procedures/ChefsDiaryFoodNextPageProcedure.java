@@ -34,7 +34,7 @@ public class ChefsDiaryFoodNextPageProcedure {
 					if (foodArray.size() > 0) {
 						{
 							OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
-							_vars.DiaryFoodTier = nextTier + 1;
+							_vars.DiaryFoodTier = nextTier;
 							_vars.DiaryFoodPage = 0;
 							_vars.markSyncDirty();
 						}
