@@ -203,6 +203,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 52, this.topPos + -39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(5, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -228,6 +234,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 8, this.topPos + -14, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(6, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -253,6 +265,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 52, this.topPos + -14, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(7, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -278,6 +296,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 96, this.topPos + -14, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(8, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -303,6 +327,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 8, this.topPos + 13, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(9, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 9, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -328,6 +358,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 51, this.topPos + 12, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(10, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 10, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -353,6 +389,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 96, this.topPos + 12, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(11, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 11, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -378,6 +420,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_7 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 8, this.topPos + 39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(12, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 12, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -403,6 +451,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_8 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 51, this.topPos + 39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(13, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 13, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -428,6 +482,12 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		enhanced_image_button_empty_copy_9 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 96, this.topPos + 39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
+					int x = ChefsDiaryFoodGUIScreen.this.x;
+					int y = ChefsDiaryFoodGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(14, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 14, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
