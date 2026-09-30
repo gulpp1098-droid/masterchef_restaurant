@@ -50,15 +50,17 @@ public class CancelEndPortalActivationProcedure {
 				for (int _i1 = 0; _i1 < 7; _i1++) {
 					sz = -3;
 					for (int _i2 = 0; _i2 < 7; _i2++) {
-						if (true || (world.getBlockState(BlockPos.containing(x + sx, y, z + sz))).getBlock() == OmnichefModBlocks.RECEPTION.get()
+						if ((world.getBlockState(BlockPos.containing(x + sx, y, z + sz))).getBlock() == OmnichefModBlocks.CHAIR.get() || (world.getBlockState(BlockPos.containing(x + sx, y, z + sz))).getBlock() == OmnichefModBlocks.RECEPTION.get()
 								|| (world.getBlockState(BlockPos.containing(x + sx, y, z + sz))).getBlock() == OmnichefModBlocks.RUG_QUEUE.get()
 								|| (world.getBlockState(BlockPos.containing(x + sx, y, z + sz))).getBlock() == OmnichefModBlocks.SERVICE_TABLE.get()) {
-							if (event instanceof ICancellableEvent _cancellable) {
-								_cancellable.setCanceled(true);
+							if (IsInsideAnyRestaurantProcedure.execute(world, x + sx, z + sz)) {
+								if (event instanceof ICancellableEvent _cancellable) {
+									_cancellable.setCanceled(true);
+								}
+								if (entity instanceof Player _player && !_player.level().isClientSide())
+									_player.displayClientMessage(Component.literal("Really? Do not do that.."), true);
+								break;
 							}
-							if (entity instanceof Player _player && !_player.level().isClientSide())
-								_player.displayClientMessage(Component.literal("Really? Do not do that.."), true);
-							break;
 						}
 						sz = sz + 1;
 					}

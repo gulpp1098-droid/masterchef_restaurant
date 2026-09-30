@@ -72,8 +72,7 @@ public class OpenRestaurantButtonProcedure {
 									ChairsMax = ScanningRestaurantAreasProcedure.execute(world, entity, "ChairsMax");
 									if (AmountOfTables > 0) {
 										if (AmountOfChairs > 0) {
-											if (!(GetRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-													OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception")).equals("")) {
+											if (IsRestaurantReceptionValidProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
 												menu = GetRestaurantArrayParameterProcedure.execute(index, "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 														OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 												if (menu.size() == 0 || GetRestaurantLogicParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -104,6 +103,8 @@ public class OpenRestaurantButtonProcedure {
 															.literal(("Available setup: " + new java.text.DecimalFormat("#").format(AmountOfTables) + " Service Tables, " + new java.text.DecimalFormat("#").format(AmountOfChairs) + " Chairs."))
 															.withStyle(ChatFormatting.WHITE), false);
 											} else {
+												ModifyRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+														OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception", "");
 												if (owner instanceof Player _player28 && !_player28.level().isClientSide())
 													_player28.displayClientMessage(Component.literal("Your restaurant needs a Reception.").withStyle(ChatFormatting.RED), true);
 											}

@@ -7901,19 +7901,6 @@
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     },
     {
-      "name": "ChefsDiaryLoot",
-      "type": "loottable",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "chefs_diary_loot",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/omnichef/loot_table/entities/client.json"
-        ]
-      },
-      "path": "~/Restaurant Functioning/LootTables"
-    },
-    {
       "name": "CookingTime",
       "type": "achievement",
       "compiles": true,
@@ -9966,6 +9953,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/LootTables"
+    },
+    {
+      "name": "IsRestaurantReceptionValid",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_restaurant_reception_valid",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "RestaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/IsRestaurantReceptionValidProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [

@@ -47,7 +47,7 @@ public class ReceptionBlockIsPlacedByProcedure {
 							if ((GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 									"reception")).equals("")) {
 								setDirectionBlockState(world, x, y, z, (owner.getDirection()));
-								fallingRugSupport = world.getBlockState(net.minecraft.core.BlockPos.containing(x + owner.getDirection().getStepX(), y - 1, z + owner.getDirection().getStepZ()))
+								fallingSupport = world.getBlockState(net.minecraft.core.BlockPos.containing(x + owner.getDirection().getStepX(), y - 1, z + owner.getDirection().getStepZ()))
 										.getBlock() instanceof net.minecraft.world.level.block.FallingBlock;
 								if (!fallingSupport) {
 									if (OmnichefModBlocks.RUG_QUEUE.get().defaultBlockState().canSurvive(world, BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))

@@ -5,6 +5,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
+import net.minecraft.server.level.ServerPlayer;
+
 import javax.annotation.Nullable;
 
 @EventBusSubscriber
@@ -19,7 +21,7 @@ public class PlayerLogsOutProcedure {
 	}
 
 	private static void execute(@Nullable Event event) {
-		if (entity instanceof net.minecraft.server.level.ServerPlayer player && player.getServer() != null) {
+		if (event instanceof PlayerEvent.PlayerLoggedOutEvent logoutEvent && logoutEvent.getEntity() instanceof ServerPlayer player && player.getServer() != null) {
 			double restaurantId = entity.getData(net.mcreator.omnichef.network.OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID;
 			String previewUuid = entity.getData(net.mcreator.omnichef.network.OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID;
 			for (net.minecraft.server.level.ServerLevel level : player.getServer().getAllLevels()) {
