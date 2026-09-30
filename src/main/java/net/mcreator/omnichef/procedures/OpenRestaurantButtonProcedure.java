@@ -43,9 +43,11 @@ public class OpenRestaurantButtonProcedure {
 						arrayIndex = 0;
 						for (int _i1 = 0; _i1 < (int) OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.size(); _i1++) {
 							if ((openedRestaurants.get((int) arrayIndex) instanceof Double _doub4 ? _doub4 : 0.0D) == entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID) {
-								OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) arrayIndex);
+								openedRestaurants.remove((int) arrayIndex);
 								break;
 							}
+							OmnichefModVariables.MapVariables.get(world).RestaurantsOpen = openedRestaurants;
+							OmnichefModVariables.MapVariables.get(world).syncData(world);
 							arrayIndex = arrayIndex + 1;
 						}
 						ModifyRestaurantLogicParameterProcedure.execute(false, index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open");

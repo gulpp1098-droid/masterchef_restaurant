@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.Direction;
@@ -43,15 +43,11 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 						(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z, getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID"))) {
 					RugQueueIsDestroyedWithReceptionProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
 							(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z);
-					{
-						BlockPos _pos = BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
-								(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z);
-						Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
-								(getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z), null);
-						world.destroyBlock(_pos, false);
-					}
-					ReceptionBlockDestroyedProcedure.execute(world, entity);
+					world.setBlock(
+							BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z),
+							Blocks.AIR.defaultBlockState(), 3);
 				}
+				ReceptionBlockDestroyedProcedure.execute(world, entity);
 			}
 		}
 	}
