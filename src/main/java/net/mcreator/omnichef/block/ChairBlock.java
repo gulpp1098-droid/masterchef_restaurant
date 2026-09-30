@@ -9,6 +9,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,6 +37,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.omnichef.procedures.ClientInteractWithChairProcedure;
 import net.mcreator.omnichef.procedures.ChairOnBlockRightclickedProcedure;
 import net.mcreator.omnichef.procedures.ChairBlockIsPlacedByProcedure;
+import net.mcreator.omnichef.procedures.ChairBlockDestroyedByPlayerProcedure;
 import net.mcreator.omnichef.block.entity.ChairBlockEntity;
 
 import java.util.List;
@@ -109,6 +111,13 @@ public class ChairBlock extends Block implements EntityBlock {
 	@Override
 	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
 		return PathType.DAMAGE_FIRE;
+	}
+
+	@Override
+	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+		ChairBlockDestroyedByPlayerProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		return retval;
 	}
 
 	@Override

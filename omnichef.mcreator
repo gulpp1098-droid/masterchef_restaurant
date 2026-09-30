@@ -9730,6 +9730,95 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "ChairBlockDestroyedByPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chair_block_destroyed_by_player",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ChairBlockDestroyedByPlayerProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Chair Procedures"
+    },
+    {
+      "name": "PreventClientDimentionTravel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prevent_client_dimention_travel",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/PreventClientDimentionTravelProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "CancelEndPortalActivation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cancel_end_portal_activation",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CancelEndPortalActivationProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
     }
   ],
   "variable_elements": [

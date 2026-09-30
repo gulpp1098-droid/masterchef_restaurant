@@ -26,6 +26,7 @@ public class ChairMobOnInitialEntitySpawnProcedure {
 						_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "data merge entity @s {Invulnerable:1b}");
 			}
 		}
+		edge.setInvisible(true);
 		direction = getBlockDirection(world, BlockPos.containing(x, y, z));
 		if (direction == Direction.NORTH) {
 			{

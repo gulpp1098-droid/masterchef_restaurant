@@ -124,6 +124,7 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onRightClicked": "ChairOnBlockRightclicked",
+    "onDestroyedByPlayer": "ChairBlockDestroyedByPlayer",
     "onEntityCollides": "ClientInteractWithChair",
     "onBlockPlayedBy": "ChairBlockIsPlacedBy",
     "generateFeature": false,

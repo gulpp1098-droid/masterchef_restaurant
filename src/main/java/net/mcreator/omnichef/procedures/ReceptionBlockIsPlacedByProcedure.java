@@ -35,6 +35,7 @@ public class ReceptionBlockIsPlacedByProcedure {
 		double RestaurantID = 0;
 		double ChairAmount = 0;
 		double restaurantIndex = 0;
+		boolean fallingSupport = false;
 		owner = entity;
 		if ((entity.level().dimension().location().toString()).equals("minecraft:overworld")) {
 			if (!world.isClientSide()) {
@@ -46,17 +47,29 @@ public class ReceptionBlockIsPlacedByProcedure {
 							if ((GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 									"reception")).equals("")) {
 								setDirectionBlockState(world, x, y, z, (owner.getDirection()));
-								if (OmnichefModBlocks.RUG_QUEUE.get().defaultBlockState().canSurvive(world, BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))
-										&& world.isEmptyBlock(BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))) {
-									if (owner instanceof Player _player16 && !_player16.level().isClientSide())
-										_player16.displayClientMessage(Component.literal("Reception added successfully.").withStyle(ChatFormatting.GREEN), true);
-									setBlockNBTNumber(world, x, y, z, "RestaurantID", RestaurantID);
-									ModifyRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-											"reception", x + ":" + y + ":" + z);
-									RugIsPlacedwithReceptionProcedure.execute(world, x, y, z, entity);
+								fallingRugSupport = world.getBlockState(net.minecraft.core.BlockPos.containing(x + owner.getDirection().getStepX(), y - 1, z + owner.getDirection().getStepZ()))
+										.getBlock() instanceof net.minecraft.world.level.block.FallingBlock;
+								if (!fallingSupport) {
+									if (OmnichefModBlocks.RUG_QUEUE.get().defaultBlockState().canSurvive(world, BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))
+											&& world.isEmptyBlock(BlockPos.containing(x + (owner.getDirection()).getStepX(), y, z + (owner.getDirection()).getStepZ()))) {
+										if (owner instanceof Player _player16 && !_player16.level().isClientSide())
+											_player16.displayClientMessage(Component.literal("Reception added successfully.").withStyle(ChatFormatting.GREEN), true);
+										setBlockNBTNumber(world, x, y, z, "RestaurantID", RestaurantID);
+										ModifyRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception", x + ":" + y + ":" + z);
+										RugIsPlacedwithReceptionProcedure.execute(world, x, y, z, entity);
+									} else {
+										if (owner instanceof Player _player20 && !_player20.level().isClientSide())
+											_player20.displayClientMessage(Component.literal("There is no valid position for the first Queue Rug.").withStyle(ChatFormatting.RED), true);
+										{
+											BlockPos _pos = BlockPos.containing(x, y, z);
+											Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
+											world.destroyBlock(_pos, false);
+										}
+									}
 								} else {
-									if (owner instanceof Player _player20 && !_player20.level().isClientSide())
-										_player20.displayClientMessage(Component.literal("There is no valid position for the first Queue Rug.").withStyle(ChatFormatting.RED), true);
+									if (owner instanceof Player _player24 && !_player24.level().isClientSide())
+										_player24.displayClientMessage(Component.literal("There is no stable position for the first Queue Rug.").withStyle(ChatFormatting.RED), true);
 									{
 										BlockPos _pos = BlockPos.containing(x, y, z);
 										Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -64,8 +77,8 @@ public class ReceptionBlockIsPlacedByProcedure {
 									}
 								}
 							} else {
-								if (owner instanceof Player _player24 && !_player24.level().isClientSide())
-									_player24.displayClientMessage(Component.literal("Your restaurant already has a Reception.").withStyle(ChatFormatting.RED), true);
+								if (owner instanceof Player _player28 && !_player28.level().isClientSide())
+									_player28.displayClientMessage(Component.literal("Your restaurant already has a Reception.").withStyle(ChatFormatting.RED), true);
 								{
 									BlockPos _pos = BlockPos.containing(x, y, z);
 									Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -73,8 +86,8 @@ public class ReceptionBlockIsPlacedByProcedure {
 								}
 							}
 						} else {
-							if (owner instanceof Player _player28 && !_player28.level().isClientSide())
-								_player28.displayClientMessage(Component.literal("The Reception must be placed inside your restaurant area.").withStyle(ChatFormatting.RED), true);
+							if (owner instanceof Player _player32 && !_player32.level().isClientSide())
+								_player32.displayClientMessage(Component.literal("The Reception must be placed inside your restaurant area.").withStyle(ChatFormatting.RED), true);
 							{
 								BlockPos _pos = BlockPos.containing(x, y, z);
 								Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -83,8 +96,8 @@ public class ReceptionBlockIsPlacedByProcedure {
 						}
 					}
 				} else {
-					if (owner instanceof Player _player32 && !_player32.level().isClientSide())
-						_player32.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
+					if (owner instanceof Player _player36 && !_player36.level().isClientSide())
+						_player36.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
 					{
 						BlockPos _pos = BlockPos.containing(x, y, z);
 						Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
@@ -93,8 +106,8 @@ public class ReceptionBlockIsPlacedByProcedure {
 				}
 			}
 		} else {
-			if (owner instanceof Player _player36 && !_player36.level().isClientSide())
-				_player36.displayClientMessage(Component.literal("The Reception can only be placed in the Overworld.").withStyle(ChatFormatting.RED), true);
+			if (owner instanceof Player _player40 && !_player40.level().isClientSide())
+				_player40.displayClientMessage(Component.literal("The Reception can only be placed in the Overworld.").withStyle(ChatFormatting.RED), true);
 			{
 				BlockPos _pos = BlockPos.containing(x, y, z);
 				Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
