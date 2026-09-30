@@ -9719,7 +9719,12 @@
       "locked_code": false,
       "registry_name": "mark_restaurants_open_dirty",
       "metadata": {
-        "dependencies": [],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/MarkRestaurantsOpenDirtyProcedure.java"
         ]
