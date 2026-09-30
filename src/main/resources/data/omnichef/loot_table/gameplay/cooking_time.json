@@ -21,5 +21,5 @@
       ]
     }
   ],
-  "random_sequence": "omnichef:entities/client"
+  "random_sequence": "omnichef:gameplay/cooking_time"
 }

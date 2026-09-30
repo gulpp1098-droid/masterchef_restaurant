@@ -23,7 +23,7 @@
   "rewards": {
     "experience": 0,
     "loot": [
-      "omnichef:entities/client"
+      "omnichef:gameplay/cooking_time"
     ]
   }
 }

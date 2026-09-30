@@ -41,6 +41,7 @@ public class LocationAreaEntity extends PathfinderMob {
 
 	public LocationAreaEntity(EntityType<LocationAreaEntity> type, Level world) {
 		super(type, world);
+		this.blocksBuilding = false;
 		xpReward = 0;
 		setNoAi(true);
 		setPersistenceRequired();

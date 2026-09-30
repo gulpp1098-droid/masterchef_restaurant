@@ -11,7 +11,7 @@
     "announceToChat": true,
     "hideIfNotCompleted": false,
     "rewardLoot": [
-      "ChefsDiaryLoot"
+      "ChefsDiaryAchievment"
     ],
     "rewardRecipes": [],
     "rewardXP": 0,

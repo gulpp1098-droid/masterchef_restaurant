@@ -71,6 +71,12 @@ public record ChefsDiaryTipsP2GUIButtonMessage(int buttonID, int x, int y, int z
 
 			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 		}
+
+		guiTools$enhancedImageButton : {
+			if (buttonID == 5) {
+				net.mcreator.omnichef.procedures.ChefsDiaryTipsGUIOpenProcedure.execute(world, x, y, z, entity);
+			}
+		}
 	}
 
 	@SubscribeEvent

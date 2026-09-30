@@ -655,7 +655,7 @@
       "name": "LocationArea",
       "type": "livingentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "location_area",
       "metadata": {
         "files": [
@@ -1180,7 +1180,7 @@
       "name": "LocationEdge",
       "type": "livingentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "location_edge",
       "metadata": {
         "files": [
@@ -1322,7 +1322,7 @@
       "name": "LocationEdgeLeft",
       "type": "livingentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "location_edge_left",
       "metadata": {
         "files": [
@@ -1336,7 +1336,7 @@
       "name": "LocationEdgeRight",
       "type": "livingentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "location_edge_right",
       "metadata": {
         "files": [
@@ -1350,7 +1350,7 @@
       "name": "LocationEdgeDown",
       "type": "livingentity",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "location_edge_down",
       "metadata": {
         "files": [
@@ -9819,6 +9819,153 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
+    },
+    {
+      "name": "ChefsDiaryTipsGUIOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_tips_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ChefsDiaryTipsGUIOpenProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryTipsP2GUIOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_tips_p_2_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ChefsDiaryTipsP2GUIOpenProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "DeleteConfirmationGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "delete_confirmation_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/network/DeleteConfirmationGUIButtonMessage.java",
+          "src/main/java/net/mcreator/omnichef/world/inventory/DeleteConfirmationGUIMenu.java",
+          "src/main/java/net/mcreator/omnichef/client/gui/DeleteConfirmationGUIScreen.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/Spatula"
+    },
+    {
+      "name": "OpenConfirmDeleteRestaurantGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_confirm_delete_restaurant_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/OpenConfirmDeleteRestaurantGUIProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures"
+    },
+    {
+      "name": "PlayerLogsOut",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_logs_out",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/PlayerLogsOutProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
+    },
+    {
+      "name": "ChefsDiaryAchievment",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_achievment",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/loot_table/gameplay/cooking_time.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/LootTables"
     }
   ],
   "variable_elements": [
@@ -9990,7 +10137,7 @@
     "en_us": {
       "advancements.cooking_time.title": "Cooking Time",
       "advancements.cooking_time.descr": "It is cooking time!",
-      "item_group.omnichef.master_chef": "Master Chef",
+      "item_group.omnichef.master_chef": "Omnichef",
       "item.omnichef.spatula_golden": "Spatula Golden",
       "item.omnichef.spatula_golden.description_0": "What is chef without his spatula?",
       "block.omnichef.service_table": "Service Table",

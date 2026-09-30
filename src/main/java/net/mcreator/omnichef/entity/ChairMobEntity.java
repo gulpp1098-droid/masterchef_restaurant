@@ -4,7 +4,6 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
@@ -64,11 +63,6 @@ public class ChairMobEntity extends PathfinderMob {
 	@Override
 	protected PathNavigation createNavigation(Level world) {
 		return new FlyingPathNavigation(this, world);
-	}
-
-	@Override
-	protected Vec3 getPassengerAttachmentPoint(Entity entity, EntityDimensions dimensions, float f) {
-		return super.getPassengerAttachmentPoint(entity, dimensions, f).add(0, -0.1f, 0);
 	}
 
 	@Override

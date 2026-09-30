@@ -15,25 +15,24 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.CreatingNewRestaurantProcedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
-public record CreateRestaurantGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
-	public static final Type<CreateRestaurantGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(OmnichefMod.MODID, "create_restaurant_gui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, CreateRestaurantGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CreateRestaurantGUIButtonMessage message) -> {
+public record DeleteConfirmationGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+	public static final Type<DeleteConfirmationGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(OmnichefMod.MODID, "delete_confirmation_gui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, DeleteConfirmationGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, DeleteConfirmationGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new CreateRestaurantGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new DeleteConfirmationGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 
 	@Override
-	public Type<CreateRestaurantGUIButtonMessage> type() {
+	public Type<DeleteConfirmationGUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final CreateRestaurantGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final DeleteConfirmationGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
@@ -47,20 +46,19 @@ public record CreateRestaurantGUIButtonMessage(int buttonID, int x, int y, int z
 		// security measure to prevent arbitrary chunk generation
 		if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(x), SectionPos.blockToSectionCoord(z)))
 			return;
-		if (buttonID == 0) {
-
-			CreatingNewRestaurantProcedure.execute(world, x, y, z, entity);
-		}
 
 		guiTools$enhancedImageButton : {
+			if (buttonID == 0) {
+				net.mcreator.omnichef.procedures.DeleteRestaurantProcedure.execute(world, entity);
+			}
 			if (buttonID == 1) {
-				net.mcreator.omnichef.procedures.OpenConfirmDeleteRestaurantGUIProcedure.execute(world, x, y, z, entity);
+				net.mcreator.omnichef.procedures.OpenCreateRestaurantGUIProcedure.execute(world, x, y, z, entity);
 			}
 		}
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		OmnichefMod.addNetworkMessage(CreateRestaurantGUIButtonMessage.TYPE, CreateRestaurantGUIButtonMessage.STREAM_CODEC, CreateRestaurantGUIButtonMessage::handleData);
+		OmnichefMod.addNetworkMessage(DeleteConfirmationGUIButtonMessage.TYPE, DeleteConfirmationGUIButtonMessage.STREAM_CODEC, DeleteConfirmationGUIButtonMessage::handleData);
 	}
 }

@@ -95,7 +95,7 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 				net.mcreator.omnichef.procedures.ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
 			}
 			if (buttonID == 12) {
-				net.mcreator.omnichef.procedures.ChefsDiaryGuideExpLevelProcedure.execute(world, x, y, z, entity);
+				net.mcreator.omnichef.procedures.ChefsDiaryTipsGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
 		}
 	}

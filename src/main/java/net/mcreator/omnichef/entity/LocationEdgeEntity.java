@@ -39,6 +39,7 @@ public class LocationEdgeEntity extends PathfinderMob {
 
 	public LocationEdgeEntity(EntityType<LocationEdgeEntity> type, Level world) {
 		super(type, world);
+		this.blocksBuilding = false;
 		xpReward = 0;
 		setNoAi(true);
 		setPersistenceRequired();

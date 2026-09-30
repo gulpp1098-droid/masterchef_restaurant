@@ -148,6 +148,30 @@
           "y": 33,
           "locked": false
         }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_last_page_icon",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryTipsGUIOpen",
+          "width": 16,
+          "height": 16,
+          "x": 74,
+          "y": 179,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {

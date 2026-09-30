@@ -477,7 +477,7 @@
           "name": "enhanced_image_button_empty_copy_6_copy",
           "text": "More Tips",
           "isUndecorated": true,
-          "onClick": "ChefsDiaryGuideExpLevel",
+          "onClick": "ChefsDiaryTipsGUIOpen",
           "width": 52,
           "height": 16,
           "x": 244,
