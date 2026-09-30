@@ -9718,6 +9718,12 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "mark_restaurants_open_dirty",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/MarkRestaurantsOpenDirtyProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
