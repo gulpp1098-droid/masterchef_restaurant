@@ -171,6 +171,16 @@
           "y": 55,
           "locked": false
         }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "queue_rug_item.png",
+          "use1Xscale": false,
+          "x": 272,
+          "y": 174,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {

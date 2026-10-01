@@ -411,30 +411,6 @@
           "y": 180,
           "locked": false
         }
-      },
-      {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "requirements_icon.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "textShadow": true,
-          "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_requirements_icon",
-          "text": "",
-          "isUndecorated": true,
-          "onClick": "ChefsDiaryFoodTiers",
-          "width": 15,
-          "height": 17,
-          "x": 375,
-          "y": 177,
-          "locked": false
-        }
       }
     ],
     "gridSettings": {

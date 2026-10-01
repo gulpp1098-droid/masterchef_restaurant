@@ -57,12 +57,16 @@ public class CancelEndPortalActivationProcedure {
 								if (event instanceof ICancellableEvent _cancellable) {
 									_cancellable.setCanceled(true);
 								}
+								found = true;
 								if (entity instanceof Player _player && !_player.level().isClientSide())
 									_player.displayClientMessage(Component.literal("Really? Do not do that.."), true);
 								break;
 							}
 						}
 						sz = sz + 1;
+					}
+					if (found) {
+						break;
 					}
 					sx = sx + 1;
 				}

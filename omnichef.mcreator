@@ -9977,6 +9977,20 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "HideChairHealth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hide_chair_health",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/HideChairHealthProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Chair Mob Procedures"
     }
   ],
   "variable_elements": [

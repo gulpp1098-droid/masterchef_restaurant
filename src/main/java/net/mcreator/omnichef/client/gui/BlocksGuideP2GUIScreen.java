@@ -30,6 +30,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 	private ImageButton imagebutton_stats_icon;
 	private ImageButton imagebutton_last_page_icon;
 	private ImageButton imagebutton_next_page_icon;
+	private ImageButton imagebutton_reception_item;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/blocks_guide_p_2_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/bookmarks.png");
@@ -208,6 +209,15 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
+		imagebutton_reception_item = new ImageButton(this.leftPos + 58, this.topPos + 53, 16, 16,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/reception_item.png"), ResourceLocation.parse("omnichef:textures/screens/reception_item.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_reception_item);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();

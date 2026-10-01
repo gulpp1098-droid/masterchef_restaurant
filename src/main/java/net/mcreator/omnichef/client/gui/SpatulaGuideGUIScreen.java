@@ -67,7 +67,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 		guiTools$orderedImages : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -34, this.topPos + -103, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 59, this.topPos + 53, 0, 0, 16, 16, 16, 16);
 			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 1, this.topPos + -90, 0, 0, 133, 11, 133, 11);
 			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 1, this.topPos + 40, 0, 0, 133, 11, 133, 11);
 			if (true) {

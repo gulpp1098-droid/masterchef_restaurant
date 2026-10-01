@@ -35,6 +35,7 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/bookmarks.png");
 	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
 	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
+	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/servicetable_icon.png");
 
 	public BlocksGuideP3GUIScreen(BlocksGuideP3GUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -79,6 +80,7 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 21 + guiTools$xOffset, this.topPos + -65 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 90, 90);
 			}
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 59, this.topPos + 55, 0, 0, 16, 16, 16, 16);
 		}
 		RenderSystem.disableBlend();
 	}

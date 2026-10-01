@@ -183,6 +183,17 @@
           "y": 55,
           "locked": false
         }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_reception_item",
+          "image": "reception_item.png",
+          "hoveredImage": "",
+          "x": 272,
+          "y": 173,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {

@@ -74,20 +74,20 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
 			String guiTools$sizedLabelText0 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), "");
-			if (true && mouseX >= this.leftPos + 122 && mouseX < this.leftPos + 187 && mouseY >= this.topPos + -55 && mouseY < this.topPos + -45 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 65, 1.00F))
+			if (true && mouseX >= this.leftPos + 122 && mouseX < this.leftPos + 187 && mouseY >= this.topPos + -36 && mouseY < this.topPos + -26 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 65, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
 			String guiTools$sizedLabelText1 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), "");
-			if (true && mouseX >= this.leftPos + 122 && mouseX < this.leftPos + 187 && mouseY >= this.topPos + -19 && mouseY < this.topPos + -9 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 65, 1.00F))
+			if (true && mouseX >= this.leftPos + 122 && mouseX < this.leftPos + 187 && mouseY >= this.topPos + 1 && mouseY < this.topPos + 11 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 65, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
 			String guiTools$sizedLabelText2 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), "");
-			if (true && mouseX >= this.leftPos + 122 && mouseX < this.leftPos + 187 && mouseY >= this.topPos + 19 && mouseY < this.topPos + 29 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 65, 1.00F))
+			if (true && mouseX >= this.leftPos + 122 && mouseX < this.leftPos + 187 && mouseY >= this.topPos + 38 && mouseY < this.topPos + 48 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 65, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText2), mouseX, mouseY);
 		}
 		guiTools$itemDisplayTooltips : {
 			guiTools$itemDisplayTooltip0 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip0;
-				if (mouseX < this.leftPos + 123 || mouseX >= this.leftPos + 139 || mouseY < this.topPos + -43 || mouseY >= this.topPos + -27)
+				if (mouseX < this.leftPos + 123 || mouseX >= this.leftPos + 139 || mouseY < this.topPos + -58 || mouseY >= this.topPos + -42)
 					break guiTools$itemDisplayTooltip0;
 				boolean guiTools$displayMasked0 = false;
 				if (guiTools$displayMasked0)
@@ -100,7 +100,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			guiTools$itemDisplayTooltip1 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip1;
-				if (mouseX < this.leftPos + 123 || mouseX >= this.leftPos + 139 || mouseY < this.topPos + -6 || mouseY >= this.topPos + 10)
+				if (mouseX < this.leftPos + 123 || mouseX >= this.leftPos + 139 || mouseY < this.topPos + -20 || mouseY >= this.topPos + -4)
 					break guiTools$itemDisplayTooltip1;
 				boolean guiTools$displayMasked1 = false;
 				if (guiTools$displayMasked1)
@@ -113,7 +113,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			guiTools$itemDisplayTooltip2 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip2;
-				if (mouseX < this.leftPos + 123 || mouseX >= this.leftPos + 139 || mouseY < this.topPos + 33 || mouseY >= this.topPos + 49)
+				if (mouseX < this.leftPos + 123 || mouseX >= this.leftPos + 139 || mouseY < this.topPos + 18 || mouseY >= this.topPos + 34)
 					break guiTools$itemDisplayTooltip2;
 				boolean guiTools$displayMasked2 = false;
 				if (guiTools$displayMasked2)
@@ -149,12 +149,12 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + -172, this.topPos + 4, 0, 0, 11, 11, 11, 11);
 			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + -174, this.topPos + 27, 0, 0, 15, 17, 15, 17);
 			guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + -172, this.topPos + 57, 0, 0, 11, 11, 11, 11);
-			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 122, this.topPos + -44, 0, 0, 18, 18, 18, 18);
-			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + 122, this.topPos + -7, 0, 0, 18, 18, 18, 18);
-			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + 122, this.topPos + 32, 0, 0, 18, 18, 18, 18);
-			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + 149, this.topPos + -44, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_19, this.leftPos + 149, this.topPos + -7, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_20, this.leftPos + 149, this.topPos + 32, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 122, this.topPos + -59, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + 122, this.topPos + -21, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + 122, this.topPos + 17, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + 149, this.topPos + -60, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_19, this.leftPos + 149, this.topPos + -22, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_20, this.leftPos + 149, this.topPos + 16, 0, 0, 15, 17, 15, 17);
 			if (this.enhanced_image_button_button_icon != null && this.enhanced_image_button_button_icon.visible) {
 				this.enhanced_image_button_button_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -167,20 +167,20 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				boolean guiTools$displayMasked0 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 123), (1.0F - 1.0f) * (this.topPos + -43), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 123), (1.0F - 1.0f) * (this.topPos + -58), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked0) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 123, this.topPos + -43);
+							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 123, this.topPos + -58);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 123, this.topPos + -43);
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 123, this.topPos + -58);
 					}
 					if (!guiTools$displayMasked0)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + 123, this.topPos + -43);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + 123, this.topPos + -58);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -194,20 +194,20 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				boolean guiTools$displayMasked1 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 123), (1.0F - 1.0f) * (this.topPos + -6), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 123), (1.0F - 1.0f) * (this.topPos + -20), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked1) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 123, this.topPos + -6);
+							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 123, this.topPos + -20);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 123, this.topPos + -6);
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 123, this.topPos + -20);
 					}
 					if (!guiTools$displayMasked1)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + 123, this.topPos + -6);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + 123, this.topPos + -20);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -221,20 +221,20 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				boolean guiTools$displayMasked2 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 123), (1.0F - 1.0f) * (this.topPos + 33), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 123), (1.0F - 1.0f) * (this.topPos + 18), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked2) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 123, this.topPos + 33);
+							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 123, this.topPos + 18);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 123, this.topPos + 33);
+						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 123, this.topPos + 18);
 					}
 					if (!guiTools$displayMasked2)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + 123, this.topPos + 33);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + 123, this.topPos + 18);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -284,16 +284,16 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(entity), -149, 6, -12829636, false);
 		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(entity), -149, 33, -12829636, false);
 		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(entity), -149, 59, -12829636, false);
-		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(world, entity), 165, -39, -12829636, false);
-		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 165, -2, -12829636, false);
-		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 165, 37, -12829636, false);
+		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(world, entity), 165, -55, -12829636, false);
+		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 165, -17, -12829636, false);
+		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 165, 21, -12829636, false);
 		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 151, 58, -12829636, false);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), ""), 122, -55, 65, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), ""), 122, -36, 65, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), ""), 122, -19, 65, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), ""), 122, 1, 65, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), ""), 122, 19, 65, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), ""), 122, 38, 65, -12829636, false, 1.00F, 2);
 		this.guiTools$renderMultilineLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.MenuNameReturnProcedure.execute(entity), ""), 134, -82, 42, 13, -1, false, 0.75F, 0, 2);
 	}
 

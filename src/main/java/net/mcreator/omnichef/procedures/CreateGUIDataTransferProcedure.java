@@ -43,7 +43,7 @@ public class CreateGUIDataTransferProcedure {
 					recipeDiscoveryExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
 				}
-				JSONObject.addProperty("recipe_tier", ("Recipe tier: " + new java.text.DecimalFormat("0").format(recipeTier + 1)));
+				JSONObject.addProperty("recipe_tier", ("Recipe tier: " + new java.text.DecimalFormat("0").format(recipeTier)));
 				JSONObject.addProperty("recipe_discovery_exp",
 						("Recipe discovery: " + new java.text.DecimalFormat("0").format(recipeDiscoveryExp) + " / " + new java.text.DecimalFormat("0").format(OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired)));
 				JSONObject.addProperty("closeTime", ("Close time: " + (int) Math.floor(closeTime / 1000 + 6) + ":" + new java.text.DecimalFormat("00").format(Math.floor((closeTime % 1000) * (60d / 1000)))));

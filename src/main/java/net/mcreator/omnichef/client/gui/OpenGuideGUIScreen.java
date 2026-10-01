@@ -64,7 +64,7 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -30, this.topPos + -104, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -45, this.topPos + -103, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 

@@ -183,6 +183,16 @@
           "y": 55,
           "locked": false
         }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "servicetable_icon.png",
+          "use1Xscale": false,
+          "x": 273,
+          "y": 175,
+          "locked": true
+        }
       }
     ],
     "gridSettings": {

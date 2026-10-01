@@ -64,7 +64,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_recipe_tier_1_copy",
-          "text": "Recipe discovery:0/10",
+          "text": "Unlock recipe : 0 / 10",
           "color": {
             "value": -12829636,
             "falpha": 0.0

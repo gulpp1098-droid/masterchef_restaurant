@@ -103,9 +103,6 @@ public record ChefsDiaryFoodGUIButtonMessage(int buttonID, int x, int y, int z) 
 			if (buttonID == 14) {
 				net.mcreator.omnichef.procedures.SelectChefsDiaryFoodTier9Procedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 16) {
-				net.mcreator.omnichef.procedures.ChefsDiaryFoodTiersProcedure.execute(world, x, y, z, entity);
-			}
 		}
 	}
 
