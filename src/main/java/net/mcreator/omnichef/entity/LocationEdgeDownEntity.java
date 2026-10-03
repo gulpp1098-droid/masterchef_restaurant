@@ -168,6 +168,11 @@ public class LocationEdgeDownEntity extends PathfinderMob {
 	}
 
 	@Override
+public boolean isPickable() {
+    return false;
+}
+
+	@Override
 	protected void doPush(Entity entityIn) {
 	}
 

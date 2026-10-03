@@ -172,6 +172,11 @@ public class LocationEdgeRightEntity extends PathfinderMob {
 	}
 
 	@Override
+public boolean isPickable() {
+    return false;
+}
+
+	@Override
 	protected void pushEntities() {
 	}
 
