@@ -37,6 +37,6 @@ public class GetFoodDataFromTierProcedure {
 				e.printStackTrace();
 			}
 		}
-		return foodArray;
+		return tierArray;
 	}
 }

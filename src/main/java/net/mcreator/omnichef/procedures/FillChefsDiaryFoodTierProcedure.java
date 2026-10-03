@@ -43,7 +43,7 @@ public class FillChefsDiaryFoodTierProcedure {
 				index = index + 1;
 			}
 			index = 101;
-			for (int _i1 = 0; _i1 < 36; _i1++) {
+			for (int _i1 = 0; _i1 < 18; _i1++) {
 				if (entity instanceof Player _guiToolsLabelPlayer3 && _guiToolsLabelPlayer3.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu3) {
 					_guiToolsLabelMenu3.sendMenuStateUpdate(_guiToolsLabelPlayer3, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) index), ""), java.util.Objects.toString("", ""), true);
 				}
@@ -89,7 +89,7 @@ public class FillChefsDiaryFoodTierProcedure {
 							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack16, true);
 						}
 						if (entity instanceof Player _guiToolsLabelPlayer18 && _guiToolsLabelPlayer18.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu18) {
-							_guiToolsLabelMenu18.sendMenuStateUpdate(_guiToolsLabelPlayer18, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) (slotIndex + 101)), ""), java.util.Objects.toString(("-" + "\n" + "-"), ""), true);
+							_guiToolsLabelMenu18.sendMenuStateUpdate(_guiToolsLabelPlayer18, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) (slotIndex + 101)), ""), java.util.Objects.toString(("???" + "\n" + "???"), ""), true);
 						}
 					}
 				}
