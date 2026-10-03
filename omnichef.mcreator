@@ -10027,6 +10027,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/Mixins"
+    },
+    {
+      "name": "GetFoodDataFromTier",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_data_from_tier",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "tier",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodDataFromTierProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
@@ -10580,7 +10604,7 @@
   "workspaceSettings": {
     "modid": "omnichef",
     "modName": "OmniChef - Restaurant sim RPG mod",
-    "version": "0.6.3",
+    "version": "0.6.6",
     "description": "Manage your own Restaurant and become the best chef!",
     "author": "Maeestry",
     "websiteURL": "https://mcreator.net",

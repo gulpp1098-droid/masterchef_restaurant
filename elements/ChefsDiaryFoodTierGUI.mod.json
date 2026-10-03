@@ -2,7 +2,7 @@
   "_fv": 89,
   "_type": "gui",
   "definition": {
-    "type": 1,
+    "type": 0,
     "width": 0,
     "height": 0,
     "inventoryOffsetX": 1000,
@@ -1110,7 +1110,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120",
+          "name": "t_101",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1152,7 +1152,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy",
+          "name": "t_102",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1194,7 +1194,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_2",
+          "name": "t_103",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1236,7 +1236,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_3",
+          "name": "t_104",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1278,7 +1278,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_4",
+          "name": "t_105",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1320,7 +1320,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_5",
+          "name": "t_106",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1362,7 +1362,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_6",
+          "name": "t_107",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1404,7 +1404,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_7",
+          "name": "t_108",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1446,7 +1446,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_8",
+          "name": "t_109",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1488,7 +1488,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9",
+          "name": "t_110",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1530,7 +1530,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy",
+          "name": "t_111",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1572,7 +1572,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_2",
+          "name": "t_112",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1614,7 +1614,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_3",
+          "name": "t_113",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1656,7 +1656,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_4",
+          "name": "t_114",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1698,7 +1698,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_5",
+          "name": "t_115",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1740,7 +1740,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_6",
+          "name": "t_116",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1782,7 +1782,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_7",
+          "name": "t_117",
           "text": "120\n120",
           "color": {
             "value": -12829636,
@@ -1824,7 +1824,7 @@
       {
         "type": "multiline_label",
         "data": {
-          "name": "multiline_label_120120_copy_9_copy_8",
+          "name": "t_118",
           "text": "120\n120",
           "color": {
             "value": -12829636,

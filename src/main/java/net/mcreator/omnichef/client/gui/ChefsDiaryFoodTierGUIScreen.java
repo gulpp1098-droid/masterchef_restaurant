@@ -1561,24 +1561,24 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, ChefsDiaryFoodTierPageTextProcedure.execute(entity), -135, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -121, -60, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -79, -60, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -37, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -121, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -79, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -37, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -121, 30, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -79, 30, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", -37, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 23, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 65, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 105, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 24, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 65, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 105, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 24, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 65, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "120\n120", 105, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_101", "120\n120"), -121, -60, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_102", "120\n120"), -79, -60, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_103", "120\n120"), -37, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_104", "120\n120"), -121, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_105", "120\n120"), -79, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_106", "120\n120"), -37, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_107", "120\n120"), -121, 30, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_108", "120\n120"), -79, 30, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_109", "120\n120"), -37, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_110", "120\n120"), 23, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_111", "120\n120"), 65, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_112", "120\n120"), 105, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_113", "120\n120"), 24, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_114", "120\n120"), 65, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_115", "120\n120"), 105, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_116", "120\n120"), 24, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_117", "120\n120"), 65, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_118", "120\n120"), 105, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

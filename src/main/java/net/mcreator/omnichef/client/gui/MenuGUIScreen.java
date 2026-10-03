@@ -87,7 +87,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			guiTools$itemDisplayTooltip0 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip0;
-				if (mouseX < this.leftPos + -17 || mouseX >= this.leftPos + -1 || mouseY < this.topPos + 12 || mouseY >= this.topPos + 28)
+				if (mouseX < this.leftPos + -17 || mouseX >= this.leftPos + -1 || mouseY < this.topPos + 14 || mouseY >= this.topPos + 30)
 					break guiTools$itemDisplayTooltip0;
 				boolean guiTools$displayMasked0 = false;
 				if (guiTools$displayMasked0)
@@ -100,7 +100,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			guiTools$itemDisplayTooltip1 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip1;
-				if (mouseX < this.leftPos + -17 || mouseX >= this.leftPos + -1 || mouseY < this.topPos + 48 || mouseY >= this.topPos + 64)
+				if (mouseX < this.leftPos + -17 || mouseX >= this.leftPos + -1 || mouseY < this.topPos + 50 || mouseY >= this.topPos + 66)
 					break guiTools$itemDisplayTooltip1;
 				boolean guiTools$displayMasked1 = false;
 				if (guiTools$displayMasked1)
@@ -113,7 +113,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			guiTools$itemDisplayTooltip2 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip2;
-				if (mouseX < this.leftPos + -17 || mouseX >= this.leftPos + -1 || mouseY < this.topPos + 84 || mouseY >= this.topPos + 100)
+				if (mouseX < this.leftPos + -17 || mouseX >= this.leftPos + -1 || mouseY < this.topPos + 86 || mouseY >= this.topPos + 102)
 					break guiTools$itemDisplayTooltip2;
 				boolean guiTools$displayMasked2 = false;
 				if (guiTools$displayMasked2)
@@ -126,7 +126,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			guiTools$itemDisplayTooltip3 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip3;
-				if (mouseX < this.leftPos + 72 || mouseX >= this.leftPos + 88 || mouseY < this.topPos + 12 || mouseY >= this.topPos + 28)
+				if (mouseX < this.leftPos + 72 || mouseX >= this.leftPos + 88 || mouseY < this.topPos + 14 || mouseY >= this.topPos + 30)
 					break guiTools$itemDisplayTooltip3;
 				boolean guiTools$displayMasked3 = false;
 				if (guiTools$displayMasked3)
@@ -139,7 +139,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			guiTools$itemDisplayTooltip4 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip4;
-				if (mouseX < this.leftPos + 72 || mouseX >= this.leftPos + 88 || mouseY < this.topPos + 48 || mouseY >= this.topPos + 64)
+				if (mouseX < this.leftPos + 72 || mouseX >= this.leftPos + 88 || mouseY < this.topPos + 50 || mouseY >= this.topPos + 66)
 					break guiTools$itemDisplayTooltip4;
 				boolean guiTools$displayMasked4 = false;
 				if (guiTools$displayMasked4)
@@ -152,7 +152,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			guiTools$itemDisplayTooltip5 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip5;
-				if (mouseX < this.leftPos + 72 || mouseX >= this.leftPos + 88 || mouseY < this.topPos + 84 || mouseY >= this.topPos + 100)
+				if (mouseX < this.leftPos + 72 || mouseX >= this.leftPos + 88 || mouseY < this.topPos + 86 || mouseY >= this.topPos + 102)
 					break guiTools$itemDisplayTooltip5;
 				boolean guiTools$displayMasked5 = false;
 				if (guiTools$displayMasked5)
@@ -195,20 +195,20 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				boolean guiTools$displayMasked0 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -17), (1.0F - 1.0f) * (this.topPos + 12), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -17), (1.0F - 1.0f) * (this.topPos + 14), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked0) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -17, this.topPos + 12);
+							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -17, this.topPos + 14);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -17, this.topPos + 12);
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -17, this.topPos + 14);
 					}
 					if (!guiTools$displayMasked0)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -17, this.topPos + 12);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -17, this.topPos + 14);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -222,20 +222,20 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				boolean guiTools$displayMasked1 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -17), (1.0F - 1.0f) * (this.topPos + 48), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -17), (1.0F - 1.0f) * (this.topPos + 50), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked1) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -17, this.topPos + 48);
+							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -17, this.topPos + 50);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -17, this.topPos + 48);
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -17, this.topPos + 50);
 					}
 					if (!guiTools$displayMasked1)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -17, this.topPos + 48);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -17, this.topPos + 50);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -249,20 +249,20 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				boolean guiTools$displayMasked2 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -17), (1.0F - 1.0f) * (this.topPos + 84), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -17), (1.0F - 1.0f) * (this.topPos + 86), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked2) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -17, this.topPos + 84);
+							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -17, this.topPos + 86);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -17, this.topPos + 84);
+						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -17, this.topPos + 86);
 					}
 					if (!guiTools$displayMasked2)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + -17, this.topPos + 84);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + -17, this.topPos + 86);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -276,20 +276,20 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				boolean guiTools$displayMasked3 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 72), (1.0F - 1.0f) * (this.topPos + 12), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 72), (1.0F - 1.0f) * (this.topPos + 14), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked3) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 72, this.topPos + 12);
+							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 72, this.topPos + 14);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 72, this.topPos + 12);
+						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 72, this.topPos + 14);
 					}
 					if (!guiTools$displayMasked3)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack3, this.leftPos + 72, this.topPos + 12);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack3, this.leftPos + 72, this.topPos + 14);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -303,20 +303,20 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				boolean guiTools$displayMasked4 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 72), (1.0F - 1.0f) * (this.topPos + 48), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 72), (1.0F - 1.0f) * (this.topPos + 50), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked4) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 72, this.topPos + 48);
+							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 72, this.topPos + 50);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 72, this.topPos + 48);
+						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 72, this.topPos + 50);
 					}
 					if (!guiTools$displayMasked4)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack4, this.leftPos + 72, this.topPos + 48);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack4, this.leftPos + 72, this.topPos + 50);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -330,20 +330,20 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				boolean guiTools$displayMasked5 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 72), (1.0F - 1.0f) * (this.topPos + 84), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 72), (1.0F - 1.0f) * (this.topPos + 86), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked5) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 72, this.topPos + 84);
+							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 72, this.topPos + 86);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 72, this.topPos + 84);
+						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 72, this.topPos + 86);
 					}
 					if (!guiTools$displayMasked5)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + 72, this.topPos + 84);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + 72, this.topPos + 86);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
