@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "net.mcreator.omnichef.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ItemDisplayMixinMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8.4"
+}

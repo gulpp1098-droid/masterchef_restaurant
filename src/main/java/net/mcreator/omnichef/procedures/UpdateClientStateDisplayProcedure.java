@@ -48,7 +48,7 @@ public class UpdateClientStateDisplayProcedure {
 							{
 								Entity _ent = displayItem;
 								double _tx = (client.getX());
-								double _ty = (client.getY() + 3);
+								double _ty = (client.getY() + 2.5);
 								double _tz = (client.getZ());
 								_ent.teleportTo(_tx, _ty, _tz);
 								if (_ent instanceof ServerPlayer _serverPlayer)

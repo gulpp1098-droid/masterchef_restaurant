@@ -8922,7 +8922,7 @@
           "src/main/java/net/mcreator/omnichef/network/RecipesInfoGUIButtonMessage.java"
         ]
       },
-      "path": "~/Restaurant Functioning/GUIs"
+      "path": "~/Restaurant Functioning/GUIs/Spatula"
     },
     {
       "name": "OpenRecipeInfoGUI",
@@ -10014,6 +10014,19 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "ItemDisplayMixin",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "item_display_mixin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/mixin/ItemDisplayMixinMixin.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Mixins"
     }
   ],
   "variable_elements": [
@@ -10313,6 +10326,7 @@
       "src/main/java/net/mcreator/omnichef/client/renderer/CustomFireballRenderer.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModModels.java",
       "src/main/java/net/mcreator/omnichef/client/ClientHelper.java",
+      "src/main/resources/omnichef.mixins.json",
       "src/main/java/net/mcreator/omnichef/client/renderer/CustomEyeOfEnderRenderer.java",
       "src/main/java/net/mcreator/omnichef/ai/MoveToStructureGoal.java",
       "src/main/java/net/mcreator/omnichef/ai/OverrideMovementGoal.java",
@@ -10553,6 +10567,10 @@
           },
           {
             "name": "LootTables",
+            "children": []
+          },
+          {
+            "name": "Mixins",
             "children": []
           }
         ]

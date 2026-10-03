@@ -15,7 +15,7 @@ public class OrderWaitingProcedure {
 			return;
 		Entity DisplaySpawn = null;
 		if ((entity.getPersistentData().getString("state")).equals("order_wait") && !entity.getPersistentData().getBoolean("stateDisplayCreated")) {
-			DisplaySpawn = world instanceof ServerLevel _level2 ? EntityType.ITEM_DISPLAY.spawn(_level2, BlockPos.containing(x, y + 3, z), MobSpawnType.MOB_SUMMONED) : null;
+			DisplaySpawn = world instanceof ServerLevel _level2 ? EntityType.ITEM_DISPLAY.spawn(_level2, BlockPos.containing(x, y + 2.5, z), MobSpawnType.MOB_SUMMONED) : null;
 			if (DisplaySpawn != null) {
 				DisplaySpawn.setNoGravity(true);
 				{
