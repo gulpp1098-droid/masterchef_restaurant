@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
@@ -38,7 +37,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.procedures.RugUpdateStateQueueProcedure;
 import net.mcreator.omnichef.procedures.RugQueueBlockIsPlacedByProcedure;
-import net.mcreator.omnichef.procedures.IsValidPlaceForRugProcedure;
 import net.mcreator.omnichef.block.entity.RugQueueBlockEntity;
 
 import java.util.List;
@@ -118,17 +116,6 @@ public class RugQueueBlock extends Block implements SimpleWaterloggedBlock, Enti
 	}
 
 	@Override
-	public boolean canSurvive(BlockState blockstate, LevelReader worldIn, BlockPos pos) {
-		if (worldIn instanceof LevelAccessor world) {
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			return IsValidPlaceForRugProcedure.execute(world, x, y, z);
-		}
-		return super.canSurvive(blockstate, worldIn, pos);
-	}
-
-	@Override
 	public FluidState getFluidState(BlockState state) {
 		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
 	}
@@ -138,7 +125,7 @@ public class RugQueueBlock extends Block implements SimpleWaterloggedBlock, Enti
 		if (state.getValue(WATERLOGGED)) {
 			world.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
 		}
-		return !state.canSurvive(world, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, world, currentPos, facingPos);
+		return super.updateShape(state, facing, facingState, world, currentPos, facingPos);
 	}
 
 	@Override

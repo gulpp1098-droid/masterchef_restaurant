@@ -13,10 +13,8 @@ public class CriticOnEntityTickUpdateProcedure {
 		CriticAnimationSetUpProcedure.execute(entity);
 		client = entity;
 		if (!world.isClientSide()) {
-			if (world.dayTime() % 36 == 0) {
-				ClientPatianceGoingDownProcedure.execute(world, entity);
-			}
 			if (world.dayTime() % 10 == 0) {
+				ClientPatianceGoingDownProcedure.execute(world, entity);
 				if ((client.getPersistentData().getString("state")).equals("restaurant_go")) {
 					if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {

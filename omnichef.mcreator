@@ -9991,6 +9991,29 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Chair Mob Procedures"
+    },
+    {
+      "name": "UpdateClientStateDisplay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "update_client_state_display",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/UpdateClientStateDisplayProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],
   "variable_elements": [

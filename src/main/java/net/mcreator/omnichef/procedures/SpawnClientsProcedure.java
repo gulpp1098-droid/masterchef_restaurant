@@ -179,7 +179,6 @@ public class SpawnClientsProcedure {
 										Client.getPersistentData().putDouble("client_expire_time", (world.dayTime() + 8000));
 										Client.getPersistentData().putString("last_rug", RestaurantsClientsObject.get("queue_start").getAsString());
 										Client.getPersistentData().putDouble("group", singleGroup.get("group_id").getAsDouble());
-										Client.getPersistentData().putDouble("patience", patience);
 										Client.getPersistentData().putDouble("member", indexMembers);
 										Client.getPersistentData().putDouble("RestaurantID", restaurantID);
 										Client.getPersistentData().putDouble("stuckCounter", 10);
@@ -208,8 +207,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player68 && !_player68.level().isClientSide())
-										_player68.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player67 && !_player67.level().isClientSide())
+										_player67.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}

@@ -52,43 +52,42 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 			if (restaurantID == entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID) {
 				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-					if (blockstate.getBlock() == OmnichefModBlocks.SERVICE_TABLE.get()) {
-						if (getBlockNBTLogic(world, BlockPos.containing(x, y, z), "active") || getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied")) {
-							if (entity instanceof Player _player15 && !_player15.level().isClientSide())
-								_player15.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
-							if (event instanceof ICancellableEvent _cancellable) {
-								_cancellable.setCanceled(true);
+					if (entity instanceof Player _player11 && !_player11.level().isClientSide())
+						_player11.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
+					if (event instanceof ICancellableEvent _cancellable) {
+						_cancellable.setCanceled(true);
+					}
+				}
+				if (blockstate.getBlock() == OmnichefModBlocks.SERVICE_TABLE.get()) {
+					if (getBlockNBTLogic(world, BlockPos.containing(x, y, z), "active") || getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied")) {
+						if (entity instanceof Player _player18 && !_player18.level().isClientSide())
+							_player18.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
+						if (event instanceof ICancellableEvent _cancellable) {
+							_cancellable.setCanceled(true);
+						}
+					}
+				} else if (blockstate.getBlock() == OmnichefModBlocks.CHAIR.get()) {
+					direction = getDirectionFromBlockState(blockstate);
+					if (getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "active")
+							|| getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "occupied")) {
+						if (entity instanceof Player _player31 && !_player31.level().isClientSide())
+							_player31.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
+						if (event instanceof ICancellableEvent _cancellable) {
+							_cancellable.setCanceled(true);
+						}
+					}
+					{
+						final Vec3 _center = new Vec3((x + 0.5), y, (z + 0.5));
+						for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(1 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+							if (entityiterator instanceof ChairMobEntity) {
+								entityChair = entityiterator;
+								break;
 							}
 						}
-					} else if (blockstate.getBlock() == OmnichefModBlocks.CHAIR.get()) {
-						direction = getDirectionFromBlockState(blockstate);
-						if (getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "active")
-								|| getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "occupied")) {
-							if (entity instanceof Player _player28 && !_player28.level().isClientSide())
-								_player28.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
-							if (event instanceof ICancellableEvent _cancellable) {
-								_cancellable.setCanceled(true);
-							}
-						}
-						{
-							final Vec3 _center = new Vec3((x + 0.5), y, (z + 0.5));
-							for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(1 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
-								if (entityiterator instanceof ChairMobEntity) {
-									entityChair = entityiterator;
-									break;
-								}
-							}
-						}
-						if (entityChair != null && entityChair.isVehicle()) {
-							if (entity instanceof Player _player34 && !_player34.level().isClientSide())
-								_player34.displayClientMessage(Component.literal("You cannot break chair while someone is using it.").withStyle(ChatFormatting.RED), true);
-							if (event instanceof ICancellableEvent _cancellable) {
-								_cancellable.setCanceled(true);
-							}
-						}
-					} else {
+					}
+					if (entityChair != null && entityChair.isVehicle()) {
 						if (entity instanceof Player _player37 && !_player37.level().isClientSide())
-							_player37.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
+							_player37.displayClientMessage(Component.literal("You cannot break chair while someone is using it.").withStyle(ChatFormatting.RED), true);
 						if (event instanceof ICancellableEvent _cancellable) {
 							_cancellable.setCanceled(true);
 						}

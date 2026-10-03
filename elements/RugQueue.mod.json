@@ -246,7 +246,6 @@
     },
     "unbreakable": false,
     "vanillaToolTier": "NONE",
-    "placingCondition": "IsValidPlaceForRug",
     "isBonemealable": false,
     "sensitiveToVibration": false,
     "vibrationalEvents": [],
