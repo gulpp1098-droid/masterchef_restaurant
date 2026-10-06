@@ -10163,6 +10163,150 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodScoreByID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_score_by_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodScoreByIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodQualityScoreByID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_quality_score_by_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodQualityScoreByIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodRoleByID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_role_by_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodRoleByIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodTierByID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_tier_by_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodTierByIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodBaseExpByID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_base_exp_by_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodBaseExpByIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "IsFoodInDatabase",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_food_in_database",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/IsFoodInDatabaseProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
