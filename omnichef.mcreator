@@ -10146,6 +10146,22 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_ingredients_alternatives_from_slot",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "ingredientSlots",
+            "type": "jsonarray"
+          },
+          {
+            "name": "slotIndex",
+            "type": "number"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetIngredientsAlternativesFromSlotProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
