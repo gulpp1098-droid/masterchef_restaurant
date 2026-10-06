@@ -10071,6 +10071,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodDataFromID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_data_from_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodDataFromIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
