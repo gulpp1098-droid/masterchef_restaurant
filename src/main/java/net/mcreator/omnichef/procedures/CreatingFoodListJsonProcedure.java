@@ -27,7 +27,7 @@ public class CreatingFoodListJsonProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		com.google.gson.JsonObject FoodDatabaseObject = new com.google.gson.JsonObject();
 		File FoodDatabase = new File("");
-		if (!world.isClientSide()) { // =====================================================
+		if (!world.isClientSide()) {// =====================================================
 			// SERVER SIDE ONLY
 			// =====================================================
 			if (!(world instanceof net.minecraft.server.level.ServerLevel level)) {
@@ -88,68 +88,147 @@ public class CreatingFoodListJsonProcedure {
 				final java.util.Map<String, Double> recipeScoreCache = new java.util.HashMap<>();
 				final java.util.Map<String, net.minecraft.world.item.crafting.RecipeHolder<?>> chosenRecipeCache = new java.util.HashMap<>();
 				final java.util.Map<String, java.util.List<String>> chosenIngredientsCache = new java.util.HashMap<>();
+				final java.util.Map<String, java.util.List<RecipeAnalysis>> validRecipesCache = new java.util.HashMap<>();
 				final java.util.Map<String, Double> categoryBonusCache = new java.util.HashMap<>();
 				final java.util.Map<String, java.util.List<String>> categoriesCache = new java.util.HashMap<>();
 				final java.util.Set<String> resolving = new java.util.HashSet<>();
+				int blockedPathCounter = 0;
+
+				final class RecipeAnalysis {
+					final net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder;
+					final String method;
+					final int outputCount;
+					final double preparePoints;
+					final double ingredientScore;
+					final double recipeScore;
+					final java.util.List<java.util.List<String>> ingredientSlots;
+					final java.util.List<String> selectedIngredients;
+
+					RecipeAnalysis(net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder, String method, int outputCount, double preparePoints, double ingredientScore, double recipeScore,
+							java.util.List<java.util.List<String>> ingredientSlots, java.util.List<String> selectedIngredients) {
+						this.recipeHolder = recipeHolder;
+						this.method = method;
+						this.outputCount = outputCount;
+						this.preparePoints = preparePoints;
+						this.ingredientScore = ingredientScore;
+						this.recipeScore = recipeScore;
+						this.ingredientSlots = ingredientSlots;
+						this.selectedIngredients = selectedIngredients;
+					}
+
+					com.google.gson.JsonObject toJson() {
+						com.google.gson.JsonObject recipeObject = new com.google.gson.JsonObject();
+						recipeObject.addProperty("method", method);
+						recipeObject.addProperty("outputCount", outputCount);
+						recipeObject.addProperty("preparePoints", preparePoints);
+						recipeObject.addProperty("ingredientScore", ingredientScore);
+						recipeObject.addProperty("recipeScore", recipeScore);
+						com.google.gson.JsonArray slotsArray = new com.google.gson.JsonArray();
+						for (java.util.List<String> slot : ingredientSlots) {
+							com.google.gson.JsonArray alternativesArray = new com.google.gson.JsonArray();
+							for (String alternativeName : slot) {
+								alternativesArray.add(alternativeName);
+							}
+							slotsArray.add(alternativesArray);
+						}
+						recipeObject.add("ingredientSlots", slotsArray);
+						com.google.gson.JsonArray selectedArray = new com.google.gson.JsonArray();
+						for (String selectedIngredient : selectedIngredients) {
+							selectedArray.add(selectedIngredient);
+						}
+						recipeObject.add("selectedIngredients", selectedArray);
+						return recipeObject;
+					}
+				}
 
 				double resolve(String itemName) {
 					return resolve(itemName, 0);
+				}
+
+				double roundScore(double value) {
+					if (!Double.isFinite(value))
+						return value;
+					return Math.round(value * 10.0) / 10.0;
 				}
 
 				double resolve(String itemName, int depth) {
 					Double cached = scoreCache.get(itemName);
 					if (cached != null)
 						return cached;
-					if (depth >= MAX_DEPTH || resolving.contains(itemName))
+					if (itemName == null)
 						return INVALID;
+					if (depth >= MAX_DEPTH || resolving.contains(itemName)) {
+						blockedPathCounter++;
+						return INVALID;
+					}
+					int blockedPathsBeforeResolution = blockedPathCounter;
 					net.minecraft.world.item.Item item = itemsById.get(itemName);
 					if (item == null)
 						return INVALID;
 					net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
 					boolean isFood = item.getFoodProperties(stack, null) != null;
-					double qualityScore = isFood ? getQualityScore(itemName) : 1.0;
+					double qualityScore = isFood ? getQualityScore(itemName) : 0.0;
 					java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>> recipes = recipesByOutput.get(itemName);
-					boolean hasRecipes = recipes != null && !recipes.isEmpty();
-					double bestRecipeScore = INVALID;
-					net.minecraft.world.item.crafting.RecipeHolder<?> bestRecipe = null;
-					java.util.List<String> bestIngredients = null;
+					java.util.List<RecipeAnalysis> validRecipes = new java.util.ArrayList<>();
+					RecipeAnalysis bestRecipe = null;
 					resolving.add(itemName);
-					if (hasRecipes) {
-						for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipes) {
-							java.util.List<String> selectedIngredients = new java.util.ArrayList<>();
-							double currentRecipeScore = calculateRecipeScore(recipeHolder, itemName, depth + 1, selectedIngredients);
-							if (Double.isFinite(currentRecipeScore) && currentRecipeScore < bestRecipeScore) {
-								bestRecipeScore = currentRecipeScore;
-								bestRecipe = recipeHolder;
-								bestIngredients = selectedIngredients;
+					try {
+						if (recipes != null) {
+							for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipes) {
+								RecipeAnalysis analysis = analyzeRecipe(recipeHolder, itemName, depth + 1);
+								if (analysis == null || !Double.isFinite(analysis.recipeScore))
+									continue;
+								validRecipes.add(analysis);
+								if (bestRecipe == null || compareRecipes(analysis, bestRecipe) < 0) {
+									bestRecipe = analysis;
+								}
 							}
 						}
+					} finally {
+						resolving.remove(itemName);
 					}
-					resolving.remove(itemName);
+					validRecipes.sort((first, second) -> compareRecipes(first, second));
 					double appliedAcquisitionBonus = getAppliedAcquisitionBonus(itemName);
-					double resolvedScore;
-					if (isFood) {
-						resolvedScore = Double.isFinite(bestRecipeScore) ? Math.max(qualityScore, bestRecipeScore) : qualityScore;
-					} else if (Double.isFinite(bestRecipeScore)) {
-						resolvedScore = bestRecipeScore;
-					} else if (!hasRecipes) {
-						resolvedScore = 1.0;
-					} else {
-						// A raw ingredient can still exist even if its only known recipes
-						// are cyclic. Return the raw fallback without caching it.
-						return Math.max(1.0, 1.0 + appliedAcquisitionBonus);
-					}
-					resolvedScore = Math.max(1.0, resolvedScore + appliedAcquisitionBonus);
-					scoreCache.put(itemName, resolvedScore);
-					if (Double.isFinite(bestRecipeScore)) {
-						recipeScoreCache.put(itemName, bestRecipeScore);
-						chosenRecipeCache.put(itemName, bestRecipe);
-						chosenIngredientsCache.put(itemName, bestIngredients);
-					} else {
-						recipeScoreCache.put(itemName, 0.0);
-						chosenIngredientsCache.put(itemName, new java.util.ArrayList<>());
+					double productionScore = bestRecipe == null ? 1.0 : bestRecipe.recipeScore;
+					// Raw items keep the base value of 1. Crafted bulk ingredients may
+					// fall below 1 per item, for example one ninth of a gold ingot.
+					double minimumScore = bestRecipe == null ? 1.0 : 0.1;
+					double resolvedScore = roundScore(Math.max(minimumScore, productionScore + qualityScore + appliedAcquisitionBonus));
+					// A nested result calculated while one of its paths was blocked by
+					// recursion depends on the current parent chain and must not become
+					// the global cached value. Root food results are always retained.
+					boolean safeToCache = depth == 0 || blockedPathsBeforeResolution == blockedPathCounter;
+					if (safeToCache) {
+						scoreCache.put(itemName, resolvedScore);
+						validRecipesCache.put(itemName, validRecipes);
+						if (bestRecipe != null) {
+							recipeScoreCache.put(itemName, bestRecipe.recipeScore);
+							chosenRecipeCache.put(itemName, bestRecipe.recipeHolder);
+							chosenIngredientsCache.put(itemName, new java.util.ArrayList<>(bestRecipe.selectedIngredients));
+						} else {
+							recipeScoreCache.put(itemName, 0.0);
+							chosenIngredientsCache.put(itemName, new java.util.ArrayList<>());
+						}
 					}
 					return resolvedScore;
+				}
+
+				int compareRecipes(RecipeAnalysis first, RecipeAnalysis second) {
+					int scoreComparison = Double.compare(first.recipeScore, second.recipeScore);
+					if (scoreComparison != 0)
+						return scoreComparison;
+					int methodComparison = first.method.compareTo(second.method);
+					if (methodComparison != 0)
+						return methodComparison;
+					int outputComparison = Integer.compare(first.outputCount, second.outputCount);
+					if (outputComparison != 0)
+						return outputComparison;
+					return String.join("|", first.selectedIngredients).compareTo(String.join("|", second.selectedIngredients));
+				}
+
+				java.util.List<RecipeAnalysis> getValidRecipes(String itemName) {
+					resolve(itemName);
+					return validRecipesCache.getOrDefault(itemName, java.util.Collections.emptyList());
 				}
 
 				double getSpecialFoodBonus(String itemName) {
@@ -159,7 +238,7 @@ public class CreatingFoodListJsonProcedure {
 					if (bonusElement == null || !bonusElement.isJsonPrimitive() || !bonusElement.getAsJsonPrimitive().isNumber())
 						return 0.0;
 					try {
-						return bonusElement.getAsDouble();
+						return roundScore(bonusElement.getAsDouble());
 					} catch (Exception ignored) {
 						return 0.0;
 					}
@@ -173,7 +252,7 @@ public class CreatingFoodListJsonProcedure {
 				}
 
 				double getAppliedAcquisitionBonus(String itemName) {
-					return (hasSpecialFoodBonus(itemName) ? getSpecialFoodBonus(itemName) : getCategoryBonus(itemName)) + getModdedFoodBonus(itemName);
+					return roundScore((hasSpecialFoodBonus(itemName) ? getSpecialFoodBonus(itemName) : getCategoryBonus(itemName)) + getModdedFoodBonus(itemName));
 				}
 
 				double getModdedFoodBonus(String itemName) {
@@ -242,28 +321,32 @@ public class CreatingFoodListJsonProcedure {
 					}
 					if (foundCategories.isEmpty())
 						foundCategories.add("uncategorized");
-					categoryBonusCache.put(itemName, totalBonus);
+					categoryBonusCache.put(itemName, roundScore(totalBonus));
 					categoriesCache.put(itemName, new java.util.ArrayList<>(foundCategories));
 				}
 
-				double calculateRecipeScore(net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder, String outputItemName, int depth, java.util.List<String> selectedIngredients) {
-					if (depth >= MAX_DEPTH)
-						return INVALID;
+				RecipeAnalysis analyzeRecipe(net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder, String outputItemName, int depth) {
+					if (recipeHolder == null || depth >= MAX_DEPTH)
+						return null;
 					net.minecraft.world.item.crafting.Recipe<?> recipe = recipeHolder.value();
 					java.util.List<net.minecraft.world.item.crafting.Ingredient> ingredients = recipe.getIngredients();
 					if (ingredients == null || ingredients.isEmpty())
-						return INVALID;
+						return null;
 					net.minecraft.world.item.ItemStack result = recipe.getResultItem(level.registryAccess());
 					if (result.isEmpty())
-						return INVALID;
+						return null;
 					int outputCount = Math.max(1, result.getCount());
 					double ingredientTotal = 0.0;
+					boolean materialUnpackingRecipe = ingredients.size() == 1 && outputCount > 1;
+					java.util.List<java.util.List<String>> ingredientSlots = new java.util.ArrayList<>();
+					java.util.List<String> selectedIngredients = new java.util.ArrayList<>();
 					for (net.minecraft.world.item.crafting.Ingredient ingredient : ingredients) {
 						net.minecraft.world.item.ItemStack[] alternatives = ingredient.getItems();
 						if (alternatives == null || alternatives.length == 0)
-							return INVALID;
-						double cheapestAlternative = INVALID;
+							return null;
+						double cheapestAlternativeScore = INVALID;
 						String cheapestAlternativeName = null;
+						java.util.Set<String> validAlternativeNames = new java.util.TreeSet<>();
 						for (net.minecraft.world.item.ItemStack alternative : alternatives) {
 							if (alternative == null || alternative.isEmpty())
 								continue;
@@ -271,26 +354,35 @@ public class CreatingFoodListJsonProcedure {
 							if (alternativeId == null)
 								continue;
 							String alternativeName = alternativeId.toString();
-							// Ignore an unpacking alternative such as hay block -> 9 wheat
-							// when the reverse packing recipe also exists.
-							if (outputCount > 1 && hasRecipeUsingItem(alternativeName, outputItemName)) {
+							// A reversible unpacking recipe is allowed only when the packed
+							// material has an independent production route. This permits
+							// gold ingot -> nuggets, but rejects hay block -> wheat loops.
+							boolean reversePackingRecipe = outputCount > 1 && hasRecipeUsingItem(alternativeName, outputItemName);
+							if (reversePackingRecipe && !hasIndependentRecipe(alternativeName, outputItemName))
 								continue;
-							}
 							double alternativeScore = resolve(alternativeName, depth + 1);
-							if (Double.isFinite(alternativeScore) && alternativeScore < cheapestAlternative) {
-								cheapestAlternative = alternativeScore;
+							if (!Double.isFinite(alternativeScore))
+								continue;
+							validAlternativeNames.add(alternativeName);
+							if (alternativeScore < cheapestAlternativeScore || (Double.compare(alternativeScore, cheapestAlternativeScore) == 0 && (cheapestAlternativeName == null || alternativeName.compareTo(cheapestAlternativeName) < 0))) {
+								cheapestAlternativeScore = alternativeScore;
 								cheapestAlternativeName = alternativeName;
 							}
 						}
-						if (!Double.isFinite(cheapestAlternative) || cheapestAlternativeName == null) {
-							return INVALID;
-						}
-						// Duplicate slots are intentionally counted separately.
-						ingredientTotal += cheapestAlternative;
+						if (!Double.isFinite(cheapestAlternativeScore) || cheapestAlternativeName == null || validAlternativeNames.isEmpty())
+							return null;
+						// Repeated ingredient slots intentionally count more than once.
+						ingredientTotal += cheapestAlternativeScore;
+						ingredientSlots.add(new java.util.ArrayList<>(validAlternativeNames));
 						selectedIngredients.add(cheapestAlternativeName);
+						materialUnpackingRecipe = materialUnpackingRecipe && hasRecipeUsingItem(cheapestAlternativeName, outputItemName) && hasIndependentRecipe(cheapestAlternativeName, outputItemName);
 					}
-					double preparePoints = getPreparePoints(recipe.getType().toString());
-					return (ingredientTotal + preparePoints) / outputCount;
+					String method = recipe.getType().toString();
+					ingredientTotal = roundScore(ingredientTotal);
+					// Pure material conversion is not a culinary preparation step.
+					double preparePoints = materialUnpackingRecipe ? 0.0 : getPreparePoints(method);
+					double recipeScore = roundScore((ingredientTotal + preparePoints) / outputCount);
+					return new RecipeAnalysis(recipeHolder, method, outputCount, preparePoints, ingredientTotal, recipeScore, ingredientSlots, selectedIngredients);
 				}
 
 				boolean hasRecipeUsingItem(String producedItemName, String requiredItemName) {
@@ -303,19 +395,48 @@ public class CreatingFoodListJsonProcedure {
 								if (reverseAlternative == null || reverseAlternative.isEmpty())
 									continue;
 								var reverseId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(reverseAlternative.getItem());
-								if (reverseId != null && reverseId.toString().equals(requiredItemName)) {
+								if (reverseId != null && reverseId.toString().equals(requiredItemName))
 									return true;
-								}
 							}
 						}
 					}
 					return false;
 				}
 
-				double getPreparePoints(String recipeType) {
-					if (recipeType.contains("smoking") || recipeType.contains("campfire_cooking") || recipeType.contains("smelting")) {
-						return 3.0;
+				boolean hasIndependentRecipe(String producedItemName, String excludedIngredientName) {
+					java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>> candidateRecipes = recipesByOutput.get(producedItemName);
+					if (candidateRecipes == null)
+						return false;
+					for (net.minecraft.world.item.crafting.RecipeHolder<?> candidateHolder : candidateRecipes) {
+						java.util.List<net.minecraft.world.item.crafting.Ingredient> candidateIngredients = candidateHolder.value().getIngredients();
+						if (candidateIngredients == null || candidateIngredients.isEmpty())
+							continue;
+						boolean canCraftWithoutExcludedIngredient = true;
+						for (net.minecraft.world.item.crafting.Ingredient candidateIngredient : candidateIngredients) {
+							boolean slotHasIndependentAlternative = false;
+							for (net.minecraft.world.item.ItemStack candidateAlternative : candidateIngredient.getItems()) {
+								if (candidateAlternative == null || candidateAlternative.isEmpty())
+									continue;
+								var candidateId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(candidateAlternative.getItem());
+								if (candidateId != null && !candidateId.toString().equals(excludedIngredientName)) {
+									slotHasIndependentAlternative = true;
+									break;
+								}
+							}
+							if (!slotHasIndependentAlternative) {
+								canCraftWithoutExcludedIngredient = false;
+								break;
+							}
+						}
+						if (canCraftWithoutExcludedIngredient)
+							return true;
 					}
+					return false;
+				}
+
+				double getPreparePoints(String recipeType) {
+					if (recipeType.contains("smoking") || recipeType.contains("campfire_cooking") || recipeType.contains("smelting"))
+						return 3.0;
 					if (recipeType.contains("crafting"))
 						return 4.0;
 					if (recipeType.contains("cutting"))
@@ -343,7 +464,7 @@ public class CreatingFoodListJsonProcedure {
 							negativeEffects++;
 						}
 					}
-					return food.nutrition() + food.saturation() * 1.5 + positiveEffects * 4.0 - negativeEffects * 8.0;
+					return roundScore(food.nutrition() + food.saturation() * 1.5 + positiveEffects * 4.0 - negativeEffects * 8.0);
 				}
 			}
 			FoodScoreResolver scoreResolver = new FoodScoreResolver();
@@ -385,15 +506,23 @@ public class CreatingFoodListJsonProcedure {
 				double moddedFoodBonus = scoreResolver.getModdedFoodBonus(itemName);
 				double appliedAcquisitionBonus = scoreResolver.getAppliedAcquisitionBonus(itemName);
 				double score = scoreResolver.resolve(itemName);
-				if (!Double.isFinite(score)) {
-					score = Math.max(0.0, qualityScore + appliedAcquisitionBonus);
-				}
+				if (!Double.isFinite(score))
+					score = Math.max(1.0, 1.0 + qualityScore + appliedAcquisitionBonus);
 				double recipeScore = scoreResolver.recipeScoreCache.getOrDefault(itemName, 0.0);
 				net.minecraft.world.item.crafting.RecipeHolder<?> chosenRecipe = scoreResolver.chosenRecipeCache.get(itemName);
-				java.util.List<String> selectedIngredients = scoreResolver.chosenIngredientsCache.getOrDefault(itemName, new java.util.ArrayList<>());
+				java.util.List<String> selectedIngredients = scoreResolver.chosenIngredientsCache.getOrDefault(itemName, java.util.Collections.emptyList());
+				java.util.List<FoodScoreResolver.RecipeAnalysis> validRecipes = scoreResolver.getValidRecipes(itemName);
 				com.google.gson.JsonArray ingredientsArray = new com.google.gson.JsonArray();
 				for (String ingredientName : selectedIngredients) {
 					ingredientsArray.add(ingredientName);
+				}
+				com.google.gson.JsonArray recipesArray = new com.google.gson.JsonArray();
+				int selectedRecipeIndex = -1;
+				for (int recipeIndex = 0; recipeIndex < validRecipes.size(); recipeIndex++) {
+					FoodScoreResolver.RecipeAnalysis recipeAnalysis = validRecipes.get(recipeIndex);
+					recipesArray.add(recipeAnalysis.toJson());
+					if (recipeAnalysis.recipeHolder == chosenRecipe)
+						selectedRecipeIndex = recipeIndex;
 				}
 				com.google.gson.JsonArray categoriesArray = new com.google.gson.JsonArray();
 				for (String categoryName : scoreResolver.getCategories(itemName)) {
@@ -406,18 +535,24 @@ public class CreatingFoodListJsonProcedure {
 					recipeOutputCount = Math.max(1, recipeResult.getCount());
 				}
 				int recipeCount = recipesByOutput.getOrDefault(itemName, java.util.Collections.emptyList()).size();
+				String role = validRecipes.isEmpty() ? "INGREDIENT" : "FOOD";
 				com.google.gson.JsonObject foodObject = new com.google.gson.JsonObject();
 				foodObject.addProperty("id", itemName);
+				foodObject.addProperty("role", role);
 				foodObject.addProperty("nutrition", hunger);
 				foodObject.addProperty("saturation", saturation);
 				foodObject.add("ingredients", ingredientsArray);
 				foodObject.addProperty("method", recipeType);
 				foodObject.addProperty("recipeCount", recipeCount);
+				foodObject.addProperty("validRecipeCount", validRecipes.size());
+				foodObject.addProperty("selectedRecipe", selectedRecipeIndex);
 				foodObject.addProperty("recipeOutputCount", recipeOutputCount);
+				foodObject.add("recipes", recipesArray);
 				foodObject.addProperty("positiveEffects", positiveEffectsArray.size());
 				foodObject.addProperty("negativeEffects", negativeEffectsArray.size());
 				foodObject.add("positiveEffectsList", positiveEffectsArray);
 				foodObject.add("negativeEffectsList", negativeEffectsArray);
+				foodObject.addProperty("rawBaseScore", 1.0);
 				foodObject.addProperty("qualityScore", qualityScore);
 				foodObject.addProperty("recipeScore", recipeScore);
 				foodObject.add("categories", categoriesArray);
@@ -528,7 +663,9 @@ public class CreatingFoodListJsonProcedure {
 					}
 					scorePosition = Math.max(0.0, Math.min(1.0, scorePosition));
 					double tierMinimumExp = 10.0 + finalTierIndex * tierStep;
-					double scoreBonus = 0.8 * tierStep * scorePosition;
+					double scoreDifference = Math.max(0.0, currentFoodScore - minimumTierScore);
+					double maximumScoreBonus = finalTierIndex == tierCount - 1 ? tierStep * 3.0 : Math.max(0.0, tierStep - 1.0);
+					double scoreBonus = Math.min(scoreDifference, maximumScoreBonus);
 					int baseExp = (int) Math.round(tierMinimumExp + scoreBonus);
 					food.addProperty("score_position", scorePosition);
 					food.addProperty("base_exp", baseExp);
@@ -556,12 +693,31 @@ public class CreatingFoodListJsonProcedure {
 			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired = discoveryExpRequired;
 			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 			foodDatabase.addProperty("recipe_discovery_exp_required", discoveryExpRequired);
-			foodDatabase.addProperty("scoring_version", 5);
+			foodDatabase.addProperty("schema_version", 6);
+			foodDatabase.addProperty("scoring_version", 7);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
 			// =====================================================
 			// FINAL RESULT
 			// =====================================================
 			// foodDatabase
+			FoodDatabaseObject = foodDatabase;
+			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
+			try {
+				FoodDatabase.getParentFile().mkdirs();
+				FoodDatabase.createNewFile();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
+			{
+				com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+				try {
+					FileWriter fileWriter = new FileWriter(FoodDatabase);
+					fileWriter.write(mainGSONBuilderVariable.toJson(FoodDatabaseObject));
+					fileWriter.close();
+				} catch (IOException exception) {
+					exception.printStackTrace();
+				}
+			}
 			FoodDatabaseObject = foodDatabase;
 			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
 			try {
