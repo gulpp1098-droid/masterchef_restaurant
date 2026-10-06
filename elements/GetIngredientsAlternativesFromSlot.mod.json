@@ -1,0 +1,8 @@
+{
+  "_fv": 89,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable type=\"JsonArray\" id=\"slotsArray\">slotsArray</variable><variable type=\"JsonArray\" id=\"alternativesArray\">alternativesArray</variable></variables><block type=\"event_trigger\" deletable=\"false\" x=\"40\" y=\"40\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"variables_set_jsonarray\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:slotsArray</field><value name=\"VAL\"><block type=\"custom_dependency_jsonarray\"><field name=\"NAME\">ingredientSlots</field></block></value><next><block type=\"variables_set_jsonarray\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:alternativesArray</field><value name=\"VAL\"><block type=\"jsonarray_get_jsonarray\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:slotsArray</field><value name=\"index\"><block type=\"math_cast\"><field name=\"type\">int</field><value name=\"number\"><block type=\"custom_dependency_number\"><field name=\"NAME\">slotIndex</field></block></value></block></value></block></value><next><block type=\"return_jsonarray\"><value name=\"return\"><block type=\"variables_get_jsonarray\"><mutation xmlns=\"http://www.w3.org/1999/xhtml\" is_player_var=\"false\" has_entity=\"false\"></mutation><field name=\"VAR\">local:alternativesArray</field></block></value></block></next></block></next></block></next></block></xml>",
+    "skipDependencyNullCheck": false
+  }
+}
