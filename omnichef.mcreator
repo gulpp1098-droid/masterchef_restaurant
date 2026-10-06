@@ -10102,6 +10102,42 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_food_recipe_from_data",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "foodData",
+            "type": "jsonobject"
+          },
+          {
+            "name": "recipeIndex",
+            "type": "number"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodRecipeFromDataProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetRecipeIngredientSlots",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_recipe_ingredient_slots",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "recipeData",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetRecipeIngredientSlotsProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
