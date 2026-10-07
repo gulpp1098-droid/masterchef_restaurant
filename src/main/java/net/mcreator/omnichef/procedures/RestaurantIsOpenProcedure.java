@@ -6,9 +6,12 @@ import net.neoforged.fml.loading.FMLPaths;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
@@ -34,6 +37,7 @@ public class RestaurantIsOpenProcedure {
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray FoodDeliveredArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray tierArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		String receptionString = "";
 		String chosedFood = "";
 		String FoodMenu = "";
@@ -175,6 +179,7 @@ public class RestaurantIsOpenProcedure {
 					Found = false;
 					chosedFood = foodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (foodList.size() - 1)))).getAsString();
 					foodArray.add(chosedFood);
+					foodAmountArray.add(GetFoodOrderQuantityByIDProcedure.execute(foodDatabase, new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((chosedFood).toLowerCase(java.util.Locale.ENGLISH)))).getMaxStackSize(), chosedFood));
 					indexObject = 0;
 					for (int _i4 = 0; _i4 < (int) tiersObject.size(); _i4++) {
 						tierArray = tiersObject.get(("" + (int) indexObject)).getAsJsonArray();
@@ -198,6 +203,7 @@ public class RestaurantIsOpenProcedure {
 					}
 				}
 				membersObject.add("food", foodArray);
+				membersObject.add("food_amount", foodAmountArray);
 				membersObject.addProperty("foodTiers", (FoodMenu.substring(1)));
 				membersObject.addProperty("foodExp", (foodEXP.substring(1)));
 				membersObject.addProperty("patience", 100);

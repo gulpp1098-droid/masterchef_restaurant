@@ -10370,6 +10370,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_food_order_quantity_by_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "maxStackSize",
+            "type": "number"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodOrderQuantityByIDProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
