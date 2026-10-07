@@ -10342,6 +10342,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "filter_currently_unlockable_food_options",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "options",
+            "type": "jsonarray"
+          },
+          {
+            "name": "unlockedFoods",
+            "type": "jsonarray"
+          },
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/FilterCurrentlyUnlockableFoodOptionsProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],

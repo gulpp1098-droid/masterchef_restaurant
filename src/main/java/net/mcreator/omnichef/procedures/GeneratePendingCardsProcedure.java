@@ -27,11 +27,17 @@ public class GeneratePendingCardsProcedure {
 		com.google.gson.JsonArray olderPool = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray temporaryPool = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray selectedPool = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray unlockedFoods = new com.google.gson.JsonArray();
 		String selectedFood = "";
+		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 		if (restaurantIndex >= 0) {
 			options = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+			unlockedFoods = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+			databaseObject = ReadFoodDatabaseProcedure.execute(world);
+			options = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(options, unlockedFoods, databaseObject);
 			stageTier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 					"stage_tier");
 			currentPool = GetAvailableFoodFromTierProcedure.execute(world, options, stageTier);
