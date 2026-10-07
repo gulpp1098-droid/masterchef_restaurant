@@ -38,6 +38,7 @@ public class RestaurantIsOpenProcedure {
 		com.google.gson.JsonArray FoodDeliveredArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray tierArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray availableFoodList = new com.google.gson.JsonArray();
 		String receptionString = "";
 		String chosedFood = "";
 		String FoodMenu = "";
@@ -152,6 +153,7 @@ public class RestaurantIsOpenProcedure {
 				foodArray = emptyArray.deepCopy();
 				foodAmountArray = emptyArray.deepCopy();
 				FoodDeliveredArray = emptyArray.deepCopy();
+				availableFoodList = foodList.deepCopy();
 				membersObject = new Object() {
 					public com.google.gson.JsonObject parse(String rawJson) {
 						try {
@@ -173,12 +175,13 @@ public class RestaurantIsOpenProcedure {
 					}
 					membersObject.addProperty("critic", false);
 				}
-				FoodAmountOrder = Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood);
+				FoodAmountOrder = Math.min(Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood), foodList.size());
 				FoodMenu = "";
 				foodEXP = "";
 				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
 					Found = false;
 					chosedFood = foodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (foodList.size() - 1)))).getAsString();
+					availableFoodList = RemoveFoodFromArrayProcedure.execute(availableFoodList, chosedFood);
 					foodArray.add(chosedFood);
 					foodAmountArray.add(GetFoodOrderQuantityByIDProcedure.execute(foodDatabase, new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((chosedFood).toLowerCase(java.util.Locale.ENGLISH)))).getMaxStackSize(), chosedFood));
 					indexObject = 0;
