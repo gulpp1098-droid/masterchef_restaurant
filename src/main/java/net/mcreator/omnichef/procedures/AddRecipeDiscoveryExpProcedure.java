@@ -18,8 +18,11 @@ public class AddRecipeDiscoveryExpProcedure {
 		double newDiscoveryExp = 0;
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockOptions = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray unlockedFoods = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray currentlyUnlockableOptions = new com.google.gson.JsonArray();
 		Entity owner = null;
 		String ownerUUID = "";
+		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 			if (restaurantIndex >= 0) {
@@ -31,7 +34,11 @@ public class AddRecipeDiscoveryExpProcedure {
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				unlockOptions = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				if (starterRemaining <= 0 && pendingCards.isEmpty() && !unlockOptions.isEmpty()) {
+				unlockedFoods = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				databaseObject = ReadFoodDatabaseProcedure.execute(world);
+				currentlyUnlockableOptions = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(unlockOptions, unlockedFoods, databaseObject);
+				if (starterRemaining <= 0 && pendingCards.isEmpty() && !currentlyUnlockableOptions.isEmpty()) {
 					discoveryExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 							"discovery_exp");
 					newDiscoveryExp = Math.min(discoveryExp + 1, OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired);
