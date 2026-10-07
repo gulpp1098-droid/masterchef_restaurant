@@ -1,7 +1,5 @@
 package net.mcreator.omnichef.procedures;
 
-import net.neoforged.fml.loading.FMLPaths;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.Tier;
@@ -60,23 +58,9 @@ public class GenerateRestaurantMenuProcedure {
 		UnlockedFood = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 		MaxRestaurantLevel = OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel;
 		CurrentRestaurantLevel = restaurantLevelDependency;
-		ListOfFood = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
-		{
-			try {
-				BufferedReader bufferedReader = new BufferedReader(new FileReader(ListOfFood));
-				StringBuilder jsonstringbuilder = new StringBuilder();
-				String line;
-				while ((line = bufferedReader.readLine()) != null) {
-					jsonstringbuilder.append(line);
-				}
-				bufferedReader.close();
-				FoodDatabase = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				TierCount = FoodDatabase.get("tier_count").getAsDouble();
-				Tiers = FoodDatabase.get("tiers").getAsJsonObject();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		FoodDatabase = ReadFoodDatabaseProcedure.execute(world);
+		TierCount = FoodDatabase.get("tier_count").getAsDouble();
+		Tiers = FoodDatabase.get("tiers").getAsJsonObject();
 		CurrentTier = Math.floor((CurrentRestaurantLevel / MaxRestaurantLevel) * TierCount);
 		if (CurrentTier >= TierCount) {
 			CurrentTier = TierCount - 1;
@@ -96,6 +80,22 @@ public class GenerateRestaurantMenuProcedure {
 			Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
 			Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
 			availableTiers.add(("" + (int) loopTier), Tier);
+			if (Tier.size() > 0) {
+				amountOfTiers = amountOfTiers + 1;
+			}
+			loopTier = loopTier + 1;
+		}
+		MenuSize = Math.min(UnlockedFood.size(), Math.max(MenuSize, Math.max(2, amountOfTiers)));
+		loopTier = 0;
+		for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
+			Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
+			if (Tier.size() > 0) {
+				randomFoodIndex = Mth.nextDouble(RandomSource.create(), 0, Tier.size() - 1);
+				MealID = Tier.get((int) randomFoodIndex).getAsString();
+				menuArray.add(MealID);
+				Tier = RemoveFoodFromArrayProcedure.execute(Tier, MealID);
+				Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
+			}
 			loopTier = loopTier + 1;
 		}
 		while (menuArray.size() < MenuSize) {
@@ -130,7 +130,7 @@ public class GenerateRestaurantMenuProcedure {
 				}
 				loopTier = loopTier + 1;
 			}
-			Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
+			Tier = availableTiers.get(("" + (int) selectedTier)).getAsJsonArray();
 			randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (Tier.size() - 1));
 			MealID = Tier.get((int) randomFoodIndex).getAsString();
 			menuArray.add(MealID);
