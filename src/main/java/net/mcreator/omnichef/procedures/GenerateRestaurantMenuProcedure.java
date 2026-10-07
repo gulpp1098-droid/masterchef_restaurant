@@ -94,7 +94,7 @@ public class GenerateRestaurantMenuProcedure {
 				MealID = Tier.get((int) randomFoodIndex).getAsString();
 				menuArray.add(MealID);
 				Tier = RemoveFoodFromArrayProcedure.execute(Tier, MealID);
-				Tier.add(availableTiers.get(("" + (int) loopTier)).getAsJsonArray());
+				Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
 			}
 			loopTier = loopTier + 1;
 		}
