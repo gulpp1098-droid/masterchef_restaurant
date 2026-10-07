@@ -175,12 +175,12 @@ public class RestaurantIsOpenProcedure {
 					}
 					membersObject.addProperty("critic", false);
 				}
-				FoodAmountOrder = Math.min(Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood), foodList.size());
+				FoodAmountOrder = Math.min(Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood), availableFoodList.size());
 				FoodMenu = "";
 				foodEXP = "";
 				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
 					Found = false;
-					chosedFood = foodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (foodList.size() - 1)))).getAsString();
+					chosedFood = availableFoodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (availableFoodList.size() - 1)))).getAsString();
 					availableFoodList = RemoveFoodFromArrayProcedure.execute(availableFoodList, chosedFood);
 					foodArray.add(chosedFood);
 					foodAmountArray.add(GetFoodOrderQuantityByIDProcedure.execute(foodDatabase, new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((chosedFood).toLowerCase(java.util.Locale.ENGLISH)))).getMaxStackSize(), chosedFood));
