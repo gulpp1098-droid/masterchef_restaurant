@@ -10391,6 +10391,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "PreparedDish",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prepared_dish",
+      "path": "~/Restaurant Functioning/Items"
     }
   ],
   "variable_elements": [
