@@ -6,6 +6,6 @@ public class IsFoodInDatabaseProcedure {
 			return false;
 		com.google.gson.JsonObject foodData = new com.google.gson.JsonObject();
 		foodData = GetFoodDataFromIDProcedure.execute(databaseObject, foodID);
-		return foodData.get("id").isJsonPrimitive() ? foodData.get("id").getAsJsonPrimitive().isString() : false;
+		return foodData.has("id");
 	}
 }
