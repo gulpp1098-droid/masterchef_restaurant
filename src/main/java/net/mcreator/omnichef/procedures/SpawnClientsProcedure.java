@@ -32,10 +32,12 @@ public class SpawnClientsProcedure {
 		String food = "";
 		String LeaderUUID = "";
 		String stringDelivered = "";
+		String foodAmount = "";
 		com.google.gson.JsonArray ClientsData = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray groupArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray membersArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodDeliveredArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		boolean newSpawnTimeSet = false;
 		boolean condition = false;
 		double nextSpawnGroupTime = 0;
@@ -142,12 +144,14 @@ public class SpawnClientsProcedure {
 										clientObject = membersArray.get((int) indexMembers).getAsJsonObject();
 										foodDeliveredArray = clientObject.get("food").getAsJsonArray();
 										food = "" + foodDeliveredArray;
+										foodAmountArray = clientObject.get("food_amount").getAsJsonArray();
+										foodAmount = "" + foodAmountArray;
 										if (clientObject.get("critic").getAsBoolean()) {
-											Client = world instanceof ServerLevel _level25 ? OmnichefModEntities.CRITIC.get().spawn(_level25, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
-											if (owner instanceof Player _player28 && !_player28.level().isClientSide())
-												_player28.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
+											Client = world instanceof ServerLevel _level26 ? OmnichefModEntities.CRITIC.get().spawn(_level26, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+											if (owner instanceof Player _player29 && !_player29.level().isClientSide())
+												_player29.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
 										} else {
-											Client = world instanceof ServerLevel _level29 ? OmnichefModEntities.CLIENT.get().spawn(_level29, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+											Client = world instanceof ServerLevel _level30 ? OmnichefModEntities.CLIENT.get().spawn(_level30, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
 										}
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
@@ -170,6 +174,7 @@ public class SpawnClientsProcedure {
 											stringDelivered = stringDelivered + ",0";
 										}
 										Client.getPersistentData().putString("food", food);
+										Client.getPersistentData().putString("food_amount", foodAmount);
 										Client.getPersistentData().putString("food_delivered", (stringDelivered.substring(1)));
 										Client.getPersistentData().putString("food_tiers", clientObject.get("foodTiers").getAsString());
 										Client.getPersistentData().putString("food_exp", clientObject.get("foodExp").getAsString());
@@ -207,8 +212,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player67 && !_player67.level().isClientSide())
-										_player67.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player69 && !_player69.level().isClientSide())
+										_player69.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}
