@@ -38,12 +38,12 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 				alternativeIndex = 0;
 				for (int _i3 = 0; _i3 < (int) alternatives.size(); _i3++) {
 					alternativeID = alternatives.get((int) alternativeIndex).getAsString();
-					if (!IsFoodInDatabaseProcedure.execute(foodData, foodID)) {
+					if (!IsFoodInDatabaseProcedure.execute(databaseObject, alternativeID)) {
 						slotPossible = true;
 					} else {
 						unlockedIndex = 0;
-						for (int _i4 = 0; _i4 < (int) recipes.size(); _i4++) {
-							if ((alternativeID).equals(recipes.get((int) unlockedIndex).getAsString())) {
+						for (int _i4 = 0; _i4 < (int) unlockedFoodsArray.size(); _i4++) {
+							if ((alternativeID).equals(unlockedFoodsArray.get((int) unlockedIndex).getAsString())) {
 								slotPossible = true;
 							}
 							unlockedIndex = unlockedIndex + 1;
