@@ -75,6 +75,12 @@ public class PreparationStationGUIScreen extends AbstractContainerScreen<Prepara
 		super.init();
 		enhanced_image_button_openclosebutton_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 100, this.topPos + 51, 56, 20, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png")), e -> {
+					int x = PreparationStationGUIScreen.this.x;
+					int y = PreparationStationGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.PreparationStationGUIButtonMessage(0, x, y, z));
+						net.mcreator.omnichef.network.PreparationStationGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

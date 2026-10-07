@@ -10415,7 +10415,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/omnichef/world/inventory/PreparationStationGUIMenu.java",
-          "src/main/java/net/mcreator/omnichef/client/gui/PreparationStationGUIScreen.java"
+          "src/main/java/net/mcreator/omnichef/client/gui/PreparationStationGUIScreen.java",
+          "src/main/java/net/mcreator/omnichef/network/PreparationStationGUIButtonMessage.java"
         ]
       },
       "path": "~/Restaurant Functioning/GUIs"
@@ -10444,7 +10445,70 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "prepare_dish_button_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/PrepareDishButtonClickedProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Blocks Procedures"
+    },
+    {
+      "name": "GetPreparedDishFoodArray",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_prepared_dish_food_array",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ],
+        "return_type": "arraylist",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetPreparedDishFoodArrayProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetPreparedDishAmountArray",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_prepared_dish_amount_array",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ],
+        "return_type": "arraylist",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetPreparedDishAmountArrayProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [

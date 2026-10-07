@@ -153,6 +153,7 @@
           "name": "enhanced_image_button_openclosebutton_icon",
           "text": "Prepare",
           "isUndecorated": true,
+          "onClick": "PrepareDishButtonClicked",
           "width": 56,
           "height": 20,
           "x": 226,
