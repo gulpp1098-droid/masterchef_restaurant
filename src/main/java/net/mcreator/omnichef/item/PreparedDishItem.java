@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 
 public class PreparedDishItem extends Item {
 	public PreparedDishItem() {
-		super(new Item.Properties());
+		super(new Item.Properties().stacksTo(1));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

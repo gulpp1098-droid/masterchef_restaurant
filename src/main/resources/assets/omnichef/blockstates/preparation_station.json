@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "omnichef:block/preparation_station"
+    },
+    "facing=east": {
+      "model": "omnichef:block/preparation_station",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "omnichef:block/preparation_station",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "omnichef:block/preparation_station",
+      "y": 270
+    }
+  }
+}

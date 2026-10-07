@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/preparationstation",
+  "textures": {
+    "all": "omnichef:block/texture_preparation_station_tier0",
+    "particle": "omnichef:block/texture_preparation_station_tier0",
+    "0": "omnichef:block/texture_preparation_station_tier0"
+  },
+  "render_type": "cutout"
+}

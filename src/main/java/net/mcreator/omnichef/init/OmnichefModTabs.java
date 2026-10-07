@@ -34,6 +34,7 @@ public class OmnichefModTabs {
 				tabData.accept(OmnichefModItems.SILVER_COIN.get());
 				tabData.accept(OmnichefModItems.COPPER_COIN.get());
 				tabData.accept(OmnichefModItems.CRITIC_SPAWN_EGG.get());
+				tabData.accept(OmnichefModBlocks.PREPARATION_STATION.get().asItem());
 			}).build());
 
 	@SubscribeEvent

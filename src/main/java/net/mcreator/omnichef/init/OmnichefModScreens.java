@@ -45,6 +45,7 @@ public class OmnichefModScreens {
 		event.register(OmnichefModMenus.CARDS_PICK_GUI.get(), CardsPickGUIScreen::new);
 		event.register(OmnichefModMenus.RECIPES_INFO_GUI.get(), RecipesInfoGUIScreen::new);
 		event.register(OmnichefModMenus.DELETE_CONFIRMATION_GUI.get(), DeleteConfirmationGUIScreen::new);
+		event.register(OmnichefModMenus.PREPARATION_STATION_GUI.get(), PreparationStationGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

@@ -10398,7 +10398,35 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "prepared_dish",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PreparedDishItem.java",
+          "src/main/resources/assets/omnichef/models/item/prepared_dish.json"
+        ]
+      },
       "path": "~/Restaurant Functioning/Items"
+    },
+    {
+      "name": "PreparationStationGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "preparation_station_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/world/inventory/PreparationStationGUIMenu.java",
+          "src/main/java/net/mcreator/omnichef/client/gui/PreparationStationGUIScreen.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs"
+    },
+    {
+      "name": "PreparationStation",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "preparation_station",
+      "path": "~/Restaurant Functioning/Blocks"
     }
   ],
   "variable_elements": [
@@ -10667,7 +10695,8 @@
       "gui.omnichef.cards_pick_gui.label_new_recipe_unlocked": "New recipe unlocked!!!",
       "gui.omnichef.cards_pick_gui.label_pick_one_of_cards_to_unlock_new": "Pick one of cards to unlock new recipe!",
       "gui.omnichef.recipes_info_gui.label_recipes_info": "Recipes Info",
-      "item.omnichef.star": "Star"
+      "item.omnichef.star": "Star",
+      "item.omnichef.prepared_dish": "Prepared Dish"
     }
   },
   "metadata": {
