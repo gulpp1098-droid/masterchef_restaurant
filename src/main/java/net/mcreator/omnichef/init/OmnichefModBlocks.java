@@ -8,11 +8,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 
 import net.minecraft.world.level.block.Block;
 
-import net.mcreator.omnichef.block.ServiceTableBlock;
-import net.mcreator.omnichef.block.RugQueueBlock;
-import net.mcreator.omnichef.block.RugBlock;
-import net.mcreator.omnichef.block.ReceptionBlock;
-import net.mcreator.omnichef.block.ChairBlock;
+import net.mcreator.omnichef.block.*;
 import net.mcreator.omnichef.OmnichefMod;
 
 public class OmnichefModBlocks {

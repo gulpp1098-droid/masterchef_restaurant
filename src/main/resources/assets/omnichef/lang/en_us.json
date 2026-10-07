@@ -99,5 +99,6 @@
   "gui.omnichef.cards_pick_gui.label_pick_one_of_cards_to_unlock_new": "Pick one of cards to unlock new recipe!",
   "gui.omnichef.recipes_info_gui.label_recipes_info": "Recipes Info",
   "item.omnichef.star": "Star",
-  "item.omnichef.prepared_dish": "Prepared Dish"
+  "item.omnichef.prepared_dish": "Prepared Dish",
+  "block.omnichef.preparation_station": "Preparation Station"
 }

@@ -10426,7 +10426,25 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "preparation_station",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/block/PreparationStationBlock.java",
+          "src/main/resources/assets/omnichef/blockstates/preparation_station.json",
+          "src/main/java/net/mcreator/omnichef/block/entity/PreparationStationBlockEntity.java",
+          "src/main/resources/assets/omnichef/models/item/preparation_station.json",
+          "src/main/resources/data/omnichef/loot_table/blocks/preparation_station.json",
+          "src/main/resources/assets/omnichef/models/block/preparation_station.json"
+        ]
+      },
       "path": "~/Restaurant Functioning/Blocks"
+    },
+    {
+      "name": "PrepareDishButtonClicked",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prepare_dish_button_clicked",
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures"
     }
   ],
   "variable_elements": [
@@ -10696,7 +10714,8 @@
       "gui.omnichef.cards_pick_gui.label_pick_one_of_cards_to_unlock_new": "Pick one of cards to unlock new recipe!",
       "gui.omnichef.recipes_info_gui.label_recipes_info": "Recipes Info",
       "item.omnichef.star": "Star",
-      "item.omnichef.prepared_dish": "Prepared Dish"
+      "item.omnichef.prepared_dish": "Prepared Dish",
+      "block.omnichef.preparation_station": "Preparation Station"
     }
   },
   "metadata": {

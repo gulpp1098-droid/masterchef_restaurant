@@ -16,11 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.core.registries.BuiltInRegistries;
 
-import net.mcreator.omnichef.block.entity.ServiceTableBlockEntity;
-import net.mcreator.omnichef.block.entity.RugQueueBlockEntity;
-import net.mcreator.omnichef.block.entity.RugBlockEntity;
-import net.mcreator.omnichef.block.entity.ReceptionBlockEntity;
-import net.mcreator.omnichef.block.entity.ChairBlockEntity;
+import net.mcreator.omnichef.block.entity.*;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
