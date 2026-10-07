@@ -150,6 +150,7 @@ public class RestaurantIsOpenProcedure {
 			}
 			for (int _i2 = 0; _i2 < Mth.nextInt(RandomSource.create(), 1, (int) chairsNumber); _i2++) {
 				foodArray = emptyArray.deepCopy();
+				foodAmountArray = emptyArray.deepCopy();
 				FoodDeliveredArray = emptyArray.deepCopy();
 				membersObject = new Object() {
 					public com.google.gson.JsonObject parse(String rawJson) {
