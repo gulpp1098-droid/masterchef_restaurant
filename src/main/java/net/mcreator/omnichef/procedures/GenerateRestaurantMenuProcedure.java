@@ -90,11 +90,11 @@ public class GenerateRestaurantMenuProcedure {
 		for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
 			Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
 			if (Tier.size() > 0) {
-				randomFoodIndex = Mth.nextDouble(RandomSource.create(), 0, Tier.size() - 1);
+				randomFoodIndex = Mth.nextInt(RandomSource.create(), 0, (int) (Tier.size() - 1));
 				MealID = Tier.get((int) randomFoodIndex).getAsString();
 				menuArray.add(MealID);
 				Tier = RemoveFoodFromArrayProcedure.execute(Tier, MealID);
-				Tier = availableTiers.get(("" + (int) loopTier)).getAsJsonArray();
+				Tier.add(availableTiers.get(("" + (int) loopTier)).getAsJsonArray());
 			}
 			loopTier = loopTier + 1;
 		}
