@@ -6,14 +6,14 @@ import net.minecraft.core.component.DataComponents;
 
 import net.mcreator.omnichef.OmnichefMod;
 
-public class GetPreparedDishAmoutArrayProcedure {
+public class GetPreparedDishAmountArrayProcedure {
 	public static com.google.gson.JsonArray execute(ItemStack itemstack) {
 		String foodText = "";
 		ItemStack preparedDish = ItemStack.EMPTY;
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject wrapperObject = new com.google.gson.JsonObject();
 		preparedDish = itemstack.copy();
-		foodText = preparedDish.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("food_amount");
+		foodText = preparedDish.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("food");
 		if ((foodText).equals("")) {
 			foodText = "[]";
 		}
