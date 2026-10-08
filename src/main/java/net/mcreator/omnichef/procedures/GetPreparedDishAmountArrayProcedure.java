@@ -13,7 +13,7 @@ public class GetPreparedDishAmountArrayProcedure {
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject wrapperObject = new com.google.gson.JsonObject();
 		preparedDish = itemstack.copy();
-		foodText = preparedDish.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("food");
+		foodText = preparedDish.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("food_amount");
 		if ((foodText).equals("")) {
 			foodText = "[]";
 		}
