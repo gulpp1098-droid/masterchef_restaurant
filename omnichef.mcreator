@@ -10728,6 +10728,18 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_client_satisfaction_level",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "clientEntity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetClientSatisfactionLevelProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
