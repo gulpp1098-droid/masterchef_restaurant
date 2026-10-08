@@ -10664,6 +10664,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_client_order_result",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "clientEntity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetClientOrderResultProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetClientOrderSatisfaction",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_client_order_satisfaction",
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
