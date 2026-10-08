@@ -31,7 +31,6 @@ public class SpawnClientsProcedure {
 		String stringReception = "";
 		String food = "";
 		String LeaderUUID = "";
-		String stringDelivered = "";
 		String foodAmount = "";
 		com.google.gson.JsonArray ClientsData = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray groupArray = new com.google.gson.JsonArray();
@@ -170,15 +169,10 @@ public class SpawnClientsProcedure {
 											Client.getPersistentData().putString("leaderUUID", LeaderUUID);
 										}
 										Client.getPersistentData().putBoolean("leaving_started", false);
-										stringDelivered = "";
-										for (int _i2 = 0; _i2 < (int) foodDeliveredArray.size(); _i2++) {
-											stringDelivered = stringDelivered + ",0";
-										}
 										Client.getPersistentData().putString("food", food);
 										Client.getPersistentData().putString("food_amount", foodAmount);
 										Client.getPersistentData().putBoolean("order_served", false);
 										Client.getPersistentData().putString("order_result", "{}");
-										Client.getPersistentData().putString("food_delivered", (stringDelivered.substring(1)));
 										Client.getPersistentData().putString("food_tiers", clientObject.get("foodTiers").getAsString());
 										Client.getPersistentData().putString("food_exp", clientObject.get("foodExp").getAsString());
 										Client.getPersistentData().putString("state", "restaurant_go");
@@ -215,8 +209,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player72 && !_player72.level().isClientSide())
-										_player72.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player70 && !_player70.level().isClientSide())
+										_player70.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}

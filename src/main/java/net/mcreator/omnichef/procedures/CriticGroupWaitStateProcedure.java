@@ -24,17 +24,19 @@ public class CriticGroupWaitStateProcedure {
 		Entity owner = null;
 		Direction chairDirection = Direction.NORTH;
 		double restaurantIndex = 0;
+		String satisfactionLevel = "";
 		client = entity;
+		satisfactionLevel = GetClientSatisfactionLevelProcedure.execute(client);
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		owner = world instanceof ServerLevel _level1
 				? getEntityFromUUID(_level1,
 						GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
 				: null;
-		if (!(client.getPersistentData().getString("food_delivered")).contains("" + 0)) {
+		if ((satisfactionLevel).equals("perfect")) {
 			if (owner instanceof Player _player && !_player.level().isClientSide())
 				_player.displayClientMessage(Component.literal("You have satisfied Critic! Your restaurant have got a new star!"), false);
-			if (owner instanceof ServerPlayer player5)
-				PacketDistributor.sendToPlayer(player5, new LevelUpAnimationMessage(""));
+			if (owner instanceof ServerPlayer player3)
+				PacketDistributor.sendToPlayer(player3, new LevelUpAnimationMessage(""));
 			ModifyRestaurantNumberParameterProcedure.execute(
 					GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level") + 1,
 					restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");

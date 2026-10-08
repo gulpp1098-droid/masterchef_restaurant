@@ -97,7 +97,6 @@ public class OmnichefModVariables {
 		clone.owner = original.owner;
 		clone.ClientPatiance = original.ClientPatiance;
 		clone.GUIstring = original.GUIstring;
-		clone.CurrentClientFoodDelivered = original.CurrentClientFoodDelivered;
 		clone.OverlayString = original.OverlayString;
 		clone.BookGained = original.BookGained;
 		clone.DiaryFoodTier = original.DiaryFoodTier;
@@ -299,7 +298,6 @@ public class OmnichefModVariables {
 		public String owner = "\"\"";
 		public double ClientPatiance = -1.0;
 		public String GUIstring = "";
-		public String CurrentClientFoodDelivered = "\"\"";
 		public String OverlayString = "\"\"";
 		public boolean BookGained = false;
 		public double DiaryFoodTier = 0;
@@ -317,7 +315,6 @@ public class OmnichefModVariables {
 			nbt.putString("owner", owner);
 			nbt.putDouble("ClientPatiance", ClientPatiance);
 			nbt.putString("GUIstring", GUIstring);
-			nbt.putString("CurrentClientFoodDelivered", CurrentClientFoodDelivered);
 			nbt.putString("OverlayString", OverlayString);
 			nbt.putBoolean("BookGained", BookGained);
 			nbt.putDouble("DiaryFoodTier", DiaryFoodTier);
@@ -336,7 +333,6 @@ public class OmnichefModVariables {
 			owner = nbt.getString("owner");
 			ClientPatiance = nbt.getDouble("ClientPatiance");
 			GUIstring = nbt.getString("GUIstring");
-			CurrentClientFoodDelivered = nbt.getString("CurrentClientFoodDelivered");
 			OverlayString = nbt.getString("OverlayString");
 			BookGained = nbt.getBoolean("BookGained");
 			DiaryFoodTier = nbt.getDouble("DiaryFoodTier");

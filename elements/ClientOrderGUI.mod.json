@@ -138,61 +138,6 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "tick_icon.png",
-          "use1Xscale": false,
-          "displayCondition": "OrdersCheckboxesCheckSlot1",
-          "x": 180,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "tick_icon.png",
-          "use1Xscale": false,
-          "displayCondition": "OrdersCheckboxesCheckSlot2",
-          "x": 203,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "tick_icon.png",
-          "use1Xscale": false,
-          "displayCondition": "OrdersCheckboxesCheckSlot3",
-          "x": 226,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "tick_icon.png",
-          "use1Xscale": false,
-          "displayCondition": "OrdersCheckboxesCheckSlot4",
-          "x": 249,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "tick_icon.png",
-          "use1Xscale": false,
-          "displayCondition": "OrdersCheckboxesCheckSlot5",
-          "x": 272,
-          "y": 70,
-          "locked": false
-        }
-      },
-      {
         "type": "inputslot",
         "data": {
           "inputLimit": {

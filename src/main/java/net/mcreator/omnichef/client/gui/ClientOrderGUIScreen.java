@@ -10,7 +10,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.omnichef.world.inventory.ClientOrderGUIMenu;
-import net.mcreator.omnichef.procedures.*;
+import net.mcreator.omnichef.procedures.PatianceReturnProcedure;
 import net.mcreator.omnichef.init.OmnichefModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -32,11 +32,6 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("omnichef:textures/screens/orderplace_icon.png");
 	private static final ResourceLocation IMAGE_9 = ResourceLocation.parse("omnichef:textures/screens/plate_icon.png");
 	private static final ResourceLocation IMAGE_10 = ResourceLocation.parse("omnichef:textures/screens/client_icon.png");
-	private static final ResourceLocation IMAGE_11 = ResourceLocation.parse("omnichef:textures/screens/tick_icon.png");
-	private static final ResourceLocation IMAGE_12 = ResourceLocation.parse("omnichef:textures/screens/tick_icon.png");
-	private static final ResourceLocation IMAGE_13 = ResourceLocation.parse("omnichef:textures/screens/tick_icon.png");
-	private static final ResourceLocation IMAGE_14 = ResourceLocation.parse("omnichef:textures/screens/tick_icon.png");
-	private static final ResourceLocation IMAGE_15 = ResourceLocation.parse("omnichef:textures/screens/tick_icon.png");
 	private static final ResourceLocation SPRITE_0 = ResourceLocation.parse("omnichef:textures/screens/patiance_sprite.png");
 
 	public ClientOrderGUIScreen(ClientOrderGUIMenu container, Inventory inventory, Component text) {
@@ -147,21 +142,6 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 37, this.topPos + 92, 0, 0, 18, 18, 18, 18);
 			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + 39, this.topPos + 98, 0, 0, 14, 8, 14, 8);
 			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + 19, this.topPos + 44, 0, 0, 20, 27, 20, 27);
-			if (OrdersCheckboxesCheckSlot1Procedure.execute(entity)) {
-				guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + 54, this.topPos + 67, 0, 0, 16, 16, 16, 16);
-			}
-			if (OrdersCheckboxesCheckSlot2Procedure.execute(entity)) {
-				guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + 77, this.topPos + 67, 0, 0, 16, 16, 16, 16);
-			}
-			if (OrdersCheckboxesCheckSlot3Procedure.execute(entity)) {
-				guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + 100, this.topPos + 67, 0, 0, 16, 16, 16, 16);
-			}
-			if (OrdersCheckboxesCheckSlot4Procedure.execute(entity)) {
-				guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + 123, this.topPos + 67, 0, 0, 16, 16, 16, 16);
-			}
-			if (OrdersCheckboxesCheckSlot5Procedure.execute(entity)) {
-				guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 146, this.topPos + 67, 0, 0, 16, 16, 16, 16);
-			}
 			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 23, this.topPos + 75, 0, Mth.clamp((int) PatianceReturnProcedure.execute(entity) * 11, 0, 33), 11, 11, 11, 44);
 			guiTools$itemDisplay0 : {
 				if (!(true))
