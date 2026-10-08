@@ -10516,6 +10516,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "is_prepared_dish_data_valid",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/IsPreparedDishDataValidProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "GetFoodAmountFromArrays",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_amount_from_arrays",
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
