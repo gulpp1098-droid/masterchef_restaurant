@@ -20,6 +20,6 @@ public class GetFoodAmountFromArraysProcedure {
 			}
 			index = index + 1;
 		}
-		return index;
+		return totalAmount;
 	}
 }

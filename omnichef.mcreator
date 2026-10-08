@@ -10536,6 +10536,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_food_amount_from_arrays",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "foodAmountArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "foodArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodAmountFromArraysProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
