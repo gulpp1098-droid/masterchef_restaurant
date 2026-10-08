@@ -26,7 +26,7 @@ public class ServePreparedDishToClientProcedure {
 		orderAmountArray = GetClientOrderAmountArrayProcedure.execute(client);
 		database = ReadFoodDatabaseProcedure.execute(world);
 		comparisonResult = ComparePreparedDishWithOrderProcedure.execute(dishStack, orderAmountArray, orderFoodArray, database);
-		client.getPersistentData().putString("oder_result", ("" + comparisonResult));
+		client.getPersistentData().putString("order_result", ("" + comparisonResult));
 		client.getPersistentData().putBoolean("order_served", true);
 		return true;
 	}

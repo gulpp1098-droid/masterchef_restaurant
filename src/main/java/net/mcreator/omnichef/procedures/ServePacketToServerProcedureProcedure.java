@@ -15,16 +15,6 @@ public class ServePacketToServerProcedureProcedure {
 	public static void execute(LevelAccessor world, Entity entity, String inboundString) {
 		if (entity == null || inboundString == null)
 			return;
-		boolean found = false;
-		double indexString = 0;
-		double oryginalLength = 0;
-		double newLength = 0;
-		String food_delivered = "";
-		String newFoodDelivery = "";
-		String substringUUID = "";
-		String item = "";
-		String deliveredString = "";
-		String dummyString = "";
 		String clientUUID = "";
 		Entity player = null;
 		Entity client = null;
