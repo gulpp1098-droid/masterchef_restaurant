@@ -10589,6 +10589,46 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "GetClientOrderFoodArray",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_client_order_food_array",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "clientEntity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetClientOrderFoodArrayProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "GetClientOrderAmountArray",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_client_order_amount_array",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "clientEntity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetClientOrderAmountArrayProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],
   "variable_elements": [
