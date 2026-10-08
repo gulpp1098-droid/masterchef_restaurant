@@ -1,7 +1,5 @@
 package net.mcreator.omnichef.procedures;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +13,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.world.inventory.ClientOrderGUIMenu;
 import net.mcreator.omnichef.network.OmnichefModVariables;
-import net.mcreator.omnichef.network.MenuPacketToClientMessage;
 
 import io.netty.buffer.Unpooled;
 
@@ -55,8 +52,6 @@ public class ClientOrderWaitStateProcedure {
 					}
 				}, _bpos);
 			}
-			if (sourceentity instanceof ServerPlayer player8)
-				PacketDistributor.sendToPlayer(player8, new MenuPacketToClientMessage((client.getPersistentData().getString("food"))));
 		}
 	}
 }
