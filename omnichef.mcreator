@@ -10557,6 +10557,38 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "ComparePreparedDishWithOrder",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compare_prepared_dish_with_order",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "preparedDish",
+            "type": "itemstack"
+          },
+          {
+            "name": "orderAmountArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "orderFoodArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ComparePreparedDishWithOrderProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],
   "variable_elements": [
