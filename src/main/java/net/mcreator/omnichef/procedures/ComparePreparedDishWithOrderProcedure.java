@@ -45,8 +45,8 @@ public class ComparePreparedDishWithOrderProcedure {
 			deliveredAmount = GetFoodAmountFromArraysProcedure.execute(dishAmountArr, dishFoodArr, foodID);
 			unitScore = GetFoodScoreByIDProcedure.execute(database, foodID);
 			matchedAmount = Math.min(expectedAmount, deliveredAmount);
-			missingAmount = Math.max(0, expectedAmount - deliveredAmount);
-			excessAmount = Math.max(0, deliveredAmount - expectedAmount);
+			missingForFood = Math.max(0, expectedAmount - deliveredAmount);
+			excessForFood = Math.max(0, deliveredAmount - expectedAmount);
 			orderedAmount = orderedAmount + expectedAmount;
 			correctAmount = correctAmount + matchedAmount;
 			missingAmount = missingAmount + missingForFood;
@@ -63,10 +63,10 @@ public class ComparePreparedDishWithOrderProcedure {
 			foodID = dishFoodArr.get((int) index).getAsString();
 			expectedAmount = GetFoodAmountFromArraysProcedure.execute(orderAmountArr, orderFoodArr, foodID);
 			if (expectedAmount == 0) {
-				deliveredAmount = dishFoodArr.get((int) index).getAsDouble();
+				deliveredAmount = dishAmountArr.get((int) index).getAsDouble();
 				unitScore = GetFoodScoreByIDProcedure.execute(database, foodID);
 				wrongAmount = wrongAmount + deliveredAmount;
-				wrongScore = wrongScore * unitScore;
+				wrongScore = wrongScore + deliveredAmount * unitScore;
 			}
 			index = index + 1;
 		}
@@ -80,7 +80,7 @@ public class ComparePreparedDishWithOrderProcedure {
 		resultObject.addProperty("missing_score", missingScore);
 		resultObject.addProperty("excess_score", excessScore);
 		resultObject.addProperty("wrong_score", wrongScore);
-		resultObject.addProperty("exact", ((missingAmount == 0) == ((excessAmount == 0) == (wrongAmount == 0))));
+		resultObject.addProperty("exact", (missingAmount == 0 && excessAmount == 0 && wrongAmount == 0));
 		return resultObject;
 	}
 }
