@@ -10629,6 +10629,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "ServePreparedDishToClient",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "serve_prepared_dish_to_client",
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],
   "variable_elements": [

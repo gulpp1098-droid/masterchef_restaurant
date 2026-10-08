@@ -175,6 +175,8 @@ public class SpawnClientsProcedure {
 										}
 										Client.getPersistentData().putString("food", food);
 										Client.getPersistentData().putString("food_amount", foodAmount);
+										Client.getPersistentData().putBoolean("order_served", false);
+										Client.getPersistentData().putString("order_result", "{}");
 										Client.getPersistentData().putString("food_delivered", (stringDelivered.substring(1)));
 										Client.getPersistentData().putString("food_tiers", clientObject.get("foodTiers").getAsString());
 										Client.getPersistentData().putString("food_exp", clientObject.get("foodExp").getAsString());
@@ -212,8 +214,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player69 && !_player69.level().isClientSide())
-										_player69.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player71 && !_player71.level().isClientSide())
+										_player71.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}
