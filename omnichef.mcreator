@@ -10483,7 +10483,7 @@
             "type": "itemstack"
           }
         ],
-        "return_type": "arraylist",
+        "return_type": "jsonarray",
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/GetPreparedDishFoodArrayProcedure.java"
         ]
@@ -10491,11 +10491,11 @@
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     },
     {
-      "name": "GetPreparedDishAmountArray",
+      "name": "GetPreparedDishAmoutArray",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_prepared_dish_amount_array",
+      "registry_name": "get_prepared_dish_amout_array",
       "metadata": {
         "dependencies": [
           {
@@ -10503,9 +10503,9 @@
             "type": "itemstack"
           }
         ],
-        "return_type": "arraylist",
+        "return_type": "jsonarray",
         "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/GetPreparedDishAmountArrayProcedure.java"
+          "src/main/java/net/mcreator/omnichef/procedures/GetPreparedDishAmoutArrayProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
