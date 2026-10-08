@@ -19,6 +19,7 @@ public class ClientPatianceGoingDownProcedure {
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
 			ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_lost");
+			client.getPersistentData().putBoolean("service_result_counted", true);
 			client.getPersistentData().putString("state", "group_wait");
 		}
 	}

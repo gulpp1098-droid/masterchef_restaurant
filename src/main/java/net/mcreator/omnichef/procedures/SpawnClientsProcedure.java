@@ -155,6 +155,7 @@ public class SpawnClientsProcedure {
 										}
 										patience = clientObject.get("patience").getAsDouble();
 										if (indexMembers == 0) {
+											Client.getPersistentData().putBoolean("service_result_counted", false);
 											Client.getPersistentData().putBoolean("leader", true);
 											Client.getPersistentData().putBoolean("queue_registered", false);
 											Client.getPersistentData().putBoolean("table_reserved", false);
@@ -214,8 +215,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player71 && !_player71.level().isClientSide())
-										_player71.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player72 && !_player72.level().isClientSide())
+										_player72.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}
