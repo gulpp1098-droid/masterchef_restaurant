@@ -27,6 +27,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.procedures.OpenedOrderGUIProcedure;
 import net.mcreator.omnichef.init.OmnichefModMenus;
+import net.mcreator.omnichef.init.OmnichefModItems;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -99,6 +100,11 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Omniche
 			private final int slot = 0;
 			private int x = ClientOrderGUIMenu.this.x;
 			private int y = ClientOrderGUIMenu.this.y;
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return OmnichefModItems.PREPARED_DISH.get() == stack.getItem();
+			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)

@@ -25,8 +25,8 @@ public class MenuPacketToServerProcedureProcedure {
 			client = world instanceof ServerLevel _level1 ? getEntityFromUUID(_level1, inboundString) : null;
 			foodArray = GetClientOrderFoodArrayProcedure.execute(client);
 			foodAmountArray = GetClientOrderAmountArrayProcedure.execute(client);
-			menuObject.addProperty("food", foodArray);
-			menuObject.addProperty("food_amount", foodAmountArray);
+			menuObject.add("food", foodArray);
+			menuObject.add("food_amount", foodAmountArray);
 			if (entity instanceof ServerPlayer player4)
 				PacketDistributor.sendToPlayer(player4, new MenuPacketToClientMessage(("" + menuObject)));
 		}

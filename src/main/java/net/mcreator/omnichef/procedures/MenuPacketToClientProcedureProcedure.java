@@ -38,11 +38,10 @@ public class MenuPacketToClientProcedureProcedure {
 			foodID = foodArray.get((int) index).getAsString();
 			amount = foodAmountArray.get((int) index).getAsDouble();
 			displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+			displayStack.setCount((int) amount);
 			if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _setstack8 = displayStack.copy();
-				_setstack8.setCount((int) amount);
-				_menu.getSlots().get((int) (index + 1)).set(_setstack8);
-				_player.containerMenu.broadcastChanges();
+				ItemStack _displayStack9 = displayStack.copy();
+				_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 1)), _displayStack9, true);
 			}
 			index = index + 1;
 		}

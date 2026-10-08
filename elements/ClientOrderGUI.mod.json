@@ -141,7 +141,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": ""
+            "value": "CUSTOM:PreparedDish"
           },
           "disablePlacement": {
             "fixedValue": false
