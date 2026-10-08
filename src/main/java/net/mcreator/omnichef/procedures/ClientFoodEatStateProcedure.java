@@ -19,6 +19,7 @@ public class ClientFoodEatStateProcedure {
 			if ((satisfactionLevel).equals("perfect")) {
 				ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_served_fully");
+				AddRecipeDiscoveryExpProcedure.execute(world, restaurantID);
 			} else if ((satisfactionLevel).equals("satisfied")) {
 				ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_served");
