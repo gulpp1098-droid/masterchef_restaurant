@@ -35,22 +35,16 @@ public class RestaurantIsOpenProcedure {
 		com.google.gson.JsonArray emptyArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray restaurantsArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
-		com.google.gson.JsonArray FoodDeliveredArray = new com.google.gson.JsonArray();
-		com.google.gson.JsonArray tierArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray availableFoodList = new com.google.gson.JsonArray();
 		String receptionString = "";
 		String chosedFood = "";
-		String FoodMenu = "";
-		String foodEXP = "";
 		com.google.gson.JsonObject Group = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject membersObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject emptyObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject clientDatabase = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject restaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
-		com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
-		com.google.gson.JsonObject mealObject = new com.google.gson.JsonObject();
 		boolean Found = false;
 		boolean critic = false;
 		double indexGroup = 0;
@@ -66,8 +60,6 @@ public class RestaurantIsOpenProcedure {
 		double MaxFood = 0;
 		double tier = 0;
 		double FoodAmountOrder = 0;
-		double indexObject = 0;
-		double indexArray = 0;
 		double restaurantIndex = 0;
 		double chairsNumber = 0;
 		indexGroup = 0;
@@ -85,7 +77,6 @@ public class RestaurantIsOpenProcedure {
 				}
 				bufferedReader.close();
 				foodDatabase = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				tiersObject = foodDatabase.get("tiers").getAsJsonObject();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -152,7 +143,6 @@ public class RestaurantIsOpenProcedure {
 			for (int _i2 = 0; _i2 < Mth.nextInt(RandomSource.create(), 1, (int) chairsNumber); _i2++) {
 				foodArray = emptyArray.deepCopy();
 				foodAmountArray = emptyArray.deepCopy();
-				FoodDeliveredArray = emptyArray.deepCopy();
 				availableFoodList = foodList.deepCopy();
 				membersObject = new Object() {
 					public com.google.gson.JsonObject parse(String rawJson) {
@@ -176,40 +166,15 @@ public class RestaurantIsOpenProcedure {
 					membersObject.addProperty("critic", false);
 				}
 				FoodAmountOrder = Math.min(Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood), availableFoodList.size());
-				FoodMenu = "";
-				foodEXP = "";
 				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
 					Found = false;
 					chosedFood = availableFoodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (availableFoodList.size() - 1)))).getAsString();
 					availableFoodList = RemoveFoodFromArrayProcedure.execute(availableFoodList, chosedFood);
 					foodArray.add(chosedFood);
 					foodAmountArray.add(GetFoodOrderQuantityByIDProcedure.execute(foodDatabase, new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((chosedFood).toLowerCase(java.util.Locale.ENGLISH)))).getMaxStackSize(), chosedFood));
-					indexObject = 0;
-					for (int _i4 = 0; _i4 < (int) tiersObject.size(); _i4++) {
-						tierArray = tiersObject.get(("" + (int) indexObject)).getAsJsonArray();
-						indexArray = 0;
-						for (int _i5 = 0; _i5 < (int) tierArray.size(); _i5++) {
-							mealObject = tierArray.get((int) indexArray).getAsJsonObject();
-							if ((mealObject.get("id").getAsString()).equals(chosedFood)) {
-								Found = true;
-								break;
-							}
-							indexArray = indexArray + 1;
-						}
-						if (Found) {
-							break;
-						}
-						indexObject = indexObject + 1;
-					}
-					if (Found) {
-						FoodMenu = FoodMenu + "," + (int) mealObject.get("tier").getAsDouble();
-						foodEXP = foodEXP + "," + (int) mealObject.get("base_exp").getAsDouble();
-					}
 				}
 				membersObject.add("food", foodArray);
 				membersObject.add("food_amount", foodAmountArray);
-				membersObject.addProperty("foodTiers", (FoodMenu.substring(1)));
-				membersObject.addProperty("foodExp", (foodEXP.substring(1)));
 				membersObject.addProperty("patience", 100);
 				members.add(membersObject);
 				indexMember = indexMember + 1;
