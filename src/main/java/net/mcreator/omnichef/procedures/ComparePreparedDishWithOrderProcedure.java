@@ -32,6 +32,7 @@ public class ComparePreparedDishWithOrderProcedure {
 		double missingScore = 0;
 		double excessScore = 0;
 		double wrongScore = 0;
+		double missingFoodTypes = 0;
 		dishStack = preparedDish.copy();
 		orderFoodArr = orderFoodArray;
 		orderAmountArr = orderAmountArray;
@@ -46,6 +47,9 @@ public class ComparePreparedDishWithOrderProcedure {
 			unitScore = GetFoodScoreByIDProcedure.execute(database, foodID);
 			matchedAmount = Math.min(expectedAmount, deliveredAmount);
 			missingForFood = Math.max(0, expectedAmount - deliveredAmount);
+			if (missingForFood > 0) {
+				missingFoodTypes = missingFoodTypes + 1;
+			}
 			excessForFood = Math.max(0, deliveredAmount - expectedAmount);
 			orderedAmount = orderedAmount + expectedAmount;
 			correctAmount = correctAmount + matchedAmount;
@@ -80,6 +84,7 @@ public class ComparePreparedDishWithOrderProcedure {
 		resultObject.addProperty("missing_score", missingScore);
 		resultObject.addProperty("excess_score", excessScore);
 		resultObject.addProperty("wrong_score", wrongScore);
+		resultObject.addProperty("missing_food_types", missingFoodTypes);
 		resultObject.addProperty("exact", (missingAmount == 0 && excessAmount == 0 && wrongAmount == 0));
 		return resultObject;
 	}

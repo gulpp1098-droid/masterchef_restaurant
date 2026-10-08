@@ -26,7 +26,7 @@ public class GetClientOrderBaseExpProcedure {
 			foodID = foodArray.get((int) index).getAsString();
 			amount = foodAmountArray.get((int) index).getAsDouble();
 			baseExp = GetFoodBaseExpByIDProcedure.execute(database, foodID);
-			totalBaseExp = totalBaseExp + baseExp + amount;
+			totalBaseExp = totalBaseExp + baseExp * amount;
 			index = index + 1;
 		}
 		return totalBaseExp;

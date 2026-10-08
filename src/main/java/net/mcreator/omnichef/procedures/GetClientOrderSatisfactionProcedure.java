@@ -15,7 +15,7 @@ public class GetClientOrderSatisfactionProcedure {
 		double evaluatedScore = 0;
 		double satisfaction = 0;
 		client = clientEntity;
-		if (client.getPersistentData().getBoolean("order_served")) {
+		if (!client.getPersistentData().getBoolean("order_served")) {
 			return 0;
 		}
 		resultObject = GetClientOrderResultProcedure.execute(client);

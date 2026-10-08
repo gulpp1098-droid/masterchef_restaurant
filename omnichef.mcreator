@@ -10704,6 +10704,22 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_client_order_base_exp",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "clientEntity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetClientOrderBaseExpProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
