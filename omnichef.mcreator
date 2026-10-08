@@ -10636,6 +10636,26 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "serve_prepared_dish_to_client",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "clientEntity",
+            "type": "entity"
+          },
+          {
+            "name": "preparedDish",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ServePreparedDishToClientProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],

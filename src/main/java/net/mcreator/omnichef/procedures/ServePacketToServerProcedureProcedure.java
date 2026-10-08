@@ -1,17 +1,14 @@
 package net.mcreator.omnichef.procedures;
 
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.init.OmnichefModMenus;
 
-import java.util.regex.Pattern;
 import java.util.UUID;
 
 public class ServePacketToServerProcedureProcedure {
@@ -28,47 +25,22 @@ public class ServePacketToServerProcedureProcedure {
 		String item = "";
 		String deliveredString = "";
 		String dummyString = "";
-		substringUUID = inboundString.substring((int) (inboundString.lastIndexOf(":") + 1));
-		item = inboundString.substring((int) inboundString.indexOf(" ") + " ".length(), (int) inboundString.lastIndexOf(":"));
-		if (CanUseCurrentClientOrderSessionProcedure.execute(world, entity) && (substringUUID).equals(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).CurrentClientUUID)
-				&& !((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu2 ? _menu2.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())
-				&& (BuiltInRegistries.ITEM.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu4 ? _menu4.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem()).toString())
-						.equals(item)) {
-			if ((world instanceof ServerLevel _level6 ? getEntityFromUUID(_level6, substringUUID) : null) != null) {
-				deliveredString = (world instanceof ServerLevel _level7 ? getEntityFromUUID(_level7, substringUUID) : null).getPersistentData().getString("food_delivered");
-				oryginalLength = (deliveredString).length();
-				dummyString = deliveredString.replace(",", "");
-				newLength = (dummyString).length();
-				indexString = 0;
-				if (!item.contains("minecraft:air")) {
-					String _toSplit13 = ((world instanceof ServerLevel _level9 ? getEntityFromUUID(_level9, substringUUID) : null).getPersistentData().getString("food"));
-					String[] _array13 = _toSplit13.split(Pattern.quote(","));
-					for (int _iter13 = 0; _iter13 < Math.max(1, _array13.length); _iter13++) {
-						String stringiterator = _array13.length == 0 ? _toSplit13 : _array13[_iter13];
-						if ((stringiterator.substring((int) stringiterator.indexOf("\"") + "\"".length(), (int) stringiterator.lastIndexOf("\""))).equals(item)) {
-							if (!(newLength == indexString)) {
-								if ((deliveredString.substring((int) (indexString * 2), (int) (indexString * 2 + 1))).equals("0")) {
-									found = true;
-									break;
-								}
-							} else {
-								if ((deliveredString.substring((int) (indexString * 2))).equals("0")) {
-									found = true;
-									break;
-								}
-							}
-						}
-						indexString = indexString + 1;
+		String clientUUID = "";
+		Entity player = null;
+		Entity client = null;
+		ItemStack dishStack = ItemStack.EMPTY;
+		player = entity;
+		clientUUID = inboundString;
+		if (CanUseCurrentClientOrderSessionProcedure.execute(world, entity) && (clientUUID).equals(player.getData(OmnichefModVariables.PLAYER_VARIABLES).CurrentClientUUID)) {
+			client = world instanceof ServerLevel _level0 ? getEntityFromUUID(_level0, clientUUID) : null;
+			if (client != null) {
+				dishStack = (player instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu1 ? _menu1.getSlots().get(0).getItem() : ItemStack.EMPTY).copy();
+				if (ServePreparedDishToClientProcedure.execute(world, client, dishStack)) {
+					if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+						_menu.getSlots().get(0).remove(1);
+						_player.containerMenu.broadcastChanges();
 					}
 				}
-			}
-			if (found) {
-				if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					_menu.getSlots().get(0).remove(1);
-					_player.containerMenu.broadcastChanges();
-				}
-				newFoodDelivery = deliveredString.substring(0, (int) (indexString * 2)) + "1" + deliveredString.substring((int) (indexString * 2 + 1));
-				(world instanceof ServerLevel _level15 ? getEntityFromUUID(_level15, substringUUID) : null).getPersistentData().putString("food_delivered", newFoodDelivery);
 			}
 		}
 	}
