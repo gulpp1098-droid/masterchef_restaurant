@@ -45,7 +45,6 @@ public class RestaurantIsOpenProcedure {
 		com.google.gson.JsonObject clientDatabase = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject restaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
-		boolean Found = false;
 		boolean critic = false;
 		double indexGroup = 0;
 		double indexMember = 0;
@@ -167,7 +166,6 @@ public class RestaurantIsOpenProcedure {
 				}
 				FoodAmountOrder = Math.min(Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood), availableFoodList.size());
 				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
-					Found = false;
 					chosedFood = availableFoodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (availableFoodList.size() - 1)))).getAsString();
 					availableFoodList = RemoveFoodFromArrayProcedure.execute(availableFoodList, chosedFood);
 					foodArray.add(chosedFood);
