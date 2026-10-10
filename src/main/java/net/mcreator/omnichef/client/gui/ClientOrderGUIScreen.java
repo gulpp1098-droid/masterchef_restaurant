@@ -143,7 +143,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				boolean guiTools$displayMasked5 = false;
 				if (guiTools$displayMasked5)
 					break guiTools$itemDisplayTooltip5;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack5 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack5 = menu.getMenuState(3, "6", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack5 == null || guiTools$tooltipStack5.isEmpty())
 					break guiTools$itemDisplayTooltip5;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack5, mouseX, mouseY);
@@ -304,7 +304,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$itemDisplay5 : {
 				if (!(true))
 					break guiTools$itemDisplay5;
-				net.minecraft.world.item.ItemStack guiTools$displayStack5 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack5 = menu.getMenuState(3, "6", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack5 == null || guiTools$displayStack5.isEmpty())
 					break guiTools$itemDisplay5;
 				boolean guiTools$displayMasked5 = false;

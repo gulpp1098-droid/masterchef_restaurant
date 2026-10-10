@@ -236,7 +236,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_6",
-          "displayId": 5,
+          "displayId": 6,
           "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,

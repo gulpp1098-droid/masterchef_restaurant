@@ -10542,6 +10542,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "OrderResultOverlay",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "order_result_overlay",
+      "path": "~/Restaurant Functioning/GUIs"
     }
   ],
   "variable_elements": [
