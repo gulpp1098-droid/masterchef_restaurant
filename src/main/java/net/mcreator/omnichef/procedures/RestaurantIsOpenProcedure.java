@@ -110,7 +110,7 @@ public class RestaurantIsOpenProcedure {
 			MaxFood = 5;
 		} else {
 			MinFood = 4;
-			MaxFood = 5;
+			MaxFood = 6;
 		}
 		for (int _i1 = 0; _i1 < Mth.nextInt(RandomSource.create(), (int) TablesAmount, (int) (TablesAmount * 2)); _i1++) {
 			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 500));

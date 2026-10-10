@@ -33,7 +33,7 @@ public class MenuPacketToClientProcedureProcedure {
 		}.parse(inboundString);
 		foodArray = menuObject.get("food").getAsJsonArray();
 		foodAmountArray = menuObject.get("food_amount").getAsJsonArray();
-		loopSize = Math.min(5, Math.min(foodArray.size(), foodAmountArray.size()));
+		loopSize = Math.min(6, Math.min(foodArray.size(), foodAmountArray.size()));
 		for (int _i1 = 0; _i1 < (int) loopSize; _i1++) {
 			foodID = foodArray.get((int) index).getAsString();
 			amount = foodAmountArray.get((int) index).getAsDouble();
