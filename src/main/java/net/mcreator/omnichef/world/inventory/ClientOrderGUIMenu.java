@@ -39,7 +39,7 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Omniche
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 20)
+			if (!this.containsKey(key) && this.size() >= 21)
 				return null;
 			return super.put(key, value);
 		}
@@ -96,7 +96,7 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Omniche
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 38, 93) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 33, 88) {
 			private final int slot = 0;
 			private int x = ClientOrderGUIMenu.this.x;
 			private int y = ClientOrderGUIMenu.this.y;

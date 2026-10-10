@@ -4,7 +4,7 @@
   "definition": {
     "renderType": 1,
     "texture": "spatula_golden_item",
-    "customModelName": "spatula:default",
+    "customModelName": "spatula_new:default",
     "guiTexture": "spatula_golden_item",
     "customProperties": {},
     "states": [],

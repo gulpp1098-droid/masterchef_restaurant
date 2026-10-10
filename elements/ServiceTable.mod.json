@@ -153,7 +153,7 @@
       }
     ],
     "animations": [],
-    "itemTexture": "servicetable",
+    "itemTexture": "servicetable_tier0",
     "particleTexture": "",
     "blockSetType": "OAK",
     "leavesParticleChance": 0.0,

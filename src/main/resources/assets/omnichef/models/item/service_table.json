@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "omnichef:item/servicetable"
+    "layer0": "omnichef:item/servicetable_tier0"
   },
   "render_type": "translucent"
 }

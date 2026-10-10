@@ -2,9 +2,9 @@
   "loader": "neoforge:separate_transforms",
   "gui_light": "front",
   "base": {
-    "parent": "omnichef:custom/spatula",
+    "parent": "omnichef:custom/spatula_new",
     "textures": {
-      "0": "omnichef:block/spatula_golden_texture",
+      "1": "omnichef:block/spatula_golden_item_texture",
       "particle": "omnichef:item/spatula_golden_item"
     }
   },

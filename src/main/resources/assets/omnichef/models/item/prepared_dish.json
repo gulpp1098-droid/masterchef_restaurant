@@ -1,6 +1,7 @@
 {
-  "parent": "item/generated",
+  "parent": "omnichef:custom/prepared_dish",
   "textures": {
-    "layer0": "omnichef:item/dish_cloche"
+    "0": "omnichef:block/texture_dish",
+    "particle": "omnichef:item/dish_cloche"
   }
 }
