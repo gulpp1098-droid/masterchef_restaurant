@@ -25,19 +25,23 @@ public class ClientCoinPayProcedure {
 		double tier = 0;
 		double loopSize = 0;
 		double satisfaction = 0;
+		double amount = 0;
 		com.google.gson.JsonObject database = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		String foodID = "";
 		client = entity;
 		if (client.getPersistentData().getBoolean("order_served")) {
 			database = ReadFoodDatabaseProcedure.execute(world);
 			foodArray = GetClientOrderFoodArrayProcedure.execute(client);
+			foodAmountArray = GetClientOrderAmountArrayProcedure.execute(client);
 			satisfaction = GetClientOrderSatisfactionProcedure.execute(client);
-			loopSize = foodArray.size();
+			loopSize = Math.min(foodArray.size(), foodAmountArray.size());
 			for (int _i1 = 0; _i1 < (int) loopSize; _i1++) {
 				foodID = foodArray.get((int) index).getAsString();
+				amount = foodAmountArray.get((int) index).getAsDouble();
 				tier = GetFoodTierByIDProcedure.execute(database, foodID);
-				CoinSum = CoinSum + (tier + 1) * 2;
+				CoinSum = CoinSum + (tier + 1) * amount;
 				index = index + 1;
 			}
 			CoinTotal = Math.round(CoinSum * (satisfaction / 100));
