@@ -64,7 +64,7 @@ public class FillChefsDiaryFoodTierProcedure {
 					foodObject = foodDataArray.get((int) foodIndex).getAsJsonObject();
 					foodID = foodObject.get("id").getAsString();
 					displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					coins = 2 * (tier + 1);
+					coins = tier + 1;
 					dishExp = foodObject.get("base_exp").getAsDouble();
 					rewardText = (int) coins + "\n" + (int) dishExp;
 					isUnlocked = false;

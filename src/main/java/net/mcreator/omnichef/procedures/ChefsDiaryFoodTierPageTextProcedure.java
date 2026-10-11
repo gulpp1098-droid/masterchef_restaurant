@@ -8,6 +8,6 @@ public class ChefsDiaryFoodTierPageTextProcedure {
 	public static String execute(Entity entity) {
 		if (entity == null)
 			return "";
-		return "Food Tier: " + (int) entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodTier + " | Page: " + (int) entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
+		return "Food Tier: " + (int) entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodTier + " | Page: " + (int) (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage + 1);
 	}
 }

@@ -5,7 +5,7 @@
     "renderType": 1,
     "texture": "dish_cloche",
     "customModelName": "prepared_dish:default",
-    "guiTexture": "",
+    "guiTexture": "dish_cloche",
     "customProperties": {},
     "states": [],
     "animations": [],

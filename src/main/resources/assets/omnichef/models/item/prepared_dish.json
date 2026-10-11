@@ -1,7 +1,31 @@
 {
-  "parent": "omnichef:custom/prepared_dish",
-  "textures": {
-    "0": "omnichef:block/texture_dish",
-    "particle": "omnichef:item/dish_cloche"
+  "loader": "neoforge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "omnichef:custom/prepared_dish",
+    "textures": {
+      "0": "omnichef:block/texture_dish",
+      "particle": "omnichef:item/dish_cloche"
+    }
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "omnichef:item/dish_cloche"
+      }
+    },
+    "fixed": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "omnichef:item/dish_cloche"
+      }
+    },
+    "ground": {
+      "parent": "item/generated",
+      "textures": {
+        "layer0": "omnichef:item/dish_cloche"
+      }
+    }
   }
 }
