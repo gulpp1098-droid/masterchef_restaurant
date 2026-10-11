@@ -42,19 +42,19 @@ public class OrderResultOverlayOverlay {
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Satisfaction", 16, h - 112, 55, -10027009, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "100%", 75, h - 145, 55, -39322, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultCompletenessTextProcedure.execute(entity), ""), 75, h - 145, 55, -39322, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "75%", 75, h - 134, 55, -39169, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultAccuracyTextProcedure.execute(entity), ""), 75, h - 134, 55, -39169, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "50%", 75, h - 123, 55, -10040065, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPortionsTextProcedure.execute(entity), ""), 75, h - 123, 55, -10040065, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "70%", 75, h - 112, 55, -10027009, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultSatisfactionTextProcedure.execute(entity), ""), 75, h - 112, 55, -10027009, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "PERFECT", 37, h - 104, 38, -10027162, false, 1.00F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPerfectTextProcedure.execute(entity), ""), 37, h - 104, 38, -10027162, false, 1.00F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "SATISFIED", 32, h - 104, 48, -205, false, 1.00F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultSatisfiedTextProcedure.execute(entity), ""), 32, h - 104, 48, -205, false, 1.00F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "UNSATISFIED", 24, h - 104, 63, -65536, false, 1.00F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultUnsatisfiedTextProcedure.execute(entity), ""), 24, h - 104, 63, -65536, false, 1.00F, 2);
 			guiTools$orderedImages : {
 				if (true) {
 					int guiTools$xOffset = 0;
