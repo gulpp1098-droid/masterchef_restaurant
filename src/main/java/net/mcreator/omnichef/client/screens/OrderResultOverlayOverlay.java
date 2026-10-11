@@ -10,6 +10,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.omnichef.procedures.ShouldShowOrderResultOverlayProcedure;
+
 @EventBusSubscriber(Dist.CLIENT)
 public class OrderResultOverlayOverlay {
 	@SubscribeEvent(priority = EventPriority.NORMAL)
@@ -27,7 +29,7 @@ public class OrderResultOverlayOverlay {
 			y = entity.getY();
 			z = entity.getZ();
 		}
-		if (true) {
+		if (ShouldShowOrderResultOverlayProcedure.execute(world, entity)) {
 
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "ORDER RESULTS", 23, h - 159, 60, -1, false, 0.75F, 2);
