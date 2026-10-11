@@ -102,6 +102,11 @@ public class OmnichefModVariables {
 		clone.DiaryFoodTier = original.DiaryFoodTier;
 		clone.DiaryFoodPage = original.DiaryFoodPage;
 		if (!event.isWasDeath()) {
+			clone.OrderResultCompleteness = original.OrderResultCompleteness;
+			clone.OrderResultAccuracy = original.OrderResultAccuracy;
+			clone.OrderResultPortions = original.OrderResultPortions;
+			clone.OrderResultSatisfaction = original.OrderResultSatisfaction;
+			clone.OrderResultHideTime = original.OrderResultHideTime;
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
@@ -302,6 +307,11 @@ public class OmnichefModVariables {
 		public boolean BookGained = false;
 		public double DiaryFoodTier = 0;
 		public double DiaryFoodPage = 0;
+		public double OrderResultCompleteness = 0;
+		public double OrderResultAccuracy = 0;
+		public double OrderResultPortions = 0;
+		public double OrderResultSatisfaction = 0;
+		public double OrderResultHideTime = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -319,6 +329,11 @@ public class OmnichefModVariables {
 			nbt.putBoolean("BookGained", BookGained);
 			nbt.putDouble("DiaryFoodTier", DiaryFoodTier);
 			nbt.putDouble("DiaryFoodPage", DiaryFoodPage);
+			nbt.putDouble("OrderResultCompleteness", OrderResultCompleteness);
+			nbt.putDouble("OrderResultAccuracy", OrderResultAccuracy);
+			nbt.putDouble("OrderResultPortions", OrderResultPortions);
+			nbt.putDouble("OrderResultSatisfaction", OrderResultSatisfaction);
+			nbt.putDouble("OrderResultHideTime", OrderResultHideTime);
 			return nbt;
 		}
 
@@ -337,6 +352,11 @@ public class OmnichefModVariables {
 			BookGained = nbt.getBoolean("BookGained");
 			DiaryFoodTier = nbt.getDouble("DiaryFoodTier");
 			DiaryFoodPage = nbt.getDouble("DiaryFoodPage");
+			OrderResultCompleteness = nbt.getDouble("OrderResultCompleteness");
+			OrderResultAccuracy = nbt.getDouble("OrderResultAccuracy");
+			OrderResultPortions = nbt.getDouble("OrderResultPortions");
+			OrderResultSatisfaction = nbt.getDouble("OrderResultSatisfaction");
+			OrderResultHideTime = nbt.getDouble("OrderResultHideTime");
 		}
 
 		public void markSyncDirty() {
