@@ -26,6 +26,7 @@ public class ServePacketToServerProcedureProcedure {
 			if (client != null) {
 				dishStack = (player instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu1 ? _menu1.getSlots().get(0).getItem() : ItemStack.EMPTY).copy();
 				if (ServePreparedDishToClientProcedure.execute(world, client, dishStack)) {
+					ShowOrderResultOverlayProcedure.execute(world, client, player);
 					if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
 						_menu.getSlots().get(0).remove(1);
 						_player.containerMenu.broadcastChanges();
