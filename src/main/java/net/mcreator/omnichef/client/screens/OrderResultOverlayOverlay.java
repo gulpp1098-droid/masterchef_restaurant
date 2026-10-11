@@ -30,29 +30,29 @@ public class OrderResultOverlayOverlay {
 		if (true) {
 
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "ORDER RESULTS", w / 2 + -190, h / 2 + -39, 60, -1, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "ORDER RESULTS", 23, h - 159, 60, -1, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Completeness", w / 2 + -197, h / 2 + -25, 55, -39322, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Completeness", 16, h - 145, 55, -39322, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Accuracy", w / 2 + -197, h / 2 + -14, 55, -39169, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Accuracy", 16, h - 134, 55, -39169, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Portions", w / 2 + -197, h / 2 + -3, 55, -10040065, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Portions", 16, h - 123, 55, -10040065, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Satisfaction", w / 2 + -197, h / 2 + 8, 55, -10027009, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Satisfaction", 16, h - 112, 55, -10027009, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "100%", w / 2 + -138, h / 2 + -25, 55, -39322, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "100%", 75, h - 145, 55, -39322, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "75%", w / 2 + -138, h / 2 + -14, 55, -39169, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "75%", 75, h - 134, 55, -39169, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "50%", w / 2 + -138, h / 2 + -3, 55, -10040065, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "50%", 75, h - 123, 55, -10040065, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "70%", w / 2 + -138, h / 2 + 8, 55, -10027009, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "70%", 75, h - 112, 55, -10027009, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "PERFECT", w / 2 + -176, h / 2 + 16, 38, -10027162, false, 1.00F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "PERFECT", 37, h - 104, 38, -10027162, false, 1.00F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "SATISFIED", w / 2 + -181, h / 2 + 16, 48, -205, false, 1.00F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "SATISFIED", 32, h - 104, 48, -205, false, 1.00F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "UNSATISFIED", w / 2 + -189, h / 2 + 16, 63, -65536, false, 1.00F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "UNSATISFIED", 24, h - 104, 63, -65536, false, 1.00F, 2);
 			guiTools$orderedImages : {
 				if (true) {
 					int guiTools$xOffset = 0;

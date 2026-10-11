@@ -10549,6 +10549,11 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "order_result_overlay",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/client/screens/OrderResultOverlayOverlay.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/GUIs"
     }
   ],
