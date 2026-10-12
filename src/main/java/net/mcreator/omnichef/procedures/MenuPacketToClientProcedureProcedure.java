@@ -17,6 +17,7 @@ public class MenuPacketToClientProcedureProcedure {
 		double loopSize = 0;
 		double amount = 0;
 		String foodID = "";
+		String foodLabel = "";
 		com.google.gson.JsonObject menuObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
@@ -38,10 +39,16 @@ public class MenuPacketToClientProcedureProcedure {
 			foodID = foodArray.get((int) index).getAsString();
 			amount = foodAmountArray.get((int) index).getAsDouble();
 			displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+			foodLabel = new java.text.DecimalFormat("0").format(amount) + "x "
+					+ (displayStack.getDisplayName().getString()).substring((int) (displayStack.getDisplayName().getString()).indexOf("[") + "[".length(), (int) (displayStack.getDisplayName().getString()).indexOf("]"));
 			displayStack.setCount((int) amount);
+			if (entity instanceof Player _guiToolsLabelPlayer11 && _guiToolsLabelPlayer11.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu11) {
+				_guiToolsLabelMenu11.sendMenuStateUpdate(_guiToolsLabelPlayer11, 0, "gui_tools:sized:" + java.util.Objects.toString(("sized_text_label_food_" + new java.text.DecimalFormat("0").format(index + 1) + "_name"), ""),
+						java.util.Objects.toString(foodLabel, ""), true);
+			}
 			if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _displayStack9 = displayStack.copy();
-				_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 1)), _displayStack9, true);
+				ItemStack _displayStack12 = displayStack.copy();
+				_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 1)), _displayStack12, true);
 			}
 			index = index + 1;
 		}

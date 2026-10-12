@@ -267,7 +267,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_food_1_name",
-          "text": "Food 1 Name",
+          "text": "",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -287,7 +287,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_food_2_name",
-          "text": "Food 2 Name",
+          "text": "",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -307,7 +307,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_food_3_name",
-          "text": "Food 3 Name",
+          "text": "",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -327,7 +327,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_food_4_name",
-          "text": "Food 4 Name",
+          "text": "",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -347,7 +347,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_food_5_name",
-          "text": "Food 5 Name",
+          "text": "",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -367,7 +367,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_food_6_name",
-          "text": "Food 6 Name",
+          "text": "",
           "color": {
             "value": -12829636,
             "falpha": 0.0

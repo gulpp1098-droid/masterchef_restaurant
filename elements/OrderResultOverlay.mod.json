@@ -224,10 +224,10 @@
           "textProcedure": "OrderResultPerfectText",
           "overflowMode": "ELLIPSIS",
           "tooltipWhenTruncated": false,
-          "width": 38,
+          "width": 41,
           "height": 10,
           "anchorPoint": "BOTTOM_LEFT",
-          "x": 37,
+          "x": 35,
           "y": 136,
           "locked": false
         }
@@ -246,10 +246,10 @@
           "textProcedure": "OrderResultSatisfiedText",
           "overflowMode": "ELLIPSIS",
           "tooltipWhenTruncated": false,
-          "width": 48,
+          "width": 51,
           "height": 10,
           "anchorPoint": "BOTTOM_LEFT",
-          "x": 32,
+          "x": 30,
           "y": 136,
           "locked": false
         }
@@ -268,10 +268,10 @@
           "textProcedure": "OrderResultUnsatisfiedText",
           "overflowMode": "ELLIPSIS",
           "tooltipWhenTruncated": false,
-          "width": 63,
+          "width": 66,
           "height": 10,
           "anchorPoint": "BOTTOM_LEFT",
-          "x": 24,
+          "x": 22,
           "y": 136,
           "locked": false
         }

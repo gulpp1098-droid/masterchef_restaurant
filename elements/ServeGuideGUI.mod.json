@@ -154,7 +154,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_when_a_customer_is_ready_you_wi",
-          "text": "When a customer is ready, an icon will appear above their head. Interact with them to view their order. Place the correct food in the input slot. If it matches the order, it will be marked as delivered.",
+          "text": "When a customer is ready, an icon appears above their head. Interact with them to view the full order and required quantities.\nThe Preparation Station does not cook food. Put already prepared foods into it to create one Prepared Dish, then place that dish in the customer’s order slot.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
