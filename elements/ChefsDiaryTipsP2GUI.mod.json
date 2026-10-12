@@ -95,7 +95,7 @@
         "data": {
           "name": "label_food_wip",
           "text": {
-            "fixedValue": "Daily Statistics"
+            "fixedValue": "Today’s Guests"
           },
           "color": {
             "value": -12829636,
@@ -111,7 +111,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_food_is_categoried_into_multiple",
-          "text": "Fully Served — Customers whose entire order was successfully delivered.\nPart Served — Customers who received only part of their order.\nNot Served — Customers who left without receiving any of their order.\n",
+          "text": "Perfectly Served — 100% satisfaction\nSatisfied — 50–99% satisfaction\nUnsatisfied — below 50% or left hungry without food",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -132,7 +132,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_food_is_categoried_into_multiple_copy",
-          "text": "Coins Earned — Coins earned from serving customers during the shift.\nReputation — Reputation gained or lost during the shift.",
+          "text": "Coins Earned — today’s income\nReputation — gained or lost today  \nNumbers are honest, even when I wish they were not.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -170,6 +170,23 @@
           "height": 16,
           "x": 74,
           "y": 179,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_food_wip_copy",
+          "text": {
+            "fixedValue": "Today's Results"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 222,
+          "y": 22,
           "locked": false
         }
       }

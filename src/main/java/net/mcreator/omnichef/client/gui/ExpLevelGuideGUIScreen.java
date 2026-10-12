@@ -65,7 +65,7 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -34, this.topPos + -102, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -21, this.topPos + -102, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -82,11 +82,14 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.exp_level_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.exp_level_guide_gui.label_as_well_as_claim_area"), -145, 6, -65485, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "After customers finish eating, they will leave money and give reputation to your restaurant. Money is left on the Service Table. To collect it, simply right-click the table.", -145, -84, 132,
-				84, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "A Service Table with uncollected payment will not accept new customers.", -145, 18, 131, 48, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Serving customers earns reputation for your restaurant. To receive the full reward, complete the entire order. Every missing food reduces the reputation gained, and a badly incomplete order may even make you lose reputation.\nEarn enough reputation and your restaurant will level up!",
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_customers_finish_eating_t",
+						"After a meal, customers leave coins on their Service Table. What they ordered and how satisfied they were both affect the payment.\nI can collect the money from the table once they leave."),
+				-145, -84, 132, 84, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_a_table_with_waiting_payment_wil", "A table holding uncollected payment cannot welcome another group."), -145, 17, 131, 48, -12829636,
+				false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_experience_is_added_to_your_rest",
+				"Good service builds my restaurant\u2019s reputation. Perfect orders bring the full reward, while mistakes reduce it.\nLeaving too many parts of an order missing may even cost me reputation. With enough of it, my restaurant will reach new levels and opportunities."),
 				5, -84, 124, 168, -12829636, false, 1.00F, 0, 0);
 	}
 
@@ -191,10 +194,8 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -231,49 +232,6 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

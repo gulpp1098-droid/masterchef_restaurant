@@ -82,10 +82,11 @@ public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGu
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.exp_level_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Earn reputation by serving customers. Most levels are gained automatically once you reach the required reputation.\nEvery tenth level awards a new restaurant star and requires a successful visit from a Critic.", -145, -84, 134, 84,
-				-12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				"When you reach the reputation required for a new star, your restaurant becomes eligible for a Critic visit. Each time you open the restaurant, there is a 30% chance that a Critic will appear.\nComplete the Critic's entire order to earn the next level and a new restaurant star. If you fail, another Critic can visit on a later day.",
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_customers_finish_eating_t",
+						"Most levels are earned when my reputation reaches the next goal.\nEvery tenth level is different. Reputation only makes my restaurant eligible \u2014 a Critic must award the next star."),
+				-145, -84, 134, 84, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_experience_is_added_to_your_rest",
+				"Critics are not predictable. Once I am eligible, each opening has a 30% chance of bringing one to my restaurant. Only a perfectly served order earns the next level and restaurant star. If I fail, another Critic may visit on a later day. My reputation cannot fall below a star milestone I have already earned. At least one bad meal cannot erase my entire career."),
 				5, -98, 128, 168, -12829636, false, 1.00F, 0, 0);
 	}
 
@@ -190,10 +191,8 @@ public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGu
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -230,49 +229,6 @@ public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGu
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

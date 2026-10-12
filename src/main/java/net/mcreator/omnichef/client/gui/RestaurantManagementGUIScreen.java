@@ -275,10 +275,10 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, MaxLocationsReturnProcedure.execute(entity), 44, 55, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_stats"), -175, -79, -1, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_fully"), -184, -58, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_part_served"), -181, -33, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_not_served"), -177, -7, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_coins_earned"), -183, 19, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_reputation"), -178, 45, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_part_served"), -174, -33, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_not_served"), -179, -7, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_coins_earned"), -181, 19, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.restaurant_management_gui.label_reputation"), -176, 45, -12829636, false);
 		guiGraphics.drawString(this.font, FullyServedReturnProcedure.execute(entity), -149, -46, -12829636, false);
 		guiGraphics.drawString(this.font, PartServedReturnProcedure.execute(entity), -149, -20, -12829636, false);
 		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(entity), -149, 6, -12829636, false);

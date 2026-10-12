@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Serve Customers"
+            "fixedValue": "Serving My Guests"
           },
           "color": {
             "value": -12829636,
@@ -133,7 +133,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_are_the_heart_of_your",
-          "text": "Customers are the heart of your restaurant. They arrive in groups, wait for a table, place their orders and expect to be served.\nEach customer has patience. It decreases while they wait, so keep an eye on them and try not to leave them waiting for too long.",
+          "text": "When an icon appears above a customer, they are ready to order. Speaking with them shows me everything they want and how much of it to prepare.\nI had better remember the details before returning to the kitchen.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -154,7 +154,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_when_a_customer_is_ready_you_wi",
-          "text": "When a customer is ready, an icon appears above their head. Interact with them to view the full order and required quantities.\nThe Preparation Station does not cook food. Put already prepared foods into it to create one Prepared Dish, then place that dish in the customer’s order slot.",
+          "text": "When an icon appears above a customer, I can interact with them to see every requested food and quantity.\nI must prepare those items first. The Preparation Station assembles orders — it does not cook them.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

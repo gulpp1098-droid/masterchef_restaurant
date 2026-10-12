@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Reputation and Coins"
+            "fixedValue": "Stars and Critics"
           },
           "color": {
             "value": -12829636,
@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_customers_finish_eating_t",
-          "text": "Earn reputation by serving customers. Most levels are gained automatically once you reach the required reputation.\nEvery tenth level awards a new restaurant star and requires a successful visit from a Critic.",
+          "text": "Most levels are earned when my reputation reaches the next goal.\nEvery tenth level is different. Reputation only makes my restaurant eligible — a Critic must award the next star.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_experience_is_added_to_your_rest",
-          "text": "When you reach the reputation required for a new star, your restaurant becomes eligible for a Critic visit. Each time you open the restaurant, there is a 30% chance that a Critic will appear.\nComplete the Critic's entire order to earn the next level and a new restaurant star. If you fail, another Critic can visit on a later day.",
+          "text": "Critics are not predictable. Once I am eligible, each opening has a 30% chance of bringing one to my restaurant. Only a perfectly served order earns the next level and restaurant star. If I fail, another Critic may visit on a later day. My reputation cannot fall below a star milestone I have already earned. At least one bad meal cannot erase my entire career.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

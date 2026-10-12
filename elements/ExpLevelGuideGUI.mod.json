@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Reputation and Coins"
+            "fixedValue": "Reputation and Earnings"
           },
           "color": {
             "value": -12829636,
@@ -112,7 +112,7 @@
         "data": {
           "name": "label_as_well_as_claim_area",
           "text": {
-            "fixedValue": "Remember!"
+            "fixedValue": "Note to Myself"
           },
           "color": {
             "value": -65485,
@@ -129,7 +129,7 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 180,
+          "x": 193,
           "y": 18,
           "locked": false
         }
@@ -138,7 +138,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_customers_finish_eating_t",
-          "text": "After customers finish eating, they will leave money and give reputation to your restaurant. Money is left on the Service Table. To collect it, simply right-click the table.",
+          "text": "After a meal, customers leave coins on their Service Table. What they ordered and how satisfied they were both affect the payment.\nI can collect the money from the table once they leave.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -159,7 +159,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_a_table_with_waiting_payment_wil",
-          "text": "A Service Table with uncollected payment will not accept new customers.",
+          "text": "A table holding uncollected payment cannot welcome another group.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -172,7 +172,7 @@
           "width": 131,
           "height": 48,
           "x": 69,
-          "y": 138,
+          "y": 137,
           "locked": false
         }
       },
@@ -180,7 +180,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_experience_is_added_to_your_rest",
-          "text": "Serving customers earns reputation for your restaurant. To receive the full reward, complete the entire order. Every missing food reduces the reputation gained, and a badly incomplete order may even make you lose reputation.\nEarn enough reputation and your restaurant will level up!",
+          "text": "Good service builds my restaurant’s reputation. Perfect orders bring the full reward, while mistakes reduce it.\nLeaving too many parts of an order missing may even cost me reputation. With enough of it, my restaurant will reach new levels and opportunities.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

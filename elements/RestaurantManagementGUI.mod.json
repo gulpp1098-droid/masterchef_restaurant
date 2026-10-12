@@ -217,7 +217,7 @@
         "data": {
           "name": "label_fully",
           "text": {
-            "fixedValue": "Fully Served"
+            "fixedValue": "Perfect Serve"
           },
           "color": {
             "value": -12829636,
@@ -234,14 +234,14 @@
         "data": {
           "name": "label_part_served",
           "text": {
-            "fixedValue": "Part Served"
+            "fixedValue": "Satisfied"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 33,
+          "x": 40,
           "y": 87,
           "locked": false
         }
@@ -251,14 +251,14 @@
         "data": {
           "name": "label_not_served",
           "text": {
-            "fixedValue": "Not Served"
+            "fixedValue": "Unsatisfied"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 37,
+          "x": 35,
           "y": 113,
           "locked": false
         }
@@ -275,7 +275,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 31,
+          "x": 33,
           "y": 139,
           "locked": false
         }
@@ -292,7 +292,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 36,
+          "x": 38,
           "y": 165,
           "locked": false
         }
