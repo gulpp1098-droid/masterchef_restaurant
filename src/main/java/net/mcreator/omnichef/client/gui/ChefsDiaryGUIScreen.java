@@ -130,9 +130,10 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_gui.label_overview_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_gui.label_welcome_chef"), -102, -79, -3407872, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_gui.label_basic_tutorial"), 5, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "This diary will guide you through", -102, -68, 90, 22, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "the basics of running your own restaurant. Build it, manage it and improve it as you grow. You will need the right equipment, enough space and plenty of patience to handle hungry customers.",
-				-145, -40, 135, 110, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_this_diary_will_guide_you_throug", "I have always dreamt of becoming a real"), -102, -68, 90, 22, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_the_basics_of_running_your_own_r", "chef. Now it is finally my time. All I need is a restaurant, a menu, some hungry customers... and preferably no kitchen fires."), -145, -39,
+				135, 110, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -213,7 +214,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
-		enhanced_image_button_empty = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -81, 78, 20,
+		enhanced_image_button_empty = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -74, 60, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -232,11 +233,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Golden Spatula";
+				String guiTools$buttonText = "My Golden Spatula";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16763905, false);
 					guiGraphics.pose().popPose();
@@ -244,7 +245,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty);
-		enhanced_image_button_empty_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -61, 93, 20,
+		enhanced_image_button_empty_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -55, 85, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -263,11 +264,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Restaurant blocks";
+				String guiTools$buttonText = "What My Restaurant Needs";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -275,7 +276,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy);
-		enhanced_image_button_empty_copy_2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -41, 104, 20,
+		enhanced_image_button_empty_copy_2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -36, 81, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -294,11 +295,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Set restaurant area";
+				String guiTools$buttonText = "Finding the Right Place";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -306,7 +307,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_2);
-		enhanced_image_button_empty_copy_3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -21, 95, 20,
+		enhanced_image_button_empty_copy_3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -17, 81, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -325,11 +326,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Set up restaurant";
+				String guiTools$buttonText = "Putting It All Together";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -337,7 +338,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_3);
-		enhanced_image_button_empty_copy_4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + -1, 81, 20,
+		enhanced_image_button_empty_copy_4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 3, 40, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -356,11 +357,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Open restaurant";
+				String guiTools$buttonText = "Opening Day";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -368,7 +369,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_4);
-		enhanced_image_button_empty_copy_5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 19, 82, 20,
+		enhanced_image_button_empty_copy_5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 22, 61, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -387,11 +388,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Serve customers";
+				String guiTools$buttonText = "Serving My Guests";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -399,7 +400,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_5);
-		enhanced_image_button_empty_copy_6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 39, 98, 16,
+		enhanced_image_button_empty_copy_6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 41, 82, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -418,11 +419,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Reputation and coins";
+				String guiTools$buttonText = "Reputation and Earnings";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -430,7 +431,7 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_6);
-		enhanced_image_button_empty_copy_6_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 59, 52, 16,
+		enhanced_image_button_empty_copy_6_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 30, this.topPos + 60, 46, 13,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
 					int x = ChefsDiaryGUIScreen.this.x;
@@ -449,11 +450,11 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "More Tips";
+				String guiTools$buttonText = "Notes to Self";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.pose().scale(0.75f, 0.75f, 1.0f);
 					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
 							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16776961, false);
 					guiGraphics.pose().popPose();
@@ -469,10 +470,8 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -509,49 +508,6 @@ public class ChefsDiaryGUIScreen extends AbstractContainerScreen<ChefsDiaryGUIMe
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

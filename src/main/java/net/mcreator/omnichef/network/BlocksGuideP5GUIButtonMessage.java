@@ -71,6 +71,10 @@ public record BlocksGuideP5GUIButtonMessage(int buttonID, int x, int y, int z) i
 
 			ChefsDiaryGuideBlocksP4Procedure.execute(world, x, y, z, entity);
 		}
+		if (buttonID == 6) {
+
+			ChefsDiaryGuideBlocksP6Procedure.execute(world, x, y, z, entity);
+		}
 	}
 
 	@SubscribeEvent

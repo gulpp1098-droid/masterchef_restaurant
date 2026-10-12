@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Overview"
+            "fixedValue": "Chef's Diary"
           },
           "color": {
             "value": -12829636,
@@ -132,7 +132,7 @@
         "data": {
           "name": "label_welcome_chef",
           "text": {
-            "fixedValue": "Welcome, Chef!"
+            "fixedValue": "A Dream of Mine"
           },
           "color": {
             "value": -3407872,
@@ -209,7 +209,7 @@
         "data": {
           "name": "label_basic_tutorial",
           "text": {
-            "fixedValue": "Basic tutorial"
+            "fixedValue": "My Notes"
           },
           "color": {
             "value": -12829636,
@@ -255,7 +255,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_this_diary_will_guide_you_throug",
-          "text": "This diary will guide you through",
+          "text": "I have always dreamt of becoming a real",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -276,7 +276,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_the_basics_of_running_your_own_r",
-          "text": "the basics of running your own restaurant. Build it, manage it and improve it as you grow. You will need the right equipment, enough space and plenty of patience to handle hungry customers.",
+          "text": "chef. Now it is finally my time. All I need is a restaurant, a menu, some hungry customers... and preferably no kitchen fires.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -289,7 +289,7 @@
           "width": 135,
           "height": 110,
           "x": 69,
-          "y": 80,
+          "y": 81,
           "locked": false
         }
       },
@@ -304,16 +304,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty",
-          "text": "Golden Spatula",
+          "text": "My Golden Spatula",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideSpatula",
-          "width": 78,
-          "height": 20,
+          "width": 60,
+          "height": 13,
           "x": 244,
-          "y": 39,
+          "y": 46,
           "locked": false
         }
       },
@@ -328,16 +328,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy",
-          "text": "Restaurant blocks",
+          "text": "What My Restaurant Needs",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideBlocks",
-          "width": 93,
-          "height": 20,
+          "width": 85,
+          "height": 13,
           "x": 244,
-          "y": 59,
+          "y": 65,
           "locked": false
         }
       },
@@ -352,16 +352,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_2",
-          "text": "Set restaurant area",
+          "text": "Finding the Right Place",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideLocation",
-          "width": 104,
-          "height": 20,
+          "width": 81,
+          "height": 13,
           "x": 244,
-          "y": 79,
+          "y": 84,
           "locked": false
         }
       },
@@ -376,16 +376,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_3",
-          "text": "Set up restaurant",
+          "text": "Putting It All Together",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideSetUp",
-          "width": 95,
-          "height": 20,
+          "width": 81,
+          "height": 13,
           "x": 244,
-          "y": 99,
+          "y": 103,
           "locked": false
         }
       },
@@ -400,16 +400,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_4",
-          "text": "Open restaurant",
+          "text": "Opening Day",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideOpen",
-          "width": 81,
-          "height": 20,
+          "width": 40,
+          "height": 13,
           "x": 244,
-          "y": 119,
+          "y": 123,
           "locked": false
         }
       },
@@ -424,16 +424,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_5",
-          "text": "Serve customers",
+          "text": "Serving My Guests",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideServe",
-          "width": 82,
-          "height": 20,
+          "width": 61,
+          "height": 13,
           "x": 244,
-          "y": 139,
+          "y": 142,
           "locked": false
         }
       },
@@ -448,16 +448,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_6",
-          "text": "Reputation and coins",
+          "text": "Reputation and Earnings",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideExpLevel",
-          "width": 98,
-          "height": 16,
+          "width": 82,
+          "height": 13,
           "x": 244,
-          "y": 159,
+          "y": 161,
           "locked": false
         }
       },
@@ -472,16 +472,16 @@
             "falpha": 0.0
           },
           "textShadow": false,
-          "fontScale": 100,
+          "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_6_copy",
-          "text": "More Tips",
+          "text": "Notes to Self",
           "isUndecorated": true,
           "onClick": "ChefsDiaryTipsGUIOpen",
-          "width": 52,
-          "height": 16,
+          "width": 46,
+          "height": 13,
           "x": 244,
-          "y": 179,
+          "y": 180,
           "locked": false
         }
       },

@@ -37,8 +37,9 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/servicetable_icon.png");
 	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("omnichef:textures/screens/chair_icon.png");
 	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("omnichef:textures/screens/queue_rug_item.png");
-	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
+	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("omnichef:textures/screens/preparationstation_tier0.png");
 	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
+	private static final ResourceLocation IMAGE_9 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
 
 	public BlocksGuideGUIScreen(BlocksGuideGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -72,13 +73,14 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 		guiTools$orderedImages : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -52, this.topPos + -101, 0, 0, 15, 17, 15, 17);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -136, this.topPos + 42, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -107, this.topPos + 43, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -78, this.topPos + 43, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -49, this.topPos + 43, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 1, this.topPos + -98, 0, 0, 133, 11, 133, 11);
-			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -22, this.topPos + -101, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 3, this.topPos + -90, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 30, this.topPos + -89, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 57, this.topPos + -89, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 111, this.topPos + -89, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 84, this.topPos + -89, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 1, this.topPos + -98, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -104,9 +106,9 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Before customers can visit, your restaurant needs a few basic blocks. Each one has a different role. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Additional Queue Rug (optional)", -145, -84, 130, 40, -12829636,
-				false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_customers_can_visit_your",
+				"An empty room and a dream are apparently not enough. To run this place properly, I need:\n_ Reception\n_ Service Table\n_ Chair\n_ Preparation Station\n_ Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula."),
+				-145, -84, 130, 40, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -210,10 +212,8 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -250,49 +250,6 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

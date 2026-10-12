@@ -155,7 +155,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_will_gladly_come_and_e",
-          "text": "Chairs provide seats for customers at your Service Tables. Place them next to a Service Table to make them part of that table.\nThe number of Chairs determines how many customers can sit together at the table. Make sure every group has enough room to sit!",
+          "text": "Chairs placed next to a Service Table become part of that table. Their number determines how many customers can sit there together.\nI should make sure every group has enough room. A table for four with only one chair is not minimalist design. It is a problem.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

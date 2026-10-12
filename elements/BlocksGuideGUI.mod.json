@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Required Blocks"
+            "fixedValue": "What My RestaurantNeeds"
           },
           "color": {
             "value": -12829636,
@@ -112,7 +112,7 @@
         "data": {
           "image": "requirements_icon.png",
           "use1Xscale": false,
-          "x": 162,
+          "x": 192,
           "y": 19,
           "locked": false
         }
@@ -122,8 +122,8 @@
         "data": {
           "image": "reception_item.png",
           "use1Xscale": false,
-          "x": 78,
-          "y": 162,
+          "x": 217,
+          "y": 30,
           "locked": false
         }
       },
@@ -132,8 +132,8 @@
         "data": {
           "image": "servicetable_icon.png",
           "use1Xscale": false,
-          "x": 107,
-          "y": 163,
+          "x": 244,
+          "y": 31,
           "locked": false
         }
       },
@@ -142,8 +142,8 @@
         "data": {
           "image": "chair_icon.png",
           "use1Xscale": false,
-          "x": 136,
-          "y": 163,
+          "x": 271,
+          "y": 31,
           "locked": false
         }
       },
@@ -152,8 +152,18 @@
         "data": {
           "image": "queue_rug_item.png",
           "use1Xscale": false,
-          "x": 165,
-          "y": 163,
+          "x": 325,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "preparationstation_tier0.png",
+          "use1Xscale": false,
+          "x": 298,
+          "y": 31,
           "locked": false
         }
       },
@@ -193,7 +203,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_customers_can_visit_your",
-          "text": "Before customers can visit, your restaurant needs a few basic blocks. Each one has a different role. To get started, prepare:\n- Reception\n- Service Table\n- Chair\n- Additional Queue Rug (optional)",
+          "text": "An empty room and a dream are apparently not enough. To run this place properly, I need:\n_ Reception\n_ Service Table\n_ Chair\n_ Preparation Station\n_ Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

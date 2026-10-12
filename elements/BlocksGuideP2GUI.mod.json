@@ -155,7 +155,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_will_gladly_come_and_e",
-          "text": "The Reception is the starting point for your customers. When placed, it automatically creates the first Queue Rug next to it, giving customers a place to wait.\nEach restaurant can have only one Reception. ",
+          "text": "I need one Reception to welcome customers and organize the queue. Placing it automatically creates the first Queue Rug, so at least everyone will know where to wait.\nOne Reception is enough for the entire restaurant. Any more would probably just start an argument over who is in charge.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
