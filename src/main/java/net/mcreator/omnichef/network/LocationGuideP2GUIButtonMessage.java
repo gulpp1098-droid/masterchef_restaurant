@@ -71,6 +71,10 @@ public record LocationGuideP2GUIButtonMessage(int buttonID, int x, int y, int z)
 
 			ChefsDiaryGuideLocationProcedure.execute(world, x, y, z, entity);
 		}
+		if (buttonID == 6) {
+
+			ChefsDiaryGuideLocationP3Procedure.execute(world, x, y, z, entity);
+		}
 	}
 
 	@SubscribeEvent

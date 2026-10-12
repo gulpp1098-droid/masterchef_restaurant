@@ -29,6 +29,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 	private ImageButton imagebutton_appliences_icon;
 	private ImageButton imagebutton_stats_icon;
 	private ImageButton imagebutton_last_page_icon;
+	private ImageButton imagebutton_next_page_icon;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/location_guide_p_2_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/bookmarks.png");
@@ -66,7 +67,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 		guiTools$orderedImages : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -61, this.topPos + -104, 0, 0, 15, 17, 15, 17);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -21, this.topPos + -102, 0, 0, 15, 17, 15, 17);
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -74,7 +75,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				int guiTools$visibleHeight = 57;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/location.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 27 + guiTools$xOffset, this.topPos + 12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 84, 57);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 18 + guiTools$xOffset, this.topPos + 12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 84, 57);
 			}
 		}
 		RenderSystem.disableBlend();
@@ -92,10 +93,14 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.location_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Each new area must connect directly to one of your existing areas by a side. Diagonal connections do not count.\nYour maximum number of claimed areas increases with your restaurant level.",
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
+						"Every new area must share a full side with an area I already own. Diagonal connections do not count.\nApparently, my restaurant cannot be held together by one corner and optimism."),
 				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, "Restaurant areas cannot overlap or be placed directly next to another restaurant's claimed areas.\nThe first area of a new restaurant must also be placed farther away from other restaurants.",
-				5, -84, 124, 149, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
+						"My areas cannot overlap or touch areas claimed by another restaurant. The first area of a new restaurant must be placed even farther away. This should prevent two chefs from accidentally sharing the same kitchen."),
+				5, -97, 124, 98, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -191,6 +196,21 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
+					int x = LocationGuideP2GUIScreen.this.x;
+					int y = LocationGuideP2GUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new LocationGuideP2GUIButtonMessage(6, x, y, z));
+						LocationGuideP2GUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_next_page_icon);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -199,10 +219,8 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -239,49 +257,6 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

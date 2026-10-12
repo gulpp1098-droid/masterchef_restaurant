@@ -10837,6 +10837,56 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "LocationGuideP3GUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "location_guide_p_3_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/world/inventory/LocationGuideP3GUIMenu.java",
+          "src/main/java/net/mcreator/omnichef/network/LocationGuideP3GUIButtonMessage.java",
+          "src/main/java/net/mcreator/omnichef/client/gui/LocationGuideP3GUIScreen.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryGuideLocationP3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_guide_location_p_3",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ChefsDiaryGuideLocationP3Procedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
     }
   ],
   "variable_elements": [
@@ -11080,7 +11130,7 @@
       "gui.omnichef.spatula_guide_gui.label_overview_wip": "My Golden Spatula",
       "gui.omnichef.blocks_guide_gui.label_overview_wip": "What My RestaurantNeeds",
       "gui.omnichef.blocks_guide_p_2_gui.label_service_table": "Reception",
-      "gui.omnichef.location_guide_gui.label_overview_wip": "Set area",
+      "gui.omnichef.location_guide_gui.label_overview_wip": "Finding the Right Place",
       "gui.omnichef.set_up_guide_gui.label_overview_wip": "Set up",
       "gui.omnichef.open_guide_gui.label_inside_this_area_you_can": "Remember!",
       "gui.omnichef.open_guide_gui.label_as_well_as_claim_area": "Remember!",
@@ -11097,7 +11147,7 @@
       "entity.omnichef.critic": "Critic",
       "item.omnichef.critic_spawn_egg": "Critic Spawn Egg",
       "gui.omnichef.exp_level_guide_p_2_gui.label_overview_wip": "Reputation and Coins",
-      "gui.omnichef.location_guide_p_2_gui.label_overview_wip": "Set area",
+      "gui.omnichef.location_guide_p_2_gui.label_overview_wip": "Expanding My Restaurant",
       "gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy": "Food2",
       "gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy_2_copy_7": "Food10",
       "gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy_2_copy_5": "Food8",
@@ -11132,7 +11182,8 @@
       "item.omnichef.star": "Star",
       "item.omnichef.prepared_dish": "Prepared Dish",
       "block.omnichef.preparation_station": "Preparation Station",
-      "gui.omnichef.blocks_guide_p_6_gui.label_service_table": "Preparation Station"
+      "gui.omnichef.blocks_guide_p_6_gui.label_service_table": "Preparation Station",
+      "gui.omnichef.location_guide_p_3_gui.label_overview_wip": "Moving Somewhere New"
     }
   },
   "metadata": {

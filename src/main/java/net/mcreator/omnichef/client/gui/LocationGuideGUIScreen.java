@@ -65,7 +65,7 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -104, 0, 0, 15, 17, 15, 17);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -20, this.topPos + -101, 0, 0, 15, 17, 15, 17);
 		RenderSystem.disableBlend();
 	}
 
@@ -82,10 +82,10 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.location_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
-				"Before placing your restaurant blocks, you need to claim an area for your restaurant.\nTake your Golden Spatula and choose \"Set Location for Restaurant\". A green 5x5 area will appear on the ground. Right-click to claim it as your first restaurant area."),
+				"Before placing anything important, I need to claim a home for my restaurant.\nWith the Golden Spatula in my hand, I can choose \u201CSet Location for Restaurant\u201D. A 5x5 preview will appear on the ground. If it is green, I can right-click to claim my first area."),
 				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
-				"You can claim up to 4 areas at the start. Additional areas let you shape and expand your restaurant within the grid.\nFunctional restaurant blocks are active only inside your claimed areas. As your restaurant level increases, you will unlock more areas to claim."),
+				"I can claim up to four areas at the start. Restaurant blocks only work inside my claimed space, so building half of my kitchen outside would be a bold but useless design choice.\nAs my restaurant level increases, I will unlock more areas."),
 				5, -84, 125, 149, -12829636, false, 1.00F, 0, 0);
 	}
 

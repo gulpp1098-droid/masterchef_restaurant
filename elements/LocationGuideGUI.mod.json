@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Set area"
+            "fixedValue": "Finding the Right Place"
           },
           "color": {
             "value": -12829636,
@@ -112,8 +112,8 @@
         "data": {
           "image": "location_icon.png",
           "use1Xscale": false,
-          "x": 153,
-          "y": 16,
+          "x": 194,
+          "y": 19,
           "locked": false
         }
       },
@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Before placing your restaurant blocks, you need to claim an area for your restaurant.\nTake your Golden Spatula and choose \"Set Location for Restaurant\". A green 5x5 area will appear on the ground. Right-click to claim it as your first restaurant area.",
+          "text": "Before placing anything important, I need to claim a home for my restaurant.\nWith the Golden Spatula in my hand, I can choose “Set Location for Restaurant”. A 5x5 preview will appear on the ground. If it is green, I can right-click to claim my first area.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "You can claim up to 4 areas at the start. Additional areas let you shape and expand your restaurant within the grid.\nFunctional restaurant blocks are active only inside your claimed areas. As your restaurant level increases, you will unlock more areas to claim.",
+          "text": "I can claim up to four areas at the start. Restaurant blocks only work inside my claimed space, so building half of my kitchen outside would be a bold but useless design choice.\nAs my restaurant level increases, I will unlock more areas.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

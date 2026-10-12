@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Set area"
+            "fixedValue": "Expanding My Restaurant"
           },
           "color": {
             "value": -12829636,
@@ -112,8 +112,8 @@
         "data": {
           "image": "location_icon.png",
           "use1Xscale": false,
-          "x": 153,
-          "y": 16,
+          "x": 193,
+          "y": 18,
           "locked": false
         }
       },
@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Each new area must connect directly to one of your existing areas by a side. Diagonal connections do not count.\nYour maximum number of claimed areas increases with your restaurant level.",
+          "text": "Every new area must share a full side with an area I already own. Diagonal connections do not count.\nApparently, my restaurant cannot be held together by one corner and optimism.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "Restaurant areas cannot overlap or be placed directly next to another restaurant's claimed areas.\nThe first area of a new restaurant must also be placed farther away from other restaurants.",
+          "text": "My areas cannot overlap or touch areas claimed by another restaurant. The first area of a new restaurant must be placed even farther away. This should prevent two chefs from accidentally sharing the same kitchen.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -153,9 +153,9 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 124,
-          "height": 149,
+          "height": 98,
           "x": 219,
-          "y": 36,
+          "y": 23,
           "locked": false
         }
       },
@@ -178,8 +178,20 @@
           "image": "location.png",
           "width": 84,
           "height": 57,
-          "x": 241,
+          "x": 232,
           "y": 132,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryGuideLocationP3",
+          "x": 322,
+          "y": 177,
           "locked": false
         }
       }
