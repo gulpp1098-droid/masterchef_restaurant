@@ -71,15 +71,25 @@ public class LocationAreaColorChangeProcedure {
 						}
 					}
 				}
-				if (ReturnGreen) {
-					if (Area instanceof LocationAreaEntity _datEntSetI)
-						_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 0);
-				} else if (ReturnYellow) {
-					if (Area instanceof LocationAreaEntity _datEntSetI)
-						_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 1);
+				if (Area.getPersistentData().getBoolean("RelocatingRestaurant")) {
+					if (LocationAvailable && !ReturnGreen) {
+						if (Area instanceof LocationAreaEntity _datEntSetI)
+							_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 1);
+					} else {
+						if (Area instanceof LocationAreaEntity _datEntSetI)
+							_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 2);
+					}
 				} else {
-					if (Area instanceof LocationAreaEntity _datEntSetI)
-						_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 2);
+					if (ReturnGreen) {
+						if (Area instanceof LocationAreaEntity _datEntSetI)
+							_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 0);
+					} else if (ReturnYellow) {
+						if (Area instanceof LocationAreaEntity _datEntSetI)
+							_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 1);
+					} else {
+						if (Area instanceof LocationAreaEntity _datEntSetI)
+							_datEntSetI.getEntityData().set(LocationAreaEntity.DATA_AreaState, 2);
+					}
 				}
 			}
 			localizationIndex = 0;
