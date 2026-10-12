@@ -25,12 +25,12 @@ public class CancelPickAreaProcedure {
 				CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 			}
 			{
-				final String _tagName = "CandidateX";
+				final String _tagName = "RelocationCandidateX";
 				final double _tagValue = 0;
 				CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putDouble(_tagName, _tagValue));
 			}
 			{
-				final String _tagName = "CandidateZ";
+				final String _tagName = "RelocationCandidateZ";
 				final double _tagValue = 0;
 				CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putDouble(_tagName, _tagValue));
 			}

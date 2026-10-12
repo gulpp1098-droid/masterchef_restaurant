@@ -30,7 +30,8 @@ public class SpatulaShowingAreaToSelectProcedure {
 		double EntityPositionZ = 0;
 		if (!world.isClientSide()) {
 			Owner = entity;
-			if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")) {
+			if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
+					|| itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestauran")) {
 				BlockXPos = Math.floor(Owner.level().clip(new ClipContext(Owner.getEyePosition(1f), Owner.getEyePosition(1f).add(Owner.getViewVector(1f).scale(10)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, Owner)).getBlockPos().getX() / 5d)
 						* 5;
 				BlockYPos = Owner.level().clip(new ClipContext(Owner.getEyePosition(1f), Owner.getEyePosition(1f).add(Owner.getViewVector(1f).scale(10)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, Owner)).getBlockPos().getY() + 1.1;
@@ -46,13 +47,13 @@ public class SpatulaShowingAreaToSelectProcedure {
 						&& world.isEmptyBlock(BlockPos.containing(
 								Owner.level().clip(new ClipContext(Owner.getEyePosition(1f), Owner.getEyePosition(1f).add(Owner.getViewVector(1f).scale(10)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, Owner)).getBlockPos().getX(), BlockYPos,
 								Owner.level().clip(new ClipContext(Owner.getEyePosition(1f), Owner.getEyePosition(1f).add(Owner.getViewVector(1f).scale(10)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, Owner)).getBlockPos().getZ()))) {
-					if ((world instanceof ServerLevel _level12 ? getEntityFromUUID(_level12, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
-						if (!((world instanceof ServerLevel _level13 ? getEntityFromUUID(_level13, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).getX() == EntityPositionX
-								&& (world instanceof ServerLevel _level15 ? getEntityFromUUID(_level15, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).getY() == BlockYPos - 1.1
-								&& (world instanceof ServerLevel _level17 ? getEntityFromUUID(_level17, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).getZ() == EntityPositionZ)) {
-							Area = world instanceof ServerLevel _level19 ? getEntityFromUUID(_level19, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null;
+					if ((world instanceof ServerLevel _level14 ? getEntityFromUUID(_level14, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
+						if (!((world instanceof ServerLevel _level15 ? getEntityFromUUID(_level15, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).getX() == EntityPositionX
+								&& (world instanceof ServerLevel _level17 ? getEntityFromUUID(_level17, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).getY() == BlockYPos - 1.1
+								&& (world instanceof ServerLevel _level19 ? getEntityFromUUID(_level19, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).getZ() == EntityPositionZ)) {
+							Area = world instanceof ServerLevel _level21 ? getEntityFromUUID(_level21, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null;
 							{
-								Entity _ent = (world instanceof ServerLevel _level20 ? getEntityFromUUID(_level20, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null);
+								Entity _ent = (world instanceof ServerLevel _level22 ? getEntityFromUUID(_level22, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null);
 								double _tx = EntityPositionX;
 								double _ty = (BlockYPos - 1.1);
 								double _tz = EntityPositionZ;
@@ -61,7 +62,7 @@ public class SpatulaShowingAreaToSelectProcedure {
 									_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
 							}
 							{
-								Entity _ent = (world instanceof ServerLevel _level22 ? getEntityFromUUID(_level22, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null);
+								Entity _ent = (world instanceof ServerLevel _level24 ? getEntityFromUUID(_level24, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null);
 								_ent.setYRot(0);
 								_ent.setXRot(0);
 								_ent.setYBodyRot(_ent.getYRot());
@@ -75,7 +76,7 @@ public class SpatulaShowingAreaToSelectProcedure {
 							}
 						}
 					} else {
-						Area = world instanceof ServerLevel _level24 ? OmnichefModEntities.LOCATION_AREA.get().spawn(_level24, BlockPos.containing(EntityPositionX, BlockYPos - 1.1, EntityPositionZ), MobSpawnType.MOB_SUMMONED) : null;
+						Area = world instanceof ServerLevel _level26 ? OmnichefModEntities.LOCATION_AREA.get().spawn(_level26, BlockPos.containing(EntityPositionX, BlockYPos - 1.1, EntityPositionZ), MobSpawnType.MOB_SUMMONED) : null;
 						Area.getPersistentData().putDouble("RestaurantID", Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 						{
 							OmnichefModVariables.PlayerVariables _vars = Owner.getData(OmnichefModVariables.PLAYER_VARIABLES);
@@ -84,15 +85,15 @@ public class SpatulaShowingAreaToSelectProcedure {
 						}
 					}
 				} else {
-					if ((world instanceof ServerLevel _level27 ? getEntityFromUUID(_level27, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
-						if (!(world instanceof ServerLevel _level28 ? getEntityFromUUID(_level28, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).level().isClientSide())
-							(world instanceof ServerLevel _level28 ? getEntityFromUUID(_level28, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).discard();
+					if ((world instanceof ServerLevel _level29 ? getEntityFromUUID(_level29, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
+						if (!(world instanceof ServerLevel _level30 ? getEntityFromUUID(_level30, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).level().isClientSide())
+							(world instanceof ServerLevel _level30 ? getEntityFromUUID(_level30, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).discard();
 					}
 				}
 			} else {
-				if ((world instanceof ServerLevel _level30 ? getEntityFromUUID(_level30, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
-					if (!(world instanceof ServerLevel _level31 ? getEntityFromUUID(_level31, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).level().isClientSide())
-						(world instanceof ServerLevel _level31 ? getEntityFromUUID(_level31, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).discard();
+				if ((world instanceof ServerLevel _level32 ? getEntityFromUUID(_level32, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null) != null) {
+					if (!(world instanceof ServerLevel _level33 ? getEntityFromUUID(_level33, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).level().isClientSide())
+						(world instanceof ServerLevel _level33 ? getEntityFromUUID(_level33, Owner.getData(OmnichefModVariables.PLAYER_VARIABLES).PreviewUUID) : null).discard();
 				}
 			}
 		}

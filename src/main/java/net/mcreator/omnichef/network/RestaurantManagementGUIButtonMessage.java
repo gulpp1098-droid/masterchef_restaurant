@@ -67,6 +67,9 @@ public record RestaurantManagementGUIButtonMessage(int buttonID, int x, int y, i
 			if (buttonID == 4) {
 				net.mcreator.omnichef.procedures.SetSpatulaLocationModeTrueProcedure.execute(world, entity);
 			}
+			if (buttonID == 5) {
+				net.mcreator.omnichef.procedures.StartRestaurantRelocationProcedure.execute(world, entity);
+			}
 			if (buttonID == 6) {
 				net.mcreator.omnichef.procedures.OpenRestaurantButtonProcedure.execute(world, entity);
 			}

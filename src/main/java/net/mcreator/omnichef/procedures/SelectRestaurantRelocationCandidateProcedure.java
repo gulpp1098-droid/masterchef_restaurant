@@ -5,15 +5,24 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.ChatFormatting;
 
+import net.mcreator.omnichef.world.inventory.RelocateConfirmationGUIMenu;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.init.OmnichefModItems;
+
+import io.netty.buffer.Unpooled;
 
 public class SelectRestaurantRelocationCandidateProcedure {
 	public static void execute(LevelAccessor world, double x, double z, Entity entity) {
@@ -88,6 +97,25 @@ public class SelectRestaurantRelocationCandidateProcedure {
 										final String _tagName = "RelocationCandidateSet";
 										final boolean _tagValue = true;
 										CustomData.update(DataComponents.CUSTOM_DATA, (owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
+									}
+									if (owner instanceof ServerPlayer _ent) {
+										BlockPos _bpos = BlockPos.containing(owner.getX(), owner.getY(), owner.getZ());
+										_ent.openMenu(new MenuProvider() {
+											@Override
+											public Component getDisplayName() {
+												return Component.literal("RelocateConfirmationGUI");
+											}
+
+											@Override
+											public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+												return false;
+											}
+
+											@Override
+											public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+												return new RelocateConfirmationGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+											}
+										}, _bpos);
 									}
 								}
 							}

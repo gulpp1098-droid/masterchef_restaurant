@@ -33,17 +33,12 @@ public class SetSpatulaStateToNormalProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
-					final String _tagName = "ShowRestaurantArea";
+					final String _tagName = "RelocatingRestaurant";
 					final boolean _tagValue = false;
 					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
-					final String _tagName = "ShowRestaurantArea";
-					final boolean _tagValue = false;
-					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
-				}
-				{
-					final String _tagName = "ShowRestaurantArea";
+					final String _tagName = "SpawnArea";
 					final boolean _tagValue = false;
 					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}

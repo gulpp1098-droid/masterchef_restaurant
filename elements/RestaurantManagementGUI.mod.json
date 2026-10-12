@@ -829,6 +829,7 @@
           "name": "enhanced_image_button_button_icon2_copy_copy",
           "text": "Relocate Area",
           "isUndecorated": true,
+          "onClick": "StartRestaurantRelocation",
           "width": 81,
           "height": 20,
           "x": 217,

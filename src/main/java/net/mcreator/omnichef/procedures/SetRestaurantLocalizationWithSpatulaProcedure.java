@@ -42,7 +42,8 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 		double Z = 0;
 		double restaurantLevel = 0;
 		String restaurantsString = "";
-		if (entity.isShiftKeyDown() && ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
+		Owner = entity;
+		if (Owner.isShiftKeyDown() && ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
 				|| (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant"))) {
 			SetSpatulaStateToNormalProcedure.execute(world, entity);
 		} else {
@@ -50,7 +51,6 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 				if (!world.isClientSide()) {
 					X = (int) Math.floor(x / 5);
 					Z = (int) Math.floor(z / 5);
-					Owner = entity;
 					AddingArray = false;
 					if ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant")) {
 						SelectRestaurantRelocationCandidateProcedure.execute(world, x, z, entity);
