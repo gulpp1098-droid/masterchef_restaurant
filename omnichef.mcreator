@@ -11124,7 +11124,7 @@
       "gui.omnichef.create_restaurant_gui.Restaurant_Name": "Restaurant Name...",
       "gui.omnichef.create_restaurant_gui.label_management": "Create",
       "gui.omnichef.spatula_guide_gui.label_overview_wip": "My Golden Spatula",
-      "gui.omnichef.blocks_guide_gui.label_overview_wip": "What My RestaurantNeeds",
+      "gui.omnichef.blocks_guide_gui.label_overview_wip": "What My Restaurant Needs",
       "gui.omnichef.blocks_guide_p_2_gui.label_service_table": "Reception",
       "gui.omnichef.location_guide_gui.label_overview_wip": "Finding the Right Place",
       "gui.omnichef.set_up_guide_gui.label_overview_wip": "Putting It All Together",

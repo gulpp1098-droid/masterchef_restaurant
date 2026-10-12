@@ -84,7 +84,7 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 				"I have claimed enough space, so now I can turn it into something resembling a real restaurant.\nI should place the Reception first and leave enough room for its queue. The Reception, Service Tables and Chairs must remain inside my claimed areas."),
 				-145, -84, 132, 163, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_service_tables_are_where_custome",
-				"Service Tables need Chairs placed next to them. If I want to serve any orders, I will also need a Preparation Station somewhere nearby.\nWhen I open the restaurant, it will check my setup automatically. At minimum, it must find one valid Reception, one Service Table and one Chair. Ambitious? No. Functional? Barely."),
+				"Service Tables need Chairs beside them, and I will need a Preparation Station somewhere nearby if I want to serve anything.\nMy first opening does not need to be grand. One Reception, one Service Table and one Chair are enough to welcome a customer. Ambitious? No. Functional? Barely."),
 				5, -97, 123, 141, -12829636, false, 1.00F, 0, 0);
 	}
 

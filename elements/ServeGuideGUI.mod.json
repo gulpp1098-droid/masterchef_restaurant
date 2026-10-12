@@ -133,7 +133,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_are_the_heart_of_your",
-          "text": "When an icon appears above a customer, they are ready to order. Speaking with them shows me everything they want and how much of it to prepare.\nI had better remember the details before returning to the kitchen.",
+          "text": "Customers arrive in groups, wait in line and take an available table. Once seated, each customer places their own order.\nTheir patience falls while they wait. If it reaches zero, they leave. A hungry customer is rarely a patient one.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -154,7 +154,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_when_a_customer_is_ready_you_wi",
-          "text": "When an icon appears above a customer, I can interact with them to see every requested food and quantity.\nI must prepare those items first. The Preparation Station assembles orders — it does not cook them.",
+          "text": "When an icon appears above a customer, they are ready to order. Speaking with them shows me everything they want and how much of it to prepare.\nI had better remember the details before returning to the kitchen.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

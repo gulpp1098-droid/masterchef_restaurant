@@ -81,11 +81,12 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.location_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
-				"Before placing anything important, I need to claim a home for my restaurant.\nWith the Golden Spatula in my hand, I can choose \u201CSet Location for Restaurant\u201D. A 5x5 preview will appear on the ground. If it is green, I can right-click to claim my first area."),
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
+						"Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant."),
 				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
-				"I can claim up to four areas at the start. Restaurant blocks only work inside my claimed space, so building half of my kitchen outside would be a bold but useless design choice.\nAs my restaurant level increases, I will unlock more areas."),
+				"I can claim up to four areas at the start. My Reception, Service Tables and Chairs only count when they stand inside this space.\nAs my restaurant grows, I will be able to claim more land. For once, success comes with extra floor space."),
 				5, -84, 125, 149, -12829636, false, 1.00F, 0, 0);
 	}
 

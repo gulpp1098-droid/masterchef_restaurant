@@ -81,18 +81,17 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can"), 5, -39, -65485, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can_copy"), -145, 6, -65485, false);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y",
-						"When everything is ready, I can open my restaurant using the Golden Spatula.\nBefore opening, it checks for a valid Reception, at least one Service Table and at least one Chair."),
-				-145, -84, 132, 71, -12829636, false, 1.00F, 0, 0);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can_copy"), -145, -12, -65485, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y",
+				"When everything is ready, I can finally open the doors with my Golden Spatula. For that, I need a valid Reception, one Service Table and one Chair."), -145, -84, 132, 71, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_once_open_customers_will_begin", "Once the doors open, customers will begin arriving. They wait in the queue, find a table and order food from my current menu."), 5, -100, 128,
 				51, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_restaurant_is_closed_8_hours_aft",
-				"My restaurant closes after 8 in-game hours after opening.\nI can close it earlier if I want to stop accepting new customers. Apparently, even dreams need business hours."), 5, -27, 127, 84, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y_copy",
-				"I can open only once per day, between 6:00 and 15:00. If I miss that time, my kitchen will remain tragically quiet until the next open day."), -146, 17, 132, 71, -12829636, false, 1.00F, 0, 0);
+				"My doors stay open for eight in-game hours \u2014 around 13 minutes \u2014 unless I close them earlier. Apparently, even dreams need business hours."), 5, -27, 127, 84, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y_copy", "I can open once each day, between 6:00 and 15:00. If I miss that time, the kitchen stays quiet until tomorrow."), -146, -1, 132, 71,
+				-12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

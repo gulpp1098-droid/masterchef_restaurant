@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Before placing anything important, I need to claim a home for my restaurant.\nWith the Golden Spatula in my hand, I can choose “Set Location for Restaurant”. A 5x5 preview will appear on the ground. If it is green, I can right-click to claim my first area.",
+          "text": "Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "I can claim up to four areas at the start. Restaurant blocks only work inside my claimed space, so building half of my kitchen outside would be a bold but useless design choice.\nAs my restaurant level increases, I will unlock more areas.",
+          "text": "I can claim up to four areas at the start. My Reception, Service Tables and Chairs only count when they stand inside this space.\nAs my restaurant grows, I will be able to claim more land. For once, success comes with extra floor space.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

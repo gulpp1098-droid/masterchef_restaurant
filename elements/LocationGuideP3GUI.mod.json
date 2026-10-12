@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "If I ever decide that my first location was a terrible idea, I can choose “Move Restaurant Location” from the restaurant management menu.\nThe restaurant must be closed, with no customers still inside. I also need to be in the Overworld.",
+          "text": "If I ever decide that my first location was a terrible idea, the Golden Spatula can help me move my restaurant’s official grounds.\nI can only do this while the restaurant is closed, with no customers still inside.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

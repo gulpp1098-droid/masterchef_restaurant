@@ -81,13 +81,12 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.serve_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_are_the_heart_of_your",
-						"When an icon appears above a customer, they are ready to order. Speaking with them shows me everything they want and how much of it to prepare.\nI had better remember the details before returning to the kitchen."),
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_are_the_heart_of_your",
+				"Customers arrive in groups, wait in line and take an available table. Once seated, each customer places their own order.\nTheir patience falls while they wait. If it reaches zero, they leave. A hungry customer is rarely a patient one."),
 				-145, -84, 132, 161, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_a_customer_is_ready_you_wi",
-						"When an icon appears above a customer, I can interact with them to see every requested food and quantity.\nI must prepare those items first. The Preparation Station assembles orders \u2014 it does not cook them."),
+						"When an icon appears above a customer, they are ready to order. Speaking with them shows me everything they want and how much of it to prepare.\nI had better remember the details before returning to the kitchen."),
 				5, -84, 125, 126, -12829636, false, 1.00F, 0, 0);
 	}
 

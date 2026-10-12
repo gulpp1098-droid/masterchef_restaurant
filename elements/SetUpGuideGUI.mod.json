@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_service_tables_are_where_custome",
-          "text": "Service Tables need Chairs placed next to them. If I want to serve any orders, I will also need a Preparation Station somewhere nearby.\nWhen I open the restaurant, it will check my setup automatically. At minimum, it must find one valid Reception, one Service Table and one Chair. Ambitious? No. Functional? Barely.",
+          "text": "Service Tables need Chairs beside them, and I will need a Preparation Station somewhere nearby if I want to serve anything.\nMy first opening does not need to be grand. One Reception, one Service Table and one Chair are enough to welcome a customer. Ambitious? No. Functional? Barely.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

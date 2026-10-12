@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "What My RestaurantNeeds"
+            "fixedValue": "What My Restaurant Needs"
           },
           "color": {
             "value": -12829636,
@@ -203,7 +203,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_customers_can_visit_your",
-          "text": "An empty room and a dream are apparently not enough. To run this place properly, I need:\n_ Reception\n_ Service Table\n_ Chair\n_ Preparation Station\n_ Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula.",
+          "text": "An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

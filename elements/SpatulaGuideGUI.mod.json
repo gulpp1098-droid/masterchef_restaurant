@@ -141,7 +141,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_every_chef_needs_a_proper_tool",
-          "text": "I managed to craft this Golden Spatula with my own hands! With it, my restaurant can finally come to life. Using it opens my restaurant management menu. When choosing a location, I can use it on the ground to claim the highlighted area. I should keep it somewhere safe. Losing the most important tool before opening day would be an impressively bad start.",
+          "text": "I managed to craft this Golden Spatula with my own hands! With it, I can mark out land for my restaurant, expand it as the business grows and keep track of everything I have built.\nIt may be golden, but it still refuses to cook for me. I should keep it somewhere safe.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

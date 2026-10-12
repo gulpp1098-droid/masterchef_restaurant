@@ -107,7 +107,7 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_customers_can_visit_your",
-				"An empty room and a dream are apparently not enough. To run this place properly, I need:\n_ Reception\n_ Service Table\n_ Chair\n_ Preparation Station\n_ Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula."),
+				"An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula."),
 				-145, -84, 130, 40, -12829636, false, 1.00F, 0, 0);
 	}
 
