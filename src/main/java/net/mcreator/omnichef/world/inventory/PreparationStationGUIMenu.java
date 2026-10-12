@@ -32,7 +32,7 @@ public class PreparationStationGUIMenu extends AbstractContainerMenu implements 
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 8)
+			if (!this.containsKey(key) && this.size() >= 19)
 				return null;
 			return super.put(key, value);
 		}
@@ -89,37 +89,37 @@ public class PreparationStationGUIMenu extends AbstractContainerMenu implements 
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 38, 5) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 41, 5) {
 			private final int slot = 0;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 62, 19) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 67, 14) {
 			private final int slot = 1;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 62, 45) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 67, 43) {
 			private final int slot = 2;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
 		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 38, 61) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 41, 54) {
 			private final int slot = 3;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
 		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 15, 45) {
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 15, 43) {
 			private final int slot = 4;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
 		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 15, 19) {
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 15, 14) {
 			private final int slot = 5;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
 		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 120, 30) {
+		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 131, 28) {
 			private final int slot = 6;
 			private int x = PreparationStationGUIMenu.this.x;
 			private int y = PreparationStationGUIMenu.this.y;
