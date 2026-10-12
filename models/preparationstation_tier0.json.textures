@@ -3,7 +3,7 @@
     "default": {
       "name": "default",
       "map": {
-        "0": "texture_preparation_station_tier0"
+        "0": "texture_preparationstation_tier0"
       }
     }
   }
