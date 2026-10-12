@@ -38,13 +38,15 @@ public class SetSpatulaLocationModeTrueProcedure {
 					final boolean _tagValue = true;
 					CustomData.update(DataComponents.CUSTOM_DATA, (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
+				if (Owner instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("Right-click a block to add an area. Sneak + right-click to finish."), true);
 			} else {
-				if (Owner instanceof Player _player9 && !_player9.level().isClientSide())
-					_player9.displayClientMessage(Component.literal("You cannot edit your restaurant while it is open.").withStyle(ChatFormatting.RED), true);
+				if (Owner instanceof Player _player10 && !_player10.level().isClientSide())
+					_player10.displayClientMessage(Component.literal("You cannot edit your restaurant while it is open.").withStyle(ChatFormatting.RED), true);
 			}
 		} else {
-			if (Owner instanceof Player _player12 && !_player12.level().isClientSide())
-				_player12.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
+			if (Owner instanceof Player _player13 && !_player13.level().isClientSide())
+				_player13.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
 		}
 	}
 }

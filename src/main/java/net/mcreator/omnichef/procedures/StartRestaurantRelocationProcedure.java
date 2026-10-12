@@ -47,7 +47,7 @@ public class StartRestaurantRelocationProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal("Select a new base area for your restaurant. Right-click a block with the Golden Spatula."), true);
+					_player.displayClientMessage(Component.literal("Right-click a block to select a new base area. Sneak + right-click to cancel."), true);
 			}
 		}
 	}
