@@ -51,9 +51,6 @@ public class PreparationStationGUIScreen extends AbstractContainerScreen<Prepara
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
 		guiTools$orderedImages : {
-			if (this.enhanced_image_button_openclosebutton_icon != null && this.enhanced_image_button_openclosebutton_icon.visible) {
-				this.enhanced_image_button_openclosebutton_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -152,6 +149,9 @@ public class PreparationStationGUIScreen extends AbstractContainerScreen<Prepara
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/plateslot_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 66 + guiTools$xOffset, this.topPos + 42 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+			}
+			if (this.enhanced_image_button_openclosebutton_icon != null && this.enhanced_image_button_openclosebutton_icon.visible) {
+				this.enhanced_image_button_openclosebutton_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
 		}
 	}

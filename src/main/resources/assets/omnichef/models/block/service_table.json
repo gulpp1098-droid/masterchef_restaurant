@@ -1,9 +1,9 @@
 {
-  "parent": "omnichef:custom/blocktablenumber",
+  "parent": "omnichef:custom/servicetabletier0",
   "textures": {
-    "all": "omnichef:block/texturetablenosign",
-    "particle": "omnichef:block/texturetablenosign",
-    "0": "omnichef:block/texturetablenosign"
+    "all": "omnichef:block/texture_servicetable_tier0_textured",
+    "particle": "omnichef:block/texture_servicetable_tier0_textured",
+    "2": "omnichef:block/texture_servicetable_tier0_textured"
   },
   "render_type": "cutout"
 }

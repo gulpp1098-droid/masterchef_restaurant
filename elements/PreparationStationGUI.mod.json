@@ -138,30 +138,6 @@
         }
       },
       {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "preparation_station_button.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -13421773,
-            "falpha": 0.0
-          },
-          "textShadow": false,
-          "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_openclosebutton_icon",
-          "text": "Prepare",
-          "isUndecorated": true,
-          "onClick": "PrepareDishButtonClicked",
-          "width": 56,
-          "height": 18,
-          "x": 238,
-          "y": 88,
-          "locked": false
-        }
-      },
-      {
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_1",
@@ -290,6 +266,30 @@
           "height": 18,
           "x": 192,
           "y": 79,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "preparation_station_button.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -13421773,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_openclosebutton_icon",
+          "text": "Prepare",
+          "isUndecorated": true,
+          "onClick": "PrepareDishButtonClicked",
+          "width": 56,
+          "height": 18,
+          "x": 238,
+          "y": 88,
           "locked": false
         }
       }

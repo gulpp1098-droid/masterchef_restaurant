@@ -64,7 +64,7 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -61, this.topPos + -103, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -21, this.topPos + -103, 0, 0, 16, 16, 16, 16);
 		RenderSystem.disableBlend();
 	}
 
@@ -80,12 +80,12 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.set_up_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Now it is time to prepare your restaurant! You need at least:\n- 1 Reception\n- 1 Service Table\n- 1 Chair\nThe Reception starts your customer queue and creates the first Queue Rug automatically. Extra Queue Rugs extend the line and give more groups a place to wait.",
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_now_it_is_time_to_prepare_your_r",
+				"I have claimed enough space, so now I can turn it into something resembling a real restaurant.\nI should place the Reception first and leave enough room for its queue. The Reception, Service Tables and Chairs must remain inside my claimed areas."),
 				-145, -84, 132, 163, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				"Service Tables are where customer groups sit, eat and leave payment. Place Chairs next to a Service Table to create seats for that table. More Chairs allow it to serve larger groups. If a group does not fit, it will look for another available table.",
-				5, -84, 123, 141, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_service_tables_are_where_custome",
+				"Service Tables need Chairs placed next to them. If I want to serve any orders, I will also need a Preparation Station somewhere nearby.\nWhen I open the restaurant, it will check my setup automatically. At minimum, it must find one valid Reception, one Service Table and one Chair. Ambitious? No. Functional? Barely."),
+				5, -97, 123, 141, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -174,10 +174,8 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -214,49 +212,6 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

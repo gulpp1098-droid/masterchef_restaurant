@@ -2,156 +2,19 @@
   "_fv": 89,
   "_type": "block",
   "definition": {
-    "texture": "texturetablenosign",
+    "texture": "texture_servicetable_tier0_textured",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
     "textureRight": "",
     "textureBack": "",
     "renderType": 2,
-    "customModelName": "blocktablenumber:default",
+    "customModelName": "servicetabletier0:default",
     "rotationMode": 1,
     "enablePitch": false,
     "emissiveRendering": true,
     "displayFluidOverlay": false,
-    "states": [
-      {
-        "texture": "texturetablenosign",
-        "textureTop": "",
-        "textureLeft": "",
-        "textureFront": "",
-        "textureRight": "",
-        "textureBack": "",
-        "renderType": 2,
-        "customModelName": "blocktablenumber:a",
-        "particleTexture": "",
-        "hasCustomBoundingBox": false,
-        "boundingBoxes": [
-          {
-            "mx": 0.0,
-            "my": 0.0,
-            "mz": 0.0,
-            "Mx": 16.0,
-            "My": 16.0,
-            "Mz": 16.0,
-            "subtract": false
-          }
-        ],
-        "stateMap": [
-          {
-            "property": {
-              "min": 0,
-              "max": 3,
-              "name": "CUSTOM:table_type",
-              "type": "integer"
-            },
-            "value": 1
-          }
-        ]
-      },
-      {
-        "texture": "texturetableb",
-        "textureTop": "",
-        "textureLeft": "",
-        "textureFront": "",
-        "textureRight": "",
-        "textureBack": "",
-        "renderType": 2,
-        "customModelName": "blocktablenumber:b",
-        "particleTexture": "",
-        "hasCustomBoundingBox": false,
-        "boundingBoxes": [
-          {
-            "mx": 0.0,
-            "my": 0.0,
-            "mz": 0.0,
-            "Mx": 16.0,
-            "My": 16.0,
-            "Mz": 16.0,
-            "subtract": false
-          }
-        ],
-        "stateMap": [
-          {
-            "property": {
-              "min": 0,
-              "max": 3,
-              "name": "CUSTOM:table_type",
-              "type": "integer"
-            },
-            "value": 2
-          }
-        ]
-      },
-      {
-        "texture": "texturetablec",
-        "textureTop": "",
-        "textureLeft": "",
-        "textureFront": "",
-        "textureRight": "",
-        "textureBack": "",
-        "renderType": 2,
-        "customModelName": "blocktablenumber:c",
-        "particleTexture": "",
-        "hasCustomBoundingBox": false,
-        "boundingBoxes": [
-          {
-            "mx": 0.0,
-            "my": 0.0,
-            "mz": 0.0,
-            "Mx": 16.0,
-            "My": 16.0,
-            "Mz": 16.0,
-            "subtract": false
-          }
-        ],
-        "stateMap": [
-          {
-            "property": {
-              "min": 0,
-              "max": 3,
-              "name": "CUSTOM:table_type",
-              "type": "integer"
-            },
-            "value": 3
-          }
-        ]
-      },
-      {
-        "texture": "texturetablenosign",
-        "textureTop": "",
-        "textureLeft": "",
-        "textureFront": "",
-        "textureRight": "",
-        "textureBack": "",
-        "renderType": 2,
-        "customModelName": "blocktablenumber:default",
-        "particleTexture": "",
-        "hasCustomBoundingBox": false,
-        "boundingBoxes": [
-          {
-            "mx": 0.0,
-            "my": 0.0,
-            "mz": 0.0,
-            "Mx": 16.0,
-            "My": 16.0,
-            "Mz": 16.0,
-            "subtract": false
-          }
-        ],
-        "stateMap": [
-          {
-            "property": {
-              "min": 0,
-              "max": 3,
-              "name": "CUSTOM:table_type",
-              "type": "integer"
-            },
-            "value": 0
-          }
-        ]
-      }
-    ],
+    "states": [],
     "animations": [],
     "itemTexture": "servicetable_tier0",
     "particleTexture": "",

@@ -315,15 +315,11 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/omnichef/block/ServiceTableBlock.java",
-          "src/main/resources/assets/omnichef/models/block/service_table_1.json",
           "src/main/resources/assets/omnichef/blockstates/service_table.json",
-          "src/main/resources/assets/omnichef/models/block/service_table_2.json",
-          "src/main/resources/assets/omnichef/models/block/service_table_3.json",
           "src/main/resources/assets/omnichef/models/block/service_table.json",
           "src/main/resources/data/omnichef/loot_table/blocks/service_table.json",
           "src/main/resources/assets/omnichef/models/item/service_table.json",
-          "src/main/java/net/mcreator/omnichef/block/entity/ServiceTableBlockEntity.java",
-          "src/main/resources/assets/omnichef/models/block/service_table_0.json"
+          "src/main/java/net/mcreator/omnichef/block/entity/ServiceTableBlockEntity.java"
         ]
       },
       "path": "~/Restaurant Functioning/Blocks"
@@ -11131,10 +11127,10 @@
       "gui.omnichef.blocks_guide_gui.label_overview_wip": "What My RestaurantNeeds",
       "gui.omnichef.blocks_guide_p_2_gui.label_service_table": "Reception",
       "gui.omnichef.location_guide_gui.label_overview_wip": "Finding the Right Place",
-      "gui.omnichef.set_up_guide_gui.label_overview_wip": "Set up",
-      "gui.omnichef.open_guide_gui.label_inside_this_area_you_can": "Remember!",
+      "gui.omnichef.set_up_guide_gui.label_overview_wip": "Putting It All Together",
+      "gui.omnichef.open_guide_gui.label_inside_this_area_you_can": "Closing Time",
       "gui.omnichef.open_guide_gui.label_as_well_as_claim_area": "Remember!",
-      "gui.omnichef.open_guide_gui.label_overview_wip": "Open Restaurant",
+      "gui.omnichef.open_guide_gui.label_overview_wip": "Opening Day",
       "gui.omnichef.serve_guide_gui.label_overview_wip": "Serve Customers",
       "gui.omnichef.exp_level_guide_gui.label_as_well_as_claim_area": "Remember!",
       "gui.omnichef.exp_level_guide_gui.label_overview_wip": "Reputation and Coins",
@@ -11183,7 +11179,8 @@
       "item.omnichef.prepared_dish": "Prepared Dish",
       "block.omnichef.preparation_station": "Preparation Station",
       "gui.omnichef.blocks_guide_p_6_gui.label_service_table": "Preparation Station",
-      "gui.omnichef.location_guide_p_3_gui.label_overview_wip": "Moving Somewhere New"
+      "gui.omnichef.location_guide_p_3_gui.label_overview_wip": "Moving Somewhere New",
+      "gui.omnichef.open_guide_gui.label_inside_this_area_you_can_copy": "Opening Hours"
     }
   },
   "metadata": {

@@ -95,7 +95,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Set up"
+            "fixedValue": "Putting It All Together"
           },
           "color": {
             "value": -12829636,
@@ -112,7 +112,7 @@
         "data": {
           "image": "hammer_icon.png",
           "use1Xscale": false,
-          "x": 153,
+          "x": 193,
           "y": 17,
           "locked": false
         }
@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_now_it_is_time_to_prepare_your_r",
-          "text": "Now it is time to prepare your restaurant! You need at least:\n- 1 Reception\n- 1 Service Table\n- 1 Chair\nThe Reception starts your customer queue and creates the first Queue Rug automatically. Extra Queue Rugs extend the line and give more groups a place to wait.",
+          "text": "I have claimed enough space, so now I can turn it into something resembling a real restaurant.\nI should place the Reception first and leave enough room for its queue. The Reception, Service Tables and Chairs must remain inside my claimed areas.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_service_tables_are_where_custome",
-          "text": "Service Tables are where customer groups sit, eat and leave payment. Place Chairs next to a Service Table to create seats for that table. More Chairs allow it to serve larger groups. If a group does not fit, it will look for another available table.",
+          "text": "Service Tables need Chairs placed next to them. If I want to serve any orders, I will also need a Preparation Station somewhere nearby.\nWhen I open the restaurant, it will check my setup automatically. At minimum, it must find one valid Reception, one Service Table and one Chair. Ambitious? No. Functional? Barely.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -155,7 +155,7 @@
           "width": 123,
           "height": 141,
           "x": 219,
-          "y": 36,
+          "y": 23,
           "locked": false
         }
       }

@@ -3,7 +3,7 @@
     "default": {
       "name": "default",
       "map": {
-        "0": "texturechair"
+        "2": "texture_servicetable_tier0_textured"
       }
     }
   }
