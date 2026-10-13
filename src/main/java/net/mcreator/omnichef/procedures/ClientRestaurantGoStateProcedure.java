@@ -24,7 +24,7 @@ public class ClientRestaurantGoStateProcedure {
 		double RecZ = 0;
 		client = entity;
 		goToString = client.getPersistentData().getString("last_rug");
-		RugX = new Object() {
+		RugX = Math.floor(new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());
@@ -32,7 +32,7 @@ public class ClientRestaurantGoStateProcedure {
 				}
 				return 0;
 			}
-		}.convert(GetPartFromStringProcedure.execute(0, goToString));
+		}.convert(GetPartFromStringProcedure.execute(0, goToString)));
 		RugY = new Object() {
 			double convert(String s) {
 				try {
@@ -42,7 +42,7 @@ public class ClientRestaurantGoStateProcedure {
 				return 0;
 			}
 		}.convert(GetPartFromStringProcedure.execute(1, goToString));
-		RugZ = new Object() {
+		RugZ = Math.floor(new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());
@@ -50,7 +50,7 @@ public class ClientRestaurantGoStateProcedure {
 				}
 				return 0;
 			}
-		}.convert(GetPartFromStringProcedure.execute(2, goToString));
+		}.convert(GetPartFromStringProcedure.execute(2, goToString)));
 		if (!getBlockNBTLogic(world, BlockPos.containing(RugX, RugY, RugZ), "occupied")) {
 			if (!(Math.floor(client.getX()) == RugX && Math.floor(client.getZ()) == RugZ && Math.abs(client.getY() - RugY) < 0.5)) {
 				if (client instanceof Mob _entity)
