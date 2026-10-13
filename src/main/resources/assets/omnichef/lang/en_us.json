@@ -89,7 +89,7 @@
   "gui.omnichef.blocks_guide_p_3_gui.label_service_table": "Service Table",
   "gui.omnichef.blocks_guide_p_4_gui.label_service_table": "Chair",
   "gui.omnichef.blocks_guide_p_5_gui.label_service_table": "Queue Rug",
-  "gui.omnichef.chefs_diary_menu_gui.label_food_wip": "Menu",
+  "gui.omnichef.chefs_diary_menu_gui.label_food_wip": "My Menus",
   "gui.omnichef.chefs_diary_menu_gui.label_current_menu_copy": "Incoming menu",
   "gui.omnichef.chefs_diary_menu_gui.label_current_menu": "Current Menu",
   "gui.omnichef.chefs_diary_tips_gui.label_food_wip_copy": "Closing Early",
@@ -104,5 +104,9 @@
   "gui.omnichef.blocks_guide_p_6_gui.label_service_table": "Preparation Station",
   "gui.omnichef.location_guide_p_3_gui.label_overview_wip": "Moving Somewhere New",
   "gui.omnichef.open_guide_gui.label_inside_this_area_you_can_copy": "Opening Hours",
-  "gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip_copy": "Today's Results"
+  "gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip_copy": "Today's Results",
+  "gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip": "Discovering Dishes",
+  "gui.omnichef.chefs_diary_menu_p_2_gui.label_current_menu_copy": "Incoming menu",
+  "gui.omnichef.chefs_diary_menu_p_2_gui.label_current_menu": "Current Menu",
+  "gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip_copy": "Food Tiers"
 }

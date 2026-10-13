@@ -61,10 +61,10 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
-			String guiTools$sizedLabelText0 = java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), "");
+			String guiTools$sizedLabelText0 = menu.getMenuState(0, "gui_tools:sized:restaurant_s_name", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -145 && mouseX < this.leftPos + -15 && mouseY >= this.topPos + -74 && mouseY < this.topPos + -64 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 130, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
-			String guiTools$sizedLabelText1 = java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), "");
+			String guiTools$sizedLabelText1 = menu.getMenuState(0, "gui_tools:sized:restaurant_s_owner", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -145 && mouseX < this.leftPos + -15 && mouseY >= this.topPos + -61 && mouseY < this.topPos + -51 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 130, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
 		}
@@ -100,9 +100,11 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		guiGraphics.drawString(this.font, ReturnRestaurantCloseTimeProcedure.execute(entity), -145, -22, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_stats_gui.label_restaurant_stars"), 5, -98, -12829636, false);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), ""), -145, -74, 130, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_name", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), "")), -145, -74, 130,
+					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), ""), -145, -61, 130, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_owner", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), "")), -145, -61, 130,
+					-12829636, false, 1.00F, 2);
 	}
 
 	@Override

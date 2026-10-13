@@ -36,7 +36,7 @@
           "name": "imagebutton_base_icon",
           "image": "base_icon.png",
           "hoveredImage": "",
-          "onClick": "ChefsDiaryMenu",
+          "onClick": "ChefsDiaryGUIOpen",
           "x": 361,
           "y": 22,
           "locked": false
@@ -95,7 +95,7 @@
         "data": {
           "name": "label_food_wip",
           "text": {
-            "fixedValue": "Menu"
+            "fixedValue": "My Menus"
           },
           "color": {
             "value": -12829636,
@@ -111,7 +111,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_food_is_categoried_into_multiple",
-          "text": "Your restaurant uses two menus: the Current Menu and the Incoming Menu. When a new shift begins, the Incoming Menu becomes the new Current Menu and a new Incoming Menu is generated. As your restaurant grows, more dishes and higher Food Tiers can appear on your menus.",
+          "text": "I keep two menus: one for today and one for next time. Planning ahead keeps the kitchen panic manageable.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -122,7 +122,7 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 126,
-          "height": 43,
+          "height": 52,
           "x": 74,
           "y": 33,
           "locked": false
@@ -144,6 +144,7 @@
           "name": "enhanced_image_button_next_page_icon",
           "text": "",
           "isUndecorated": true,
+          "onClick": "ChefsDiaryFood",
           "width": 16,
           "height": 16,
           "x": 79,
@@ -172,7 +173,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_contains_the_dishes_your_custome",
-          "text": "Contains the dishes your customers can order during the current shift.",
+          "text": "These are the dishes my guests may order today. If it is written here, I had better be ready.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -210,7 +211,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_contains_the_dishes_your_custome_copy",
-          "text": "Shows what will be available during the next shift, giving you time to prepare the required food in advance.",
+          "text": "These dishes are planned for my next opening. When the day is truly over, they become my Current Menu and a new plan takes their place.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -221,9 +222,33 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 125,
-          "height": 40,
+          "height": 74,
           "x": 221,
           "y": 97,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_next_page_icon_copy",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryMenuP2",
+          "width": 16,
+          "height": 16,
+          "x": 322,
+          "y": 177,
           "locked": false
         }
       }

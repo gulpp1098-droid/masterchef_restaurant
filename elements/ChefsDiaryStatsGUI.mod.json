@@ -50,7 +50,7 @@
           "name": "imagebutton_base_icon",
           "image": "base_icon.png",
           "hoveredImage": "",
-          "onClick": "ChefsDiaryMenu",
+          "onClick": "ChefsDiaryGUIOpen",
           "x": 361,
           "y": 22,
           "locked": false

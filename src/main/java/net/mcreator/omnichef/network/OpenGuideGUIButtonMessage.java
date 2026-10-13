@@ -16,7 +16,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
 import net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryMenuProcedure;
+import net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure;
 import net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure;
 import net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure;
 import net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure;
@@ -53,7 +53,7 @@ public record OpenGuideGUIButtonMessage(int buttonID, int x, int y, int z) imple
 			return;
 		if (buttonID == 0) {
 
-			ChefsDiaryMenuProcedure.execute(world, x, y, z, entity);
+			ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 

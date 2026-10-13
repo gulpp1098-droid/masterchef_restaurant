@@ -49,7 +49,7 @@ public record LocationGuideGUIButtonMessage(int buttonID, int x, int y, int z) i
 			return;
 		if (buttonID == 0) {
 
-			ChefsDiaryMenuProcedure.execute(world, x, y, z, entity);
+			ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 

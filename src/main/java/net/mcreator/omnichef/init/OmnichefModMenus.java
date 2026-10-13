@@ -57,6 +57,7 @@ public class OmnichefModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<PreparationStationGUIMenu>> PREPARATION_STATION_GUI = REGISTRY.register("preparation_station_gui", () -> IMenuTypeExtension.create(PreparationStationGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlocksGuideP6GUIMenu>> BLOCKS_GUIDE_P_6_GUI = REGISTRY.register("blocks_guide_p_6_gui", () -> IMenuTypeExtension.create(BlocksGuideP6GUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<LocationGuideP3GUIMenu>> LOCATION_GUIDE_P_3_GUI = REGISTRY.register("location_guide_p_3_gui", () -> IMenuTypeExtension.create(LocationGuideP3GUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChefsDiaryMenuP2GUIMenu>> CHEFS_DIARY_MENU_P_2_GUI = REGISTRY.register("chefs_diary_menu_p_2_gui", () -> IMenuTypeExtension.create(ChefsDiaryMenuP2GUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();
