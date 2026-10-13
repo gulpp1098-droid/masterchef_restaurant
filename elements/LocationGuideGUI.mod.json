@@ -121,7 +121,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_placing_down_your_blocks",
-          "text": "Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant.",
+          "text": "Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant.\nWhen I am done, sneaking and right-clicking puts my spatula back to normal.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

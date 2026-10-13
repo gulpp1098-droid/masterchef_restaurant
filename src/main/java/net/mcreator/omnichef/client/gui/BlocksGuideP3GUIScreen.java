@@ -98,7 +98,7 @@ public class BlocksGuideP3GUIScreen extends AbstractContainerScreen<BlocksGuideP
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_p_3_gui.label_service_table"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_will_gladly_come_and_e",
-				"Customer groups are assigned to Service Tables, and this is where I collect their payment after the meal.\nI can only use a limited number of active tables at once, but that limit increases with my restaurant level. More tables mean more guests \u2014 as long as I can actually keep up."),
+				"My guests share their meal around a Service Table. Once they have finished, this is where I collect their payment.\nAs my restaurant grows, I can keep more tables in service at once. More tables mean more hungry guests, so I should only take on as many as I can look after."),
 				-145, -84, 129, 41, -12829636, false, 1.00F, 0, 0);
 	}
 

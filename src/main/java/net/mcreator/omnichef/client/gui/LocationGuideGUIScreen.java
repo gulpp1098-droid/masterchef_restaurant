@@ -81,9 +81,8 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.location_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics,
-				menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
-						"Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant."),
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
+				"Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant.\nWhen I am done, sneaking and right-clicking puts my spatula back to normal."),
 				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
 				"I can claim up to four areas at the start. My Reception, Service Tables and Chairs only count when they stand inside this space.\nAs my restaurant grows, I will be able to claim more land. For once, success comes with extra floor space."),

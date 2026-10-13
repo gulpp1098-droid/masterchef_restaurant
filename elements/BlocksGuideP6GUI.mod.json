@@ -143,7 +143,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_will_gladly_come_and_e",
-          "text": "Once the food is ready, I need to place everything requested by the customer in the Preparation Station.\nIt combines the completed order into one Prepared Dish that I can carry to the customer.\nThe amounts must match the order exactly. Extra food is not generosity — it lowers satisfaction.",
+          "text": "Once the food is ready, I gather everything one guest ordered at my Preparation Station and put their meal together.\nThen I can carry the whole serving to their table. I need to get the amounts right. Adding extra food might seem generous, but a meal that does not match the order leaves my guest less satisfied.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

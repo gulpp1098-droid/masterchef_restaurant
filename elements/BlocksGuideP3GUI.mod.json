@@ -155,7 +155,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_customers_will_gladly_come_and_e",
-          "text": "Customer groups are assigned to Service Tables, and this is where I collect their payment after the meal.\nI can only use a limited number of active tables at once, but that limit increases with my restaurant level. More tables mean more guests — as long as I can actually keep up.",
+          "text": "My guests share their meal around a Service Table. Once they have finished, this is where I collect their payment.\nAs my restaurant grows, I can keep more tables in service at once. More tables mean more hungry guests, so I should only take on as many as I can look after.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

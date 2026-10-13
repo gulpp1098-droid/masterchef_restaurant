@@ -86,8 +86,8 @@ public class LocationGuideP3GUIScreen extends AbstractContainerScreen<LocationGu
 						"If I ever decide that my first location was a terrible idea, the Golden Spatula can help me move my restaurant\u2019s official grounds.\nI can only do this while the restaurant is closed, with no customers still inside."),
 				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
-				"After I select a new base area with the Golden Spatula, my previous claimed areas are replaced.\nThe old building and furniture will stay where they are, but I will need to place a new Reception and claim the rest of my new space. Buildings do not move just because I changed my mind."),
-				5, -97, 124, 149, -12829636, false, 1.00F, 0, 0);
+				"Once I commit to the move, my new home replaces all the land I previously claimed.\nThe old building and furniture will stay where they are, but I will need to place a new Reception and claim the rest of my new space. Buildings do not move just because I changed my mind."),
+				4, -98, 124, 149, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

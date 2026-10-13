@@ -142,7 +142,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_after_that_you_can_claim_3_more",
-          "text": "After I select a new base area with the Golden Spatula, my previous claimed areas are replaced.\nThe old building and furniture will stay where they are, but I will need to place a new Reception and claim the rest of my new space. Buildings do not move just because I changed my mind.",
+          "text": "Once I commit to the move, my new home replaces all the land I previously claimed.\nThe old building and furniture will stay where they are, but I will need to place a new Reception and claim the rest of my new space. Buildings do not move just because I changed my mind.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -154,8 +154,8 @@
           "alignment": "LEFT",
           "width": 124,
           "height": 149,
-          "x": 219,
-          "y": 23,
+          "x": 218,
+          "y": 22,
           "locked": false
         }
       },
