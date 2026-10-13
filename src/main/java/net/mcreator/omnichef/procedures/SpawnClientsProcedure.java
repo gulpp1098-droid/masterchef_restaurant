@@ -7,11 +7,11 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandSource;
 import net.minecraft.ChatFormatting;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
@@ -187,9 +187,12 @@ public class SpawnClientsProcedure {
 										indexMembers = indexMembers + 1;
 									}
 									if (owner != null) {
-										if (world instanceof Level _level) {
-											if (_level.isClientSide()) {
-												_level.playLocalSound((owner.getX()), (owner.getY()), (owner.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("omnichef:clientring")), SoundSource.MASTER, 1, 1, false);
+										{
+											Entity _ent = owner;
+											if (!_ent.level().isClientSide() && _ent.getServer() != null) {
+												_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(),
+														_ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4, _ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent),
+														"playsound omnichef:clientring master @s ~ ~ ~ 1 1");
 											}
 										}
 									}
@@ -216,8 +219,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player70 && !_player70.level().isClientSide())
-										_player70.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player67 && !_player67.level().isClientSide())
+										_player67.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}

@@ -42,10 +42,10 @@ public class RecipesInfoGUIScreen extends AbstractContainerScreen<RecipesInfoGUI
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
-			String guiTools$sizedLabelText0 = java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeTierProcedure.execute(entity), "");
+			String guiTools$sizedLabelText0 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_recipe_tier_1", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeTierProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -57 && mouseX < this.leftPos + 55 && mouseY >= this.topPos + -63 && mouseY < this.topPos + -53 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 112, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
-			String guiTools$sizedLabelText1 = java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeDiscoveryExpProcedure.execute(entity), "");
+			String guiTools$sizedLabelText1 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_recipe_tier_1_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeDiscoveryExpProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -57 && mouseX < this.leftPos + 61 && mouseY >= this.topPos + -48 && mouseY < this.topPos + -38 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 118, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
 		}
@@ -87,9 +87,12 @@ public class RecipesInfoGUIScreen extends AbstractContainerScreen<RecipesInfoGUI
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.recipes_info_gui.label_recipes_info"), -30, -80, -12829636, false);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeTierProcedure.execute(entity), ""), -57, -63, 112, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_recipe_tier_1", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeTierProcedure.execute(entity), "")), -57, -63,
+					112, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeDiscoveryExpProcedure.execute(entity), ""), -57, -48, 118, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics,
+					menu.getMenuState(0, "gui_tools:sized:sized_text_label_recipe_tier_1_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRecipeDiscoveryExpProcedure.execute(entity), "")), -57, -48, 118, -12829636, false,
+					1.00F, 2);
 	}
 
 	@Override

@@ -10,9 +10,9 @@ public class ClientOnEntityTickUpdateProcedure {
 		if (entity == null)
 			return;
 		Entity client = null;
-		ClientAnimationSetUpProcedure.execute(entity);
 		client = entity;
 		if (!world.isClientSide()) {
+			ClientAnimationSetUpProcedure.execute(entity);
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);

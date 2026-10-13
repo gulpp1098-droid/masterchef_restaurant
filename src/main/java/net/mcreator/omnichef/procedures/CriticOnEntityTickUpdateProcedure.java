@@ -10,9 +10,9 @@ public class CriticOnEntityTickUpdateProcedure {
 		if (entity == null)
 			return;
 		Entity client = null;
-		CriticAnimationSetUpProcedure.execute(entity);
 		client = entity;
 		if (!world.isClientSide()) {
+			CriticAnimationSetUpProcedure.execute(entity);
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);

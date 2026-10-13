@@ -83,8 +83,8 @@ public class RelocateConfirmationGUIScreen extends AbstractContainerScreen<Reloc
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		this.guiTools$renderMultilineLabel(guiGraphics, "Your restaurant progress will be preserved. All current restaurant areas will be replaced by the selected base area. The current Reception and Queue Rugs will be detached.", -97, -69, 205, 51,
-				-12829636, false, 1.00F, 0, 3);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_your_restaurant_progress_will_be",
+				"Your restaurant progress will be preserved. All current restaurant areas will be replaced by the selected base area. The current Reception and Queue Rugs will be detached."), -97, -69, 205, 51, -12829636, false, 1.00F, 0, 3);
 	}
 
 	@Override
@@ -188,10 +188,8 @@ public class RelocateConfirmationGUIScreen extends AbstractContainerScreen<Reloc
 		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
 			return;
 		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
 		int lineStep = this.font.lineHeight + 1;
-		int maxLines = contentHeight < this.font.lineHeight ? 0 : 1 + (contentHeight - this.font.lineHeight) / lineStep;
-		String cacheKey = text + "\u0000" + wrapWidth + "\u0000" + maxLines + "\u0000" + overflowMode;
+		String cacheKey = text + "\u0000" + wrapWidth;
 		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
 				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
 		if (this.guiTools$multilineCache.size() > 64)
@@ -228,49 +226,6 @@ public class RelocateConfirmationGUIScreen extends AbstractContainerScreen<Reloc
 			if (clip)
 				guiGraphics.disableScissor();
 		}
-	}
-
-	private boolean guiTools$isMultilineTruncated(String text, int boxWidth, int boxHeight, float scale, int overflowMode) {
-		if (text == null || overflowMode == 0 || scale <= 0.0F)
-			return false;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int contentHeight = Math.max(0, (int) Math.floor(boxHeight / scale));
-		java.util.List<String> lines = this.guiTools$wrapMultilineText(text, wrapWidth);
-		for (String line : lines)
-			if (this.font.width(line) > wrapWidth)
-				return true;
-		return !lines.isEmpty() && this.font.lineHeight + (lines.size() - 1) * (this.font.lineHeight + 1) > contentHeight;
-	}
-
-	private java.util.List<String> guiTools$displayMultilineText(String text, int wrapWidth, int maxLines, int overflowMode) {
-		java.util.List<String> wrapped = this.guiTools$wrapMultilineText(text, wrapWidth);
-		if (overflowMode != 2)
-			return wrapped;
-		if (maxLines <= 0)
-			return java.util.List.of();
-		boolean verticalOverflow = wrapped.size() > maxLines;
-		java.util.List<String> result = new java.util.ArrayList<>();
-		for (int index = 0; index < Math.min(maxLines, wrapped.size()); index++) {
-			result.add(this.guiTools$ellipsize(wrapped.get(index), wrapWidth, verticalOverflow && index == maxLines - 1));
-		}
-		return java.util.List.copyOf(result);
-	}
-
-	private String guiTools$ellipsize(String value, int maxWidth, boolean forceEllipsis) {
-		if (!forceEllipsis && this.font.width(value) <= maxWidth)
-			return value;
-		String ellipsis = "…";
-		if (this.font.width(ellipsis) > maxWidth)
-			return "";
-		int low = 0, high = value.length();
-		while (low < high) {
-			int middle = (low + high + 1) >>> 1;
-			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
-				low = middle;
-			else
-				high = middle - 1;
-		}
-		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {

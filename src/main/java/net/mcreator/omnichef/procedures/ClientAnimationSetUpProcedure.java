@@ -20,7 +20,7 @@ public class ClientAnimationSetUpProcedure {
 			if (client instanceof ClientEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(ClientEntity.DATA_Eat, false);
 		} else if (client.isPassenger()) {
-			if (client.getPersistentData().getBoolean("food_eat")) {
+			if ((client.getPersistentData().getString("state")).equals("food_eat")) {
 				if (client instanceof ClientEntity _datEntSetL)
 					_datEntSetL.getEntityData().set(ClientEntity.DATA_Walk, false);
 				if (client instanceof ClientEntity _datEntSetL)

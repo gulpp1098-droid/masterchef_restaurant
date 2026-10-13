@@ -8,6 +8,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
+import net.mcreator.omnichef.client.model.ModelRestaurantEdge;
+import net.mcreator.omnichef.client.model.ModelRestaurantArea;
 import net.mcreator.omnichef.client.model.ModelCriticBase;
 import net.mcreator.omnichef.client.model.ModelClientBase;
 import net.mcreator.omnichef.client.model.ModelChairMob;
@@ -19,5 +21,7 @@ public class OmnichefModModels {
 		event.registerLayerDefinition(ModelChairMob.LAYER_LOCATION, ModelChairMob::createBodyLayer);
 		event.registerLayerDefinition(ModelCriticBase.LAYER_LOCATION, ModelCriticBase::createBodyLayer);
 		event.registerLayerDefinition(ModelClientBase.LAYER_LOCATION, ModelClientBase::createBodyLayer);
+		event.registerLayerDefinition(ModelRestaurantArea.LAYER_LOCATION, ModelRestaurantArea::createBodyLayer);
+		event.registerLayerDefinition(ModelRestaurantEdge.LAYER_LOCATION, ModelRestaurantEdge::createBodyLayer);
 	}
 }

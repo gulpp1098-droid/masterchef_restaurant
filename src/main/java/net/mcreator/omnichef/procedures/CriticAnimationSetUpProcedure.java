@@ -20,7 +20,7 @@ public class CriticAnimationSetUpProcedure {
 			if (client instanceof CriticEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(CriticEntity.DATA_Eat, false);
 		} else if (client.isPassenger()) {
-			if (entity.getPersistentData().getBoolean("food_eat")) {
+			if ((client.getPersistentData().getString("state")).equals("food_eat")) {
 				if (client instanceof CriticEntity _datEntSetL)
 					_datEntSetL.getEntityData().set(CriticEntity.DATA_Walk, false);
 				if (client instanceof CriticEntity _datEntSetL)
