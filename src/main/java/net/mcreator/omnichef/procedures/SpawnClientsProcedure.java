@@ -7,7 +7,9 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.ChatFormatting;
@@ -184,6 +186,13 @@ public class SpawnClientsProcedure {
 										Client.getPersistentData().putDouble("stuckCounter", 10);
 										indexMembers = indexMembers + 1;
 									}
+									if (owner != null) {
+										if (world instanceof Level _level) {
+											if (_level.isClientSide()) {
+												_level.playLocalSound((owner.getX()), (owner.getY()), (owner.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("omnichef:clientring")), SoundSource.MASTER, 1, 1, false);
+											}
+										}
+									}
 									ModifyClientGroupLogicParameterProcedure.execute(true, nextSpawnGroupIndex, clientDatabaseIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name,
 											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "groups", "spawned");
 									singleGroup.addProperty("spawned", true);
@@ -207,8 +216,8 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
 									}
 								} else {
-									if (owner instanceof Player _player66 && !_player66.level().isClientSide())
-										_player66.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player70 && !_player70.level().isClientSide())
+										_player70.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}

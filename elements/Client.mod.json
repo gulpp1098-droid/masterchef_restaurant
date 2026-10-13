@@ -43,6 +43,13 @@
         "condition": "ClientAnimationIdle",
         "walking": false,
         "amplitude": 1.0
+      },
+      {
+        "animation": "CUSTOM:ModelClientBaseAnimation.Eat",
+        "speed": 1.0,
+        "condition": "ClientAnimationEat",
+        "walking": false,
+        "amplitude": 1.0
       }
     ],
     "modelWidth": 0.6,
@@ -130,6 +137,11 @@
       },
       {
         "name": "Idle",
+        "type": "logic",
+        "value": false
+      },
+      {
+        "name": "Eat",
         "type": "logic",
         "value": false
       }

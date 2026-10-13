@@ -41,6 +41,7 @@ public class OmnichefMod {
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
+		OmnichefModSounds.REGISTRY.register(modEventBus);
 		OmnichefModBlocks.REGISTRY.register(modEventBus);
 		OmnichefModBlockEntities.REGISTRY.register(modEventBus);
 		OmnichefModItems.REGISTRY.register(modEventBus);

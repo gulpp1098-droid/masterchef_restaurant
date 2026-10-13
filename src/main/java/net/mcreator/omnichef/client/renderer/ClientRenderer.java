@@ -7,6 +7,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.HierarchicalModel;
 
 import net.mcreator.omnichef.entity.ClientEntity;
+import net.mcreator.omnichef.client.model.animations.ModelClientBaseAnimation;
 import net.mcreator.omnichef.client.model.animations.ClientNewAnimation;
 import net.mcreator.omnichef.client.model.ModelClientBase;
 
@@ -38,6 +39,7 @@ public class ClientRenderer extends MobRenderer<ClientEntity, ModelClientBase<Cl
 				this.animate(entity.animationState0, ClientNewAnimation.Walk, ageInTicks, 1f);
 				this.animate(entity.animationState1, ClientNewAnimation.Sit, ageInTicks, 1.5f);
 				this.animate(entity.animationState2, ClientNewAnimation.Idle, ageInTicks, 1f);
+				this.animate(entity.animationState3, ModelClientBaseAnimation.Eat, ageInTicks, 1f);
 			}
 		};
 

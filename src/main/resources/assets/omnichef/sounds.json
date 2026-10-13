@@ -1,0 +1,11 @@
+{
+  "clientring": {
+    "subtitle": "subtitles.clientring",
+    "sounds": [
+      {
+        "name": "omnichef:bellhand_small_bell_1_id_0292_bigsoundbank.com",
+        "stream": false
+      }
+    ]
+  }
+}

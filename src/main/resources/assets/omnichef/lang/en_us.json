@@ -112,5 +112,6 @@
   "gui.omnichef.chefs_diary_food_gui.label_food_wip_copy": "Browse by Tier",
   "gui.omnichef.chefs_diary_clients_gui.label_clients_wip_copy": "Keeping Them Happy",
   "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy": "Preparation Station",
-  "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy": "Before It Leaves Kitchen"
+  "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy": "Before It Leaves Kitchen",
+  "subtitles.clientring": "Client comes"
 }

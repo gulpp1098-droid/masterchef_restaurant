@@ -10960,6 +10960,46 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "ClientAnimationEat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "client_animation_eat",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ClientAnimationEatProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures/Animations Procedures"
+    },
+    {
+      "name": "CriticAnimationEat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "critic_animation_eat",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CriticAnimationEatProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
     }
   ],
   "variable_elements": [
@@ -11144,7 +11184,16 @@
       "value": "0"
     }
   ],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "clientring",
+      "files": [
+        "bellhand_small_bell_1_id_0292_bigsoundbank.com"
+      ],
+      "category": "master",
+      "subtitle": "Client comes"
+    }
+  ],
   "tag_elements": {
     "ITEMS:minecraft:piglin_loved": [
       "~GoldCoin@CUSTOM:GoldCoin"
@@ -11266,7 +11315,8 @@
       "gui.omnichef.chefs_diary_food_gui.label_food_wip_copy": "Browse by Tier",
       "gui.omnichef.chefs_diary_clients_gui.label_clients_wip_copy": "Keeping Them Happy",
       "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy": "Preparation Station",
-      "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy": "Before It Leaves Kitchen"
+      "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy": "Before It Leaves Kitchen",
+      "subtitles.clientring": "Client comes"
     }
   },
   "metadata": {
@@ -11282,6 +11332,7 @@
       "src/main/java/net/mcreator/omnichef/init/OmnichefModEntities.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModEntityRenderers.java",
       "src/main/java/net/mcreator/omnichef/world/TeleportBlockHandler.java",
+      "src/main/resources/assets/omnichef/sounds.json",
       "src/main/java/net/mcreator/omnichef/entity/CustomFireballEntity.java",
       "src/main/java/net/mcreator/omnichef/ai/OrbitPositionGoal.java",
       "src/main/java/net/mcreator/omnichef/math/CallCooldownManager.java",
@@ -11310,6 +11361,7 @@
       "src/main/java/net/mcreator/omnichef/world/PortalSavedData.java",
       "src/main/java/net/mcreator/omnichef/OmnichefMod.java",
       "src/main/java/net/mcreator/omnichef/network/CameraShakePayload.java",
+      "src/main/java/net/mcreator/omnichef/init/OmnichefModSounds.java",
       "src/main/java/net/mcreator/omnichef/ai/MoveToBlockGoal.java"
     ]
   },

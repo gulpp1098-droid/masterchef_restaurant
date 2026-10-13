@@ -17,13 +17,28 @@ public class ClientAnimationSetUpProcedure {
 				_datEntSetL.getEntityData().set(ClientEntity.DATA_Sit, false);
 			if (client instanceof ClientEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(ClientEntity.DATA_Idle, false);
+			if (client instanceof ClientEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(ClientEntity.DATA_Eat, false);
 		} else if (client.isPassenger()) {
-			if (client instanceof ClientEntity _datEntSetL)
-				_datEntSetL.getEntityData().set(ClientEntity.DATA_Walk, false);
-			if (client instanceof ClientEntity _datEntSetL)
-				_datEntSetL.getEntityData().set(ClientEntity.DATA_Sit, true);
-			if (client instanceof ClientEntity _datEntSetL)
-				_datEntSetL.getEntityData().set(ClientEntity.DATA_Idle, false);
+			if (client.getPersistentData().getBoolean("food_eat")) {
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Walk, false);
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Sit, false);
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Idle, false);
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Eat, true);
+			} else {
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Walk, false);
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Sit, true);
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Idle, false);
+				if (client instanceof ClientEntity _datEntSetL)
+					_datEntSetL.getEntityData().set(ClientEntity.DATA_Eat, false);
+			}
 		} else {
 			if (client instanceof ClientEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(ClientEntity.DATA_Walk, false);
@@ -31,6 +46,8 @@ public class ClientAnimationSetUpProcedure {
 				_datEntSetL.getEntityData().set(ClientEntity.DATA_Sit, false);
 			if (client instanceof ClientEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(ClientEntity.DATA_Idle, true);
+			if (client instanceof ClientEntity _datEntSetL)
+				_datEntSetL.getEntityData().set(ClientEntity.DATA_Eat, false);
 		}
 	}
 }
