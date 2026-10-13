@@ -20,7 +20,7 @@
             "name": "ReturnRestaurantStars"
           },
           "x": 242,
-          "y": 45,
+          "y": 36,
           "locked": false
         }
       },
@@ -109,7 +109,7 @@
         "data": {
           "name": "label_stats_wip",
           "text": {
-            "fixedValue": "Stats"
+            "fixedValue": "My Restaurant"
           },
           "color": {
             "value": -12829636,
@@ -145,7 +145,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 72,
+          "y": 141,
           "locked": false
         }
       },
@@ -163,7 +163,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 85,
+          "y": 156,
           "locked": false
         }
       },
@@ -181,7 +181,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 98,
+          "y": 169,
           "locked": false
         }
       },
@@ -190,7 +190,7 @@
         "data": {
           "name": "label_restaurant_stars",
           "text": {
-            "fixedValue": "Restaurant stars"
+            "fixedValue": "My Stars"
           },
           "color": {
             "value": -12829636,
@@ -219,7 +219,7 @@
           "width": 130,
           "height": 10,
           "x": 69,
-          "y": 46,
+          "y": 117,
           "locked": false
         }
       },
@@ -240,7 +240,49 @@
           "width": 130,
           "height": 10,
           "x": 69,
-          "y": 59,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_a_little_record_of_how_far_my_re",
+          "text": "A little record of how far my restaurant has come. Every busy shift adds another chapter, though some days are better left out of the story.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 134,
+          "height": 69,
+          "x": 69,
+          "y": 45,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_these_stars_mark_the_milestones",
+          "text": "These stars mark the milestones along my restaurant's journey. \nWhen my reputation reaches the next milestone, I need to impress a critic before I can keep climbing. Until then, there is always another meal worth getting right.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 121,
+          "height": 111,
+          "x": 218,
+          "y": 64,
           "locked": false
         }
       }

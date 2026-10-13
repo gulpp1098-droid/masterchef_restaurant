@@ -77,7 +77,14 @@ public class ChefsDiaryApplienceGUIScreen extends AbstractContainerScreen<ChefsD
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_applience_gui.label_appliences_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy"), 5, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_my_preparation_station_is_where",
+				"My Preparation Station is where cooked food becomes a meal ready for the table. I bring the food here first; this counter does not cook it for me.\nI gather what one guest ordered, check the amounts, and put their meal together. Even friends sharing a table deserve their own serving.\nOnce the meal is ready, I take it with me before preparing the next one."),
+				-145, -87, 135, 151, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_my_preparation_station_is_where_copy",
+				"Everything I put on the counter goes into the same serving, including the full amount of each food. Leaving tomorrow's supplies here would make today's meal rather generous. I should set aside only what I intend to serve and keep the rest in storage. The station can put a meal together, but it cannot decide what my guest wanted. Checking the order is still my job."),
+				5, -85, 135, 151, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -158,5 +165,75 @@ public class ChefsDiaryApplienceGUIScreen extends AbstractContainerScreen<ChefsD
 			}
 		};
 		this.addRenderableWidget(imagebutton_stats_icon);
+	}
+
+	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		String cacheKey = text + "\u0000" + wrapWidth;
+		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
+				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			int currentY = 0;
+			for (java.util.List<String> lines : paragraphs) {
+				for (int index = 0; index < lines.size(); index++) {
+					String line = lines.get(index);
+					int remaining = wrapWidth - this.font.width(line);
+					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
+						String[] words = line.split(" ");
+						int advance = 0;
+						for (int word = 0; word < words.length; word++) {
+							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
+							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
+							advance += this.font.width(words[word] + " ");
+						}
+					} else {
+						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
+						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
+					}
+					currentY += lineStep;
+				}
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }

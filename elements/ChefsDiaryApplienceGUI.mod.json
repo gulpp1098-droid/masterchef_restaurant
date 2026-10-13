@@ -93,9 +93,9 @@
       {
         "type": "label",
         "data": {
-          "name": "label_appliences_wip",
+          "name": "label_appliences_wip_copy",
           "text": {
-            "fixedValue": "Appliances - WIP"
+            "fixedValue": "Preparation Station"
           },
           "color": {
             "value": -12829636,
@@ -106,6 +106,65 @@
           "y": 22,
           "locked": false
         }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_my_preparation_station_is_where",
+          "text": "My Preparation Station is where cooked food becomes a meal ready for the table. I bring the food here first; this counter does not cook it for me.\nI gather what one guest ordered, check the amounts, and put their meal together. Even friends sharing a table deserve their own serving.\nOnce the meal is ready, I take it with me before preparing the next one.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 135,
+          "height": 151,
+          "x": 69,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_appliences_wip_copy_copy",
+          "text": {
+            "fixedValue": "Before It Leaves Kitchen"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "x": 219,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_my_preparation_station_is_where_copy",
+          "text": "Everything I put on the counter goes into the same serving, including the full amount of each food. Leaving tomorrow's supplies here would make today's meal rather generous. I should set aside only what I intend to serve and keep the rest in storage. The station can put a meal together, but it cannot decide what my guest wanted. Checking the order is still my job.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 135,
+          "height": 151,
+          "x": 219,
+          "y": 35,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {
@@ -113,7 +172,7 @@
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": true
+      "snapOnGrid": false
     }
   }
 }

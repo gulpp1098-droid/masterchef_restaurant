@@ -30,7 +30,7 @@
   "gui.omnichef.chefs_diary_gui.label_overview_wip": "Chef's Diary",
   "gui.omnichef.chefs_diary_gui.label_welcome_chef": "A Dream of Mine",
   "gui.omnichef.chefs_diary_food_gui.label_food_wip": "My Recipes",
-  "gui.omnichef.chefs_diary_clients_gui.label_clients_wip": "Clients - WIP",
+  "gui.omnichef.chefs_diary_clients_gui.label_clients_wip": "My Guests - WIP",
   "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip": "Appliances - WIP",
   "gui.omnichef.chefs_diary_stats_gui.label_stats_wip": "Stats",
   "gui.omnichef.chefs_diary_stats_gui.label_restaurant_stars": "Restaurant stars",
@@ -109,5 +109,8 @@
   "gui.omnichef.chefs_diary_menu_p_2_gui.label_current_menu_copy": "Incoming menu",
   "gui.omnichef.chefs_diary_menu_p_2_gui.label_current_menu": "Current Menu",
   "gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip_copy": "A Growing Menu",
-  "gui.omnichef.chefs_diary_food_gui.label_food_wip_copy": "Browse by Tier"
+  "gui.omnichef.chefs_diary_food_gui.label_food_wip_copy": "Browse by Tier",
+  "gui.omnichef.chefs_diary_clients_gui.label_clients_wip_copy": "Keeping Them Happy",
+  "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy": "Preparation Station",
+  "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy": "Before It Leaves Kitchen"
 }

@@ -31,7 +31,7 @@ public class ChefsDiaryStatsGUIMenu extends AbstractContainerMenu implements Omn
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 16)
+			if (!this.containsKey(key) && this.size() >= 18)
 				return null;
 			return super.put(key, value);
 		}

@@ -62,10 +62,10 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
 			String guiTools$sizedLabelText0 = menu.getMenuState(0, "gui_tools:sized:restaurant_s_name", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), ""));
-			if (true && mouseX >= this.leftPos + -145 && mouseX < this.leftPos + -15 && mouseY >= this.topPos + -74 && mouseY < this.topPos + -64 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 130, 1.00F))
+			if (true && mouseX >= this.leftPos + -145 && mouseX < this.leftPos + -15 && mouseY >= this.topPos + -3 && mouseY < this.topPos + 7 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 130, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
 			String guiTools$sizedLabelText1 = menu.getMenuState(0, "gui_tools:sized:restaurant_s_owner", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), ""));
-			if (true && mouseX >= this.leftPos + -145 && mouseX < this.leftPos + -15 && mouseY >= this.topPos + -61 && mouseY < this.topPos + -51 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 130, 1.00F))
+			if (true && mouseX >= this.leftPos + -145 && mouseX < this.leftPos + -15 && mouseY >= this.topPos + 10 && mouseY < this.topPos + 20 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 130, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
 		}
 	}
@@ -79,7 +79,7 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		guiGraphics.blit(IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 		guiGraphics.blit(IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 		guiGraphics.blit(IMAGE_2, this.leftPos + -145, this.topPos + -89, 0, 0, 133, 11, 133, 11);
-		guiGraphics.blit(SPRITE_0, this.leftPos + 28, this.topPos + -75, 0, Mth.clamp((int) ReturnRestaurantStarsProcedure.execute(entity) * 25, 0, 250), 72, 25, 72, 275);
+		guiGraphics.blit(SPRITE_0, this.leftPos + 28, this.topPos + -84, 0, Mth.clamp((int) ReturnRestaurantStarsProcedure.execute(entity) * 25, 0, 250), 72, 25, 72, 275);
 		RenderSystem.disableBlend();
 	}
 
@@ -95,16 +95,21 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_stats_gui.label_stats_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, -48, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantReputationProcedure.execute(entity), -145, -35, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantCloseTimeProcedure.execute(entity), -145, -22, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, 21, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantReputationProcedure.execute(entity), -145, 36, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantCloseTimeProcedure.execute(entity), -145, 49, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_stats_gui.label_restaurant_stars"), 5, -98, -12829636, false);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_name", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), "")), -145, -74, 130,
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_name", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), "")), -145, -3, 130,
 					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_owner", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), "")), -145, -61, 130,
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_owner", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), "")), -145, 10, 130,
 					-12829636, false, 1.00F, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_a_little_record_of_how_far_my_re",
+				"A little record of how far my restaurant has come. Every busy shift adds another chapter, though some days are better left out of the story."), -145, -75, 134, 69, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_these_stars_mark_the_milestones",
+				"These stars mark the milestones along my restaurant's journey. \nWhen my reputation reaches the next milestone, I need to impress a critic before I can keep climbing. Until then, there is always another meal worth getting right."),
+				4, -56, 121, 111, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
@@ -226,5 +231,75 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 				high = middle - 1;
 		}
 		return value.substring(0, low).stripTrailing() + ellipsis;
+	}
+
+	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
+
+	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
+			return;
+		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		int lineStep = this.font.lineHeight + 1;
+		String cacheKey = text + "\u0000" + wrapWidth;
+		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
+				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
+		if (this.guiTools$multilineCache.size() > 64)
+			this.guiTools$multilineCache.clear();
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			int currentY = 0;
+			for (java.util.List<String> lines : paragraphs) {
+				for (int index = 0; index < lines.size(); index++) {
+					String line = lines.get(index);
+					int remaining = wrapWidth - this.font.width(line);
+					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
+						String[] words = line.split(" ");
+						int advance = 0;
+						for (int word = 0; word < words.length; word++) {
+							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
+							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
+							advance += this.font.width(words[word] + " ");
+						}
+					} else {
+						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
+						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
+					}
+					currentY += lineStep;
+				}
+			}
+		} finally {
+			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
+		}
+	}
+
+	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
+		java.util.List<String> lines = new java.util.ArrayList<>();
+		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
+			if (paragraph.isEmpty()) {
+				lines.add("");
+				continue;
+			}
+			StringBuilder line = new StringBuilder();
+			for (String word : paragraph.split("\s+")) {
+				String candidate = line.isEmpty() ? word : line + " " + word;
+				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
+					lines.add(line.toString());
+					line.setLength(0);
+					line.append(word);
+				} else {
+					line.setLength(0);
+					line.append(candidate);
+				}
+			}
+			lines.add(line.toString());
+		}
+		return java.util.List.copyOf(lines);
 	}
 }
