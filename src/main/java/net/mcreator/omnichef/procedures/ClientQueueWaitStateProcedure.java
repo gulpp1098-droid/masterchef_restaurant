@@ -128,7 +128,7 @@ public class ClientQueueWaitStateProcedure {
 				client.getPersistentData().putDouble("DestZ", DestZ);
 				client.getPersistentData().putString("state", "queue_move");
 				if (client instanceof Mob _mob43)
-					_mob43.setNoAi(false);
+					_mob43.setNoAi(true);
 			}
 		} else {
 			FoundTable = false;

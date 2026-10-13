@@ -13,6 +13,9 @@ public class CriticOnEntityTickUpdateProcedure {
 		client = entity;
 		if (!world.isClientSide()) {
 			CriticAnimationSetUpProcedure.execute(entity);
+			if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
+				ClientQueueMoveStateProcedure.execute(entity);
+			}
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);
@@ -30,8 +33,6 @@ public class CriticOnEntityTickUpdateProcedure {
 						} else {
 							ClientQueueWaitStateProcedure.execute(world, entity);
 						}
-					} else if ((client.getPersistentData().getString("state")).equals("queue_move")) {
-						ClientQueueMoveStateProcedure.execute(entity);
 					} else if ((client.getPersistentData().getString("state")).equals("table_go")) {
 						ClientTableGoStateProcedure.execute(world, entity);
 					} else if ((client.getPersistentData().getString("state")).equals("group_wait")) {

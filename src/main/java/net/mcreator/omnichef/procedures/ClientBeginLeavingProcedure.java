@@ -1,7 +1,9 @@
 package net.mcreator.omnichef.procedures;
 
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
 
@@ -59,6 +61,11 @@ public class ClientBeginLeavingProcedure {
 					client.getPersistentData().putBoolean("table_reserved", false);
 				}
 			}
+			if (client instanceof Mob _entity)
+				_entity.getNavigation().stop();
+			client.setDeltaMovement(new Vec3(0, (client.getDeltaMovement().y()), 0));
+			if (client instanceof Mob _mob18)
+				_mob18.setNoAi(false);
 			client.getPersistentData().putString("state", "leave");
 			StopClientPatienceProcedure.execute(entity);
 			client.getPersistentData().putDouble("stuckCounter", (-1));

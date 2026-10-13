@@ -13,6 +13,15 @@ public class ClientOnEntityTickUpdateProcedure {
 		client = entity;
 		if (!world.isClientSide()) {
 			ClientAnimationSetUpProcedure.execute(entity);
+			if (client.getPersistentData().getBoolean("leader")) {
+				if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
+					ClientQueueMoveStateProcedure.execute(entity);
+				}
+			} else {
+				if ((client.getPersistentData().getString("state")).equals("restaurant_go") || (client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
+					ClientFollowStateProcedure.execute(world, entity);
+				}
+			}
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);
@@ -33,8 +42,6 @@ public class ClientOnEntityTickUpdateProcedure {
 							} else {
 								ClientQueueWaitStateProcedure.execute(world, entity);
 							}
-						} else if ((client.getPersistentData().getString("state")).equals("queue_move")) {
-							ClientQueueMoveStateProcedure.execute(entity);
 						} else if ((client.getPersistentData().getString("state")).equals("table_go")) {
 							ClientTableGoStateProcedure.execute(world, entity);
 						} else if ((client.getPersistentData().getString("state")).equals("group_wait")) {
@@ -58,7 +65,9 @@ public class ClientOnEntityTickUpdateProcedure {
 						ClientLeaveStateProcedure.execute(world, x, y, z, entity);
 					} else if ((client.getPersistentData().getString("state")).equals("order_wait")) {
 					} else {
-						ClientFollowStateProcedure.execute(world, entity);
+						if (!((client.getPersistentData().getString("state")).equals("restaurant_go") || (client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait"))) {
+							ClientFollowStateProcedure.execute(world, entity);
+						}
 					}
 					EntityStaysOnTableProcedure.execute(world, entity);
 					OrderWaitingProcedure.execute(world, x, y, z, entity);

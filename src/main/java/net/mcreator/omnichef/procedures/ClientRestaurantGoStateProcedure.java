@@ -1,11 +1,9 @@
 package net.mcreator.omnichef.procedures;
 
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
@@ -54,23 +52,18 @@ public class ClientRestaurantGoStateProcedure {
 			}
 		}.convert(GetPartFromStringProcedure.execute(2, goToString));
 		if (!getBlockNBTLogic(world, BlockPos.containing(RugX, RugY, RugZ), "occupied")) {
-			if (!(new Vec3((RugX + 0.5), RugY, (RugZ + 0.5)).distanceTo(new Vec3((client.getX()), (client.getY()), (client.getZ()))) <= 2)) {
+			if (Math.floor(client.getX()) == RugX && Math.floor(client.getZ()) == RugZ && Math.abs(client.getY() - RugY) < 0.5) {
 				if (client instanceof Mob _entity)
 					_entity.getNavigation().moveTo(RugX, RugY, RugZ, 1);
 			} else {
-				{
-					Entity _ent = client;
-					double _tx = RugX;
-					double _ty = (RugY + 0.1);
-					double _tz = RugZ;
-					_ent.teleportTo(_tx, _ty, _tz);
-					if (_ent instanceof ServerPlayer _serverPlayer)
-						_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
-				}
-				client.getPersistentData().putDouble("stuckCounter", (-1));
-				client.getPersistentData().putString("state", "queue_wait");
+				if (client instanceof Mob _entity)
+					_entity.getNavigation().stop();
+				if (client instanceof Mob _mob7)
+					_mob7.setNoAi(true);
+				client.getPersistentData().putDouble("stuckCounter", 10);
+				client.getPersistentData().putString("state", "queue_move");
 				StartClientPatienceProcedure.execute(world, entity, 3600);
-				client.getPersistentData().putDouble("current_position", (getBlockNBTNumber(world, BlockPos.containing(RugX, RugY, RugZ), "queue") + 1));
+				client.getPersistentData().putDouble("current_position", (getBlockNBTNumber(world, BlockPos.containing(RugX, RugY, RugZ), "queue") + 2));
 				client.getPersistentData().putDouble("DestX", RugX);
 				client.getPersistentData().putDouble("DestY", RugY);
 				client.getPersistentData().putDouble("DestZ", RugZ);

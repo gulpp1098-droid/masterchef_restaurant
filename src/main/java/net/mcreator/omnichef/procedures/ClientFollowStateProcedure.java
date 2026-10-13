@@ -1,5 +1,6 @@
 package net.mcreator.omnichef.procedures;
 
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
@@ -25,8 +26,14 @@ public class ClientFollowStateProcedure {
 			client.getPersistentData().putDouble("DestX", (leader.getPersistentData().getDouble("DestX")));
 			client.getPersistentData().putDouble("DestY", (leader.getPersistentData().getDouble("DestY")));
 			client.getPersistentData().putDouble("DestZ", (leader.getPersistentData().getDouble("DestZ")));
-			if (client instanceof Mob _entity)
-				_entity.getNavigation().moveTo((leader.getX()), (leader.getY()), (leader.getZ()), 1);
+			if ((leader != null ? client.distanceTo(leader) : -1) > 1.2) {
+				if (client instanceof Mob _entity)
+					_entity.getNavigation().moveTo((leader.getX()), (leader.getY()), (leader.getZ()), 1);
+			} else {
+				if (client instanceof Mob _entity)
+					_entity.getNavigation().stop();
+				client.setDeltaMovement(new Vec3(0, (client.getDeltaMovement().y()), 0));
+			}
 		}
 	}
 
