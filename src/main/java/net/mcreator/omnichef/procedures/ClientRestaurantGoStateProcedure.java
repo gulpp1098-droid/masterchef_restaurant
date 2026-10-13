@@ -52,9 +52,9 @@ public class ClientRestaurantGoStateProcedure {
 			}
 		}.convert(GetPartFromStringProcedure.execute(2, goToString));
 		if (!getBlockNBTLogic(world, BlockPos.containing(RugX, RugY, RugZ), "occupied")) {
-			if (Math.floor(client.getX()) == RugX && Math.floor(client.getZ()) == RugZ && Math.abs(client.getY() - RugY) < 0.5) {
+			if (!(Math.floor(client.getX()) == RugX && Math.floor(client.getZ()) == RugZ && Math.abs(client.getY() - RugY) < 0.5)) {
 				if (client instanceof Mob _entity)
-					_entity.getNavigation().moveTo(RugX, RugY, RugZ, 1);
+					_entity.getNavigation().moveTo((RugX + 0.5), RugY, (RugZ + 0.5), 1);
 			} else {
 				if (client instanceof Mob _entity)
 					_entity.getNavigation().stop();

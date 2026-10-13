@@ -12,7 +12,6 @@ public class ClientOnEntityTickUpdateProcedure {
 		Entity client = null;
 		client = entity;
 		if (!world.isClientSide()) {
-			ClientAnimationSetUpProcedure.execute(entity);
 			if (client.getPersistentData().getBoolean("leader")) {
 				if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
 					ClientQueueMoveStateProcedure.execute(entity);
@@ -22,6 +21,7 @@ public class ClientOnEntityTickUpdateProcedure {
 					ClientFollowStateProcedure.execute(world, entity);
 				}
 			}
+			ClientAnimationSetUpProcedure.execute(entity);
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);
