@@ -94,9 +94,6 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 			if (this.enhanced_image_button_empty_copy_9 != null && this.enhanced_image_button_empty_copy_9.visible) {
 				this.enhanced_image_button_empty_copy_9.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
-			if (this.enhanced_image_button_next_page_icon != null && this.enhanced_image_button_next_page_icon.visible) {
-				this.enhanced_image_button_next_page_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -113,11 +110,13 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_gui.label_food_wip"), -140, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple",
-				"Food is divided into Tiers based on its value, ingredients and how difficult it is to prepare. Simple foods and ingredients are generally found in lower tiers, while more valuable and complex dishes belong to higher tiers. As your restaurant levels up, new Food Tiers become available, giving your customers access to more advanced dishes. "),
-				-140, -87, 126, 155, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_highertier_food_also_provides_m", "Higher-tier food also provides more Coins and Reputation when successfully served."), 6, -87, 120,
-				40, -12829636, false, 1.00F, 0, 0);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_gui.label_food_wip_copy"), 6, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple",
+						"I have started sorting every dish I know by how demanding it is to prepare. Simple ingredients and quick meals belong in the lower tiers, while recipes with more ingredients and preparation steps sit higher. "),
+				-140, -87, 127, 155, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_highertier_food_also_provides_m", "Every recipe I have discovered, filed neatly for once."), 6, -87, 120, 40, -12829636, false, 1.00F,
+				0, 0);
 	}
 
 	@Override
@@ -508,27 +507,6 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 			}
 		};
 		this.addWidget(enhanced_image_button_empty_copy_9);
-		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
-				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
-					int x = ChefsDiaryFoodGUIScreen.this.x;
-					int y = ChefsDiaryFoodGUIScreen.this.y;
-					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage(15, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodGUIButtonMessage.handleButtonAction(entity, 15, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addWidget(enhanced_image_button_next_page_icon);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -612,7 +590,6 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_7;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_8;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_empty_copy_9;
-	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_next_page_icon;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

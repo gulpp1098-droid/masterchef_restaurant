@@ -89,7 +89,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 						"I cannot serve every dish I have merely heard about. Recipe Cards permanently add new recipes to my repertoire, and only discovered dishes can appear on my menus.\nApparently, culinary genius still requires paperwork."),
 				-140, -87, 126, 52, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_contains_the_dishes_your_custome",
-				"Food Tiers show how demanding a dish should be to prepare. They are a useful guide, although two recipes in the same tier may still be very different.\nBuilding my reputation gives me access to higher tiers, but I still need to discover the recipes myself."),
+				"Every recipe I discover joins my restaurant\u2019s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Incoming Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests\u2014and considerably more shopping for me."),
 				7, -86, 125, 40, -12829636, false, 1.00F, 0, 0);
 	}
 

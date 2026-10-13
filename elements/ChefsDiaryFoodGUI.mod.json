@@ -95,7 +95,7 @@
         "data": {
           "name": "label_food_wip",
           "text": {
-            "fixedValue": "Food"
+            "fixedValue": "My Recipes"
           },
           "color": {
             "value": -12829636,
@@ -111,7 +111,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_food_is_categoried_into_multiple",
-          "text": "Food is divided into Tiers based on its value, ingredients and how difficult it is to prepare. Simple foods and ingredients are generally found in lower tiers, while more valuable and complex dishes belong to higher tiers. As your restaurant levels up, new Food Tiers become available, giving your customers access to more advanced dishes. ",
+          "text": "I have started sorting every dish I know by how demanding it is to prepare. Simple ingredients and quick meals belong in the lower tiers, while recipes with more ingredients and preparation steps sit higher. ",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -121,7 +121,7 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 126,
+          "width": 127,
           "height": 155,
           "x": 74,
           "y": 33,
@@ -372,7 +372,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_highertier_food_also_provides_m",
-          "text": "Higher-tier food also provides more Coins and Reputation when successfully served.",
+          "text": "Every recipe I have discovered, filed neatly for once.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -390,26 +390,19 @@
         }
       },
       {
-        "type": "enhanced_image_button",
+        "type": "label",
         "data": {
-          "image": "next_page_icon.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -1,
+          "name": "label_food_wip_copy",
+          "text": {
+            "fixedValue": "Browse by Tier"
+          },
+          "color": {
+            "value": -12829636,
             "falpha": 0.0
           },
-          "textShadow": true,
-          "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_next_page_icon",
-          "text": "",
-          "isUndecorated": true,
-          "onClick": "ChefsDiaryMenu",
-          "width": 16,
-          "height": 16,
-          "x": 322,
-          "y": 177,
+          "hasShadow": false,
+          "x": 220,
+          "y": 22,
           "locked": false
         }
       }

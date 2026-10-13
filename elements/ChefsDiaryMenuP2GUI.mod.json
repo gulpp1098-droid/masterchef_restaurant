@@ -156,7 +156,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_contains_the_dishes_your_custome",
-          "text": "Food Tiers show how demanding a dish should be to prepare. They are a useful guide, although two recipes in the same tier may still be very different.\nBuilding my reputation gives me access to higher tiers, but I still need to discover the recipes myself.",
+          "text": "Every recipe I discover joins my restaurant’s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Incoming Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests—and considerably more shopping for me.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -178,7 +178,7 @@
         "data": {
           "name": "label_food_wip_copy",
           "text": {
-            "fixedValue": "Food Tiers"
+            "fixedValue": "A Growing Menu"
           },
           "color": {
             "value": -12829636,
