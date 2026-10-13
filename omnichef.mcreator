@@ -5112,10 +5112,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5136,10 +5132,6 @@
           {
             "name": "itemDependency",
             "type": "itemstack"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "number",
@@ -5160,10 +5152,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5184,10 +5172,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5283,10 +5267,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5307,10 +5287,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -5331,10 +5307,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",
@@ -8907,10 +8879,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ],
         "return_type": "string",

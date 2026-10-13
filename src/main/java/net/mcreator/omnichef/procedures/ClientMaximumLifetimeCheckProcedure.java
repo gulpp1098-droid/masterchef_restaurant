@@ -4,6 +4,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
+import net.mcreator.omnichef.entity.CriticEntity;
 import net.mcreator.omnichef.entity.ClientEntity;
 
 public class ClientMaximumLifetimeCheckProcedure {
@@ -40,7 +41,14 @@ public class ClientMaximumLifetimeCheckProcedure {
 				}
 				client.getPersistentData().putBoolean("service_result_counted", true);
 			}
-			ClientExpPayProcedure.execute(world, entity);
+			if (client instanceof CriticEntity) {
+				CriticGroupWaitStateProcedure.execute(world, entity);
+			} else {
+				if (client.getPersistentData().getBoolean("order_served")) {
+					ClientCoinPayProcedure.execute(world, entity);
+				}
+				ClientExpPayProcedure.execute(world, entity);
+			}
 			ClientBeginLeavingProcedure.execute(world, entity);
 			client.getPersistentData().putDouble("despawn_time", (world.dayTime()));
 			return true;
