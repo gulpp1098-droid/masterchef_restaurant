@@ -19,6 +19,6 @@ public class Food5RewardReturnProcedure {
 		if (tier == -1) {
 			return "-";
 		}
-		return "" + (int) (tier * 2 + 2);
+		return "" + (int) (tier + 1);
 	}
 }
