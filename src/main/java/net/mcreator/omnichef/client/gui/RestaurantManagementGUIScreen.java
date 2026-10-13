@@ -284,9 +284,9 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, NotServedReturnProcedure.execute(entity), -149, 6, -12829636, false);
 		guiGraphics.drawString(this.font, CoinsEarnedReturnProcedure.execute(entity), -149, 33, -12829636, false);
 		guiGraphics.drawString(this.font, ReputationReturnProcedure.execute(entity), -149, 59, -12829636, false);
-		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(world, entity), 165, -55, -12829636, false);
-		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 165, -17, -12829636, false);
-		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 165, 21, -12829636, false);
+		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(entity), 165, -55, -12829636, false);
+		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(entity), 165, -17, -12829636, false);
+		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(entity), 165, 21, -12829636, false);
 		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 151, 58, -12829636, false);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), "")), 122, -36, 65,

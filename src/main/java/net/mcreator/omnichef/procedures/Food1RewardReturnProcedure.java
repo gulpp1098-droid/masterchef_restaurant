@@ -1,6 +1,5 @@
 package net.mcreator.omnichef.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
@@ -8,14 +7,13 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.omnichef.init.OmnichefModMenus;
 
 public class Food1RewardReturnProcedure {
-	public static String execute(LevelAccessor world, Entity entity) {
+	public static String execute(Entity entity) {
 		if (entity == null)
 			return "";
 		double tier = 0;
-		tier = GetFoodTierByItemProcedure.execute(world,
-				entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsDisplayMenu0
-						? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(0), ItemStack.EMPTY)
-						: ItemStack.EMPTY);
+		tier = GetFoodTierByItemProcedure.execute(entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsDisplayMenu0
+				? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(0), ItemStack.EMPTY)
+				: ItemStack.EMPTY);
 		if (tier == -1) {
 			return "-";
 		}

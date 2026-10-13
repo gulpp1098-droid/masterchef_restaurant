@@ -64,22 +64,22 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
-			String guiTools$sizedLabelText0 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), "");
+			String guiTools$sizedLabelText0 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -18 && mouseX < this.leftPos + 67 && mouseY >= this.topPos + 34 && mouseY < this.topPos + 44 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 85, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
-			String guiTools$sizedLabelText1 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), "");
+			String guiTools$sizedLabelText1 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -18 && mouseX < this.leftPos + 67 && mouseY >= this.topPos + 70 && mouseY < this.topPos + 80 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 85, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
-			String guiTools$sizedLabelText2 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), "");
+			String guiTools$sizedLabelText2 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_3", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + -18 && mouseX < this.leftPos + 67 && mouseY >= this.topPos + 105 && mouseY < this.topPos + 115 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 85, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText2), mouseX, mouseY);
-			String guiTools$sizedLabelText3 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food4NameReturnProcedure.execute(entity), "");
+			String guiTools$sizedLabelText3 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_4", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food4NameReturnProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + 71 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 34 && mouseY < this.topPos + 44 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText3, 85, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText3), mouseX, mouseY);
-			String guiTools$sizedLabelText4 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food5NameReturnProcedure.execute(entity), "");
+			String guiTools$sizedLabelText4 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_5", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food5NameReturnProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + 71 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 70 && mouseY < this.topPos + 80 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText4, 85, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText4), mouseX, mouseY);
-			String guiTools$sizedLabelText5 = java.util.Objects.toString(net.mcreator.omnichef.procedures.Food6NameReturnProcedure.execute(entity), "");
+			String guiTools$sizedLabelText5 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_6", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food6NameReturnProcedure.execute(entity), ""));
 			if (true && mouseX >= this.leftPos + 71 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 106 && mouseY < this.topPos + 116 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText5, 85, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText5), mouseX, mouseY);
 		}
@@ -364,25 +364,31 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.menu_gui.label_management"), 34, -9, -1, false);
-		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(world, entity), 18, 17, -12829636, false);
-		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(world, entity), 18, 52, -12829636, false);
-		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(world, entity), 18, 90, -12829636, false);
+		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(entity), 18, 17, -12829636, false);
+		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(entity), 18, 52, -12829636, false);
+		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(entity), 18, 90, -12829636, false);
 		guiGraphics.drawString(this.font, PageReturnProcedure.execute(entity), 50, 125, -12829636, false);
-		guiGraphics.drawString(this.font, Food4RewardReturnProcedure.execute(world, entity), 110, 17, -12829636, false);
-		guiGraphics.drawString(this.font, Food5RewardReturnProcedure.execute(world, entity), 110, 52, -12829636, false);
-		guiGraphics.drawString(this.font, Food6RewardReturnProcedure.execute(world, entity), 110, 90, -12829636, false);
+		guiGraphics.drawString(this.font, Food4RewardReturnProcedure.execute(entity), 110, 17, -12829636, false);
+		guiGraphics.drawString(this.font, Food5RewardReturnProcedure.execute(entity), 110, 52, -12829636, false);
+		guiGraphics.drawString(this.font, Food6RewardReturnProcedure.execute(entity), 110, 90, -12829636, false);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), ""), -18, 34, 85, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food1NameReturnProcedure.execute(entity), "")), -18, 34, 85,
+					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), ""), -18, 70, 85, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food2NameReturnProcedure.execute(entity), "")), -18, 70, 85,
+					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), ""), -18, 105, 85, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_3", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food3NameReturnProcedure.execute(entity), "")), -18, 105, 85,
+					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food4NameReturnProcedure.execute(entity), ""), 71, 34, 85, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_4", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food4NameReturnProcedure.execute(entity), "")), 71, 34, 85,
+					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food5NameReturnProcedure.execute(entity), ""), 71, 70, 85, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_5", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food5NameReturnProcedure.execute(entity), "")), 71, 70, 85,
+					-12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, java.util.Objects.toString(net.mcreator.omnichef.procedures.Food6NameReturnProcedure.execute(entity), ""), 71, 106, 85, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_6", java.util.Objects.toString(net.mcreator.omnichef.procedures.Food6NameReturnProcedure.execute(entity), "")), 71, 106, 85,
+					-12829636, false, 1.00F, 2);
 	}
 
 	@Override

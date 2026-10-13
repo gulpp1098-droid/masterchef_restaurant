@@ -1,20 +1,14 @@
 package net.mcreator.omnichef.procedures;
 
-import net.neoforged.fml.loading.FMLPaths;
-
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.component.DataComponents;
 
-import net.mcreator.omnichef.network.OmnichefModVariables;
-
-import java.io.IOException;
-import java.io.FileReader;
 import java.io.File;
-import java.io.BufferedReader;
 
 public class GetFoodTierByItemProcedure {
-	public static double execute(LevelAccessor world, ItemStack itemDependency) {
+	public static double execute(ItemStack itemDependency) {
 		File foodDatabaseFile = new File("");
 		com.google.gson.JsonArray tierArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
@@ -26,45 +20,10 @@ public class GetFoodTierByItemProcedure {
 		double foodIndex = 0;
 		double tierIndex = 0;
 		tier = -1;
-		found = false;
 		foodID = BuiltInRegistries.ITEM.getKey(itemDependency.getItem()).toString();
 		if ((foodID).equals("minecraft:air")) {
 			return tier;
 		}
-		foodDatabaseFile = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
-		{
-			try {
-				BufferedReader bufferedReader = new BufferedReader(new FileReader(foodDatabaseFile));
-				StringBuilder jsonstringbuilder = new StringBuilder();
-				String line;
-				while ((line = bufferedReader.readLine()) != null) {
-					jsonstringbuilder.append(line);
-				}
-				bufferedReader.close();
-				foodDatabase = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-				tiersObject = foodDatabase.get("tiers").getAsJsonObject();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		tierIndex = 0;
-		for (int _i1 = 0; _i1 < (int) tiersObject.size(); _i1++) {
-			tierArray = tiersObject.get(("" + (int) tierIndex)).getAsJsonArray();
-			foodIndex = 0;
-			for (int _i2 = 0; _i2 < (int) tierArray.size(); _i2++) {
-				foodObject = tierArray.get((int) foodIndex).getAsJsonObject();
-				if ((foodID).equals(foodObject.get("id").getAsString())) {
-					found = true;
-					tier = tierIndex;
-					break;
-				}
-				foodIndex = foodIndex + 1;
-			}
-			if (found) {
-				break;
-			}
-			tierIndex = tierIndex + 1;
-		}
-		return tier;
+		return itemDependency.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("menu_food_tier");
 	}
 }
