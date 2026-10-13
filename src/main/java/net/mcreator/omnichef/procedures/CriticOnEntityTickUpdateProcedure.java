@@ -15,7 +15,7 @@ public class CriticOnEntityTickUpdateProcedure {
 			if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
 				ClientQueueMoveStateProcedure.execute(entity);
 			}
-			CriticAnimationSetUpProcedure.execute(entity);
+			CriticAnimationSetUpProcedure.execute(world, entity);
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);

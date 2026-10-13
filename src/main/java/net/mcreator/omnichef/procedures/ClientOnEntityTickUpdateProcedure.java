@@ -21,7 +21,7 @@ public class ClientOnEntityTickUpdateProcedure {
 					ClientFollowStateProcedure.execute(world, entity);
 				}
 			}
-			ClientAnimationSetUpProcedure.execute(entity);
+			ClientAnimationSetUpProcedure.execute(world, entity);
 			if (world.dayTime() % 10 == 0) {
 				if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 					ClientPatianceGoingDownProcedure.execute(world, entity);

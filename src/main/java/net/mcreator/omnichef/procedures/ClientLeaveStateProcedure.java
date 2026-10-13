@@ -12,6 +12,7 @@ public class ClientLeaveStateProcedure {
 		if (entity == null)
 			return;
 		double restaurantID = 0;
+		double leaveAngle = 0;
 		if (world.dayTime() % 24000 >= 18000 || world.dayTime() % 24000 >= 0 && world.dayTime() % 24000 <= 30
 				|| new Vec3(x, y, z).distanceTo(new Vec3((entity.getPersistentData().getDouble("DestX")), (entity.getPersistentData().getDouble("DestY")), (entity.getPersistentData().getDouble("DestZ")))) >= 60
 				|| world.dayTime() >= entity.getPersistentData().getDouble("despawn_time")) {
@@ -26,8 +27,14 @@ public class ClientLeaveStateProcedure {
 			if (!entity.level().isClientSide())
 				entity.discard();
 		} else {
+			if (!entity.getPersistentData().getBoolean("leave_direction_set")) {
+				leaveAngle = Math.toRadians(Math.random() * 360);
+				entity.getPersistentData().putDouble("LeaveOffsetX", (Math.cos(leaveAngle) * 100));
+				entity.getPersistentData().putDouble("LeaveOffsetZ", (Math.sin(leaveAngle) * 100));
+				entity.getPersistentData().putBoolean("leave_direction_set", true);
+			}
 			if (entity instanceof Mob _entity)
-				_entity.getNavigation().moveTo((x + 100), y, (z + 100), 1);
+				_entity.getNavigation().moveTo((x + entity.getPersistentData().getDouble("LeaveOffsetX")), y, (z + entity.getPersistentData().getDouble("LeaveOffsetZ")), 1);
 		}
 	}
 }

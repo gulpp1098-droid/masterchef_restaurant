@@ -1,5 +1,6 @@
 package net.mcreator.omnichef.procedures;
 
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
@@ -52,14 +53,14 @@ public class ClientRestaurantGoStateProcedure {
 			}
 		}.convert(GetPartFromStringProcedure.execute(2, goToString)));
 		if (!getBlockNBTLogic(world, BlockPos.containing(RugX, RugY, RugZ), "occupied")) {
-			if (!(true && Math.abs(client.getY() - RugY) < 0.5)) {
+			if (!(new Vec3((client.getX()), (client.getY()), (client.getZ())).distanceTo(new Vec3((RugX + 0.5), (client.getY()), (RugZ + 0.5))) <= 1.5 && Math.abs(client.getY() - RugY) < 0.5)) {
 				if (client instanceof Mob _entity)
 					_entity.getNavigation().moveTo((RugX + 0.5), RugY, (RugZ + 0.5), 1);
 			} else {
 				if (client instanceof Mob _entity)
 					_entity.getNavigation().stop();
-				if (client instanceof Mob _mob5)
-					_mob5.setNoAi(false);
+				if (client instanceof Mob _mob10)
+					_mob10.setNoAi(false);
 				client.getPersistentData().putDouble("stuckCounter", 10);
 				client.getPersistentData().putString("state", "queue_move");
 				StartClientPatienceProcedure.execute(world, entity, 3600);
