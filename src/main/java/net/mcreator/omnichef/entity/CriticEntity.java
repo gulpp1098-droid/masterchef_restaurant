@@ -12,6 +12,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.OpenDoorGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -107,7 +108,9 @@ public class CriticEntity extends PathfinderMob {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1) {
+		this.getNavigation().getNodeEvaluator().setCanOpenDoors(true);
+		this.goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1) {
 			@Override
 			public boolean canUse() {
 				double x = CriticEntity.this.getX();
@@ -128,8 +131,8 @@ public class CriticEntity extends PathfinderMob {
 				return super.canContinueToUse() && ClientNoWanderProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(2, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(3, new FloatGoal(this));
+		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(4, new FloatGoal(this));
 	}
 
 	@Override
