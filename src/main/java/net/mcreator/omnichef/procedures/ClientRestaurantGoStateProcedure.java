@@ -59,7 +59,7 @@ public class ClientRestaurantGoStateProcedure {
 				if (client instanceof Mob _entity)
 					_entity.getNavigation().stop();
 				if (client instanceof Mob _mob7)
-					_mob7.setNoAi(true);
+					_mob7.setNoAi(false);
 				client.getPersistentData().putDouble("stuckCounter", 10);
 				client.getPersistentData().putString("state", "queue_move");
 				StartClientPatienceProcedure.execute(world, entity, 3600);

@@ -131,7 +131,27 @@ public class CriticEntity extends PathfinderMob {
 				return super.canContinueToUse() && ClientNoWanderProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this) {
+			@Override
+			public boolean canUse() {
+				double x = CriticEntity.this.getX();
+				double y = CriticEntity.this.getY();
+				double z = CriticEntity.this.getZ();
+				Entity entity = CriticEntity.this;
+				Level world = CriticEntity.this.level();
+				return super.canUse() && ClientNoWanderProcedure.execute(entity);
+			}
+
+			@Override
+			public boolean canContinueToUse() {
+				double x = CriticEntity.this.getX();
+				double y = CriticEntity.this.getY();
+				double z = CriticEntity.this.getZ();
+				Entity entity = CriticEntity.this;
+				Level world = CriticEntity.this.level();
+				return super.canContinueToUse() && ClientNoWanderProcedure.execute(entity);
+			}
+		});
 		this.goalSelector.addGoal(4, new FloatGoal(this));
 	}
 

@@ -11,7 +11,7 @@ public class ClientNoWanderProcedure {
 		if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait") || (client.getPersistentData().getString("state")).equals("table_go")
 				|| (client.getPersistentData().getString("state")).equals("order_pick") || (client.getPersistentData().getString("state")).equals("order_wait") || (client.getPersistentData().getString("state")).equals("food_wait")
 				|| (client.getPersistentData().getString("state")).equals("food_eat") || (client.getPersistentData().getString("state")).equals("pay") || (client.getPersistentData().getString("state")).equals("find_chair")
-				|| (client.getPersistentData().getString("state")).equals("group_wait") || (client.getPersistentData().getString("state")).equals("leave")) {
+				|| (client.getPersistentData().getString("state")).equals("group_wait") || (client.getPersistentData().getString("state")).equals("restaurant_go") || (client.getPersistentData().getString("state")).equals("leave")) {
 			return false;
 		}
 		return true;

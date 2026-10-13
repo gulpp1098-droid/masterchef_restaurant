@@ -131,7 +131,27 @@ public class ClientEntity extends PathfinderMob {
 				return super.canContinueToUse() && ClientNoWanderProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this) {
+			@Override
+			public boolean canUse() {
+				double x = ClientEntity.this.getX();
+				double y = ClientEntity.this.getY();
+				double z = ClientEntity.this.getZ();
+				Entity entity = ClientEntity.this;
+				Level world = ClientEntity.this.level();
+				return super.canUse() && ClientNoWanderProcedure.execute(entity);
+			}
+
+			@Override
+			public boolean canContinueToUse() {
+				double x = ClientEntity.this.getX();
+				double y = ClientEntity.this.getY();
+				double z = ClientEntity.this.getZ();
+				Entity entity = ClientEntity.this;
+				Level world = ClientEntity.this.level();
+				return super.canContinueToUse() && ClientNoWanderProcedure.execute(entity);
+			}
+		});
 		this.goalSelector.addGoal(4, new FloatGoal(this));
 	}
 

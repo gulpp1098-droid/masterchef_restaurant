@@ -27,7 +27,7 @@ public class ClientQueueMoveStateProcedure {
 		if (client instanceof Mob _entity)
 			_entity.getNavigation().stop();
 		if (client instanceof Mob _mob1)
-			_mob1.setNoAi(true);
+			_mob1.setNoAi(false);
 		DX = (client.getPersistentData().getDouble("DestX") + 0.5) - client.getX();
 		DZ = (client.getPersistentData().getDouble("DestZ") + 0.5) - client.getZ();
 		distance = Math.sqrt(DX * DX + DZ * DZ);
