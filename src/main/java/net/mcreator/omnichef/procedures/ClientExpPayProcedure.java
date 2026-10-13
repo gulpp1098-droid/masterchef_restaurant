@@ -23,23 +23,28 @@ public class ClientExpPayProcedure {
 		double missingFoodTypes = 0;
 		double rewardMultiplier = 0;
 		com.google.gson.JsonObject orderResult = new com.google.gson.JsonObject();
+		com.google.gson.JsonArray orderFoods = new com.google.gson.JsonArray();
 		client = entity;
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 		CheckpointLevel = Math.floor(RestaurantLevel / 10) * 10;
 		CheckpointReputation = GetRequiredReputationForLevelProcedure.execute(world, CheckpointLevel);
 		requiredReputation = GetRequiredReputationForLevelProcedure.execute(world, RestaurantLevel + 1);
+		baseExp = GetClientOrderBaseExpProcedure.execute(world, client);
 		if (client.getPersistentData().getBoolean("order_served")) {
 			orderResult = GetClientOrderResultProcedure.execute(client);
-			baseExp = GetClientOrderBaseExpProcedure.execute(world, client);
 			satisfaction = GetClientOrderSatisfactionProcedure.execute(client);
 			missingFoodTypes = orderResult.get("missing_food_types").getAsDouble();
-			rewardMultiplier = (100 - missingFoodTypes * 40) / 100;
-			if (rewardMultiplier > 0) {
-				EXPTotal = Math.round(baseExp * (satisfaction / 100) * rewardMultiplier);
-			} else {
-				EXPTotal = Math.round(baseExp * ((100 - satisfaction) / 100) * rewardMultiplier);
-			}
+		} else {
+			orderFoods = GetClientOrderFoodArrayProcedure.execute(client);
+			missingFoodTypes = orderFoods.size();
+			satisfaction = 0;
+		}
+		rewardMultiplier = (100 - missingFoodTypes * 40) / 100;
+		if (rewardMultiplier > 0) {
+			EXPTotal = Math.round(baseExp * (satisfaction / 100) * rewardMultiplier);
+		} else {
+			EXPTotal = Math.round(baseExp * ((100 - satisfaction) / 100) * rewardMultiplier);
 		}
 		CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"reputation");

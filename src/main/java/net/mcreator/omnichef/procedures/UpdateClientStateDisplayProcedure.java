@@ -74,7 +74,6 @@ public class UpdateClientStateDisplayProcedure {
 				} else {
 					if (!displayItem.level().isClientSide())
 						displayItem.discard();
-					client.getPersistentData().putBoolean("stateDisplayCreated", false);
 				}
 			}
 		}
