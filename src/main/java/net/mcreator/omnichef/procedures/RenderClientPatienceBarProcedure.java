@@ -201,6 +201,7 @@ public class RenderClientPatienceBarProcedure {
 
 	private static void execute(@Nullable Event event, LevelAccessor world, double partialTick) {
 		double BarHeight = 0;
+		double BarProgress = 0;
 		if (begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR, false)) {
 			add((float) (-0.5), (float) (-0.05), 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
 			add((float) 0.5, (float) (-0.05), 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
@@ -214,28 +215,30 @@ public class RenderClientPatienceBarProcedure {
 			RenderSystem.depthMask(false);
 			if (world instanceof ClientLevel) {
 				for (Entity entityiterator : ((ClientLevel) world).entitiesForRendering()) {
-					if (entityiterator instanceof ClientEntity || entityiterator instanceof CriticEntity) {
-						if ((entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0) >= 0) {
+					if (entityiterator instanceof ClientEntity && (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0) >= 0) {
+						BarHeight = 2.2;
+						if (entityiterator instanceof ClientEntity _datEntL14 && _datEntL14.getEntityData().get(ClientEntity.DATA_Sit)) {
 							BarHeight = 2;
-							if (entityiterator instanceof ClientEntity _datEntL15 && _datEntL15.getEntityData().get(ClientEntity.DATA_Sit)) {
-								BarHeight = 1.75;
-							}
-							renderShape(shape(), (entityiterator.getX()), (entityiterator.getY() + BarHeight), (entityiterator.getZ()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(),
-									Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, 1, 1, 1, 255 << 24 | 30 << 16 | 30 << 8 | 30);
-							renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
-									Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0,
-									(float) (0.00096 * (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0)), (float) 0.7, 1, 255 << 24 | 80 << 16 | 200 << 8 | 80);
-						} else if ((entityiterator instanceof CriticEntity _datEntI ? _datEntI.getEntityData().get(CriticEntity.DATA_PatienceBar) : 0) >= 0) {
-							BarHeight = 2;
-							if (entityiterator instanceof CriticEntity _datEntL34 && _datEntL34.getEntityData().get(CriticEntity.DATA_Sit)) {
-								BarHeight = 1.75;
-							}
-							renderShape(shape(), (entityiterator.getX()), (entityiterator.getY() + BarHeight), (entityiterator.getZ()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(),
-									Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, 1, 1, 1, 255 << 24 | 30 << 16 | 30 << 8 | 30);
-							renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
-									Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0,
-									(float) (0.00096 * (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0)), (float) 0.7, 1, 255 << 24 | 80 << 16 | 200 << 8 | 80);
 						}
+						BarProgress = (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0) * 0.001;
+						renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
+								Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, 1, 1, 1, 255 << 24 | 30 << 16 | 30 << 8 | 30);
+						renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
+								Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0,
+								(float) (0.00096 * (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0)), (float) 0.7, 1,
+								255 << 24 | (int) (220 - 140 * BarProgress) << 16 | (int) (60 + 140 * BarProgress) << 8 | (int) (60 + 20 * BarProgress));
+					} else if (entityiterator instanceof CriticEntity && (entityiterator instanceof CriticEntity _datEntI ? _datEntI.getEntityData().get(CriticEntity.DATA_PatienceBar) : 0) >= 0) {
+						BarHeight = 2.2;
+						if (entityiterator instanceof CriticEntity _datEntL35 && _datEntL35.getEntityData().get(CriticEntity.DATA_Sit)) {
+							BarHeight = 2;
+						}
+						BarProgress = (entityiterator instanceof CriticEntity _datEntI ? _datEntI.getEntityData().get(CriticEntity.DATA_PatienceBar) : 0) * 0.001;
+						renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
+								Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, 1, 1, 1, 255 << 24 | 30 << 16 | 30 << 8 | 30);
+						renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
+								Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0,
+								(float) (0.00096 * (entityiterator instanceof CriticEntity _datEntI ? _datEntI.getEntityData().get(CriticEntity.DATA_PatienceBar) : 0)), (float) 0.7, 1,
+								255 << 24 | (int) (220 - 140 * BarProgress) << 16 | (int) (60 + 140 * BarProgress) << 8 | (int) (60 + 20 * BarProgress));
 					}
 				}
 			}

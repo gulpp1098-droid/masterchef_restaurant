@@ -63,7 +63,7 @@ public class ClientRestaurantGoStateProcedure {
 					_mob10.setNoAi(false);
 				client.getPersistentData().putDouble("stuckCounter", 10);
 				client.getPersistentData().putString("state", "queue_move");
-				StartClientPatienceProcedure.execute(world, entity, 3600);
+				StartClientPatienceProcedure.execute(world, entity, 1800);
 				client.getPersistentData().putDouble("current_position", (getBlockNBTNumber(world, BlockPos.containing(RugX, RugY, RugZ), "queue") + 2));
 				client.getPersistentData().putDouble("DestX", RugX);
 				client.getPersistentData().putDouble("DestY", RugY);

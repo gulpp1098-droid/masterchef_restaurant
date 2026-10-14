@@ -26,7 +26,7 @@ public class ClientOrderWaitStateProcedure {
 				&& ((client.getPersistentData().getString("state")).equals("food_wait") || (client.getPersistentData().getString("state")).equals("order_wait"))) {
 			if ((client.getPersistentData().getString("state")).equals("order_wait")) {
 				client.getPersistentData().putString("state", "food_wait");
-				StartClientPatienceProcedure.execute(world, entity, 3600);
+				StartClientPatienceProcedure.execute(world, entity, 1800);
 			}
 			{
 				OmnichefModVariables.PlayerVariables _vars = sourceentity.getData(OmnichefModVariables.PLAYER_VARIABLES);
