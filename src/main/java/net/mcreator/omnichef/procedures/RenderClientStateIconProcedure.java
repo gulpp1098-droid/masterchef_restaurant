@@ -275,7 +275,7 @@ public class RenderClientStateIconProcedure {
 				} else if ((iconState).equals("food_wait")) {
 					renderItem(new ItemStack(OmnichefModItems.FOODWAIT.get()), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + iconHeight),
 							(entityiterator.getPosition((float) partialTick).z()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), 0, 0, (float) 0.5, false, false);
-				} else if ((iconState).equals("food_pick")) {
+				} else if ((iconState).equals("order_pick")) {
 					renderItem(new ItemStack(OmnichefModItems.FOODPICK.get()), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + iconHeight),
 							(entityiterator.getPosition((float) partialTick).z()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), 0, 0, (float) 0.5, false, false);
 				} else if ((iconState).equals("group_wait")) {

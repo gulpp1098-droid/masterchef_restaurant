@@ -12,11 +12,12 @@ public class OrderWaitingProcedure {
 			return;
 		Entity DisplaySpawn = null;
 		if (!world.isClientSide()) {
-			if ((entity.getPersistentData().getString("state")).equals("order_wait")) {
+			if ((entity.getPersistentData().getString("state")).equals("order_wait") || (entity.getPersistentData().getString("state")).equals("order_pick") || (entity.getPersistentData().getString("state")).equals("food_wait")
+					|| (entity.getPersistentData().getString("state")).equals("group_wait")) {
 				if (entity instanceof ClientEntity _datEntSetS)
-					_datEntSetS.getEntityData().set(ClientEntity.DATA_DisplayState, "order_wait");
+					_datEntSetS.getEntityData().set(ClientEntity.DATA_DisplayState, (entity.getPersistentData().getString("state")));
 				if (entity instanceof CriticEntity _datEntSetS)
-					_datEntSetS.getEntityData().set(CriticEntity.DATA_DisplayState, "order_wait");
+					_datEntSetS.getEntityData().set(CriticEntity.DATA_DisplayState, (entity.getPersistentData().getString("state")));
 			} else {
 				if (entity instanceof ClientEntity _datEntSetS)
 					_datEntSetS.getEntityData().set(ClientEntity.DATA_DisplayState, "");
