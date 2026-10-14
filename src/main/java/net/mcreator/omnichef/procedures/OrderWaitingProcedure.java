@@ -10,7 +10,6 @@ public class OrderWaitingProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		Entity DisplaySpawn = null;
 		if (!world.isClientSide()) {
 			if ((entity.getPersistentData().getString("state")).equals("order_wait") || (entity.getPersistentData().getString("state")).equals("order_pick") || (entity.getPersistentData().getString("state")).equals("food_wait")
 					|| (entity.getPersistentData().getString("state")).equals("group_wait")) {

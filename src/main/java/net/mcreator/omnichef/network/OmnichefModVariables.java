@@ -107,6 +107,7 @@ public class OmnichefModVariables {
 			clone.OrderResultPortions = original.OrderResultPortions;
 			clone.OrderResultSatisfaction = original.OrderResultSatisfaction;
 			clone.OrderResultHideTime = original.OrderResultHideTime;
+			clone.RestaurantBoundaryData = original.RestaurantBoundaryData;
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
@@ -312,6 +313,7 @@ public class OmnichefModVariables {
 		public double OrderResultPortions = 0;
 		public double OrderResultSatisfaction = 0;
 		public double OrderResultHideTime = 0;
+		public String RestaurantBoundaryData = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -334,6 +336,7 @@ public class OmnichefModVariables {
 			nbt.putDouble("OrderResultPortions", OrderResultPortions);
 			nbt.putDouble("OrderResultSatisfaction", OrderResultSatisfaction);
 			nbt.putDouble("OrderResultHideTime", OrderResultHideTime);
+			nbt.putString("RestaurantBoundaryData", RestaurantBoundaryData);
 			return nbt;
 		}
 
@@ -357,6 +360,7 @@ public class OmnichefModVariables {
 			OrderResultPortions = nbt.getDouble("OrderResultPortions");
 			OrderResultSatisfaction = nbt.getDouble("OrderResultSatisfaction");
 			OrderResultHideTime = nbt.getDouble("OrderResultHideTime");
+			RestaurantBoundaryData = nbt.getString("RestaurantBoundaryData");
 		}
 
 		public void markSyncDirty() {

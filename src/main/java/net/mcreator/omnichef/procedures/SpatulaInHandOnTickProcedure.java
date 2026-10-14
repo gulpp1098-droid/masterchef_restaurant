@@ -41,7 +41,7 @@ public class SpatulaInHandOnTickProcedure {
 				}
 			}
 			if (itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("ShowRestaurantArea") && itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SpawnArea")) {
-				ShowingClaimedAreaOfRestaurantProcedure.execute(world, x, y, z, entity, itemstack);
+				ShowingClaimedAreaOfRestaurantProcedure.execute(world, entity, itemstack);
 			} else if (!itemstack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("ShowRestaurantArea")) {
 				{
 					final Vec3 _center = new Vec3(x, y, z);

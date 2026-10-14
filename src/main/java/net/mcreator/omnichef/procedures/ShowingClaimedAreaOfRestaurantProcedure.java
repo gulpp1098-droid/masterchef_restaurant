@@ -4,22 +4,18 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.BlockPos;
 import net.minecraft.ChatFormatting;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
-import net.mcreator.omnichef.init.OmnichefModEntities;
 
 import java.util.Arrays;
 import java.util.ArrayList;
 
 public class ShowingClaimedAreaOfRestaurantProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
+	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
 		com.google.gson.JsonArray locationsArray = new com.google.gson.JsonArray();
@@ -36,16 +32,13 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 		String up = "";
 		String down = "";
 		String locationString = "";
+		String BoundaryData = "";
 		if (!world.isClientSide()) {
 			if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
 				locationsArray = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants", "locations",
 						OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				locationArray = string2ArrayList((((("" + locationsArray).replace("\"", "")).replace("[", "")).replace("]", "")), ",");
-				PosY = y;
 				if (locationsArray.size() > 0) {
-					while (!world.getBlockState(BlockPos.containing(x, PosY, z)).canOcclude() && PosY > -64) {
-						PosY = PosY - 1;
-					}
 					index = 0;
 					for (int _i1 = 0; _i1 < (int) locationsArray.size(); _i1++) {
 						locationString = locationsArray.get((int) index).getAsString();
@@ -74,20 +67,16 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 						PosX = SectionX * 5 + 2.5;
 						PosZ = SectionZ * 5 + 2.5;
 						if (!locationArray.contains(right)) {
-							(world instanceof ServerLevel _level7 ? OmnichefModEntities.LOCATION_EDGE_RIGHT.get().spawn(_level7, BlockPos.containing(PosX, PosY, PosZ), MobSpawnType.MOB_SUMMONED) : null).getPersistentData().putDouble("RestaurantID",
-									entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+							BoundaryData = (PosX + 2.5) + ":" + PosZ + ":90;";
 						}
 						if (!locationArray.contains(left)) {
-							(world instanceof ServerLevel _level10 ? OmnichefModEntities.LOCATION_EDGE_LEFT.get().spawn(_level10, BlockPos.containing(PosX, PosY, PosZ), MobSpawnType.MOB_SUMMONED) : null).getPersistentData().putDouble("RestaurantID",
-									entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+							BoundaryData = (PosX - 2.5) + ":" + PosZ + ":90;";
 						}
 						if (!locationArray.contains(up)) {
-							(world instanceof ServerLevel _level13 ? OmnichefModEntities.LOCATION_EDGE.get().spawn(_level13, BlockPos.containing(PosX, PosY, PosZ), MobSpawnType.MOB_SUMMONED) : null).getPersistentData().putDouble("RestaurantID",
-									entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+							BoundaryData = PosX + ":" + (PosZ + 2.5) + ":0;";
 						}
 						if (!locationArray.contains(down)) {
-							(world instanceof ServerLevel _level16 ? OmnichefModEntities.LOCATION_EDGE_DOWN.get().spawn(_level16, BlockPos.containing(PosX, PosY, PosZ), MobSpawnType.MOB_SUMMONED) : null).getPersistentData().putDouble("RestaurantID",
-									entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+							BoundaryData = PosX + ":" + (PosZ - 2.5) + ":0;";
 						}
 						index = index + 1;
 					}
@@ -98,8 +87,13 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, itemstack, tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 			} else {
-				if (entity instanceof Player _player22 && !_player22.level().isClientSide())
-					_player22.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
+				if (entity instanceof Player _player13 && !_player13.level().isClientSide())
+					_player13.displayClientMessage(Component.literal("You need to create a restaurant first.").withStyle(ChatFormatting.RED), true);
+			}
+			{
+				OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+				_vars.RestaurantBoundaryData = BoundaryData;
+				_vars.markSyncDirty();
 			}
 		}
 	}

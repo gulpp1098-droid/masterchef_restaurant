@@ -1238,18 +1238,6 @@
             "type": "itemstack"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -9758,42 +9746,6 @@
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Chair Mob Procedures"
     },
     {
-      "name": "UpdateClientStateDisplay",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "update_client_state_display",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/UpdateClientStateDisplayProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
-    },
-    {
-      "name": "ItemDisplayMixin",
-      "type": "mixin",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "item_display_mixin",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/omnichef/mixin/ItemDisplayMixinMixin.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Mixins"
-    },
-    {
       "name": "GetFoodDataFromTier",
       "type": "procedure",
       "compiles": true,
@@ -11084,6 +11036,25 @@
         ]
       },
       "path": "~/Restaurant Functioning/Items/DisplayItems"
+    },
+    {
+      "name": "RenderRestaurantBoundary",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "render_restaurant_boundary",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/RenderRestaurantBoundaryProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/World Renderer Procedures"
     }
   ],
   "variable_elements": [
@@ -11266,6 +11237,12 @@
       "type": "number",
       "scope": "player_lifetime",
       "value": "0"
+    },
+    {
+      "name": "RestaurantBoundaryData",
+      "type": "string",
+      "scope": "player_lifetime",
+      "value": "\"\""
     }
   ],
   "sound_elements": [
