@@ -266,9 +266,20 @@ public class RenderClientStateIconProcedure {
 					if (entityiterator instanceof CriticEntity _datEntL5 && _datEntL5.getEntityData().get(CriticEntity.DATA_Sit)) {
 						iconHeight = 2.4;
 					}
+				} else {
+					iconState = "";
 				}
 				if ((iconState).equals("order_wait")) {
 					renderItem(new ItemStack(OmnichefModItems.BELL.get()), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + iconHeight),
+							(entityiterator.getPosition((float) partialTick).z()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), 0, 0, (float) 0.5, false, false);
+				} else if ((iconState).equals("food_wait")) {
+					renderItem(new ItemStack(OmnichefModItems.FOODWAIT.get()), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + iconHeight),
+							(entityiterator.getPosition((float) partialTick).z()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), 0, 0, (float) 0.5, false, false);
+				} else if ((iconState).equals("food_pick")) {
+					renderItem(new ItemStack(OmnichefModItems.FOODPICK.get()), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + iconHeight),
+							(entityiterator.getPosition((float) partialTick).z()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), 0, 0, (float) 0.5, false, false);
+				} else if ((iconState).equals("group_wait")) {
+					renderItem(new ItemStack(OmnichefModItems.GROUPWAIT.get()), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + iconHeight),
 							(entityiterator.getPosition((float) partialTick).z()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), 0, 0, (float) 0.5, false, false);
 				}
 			}

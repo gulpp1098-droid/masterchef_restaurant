@@ -11042,6 +11042,48 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/World Renderer Procedures"
+    },
+    {
+      "name": "Foodpick",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "foodpick",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/foodpick.json",
+          "src/main/java/net/mcreator/omnichef/item/FoodpickItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/DisplayItems"
+    },
+    {
+      "name": "Foodwait",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "foodwait",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/FoodwaitItem.java",
+          "src/main/resources/assets/omnichef/models/item/foodwait.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/DisplayItems"
+    },
+    {
+      "name": "Groupwait",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "groupwait",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/groupwait.json",
+          "src/main/java/net/mcreator/omnichef/item/GroupwaitItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/DisplayItems"
     }
   ],
   "variable_elements": [
@@ -11358,7 +11400,10 @@
       "gui.omnichef.chefs_diary_clients_gui.label_clients_wip_copy": "Keeping Them Happy",
       "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy": "Preparation Station",
       "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy": "Before It Leaves Kitchen",
-      "subtitles.clientring": "Client comes"
+      "subtitles.clientring": "Client comes",
+      "item.omnichef.foodpick": "Food Pick",
+      "item.omnichef.foodwait": "Food Wait",
+      "item.omnichef.groupwait": "Group wait"
     }
   },
   "metadata": {

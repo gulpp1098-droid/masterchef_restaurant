@@ -39,6 +39,9 @@ public class OmnichefModItems {
 	public static final DeferredItem<Item> STAR;
 	public static final DeferredItem<Item> PREPARED_DISH;
 	public static final DeferredItem<Item> PREPARATION_STATION;
+	public static final DeferredItem<Item> FOODPICK;
+	public static final DeferredItem<Item> FOODWAIT;
+	public static final DeferredItem<Item> GROUPWAIT;
 	static {
 		SPATULA_GOLDEN = REGISTRY.register("spatula_golden", SpatulaGoldenItem::new);
 		SERVICE_TABLE = block(OmnichefModBlocks.SERVICE_TABLE);
@@ -56,6 +59,9 @@ public class OmnichefModItems {
 		STAR = REGISTRY.register("star", StarItem::new);
 		PREPARED_DISH = REGISTRY.register("prepared_dish", PreparedDishItem::new);
 		PREPARATION_STATION = block(OmnichefModBlocks.PREPARATION_STATION);
+		FOODPICK = REGISTRY.register("foodpick", FoodpickItem::new);
+		FOODWAIT = REGISTRY.register("foodwait", FoodwaitItem::new);
+		GROUPWAIT = REGISTRY.register("groupwait", GroupwaitItem::new);
 	}
 
 	// Start of user code block custom items
