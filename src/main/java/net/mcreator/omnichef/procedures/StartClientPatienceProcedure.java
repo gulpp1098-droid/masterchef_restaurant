@@ -3,6 +3,8 @@ package net.mcreator.omnichef.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.omnichef.entity.ClientEntity;
+
 public class StartClientPatienceProcedure {
 	public static void execute(LevelAccessor world, Entity entity, double duration) {
 		if (entity == null)
@@ -11,5 +13,8 @@ public class StartClientPatienceProcedure {
 		client = entity;
 		client.getPersistentData().putBoolean("patience_needed", true);
 		client.getPersistentData().putDouble("patience_end_time", (world.dayTime() + duration));
+		client.getPersistentData().putDouble("patience_duration", duration);
+		if (client instanceof ClientEntity _datEntSetI)
+			_datEntSetI.getEntityData().set(ClientEntity.DATA_PatienceBar, 1000);
 	}
 }

@@ -11008,6 +11008,25 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Critic Procedures/Animation Procedures"
+    },
+    {
+      "name": "RenderClientPatienceBar",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "render_client_patience_bar",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/RenderClientPatienceBarProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/World Renderer Procedures"
     }
   ],
   "variable_elements": [
@@ -11584,6 +11603,10 @@
               },
               {
                 "name": "ItemTooltips",
+                "children": []
+              },
+              {
+                "name": "World Renderer Procedures",
                 "children": []
               }
             ]
