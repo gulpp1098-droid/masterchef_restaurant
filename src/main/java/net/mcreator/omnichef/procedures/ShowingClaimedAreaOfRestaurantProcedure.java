@@ -67,16 +67,16 @@ public class ShowingClaimedAreaOfRestaurantProcedure {
 						PosX = SectionX * 5 + 2.5;
 						PosZ = SectionZ * 5 + 2.5;
 						if (!locationArray.contains(right)) {
-							BoundaryData = (PosX + 2.5) + ":" + PosZ + ":90;";
+							BoundaryData = BoundaryData + "" + (PosX + 2.5) + ":" + PosZ + ":90;";
 						}
 						if (!locationArray.contains(left)) {
-							BoundaryData = (PosX - 2.5) + ":" + PosZ + ":90;";
+							BoundaryData = BoundaryData + "" + (PosX - 2.5) + ":" + PosZ + ":90;";
 						}
 						if (!locationArray.contains(up)) {
-							BoundaryData = PosX + ":" + (PosZ + 2.5) + ":0;";
+							BoundaryData = BoundaryData + "" + PosX + ":" + (PosZ + 2.5) + ":0;";
 						}
 						if (!locationArray.contains(down)) {
-							BoundaryData = PosX + ":" + (PosZ - 2.5) + ":0;";
+							BoundaryData = BoundaryData + "" + PosX + ":" + (PosZ - 2.5) + ":0;";
 						}
 						index = index + 1;
 					}
