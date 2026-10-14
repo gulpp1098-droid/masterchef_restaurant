@@ -151,6 +151,11 @@
         "name": "PatienceBar",
         "type": "integer",
         "value": -1
+      },
+      {
+        "name": "DisplayState",
+        "type": "string",
+        "value": ""
       }
     ],
     "onRightClickedOn": "ClientOrderWaitState",

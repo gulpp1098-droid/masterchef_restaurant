@@ -86,7 +86,7 @@
     "noteBlockInstrument": "harp",
     "creativePickItem": "",
     "offsetType": "NONE",
-    "aiPathNodeType": "UNPASSABLE_RAIL",
+    "aiPathNodeType": "FENCE",
     "strippingResult": "",
     "ignitedByLava": false,
     "flammability": 0,

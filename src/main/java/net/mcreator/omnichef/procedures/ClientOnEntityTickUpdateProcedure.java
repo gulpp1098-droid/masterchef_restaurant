@@ -70,7 +70,7 @@ public class ClientOnEntityTickUpdateProcedure {
 						}
 					}
 					EntityStaysOnTableProcedure.execute(world, entity);
-					OrderWaitingProcedure.execute(world, x, y, z, entity);
+					OrderWaitingProcedure.execute(world, entity);
 				}
 				if (world.dayTime() % 100 == 0) {
 					ClientStuckStateProcedure.execute(world, x, y, z, entity);

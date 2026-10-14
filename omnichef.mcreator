@@ -3924,18 +3924,6 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -11028,6 +11016,29 @@
         ],
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/RenderClientPatienceBarProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/World Renderer Procedures"
+    },
+    {
+      "name": "RenderClientStateIcon",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "render_client_state_icon",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "partialTick",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/RenderClientStateIconProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/World Renderer Procedures"

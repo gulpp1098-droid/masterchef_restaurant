@@ -97,7 +97,7 @@ public class ServiceTableBlock extends Block implements EntityBlock {
 
 	@Override
 	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return PathType.UNPASSABLE_RAIL;
+		return PathType.FENCE;
 	}
 
 	@Override

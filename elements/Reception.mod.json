@@ -78,7 +78,7 @@
     "noteBlockInstrument": "harp",
     "creativePickItem": "",
     "offsetType": "NONE",
-    "aiPathNodeType": "DAMAGE_FIRE",
+    "aiPathNodeType": "FENCE",
     "strippingResult": "",
     "ignitedByLava": false,
     "flammability": 0,

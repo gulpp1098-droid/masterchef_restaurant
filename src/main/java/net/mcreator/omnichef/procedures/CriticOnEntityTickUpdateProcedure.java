@@ -51,7 +51,7 @@ public class CriticOnEntityTickUpdateProcedure {
 					} else if ((client.getPersistentData().getString("state")).equals("order_wait")) {
 					}
 					EntityStaysOnTableProcedure.execute(world, entity);
-					OrderWaitingProcedure.execute(world, x, y, z, entity);
+					OrderWaitingProcedure.execute(world, entity);
 				}
 			}
 			if (world.dayTime() % 100 == 0) {

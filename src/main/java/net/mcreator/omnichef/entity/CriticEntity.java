@@ -42,6 +42,7 @@ public class CriticEntity extends PathfinderMob {
 	public static final EntityDataAccessor<Boolean> DATA_Idle = SynchedEntityData.defineId(CriticEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Boolean> DATA_Eat = SynchedEntityData.defineId(CriticEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Integer> DATA_PatienceBar = SynchedEntityData.defineId(CriticEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<String> DATA_DisplayState = SynchedEntityData.defineId(CriticEntity.class, EntityDataSerializers.STRING);
 	public final AnimationState animationState0 = new AnimationState();
 	public final AnimationState animationState1 = new AnimationState();
 	public final AnimationState animationState2 = new AnimationState();
@@ -97,6 +98,7 @@ public class CriticEntity extends PathfinderMob {
 		builder.define(DATA_Idle, false);
 		builder.define(DATA_Eat, false);
 		builder.define(DATA_PatienceBar, -1);
+		builder.define(DATA_DisplayState, "");
 	}
 
 	public void setTexture(String texture) {
@@ -224,6 +226,7 @@ public class CriticEntity extends PathfinderMob {
 		compound.putBoolean("DataIdle", this.entityData.get(DATA_Idle));
 		compound.putBoolean("DataEat", this.entityData.get(DATA_Eat));
 		compound.putInt("DataPatienceBar", this.entityData.get(DATA_PatienceBar));
+		compound.putString("DataDisplayState", this.entityData.get(DATA_DisplayState));
 	}
 
 	@Override
@@ -241,6 +244,8 @@ public class CriticEntity extends PathfinderMob {
 			this.entityData.set(DATA_Eat, compound.getBoolean("DataEat"));
 		if (compound.contains("DataPatienceBar"))
 			this.entityData.set(DATA_PatienceBar, compound.getInt("DataPatienceBar"));
+		if (compound.contains("DataDisplayState"))
+			this.entityData.set(DATA_DisplayState, compound.getString("DataDisplayState"));
 	}
 
 	@Override

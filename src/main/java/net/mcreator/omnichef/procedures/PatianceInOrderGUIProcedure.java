@@ -24,9 +24,9 @@ public class PatianceInOrderGUIProcedure {
 			player = entity;
 			if (client != null) {
 				if (("food_wait").equals(client.getPersistentData().getString("state")) || ("order_wait").equals(client.getPersistentData().getString("state"))) {
-					if (player instanceof ServerPlayer player6)
-						PacketDistributor.sendToPlayer(player6,
-								new PatiancePacketToClientMessage((new java.text.DecimalFormat("##").format(Math.max(Math.min((client.getPersistentData().getDouble("patience_end_time") - world.dayTime()) / 36, 100), 0)))));
+					if (player instanceof ServerPlayer player7)
+						PacketDistributor.sendToPlayer(player7, new PatiancePacketToClientMessage((new java.text.DecimalFormat("##")
+								.format(Math.max(Math.min(((client.getPersistentData().getDouble("patience_end_time") - world.dayTime()) / Math.max(1, client.getPersistentData().getDouble("patience_duration"))) * 100, 100), 0)))));
 				} else {
 					if (player instanceof Player _player)
 						_player.closeContainer();
