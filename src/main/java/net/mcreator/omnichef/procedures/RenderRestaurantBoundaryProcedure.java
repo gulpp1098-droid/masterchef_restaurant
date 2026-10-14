@@ -207,10 +207,15 @@ public class RenderRestaurantBoundaryProcedure {
 			return;
 		String RemainingData = "";
 		String WallData = "";
+		String PreviewData = "";
 		double SeparatorIndex = 0;
 		double WallX = 0;
 		double WallYaw = 0;
 		double WallZ = 0;
+		double PreviewX = 0;
+		double PreviewZ = 0;
+		double PreviewState = 0;
+		double PreviewColor = 0;
 		if (begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR, false)) {
 			add((float) (-0.5), 0, 0, 0, 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
 			add((float) 0.5, 0, 0, 0, 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
@@ -258,6 +263,51 @@ public class RenderRestaurantBoundaryProcedure {
 						}
 					}.convert(GetPartFromStringProcedure.execute(2, WallData));
 					renderShape(shape(), WallX, (-64), WallZ, (float) WallYaw, 0, 0, 5, 384, 1, 120 << 24 | 80 << 16 | 200 << 8 | 220);
+				}
+			}
+			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == OmnichefModItems.SPATULA_GOLDEN.get()
+					&& ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
+							|| (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant"))) {
+				PreviewData = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).RestaurantPreviewData;
+				if (!(PreviewData).isEmpty()) {
+					PreviewX = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(0, PreviewData));
+					PreviewZ = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(1, PreviewData));
+					PreviewState = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(2, PreviewData));
+					if (PreviewState == 0) {
+						PreviewColor = 120 << 24 | 80 << 16 | 200 << 8 | 80;
+					} else if (PreviewState == 1) {
+						PreviewColor = 120 << 24 | 240 << 16 | 200 << 8 | 60;
+					} else {
+						PreviewColor = 120 << 24 | 220 << 16 | 60 << 8 | 60;
+					}
+					renderShape(shape(), PreviewX, (-64), (PreviewZ + 2.5), 0, 0, 0, 5, 384, 1, (int) PreviewColor);
+					renderShape(shape(), PreviewX, (-64), (PreviewZ - 2.5), 0, 0, 0, 5, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX - 2.5), (-64), PreviewZ, 90, 0, 0, 5, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX + 2.5), (-64), PreviewZ, 90, 0, 0, 5, 384, 1, (int) PreviewColor);
 				}
 			}
 			RenderSystem.enableCull();

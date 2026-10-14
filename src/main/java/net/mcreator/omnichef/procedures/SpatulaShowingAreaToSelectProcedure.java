@@ -42,7 +42,7 @@ public class SpatulaShowingAreaToSelectProcedure {
 					PreviewData = EntityPositionX + ":" + EntityPositionZ + ":" + PreviewState;
 				}
 			}
-			if ((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).RestaurantPreviewData).equals(PreviewData)) {
+			if (!(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).RestaurantPreviewData).equals(PreviewData)) {
 				{
 					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 					_vars.RestaurantPreviewData = PreviewData;

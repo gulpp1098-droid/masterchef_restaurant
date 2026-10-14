@@ -86,7 +86,6 @@ public class GetRestaurantPreviewStateProcedure {
 					}
 				}
 			}
-			localizationIndex = 0;
 		}
 		return 2;
 	}
