@@ -187,7 +187,7 @@ public class RenderClientPatienceBarProcedure {
 			RenderSystem.enableBlend();
 			RenderSystem.defaultBlendFunc();
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-			execute(event, level);
+			execute(event, level, event.getPartialTick().getGameTimeDeltaPartialTick(false));
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 			RenderSystem.defaultBlendFunc();
 			RenderSystem.disableBlend();
@@ -195,11 +195,11 @@ public class RenderClientPatienceBarProcedure {
 		}
 	}
 
-	public static void execute(LevelAccessor world) {
-		execute(null, world);
+	public static void execute(LevelAccessor world, double partialTick) {
+		execute(null, world, partialTick);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world) {
+	private static void execute(@Nullable Event event, LevelAccessor world, double partialTick) {
 		double BarHeight = 0;
 		if (begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR, false)) {
 			add((float) (-0.5), (float) (-0.05), 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
@@ -222,9 +222,19 @@ public class RenderClientPatienceBarProcedure {
 							}
 							renderShape(shape(), (entityiterator.getX()), (entityiterator.getY() + BarHeight), (entityiterator.getZ()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(),
 									Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, 1, 1, 1, 255 << 24 | 30 << 16 | 30 << 8 | 30);
+							renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
+									Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0,
+									(float) (0.00096 * (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0)), (float) 0.7, 1, 255 << 24 | 80 << 16 | 200 << 8 | 80);
+						} else if ((entityiterator instanceof CriticEntity _datEntI ? _datEntI.getEntityData().get(CriticEntity.DATA_PatienceBar) : 0) >= 0) {
+							BarHeight = 2;
+							if (entityiterator instanceof CriticEntity _datEntL34 && _datEntL34.getEntityData().get(CriticEntity.DATA_Sit)) {
+								BarHeight = 1.75;
+							}
 							renderShape(shape(), (entityiterator.getX()), (entityiterator.getY() + BarHeight), (entityiterator.getZ()), Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(),
-									Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, (float) (0.96 * ((entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0) / 1000)),
-									(float) 0.7, 1, 255 << 24 | 80 << 16 | 200 << 8 | 80);
+									Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0, 1, 1, 1, 255 << 24 | 30 << 16 | 30 << 8 | 30);
+							renderShape(shape(), (entityiterator.getPosition((float) partialTick).x()), (entityiterator.getPosition((float) partialTick).y() + BarHeight), (entityiterator.getPosition((float) partialTick).z()),
+									Minecraft.getInstance().gameRenderer.getMainCamera().getYRot(), Minecraft.getInstance().gameRenderer.getMainCamera().getXRot(), 0,
+									(float) (0.00096 * (entityiterator instanceof ClientEntity _datEntI ? _datEntI.getEntityData().get(ClientEntity.DATA_PatienceBar) : 0)), (float) 0.7, 1, 255 << 24 | 80 << 16 | 200 << 8 | 80);
 						}
 					}
 				}

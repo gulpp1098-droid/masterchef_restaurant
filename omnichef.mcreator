@@ -11018,6 +11018,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "partialTick",
+            "type": "number"
+          },
+          {
             "name": "world",
             "type": "world"
           }

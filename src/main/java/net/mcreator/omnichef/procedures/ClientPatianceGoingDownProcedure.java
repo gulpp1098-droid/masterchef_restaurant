@@ -4,6 +4,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
+import net.mcreator.omnichef.entity.CriticEntity;
 import net.mcreator.omnichef.entity.ClientEntity;
 
 public class ClientPatianceGoingDownProcedure {
@@ -26,10 +27,15 @@ public class ClientPatianceGoingDownProcedure {
 		if (client.getPersistentData().getBoolean("patience_needed") && !client.getPersistentData().getBoolean("leaving_started") && !client.getPersistentData().getBoolean("order_served")) {
 			if (client instanceof ClientEntity _datEntSetI)
 				_datEntSetI.getEntityData().set(ClientEntity.DATA_PatienceBar,
-						(int) (1000 * Math.max(0, Math.min(1, world.dayTime() - (client.getPersistentData().getDouble("patience_end_time") - world.dayTime() + Math.max(1, client.getPersistentData().getDouble("patience_duration")))))));
+						(int) (1000 * Math.max(0, Math.min(1, (client.getPersistentData().getDouble("patience_end_time") - world.dayTime()) / Math.max(1, client.getPersistentData().getDouble("patience_duration"))))));
+			if (client instanceof CriticEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(CriticEntity.DATA_PatienceBar,
+						(int) (1000 * Math.max(0, Math.min(1, (client.getPersistentData().getDouble("patience_end_time") - world.dayTime()) / Math.max(1, client.getPersistentData().getDouble("patience_duration"))))));
 		} else {
 			if (client instanceof ClientEntity _datEntSetI)
 				_datEntSetI.getEntityData().set(ClientEntity.DATA_PatienceBar, -1);
+			if (client instanceof CriticEntity _datEntSetI)
+				_datEntSetI.getEntityData().set(CriticEntity.DATA_PatienceBar, -1);
 		}
 	}
 }
