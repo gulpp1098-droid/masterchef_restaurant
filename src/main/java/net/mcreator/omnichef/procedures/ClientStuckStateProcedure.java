@@ -78,8 +78,6 @@ public class ClientStuckStateProcedure {
 										}
 										client.getPersistentData().putDouble("stuckCounter", 10);
 										client.getPersistentData().putBoolean("alertSent", false);
-									} else {
-										ClientBeginLeavingProcedure.execute(world, entity);
 									}
 								}
 							}

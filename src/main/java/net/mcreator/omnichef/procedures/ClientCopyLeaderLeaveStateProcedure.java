@@ -15,12 +15,14 @@ public class ClientCopyLeaderLeaveStateProcedure {
 		client = entity;
 		Leader = world instanceof ServerLevel _level1 ? getEntityFromUUID(_level1, (client.getPersistentData().getString("leaderUUID"))) : null;
 		if (!(client.getPersistentData().getString("state")).equals("leave")) {
-			if (!(!(Leader == null)) || (Leader.getPersistentData().getString("state")).equals("leave")) {
-				client.getPersistentData().putString("state", "leave");
-				StopClientPatienceProcedure.execute(entity);
-				client.stopRiding();
-				client.getPersistentData().putDouble("stuckCounter", (-1));
-				client.getPersistentData().putDouble("despawn_time", (world.dayTime() + 200));
+			if (!(Leader == null)) {
+				if ((Leader.getPersistentData().getString("state")).equals("leave")) {
+					client.getPersistentData().putString("state", "leave");
+					StopClientPatienceProcedure.execute(entity);
+					client.stopRiding();
+					client.getPersistentData().putDouble("stuckCounter", (-1));
+					client.getPersistentData().putDouble("despawn_time", (world.dayTime() + 200));
+				}
 			}
 		}
 	}
