@@ -76,7 +76,7 @@ public class CreatingRestaurantFoodJsonFileProcedure {
 						Array = Object.get("restaurants").getAsJsonArray();
 						for (int _i1 = 0; _i1 < (int) Array.size(); _i1++) {
 							restaurantData = Array.get((int) index).getAsJsonObject();
-							if (!Object.has("pending_unlocks")) {
+							if (!restaurantData.has("pending_unlocks")) {
 								pendingCards = restaurantData.get("pending_cards").getAsJsonArray();
 								if (restaurantData.get("starter_unlocks_remaining").getAsDouble() <= 0 && pendingCards.size() > 0) {
 									restaurantData.addProperty("pending_unlocks", 1);

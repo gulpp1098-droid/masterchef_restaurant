@@ -16,6 +16,7 @@ public class AddRecipeDiscoveryExpProcedure {
 		double discoveryExp = 0;
 		double starterRemaining = 0;
 		double newDiscoveryExp = 0;
+		double pendingUnlocks = 0;
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockOptions = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockedFoods = new com.google.gson.JsonArray();
@@ -30,6 +31,8 @@ public class AddRecipeDiscoveryExpProcedure {
 				owner = world instanceof ServerLevel _level1 ? getEntityFromUUID(_level1, ownerUUID) : null;
 				starterRemaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"starter_unlocks_remaining");
+				pendingUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+						"pending_unlocks");
 				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				unlockOptions = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
@@ -38,14 +41,18 @@ public class AddRecipeDiscoveryExpProcedure {
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				databaseObject = ReadFoodDatabaseProcedure.execute(world);
 				currentlyUnlockableOptions = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(unlockOptions, unlockedFoods, databaseObject);
-				if (starterRemaining <= 0 && pendingCards.isEmpty() && !currentlyUnlockableOptions.isEmpty()) {
+				if (starterRemaining <= 0 && pendingUnlocks < 5 && !currentlyUnlockableOptions.isEmpty()) {
 					discoveryExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 							"discovery_exp");
 					newDiscoveryExp = Math.min(discoveryExp + 1, OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired);
 					if (newDiscoveryExp >= OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
 						ModifyRestaurantNumberParameterProcedure.execute(0, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"discovery_exp");
-						GeneratePendingCardsProcedure.execute(world, restaurantID);
+						ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
+						if (pendingCards.isEmpty()) {
+							GeneratePendingCardsProcedure.execute(world, owner.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+						}
 						if (owner instanceof Player) {
 							if (owner instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal("New recipe cards are ready! Use the Golden Spatula."), true);
@@ -53,6 +60,9 @@ public class AddRecipeDiscoveryExpProcedure {
 					} else {
 						ModifyRestaurantNumberParameterProcedure.execute(newDiscoveryExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp");
+					}
+					if (owner != null) {
+						CreateOverlayDataTransferProcedure.execute(world, owner);
 					}
 				}
 			}
