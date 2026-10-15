@@ -1,0 +1,211 @@
+{
+  "_fv": 89,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "background_exp.png",
+          "width": 99,
+          "height": 48,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 0,
+          "y": 192,
+          "locked": true
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1",
+          "image": "progress_bar.png",
+          "width": 78,
+          "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 17,
+          "y": 202,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "reputation_bar",
+          "image": "reputation_bar.png",
+          "width": 76,
+          "height": 6,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 18,
+          "y": 203,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1_copy",
+          "image": "progress_bar.png",
+          "width": 78,
+          "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 17,
+          "y": 223,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "recipe_bar",
+          "image": "recipe_bar.png",
+          "width": 76,
+          "height": 6,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 18,
+          "y": 224,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_3",
+          "image": "star_reputation.png",
+          "width": 11,
+          "height": 10,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 5,
+          "y": 200,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_3_copy",
+          "image": "recipe.png",
+          "width": 9,
+          "height": 10,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 6,
+          "y": 222,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_320_520",
+          "text": "320 / 520",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 44,
+          "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 34,
+          "y": 203,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_320_520_copy",
+          "text": "5 / 10",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 44,
+          "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 39,
+          "y": 224,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_reputation",
+          "text": "REPUTATION",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": false,
+          "width": 52,
+          "height": 8,
+          "x": 18,
+          "y": 196,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_reputation_copy",
+          "text": "Lvl 50",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 29,
+          "height": 8,
+          "x": 67,
+          "y": 196,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_reputation_copy_2",
+          "text": "RECIPE DISCOVERY",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 52,
+          "height": 8,
+          "x": 18,
+          "y": 217,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
