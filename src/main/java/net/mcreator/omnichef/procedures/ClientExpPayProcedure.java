@@ -2,14 +2,18 @@ package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
+
+import java.util.UUID;
 
 public class ClientExpPayProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
 		Entity client = null;
+		Entity owner = null;
 		double CurrentReputation = 0;
 		double EXPTotal = 0;
 		double RestaurantIndex = 0;
@@ -24,6 +28,7 @@ public class ClientExpPayProcedure {
 		double rewardMultiplier = 0;
 		com.google.gson.JsonObject orderResult = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray orderFoods = new com.google.gson.JsonArray();
+		String ownerUUID = "";
 		client = entity;
 		RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 		RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
@@ -67,5 +72,18 @@ public class ClientExpPayProcedure {
 		ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndex, RealReputationChange, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 				"daily_stats", "reputation_change");
 		RestaurantLevelUpCheckProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
+		ownerUUID = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
+		owner = world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, ownerUUID) : null;
+		if (owner != null) {
+			CreateOverlayDataTransferProcedure.execute(world, owner);
+		}
+	}
+
+	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
+		try {
+			return level.getEntity(UUID.fromString(uuid));
+		} catch (IllegalArgumentException e) {
+			return null;
+		}
 	}
 }

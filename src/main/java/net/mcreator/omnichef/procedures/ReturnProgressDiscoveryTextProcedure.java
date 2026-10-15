@@ -23,7 +23,7 @@ public class ReturnProgressDiscoveryTextProcedure {
 		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0) {
 			return "";
 		}
-		if (!data.has("restaurant_level")) {
+		if (!data.has("discovery_current")) {
 			return "";
 		}
 		return (int) data.get("discovery_current").getAsDouble() + " / " + (int) data.get("discovery_target").getAsDouble();

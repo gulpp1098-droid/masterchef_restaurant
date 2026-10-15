@@ -29,7 +29,7 @@ public class ReturnProgressReputationTextProcedure {
 		if (!data.has("restaurant_level")) {
 			return "";
 		}
-		if (data.get("restaurant_level").getAsDouble() >= 100) {
+		if (data.get("reputation_current").getAsDouble() >= 100) {
 			return "MAX";
 		}
 		current = data.get("reputation_current").getAsDouble();
