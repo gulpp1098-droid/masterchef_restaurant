@@ -1,7 +1,10 @@
 package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 public class GetClientOrderBaseExpProcedure {
 	public static double execute(LevelAccessor world, Entity clientEntity) {
@@ -17,6 +20,7 @@ public class GetClientOrderBaseExpProcedure {
 		double amount = 0;
 		double baseExp = 0;
 		double totalBaseExp = 0;
+		double avarageQuantity = 0;
 		client = clientEntity;
 		database = ReadFoodDatabaseProcedure.execute(world);
 		foodArray = GetClientOrderFoodArrayProcedure.execute(client);
@@ -26,7 +30,8 @@ public class GetClientOrderBaseExpProcedure {
 			foodID = foodArray.get((int) index).getAsString();
 			amount = foodAmountArray.get((int) index).getAsDouble();
 			baseExp = GetFoodBaseExpByIDProcedure.execute(database, foodID);
-			totalBaseExp = totalBaseExp + baseExp * amount;
+			avarageQuantity = GetFoodAvarageOrderQuantityByIDProcedure.execute(database, new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((foodID).toLowerCase(java.util.Locale.ENGLISH)))).getMaxStackSize(), foodID);
+			totalBaseExp = totalBaseExp + (baseExp * amount) / avarageQuantity;
 			index = index + 1;
 		}
 		return totalBaseExp;

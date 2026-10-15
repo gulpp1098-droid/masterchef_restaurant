@@ -65,7 +65,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiTools$orderedImages : {
+		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -66, this.topPos + -20, 0, 0, 250, 88, 250, 88);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 4, this.topPos + -10, 0, 0, 93, 21, 93, 21);
 			if (this.enhanced_image_button_trash_icon != null && this.enhanced_image_button_trash_icon.visible) {

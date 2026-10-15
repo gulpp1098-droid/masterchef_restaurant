@@ -30,32 +30,7 @@ public class OrderResultOverlayOverlay {
 			z = entity.getZ();
 		}
 		if (ShouldShowOrderResultOverlayProcedure.execute(world, entity)) {
-
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "ORDER RESULTS", 23, h - 159, 60, -1, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Completeness", 16, h - 145, 55, -39322, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Accuracy", 16, h - 134, 55, -39169, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Portions", 16, h - 123, 55, -10040065, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Satisfaction", 16, h - 112, 55, -10027009, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultCompletenessTextProcedure.execute(entity), ""), 75, h - 145, 55, -39322, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultAccuracyTextProcedure.execute(entity), ""), 75, h - 134, 55, -39169, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPortionsTextProcedure.execute(entity), ""), 75, h - 123, 55, -10040065, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultSatisfactionTextProcedure.execute(entity), ""), 75, h - 112, 55, -10027009, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPerfectTextProcedure.execute(entity), ""), 35, h - 104, 45, -10027162, false, 1.00F, 0);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultSatisfiedTextProcedure.execute(entity), ""), 30, h - 104, 55, -205, false, 1.00F, 0);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultUnsatisfiedTextProcedure.execute(entity), ""), 22, h - 104, 70, -65536, false, 1.00F, 0);
-			guiTools$orderedImages : {
+			guiTools$orderedLayers : {
 				if (true) {
 					int guiTools$xOffset = 0;
 					int guiTools$yOffset = 0;
@@ -65,6 +40,31 @@ public class OrderResultOverlayOverlay {
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 						guiTools$alphaBlit(event.getGuiGraphics(), guiTools$image, 11 + guiTools$xOffset, h - 168 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 85, 80);
 				}
+
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "ORDER RESULTS", 23, h - 159, 60, -1, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Completeness", 16, h - 145, 55, -39322, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Accuracy", 16, h - 134, 55, -39169, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Portions", 16, h - 123, 55, -10040065, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Satisfaction", 16, h - 112, 55, -10027009, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultCompletenessTextProcedure.execute(entity), ""), 75, h - 145, 55, -39322, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultAccuracyTextProcedure.execute(entity), ""), 75, h - 134, 55, -39169, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPortionsTextProcedure.execute(entity), ""), 75, h - 123, 55, -10040065, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultSatisfactionTextProcedure.execute(entity), ""), 75, h - 112, 55, -10027009, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPerfectTextProcedure.execute(entity), ""), 35, h - 104, 45, -10027162, false, 1.00F, 0);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultSatisfiedTextProcedure.execute(entity), ""), 30, h - 104, 55, -205, false, 1.00F, 0);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultUnsatisfiedTextProcedure.execute(entity), ""), 22, h - 104, 70, -65536, false, 1.00F, 0);
 			}
 		}
 	}

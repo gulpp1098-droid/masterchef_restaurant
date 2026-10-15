@@ -157,7 +157,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiTools$orderedImages : {
+		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -1, this.topPos + 0, 0, 0, 176, 234, 176, 234);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 32, this.topPos + 87, 0, 0, 18, 18, 18, 18);
 			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 34, this.topPos + 94, 0, 0, 14, 8, 14, 8);

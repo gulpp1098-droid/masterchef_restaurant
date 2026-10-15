@@ -30,7 +30,7 @@ public class TimelineOverlayOverlay {
 			z = entity.getZ();
 		}
 		if (ReturnTimelineOpenRestaurantProcedure.execute(world, entity)) {
-			guiTools$orderedImages : {
+			guiTools$orderedLayers : {
 				if (true) {
 					int guiTools$xOffset = 0;
 					int guiTools$yOffset = 0;

@@ -132,7 +132,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiTools$orderedImages : {
+		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -100, this.topPos + -94, 0, 0, 203, 176, 203, 176);
 			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + -70, this.topPos + 10, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -44, this.topPos + -83, 0, 0, 93, 21, 93, 21);

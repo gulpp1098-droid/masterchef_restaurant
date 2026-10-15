@@ -58,7 +58,7 @@ public class RecipesInfoGUIScreen extends AbstractContainerScreen<RecipesInfoGUI
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
-		guiTools$orderedImages : {
+		guiTools$orderedLayers : {
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;

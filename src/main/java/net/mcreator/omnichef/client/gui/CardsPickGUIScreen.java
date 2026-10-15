@@ -91,7 +91,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
-		guiTools$orderedImages : {
+		guiTools$orderedLayers : {
 			if (this.enhanced_image_button_cardbigtier0 != null && this.enhanced_image_button_cardbigtier0.visible) {
 				this.enhanced_image_button_cardbigtier0.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}

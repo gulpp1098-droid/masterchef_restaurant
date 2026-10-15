@@ -30,20 +30,7 @@ public class ProgressBarRestaurantOverlay {
 			z = entity.getZ();
 		}
 		if (ShouldShowRestaurantProgressProcedure.execute(entity)) {
-
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressReputationTextProcedure.execute(entity), ""), 34, h - 37, 44, -1, false, 0.75F, 0);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressDiscoveryTextProcedure.execute(entity), ""), 39, h - 16, 44, -1, false, 0.75F, 0);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "REPUTATION", 18, h - 44, 52, -1, false, 0.75F, 2);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressLevelTextProcedure.execute(entity), ""), 67, h - 44, 29, -1, false, 0.75F, 0);
-			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", 18, h - 23, 52, -1, false, 0.75F, 0);
-			if (net.mcreator.omnichef.procedures.ShouldShowNewRecipeProcedure.execute(entity))
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "NEW!", 4, h - 8, 52, -16711936, false, 0.75F, 0);
-			guiTools$orderedImages : {
+			guiTools$orderedLayers : {
 				if (true) {
 					int guiTools$xOffset = 0;
 					int guiTools$yOffset = 0;
@@ -107,6 +94,19 @@ public class ProgressBarRestaurantOverlay {
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 						guiTools$alphaBlit(event.getGuiGraphics(), guiTools$image, 6 + guiTools$xOffset, h - 18 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 9, 10);
 				}
+
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressReputationTextProcedure.execute(entity), ""), 34, h - 37, 44, -1, false, 0.75F, 0);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressDiscoveryTextProcedure.execute(entity), ""), 39, h - 16, 44, -1, false, 0.75F, 0);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "REPUTATION", 18, h - 44, 52, -1, false, 0.75F, 2);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressLevelTextProcedure.execute(entity), ""), 67, h - 44, 29, -1, false, 0.75F, 0);
+				if (true)
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", 18, h - 23, 52, -1, false, 0.75F, 0);
+				if (net.mcreator.omnichef.procedures.ShouldShowNewRecipeProcedure.execute(entity))
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "NEW!", 4, h - 8, 52, -16711936, false, 0.75F, 0);
 			}
 		}
 	}
