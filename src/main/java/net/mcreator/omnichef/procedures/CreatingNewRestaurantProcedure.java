@@ -118,16 +118,8 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurant.add("menu", LocationArray);
 				NewRestaurant.add("next_menu", LocationArray);
 				NewRestaurant.addProperty("menu_advance_ready", false);
-				dailyStatsObject.addProperty("customers_served_fully", 0);
-				dailyStatsObject.addProperty("customers_served", 0);
-				dailyStatsObject.addProperty("customers_lost", 0);
-				dailyStatsObject.addProperty("coins_earned", 0);
-				dailyStatsObject.addProperty("reputation_change", 0);
-				lastDayStatsObject.addProperty("customers_served_fully", 0);
-				lastDayStatsObject.addProperty("customers_served", 0);
-				lastDayStatsObject.addProperty("customers_lost", 0);
-				lastDayStatsObject.addProperty("coins_earned", 0);
-				lastDayStatsObject.addProperty("reputation_change", 0);
+				dailyStatsObject = CreateDefaultRestaurantStatsProcedure.execute();
+				lastDayStatsObject = CreateDefaultRestaurantStatsProcedure.execute();
 				NewRestaurant.add("daily_stats", dailyStatsObject);
 				NewRestaurant.add("last_day_stats", lastDayStatsObject);
 				ListOfRestaurants = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
@@ -203,8 +195,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					CreateOverlayDataTransferProcedure.execute(world, entity);
-					if (Owner instanceof Player _player77 && !_player77.level().isClientSide())
-						_player77.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
+					if (Owner instanceof Player _player67 && !_player67.level().isClientSide())
+						_player67.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;
 					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
@@ -227,8 +219,8 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player81 && !_player81.level().isClientSide())
-						_player81.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
+					if (Owner instanceof Player _player71 && !_player71.level().isClientSide())
+						_player71.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					OmnichefMod.LOGGER.info("CreatingNewRestaurant: save verification failed." + "\n" + "Restaurant ID: " + OmnichefModVariables.MapVariables.get(world).RestaurantID + "\n" + "File: "
 							+ OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path + "/" + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 				}

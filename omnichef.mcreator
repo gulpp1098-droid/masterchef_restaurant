@@ -11137,6 +11137,21 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "CreateDefaultRestaurantStats",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_default_restaurant_stats",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CreateDefaultRestaurantStatsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     }
   ],
   "variable_elements": [

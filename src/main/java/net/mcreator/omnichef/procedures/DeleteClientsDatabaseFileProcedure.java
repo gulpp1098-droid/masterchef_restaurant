@@ -100,21 +100,7 @@ public class DeleteClientsDatabaseFileProcedure {
 							lastDayStatsObject.addProperty("coins_earned", dailyStatsObject.get("coins_earned").getAsDouble());
 							lastDayStatsObject.addProperty("reputation_change", dailyStatsObject.get("reputation_change").getAsDouble());
 							restaurantObject.add("last_day_stats", lastDayStatsObject);
-							newDayStatsObject = new Object() {
-								public com.google.gson.JsonObject parse(String rawJson) {
-									try {
-										return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
-									} catch (Exception e) {
-										OmnichefMod.LOGGER.error(e);
-										return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
-									}
-								}
-							}.parse("{}");
-							newDayStatsObject.addProperty("customers_served_fully", 0);
-							newDayStatsObject.addProperty("customers_served", 0);
-							newDayStatsObject.addProperty("customers_lost", 0);
-							newDayStatsObject.addProperty("coins_earned", 0);
-							newDayStatsObject.addProperty("reputation_change", 0);
+							newDayStatsObject = CreateDefaultRestaurantStatsProcedure.execute();
 							restaurantObject.add("daily_stats", newDayStatsObject);
 							index = index + 1;
 						}
