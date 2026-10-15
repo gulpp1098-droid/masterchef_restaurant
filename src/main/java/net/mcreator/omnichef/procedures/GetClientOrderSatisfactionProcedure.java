@@ -29,6 +29,9 @@ public class GetClientOrderSatisfactionProcedure {
 		} else {
 			satisfaction = Math.round(Math.pow(10, 1) * (100 * (correctScore / evaluatedScore))) / Math.pow(10, 1);
 		}
-		return Math.min(100, Math.max(0, satisfaction));
+		if (resultObject.get("exact").getAsBoolean()) {
+			return 100;
+		}
+		return Math.min(99.9, Math.max(0, satisfaction));
 	}
 }
