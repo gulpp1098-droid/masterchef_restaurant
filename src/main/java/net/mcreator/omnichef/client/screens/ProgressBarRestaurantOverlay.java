@@ -10,6 +10,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.omnichef.procedures.ShouldShowOrderResultOverlayProcedure;
+
 @EventBusSubscriber(Dist.CLIENT)
 public class ProgressBarRestaurantOverlay {
 	@SubscribeEvent(priority = EventPriority.NORMAL)
@@ -27,7 +29,7 @@ public class ProgressBarRestaurantOverlay {
 			y = entity.getY();
 			z = entity.getZ();
 		}
-		if (true) {
+		if (ShouldShowOrderResultOverlayProcedure.execute(world, entity)) {
 
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "320 / 520", 34, h - 37, 44, -1, false, 0.75F, 0);
@@ -39,7 +41,7 @@ public class ProgressBarRestaurantOverlay {
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Lvl 50", 67, h - 44, 29, -1, false, 0.75F, 0);
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", 18, h - 23, 52, -1, false, 0.75F, 0);
-			if (true)
+			if (net.mcreator.omnichef.procedures.ShouldShowRestaurantProgressProcedure.execute(entity))
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "NEW!", 4, h - 8, 52, -16711936, false, 0.75F, 0);
 			guiTools$orderedImages : {
 				if (true) {

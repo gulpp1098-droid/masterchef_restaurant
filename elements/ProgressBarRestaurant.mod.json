@@ -213,6 +213,7 @@
           },
           "hasShadow": false,
           "fontScale": 75,
+          "displayCondition": "ShouldShowRestaurantProgress",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 52,
@@ -226,6 +227,7 @@
     ],
     "baseTexture": "",
     "overlayTarget": "Ingame",
+    "displayCondition": "ShouldShowOrderResultOverlay",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

@@ -12,9 +12,6 @@ public class ReturnRecipeBarWidthProcedure {
 		com.google.gson.JsonObject data = new com.google.gson.JsonObject();
 		double current = 0;
 		double target = 0;
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID < 0) {
-			return 0;
-		}
 		data = new Object() {
 			public com.google.gson.JsonObject parse(String rawJson) {
 				try {
@@ -25,6 +22,9 @@ public class ReturnRecipeBarWidthProcedure {
 				}
 			}
 		}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0 || !data.has("reputation_current")) {
+			return 0;
+		}
 		current = data.get("discovery_current").getAsDouble();
 		target = data.get("discovery_target").getAsDouble();
 		if (target <= 0) {

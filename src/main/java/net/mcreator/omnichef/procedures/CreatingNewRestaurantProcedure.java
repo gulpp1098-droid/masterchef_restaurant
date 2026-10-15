@@ -196,6 +196,7 @@ public class CreatingNewRestaurantProcedure {
 				GeneratePendingCardsProcedure.execute(world, OmnichefModVariables.MapVariables.get(world).RestaurantID);
 				SaveConfirmed = RestaurantIndexSearchByIDProcedure.execute(world, OmnichefModVariables.MapVariables.get(world).RestaurantID) >= 0;
 				if (SaveConfirmed) {
+					CreateOverlayDataTransferProcedure.execute(world, entity);
 					{
 						OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 						_vars.Restaurant_ID = OmnichefModVariables.MapVariables.get(world).RestaurantID;

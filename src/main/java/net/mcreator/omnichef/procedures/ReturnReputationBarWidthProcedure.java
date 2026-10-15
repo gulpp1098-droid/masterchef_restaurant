@@ -13,9 +13,6 @@ public class ReturnReputationBarWidthProcedure {
 		double current = 0;
 		double start = 0;
 		double target = 0;
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID < 0) {
-			return 0;
-		}
 		data = new Object() {
 			public com.google.gson.JsonObject parse(String rawJson) {
 				try {
@@ -26,6 +23,9 @@ public class ReturnReputationBarWidthProcedure {
 				}
 			}
 		}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0 || !data.has("reputation_current")) {
+			return 0;
+		}
 		if (data.get("restaurant_level").getAsDouble() >= 100) {
 			return 76;
 		}
