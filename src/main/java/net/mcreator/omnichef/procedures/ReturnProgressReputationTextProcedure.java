@@ -26,10 +26,10 @@ public class ReturnProgressReputationTextProcedure {
 		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0) {
 			return "";
 		}
-		if (!data.has("restaurant_level")) {
+		if (!data.has("reputation_current")) {
 			return "";
 		}
-		if (data.get("reputation_current").getAsDouble() >= 100) {
+		if (data.get("restaurant_level").getAsDouble() >= 100) {
 			return "MAX";
 		}
 		current = data.get("reputation_current").getAsDouble();

@@ -42,7 +42,7 @@ public class CriticGroupWaitStateProcedure {
 					restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 			AdvanceRecipeDiscoveryStageProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
 			if (owner != null) {
-				CreateOverlayDataTransferProcedure.execute(world, entity);
+				CreateOverlayDataTransferProcedure.execute(world, owner);
 			}
 		} else {
 			if (owner instanceof Player _player && !_player.level().isClientSide())
