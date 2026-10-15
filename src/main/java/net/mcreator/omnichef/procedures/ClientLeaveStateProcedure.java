@@ -13,6 +13,7 @@ public class ClientLeaveStateProcedure {
 			return;
 		double restaurantID = 0;
 		double leaveAngle = 0;
+		ClientSettleLeavingProcedure.execute(world, entity);
 		if (world.dayTime() % 24000 >= 18000 || world.dayTime() % 24000 >= 0 && world.dayTime() % 24000 <= 30
 				|| new Vec3(x, y, z).distanceTo(new Vec3((entity.getPersistentData().getDouble("DestX")), (entity.getPersistentData().getDouble("DestY")), (entity.getPersistentData().getDouble("DestZ")))) >= 60
 				|| world.dayTime() >= entity.getPersistentData().getDouble("despawn_time")) {

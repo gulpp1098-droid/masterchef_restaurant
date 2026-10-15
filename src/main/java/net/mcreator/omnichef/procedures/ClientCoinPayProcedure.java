@@ -31,30 +31,33 @@ public class ClientCoinPayProcedure {
 		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		String foodID = "";
 		client = entity;
-		if (client.getPersistentData().getBoolean("order_served")) {
-			database = ReadFoodDatabaseProcedure.execute(world);
-			foodArray = GetClientOrderFoodArrayProcedure.execute(client);
-			foodAmountArray = GetClientOrderAmountArrayProcedure.execute(client);
-			satisfaction = GetClientOrderSatisfactionProcedure.execute(client);
-			loopSize = Math.min(foodArray.size(), foodAmountArray.size());
-			for (int _i1 = 0; _i1 < (int) loopSize; _i1++) {
-				foodID = foodArray.get((int) index).getAsString();
-				amount = foodAmountArray.get((int) index).getAsDouble();
-				tier = GetFoodTierByIDProcedure.execute(database, foodID);
-				CoinSum = CoinSum + (tier + 1) * amount;
-				index = index + 1;
+		if (!client.getPersistentData().getBoolean("coins_paid") || client.getPersistentData().getBoolean("order_served")) {
+			if (client.getPersistentData().getBoolean("order_served")) {
+				database = ReadFoodDatabaseProcedure.execute(world);
+				foodArray = GetClientOrderFoodArrayProcedure.execute(client);
+				foodAmountArray = GetClientOrderAmountArrayProcedure.execute(client);
+				satisfaction = GetClientOrderSatisfactionProcedure.execute(client);
+				loopSize = Math.min(foodArray.size(), foodAmountArray.size());
+				for (int _i1 = 0; _i1 < (int) loopSize; _i1++) {
+					foodID = foodArray.get((int) index).getAsString();
+					amount = foodAmountArray.get((int) index).getAsDouble();
+					tier = GetFoodTierByIDProcedure.execute(database, foodID);
+					CoinSum = CoinSum + (tier + 1) * amount;
+					index = index + 1;
+				}
+				CoinTotal = Math.round(CoinSum * (satisfaction / 100));
 			}
-			CoinTotal = Math.round(CoinSum * (satisfaction / 100));
+			restaurantID = client.getPersistentData().getDouble("RestaurantID");
+			ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), CoinTotal, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "coins_earned");
+			chairDirection = getDirectionFromBlockState((world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
+			SetNumberNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(),
+					getBlockNBTNumber(world,
+							BlockPos.containing(client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ()),
+							"coins") + CoinTotal,
+					"coins");
+			client.getPersistentData().putBoolean("coins_paid", true);
 		}
-		restaurantID = client.getPersistentData().getDouble("RestaurantID");
-		ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), CoinTotal, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "coins_earned");
-		chairDirection = getDirectionFromBlockState((world.getBlockState(BlockPos.containing(client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ")))));
-		SetNumberNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ(),
-				getBlockNBTNumber(world,
-						BlockPos.containing(client.getPersistentData().getDouble("DestX") + chairDirection.getStepX(), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ") + chairDirection.getStepZ()), "coins")
-						+ CoinTotal,
-				"coins");
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {

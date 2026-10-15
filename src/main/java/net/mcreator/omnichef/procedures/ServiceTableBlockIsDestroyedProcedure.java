@@ -44,7 +44,7 @@ public class ServiceTableBlockIsDestroyedProcedure {
 			if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID") == 0 || entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
 					&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
 							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-				if (!getBlockNBTLogic(world, BlockPos.containing(x, y, z), "tagName") && getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") == 0) {
+				if (!getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied") && getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") == 0) {
 					for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
 						ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
 						if (ChairBlock.getBlock() == OmnichefModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {

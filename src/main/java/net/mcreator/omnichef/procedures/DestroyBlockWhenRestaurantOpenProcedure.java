@@ -59,7 +59,7 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 					}
 				}
 				if (blockstate.getBlock() == OmnichefModBlocks.SERVICE_TABLE.get()) {
-					if (getBlockNBTLogic(world, BlockPos.containing(x, y, z), "active") || getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") > 0) {
+					if (getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied") || getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") > 0) {
 						if (entity instanceof Player _player18 && !_player18.level().isClientSide())
 							_player18.displayClientMessage(Component.literal("You cannot modify this table or its chairs while customers are using it or coins remain uncollected.").withStyle(ChatFormatting.RED), true);
 						if (event instanceof ICancellableEvent _cancellable) {
