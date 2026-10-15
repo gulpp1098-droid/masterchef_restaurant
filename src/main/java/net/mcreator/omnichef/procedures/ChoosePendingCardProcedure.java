@@ -24,6 +24,7 @@ public class ChoosePendingCardProcedure {
 		double restaurantIndex = 0;
 		double remaining = 0;
 		double cardIndex = 0;
+		double pendingUnlocks = 0;
 		String selectedFood = "";
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockOptions = new com.google.gson.JsonArray();
@@ -73,28 +74,43 @@ public class ChoosePendingCardProcedure {
 						}
 					}
 				} else {
+					pendingUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
+					pendingUnlocks = Math.max(0, pendingUnlocks - 1);
+					ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
 					ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-					if (entity instanceof ServerPlayer _ent) {
-						BlockPos _bpos = BlockPos.containing(x, y, z);
-						_ent.openMenu(new MenuProvider() {
-							@Override
-							public Component getDisplayName() {
-								return Component.literal("RestaurantManagementGUI");
-							}
+					if (pendingUnlocks > 0) {
+						GeneratePendingCardsProcedure.execute(world, restaurantID);
+					}
+					pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_unlocks", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+					if (pendingCards.size() > 0) {
+						FillCardsPickGUIProcedure.execute(world, entity);
+					} else {
+						if (entity instanceof ServerPlayer _ent) {
+							BlockPos _bpos = BlockPos.containing(x, y, z);
+							_ent.openMenu(new MenuProvider() {
+								@Override
+								public Component getDisplayName() {
+									return Component.literal("RestaurantManagementGUI");
+								}
 
-							@Override
-							public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-								return false;
-							}
+								@Override
+								public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+									return false;
+								}
 
-							@Override
-							public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-								return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
-							}
-						}, _bpos);
+								@Override
+								public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+									return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+								}
+							}, _bpos);
+						}
 					}
 				}
+				CreateOverlayDataTransferProcedure.execute(world, entity);
 			}
 		}
 	}

@@ -51,7 +51,7 @@ public class AddRecipeDiscoveryExpProcedure {
 						ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
 						if (pendingCards.isEmpty()) {
-							GeneratePendingCardsProcedure.execute(world, owner.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+							GeneratePendingCardsProcedure.execute(world, restaurantID);
 						}
 						if (owner instanceof Player) {
 							if (owner instanceof Player _player && !_player.level().isClientSide())
