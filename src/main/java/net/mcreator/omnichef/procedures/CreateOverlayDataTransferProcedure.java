@@ -27,6 +27,7 @@ public class CreateOverlayDataTransferProcedure {
 		com.google.gson.JsonArray groupsArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray members = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray timelineGroupsArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		boolean critic = false;
 		if (!world.isClientSide()) {
 			JSONObject = new Object() {
@@ -42,6 +43,13 @@ public class CreateOverlayDataTransferProcedure {
 			JSONObject.addProperty("open", false);
 			JSONObject.addProperty("closeTime", 0);
 			JSONObject.addProperty("openTime", 0);
+			JSONObject.addProperty("restaurant_level", 0);
+			JSONObject.addProperty("reputation_current", 0);
+			JSONObject.addProperty("reputation_start", 0);
+			JSONObject.addProperty("reputation_target", 0);
+			JSONObject.addProperty("discovery_current", 0);
+			JSONObject.addProperty("discovery_target", OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired);
+			JSONObject.addProperty("recipe_ready", false);
 			JSONObject.add("groups", timelineGroupsArray);
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 			if (restaurantIndex >= 0 && entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID > -1) {
@@ -91,6 +99,15 @@ public class CreateOverlayDataTransferProcedure {
 				dailyStatsObject = RestaurantObject.get("daily_stats").getAsJsonObject();
 				restaurantLevel = RestaurantObject.get("level").getAsDouble();
 				JSONObject.addProperty("level", ("Level: " + (int) restaurantLevel));
+				JSONObject.addProperty("restaurant_level", ((int) restaurantLevel));
+				JSONObject.addProperty("reputation_current", ((int) RestaurantObject.get("reputation").getAsDouble()));
+				JSONObject.addProperty("reputation_start", ((int) GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel)));
+				JSONObject.addProperty("reputation_target", ((int) GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel + 1)));
+				JSONObject.addProperty("discovery_current", ((int) GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp")));
+				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				JSONObject.addProperty("recipe_ready", (groupsArray.size() > 0));
 				JSONObject.addProperty("name", ("Name: " + RestaurantObject.get("name").getAsString()));
 				JSONObject.addProperty("owner", ("Owner: " + RestaurantObject.get("ownerName").getAsString()));
 				if (restaurantLevel >= 100) {
