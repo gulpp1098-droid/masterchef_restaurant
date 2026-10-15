@@ -34,11 +34,11 @@ public class ProgressBarRestaurantOverlay {
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "5 / 10", 39, h - 16, 44, -1, false, 0.75F, 0);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "REPUTATION", w / 2 + -195, h / 2 + 76, 52, -1, false, 0.75F, 2);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "REPUTATION", 18, h - 44, 52, -1, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Lvl 50", w / 2 + -146, h / 2 + 76, 29, -1, false, 0.75F, 0);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Lvl 50", 67, h - 44, 29, -1, false, 0.75F, 0);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", w / 2 + -195, h / 2 + 97, 52, -1, false, 0.75F, 0);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", 18, h - 23, 52, -1, false, 0.75F, 0);
 			guiTools$orderedImages : {
 				if (true) {
 					int guiTools$xOffset = 0;

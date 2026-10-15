@@ -152,6 +152,7 @@
           "tooltipWhenTruncated": false,
           "width": 52,
           "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
           "x": 18,
           "y": 196,
           "locked": false
@@ -172,6 +173,7 @@
           "tooltipWhenTruncated": false,
           "width": 29,
           "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
           "x": 67,
           "y": 196,
           "locked": false
@@ -192,6 +194,7 @@
           "tooltipWhenTruncated": false,
           "width": 52,
           "height": 8,
+          "anchorPoint": "BOTTOM_LEFT",
           "x": 18,
           "y": 217,
           "locked": false
