@@ -32,13 +32,13 @@ public class ProgressBarRestaurantOverlay {
 		if (ShouldShowRestaurantProgressProcedure.execute(entity)) {
 
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "320 / 520", 34, h - 37, 44, -1, false, 0.75F, 0);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressReputationTextProcedure.execute(entity), ""), 34, h - 37, 44, -1, false, 0.75F, 0);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "5 / 10", 39, h - 16, 44, -1, false, 0.75F, 0);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressDiscoveryTextProcedure.execute(entity), ""), 39, h - 16, 44, -1, false, 0.75F, 0);
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "REPUTATION", 18, h - 44, 52, -1, false, 0.75F, 2);
 			if (true)
-				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Lvl 50", 67, h - 44, 29, -1, false, 0.75F, 0);
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressLevelTextProcedure.execute(entity), ""), 67, h - 44, 29, -1, false, 0.75F, 0);
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", 18, h - 23, 52, -1, false, 0.75F, 0);
 			if (net.mcreator.omnichef.procedures.ShouldShowNewRecipeProcedure.execute(entity))

@@ -10957,6 +10957,66 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Progress bar"
+    },
+    {
+      "name": "ReturnProgressLevelText",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_progress_level_text",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReturnProgressLevelTextProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Progress bar"
+    },
+    {
+      "name": "ReturnProgressReputationText",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_progress_reputation_text",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReturnProgressReputationTextProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Progress bar"
+    },
+    {
+      "name": "ReturnProgressDiscoveryText",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_progress_discovery_text",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReturnProgressDiscoveryTextProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Progress bar"
     }
   ],
   "variable_elements": [
