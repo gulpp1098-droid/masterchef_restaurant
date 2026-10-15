@@ -36,6 +36,7 @@ public class ClosingRestaurantsProcedure {
 						ModifyRestaurantLogicParameterProcedure.execute(true, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"menu_advance_ready");
 						OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.indexOf((RestaurantsOpen.get((int) index) instanceof Double _doub7 ? _doub7 : 0.0D)));
+						MarkRestaurantsOpenDirtyProcedure.execute(world);
 						owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"owner");
 						ownerEntity = world instanceof ServerLevel _level10 ? getEntityFromUUID(_level10, owner) : null;

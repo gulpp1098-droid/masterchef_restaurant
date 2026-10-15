@@ -31,7 +31,7 @@ public class ClientCoinPayProcedure {
 		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		String foodID = "";
 		client = entity;
-		if (!client.getPersistentData().getBoolean("coins_paid") || client.getPersistentData().getBoolean("order_served")) {
+		if (!client.getPersistentData().getBoolean("coins_paid") && client.getPersistentData().getBoolean("order_served")) {
 			if (client.getPersistentData().getBoolean("order_served")) {
 				database = ReadFoodDatabaseProcedure.execute(world);
 				foodArray = GetClientOrderFoodArrayProcedure.execute(client);
