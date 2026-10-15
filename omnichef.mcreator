@@ -10877,6 +10877,46 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs"
+    },
+    {
+      "name": "ReturnReputationBarWidth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_reputation_bar_width",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReturnReputationBarWidthProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Progress bar"
+    },
+    {
+      "name": "ReturnRecipeBarWidth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_recipe_bar_width",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReturnRecipeBarWidthProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Progress bar"
     }
   ],
   "variable_elements": [
@@ -11457,6 +11497,10 @@
                   },
                   {
                     "name": "PickCard",
+                    "children": []
+                  },
+                  {
+                    "name": "Progress bar",
                     "children": []
                   }
                 ]

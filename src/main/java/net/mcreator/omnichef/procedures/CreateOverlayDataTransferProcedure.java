@@ -107,7 +107,7 @@ public class CreateOverlayDataTransferProcedure {
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp")));
 				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				JSONObject.addProperty("recipe_ready", (groupsArray.size() > 0));
+				JSONObject.addProperty("recipe_ready", (pendingCards.size() > 0));
 				JSONObject.addProperty("name", ("Name: " + RestaurantObject.get("name").getAsString()));
 				JSONObject.addProperty("owner", ("Owner: " + RestaurantObject.get("ownerName").getAsString()));
 				if (restaurantLevel >= 100) {

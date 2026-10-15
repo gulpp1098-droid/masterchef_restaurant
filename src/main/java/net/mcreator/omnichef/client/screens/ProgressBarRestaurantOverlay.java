@@ -39,6 +39,8 @@ public class ProgressBarRestaurantOverlay {
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Lvl 50", 67, h - 44, 29, -1, false, 0.75F, 0);
 			if (true)
 				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "RECIPE DISCOVERY", 18, h - 23, 52, -1, false, 0.75F, 0);
+			if (true)
+				guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "NEW!", 4, h - 8, 52, -16711936, false, 0.75F, 0);
 			guiTools$orderedImages : {
 				if (true) {
 					int guiTools$xOffset = 0;
@@ -61,7 +63,7 @@ public class ProgressBarRestaurantOverlay {
 				if (true) {
 					int guiTools$xOffset = 0;
 					int guiTools$yOffset = 0;
-					int guiTools$visibleWidth = 76;
+					int guiTools$visibleWidth = Math.max(0, Math.min(76, (int) Math.round(net.mcreator.omnichef.procedures.ReturnReputationBarWidthProcedure.execute(entity))));
 					int guiTools$visibleHeight = 6;
 					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/reputation_bar.png"));
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
@@ -79,7 +81,7 @@ public class ProgressBarRestaurantOverlay {
 				if (true) {
 					int guiTools$xOffset = 0;
 					int guiTools$yOffset = 0;
-					int guiTools$visibleWidth = 76;
+					int guiTools$visibleWidth = Math.max(0, Math.min(76, (int) Math.round(net.mcreator.omnichef.procedures.ReturnRecipeBarWidthProcedure.execute(entity))));
 					int guiTools$visibleHeight = 6;
 					net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/recipe_bar.png"));
 					if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
