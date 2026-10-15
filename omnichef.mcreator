@@ -11091,6 +11091,37 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "ClientFinishActiveGroup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "client_finish_active_group",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ClientFinishActiveGroupProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "ClientDeathCleanup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "client_death_cleanup",
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],
   "variable_elements": [

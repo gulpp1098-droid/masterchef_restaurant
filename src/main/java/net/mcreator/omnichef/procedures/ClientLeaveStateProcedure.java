@@ -5,8 +5,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
 
-import net.mcreator.omnichef.network.OmnichefModVariables;
-
 public class ClientLeaveStateProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
@@ -18,12 +16,7 @@ public class ClientLeaveStateProcedure {
 				|| new Vec3(x, y, z).distanceTo(new Vec3((entity.getPersistentData().getDouble("DestX")), (entity.getPersistentData().getDouble("DestY")), (entity.getPersistentData().getDouble("DestZ")))) >= 60
 				|| world.dayTime() >= entity.getPersistentData().getDouble("despawn_time")) {
 			if (entity.getPersistentData().getBoolean("leader")) {
-				restaurantID = entity.getPersistentData().getDouble("RestaurantID");
-				ModifyRestaurantNumberParameterProcedure.execute(
-						GetRestaurantNumberParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "active_groups") - 1,
-						RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						"active_groups");
+				ClientFinishActiveGroupProcedure.execute(world, entity);
 			}
 			if (!entity.level().isClientSide())
 				entity.discard();
