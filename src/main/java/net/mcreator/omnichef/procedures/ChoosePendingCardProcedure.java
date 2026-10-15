@@ -84,7 +84,7 @@ public class ChoosePendingCardProcedure {
 					if (pendingUnlocks > 0) {
 						GeneratePendingCardsProcedure.execute(world, restaurantID);
 					}
-					pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_unlocks", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+					pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 					if (pendingCards.size() > 0) {
 						FillCardsPickGUIProcedure.execute(world, entity);

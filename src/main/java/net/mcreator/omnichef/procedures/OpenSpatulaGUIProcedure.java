@@ -27,6 +27,7 @@ public class OpenSpatulaGUIProcedure {
 		if (entity == null)
 			return;
 		double restaurantIndex = 0;
+		double pendingUnlocks = 0;
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		if (!world.isClientSide()) {
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == OmnichefModItems.SPATULA_GOLDEN.get()) {
@@ -39,6 +40,16 @@ public class OpenSpatulaGUIProcedure {
 						if (restaurantIndex >= 0) {
 							pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+							if (pendingCards.isEmpty()) {
+								pendingUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
+								if (pendingUnlocks > 0) {
+									GeneratePendingCardsProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+									pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+									CreateOverlayDataTransferProcedure.execute(world, entity);
+								}
+							}
 							if (pendingCards.size() > 0) {
 								if (entity instanceof ServerPlayer _ent) {
 									BlockPos _bpos = BlockPos.containing(x, y, z);
