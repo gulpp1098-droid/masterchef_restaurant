@@ -9,6 +9,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.component.DataComponents;
 
+import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.init.OmnichefModItems;
 
 public class SetSpatulaStateToNormalProcedure {
@@ -41,6 +42,11 @@ public class SetSpatulaStateToNormalProcedure {
 					final String _tagName = "SpawnArea";
 					final boolean _tagValue = false;
 					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
+				}
+				{
+					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+					_vars.ShowRestaurantBoundaries = false;
+					_vars.markSyncDirty();
 				}
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("Area selection ended."), true);

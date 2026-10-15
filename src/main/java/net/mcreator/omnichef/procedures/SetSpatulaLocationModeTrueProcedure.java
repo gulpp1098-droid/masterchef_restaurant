@@ -34,6 +34,11 @@ public class SetSpatulaLocationModeTrueProcedure {
 					CustomData.update(DataComponents.CUSTOM_DATA, (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 				}
 				{
+					OmnichefModVariables.PlayerVariables _vars = Owner.getData(OmnichefModVariables.PLAYER_VARIABLES);
+					_vars.ShowRestaurantBoundaries = true;
+					_vars.markSyncDirty();
+				}
+				{
 					final String _tagName = "SpawnArea";
 					final boolean _tagValue = true;
 					CustomData.update(DataComponents.CUSTOM_DATA, (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));

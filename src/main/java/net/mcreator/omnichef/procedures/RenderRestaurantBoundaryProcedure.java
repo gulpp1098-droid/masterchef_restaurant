@@ -228,8 +228,7 @@ public class RenderRestaurantBoundaryProcedure {
 			RenderSystem.disableCull();
 			RenderSystem.depthMask(false);
 			RenderSystem.enableDepthTest();
-			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == OmnichefModItems.SPATULA_GOLDEN.get()
-					&& (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("ShowRestaurantArea")) {
+			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).ShowRestaurantBoundaries) {
 				RemainingData = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).RestaurantBoundaryData;
 				while (RemainingData.contains(";")) {
 					SeparatorIndex = RemainingData.indexOf(";");
