@@ -26,25 +26,39 @@ public class ServiceTableNeighbourBlockChangesProcedure {
 		double numberSet = 0;
 		double indexSet = 0;
 		Direction direction = Direction.NORTH;
-		ChairAmount = 0;
-		for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-			ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
-			if (ChairBlock.getBlock() == OmnichefModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
-				ChairAmount = ChairAmount + 1;
-				directionsArray.add(directioniterator);
+		if (!world.isClientSide()) {
+			if (!getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied")) {
+				ChairAmount = 0;
+				for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
+					ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
+					if (ChairBlock.getBlock() == OmnichefModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
+						ChairAmount = ChairAmount + 1;
+						directionsArray.add(directioniterator);
+					}
+				}
+				setBlockNBTNumber(world, x, y, z, "ChairAmount", ChairAmount);
+				indexSet = 0;
+				while (directionsArray.size() > 0) {
+					numberSet = Mth.nextInt(RandomSource.create(), 0, (int) (directionsArray.size() - 1));
+					direction = directionsArray.get((int) numberSet) instanceof Direction _direction19 ? _direction19 : Direction.UP;
+					setBlockNBTNumber(world, (x + direction.getStepX()), y, (z + direction.getStepZ()), "ChairNumber", indexSet);
+					setBlockNBTNumber(world, (x + direction.getStepX()), y, (z + direction.getStepZ()), "TableNumber", (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "TableNumber")));
+					setBlockNBTNumber(world, (x + direction.getStepX()), y, (z + direction.getStepZ()), "RestaurantID", (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")));
+					directionsArray.remove((int) numberSet);
+					indexSet = indexSet + 1;
+				}
+				SetLogicNBTProcedure.execute(world, x, y, z, false, "chairs_rescan_needed");
+			} else {
+				SetLogicNBTProcedure.execute(world, x, y, z, true, "chairs_rescan_needed");
 			}
 		}
-		setBlockNBTNumber(world, x, y, z, "ChairAmount", ChairAmount);
-		indexSet = 0;
-		while (directionsArray.size() > 0) {
-			numberSet = Mth.nextInt(RandomSource.create(), 0, (int) (directionsArray.size() - 1));
-			direction = directionsArray.get((int) numberSet) instanceof Direction _direction17 ? _direction17 : Direction.UP;
-			setBlockNBTNumber(world, (x + direction.getStepX()), y, (z + direction.getStepZ()), "ChairNumber", indexSet);
-			setBlockNBTNumber(world, (x + direction.getStepX()), y, (z + direction.getStepZ()), "TableNumber", (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "TableNumber")));
-			setBlockNBTNumber(world, (x + direction.getStepX()), y, (z + direction.getStepZ()), "RestaurantID", (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")));
-			directionsArray.remove((int) numberSet);
-			indexSet = indexSet + 1;
-		}
+	}
+
+	private static boolean getBlockNBTLogic(LevelAccessor world, BlockPos pos, String tag) {
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		if (blockEntity != null)
+			return blockEntity.getPersistentData().getBoolean(tag);
+		return false;
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {

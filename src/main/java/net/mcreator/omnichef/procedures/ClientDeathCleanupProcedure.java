@@ -34,8 +34,10 @@ public class ClientDeathCleanupProcedure {
 		if (!world.isClientSide()) {
 			if (entity instanceof ClientEntity || entity instanceof CriticEntity) {
 				restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getPersistentData().getDouble("RestaurantID"));
-				if (!(entity.getPersistentData().getString("state")).equals("leave")) {
-					ClientBeginLeavingProcedure.execute(world, entity);
+				if (restaurantIndex >= 0) {
+					if (!(entity.getPersistentData().getString("state")).equals("leave")) {
+						ClientBeginLeavingProcedure.execute(world, entity);
+					}
 					if (entity instanceof ClientEntity) {
 						ClientSettleLeavingProcedure.execute(world, entity);
 					}
@@ -44,6 +46,7 @@ public class ClientDeathCleanupProcedure {
 								"daily_stats", "customers_lost");
 						entity.getPersistentData().putBoolean("service_result_counted", true);
 					}
+					ClientFinishActiveGroupProcedure.execute(world, entity);
 				}
 			}
 		}

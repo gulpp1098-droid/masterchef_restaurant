@@ -177,6 +177,9 @@ public class ClientQueueWaitStateProcedure {
 					}
 				}.convert(GetPartFromStringProcedure.execute(2, tableString));
 				stringIndex = stringIndex + 1;
+				if (!getBlockNBTLogic(world, BlockPos.containing(TabX, TabY, TabZ), "occupied") && getBlockNBTLogic(world, BlockPos.containing(TabX, TabY, TabZ), "chairs_rescan_needed")) {
+					ServiceTableNeighbourBlockChangesProcedure.execute(world, TabX, TabY, TabZ);
+				}
 				if (!getBlockNBTLogic(world, BlockPos.containing(TabX, TabY, TabZ), "occupied") && getBlockNBTNumber(world, BlockPos.containing(TabX, TabY, TabZ), "ChairAmount") >= groupSize
 						&& IsInsideRestaurantProcedure.execute(world, TabX, TabZ, restaurantID) && getBlockNBTLogic(world, BlockPos.containing(TabX, TabY, TabZ), "active")
 						&& getBlockNBTNumber(world, BlockPos.containing(TabX, TabY, TabZ), "coins") == 0) {
@@ -226,8 +229,8 @@ public class ClientQueueWaitStateProcedure {
 				client.getPersistentData().putBoolean("queue_registered", false);
 				client.getPersistentData().putString("state", "table_go");
 				StopClientPatienceProcedure.execute(entity);
-				if (client instanceof Mob _mob65)
-					_mob65.setNoAi(false);
+				if (client instanceof Mob _mob67)
+					_mob67.setNoAi(false);
 				SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
 				PickedTableObject = PossibleTablesArray.get((int) RandomTable).getAsJsonObject();
 				client.getPersistentData().putDouble("reserved_table_x", PickedTableObject.get("TabX").getAsDouble());
