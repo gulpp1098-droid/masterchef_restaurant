@@ -1,7 +1,5 @@
 package net.mcreator.omnichef.procedures;
 
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
@@ -13,17 +11,11 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.ChatFormatting;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
-import net.mcreator.omnichef.entity.LocationEdgeRightEntity;
-import net.mcreator.omnichef.entity.LocationEdgeLeftEntity;
-import net.mcreator.omnichef.entity.LocationEdgeEntity;
-import net.mcreator.omnichef.entity.LocationEdgeDownEntity;
-
-import java.util.Comparator;
 
 import java.io.File;
 
 public class SetRestaurantLocalizationWithSpatulaProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute(LevelAccessor world, double x, double z, Entity entity) {
 		if (entity == null)
 			return;
 		Entity Owner = null;
@@ -121,28 +113,18 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 					ModifyRestaurantArrayParameterProcedure.execute(IndexNumber, "restaurants", "locations", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 							X + ":" + Z);
 					{
-						final Vec3 _center = new Vec3(x, y, z);
-						for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(100 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
-							if ((entityiterator instanceof LocationEdgeEntity || entityiterator instanceof LocationEdgeDownEntity || entityiterator instanceof LocationEdgeLeftEntity || entityiterator instanceof LocationEdgeRightEntity)
-									&& entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == entityiterator.getPersistentData().getDouble("RestaurantID")) {
-								if (!entityiterator.level().isClientSide())
-									entityiterator.discard();
-							}
-						}
-					}
-					{
 						final String _tagName = "SpawnArea";
 						final boolean _tagValue = true;
 						CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
 					}
 				}
 				if (!isConnectedToRestaurant && RestaurantsArray.size() >= 1 && Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
-					if (Owner instanceof Player _player45 && !_player45.level().isClientSide())
-						_player45.displayClientMessage(Component.literal("New restaurant areas must connect to your existing area.").withStyle(ChatFormatting.RED), true);
+					if (Owner instanceof Player _player38 && !_player38.level().isClientSide())
+						_player38.displayClientMessage(Component.literal("New restaurant areas must connect to your existing area.").withStyle(ChatFormatting.RED), true);
 				}
 			} else {
-				if (Owner instanceof Player _player48 && !_player48.level().isClientSide())
-					_player48.displayClientMessage(Component.literal("Location has to be set in overworld.").withStyle(ChatFormatting.RED), true);
+				if (Owner instanceof Player _player41 && !_player41.level().isClientSide())
+					_player41.displayClientMessage(Component.literal("Location has to be set in overworld.").withStyle(ChatFormatting.RED), true);
 			}
 		}
 	}

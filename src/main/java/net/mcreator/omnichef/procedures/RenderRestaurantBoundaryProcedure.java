@@ -298,9 +298,9 @@ public class RenderRestaurantBoundaryProcedure {
 						}
 					}.convert(GetPartFromStringProcedure.execute(2, PreviewData));
 					if (PreviewState == 0) {
-						PreviewColor = 120 << 24 | 80 << 16 | 200 << 8 | 80;
-					} else if (PreviewState == 1) {
 						PreviewColor = 120 << 24 | 240 << 16 | 200 << 8 | 60;
+					} else if (PreviewState == 1) {
+						PreviewColor = 120 << 24 | 80 << 16 | 200 << 8 | 80;
 					} else {
 						PreviewColor = 120 << 24 | 220 << 16 | 60 << 8 | 60;
 					}

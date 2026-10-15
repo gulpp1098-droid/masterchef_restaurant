@@ -60,7 +60,7 @@ public class SpatulaGoldenItem extends Item {
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		super.useOn(context);
-		SetRestaurantLocalizationWithSpatulaProcedure.execute(context.getLevel(), context.getClickedPos().getX(), context.getClickedPos().getY(), context.getClickedPos().getZ(), context.getPlayer());
+		SetRestaurantLocalizationWithSpatulaProcedure.execute(context.getLevel(), context.getClickedPos().getX(), context.getClickedPos().getZ(), context.getPlayer());
 		return InteractionResult.SUCCESS;
 	}
 
@@ -68,7 +68,7 @@ public class SpatulaGoldenItem extends Item {
 	public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 		super.inventoryTick(itemstack, world, entity, slot, selected);
 		if (selected)
-			SpatulaInHandOnTickProcedure.execute(world, entity.getX(), entity.getY(), entity.getZ(), entity, itemstack);
+			SpatulaInHandOnTickProcedure.execute(world, entity, itemstack);
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

@@ -15,32 +15,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.registries.Registries;
 
-import net.mcreator.omnichef.entity.*;
+import net.mcreator.omnichef.entity.CriticEntity;
+import net.mcreator.omnichef.entity.ClientEntity;
+import net.mcreator.omnichef.entity.ChairMobEntity;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
 public class OmnichefModEntities {
 	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(Registries.ENTITY_TYPE, OmnichefMod.MODID);
-	public static final DeferredHolder<EntityType<?>, EntityType<LocationAreaEntity>> LOCATION_AREA = register("location_area",
-			EntityType.Builder.<LocationAreaEntity>of(LocationAreaEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
-
-					.sized(5f, 0.5f));
-	public static final DeferredHolder<EntityType<?>, EntityType<LocationEdgeEntity>> LOCATION_EDGE = register("location_edge",
-			EntityType.Builder.<LocationEdgeEntity>of(LocationEdgeEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
-
-					.sized(5f, 0.5f));
-	public static final DeferredHolder<EntityType<?>, EntityType<LocationEdgeLeftEntity>> LOCATION_EDGE_LEFT = register("location_edge_left",
-			EntityType.Builder.<LocationEdgeLeftEntity>of(LocationEdgeLeftEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
-
-					.sized(5f, 0.5f));
-	public static final DeferredHolder<EntityType<?>, EntityType<LocationEdgeRightEntity>> LOCATION_EDGE_RIGHT = register("location_edge_right",
-			EntityType.Builder.<LocationEdgeRightEntity>of(LocationEdgeRightEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
-
-					.sized(5f, 0.5f));
-	public static final DeferredHolder<EntityType<?>, EntityType<LocationEdgeDownEntity>> LOCATION_EDGE_DOWN = register("location_edge_down",
-			EntityType.Builder.<LocationEdgeDownEntity>of(LocationEdgeDownEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).fireImmune()
-
-					.sized(5f, 0.5f));
 	public static final DeferredHolder<EntityType<?>, EntityType<ChairMobEntity>> CHAIR_MOB = register("chair_mob",
 			EntityType.Builder.<ChairMobEntity>of(ChairMobEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(16).setUpdateInterval(3).fireImmune()
 
@@ -62,11 +44,6 @@ public class OmnichefModEntities {
 
 	@SubscribeEvent
 	public static void init(RegisterSpawnPlacementsEvent event) {
-		LocationAreaEntity.init(event);
-		LocationEdgeEntity.init(event);
-		LocationEdgeLeftEntity.init(event);
-		LocationEdgeRightEntity.init(event);
-		LocationEdgeDownEntity.init(event);
 		ChairMobEntity.init(event);
 		ClientEntity.init(event);
 		CriticEntity.init(event);
@@ -74,11 +51,6 @@ public class OmnichefModEntities {
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(LOCATION_AREA.get(), LocationAreaEntity.createAttributes().build());
-		event.put(LOCATION_EDGE.get(), LocationEdgeEntity.createAttributes().build());
-		event.put(LOCATION_EDGE_LEFT.get(), LocationEdgeLeftEntity.createAttributes().build());
-		event.put(LOCATION_EDGE_RIGHT.get(), LocationEdgeRightEntity.createAttributes().build());
-		event.put(LOCATION_EDGE_DOWN.get(), LocationEdgeDownEntity.createAttributes().build());
 		event.put(CHAIR_MOB.get(), ChairMobEntity.createAttributes().build());
 		event.put(CLIENT.get(), ClientEntity.createAttributes().build());
 		event.put(CRITIC.get(), CriticEntity.createAttributes().build());
