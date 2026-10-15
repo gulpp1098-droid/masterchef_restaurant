@@ -59,19 +59,19 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 					}
 				}
 				if (blockstate.getBlock() == OmnichefModBlocks.SERVICE_TABLE.get()) {
-					if (getBlockNBTLogic(world, BlockPos.containing(x, y, z), "active") || getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied")) {
+					if (getBlockNBTLogic(world, BlockPos.containing(x, y, z), "active") || getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") > 0) {
 						if (entity instanceof Player _player18 && !_player18.level().isClientSide())
-							_player18.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
+							_player18.displayClientMessage(Component.literal("You cannot modify this table or its chairs while customers are using it or coins remain uncollected.").withStyle(ChatFormatting.RED), true);
 						if (event instanceof ICancellableEvent _cancellable) {
 							_cancellable.setCanceled(true);
 						}
 					}
 				} else if (blockstate.getBlock() == OmnichefModBlocks.CHAIR.get()) {
 					direction = getDirectionFromBlockState(blockstate);
-					if (getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "active")
+					if (getBlockNBTNumber(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "coins") > 0
 							|| getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "occupied")) {
 						if (entity instanceof Player _player31 && !_player31.level().isClientSide())
-							_player31.displayClientMessage(Component.literal("You cannot modify restaurant blocks while your restaurant is open.").withStyle(ChatFormatting.RED), true);
+							_player31.displayClientMessage(Component.literal("You cannot modify this table or its chairs while customers are using it or coins remain uncollected.").withStyle(ChatFormatting.RED), true);
 						if (event instanceof ICancellableEvent _cancellable) {
 							_cancellable.setCanceled(true);
 						}

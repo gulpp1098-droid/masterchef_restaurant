@@ -44,11 +44,13 @@ public class ServiceTableBlockIsDestroyedProcedure {
 			if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID") == 0 || entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
 					&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
 							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-				for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
-					ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
-					if (ChairBlock.getBlock() == OmnichefModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
-						setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "TableNumber", (-1));
-						setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "ChairNumber", (-1));
+				if (!getBlockNBTLogic(world, BlockPos.containing(x, y, z), "tagName") && getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") == 0) {
+					for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
+						ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
+						if (ChairBlock.getBlock() == OmnichefModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
+							setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "TableNumber", (-1));
+							setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "ChairNumber", (-1));
+						}
 					}
 				}
 			}
@@ -60,6 +62,13 @@ public class ServiceTableBlockIsDestroyedProcedure {
 		if (blockEntity != null)
 			return blockEntity.getPersistentData().getDouble(tag);
 		return -1;
+	}
+
+	private static boolean getBlockNBTLogic(LevelAccessor world, BlockPos pos, String tag) {
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		if (blockEntity != null)
+			return blockEntity.getPersistentData().getBoolean(tag);
+		return false;
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {

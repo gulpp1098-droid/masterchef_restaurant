@@ -14,8 +14,6 @@ public class GetFoodAvarageOrderQuantityByIDProcedure {
 		foodScore = GetFoodScoreByIDProcedure.execute(database, foodID);
 		targetPortionValue = 1;
 		maxQuantity = Math.min(maxStackSize, 8);
-		quantity = Math.ceil(targetPortionValue / Math.max(1, foodScore));
-		quantity = Math.min(maxQuantity, Math.max(1, quantity));
 		for (int _i1 = 0; _i1 < 50; _i1++) {
 			quantity = Math.ceil(targetPortionValue / Math.max(1, foodScore));
 			quantity = Math.min(maxQuantity, Math.max(1, quantity));
