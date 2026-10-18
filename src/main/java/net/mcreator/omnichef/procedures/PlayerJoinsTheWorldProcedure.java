@@ -6,11 +6,14 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.Component;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.ChatFormatting;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
@@ -49,6 +52,9 @@ public class PlayerJoinsTheWorldProcedure {
 		}
 		if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
 			CreateOverlayDataTransferProcedure.execute(world, entity);
+		} else {
+			if (entity instanceof Player _player3 && !_player3.level().isClientSide())
+				_player3.displayClientMessage(Component.literal("[Omnichef] Failed to load restaurant data. Restaurant features are unavailable. See latest.log for details.").withStyle(ChatFormatting.RED), true);
 		}
 	}
 }
