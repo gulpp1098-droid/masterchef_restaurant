@@ -30,7 +30,7 @@ public class CheckRestaurantBoundaryDistanceProcedure {
 		com.google.gson.JsonArray locations = new com.google.gson.JsonArray();
 		double tileX = 0;
 		double tileZ = 0;
-		if (!world.isClientSide()) {
+		if (!world.isClientSide() && OmnichefModVariables.MapVariables.get(world).ModDataReady) {
 			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).ShowRestaurantBoundaries) {
 				if (world.dayTime() % 20 == 0) {
 					locations = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants", "locations",

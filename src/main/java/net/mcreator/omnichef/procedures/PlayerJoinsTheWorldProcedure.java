@@ -47,6 +47,8 @@ public class PlayerJoinsTheWorldProcedure {
 				_vars.markSyncDirty();
 			}
 		}
-		CreateOverlayDataTransferProcedure.execute(world, entity);
+		if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
+			CreateOverlayDataTransferProcedure.execute(world, entity);
+		}
 	}
 }

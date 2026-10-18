@@ -200,6 +200,7 @@ public class OmnichefModVariables {
 		public double LastClientsDatabaseResetDay = 0;
 		public String RestaurantFood_File_Name = "RestaurantsFoodUnlock.json";
 		public double RecipeDiscoveryExpRequired = 10.0;
+		public boolean ModDataReady = false;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -220,6 +221,7 @@ public class OmnichefModVariables {
 			LastClientsDatabaseResetDay = nbt.getDouble("LastClientsDatabaseResetDay");
 			RestaurantFood_File_Name = nbt.getString("RestaurantFood_File_Name");
 			RecipeDiscoveryExpRequired = nbt.getDouble("RecipeDiscoveryExpRequired");
+			ModDataReady = nbt.getBoolean("ModDataReady");
 		}
 
 		@Override
@@ -236,6 +238,7 @@ public class OmnichefModVariables {
 			nbt.putDouble("LastClientsDatabaseResetDay", LastClientsDatabaseResetDay);
 			nbt.putString("RestaurantFood_File_Name", RestaurantFood_File_Name);
 			nbt.putDouble("RecipeDiscoveryExpRequired", RecipeDiscoveryExpRequired);
+			nbt.putBoolean("ModDataReady", ModDataReady);
 			return nbt;
 		}
 

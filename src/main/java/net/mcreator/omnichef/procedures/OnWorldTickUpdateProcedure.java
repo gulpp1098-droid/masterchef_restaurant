@@ -8,6 +8,8 @@ import net.neoforged.bus.api.Event;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 
+import net.mcreator.omnichef.network.OmnichefModVariables;
+
 import javax.annotation.Nullable;
 
 @EventBusSubscriber
@@ -24,10 +26,12 @@ public class OnWorldTickUpdateProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		if ((((Level) world).dimension().location().toString()).equals("minecraft:overworld")) {
 			if (!world.isClientSide()) {
-				ChangingDayAndNightLengthProcedure.execute(world);
-				ClosingRestaurantsProcedure.execute(world);
-				DeleteClientsDatabaseFileProcedure.execute(world);
-				SpawnClientsProcedure.execute(world);
+				if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
+					ChangingDayAndNightLengthProcedure.execute(world);
+					ClosingRestaurantsProcedure.execute(world);
+					DeleteClientsDatabaseFileProcedure.execute(world);
+					SpawnClientsProcedure.execute(world);
+				}
 			}
 		}
 	}
