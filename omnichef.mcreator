@@ -11152,6 +11152,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "FillMissingJsonProperties",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fill_missing_json_properties",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "defaultsObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "targetObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/FillMissingJsonPropertiesProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     }
   ],
   "variable_elements": [

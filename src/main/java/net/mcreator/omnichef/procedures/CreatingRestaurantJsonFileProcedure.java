@@ -37,8 +37,11 @@ public class CreatingRestaurantJsonFileProcedure {
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject restaurantData = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject stats = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject restaurantDefaults = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject objectHelper = new com.google.gson.JsonObject();
 		double index = 0;
 		boolean changed = false;
+		boolean repairChanged = false;
 		if (!world.isClientSide()) {
 			if ((world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) {
 				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path = GetMasterchefWorldPathProcedure.execute(world);
@@ -75,60 +78,13 @@ public class CreatingRestaurantJsonFileProcedure {
 						bufferedReader.close();
 						Object = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						Array = Object.get("restaurants").getAsJsonArray();
+						objectHelper = CreateDefaultRestaurantStatsProcedure.execute();
+						restaurantDefaults.add("daily_stats", objectHelper);
+						restaurantDefaults.add("last_day_stats", objectHelper);
 						for (int _i1 = 0; _i1 < (int) Array.size(); _i1++) {
 							restaurantData = Array.get((int) index).getAsJsonObject();
-							if (restaurantData.has("daily_stats")) {
-								stats = restaurantData.get("daily_stats").getAsJsonObject();
-								if (!stats.has("customers_served_fully")) {
-									stats.addProperty("customers_served_fully", 0);
-									changed = true;
-								}
-								if (!stats.has("customers_served")) {
-									stats.addProperty("customers_served", 0);
-									changed = true;
-								}
-								if (!stats.has("customers_lost")) {
-									stats.addProperty("customers_lost", 0);
-									changed = true;
-								}
-								if (!stats.has("coins_earned")) {
-									stats.addProperty("coins_earned", 0);
-									changed = true;
-								}
-								if (!stats.has("reputation_change")) {
-									stats.addProperty("reputation_change", 0);
-									changed = true;
-								}
-							} else {
-								stats = CreateDefaultRestaurantStatsProcedure.execute();
-								restaurantData.add("daily_stats", stats);
-								changed = true;
-							}
-							if (restaurantData.has("last_day_stats")) {
-								stats = restaurantData.get("last_day_stats").getAsJsonObject();
-								if (!stats.has("customers_served_fully")) {
-									stats.addProperty("customers_served_fully", 0);
-									changed = true;
-								}
-								if (!stats.has("customers_served")) {
-									stats.addProperty("customers_served", 0);
-									changed = true;
-								}
-								if (!stats.has("customers_lost")) {
-									stats.addProperty("customers_lost", 0);
-									changed = true;
-								}
-								if (!stats.has("coins_earned")) {
-									stats.addProperty("coins_earned", 0);
-									changed = true;
-								}
-								if (!stats.has("reputation_change")) {
-									stats.addProperty("reputation_change", 0);
-									changed = true;
-								}
-							} else {
-								stats = CreateDefaultRestaurantStatsProcedure.execute();
-								restaurantData.add("last_day_stats", stats);
+							repairChanged = FillMissingJsonPropertiesProcedure.execute(restaurantDefaults, restaurantData);
+							if (repairChanged) {
 								changed = true;
 							}
 							index = index + 1;
