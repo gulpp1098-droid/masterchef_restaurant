@@ -12,23 +12,17 @@ public class CreatingFoodListJsonProcedure {
 	public static void execute(LevelAccessor world) {
 		com.google.gson.JsonObject FoodDatabaseObject = new com.google.gson.JsonObject();
 		File FoodDatabase = new File("");
-		if (!world.isClientSide()) {// =====================================================
-			// SERVER SIDE ONLY
-			// =====================================================
+		if (!world.isClientSide()) {
 			if (!(world instanceof net.minecraft.server.level.ServerLevel level)) {
 				return;
 			}
 			if (!level.dimension().equals(net.minecraft.world.level.Level.OVERWORLD)) {
 				return;
 			}
-			// =====================================================
-			// SETTINGS
-			// =====================================================
 			java.util.Set<String> excludedFoods = new java.util.HashSet<>();
 			excludedFoods.add("minecraft:ominous_bottle");
 			excludedFoods.add("minecraft:enchanted_golden_apple");
 			excludedFoods.add("minecraft:suspicious_stew");
-			// Editable configuration created by MCreator block procedures.
 			com.google.gson.JsonObject loadedSpecialFoodBonuses = CreateSpecialFoodBonusMapProcedure.execute();
 			final com.google.gson.JsonObject specialFoodBonuses = loadedSpecialFoodBonuses != null ? loadedSpecialFoodBonuses : new com.google.gson.JsonObject();
 			com.google.gson.JsonObject loadedFoodCategoryBonuses = CreateFoodCategoryBonusMapProcedure.execute();
@@ -38,9 +32,6 @@ public class CreatingFoodListJsonProcedure {
 			com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
 			com.google.gson.JsonArray disabledFoodsArray = new com.google.gson.JsonArray();
 			final double MODDED_FOOD_BONUS = 2.0;
-			// =====================================================
-			// ITEMS BY ID
-			// =====================================================
 			java.util.Map<String, net.minecraft.world.item.Item> itemsById = new java.util.HashMap<>();
 			for (net.minecraft.world.item.Item item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
 				var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
@@ -48,9 +39,6 @@ public class CreatingFoodListJsonProcedure {
 					itemsById.put(itemId.toString(), item);
 				}
 			}
-			// =====================================================
-			// ALL RECIPES GROUPED BY OUTPUT
-			// =====================================================
 			net.minecraft.world.item.crafting.RecipeManager recipeManager = level.getRecipeManager();
 			java.util.Map<String, java.util.List<net.minecraft.world.item.crafting.RecipeHolder<?>>> recipesByOutput = new java.util.HashMap<>();
 			for (net.minecraft.world.item.crafting.RecipeHolder<?> recipeHolder : recipeManager.getRecipes()) {
@@ -63,9 +51,6 @@ public class CreatingFoodListJsonProcedure {
 					continue;
 				recipesByOutput.computeIfAbsent(resultId.toString(), key -> new java.util.ArrayList<>()).add(recipeHolder);
 			}
-			// =====================================================
-			// RECURSIVE SCORE RESOLVER
-			// =====================================================
 			class FoodScoreResolver {
 				static final int MAX_DEPTH = 12;
 				static final double INVALID = Double.POSITIVE_INFINITY;
@@ -175,13 +160,8 @@ public class CreatingFoodListJsonProcedure {
 					validRecipes.sort((first, second) -> compareRecipes(first, second));
 					double appliedAcquisitionBonus = getAppliedAcquisitionBonus(itemName);
 					double productionScore = bestRecipe == null ? 1.0 : bestRecipe.recipeScore;
-					// Raw items keep the base value of 1. Crafted bulk ingredients may
-					// fall below 1 per item, for example one ninth of a gold ingot.
 					double minimumScore = bestRecipe == null ? 1.0 : 0.1;
 					double resolvedScore = roundScore(Math.max(minimumScore, productionScore + qualityScore + appliedAcquisitionBonus));
-					// A nested result calculated while one of its paths was blocked by
-					// recursion depends on the current parent chain and must not become
-					// the global cached value. Root food results are always retained.
 					boolean safeToCache = depth == 0 || blockedPathsBeforeResolution == blockedPathCounter;
 					if (safeToCache) {
 						scoreCache.put(itemName, resolvedScore);
@@ -339,9 +319,6 @@ public class CreatingFoodListJsonProcedure {
 							if (alternativeId == null)
 								continue;
 							String alternativeName = alternativeId.toString();
-							// A reversible unpacking recipe is allowed only when the packed
-							// material has an independent production route. This permits
-							// gold ingot -> nuggets, but rejects hay block -> wheat loops.
 							boolean reversePackingRecipe = outputCount > 1 && hasRecipeUsingItem(alternativeName, outputItemName);
 							if (reversePackingRecipe && !hasIndependentRecipe(alternativeName, outputItemName))
 								continue;
@@ -356,7 +333,6 @@ public class CreatingFoodListJsonProcedure {
 						}
 						if (!Double.isFinite(cheapestAlternativeScore) || cheapestAlternativeName == null || validAlternativeNames.isEmpty())
 							return null;
-						// Repeated ingredient slots intentionally count more than once.
 						ingredientTotal += cheapestAlternativeScore;
 						ingredientSlots.add(new java.util.ArrayList<>(validAlternativeNames));
 						selectedIngredients.add(cheapestAlternativeName);
@@ -364,7 +340,6 @@ public class CreatingFoodListJsonProcedure {
 					}
 					String method = recipe.getType().toString();
 					ingredientTotal = roundScore(ingredientTotal);
-					// Pure material conversion is not a culinary preparation step.
 					double preparePoints = materialUnpackingRecipe ? 0.0 : getPreparePoints(method);
 					double recipeScore = roundScore((ingredientTotal + preparePoints) / outputCount);
 					return new RecipeAnalysis(recipeHolder, method, outputCount, preparePoints, ingredientTotal, recipeScore, ingredientSlots, selectedIngredients);
@@ -453,9 +428,6 @@ public class CreatingFoodListJsonProcedure {
 				}
 			}
 			FoodScoreResolver scoreResolver = new FoodScoreResolver();
-			// =====================================================
-			// BUILD EVERY FOOD OBJECT
-			// =====================================================
 			for (net.minecraft.world.item.Item item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
 				net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
 				net.minecraft.world.food.FoodProperties food = item.getFoodProperties(stack, null);
@@ -552,9 +524,6 @@ public class CreatingFoodListJsonProcedure {
 					allFoods.add(foodObject);
 				}
 			}
-			// =====================================================
-			// SORTING JSON
-			// =====================================================
 			allFoods.sort(java.util.Comparator.<com.google.gson.JsonObject>comparingDouble(food -> food.get("score").getAsDouble()).thenComparing(food -> food.get("id").getAsString()));
 			com.google.gson.JsonArray tier0Array = new com.google.gson.JsonArray();
 			com.google.gson.JsonArray tier1Array = new com.google.gson.JsonArray();
@@ -570,7 +539,6 @@ public class CreatingFoodListJsonProcedure {
 			int tierCount = totalFoods / 40;
 			tierCount = Math.max(6, tierCount);
 			tierCount = Math.min(10, tierCount);
-			// First assign tiers normally from score/percentile.
 			for (int i = 0; i < totalFoods; i++) {
 				com.google.gson.JsonObject food = allFoods.get(i);
 				double percentile = (double) i / totalFoods;
@@ -579,14 +547,10 @@ public class CreatingFoodListJsonProcedure {
 					tier = tierCount - 1;
 				food.addProperty("tier", tier);
 			}
-			// Lookup only foods that participate in the tier system.
 			java.util.Map<String, com.google.gson.JsonObject> foodObjectsById = new java.util.HashMap<>();
 			for (com.google.gson.JsonObject food : allFoods) {
 				foodObjectsById.put(food.get("id").getAsString(), food);
 			}
-			// A prepared dish can never be below any selected FOOD ingredient.
-			// Repeat until stable because an ingredient may itself be a prepared dish
-			// whose tier was promoted by its own ingredients.
 			boolean tierChanged;
 			do {
 				tierChanged = false;
@@ -610,22 +574,15 @@ public class CreatingFoodListJsonProcedure {
 					}
 				}
 			} while (tierChanged);
-			// =====================================================
-			// FINAL TIER SORTING AND BASE EXP
-			// =====================================================
-			// Arrays were created earlier, but are still empty here.
 			java.util.List<com.google.gson.JsonArray> finalTierArrays = java.util.Arrays.asList(tier0Array, tier1Array, tier2Array, tier3Array, tier4Array, tier5Array, tier6Array, tier7Array, tier8Array, tier9Array);
-			// The lowest tier begins at 10 EXP and the highest at 100 EXP.
 			double tierStep = tierCount > 1 ? 90.0 / (tierCount - 1) : 90.0;
 			for (int finalTierIndex = 0; finalTierIndex < tierCount; finalTierIndex++) {
 				java.util.List<com.google.gson.JsonObject> foodsInTier = new java.util.ArrayList<>();
-				// Collect foods assigned to this tier after all ingredient promotions.
 				for (com.google.gson.JsonObject food : allFoods) {
 					if (food.get("tier").getAsInt() == finalTierIndex) {
 						foodsInTier.add(food);
 					}
 				}
-				// Sort the final contents of the tier by score.
 				foodsInTier.sort((com.google.gson.JsonObject foodA, com.google.gson.JsonObject foodB) -> {
 					int scoreComparison = Double.compare(foodA.get("score").getAsDouble(), foodB.get("score").getAsDouble());
 					if (scoreComparison != 0) {
@@ -657,9 +614,6 @@ public class CreatingFoodListJsonProcedure {
 					finalTierArrays.get(finalTierIndex).add(food);
 				}
 			}
-			// =====================================================
-			// FINAL JSON STRUCTURE
-			// =====================================================
 			tiersObject.add("0", tier0Array);
 			tiersObject.add("1", tier1Array);
 			tiersObject.add("2", tier2Array);
@@ -681,10 +635,6 @@ public class CreatingFoodListJsonProcedure {
 			foodDatabase.addProperty("schema_version", 6);
 			foodDatabase.addProperty("scoring_version", 7);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
-			// =====================================================
-			// FINAL RESULT
-			// =====================================================
-			// foodDatabase
 			FoodDatabaseObject = foodDatabase;
 			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
 			try {

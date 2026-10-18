@@ -1,6 +1,8 @@
 package net.mcreator.omnichef.procedures;
 
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.commands.CommandSourceStack;
 
@@ -30,34 +32,40 @@ public class DebugRemoveRestaurantProcedure {
 		double index = 0;
 		double foundIndex = 0;
 		Entity owner = null;
-		index = RestaurantIndexSearchByIDProcedure.execute(world, DoubleArgumentType.getDouble(arguments, "Restaurant_ID"));
-		if (index >= 0) {
-			ListOfRestaurants = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
-			{
-				try {
-					BufferedReader bufferedReader = new BufferedReader(new FileReader(ListOfRestaurants));
-					StringBuilder jsonstringbuilder = new StringBuilder();
-					String line;
-					while ((line = bufferedReader.readLine()) != null) {
-						jsonstringbuilder.append(line);
-					}
-					bufferedReader.close();
-					Object = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
-					Array = Object.get("restaurants").getAsJsonArray();
-					Array.remove(((int) index));
-					Object.add("restaurants", Array);
-					{
-						com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-						try {
-							FileWriter fileWriter = new FileWriter(ListOfRestaurants);
-							fileWriter.write(mainGSONBuilderVariable.toJson(Object));
-							fileWriter.close();
-						} catch (IOException exception) {
-							exception.printStackTrace();
+		if (!world.isClientSide()) {
+			if (Level.OVERWORLD == (world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD))) {
+				if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
+					index = RestaurantIndexSearchByIDProcedure.execute(world, DoubleArgumentType.getDouble(arguments, "Restaurant_ID"));
+					if (index >= 0) {
+						ListOfRestaurants = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
+						{
+							try {
+								BufferedReader bufferedReader = new BufferedReader(new FileReader(ListOfRestaurants));
+								StringBuilder jsonstringbuilder = new StringBuilder();
+								String line;
+								while ((line = bufferedReader.readLine()) != null) {
+									jsonstringbuilder.append(line);
+								}
+								bufferedReader.close();
+								Object = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+								Array = Object.get("restaurants").getAsJsonArray();
+								Array.remove(((int) index));
+								Object.add("restaurants", Array);
+								{
+									com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
+									try {
+										FileWriter fileWriter = new FileWriter(ListOfRestaurants);
+										fileWriter.write(mainGSONBuilderVariable.toJson(Object));
+										fileWriter.close();
+									} catch (IOException exception) {
+										exception.printStackTrace();
+									}
+								}
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
 						}
 					}
-				} catch (IOException e) {
-					e.printStackTrace();
 				}
 			}
 		}

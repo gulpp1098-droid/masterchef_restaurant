@@ -2812,6 +2812,10 @@
             "type": "cmdcontext"
           },
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -4529,20 +4533,6 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures/States Procedures"
-    },
-    {
-      "name": "Testprocedure",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "testprocedure",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/TestprocedureProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/Testing Procedures"
     },
     {
       "name": "ModifyRestaurantObjectParameter",
@@ -11235,6 +11225,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "DebugOverlayVisibility",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_overlay_visibility",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/DebugOverlayVisibilityProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Debug"
     }
   ],
   "variable_elements": [

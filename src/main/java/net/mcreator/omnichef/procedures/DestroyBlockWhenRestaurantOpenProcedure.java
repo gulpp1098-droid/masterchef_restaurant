@@ -87,7 +87,7 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 					}
 					if (entityChair != null && entityChair.isVehicle()) {
 						if (entity instanceof Player _player37 && !_player37.level().isClientSide())
-							_player37.displayClientMessage(Component.literal("You cannot break chair while someone is using it.").withStyle(ChatFormatting.RED), true);
+							_player37.displayClientMessage(Component.literal("You cannot break a chair while someone is using it.").withStyle(ChatFormatting.RED), true);
 						if (event instanceof ICancellableEvent _cancellable) {
 							_cancellable.setCanceled(true);
 						}

@@ -124,7 +124,7 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 				}
 			} else {
 				if (Owner instanceof Player _player41 && !_player41.level().isClientSide())
-					_player41.displayClientMessage(Component.literal("Location has to be set in overworld.").withStyle(ChatFormatting.RED), true);
+					_player41.displayClientMessage(Component.literal("Restaurant areas can only be selected in the Overworld.").withStyle(ChatFormatting.RED), true);
 			}
 		}
 	}

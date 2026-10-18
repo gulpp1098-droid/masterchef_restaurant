@@ -33,7 +33,7 @@ public class RestDebugModifyNumberCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					DebugModifyNumberProcedure.execute(world, arguments);
+					DebugModifyNumberProcedure.execute(world, arguments, entity);
 					return 0;
 				})))));
 	}

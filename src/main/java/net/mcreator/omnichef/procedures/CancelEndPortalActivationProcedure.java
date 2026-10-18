@@ -59,7 +59,7 @@ public class CancelEndPortalActivationProcedure {
 								}
 								found = true;
 								if (entity instanceof Player _player && !_player.level().isClientSide())
-									_player.displayClientMessage(Component.literal("Really? Do not do that.."), true);
+									_player.displayClientMessage(Component.literal("You cannot activate an End Portal near restaurant furniture."), true);
 								break;
 							}
 						}

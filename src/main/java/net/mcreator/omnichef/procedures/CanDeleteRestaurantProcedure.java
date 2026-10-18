@@ -31,7 +31,7 @@ public class CanDeleteRestaurantProcedure {
 		if ((world instanceof Level _lvl ? _lvl.dimension() : (world instanceof WorldGenLevel _wgl ? _wgl.getLevel().dimension() : Level.OVERWORLD)) == Level.OVERWORLD) {
 			if (restaurantID <= 0) {
 				if (owner instanceof Player _player5 && !_player5.level().isClientSide())
-					_player5.displayClientMessage(Component.literal("You do not have restaurant!").withStyle(ChatFormatting.RED), false);
+					_player5.displayClientMessage(Component.literal("You do not own a restaurant.").withStyle(ChatFormatting.RED), false);
 				return false;
 			}
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);

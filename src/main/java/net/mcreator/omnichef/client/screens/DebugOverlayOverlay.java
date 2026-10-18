@@ -29,7 +29,7 @@ public class DebugOverlayOverlay {
 			y = entity.getY();
 			z = entity.getZ();
 		}
-		if (true) {
+		if (entity != null && net.mcreator.omnichef.procedures.DebugOverlayVisibilityProcedure.execute(entity)) {
 			String debugText = DebugReturnProcedure.execute(entity);
 String[] lines = debugText.split("\n");
 for (int i = 0; i < lines.length; i++) {

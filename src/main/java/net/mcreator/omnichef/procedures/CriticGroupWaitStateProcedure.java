@@ -34,7 +34,7 @@ public class CriticGroupWaitStateProcedure {
 				: null;
 		if ((satisfactionLevel).equals("perfect")) {
 			if (owner instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("You have satisfied Critic! Your restaurant have got a new star!"), false);
+				_player.displayClientMessage(Component.literal("The critic enjoyed their visit! Your restaurant earned a new star!"), false);
 			if (owner instanceof ServerPlayer player3)
 				PacketDistributor.sendToPlayer(player3, new LevelUpAnimationMessage(""));
 			ModifyRestaurantNumberParameterProcedure.execute(
@@ -46,7 +46,7 @@ public class CriticGroupWaitStateProcedure {
 			}
 		} else {
 			if (owner instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("Critic is leaving unsatisfied. Try better next time!"), false);
+				_player.displayClientMessage(Component.literal("The critic is leaving unsatisfied. Better luck next time!"), false);
 		}
 		ClientBeginLeavingProcedure.execute(world, entity);
 	}
