@@ -38,7 +38,7 @@ public class DebugRemoveRestaurantAllProcedure {
 							bufferedReader.close();
 							RestaurantsObject = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 							RestaurantsObject.add("restaurants", Array);
-							saveSuccessful = SaveJsonAtomicallyProcedure.execute(RestaurantObject, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);
+							saveSuccessful = SaveJsonAtomicallyProcedure.execute(RestaurantsObject, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 						} catch (IOException e) {
 							e.printStackTrace();
 						}

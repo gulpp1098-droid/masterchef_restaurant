@@ -51,7 +51,7 @@ public class DebugRemoveRestaurantProcedure {
 								Array = Object.get("restaurants").getAsJsonArray();
 								Array.remove(((int) index));
 								Object.add("restaurants", Array);
-								saveSuccessful = SaveJsonAtomicallyProcedure.execute(Object, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);
+								saveSuccessful = SaveJsonAtomicallyProcedure.execute(Object, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}

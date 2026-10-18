@@ -229,7 +229,7 @@ public class RestaurantIsOpenProcedure {
 				restaurantObject.add("groups", GroupsArray);
 				restaurantsArray.add(restaurantObject);
 				clientDatabase.add("restaurants", restaurantsArray);
-				saveSuccessful = SaveJsonAtomicallyProcedure.execute(clientDatabase, OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
+				saveSuccessful = SaveJsonAtomicallyProcedure.execute(clientDatabase, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

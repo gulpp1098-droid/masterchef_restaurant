@@ -15,6 +15,7 @@ public class GetRestaurantLogicParameterProcedure {
 		com.google.gson.JsonArray RestaurantsArray = new com.google.gson.JsonArray();
 		double index = 0;
 		boolean value = false;
+		boolean saveSuccessful = false;
 		ListOfRestaurants = new File(filePathDependency, File.separator + fileNameDependency);
 		{
 			try {
