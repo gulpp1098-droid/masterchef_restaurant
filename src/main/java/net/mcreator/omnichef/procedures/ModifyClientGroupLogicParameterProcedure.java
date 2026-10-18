@@ -16,6 +16,7 @@ public class ModifyClientGroupLogicParameterProcedure {
 		com.google.gson.JsonObject RestaurantsObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject Restaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject GroupObject = new com.google.gson.JsonObject();
+		boolean saveSuccessful = false;
 		ListOfRestaurants = new File(filePathDependency, File.separator + fileNameDependency);
 		{
 			try {
@@ -42,6 +43,7 @@ public class ModifyClientGroupLogicParameterProcedure {
 						exception.printStackTrace();
 					}
 				}
+				saveSuccessful = SaveJsonAtomicallyProcedure.execute(RestaurantsObject, filePathDependency, fileNameDependency);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

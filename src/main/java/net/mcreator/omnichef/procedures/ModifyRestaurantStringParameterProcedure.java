@@ -1,7 +1,6 @@
 package net.mcreator.omnichef.procedures;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -15,6 +14,7 @@ public class ModifyRestaurantStringParameterProcedure {
 		com.google.gson.JsonObject Restaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray RestaurantsArray = new com.google.gson.JsonArray();
 		double index = 0;
+		boolean saveSuccessful = false;
 		ListOfRestaurants = new File(filePathDependency, File.separator + fileNameDependency);
 		{
 			try {
@@ -30,16 +30,7 @@ public class ModifyRestaurantStringParameterProcedure {
 				index = numberIndex;
 				Restaurant = RestaurantsArray.get((int) index).getAsJsonObject();
 				Restaurant.addProperty(propertyNameDependency, textDependency);
-				{
-					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-					try {
-						FileWriter fileWriter = new FileWriter(ListOfRestaurants);
-						fileWriter.write(mainGSONBuilderVariable.toJson(RestaurantsObject));
-						fileWriter.close();
-					} catch (IOException exception) {
-						exception.printStackTrace();
-					}
-				}
+				saveSuccessful = SaveJsonAtomicallyProcedure.execute(RestaurantsObject, filePathDependency, fileNameDependency);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

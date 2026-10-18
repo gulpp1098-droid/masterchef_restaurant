@@ -15,6 +15,7 @@ public class ModifyRestaurantLogicParameterProcedure {
 		com.google.gson.JsonObject Restaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray RestaurantsArray = new com.google.gson.JsonArray();
 		double index = 0;
+		boolean saveSuccessful = false;
 		ListOfRestaurants = new File(filePathDependency, File.separator + fileNameDependency);
 		{
 			try {
@@ -40,6 +41,7 @@ public class ModifyRestaurantLogicParameterProcedure {
 						exception.printStackTrace();
 					}
 				}
+				saveSuccessful = SaveJsonAtomicallyProcedure.execute(RestaurantsObject, filePathDependency, fileNameDependency);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
