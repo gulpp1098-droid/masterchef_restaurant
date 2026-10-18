@@ -11,7 +11,6 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import java.lang.reflect.Array;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -23,6 +22,7 @@ public class DebugRemoveRestaurantProcedure {
 	public static void execute(LevelAccessor world, CommandContext<CommandSourceStack> arguments) {
 		File ListOfRestaurants = new File("");
 		boolean found = false;
+		boolean saveSuccessful = false;
 		com.google.gson.JsonArray Array = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject Object = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
@@ -51,16 +51,7 @@ public class DebugRemoveRestaurantProcedure {
 								Array = Object.get("restaurants").getAsJsonArray();
 								Array.remove(((int) index));
 								Object.add("restaurants", Array);
-								{
-									com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-									try {
-										FileWriter fileWriter = new FileWriter(ListOfRestaurants);
-										fileWriter.write(mainGSONBuilderVariable.toJson(Object));
-										fileWriter.close();
-									} catch (IOException exception) {
-										exception.printStackTrace();
-									}
-								}
+								saveSuccessful = SaveJsonAtomicallyProcedure.execute(Object, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}

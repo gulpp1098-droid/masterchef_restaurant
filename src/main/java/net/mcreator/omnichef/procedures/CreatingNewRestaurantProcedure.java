@@ -19,7 +19,6 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.init.OmnichefModMenus;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -33,6 +32,7 @@ public class CreatingNewRestaurantProcedure {
 		Entity Owner = null;
 		boolean IsNameAccepted = false;
 		boolean SaveConfirmed = false;
+		boolean saveSuccessful = false;
 		String Restaurant_Name = "";
 		String NewRestaurant_Name = "";
 		double index = 0;
@@ -135,16 +135,7 @@ public class CreatingNewRestaurantProcedure {
 						NewRestaurantArray = Restaurants.get("restaurants").getAsJsonArray();
 						NewRestaurantArray.add(NewRestaurant);
 						Restaurants.add("restaurants", NewRestaurantArray);
-						{
-							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-							try {
-								FileWriter fileWriter = new FileWriter(ListOfRestaurants);
-								fileWriter.write(mainGSONBuilderVariable.toJson(Restaurants));
-								fileWriter.close();
-							} catch (IOException exception) {
-								exception.printStackTrace();
-							}
-						}
+						saveSuccessful = SaveJsonAtomicallyProcedure.execute(Restaurants, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -171,16 +162,7 @@ public class CreatingNewRestaurantProcedure {
 						NewFoodRestaurantArray = NewRestaurantFood.get("restaurants").getAsJsonArray();
 						NewFoodRestaurantArray.add(NewRestaurantFoodUnlock);
 						NewRestaurantFood.add("restaurants", NewFoodRestaurantArray);
-						{
-							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-							try {
-								FileWriter fileWriter = new FileWriter(RestaurantsFoodUnlock);
-								fileWriter.write(mainGSONBuilderVariable.toJson(NewRestaurantFood));
-								fileWriter.close();
-							} catch (IOException exception) {
-								exception.printStackTrace();
-							}
-						}
+						saveSuccessful = SaveJsonAtomicallyProcedure.execute(NewRestaurantFood, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -194,8 +176,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					CreateOverlayDataTransferProcedure.execute(world, entity);
-					if (Owner instanceof Player _player67 && !_player67.level().isClientSide())
-						_player67.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
+					if (Owner instanceof Player _player65 && !_player65.level().isClientSide())
+						_player65.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;
 					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
@@ -218,8 +200,8 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player71 && !_player71.level().isClientSide())
-						_player71.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
+					if (Owner instanceof Player _player69 && !_player69.level().isClientSide())
+						_player69.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					net.mcreator.omnichef.OmnichefMod.LOGGER.error("Failed to save the new restaurant.");
 				}
 			}
