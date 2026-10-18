@@ -77,8 +77,8 @@ public class InitializeAndValidateModDataProcedure {
 					    "tables": [""],
 					    "reception": "",
 					    "last_day_open": 0,
-					    "menu": [],
-					    "next_menu": [],
+					    "menu": [""],
+					    "next_menu": [""],
 					    "menu_advance_ready": false,
 					    "daily_stats": {
 					      "customers_served_fully": 0,
@@ -105,9 +105,9 @@ public class InitializeAndValidateModDataProcedure {
 					    "stage_tier": 0,
 					    "starter_unlocks_remaining": 0,
 					    "pending_unlocks": 0,
-					    "unlocked": [],
-					    "unlock_options": [],
-					    "pending_cards": []
+					    "unlocked": [""],
+					    "unlock_options": [""],
+					    "pending_cards": [""]
 					  }]
 					}
 					""");
@@ -135,6 +135,30 @@ public class InitializeAndValidateModDataProcedure {
 					  }]
 					}
 					""");
+			var restaurantIds = new java.util.ArrayList<Integer>();
+			var unlockIds = new java.util.ArrayList<Integer>();
+			String[] relatedFiles = {variables.Restaurant_File_Name, variables.RestaurantFood_File_Name};
+			for (int fileIndex = 0; fileIndex < relatedFiles.length; fileIndex++) {
+				String fileName = relatedFiles[fileIndex];
+				var ids = fileIndex == 0 ? restaurantIds : unlockIds;
+				var uniqueIds = new java.util.HashSet<Integer>();
+				try (var reader = java.nio.file.Files.newBufferedReader(directory.resolve(fileName), java.nio.charset.StandardCharsets.UTF_8)) {
+					var restaurants = com.google.gson.JsonParser.parseReader(reader).getAsJsonObject().getAsJsonArray("restaurants");
+					for (int index = 0; index < restaurants.size(); index++) {
+						int id = restaurants.get(index).getAsJsonObject().get("ID").getAsBigDecimal().intValueExact();
+						if (id <= 0) {
+							throw new IllegalStateException(fileName + ": invalid restaurant ID at index " + index);
+						}
+						if (!uniqueIds.add(id)) {
+							throw new IllegalStateException(fileName + ": duplicate restaurant ID " + id);
+						}
+						ids.add(id);
+					}
+				}
+			}
+			if (!restaurantIds.equals(unlockIds)) {
+				throw new IllegalStateException("Restaurant records differ between " + variables.Restaurant_File_Name + " and " + variables.RestaurantFood_File_Name + "; IDs: " + restaurantIds + " / " + unlockIds);
+			}
 			success = true;
 		} catch (Exception exception) {
 			net.mcreator.omnichef.OmnichefMod.LOGGER.error("Omnichef: data initialization or validation failed.", exception);
