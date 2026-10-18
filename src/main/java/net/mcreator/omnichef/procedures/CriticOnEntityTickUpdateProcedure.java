@@ -13,7 +13,7 @@ public class CriticOnEntityTickUpdateProcedure {
 		client = entity;
 		if (!world.isClientSide()) {
 			if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
-				if (RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")) < 0) {
+				if (RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")) >= 0) {
 					if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
 						ClientQueueMoveStateProcedure.execute(entity);
 					}
@@ -59,6 +59,9 @@ public class CriticOnEntityTickUpdateProcedure {
 					if (world.dayTime() % 100 == 0) {
 						ClientStuckStateProcedure.execute(world, x, y, z, entity);
 					}
+				} else {
+					if (!client.level().isClientSide())
+						client.discard();
 				}
 			}
 		}

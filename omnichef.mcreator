@@ -11245,6 +11245,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Debug"
+    },
+    {
+      "name": "SaveJsonAtomically",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "save_json_atomically",
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
