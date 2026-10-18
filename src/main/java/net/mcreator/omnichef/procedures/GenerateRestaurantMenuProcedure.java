@@ -9,7 +9,6 @@ import net.minecraft.util.Mth;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -31,6 +30,7 @@ public class GenerateRestaurantMenuProcedure {
 		String MealID = "";
 		String MealDuplicate = "";
 		boolean isDuplicate = false;
+		boolean saveSuccessful = false;
 		double MaxRestaurantLevel = 0;
 		double CurrentRestaurantLevel = 0;
 		double TierCount = 0;
@@ -151,16 +151,7 @@ public class GenerateRestaurantMenuProcedure {
 				menusArray = menusObject.get("restaurants").getAsJsonArray();
 				RestaurantObject = menusArray.get((int) restaurantIndex).getAsJsonObject();
 				RestaurantObject.add("next_menu", menuArray);
-				{
-					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-					try {
-						FileWriter fileWriter = new FileWriter(Menufile);
-						fileWriter.write(mainGSONBuilderVariable.toJson(menusObject));
-						fileWriter.close();
-					} catch (IOException exception) {
-						exception.printStackTrace();
-					}
-				}
+				saveSuccessful = SaveJsonAtomicallyProcedure.execute(menusObject, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -6,7 +6,6 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.OmnichefMod;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -48,16 +47,7 @@ public class DeleteClientsDatabaseFileProcedure {
 					if (!ClientsAlreadyReset) {
 						emptyObject.add("restaurants", emptyArray);
 						emptyObject.addProperty("database_day", currentDay);
-						{
-							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-							try {
-								FileWriter fileWriter = new FileWriter(clientsDatabase);
-								fileWriter.write(mainGSONBuilderVariable.toJson(emptyObject));
-								fileWriter.close();
-							} catch (IOException exception) {
-								exception.printStackTrace();
-							}
-						}
+						ClientsAlreadyReset = SaveJsonAtomicallyProcedure.execute(emptyObject, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -105,16 +95,7 @@ public class DeleteClientsDatabaseFileProcedure {
 							index = index + 1;
 						}
 						restaurantsFileObject.addProperty("last_stats_reset_day", currentDay);
-						{
-							com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-							try {
-								FileWriter fileWriter = new FileWriter(restaurantFile);
-								fileWriter.write(mainGSONBuilderVariable.toJson(restaurantsFileObject));
-								fileWriter.close();
-							} catch (IOException exception) {
-								exception.printStackTrace();
-							}
-						}
+						ClientsAlreadyReset = SaveJsonAtomicallyProcedure.execute(restaurantsFileObject, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();

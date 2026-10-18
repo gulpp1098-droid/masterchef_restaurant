@@ -18,7 +18,6 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.OmnichefMod;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
@@ -46,6 +45,7 @@ public class RestaurantIsOpenProcedure {
 		com.google.gson.JsonObject restaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
 		boolean critic = false;
+		boolean saveSuccessful = false;
 		double indexGroup = 0;
 		double indexMember = 0;
 		double SpawnTime = 0;
@@ -229,16 +229,7 @@ public class RestaurantIsOpenProcedure {
 				restaurantObject.add("groups", GroupsArray);
 				restaurantsArray.add(restaurantObject);
 				clientDatabase.add("restaurants", restaurantsArray);
-				{
-					com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-					try {
-						FileWriter fileWriter = new FileWriter(clientsFile);
-						fileWriter.write(mainGSONBuilderVariable.toJson(clientDatabase));
-						fileWriter.close();
-					} catch (IOException exception) {
-						exception.printStackTrace();
-					}
-				}
+				saveSuccessful = SaveJsonAtomicallyProcedure.execute(clientDatabase, OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
