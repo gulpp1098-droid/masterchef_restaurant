@@ -29,7 +29,8 @@ public class InitializeModDataProcedure {
 				OmnichefModVariables.MapVariables.get(world).ModDataReady = false;
 				OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 				if (BackupModDataProcedure.execute(world)) {
-					InitializeAndValidateModDataProcedure.execute(world);
+					OmnichefModVariables.MapVariables.get(world).ModDataReady = InitializeAndValidateModDataProcedure.execute(world);
+					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 				}
 			}
 		}
