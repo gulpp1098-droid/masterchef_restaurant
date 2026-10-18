@@ -159,12 +159,16 @@ public class InitializeAndValidateModDataProcedure {
 				if (coordinates.length != parts)
 					throw bad(path, "invalid coordinate count");
 				for (String coordinate : coordinates) {
-					if (!coordinate.matches("-?[0-9]+"))
-						throw bad(path, "invalid coordinate");
 					try {
-						Integer.parseInt(coordinate);
-					} catch (NumberFormatException exception) {
-						throw bad(path, "coordinate out of range");
+						// MCreator concatenates doubles (12.0); queue endpoints use block centres (12.5).
+						java.math.BigDecimal numeric = new java.math.BigDecimal(coordinate.trim());
+						if (numeric.compareTo(java.math.BigDecimal.valueOf(Integer.MIN_VALUE)) < 0 || numeric.compareTo(java.math.BigDecimal.valueOf(Integer.MAX_VALUE)) > 0)
+							throw bad(path, "coordinate out of range");
+						// Claimed locations are tile indices; physical positions may include fractions.
+						if (parts == 2)
+							numeric.intValueExact();
+					} catch (NumberFormatException | ArithmeticException exception) {
+						throw bad(path, "invalid coordinate: " + coordinate);
 					}
 				}
 			}
