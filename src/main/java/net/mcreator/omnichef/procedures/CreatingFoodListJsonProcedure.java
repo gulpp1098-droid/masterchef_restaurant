@@ -1,30 +1,15 @@
 package net.mcreator.omnichef.procedures;
 
 import net.neoforged.fml.loading.FMLPaths;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.level.LevelAccessor;
-
-import javax.annotation.Nullable;
 
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.File;
 
-@EventBusSubscriber
 public class CreatingFoodListJsonProcedure {
-	@SubscribeEvent
-	public static void onWorldLoad(net.neoforged.neoforge.event.level.LevelEvent.Load event) {
-		execute(event, event.getLevel());
-	}
-
 	public static void execute(LevelAccessor world) {
-		execute(null, world);
-	}
-
-	private static void execute(@Nullable Event event, LevelAccessor world) {
 		com.google.gson.JsonObject FoodDatabaseObject = new com.google.gson.JsonObject();
 		File FoodDatabase = new File("");
 		if (!world.isClientSide()) {// =====================================================
