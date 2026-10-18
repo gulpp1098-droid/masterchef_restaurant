@@ -17,20 +17,21 @@ public class SaveJsonAtomicallyProcedure {
 			if (data == null || folder == null || folder.isBlank() || name == null || name.isBlank()) {
 				throw new IllegalArgumentException("JSON data, directory and filename are required");
 			}
-			var fileName = java.nio.file.Path.of(name);
-			if (fileName.isAbsolute() || fileName.getNameCount() != 1 || name.contains("/") || name.contains("\\") || name.equals(".") || name.equals("..")) {
+			var atomicFileName = java.nio.file.Path.of(name);
+			if (atomicFileName.isAbsolute() || atomicFileName.getNameCount() != 1 || name.contains("/") || name.contains("\\") || name.equals(".") || name.equals("..")) {
 				throw new IllegalArgumentException("Expected a filename without a directory: " + name);
 			}
 			var directory = java.nio.file.Path.of(folder).toAbsolutePath().normalize();
-			target = directory.resolve(fileName);
+			target = directory.resolve(atomicFileName);
 			var snapshot = data.deepCopy();
 			String json = new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(snapshot);
 			java.nio.file.Files.createDirectories(directory);
 			temporary = java.nio.file.Files.createTempFile(directory, ".omnichef-save-", ".tmp");
 			try (var channel = java.nio.channels.FileChannel.open(temporary, java.nio.file.StandardOpenOption.WRITE, java.nio.file.StandardOpenOption.TRUNCATE_EXISTING)) {
 				var bytes = java.nio.ByteBuffer.wrap(json.getBytes(java.nio.charset.StandardCharsets.UTF_8));
-				while (bytes.hasRemaining())
+				while (bytes.hasRemaining()) {
 					channel.write(bytes);
+				}
 				channel.force(true);
 			}
 			try (var reader = java.nio.file.Files.newBufferedReader(temporary, java.nio.charset.StandardCharsets.UTF_8)) {

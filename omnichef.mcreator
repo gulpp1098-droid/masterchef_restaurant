@@ -11252,7 +11252,70 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "save_json_atomically",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "jsonObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "directoryPath",
+            "type": "string"
+          },
+          {
+            "name": "fileName",
+            "type": "string"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/SaveJsonAtomicallyProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "TryModifyRestaurantObjectParameter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "try_modify_restaurant_object_parameter",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "numberIndex",
+            "type": "number"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          },
+          {
+            "name": "arrayNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "fileNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "filePathDependency",
+            "type": "string"
+          },
+          {
+            "name": "objectNameDependency",
+            "type": "string"
+          },
+          {
+            "name": "valueNameDependency",
+            "type": "string"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TryModifyRestaurantObjectParameterProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
     }
   ],
   "variable_elements": [
