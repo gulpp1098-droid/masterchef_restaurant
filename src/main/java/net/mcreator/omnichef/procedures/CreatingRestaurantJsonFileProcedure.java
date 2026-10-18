@@ -81,6 +81,10 @@ public class CreatingRestaurantJsonFileProcedure {
 						objectHelper = CreateDefaultRestaurantStatsProcedure.execute();
 						restaurantDefaults.add("daily_stats", objectHelper);
 						restaurantDefaults.add("last_day_stats", objectHelper);
+						restaurantDefaults.addProperty("open", false);
+						restaurantDefaults.addProperty("close_time", 0);
+						restaurantDefaults.addProperty("last_day_open", (-1));
+						restaurantDefaults.addProperty("menu_advance_ready", false);
 						for (int _i1 = 0; _i1 < (int) Array.size(); _i1++) {
 							restaurantData = Array.get((int) index).getAsJsonObject();
 							repairChanged = FillMissingJsonPropertiesProcedure.execute(restaurantDefaults, restaurantData);
