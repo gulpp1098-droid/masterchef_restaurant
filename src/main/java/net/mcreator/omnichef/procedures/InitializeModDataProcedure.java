@@ -29,13 +29,7 @@ public class InitializeModDataProcedure {
 				OmnichefModVariables.MapVariables.get(world).ModDataReady = false;
 				OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 				if (BackupModDataProcedure.execute(world)) {
-					CreatingFoodListJsonProcedure.execute(world);
-					CreatingClientsNameDatabaseJsonFileProcedure.execute(world);
-					CreatingClientsDatabaseJsonFileProcedure.execute(world);
-					CreatingRestaurantJsonFileProcedure.execute(world);
-					CreatingRestaurantFoodJsonFileProcedure.execute(world);
-					OmnichefModVariables.MapVariables.get(world).ModDataReady = true;
-					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
+					InitializeAndValidateModDataProcedure.execute(world);
 				}
 			}
 		}

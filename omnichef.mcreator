@@ -11215,6 +11215,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
+    },
+    {
+      "name": "InitializeAndValidateModData",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "initialize_and_validate_mod_data",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/InitializeAndValidateModDataProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     }
   ],
   "variable_elements": [
