@@ -54,19 +54,13 @@ public class FillSlotsNextMenuProcedure {
 			database = ReadFoodDatabaseProcedure.execute(world);
 			if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-				Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+				Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			} else {
 				checkMenu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready") || checkMenu.size() == 0) {
-					Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				} else {
-					Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				}
+				Menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			}
 			page = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("page");
 			index1 = page * 6;
@@ -78,43 +72,43 @@ public class FillSlotsNextMenuProcedure {
 			if (Menu.size() > index1) {
 				Food1 = Menu.get((int) index1).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack11 = CreateMenuFoodDisplayStackProcedure.execute(database, Food1).copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack11, true);
+					ItemStack _displayStack10 = CreateMenuFoodDisplayStackProcedure.execute(database, Food1).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack10, true);
 				}
 			}
 			if (Menu.size() > index2) {
 				Food2 = Menu.get((int) index2).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack14 = CreateMenuFoodDisplayStackProcedure.execute(database, Food2).copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack14, true);
+					ItemStack _displayStack13 = CreateMenuFoodDisplayStackProcedure.execute(database, Food2).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack13, true);
 				}
 			}
 			if (Menu.size() > index3) {
 				Food3 = Menu.get((int) index3).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack17 = CreateMenuFoodDisplayStackProcedure.execute(database, Food3).copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack17, true);
+					ItemStack _displayStack16 = CreateMenuFoodDisplayStackProcedure.execute(database, Food3).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack16, true);
 				}
 			}
 			if (Menu.size() > index4) {
 				Food4 = Menu.get((int) index4).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack20 = CreateMenuFoodDisplayStackProcedure.execute(database, Food4).copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(3), _displayStack20, true);
+					ItemStack _displayStack19 = CreateMenuFoodDisplayStackProcedure.execute(database, Food4).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(3), _displayStack19, true);
 				}
 			}
 			if (Menu.size() > index5) {
 				Food5 = Menu.get((int) index5).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack23 = CreateMenuFoodDisplayStackProcedure.execute(database, Food5).copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(4), _displayStack23, true);
+					ItemStack _displayStack22 = CreateMenuFoodDisplayStackProcedure.execute(database, Food5).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(4), _displayStack22, true);
 				}
 			}
 			if (Menu.size() > index6) {
 				Food6 = Menu.get((int) index6).getAsString();
 				if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack26 = CreateMenuFoodDisplayStackProcedure.execute(database, Food6).copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(5), _displayStack26, true);
+					ItemStack _displayStack25 = CreateMenuFoodDisplayStackProcedure.execute(database, Food6).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString(5), _displayStack25, true);
 				}
 			}
 		}

@@ -21,19 +21,13 @@ public class NextMenuNextPageProcedure {
 		if (ID > 0) {
 			if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-				menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+				menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			} else {
 				checkMenu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "menu_advance_ready") || checkMenu.size() == 0) {
-					menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				} else {
-					menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				}
+				menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			}
 			page = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("page");
 			if (menu.size() > (page + 1) * 6) {
