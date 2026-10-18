@@ -17,7 +17,6 @@ import net.minecraft.ChatFormatting;
 import net.mcreator.omnichef.world.inventory.CardsPickGUIMenu;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.init.OmnichefModMenus;
-import net.mcreator.omnichef.OmnichefMod;
 
 import java.io.IOException;
 import java.io.FileWriter;
@@ -221,8 +220,7 @@ public class CreatingNewRestaurantProcedure {
 				} else {
 					if (Owner instanceof Player _player71 && !_player71.level().isClientSide())
 						_player71.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
-					OmnichefMod.LOGGER.info("CreatingNewRestaurant: save verification failed." + "\n" + "Restaurant ID: " + OmnichefModVariables.MapVariables.get(world).RestaurantID + "\n" + "File: "
-							+ OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path + "/" + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
+					net.mcreator.omnichef.OmnichefMod.LOGGER.error("Failed to save the new restaurant.");
 				}
 			}
 		}

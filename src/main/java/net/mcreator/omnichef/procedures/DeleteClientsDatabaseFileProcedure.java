@@ -124,7 +124,7 @@ public class DeleteClientsDatabaseFileProcedure {
 				OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay = currentDay;
 				OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 			} else {
-				OmnichefMod.LOGGER.info("DeleteClientsDatabaseFile: daily reset was not saved correctly.");
+				net.mcreator.omnichef.OmnichefMod.LOGGER.error("Failed to save the daily restaurant data reset.");
 			}
 		}
 	}
