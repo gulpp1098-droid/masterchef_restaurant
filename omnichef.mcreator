@@ -11317,6 +11317,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
+    },
+    {
+      "name": "ReturnClientPortrait",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_client_portrait",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "gui_image",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReturnClientPortraitProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
     }
   ],
   "variable_elements": [
@@ -11523,6 +11543,12 @@
       "type": "logic",
       "scope": "map",
       "value": "false"
+    },
+    {
+      "name": "CurrentClientTexture",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [

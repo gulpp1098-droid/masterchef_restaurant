@@ -31,6 +31,7 @@ public class ClientOrderWaitStateProcedure {
 			{
 				OmnichefModVariables.PlayerVariables _vars = sourceentity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 				_vars.CurrentClientUUID = client.getStringUUID();
+				_vars.CurrentClientTexture = client.getDisplayName().getString();
 				_vars.markSyncDirty();
 			}
 			if (sourceentity instanceof ServerPlayer _ent) {

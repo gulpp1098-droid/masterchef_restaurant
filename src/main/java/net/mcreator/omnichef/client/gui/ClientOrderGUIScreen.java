@@ -24,8 +24,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/ordergui.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/orderplace_icon.png");
 	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/plate_icon.png");
-	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/client_chuck_less_color.png");
-	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/menu_icon.png");
+	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/menu_icon.png");
 	private static final ResourceLocation SPRITE_0 = ResourceLocation.parse("omnichef:textures/screens/patiance_sprite.png");
 
 	public ClientOrderGUIScreen(ClientOrderGUIMenu container, Inventory inventory, Component text) {
@@ -161,7 +160,6 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -1, this.topPos + 0, 0, 0, 176, 234, 176, 234);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 32, this.topPos + 87, 0, 0, 18, 18, 18, 18);
 			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 34, this.topPos + 94, 0, 0, 14, 8, 14, 8);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 22, this.topPos + 31, 0, 0, 40, 54, 40, 54);
 			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 8, this.topPos + 41, 0, Mth.clamp((int) PatianceReturnProcedure.execute(entity) * 11, 0, 33), 11, 11, 11, 44);
 			guiTools$itemDisplay0 : {
 				if (!(true))
@@ -328,7 +326,17 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 					guiGraphics.pose().popPose();
 				}
 			}
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 86, this.topPos + 8, 0, 0, 81, 116, 81, 116);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 86, this.topPos + 8, 0, 0, 81, 116, 81, 116);
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 40;
+				int guiTools$visibleHeight = 54;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnClientPortraitProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/client_chuck_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 22 + guiTools$xOffset, this.topPos + 30 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 40, 54);
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -433,6 +441,25 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_ribbonsmall_icon;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static net.minecraft.resources.ResourceLocation guiTools$dynamicTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())
 			return fallback;
 		try {

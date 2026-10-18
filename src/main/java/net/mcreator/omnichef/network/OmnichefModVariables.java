@@ -101,6 +101,7 @@ public class OmnichefModVariables {
 		clone.BookGained = original.BookGained;
 		clone.DiaryFoodTier = original.DiaryFoodTier;
 		clone.DiaryFoodPage = original.DiaryFoodPage;
+		clone.CurrentClientTexture = original.CurrentClientTexture;
 		if (!event.isWasDeath()) {
 			clone.OrderResultCompleteness = original.OrderResultCompleteness;
 			clone.OrderResultAccuracy = original.OrderResultAccuracy;
@@ -321,6 +322,7 @@ public class OmnichefModVariables {
 		public String RestaurantBoundaryData = "\"\"";
 		public String RestaurantPreviewData = "\"\"";
 		public boolean ShowRestaurantBoundaries = false;
+		public String CurrentClientTexture = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -346,6 +348,7 @@ public class OmnichefModVariables {
 			nbt.putString("RestaurantBoundaryData", RestaurantBoundaryData);
 			nbt.putString("RestaurantPreviewData", RestaurantPreviewData);
 			nbt.putBoolean("ShowRestaurantBoundaries", ShowRestaurantBoundaries);
+			nbt.putString("CurrentClientTexture", CurrentClientTexture);
 			return nbt;
 		}
 
@@ -372,6 +375,7 @@ public class OmnichefModVariables {
 			RestaurantBoundaryData = nbt.getString("RestaurantBoundaryData");
 			RestaurantPreviewData = nbt.getString("RestaurantPreviewData");
 			ShowRestaurantBoundaries = nbt.getBoolean("ShowRestaurantBoundaries");
+			CurrentClientTexture = nbt.getString("CurrentClientTexture");
 		}
 
 		public void markSyncDirty() {
