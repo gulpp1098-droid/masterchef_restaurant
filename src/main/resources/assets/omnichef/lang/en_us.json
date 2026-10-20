@@ -111,5 +111,6 @@
   "subtitles.clientring": "Client comes",
   "item.omnichef.foodpick": "Food Pick",
   "item.omnichef.foodwait": "Food Wait",
-  "item.omnichef.groupwait": "Group wait"
+  "item.omnichef.groupwait": "Group wait",
+  "block.omnichef.trade_board": "Trade Board"
 }

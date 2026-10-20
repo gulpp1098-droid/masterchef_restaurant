@@ -11369,6 +11369,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Blocks"
+    },
+    {
+      "name": "GetTradeBoardIngredientPool",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_trade_board_ingredient_pool",
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
