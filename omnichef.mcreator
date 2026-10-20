@@ -11400,6 +11400,34 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "calculate_trade_board_amounts",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "inputID",
+            "type": "string"
+          },
+          {
+            "name": "outputID",
+            "type": "string"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CalculateTradeBoardAmountsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "GenerateTradeBoardOffers",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_trade_board_offers",
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
