@@ -62,6 +62,7 @@ public class CreatingNewRestaurantProcedure {
 		com.google.gson.JsonObject lastDayStatsObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject NewRestaurantFood = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject NewRestaurantFoodUnlock = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject tradeBoardData = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			Owner = entity;
 			NewRestaurant_Name = (Owner instanceof Player _entity1 && _entity1.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "Restaurant_Name", "") : "";
@@ -121,6 +122,8 @@ public class CreatingNewRestaurantProcedure {
 				lastDayStatsObject = CreateDefaultRestaurantStatsProcedure.execute();
 				NewRestaurant.add("daily_stats", dailyStatsObject);
 				NewRestaurant.add("last_day_stats", lastDayStatsObject);
+				tradeBoardData = CreateDefaultTradeBoardDataProcedure.execute();
+				NewRestaurant.add("trade_board", tradeBoardData);
 				ListOfRestaurants = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 				{
 					try {
@@ -176,8 +179,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					CreateOverlayDataTransferProcedure.execute(world, entity);
-					if (Owner instanceof Player _player65 && !_player65.level().isClientSide())
-						_player65.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
+					if (Owner instanceof Player _player66 && !_player66.level().isClientSide())
+						_player66.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;
 					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
@@ -200,8 +203,8 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player69 && !_player69.level().isClientSide())
-						_player69.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
+					if (Owner instanceof Player _player70 && !_player70.level().isClientSide())
+						_player70.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					net.mcreator.omnichef.OmnichefMod.LOGGER.error("Failed to save the new restaurant.");
 				}
 			}

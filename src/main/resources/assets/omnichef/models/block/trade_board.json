@@ -1,0 +1,9 @@
+{
+  "parent": "omnichef:custom/tradeboard",
+  "textures": {
+    "all": "omnichef:block/texture_trade_board",
+    "particle": "omnichef:block/texture_trade_board",
+    "0": "omnichef:block/texture_trade_board"
+  },
+  "render_type": "cutout"
+}

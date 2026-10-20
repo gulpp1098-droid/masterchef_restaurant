@@ -19,6 +19,7 @@ public class OmnichefModBlocks {
 	public static final DeferredBlock<Block> RUG;
 	public static final DeferredBlock<Block> RUG_QUEUE;
 	public static final DeferredBlock<Block> PREPARATION_STATION;
+	public static final DeferredBlock<Block> TRADE_BOARD;
 	static {
 		SERVICE_TABLE = REGISTRY.register("service_table", ServiceTableBlock::new);
 		CHAIR = REGISTRY.register("chair", ChairBlock::new);
@@ -26,6 +27,7 @@ public class OmnichefModBlocks {
 		RUG = REGISTRY.register("rug", RugBlock::new);
 		RUG_QUEUE = REGISTRY.register("rug_queue", RugQueueBlock::new);
 		PREPARATION_STATION = REGISTRY.register("preparation_station", PreparationStationBlock::new);
+		TRADE_BOARD = REGISTRY.register("trade_board", TradeBoardBlock::new);
 	}
 	// Start of user code block custom blocks
 	// End of user code block custom blocks

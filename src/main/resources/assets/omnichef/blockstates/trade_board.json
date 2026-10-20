@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "omnichef:block/trade_board"
+    },
+    "facing=east": {
+      "model": "omnichef:block/trade_board",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "omnichef:block/trade_board",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "omnichef:block/trade_board",
+      "y": 270
+    }
+  }
+}

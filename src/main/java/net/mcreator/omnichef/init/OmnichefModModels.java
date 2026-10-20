@@ -18,10 +18,10 @@ import net.mcreator.omnichef.client.model.ModelChairMob;
 public class OmnichefModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(ModelChairMob.LAYER_LOCATION, ModelChairMob::createBodyLayer);
-		event.registerLayerDefinition(ModelCriticBase.LAYER_LOCATION, ModelCriticBase::createBodyLayer);
 		event.registerLayerDefinition(ModelClientBase.LAYER_LOCATION, ModelClientBase::createBodyLayer);
 		event.registerLayerDefinition(ModelRestaurantArea.LAYER_LOCATION, ModelRestaurantArea::createBodyLayer);
 		event.registerLayerDefinition(ModelRestaurantEdge.LAYER_LOCATION, ModelRestaurantEdge::createBodyLayer);
+		event.registerLayerDefinition(ModelChairMob.LAYER_LOCATION, ModelChairMob::createBodyLayer);
+		event.registerLayerDefinition(ModelCriticBase.LAYER_LOCATION, ModelCriticBase::createBodyLayer);
 	}
 }
