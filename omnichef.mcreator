@@ -11376,6 +11376,30 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "get_trade_board_ingredient_pool",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "unlockedArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetTradeBoardIngredientPoolProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "CalculateTradeBoardAmounts",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "calculate_trade_board_amounts",
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
