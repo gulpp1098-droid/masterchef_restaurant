@@ -11445,6 +11445,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "EnsureTradeBoardCurrentDay",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ensure_trade_board_current_day",
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
