@@ -11428,6 +11428,22 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "generate_trade_board_offers",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "unlockedArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GenerateTradeBoardOffersProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],

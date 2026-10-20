@@ -19,7 +19,7 @@ public class GetTradeBoardIngredientPoolProcedure {
 		boolean alreadyAdded = false;
 		unlockedArr = unlockedArray;
 		for (int _i1 = 0; _i1 < (int) unlockedArr.size(); _i1++) {
-			foodID = pool.get((int) index).getAsString();
+			foodID = unlockedArr.get((int) index).getAsString();
 			foodData = GetFoodDataFromIDProcedure.execute(databaseObject, foodID);
 			if (foodData.has("role")) {
 				if ((foodData.get("role").getAsString()).equals("INGREDIENT")) {

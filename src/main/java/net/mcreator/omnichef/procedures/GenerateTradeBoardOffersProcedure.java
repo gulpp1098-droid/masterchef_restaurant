@@ -36,14 +36,14 @@ public class GenerateTradeBoardOffersProcedure {
 					pair.addProperty("output_id", pool.get((int) outputIndex).getAsString());
 					candidates.add(pair);
 				}
-				inputIndex = inputIndex + 1;
+				outputIndex = outputIndex + 1;
 			}
-			outputIndex = outputIndex + 1;
+			inputIndex = inputIndex + 1;
 		}
-		while (candidates.size() < 5 && candidates.size() > 0) {
-			randomIndex = Math.floor(Math.random() + candidates.size());
+		while (offers.size() < 5 && candidates.size() > 0) {
+			randomIndex = Math.floor(Math.random() * candidates.size());
 			pair = candidates.get((int) randomIndex).getAsJsonObject();
-			candidates.remove(randomIndex);
+			candidates.remove(((int) randomIndex));
 			amounts = CalculateTradeBoardAmountsProcedure.execute(databaseObject, pair.get("input_id").getAsString(), pair.get("output_id").getAsString());
 			if (amounts.has("input_count")) {
 				pair.addProperty("input_count", amounts.get("input_count").getAsDouble());
