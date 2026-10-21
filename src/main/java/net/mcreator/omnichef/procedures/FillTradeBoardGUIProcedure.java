@@ -2,11 +2,13 @@ package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.component.DataComponents;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.init.OmnichefModMenus;
@@ -52,9 +54,14 @@ public class FillTradeBoardGUIProcedure {
 							offer = offers.get((int) index).getAsJsonObject();
 							displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("output_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 							displayStack.setCount((int) offer.get("output_count").getAsDouble());
+							{
+								final String _tagName = "trade_board_used";
+								final boolean _tagValue = offer.get("used").getAsBoolean();
+								CustomData.update(DataComponents.CUSTOM_DATA, displayStack, tag -> tag.putBoolean(_tagName, _tagValue));
+							}
 							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-								ItemStack _displayStack10 = displayStack.copy();
-								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 2)), _displayStack10, true);
+								ItemStack _displayStack12 = displayStack.copy();
+								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 2)), _displayStack12, true);
 							}
 						}
 						index = index + 1;

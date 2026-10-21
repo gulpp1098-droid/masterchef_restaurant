@@ -47,9 +47,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip0;
 				if (mouseX < this.leftPos + -105 || mouseX >= this.leftPos + -73 || mouseY < this.topPos + 61 || mouseY >= this.topPos + 93)
 					break guiTools$itemDisplayTooltip0;
-				boolean guiTools$displayMasked0 = false;
-				if (guiTools$displayMasked0)
-					break guiTools$itemDisplayTooltip0;
+				boolean guiTools$displayMasked0 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack0 == null || guiTools$tooltipStack0.isEmpty())
 					break guiTools$itemDisplayTooltip0;
@@ -60,9 +58,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip1;
 				if (mouseX < this.leftPos + -43 || mouseX >= this.leftPos + -11 || mouseY < this.topPos + 61 || mouseY >= this.topPos + 93)
 					break guiTools$itemDisplayTooltip1;
-				boolean guiTools$displayMasked1 = false;
-				if (guiTools$displayMasked1)
-					break guiTools$itemDisplayTooltip1;
+				boolean guiTools$displayMasked1 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack1 == null || guiTools$tooltipStack1.isEmpty())
 					break guiTools$itemDisplayTooltip1;
@@ -73,9 +69,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip2;
 				if (mouseX < this.leftPos + 20 || mouseX >= this.leftPos + 36 || mouseY < this.topPos + 50 || mouseY >= this.topPos + 66)
 					break guiTools$itemDisplayTooltip2;
-				boolean guiTools$displayMasked2 = false;
-				if (guiTools$displayMasked2)
-					break guiTools$itemDisplayTooltip2;
+				boolean guiTools$displayMasked2 = !(net.mcreator.omnichef.procedures.TradeBoardOffer1UsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack2 == null || guiTools$tooltipStack2.isEmpty())
 					break guiTools$itemDisplayTooltip2;
@@ -86,9 +80,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip3;
 				if (mouseX < this.leftPos + 80 || mouseX >= this.leftPos + 96 || mouseY < this.topPos + 53 || mouseY >= this.topPos + 69)
 					break guiTools$itemDisplayTooltip3;
-				boolean guiTools$displayMasked3 = false;
-				if (guiTools$displayMasked3)
-					break guiTools$itemDisplayTooltip3;
+				boolean guiTools$displayMasked3 = !(net.mcreator.omnichef.procedures.TradeBoardOffer2UsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack3 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack3 == null || guiTools$tooltipStack3.isEmpty())
 					break guiTools$itemDisplayTooltip3;
@@ -99,9 +91,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip4;
 				if (mouseX < this.leftPos + 144 || mouseX >= this.leftPos + 160 || mouseY < this.topPos + 49 || mouseY >= this.topPos + 65)
 					break guiTools$itemDisplayTooltip4;
-				boolean guiTools$displayMasked4 = false;
-				if (guiTools$displayMasked4)
-					break guiTools$itemDisplayTooltip4;
+				boolean guiTools$displayMasked4 = !(net.mcreator.omnichef.procedures.TradeBoardOffer3UsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack4 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack4 == null || guiTools$tooltipStack4.isEmpty())
 					break guiTools$itemDisplayTooltip4;
@@ -112,9 +102,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip5;
 				if (mouseX < this.leftPos + 40 || mouseX >= this.leftPos + 56 || mouseY < this.topPos + 108 || mouseY >= this.topPos + 124)
 					break guiTools$itemDisplayTooltip5;
-				boolean guiTools$displayMasked5 = false;
-				if (guiTools$displayMasked5)
-					break guiTools$itemDisplayTooltip5;
+				boolean guiTools$displayMasked5 = !(net.mcreator.omnichef.procedures.TradeBoardOffer4UsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack5 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack5 == null || guiTools$tooltipStack5.isEmpty())
 					break guiTools$itemDisplayTooltip5;
@@ -125,9 +113,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					break guiTools$itemDisplayTooltip6;
 				if (mouseX < this.leftPos + 114 || mouseX >= this.leftPos + 130 || mouseY < this.topPos + 108 || mouseY >= this.topPos + 124)
 					break guiTools$itemDisplayTooltip6;
-				boolean guiTools$displayMasked6 = false;
-				if (guiTools$displayMasked6)
-					break guiTools$itemDisplayTooltip6;
+				boolean guiTools$displayMasked6 = !(net.mcreator.omnichef.procedures.TradeBoardOffer5UsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack6 = menu.getMenuState(3, "6", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack6 == null || guiTools$tooltipStack6.isEmpty())
 					break guiTools$itemDisplayTooltip6;
@@ -186,13 +172,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack0 == null || guiTools$displayStack0.isEmpty())
 					break guiTools$itemDisplay0;
-				boolean guiTools$displayMasked0 = false;
+				boolean guiTools$displayMasked0 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 2.0f) * (this.leftPos + -105), (1.0F - 2.0f) * (this.topPos + 61), 0.0F);
 					guiGraphics.pose().scale(2.0f, 2.0f, 1.0F);
 					if (guiTools$displayMasked0) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
 						} finally {
@@ -201,8 +187,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
 					}
-					if (!guiTools$displayMasked0)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -213,13 +198,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack1 == null || guiTools$displayStack1.isEmpty())
 					break guiTools$itemDisplay1;
-				boolean guiTools$displayMasked1 = false;
+				boolean guiTools$displayMasked1 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 2.0f) * (this.leftPos + -43), (1.0F - 2.0f) * (this.topPos + 61), 0.0F);
 					guiGraphics.pose().scale(2.0f, 2.0f, 1.0F);
 					if (guiTools$displayMasked1) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
 						} finally {
@@ -228,8 +213,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
 					}
-					if (!guiTools$displayMasked1)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -249,13 +233,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
 					break guiTools$itemDisplay2;
-				boolean guiTools$displayMasked2 = false;
+				boolean guiTools$displayMasked2 = !(net.mcreator.omnichef.procedures.TradeBoardOffer1UsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 20), (1.0F - 1.0f) * (this.topPos + 50), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked2) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 20, this.topPos + 50);
 						} finally {
@@ -264,8 +248,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 20, this.topPos + 50);
 					}
-					if (!guiTools$displayMasked2)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + 20, this.topPos + 50);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + 20, this.topPos + 50);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -276,13 +259,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack3 == null || guiTools$displayStack3.isEmpty())
 					break guiTools$itemDisplay3;
-				boolean guiTools$displayMasked3 = false;
+				boolean guiTools$displayMasked3 = !(net.mcreator.omnichef.procedures.TradeBoardOffer2UsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 80), (1.0F - 1.0f) * (this.topPos + 53), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked3) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 80, this.topPos + 53);
 						} finally {
@@ -291,8 +274,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 80, this.topPos + 53);
 					}
-					if (!guiTools$displayMasked3)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack3, this.leftPos + 80, this.topPos + 53);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack3, this.leftPos + 80, this.topPos + 53);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -303,13 +285,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack4 == null || guiTools$displayStack4.isEmpty())
 					break guiTools$itemDisplay4;
-				boolean guiTools$displayMasked4 = false;
+				boolean guiTools$displayMasked4 = !(net.mcreator.omnichef.procedures.TradeBoardOffer3UsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 144), (1.0F - 1.0f) * (this.topPos + 49), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked4) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 144, this.topPos + 49);
 						} finally {
@@ -318,8 +300,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 144, this.topPos + 49);
 					}
-					if (!guiTools$displayMasked4)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack4, this.leftPos + 144, this.topPos + 49);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack4, this.leftPos + 144, this.topPos + 49);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -330,13 +311,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack5 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack5 == null || guiTools$displayStack5.isEmpty())
 					break guiTools$itemDisplay5;
-				boolean guiTools$displayMasked5 = false;
+				boolean guiTools$displayMasked5 = !(net.mcreator.omnichef.procedures.TradeBoardOffer4UsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 40), (1.0F - 1.0f) * (this.topPos + 108), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked5) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 40, this.topPos + 108);
 						} finally {
@@ -345,8 +326,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 40, this.topPos + 108);
 					}
-					if (!guiTools$displayMasked5)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + 40, this.topPos + 108);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + 40, this.topPos + 108);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -357,13 +337,13 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				net.minecraft.world.item.ItemStack guiTools$displayStack6 = menu.getMenuState(3, "6", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack6 == null || guiTools$displayStack6.isEmpty())
 					break guiTools$itemDisplay6;
-				boolean guiTools$displayMasked6 = false;
+				boolean guiTools$displayMasked6 = !(net.mcreator.omnichef.procedures.TradeBoardOffer5UsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 114), (1.0F - 1.0f) * (this.topPos + 108), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked6) {
-						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
 							guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + 114, this.topPos + 108);
 						} finally {
@@ -372,8 +352,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + 114, this.topPos + 108);
 					}
-					if (!guiTools$displayMasked6)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack6, this.leftPos + 114, this.topPos + 108);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack6, this.leftPos + 114, this.topPos + 108);
 				} finally {
 					guiGraphics.pose().popPose();
 				}

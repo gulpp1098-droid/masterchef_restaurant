@@ -11698,6 +11698,126 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "TradeBoardSelectedOfferUsed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_selected_offer_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardSelectedOfferUsedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "TradeBoardOffer1Used",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_offer_1_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardOffer1UsedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "TradeBoardOffer2Used",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_offer_2_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardOffer2UsedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "TradeBoardOffer3Used",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_offer_3_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardOffer3UsedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "TradeBoardOffer4Used",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_offer_4_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardOffer4UsedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "TradeBoardOffer5Used",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_offer_5_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardOffer5UsedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
     }
   ],
   "variable_elements": [
