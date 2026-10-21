@@ -1,5 +1,6 @@
 package net.mcreator.omnichef.world.inventory;
 
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
@@ -25,6 +26,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.procedures.FillTradeBoardGUIProcedure;
+import net.mcreator.omnichef.network.TradeBoardGUISlotMessage;
 import net.mcreator.omnichef.init.OmnichefModMenus;
 
 import java.util.function.Supplier;
@@ -37,7 +39,7 @@ public class TradeBoardGUIMenu extends AbstractContainerMenu implements Omnichef
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 18)
+			if (!this.containsKey(key) && this.size() >= 20)
 				return null;
 			return super.put(key, value);
 		}
@@ -94,12 +96,18 @@ public class TradeBoardGUIMenu extends AbstractContainerMenu implements Omnichef
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -108, 144) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, -98, 111) {
 			private final int slot = 0;
 			private int x = TradeBoardGUIMenu.this.x;
 			private int y = TradeBoardGUIMenu.this.y;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(0, 0, 0);
+			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -48, 144) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -39, 111) {
 			private final int slot = 1;
 			private int x = TradeBoardGUIMenu.this.x;
 			private int y = TradeBoardGUIMenu.this.y;
@@ -239,6 +247,13 @@ public class TradeBoardGUIMenu extends AbstractContainerMenu implements Omnichef
 						ihm.setStackInSlot(i, ItemStack.EMPTY);
 				}
 			}
+		}
+	}
+
+	private void slotChanged(int slotid, int ctype, int meta) {
+		if (this.world != null && this.world.isClientSide()) {
+			PacketDistributor.sendToServer(new TradeBoardGUISlotMessage(slotid, x, y, z, ctype, meta));
+			TradeBoardGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

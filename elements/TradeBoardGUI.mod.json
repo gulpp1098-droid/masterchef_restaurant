@@ -191,8 +191,9 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 17,
-          "y": 146,
+          "onSlotChanged": "TradeBoardInputChanged",
+          "x": 27,
+          "y": 113,
           "locked": false
         }
       },
@@ -204,8 +205,8 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 77,
-          "y": 146,
+          "x": 86,
+          "y": 113,
           "locked": false
         }
       },
@@ -225,8 +226,8 @@
           },
           "maskOpacity": 100,
           "scale": 200,
-          "x": 10,
-          "y": 88,
+          "x": 21,
+          "y": 64,
           "locked": false
         }
       },
@@ -246,8 +247,8 @@
           },
           "maskOpacity": 100,
           "scale": 200,
-          "x": 72,
-          "y": 88,
+          "x": 83,
+          "y": 64,
           "locked": false
         }
       },
@@ -258,8 +259,8 @@
           "image": "preparation_arrow_icon.png",
           "width": 22,
           "height": 22,
-          "x": 46,
-          "y": 93,
+          "x": 58,
+          "y": 69,
           "locked": false
         }
       },
@@ -365,6 +366,30 @@
           "scale": 100,
           "x": 240,
           "y": 111,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_3",
+          "image": "plateslot_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 27,
+          "y": 113,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_4",
+          "image": "plateslot_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 86,
+          "y": 113,
           "locked": false
         }
       }

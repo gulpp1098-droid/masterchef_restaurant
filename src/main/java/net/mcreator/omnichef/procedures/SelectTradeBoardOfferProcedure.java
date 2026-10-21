@@ -55,6 +55,7 @@ public class SelectTradeBoardOfferProcedure {
 						_vars.TradeBoardSelectedOffer = offerIndex;
 						_vars.markSyncDirty();
 					}
+					TradeBoardInputChangedProcedure.execute(world, entity);
 				}
 			}
 		}

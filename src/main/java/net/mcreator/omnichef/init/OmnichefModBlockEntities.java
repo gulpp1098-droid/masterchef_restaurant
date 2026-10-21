@@ -28,6 +28,7 @@ public class OmnichefModBlockEntities {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RugBlockEntity>> RUG = register("rug", OmnichefModBlocks.RUG, RugBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RugQueueBlockEntity>> RUG_QUEUE = register("rug_queue", OmnichefModBlocks.RUG_QUEUE, RugQueueBlockEntity::new);
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PreparationStationBlockEntity>> PREPARATION_STATION = register("preparation_station", OmnichefModBlocks.PREPARATION_STATION, PreparationStationBlockEntity::new);
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TradeBoardBlockEntity>> TRADE_BOARD = register("trade_board", OmnichefModBlocks.TRADE_BOARD, TradeBoardBlockEntity::new);
 
 	// Start of user code block custom block entities
 	// End of user code block custom block entities
@@ -43,5 +44,6 @@ public class OmnichefModBlockEntities {
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RUG.get(), SidedInvWrapper::new);
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, RUG_QUEUE.get(), SidedInvWrapper::new);
 		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, PREPARATION_STATION.get(), SidedInvWrapper::new);
+		event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, TRADE_BOARD.get(), SidedInvWrapper::new);
 	}
 }
