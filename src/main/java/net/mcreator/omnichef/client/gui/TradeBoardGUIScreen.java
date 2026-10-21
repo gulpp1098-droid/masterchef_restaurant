@@ -423,6 +423,12 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 		this.addWidget(enhanced_image_button_trade_board_sign);
 		enhanced_image_button_note_1_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 3, this.topPos + 35, 53, 45, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_1_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_1_icon.png")), e -> {
+					int x = TradeBoardGUIScreen.this.x;
+					int y = TradeBoardGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradeBoardGUIButtonMessage(1, x, y, z));
+						net.mcreator.omnichef.network.TradeBoardGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -438,6 +444,12 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 		this.addWidget(enhanced_image_button_note_1_icon);
 		enhanced_image_button_note_2_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 62, this.topPos + 32, 58, 58, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_2_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_2_icon.png")), e -> {
+					int x = TradeBoardGUIScreen.this.x;
+					int y = TradeBoardGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradeBoardGUIButtonMessage(2, x, y, z));
+						net.mcreator.omnichef.network.TradeBoardGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -453,6 +465,12 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 		this.addWidget(enhanced_image_button_note_2_icon);
 		enhanced_image_button_note_3_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 124, this.topPos + 33, 50, 41, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_3_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_3_icon.png")), e -> {
+					int x = TradeBoardGUIScreen.this.x;
+					int y = TradeBoardGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradeBoardGUIButtonMessage(3, x, y, z));
+						net.mcreator.omnichef.network.TradeBoardGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -468,6 +486,12 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 		this.addWidget(enhanced_image_button_note_3_icon);
 		enhanced_image_button_note_4_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 21, this.topPos + 90, 55, 44, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_4_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_4_icon.png")), e -> {
+					int x = TradeBoardGUIScreen.this.x;
+					int y = TradeBoardGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradeBoardGUIButtonMessage(4, x, y, z));
+						net.mcreator.omnichef.network.TradeBoardGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -483,6 +507,12 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 		this.addWidget(enhanced_image_button_note_4_icon);
 		enhanced_image_button_note_5_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 98, this.topPos + 88, 49, 46, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_5_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_5_icon.png")), e -> {
+					int x = TradeBoardGUIScreen.this.x;
+					int y = TradeBoardGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradeBoardGUIButtonMessage(5, x, y, z));
+						net.mcreator.omnichef.network.TradeBoardGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
