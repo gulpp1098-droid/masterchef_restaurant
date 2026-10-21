@@ -63,7 +63,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked1 = false;
 				if (guiTools$displayMasked1)
 					break guiTools$itemDisplayTooltip1;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack1 == null || guiTools$tooltipStack1.isEmpty())
 					break guiTools$itemDisplayTooltip1;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack1, mouseX, mouseY);
@@ -76,7 +76,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked2 = false;
 				if (guiTools$displayMasked2)
 					break guiTools$itemDisplayTooltip2;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack2 == null || guiTools$tooltipStack2.isEmpty())
 					break guiTools$itemDisplayTooltip2;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack2, mouseX, mouseY);
@@ -89,7 +89,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked3 = false;
 				if (guiTools$displayMasked3)
 					break guiTools$itemDisplayTooltip3;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack3 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack3 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack3 == null || guiTools$tooltipStack3.isEmpty())
 					break guiTools$itemDisplayTooltip3;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack3, mouseX, mouseY);
@@ -102,7 +102,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked4 = false;
 				if (guiTools$displayMasked4)
 					break guiTools$itemDisplayTooltip4;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack4 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack4 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack4 == null || guiTools$tooltipStack4.isEmpty())
 					break guiTools$itemDisplayTooltip4;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack4, mouseX, mouseY);
@@ -115,7 +115,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked5 = false;
 				if (guiTools$displayMasked5)
 					break guiTools$itemDisplayTooltip5;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack5 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack5 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack5 == null || guiTools$tooltipStack5.isEmpty())
 					break guiTools$itemDisplayTooltip5;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack5, mouseX, mouseY);
@@ -128,7 +128,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked6 = false;
 				if (guiTools$displayMasked6)
 					break guiTools$itemDisplayTooltip6;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack6 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack6 = menu.getMenuState(3, "6", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack6 == null || guiTools$tooltipStack6.isEmpty())
 					break guiTools$itemDisplayTooltip6;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack6, mouseX, mouseY);
@@ -210,7 +210,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplay1 : {
 				if (!(true))
 					break guiTools$itemDisplay1;
-				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack1 == null || guiTools$displayStack1.isEmpty())
 					break guiTools$itemDisplay1;
 				boolean guiTools$displayMasked1 = false;
@@ -246,7 +246,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplay2 : {
 				if (!(true))
 					break guiTools$itemDisplay2;
-				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
 					break guiTools$itemDisplay2;
 				boolean guiTools$displayMasked2 = false;
@@ -273,7 +273,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplay3 : {
 				if (!(true))
 					break guiTools$itemDisplay3;
-				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack3 == null || guiTools$displayStack3.isEmpty())
 					break guiTools$itemDisplay3;
 				boolean guiTools$displayMasked3 = false;
@@ -300,7 +300,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplay4 : {
 				if (!(true))
 					break guiTools$itemDisplay4;
-				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "3", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack4 == null || guiTools$displayStack4.isEmpty())
 					break guiTools$itemDisplay4;
 				boolean guiTools$displayMasked4 = false;
@@ -327,7 +327,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplay5 : {
 				if (!(true))
 					break guiTools$itemDisplay5;
-				net.minecraft.world.item.ItemStack guiTools$displayStack5 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack5 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack5 == null || guiTools$displayStack5.isEmpty())
 					break guiTools$itemDisplay5;
 				boolean guiTools$displayMasked5 = false;
@@ -354,7 +354,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplay6 : {
 				if (!(true))
 					break guiTools$itemDisplay6;
-				net.minecraft.world.item.ItemStack guiTools$displayStack6 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack6 = menu.getMenuState(3, "6", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack6 == null || guiTools$displayStack6.isEmpty())
 					break guiTools$itemDisplay6;
 				boolean guiTools$displayMasked6 = false;
