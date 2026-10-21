@@ -1,8 +1,5 @@
 package net.mcreator.omnichef.procedures;
 
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.capabilities.Capabilities;
-
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +18,7 @@ import java.io.File;
 import java.io.BufferedReader;
 
 public class TryExecuteTradeBoardOfferProcedure {
-	public static boolean execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
+	public static boolean execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return false;
 		File restaurantsFile = new File("");
@@ -39,7 +36,8 @@ public class TryExecuteTradeBoardOfferProcedure {
 		double inputCount = 0;
 		double outputCount = 0;
 		boolean saveSuccessful = false;
-		if (world.isClientSide() || !(entity instanceof Player _plr1 && _plr1.containerMenu instanceof TradeBoardGUIMenu) || !((getItemStackFromItemStackSlot(1, itemstack)).getItem() == Blocks.AIR.asItem())) {
+		if (world.isClientSide() || !(entity instanceof Player _plr1 && _plr1.containerMenu instanceof TradeBoardGUIMenu)
+				|| !((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu2 ? _menu2.getSlots().get(1).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())) {
 			return false;
 		}
 		offerIndex = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).TradeBoardSelectedOffer;
@@ -71,7 +69,7 @@ public class TryExecuteTradeBoardOfferProcedure {
 		if (!tradeBoard.has("day") || !tradeBoard.has("offers")) {
 			return false;
 		}
-		if (!(tradeBoard.get("day").getAsDouble() == entity.getData(OmnichefModVariables.PLAYER_VARIABLES).TradeBoardViewedDay) && !(tradeBoard.get("day").getAsDouble() >= Math.floor(world.dayTime() / 24000d))) {
+		if (!(tradeBoard.get("day").getAsDouble() == entity.getData(OmnichefModVariables.PLAYER_VARIABLES).TradeBoardViewedDay) || !(tradeBoard.get("day").getAsDouble() >= Math.floor(world.dayTime() / 24000d))) {
 			FillTradeBoardGUIProcedure.execute(world, entity);
 			return false;
 		}
@@ -88,12 +86,11 @@ public class TryExecuteTradeBoardOfferProcedure {
 		requiredStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("input_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 		rewardStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("output_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 		rewardStack.setCount((int) outputCount);
-		inputStack = (getItemStackFromItemStackSlot(0, itemstack)).copy();
+		inputStack = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu25 ? _menu25.getSlots().get(0).getItem() : ItemStack.EMPTY).copy();
 		if (rewardStack.getItem() == Blocks.AIR.asItem() || requiredStack.getItem() == Blocks.AIR.asItem()) {
 			return false;
 		}
-		if (requiredStack.getCount() > requiredStack.getMaxStackSize() || rewardStack.getCount() > rewardStack.getMaxStackSize() || inputStack.getCount() > inputStack.getMaxStackSize() || requiredStack.getCount() < 1 || rewardStack.getCount() < 1
-				|| inputStack.getCount() < 1) {
+		if (inputCount < 1 || inputCount > requiredStack.getMaxStackSize() || outputCount < 1 || outputCount > rewardStack.getMaxStackSize()) {
 			return false;
 		}
 		if (!(requiredStack.getItem() == inputStack.getItem())) {
@@ -102,26 +99,19 @@ public class TryExecuteTradeBoardOfferProcedure {
 		if (inputStack.getCount() < inputCount) {
 			return false;
 		}
-		root.addProperty("used", true);
+		offer.addProperty("used", true);
 		saveSuccessful = SaveJsonAtomicallyProcedure.execute(root, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
 		if (!saveSuccessful) {
 			return false;
 		}
 		if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
 			_menu.getSlots().get(0).remove((int) inputCount);
-			ItemStack _setstack43 = rewardStack.copy();
-			_setstack43.setCount(1);
-			_menu.getSlots().get(1).set(_setstack43);
+			ItemStack _setstack34 = rewardStack.copy();
+			_setstack34.setCount((int) outputCount);
+			_menu.getSlots().get(1).set(_setstack34);
 			_player.containerMenu.broadcastChanges();
 		}
 		FillTradeBoardGUIProcedure.execute(world, entity);
 		return true;
-	}
-
-	private static ItemStack getItemStackFromItemStackSlot(int slotID, ItemStack itemStack) {
-		IItemHandler itemHandler = itemStack.getCapability(Capabilities.ItemHandler.ITEM, null);
-		if (itemHandler != null)
-			return itemHandler.getStackInSlot(slotID).copy();
-		return ItemStack.EMPTY;
 	}
 }
