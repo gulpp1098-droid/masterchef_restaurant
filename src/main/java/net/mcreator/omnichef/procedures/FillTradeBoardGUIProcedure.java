@@ -21,35 +21,38 @@ public class FillTradeBoardGUIProcedure {
 		ItemStack displayStack = ItemStack.EMPTY;
 		double restaurantIndex = 0;
 		double index = 0;
-		{
-			OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
-			_vars.TradeBoardSelectedOffer = -1;
-			_vars.markSyncDirty();
-		}
-		for (int _i1 = 0; _i1 < 7; _i1++) {
-			if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _displayStack0 = new ItemStack(Blocks.AIR).copy();
-				_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) index), _displayStack0, true);
+		if (!world.isClientSide()) {
+			{
+				OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+				_vars.TradeBoardSelectedOffer = -1;
+				_vars.markSyncDirty();
 			}
-			index = index + 1;
-		}
-		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
-		if (restaurantIndex >= 0) {
-			if (EnsureTradeBoardCurrentDayProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
-				tradeBoard = GetRestaurantObjectParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						"trade_board");
-				offers = tradeBoard.get("offers").getAsJsonArray();
-				for (int _i1 = 0; _i1 < 5; _i1++) {
-					if (index < offers.size()) {
-						offer = offers.get((int) index).getAsJsonObject();
-						displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("output_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-						displayStack.setCount((int) offer.get("output_count").getAsDouble());
-						if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-							ItemStack _displayStack8 = displayStack.copy();
-							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 2)), _displayStack8, true);
+			for (int _i1 = 0; _i1 < 7; _i1++) {
+				if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+					ItemStack _displayStack1 = new ItemStack(Blocks.AIR).copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) index), _displayStack1, true);
+				}
+				index = index + 1;
+			}
+			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+			if (restaurantIndex >= 0) {
+				if (EnsureTradeBoardCurrentDayProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID)) {
+					tradeBoard = GetRestaurantObjectParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+							"trade_board");
+					offers = tradeBoard.get("offers").getAsJsonArray();
+					index = 0;
+					for (int _i1 = 0; _i1 < 5; _i1++) {
+						if (index < offers.size()) {
+							offer = offers.get((int) index).getAsJsonObject();
+							displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("output_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+							displayStack.setCount((int) offer.get("output_count").getAsDouble());
+							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+								ItemStack _displayStack9 = displayStack.copy();
+								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (index + 2)), _displayStack9, true);
+							}
 						}
+						index = index + 1;
 					}
-					restaurantIndex = restaurantIndex + 1;
 				}
 			}
 		}

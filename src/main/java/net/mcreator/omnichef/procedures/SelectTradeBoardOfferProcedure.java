@@ -35,7 +35,7 @@ public class SelectTradeBoardOfferProcedure {
 			}
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 			if (restaurantIndex >= 0) {
-				tradeBoard = GetRestaurantObjectParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+				tradeBoard = GetRestaurantObjectParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"trade_board");
 				offers = tradeBoard.get("offers").getAsJsonArray();
 				if (offerIndex >= 0 && offerIndex < offers.size()) {
@@ -43,7 +43,7 @@ public class SelectTradeBoardOfferProcedure {
 					inputStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("input_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 					inputStack.setCount((int) offer.get("input_count").getAsDouble());
 					outputStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((offer.get("output_id").getAsString()).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-					outputStack.setCount((int) offer.get("input_count").getAsDouble());
+					outputStack.setCount((int) offer.get("output_count").getAsDouble());
 					if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
 						ItemStack _displayStack14 = inputStack.copy();
 						_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack14, true);

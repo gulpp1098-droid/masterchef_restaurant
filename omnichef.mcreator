@@ -11478,6 +11478,7 @@
       "registry_name": "trade_board_gui",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/omnichef/network/TradeBoardGUIButtonMessage.java",
           "src/main/java/net/mcreator/omnichef/client/gui/TradeBoardGUIScreen.java",
           "src/main/java/net/mcreator/omnichef/world/inventory/TradeBoardGUIMenu.java"
         ]
