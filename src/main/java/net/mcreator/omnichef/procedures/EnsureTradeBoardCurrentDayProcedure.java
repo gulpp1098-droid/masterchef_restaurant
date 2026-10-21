@@ -54,7 +54,7 @@ public class EnsureTradeBoardCurrentDayProcedure {
 				e.printStackTrace();
 			}
 		}
-		if (!root.has("day")) {
+		if (!tradeBoard.has("day")) {
 			return false;
 		}
 		if (tradeBoard.get("day").getAsDouble() >= currentDay) {
@@ -79,7 +79,7 @@ public class EnsureTradeBoardCurrentDayProcedure {
 						foundUnlocks = true;
 						break;
 					}
-					restaurantIndex = restaurantIndex + 1;
+					index = index + 1;
 				}
 				if (foundUnlocks) {
 					database = ReadFoodDatabaseProcedure.execute(world);
