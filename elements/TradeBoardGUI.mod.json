@@ -1,0 +1,375 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 235,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 37,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1",
+          "image": "trade_board_backgound.png",
+          "width": 203,
+          "height": 155,
+          "x": 113,
+          "y": 0,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "trade_board_sign.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 125,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_trade_board_sign",
+          "text": "Trade Board",
+          "isUndecorated": true,
+          "width": 110,
+          "height": 27,
+          "x": 160,
+          "y": 5,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "note_1_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_note_1_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 53,
+          "height": 45,
+          "x": 129,
+          "y": 38,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "note_2_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_note_2_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 58,
+          "height": 58,
+          "x": 188,
+          "y": 35,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "note_3_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_note_3_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 50,
+          "height": 41,
+          "x": 250,
+          "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "note_4_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_note_4_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 55,
+          "height": 44,
+          "x": 147,
+          "y": 93,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "note_5_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_note_5_icon",
+          "text": "",
+          "isUndecorated": true,
+          "width": 49,
+          "height": 46,
+          "x": 224,
+          "y": 91,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "big_note",
+          "image": "note_background_icon.png",
+          "width": 128,
+          "height": 164,
+          "x": 0,
+          "y": 16,
+          "locked": false
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 17,
+          "y": 146,
+          "locked": false
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 77,
+          "y": 146,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0",
+          "displayId": 0,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 200,
+          "x": 10,
+          "y": 88,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy",
+          "displayId": 0,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 200,
+          "x": 72,
+          "y": 88,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_2",
+          "image": "preparation_arrow_icon.png",
+          "width": 22,
+          "height": 22,
+          "x": 46,
+          "y": 93,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_2",
+          "displayId": 1,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 146,
+          "y": 53,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_3",
+          "displayId": 2,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 206,
+          "y": 56,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_4",
+          "displayId": 3,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 270,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_5",
+          "displayId": 4,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 166,
+          "y": 111,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_6",
+          "displayId": 5,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 240,
+          "y": 111,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

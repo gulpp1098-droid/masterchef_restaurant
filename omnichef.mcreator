@@ -11452,7 +11452,31 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "ensure_trade_board_current_day",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/EnsureTradeBoardCurrentDayProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "TradeBoardGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_gui",
+      "path": "~/Restaurant Functioning/GUIs"
     }
   ],
   "variable_elements": [

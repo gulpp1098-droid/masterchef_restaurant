@@ -49,6 +49,7 @@ public class OmnichefModScreens {
 		event.register(OmnichefModMenus.BLOCKS_GUIDE_P_6_GUI.get(), BlocksGuideP6GUIScreen::new);
 		event.register(OmnichefModMenus.LOCATION_GUIDE_P_3_GUI.get(), LocationGuideP3GUIScreen::new);
 		event.register(OmnichefModMenus.CHEFS_DIARY_MENU_P_2_GUI.get(), ChefsDiaryMenuP2GUIScreen::new);
+		event.register(OmnichefModMenus.TRADE_BOARD_GUI.get(), TradeBoardGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {
