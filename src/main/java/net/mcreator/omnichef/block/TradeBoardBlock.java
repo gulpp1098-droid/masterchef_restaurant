@@ -44,10 +44,10 @@ public class TradeBoardBlock extends Block implements EntityBlock {
 	private ImmutableMap<BlockState, VoxelShape> makeShapes() {
 		return this.getShapeForEachState(state -> {
 			return switch (state.getValue(FACING)) {
-				case NORTH -> box(-15, 0, 6, 15, 32, 9);
-				case EAST -> box(7, 0, -15, 10, 32, 15);
-				case WEST -> box(6, 0, 1, 9, 32, 31);
-				default -> box(1, 0, 7, 31, 32, 10);
+				case NORTH -> box(-15, 0, 6, 15, 28, 9);
+				case EAST -> box(7, 0, -15, 10, 28, 15);
+				case WEST -> box(6, 0, 1, 9, 28, 31);
+				default -> box(1, 0, 7, 31, 28, 10);
 			};
 		});
 	}
