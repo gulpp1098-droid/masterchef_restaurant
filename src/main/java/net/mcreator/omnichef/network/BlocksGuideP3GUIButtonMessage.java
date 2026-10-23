@@ -15,7 +15,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.*;
+import net.mcreator.omnichef.procedures.ChefsDiaryGuideBlocksP4Procedure;
+import net.mcreator.omnichef.procedures.ChefsDiaryGuideBlocksP2Procedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -49,31 +50,29 @@ public record BlocksGuideP3GUIButtonMessage(int buttonID, int x, int y, int z) i
 			return;
 		if (buttonID == 0) {
 
-			ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
+			ChefsDiaryGuideBlocksP2Procedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 
-			ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 2) {
-
-			ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 3) {
-
-			ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 4) {
-
-			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 5) {
-
-			ChefsDiaryGuideBlocksP2Procedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 6) {
-
 			ChefsDiaryGuideBlocksP4Procedure.execute(world, x, y, z, entity);
+		}
+
+		guiTools$enhancedImageButton : {
+			if (buttonID == 2) {
+				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 3) {
+				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 4) {
+				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 5) {
+				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 6) {
+				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
+			}
 		}
 	}
 

@@ -15,11 +15,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -51,30 +46,25 @@ public record ChefsDiaryTipsP2GUIButtonMessage(int buttonID, int x, int y, int z
 		// security measure to prevent arbitrary chunk generation
 		if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(x), SectionPos.blockToSectionCoord(z)))
 			return;
-		if (buttonID == 0) {
-
-			ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 1) {
-
-			ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 2) {
-
-			ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 3) {
-
-			ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 4) {
-
-			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
-		}
 
 		guiTools$enhancedImageButton : {
-			if (buttonID == 5) {
+			if (buttonID == 0) {
 				net.mcreator.omnichef.procedures.ChefsDiaryTipsGUIOpenProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 1) {
+				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 2) {
+				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 3) {
+				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 4) {
+				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 5) {
+				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 			}
 		}
 	}

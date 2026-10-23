@@ -21,76 +21,6 @@
         }
       },
       {
-        "type": "image",
-        "data": {
-          "image": "bookmarks.png",
-          "use1Xscale": false,
-          "x": 355,
-          "y": 19,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_base_icon",
-          "image": "base_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryGUIOpen",
-          "x": 361,
-          "y": 22,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_food_icon",
-          "image": "food_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryFood",
-          "x": 362,
-          "y": 52,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_clients_icon",
-          "image": "clients_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryClients",
-          "x": 363,
-          "y": 81,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_appliences_icon",
-          "image": "appliences_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryApplience",
-          "x": 362,
-          "y": 109,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_stats_icon",
-          "image": "stats_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryStats",
-          "x": 361,
-          "y": 137,
-          "locked": false
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_overview_wip",
@@ -168,6 +98,207 @@
           "height": 126,
           "x": 219,
           "y": 36,
+          "locked": false
+        }
+      },
+      {
+        "type": "component_folder",
+        "data": {
+          "name": "Bookmarks",
+          "members": [
+            "red_bookmark",
+            "yellow_bookmark",
+            "green_bookmark",
+            "gray_bookmark",
+            "blue_bookmark",
+            "chefsdiary",
+            "food",
+            "clients",
+            "applience",
+            "stats"
+          ],
+          "x": -10000,
+          "y": -10000,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_red.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "red_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGUIOpen",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_yellow.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "yellow_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryFood",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 48,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_green.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "green_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryClients",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_gray.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "gray_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryApplience",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 106,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_blue.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "blue_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryStats",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 135,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "chefsdiary",
+          "image": "base_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 362,
+          "y": 23,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "food",
+          "image": "food_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "clients",
+          "image": "clients_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "applience",
+          "image": "appliences_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "stats",
+          "image": "stats_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 139,
           "locked": false
         }
       }

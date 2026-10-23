@@ -24,11 +24,6 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	private ImageButton imagebutton_base_icon;
-	private ImageButton imagebutton_food_icon;
-	private ImageButton imagebutton_clients_icon;
-	private ImageButton imagebutton_appliences_icon;
-	private ImageButton imagebutton_stats_icon;
 	private ImageButton imagebutton_last_page_icon;
 	private ImageButton imagebutton_next_page_icon;
 	private ImageButton imagebutton_itemslot_icon;
@@ -69,7 +64,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private ImageButton imagebutton_coin_icon_copy_9_copy_8;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/chefs_diary_food_tier_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
-	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/bookmarks.png");
+	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
 	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
 	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
 	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
@@ -87,7 +82,6 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private static final ResourceLocation IMAGE_16 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
 	private static final ResourceLocation IMAGE_17 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
 	private static final ResourceLocation IMAGE_18 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_19 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
 
 	public ChefsDiaryFoodTierGUIScreen(ChefsDiaryFoodTierGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -356,7 +350,6 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -174, this.topPos + -120, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 141, this.topPos + -101, 0, 0, 35, 140, 35, 140);
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
@@ -1293,24 +1286,84 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					guiGraphics.pose().popPose();
 				}
 			}
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -137, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -95, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -53, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -137, this.topPos + -9, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -95, this.topPos + -9, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + -53, this.topPos + -9, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + -137, this.topPos + 38, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + -95, this.topPos + 38, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + -53, this.topPos + 38, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + 8, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + 50, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + 90, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + 8, this.topPos + -9, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 49, this.topPos + -9, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + 90, this.topPos + -9, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + 8, this.topPos + 38, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + 49, this.topPos + 38, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_19, this.leftPos + 90, this.topPos + 38, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -137, this.topPos + -52, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -95, this.topPos + -52, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -53, this.topPos + -52, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -137, this.topPos + -9, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -95, this.topPos + -9, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -53, this.topPos + -9, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + -137, this.topPos + 38, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + -95, this.topPos + 38, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + -53, this.topPos + 38, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + 8, this.topPos + -52, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + 50, this.topPos + -52, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + 90, this.topPos + -52, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + 8, this.topPos + -9, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + 49, this.topPos + -9, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 90, this.topPos + -9, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + 8, this.topPos + 38, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + 49, this.topPos + 38, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + 90, this.topPos + 38, 0, 0, 10, 10, 10, 10);
+			if (this.red_bookmark != null && this.red_bookmark.visible) {
+				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			if (this.yellow_bookmark != null && this.yellow_bookmark.visible) {
+				this.yellow_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			if (this.green_bookmark != null && this.green_bookmark.visible) {
+				this.green_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			if (this.gray_bookmark != null && this.gray_bookmark.visible) {
+				this.gray_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			if (this.blue_bookmark != null && this.blue_bookmark.visible) {
+				this.blue_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 18;
+				int guiTools$visibleHeight = 18;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/base_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 152 + guiTools$xOffset, this.topPos + -92 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 18;
+				int guiTools$visibleHeight = 18;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/food_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + -63 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 18;
+				int guiTools$visibleHeight = 18;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/clients_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + -34 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 18;
+				int guiTools$visibleHeight = 18;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/appliences_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + -5 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 18;
+				int guiTools$visibleHeight = 18;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/stats_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + 24 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -1351,8 +1404,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	@Override
 	public void init() {
 		super.init();
-		imagebutton_base_icon = new ImageButton(this.leftPos + 147, this.topPos + -98, 18, 18, new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/base_icon.png"), ResourceLocation.parse("omnichef:textures/screens/base_icon.png")),
-				e -> {
+		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 15, 15,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
@@ -1365,89 +1418,14 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addRenderableWidget(imagebutton_base_icon);
-		imagebutton_food_icon = new ImageButton(this.leftPos + 148, this.topPos + -68, 18, 18, new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/food_icon.png"), ResourceLocation.parse("omnichef:textures/screens/food_icon.png")),
-				e -> {
+		this.addRenderableWidget(imagebutton_last_page_icon);
+		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 15, 15,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
 						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(1, x, y, z));
 						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_food_icon);
-		imagebutton_clients_icon = new ImageButton(this.leftPos + 149, this.topPos + -39, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/clients_icon.png"), ResourceLocation.parse("omnichef:textures/screens/clients_icon.png")), e -> {
-					int x = ChefsDiaryFoodTierGUIScreen.this.x;
-					int y = ChefsDiaryFoodTierGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(2, x, y, z));
-						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_clients_icon);
-		imagebutton_appliences_icon = new ImageButton(this.leftPos + 148, this.topPos + -11, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/appliences_icon.png"), ResourceLocation.parse("omnichef:textures/screens/appliences_icon.png")), e -> {
-					int x = ChefsDiaryFoodTierGUIScreen.this.x;
-					int y = ChefsDiaryFoodTierGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(3, x, y, z));
-						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_appliences_icon);
-		imagebutton_stats_icon = new ImageButton(this.leftPos + 147, this.topPos + 17, 18, 18, new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/stats_icon.png"), ResourceLocation.parse("omnichef:textures/screens/stats_icon.png")),
-				e -> {
-					int x = ChefsDiaryFoodTierGUIScreen.this.x;
-					int y = ChefsDiaryFoodTierGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(4, x, y, z));
-						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_stats_icon);
-		imagebutton_last_page_icon = new ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png")), e -> {
-					int x = ChefsDiaryFoodTierGUIScreen.this.x;
-					int y = ChefsDiaryFoodTierGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(5, x, y, z));
-						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_last_page_icon);
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
-					int x = ChefsDiaryFoodTierGUIScreen.this.x;
-					int y = ChefsDiaryFoodTierGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new ChefsDiaryFoodTierGUIButtonMessage(6, x, y, z));
-						ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
 					}
 				}) {
 			@Override
@@ -1618,7 +1596,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_17);
-		imagebutton_coin_icon = new ImageButton(this.leftPos + -136, this.topPos + -65, 15, 17, new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")),
+		imagebutton_coin_icon = new ImageButton(this.leftPos + -136, this.topPos + -65, 10, 10, new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")),
 				e -> {
 				}) {
 			@Override
@@ -1627,7 +1605,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon);
-		imagebutton_coin_icon_copy = new ImageButton(this.leftPos + -94, this.topPos + -65, 15, 17,
+		imagebutton_coin_icon_copy = new ImageButton(this.leftPos + -94, this.topPos + -65, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1636,7 +1614,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy);
-		imagebutton_coin_icon_copy_2 = new ImageButton(this.leftPos + -52, this.topPos + -65, 15, 17,
+		imagebutton_coin_icon_copy_2 = new ImageButton(this.leftPos + -52, this.topPos + -65, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1645,7 +1623,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_2);
-		imagebutton_coin_icon_copy_3 = new ImageButton(this.leftPos + -136, this.topPos + -22, 15, 17,
+		imagebutton_coin_icon_copy_3 = new ImageButton(this.leftPos + -136, this.topPos + -22, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1654,7 +1632,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_3);
-		imagebutton_coin_icon_copy_4 = new ImageButton(this.leftPos + -94, this.topPos + -22, 15, 17,
+		imagebutton_coin_icon_copy_4 = new ImageButton(this.leftPos + -94, this.topPos + -22, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1663,7 +1641,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_4);
-		imagebutton_coin_icon_copy_5 = new ImageButton(this.leftPos + -52, this.topPos + -22, 15, 17,
+		imagebutton_coin_icon_copy_5 = new ImageButton(this.leftPos + -52, this.topPos + -22, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1672,7 +1650,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_5);
-		imagebutton_coin_icon_copy_6 = new ImageButton(this.leftPos + -136, this.topPos + 25, 15, 17,
+		imagebutton_coin_icon_copy_6 = new ImageButton(this.leftPos + -136, this.topPos + 25, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1681,7 +1659,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_6);
-		imagebutton_coin_icon_copy_7 = new ImageButton(this.leftPos + -94, this.topPos + 25, 15, 17,
+		imagebutton_coin_icon_copy_7 = new ImageButton(this.leftPos + -94, this.topPos + 25, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1690,7 +1668,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_7);
-		imagebutton_coin_icon_copy_8 = new ImageButton(this.leftPos + -52, this.topPos + 25, 15, 17,
+		imagebutton_coin_icon_copy_8 = new ImageButton(this.leftPos + -52, this.topPos + 25, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1699,7 +1677,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_8);
-		imagebutton_coin_icon_copy_9 = new ImageButton(this.leftPos + 9, this.topPos + -65, 15, 17,
+		imagebutton_coin_icon_copy_9 = new ImageButton(this.leftPos + 9, this.topPos + -65, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1708,7 +1686,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9);
-		imagebutton_coin_icon_copy_9_copy = new ImageButton(this.leftPos + 51, this.topPos + -65, 15, 17,
+		imagebutton_coin_icon_copy_9_copy = new ImageButton(this.leftPos + 51, this.topPos + -65, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1717,7 +1695,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy);
-		imagebutton_coin_icon_copy_9_copy_2 = new ImageButton(this.leftPos + 91, this.topPos + -65, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_2 = new ImageButton(this.leftPos + 91, this.topPos + -65, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1726,7 +1704,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_2);
-		imagebutton_coin_icon_copy_9_copy_3 = new ImageButton(this.leftPos + 9, this.topPos + -22, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_3 = new ImageButton(this.leftPos + 9, this.topPos + -22, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1735,7 +1713,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_3);
-		imagebutton_coin_icon_copy_9_copy_4 = new ImageButton(this.leftPos + 50, this.topPos + -22, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_4 = new ImageButton(this.leftPos + 50, this.topPos + -22, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1744,7 +1722,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_4);
-		imagebutton_coin_icon_copy_9_copy_5 = new ImageButton(this.leftPos + 91, this.topPos + -22, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_5 = new ImageButton(this.leftPos + 91, this.topPos + -22, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1753,7 +1731,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_5);
-		imagebutton_coin_icon_copy_9_copy_6 = new ImageButton(this.leftPos + 9, this.topPos + 25, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_6 = new ImageButton(this.leftPos + 9, this.topPos + 25, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1762,7 +1740,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_6);
-		imagebutton_coin_icon_copy_9_copy_7 = new ImageButton(this.leftPos + 50, this.topPos + 25, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_7 = new ImageButton(this.leftPos + 50, this.topPos + 25, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1771,7 +1749,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_7);
-		imagebutton_coin_icon_copy_9_copy_8 = new ImageButton(this.leftPos + 91, this.topPos + 25, 15, 17,
+		imagebutton_coin_icon_copy_9_copy_8 = new ImageButton(this.leftPos + 91, this.topPos + 25, 10, 10,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
 				}) {
 			@Override
@@ -1780,6 +1758,111 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_8);
+		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -96, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(38, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 38, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(red_bookmark);
+		yellow_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -67, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(39, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 39, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(yellow_bookmark);
+		green_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -38, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(40, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 40, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(green_bookmark);
+		gray_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -9, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(41, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 41, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(gray_bookmark);
+		blue_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + 20, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(42, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 42, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addWidget(blue_bookmark);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -1850,6 +1933,51 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			lines.add(line.toString());
 		}
 		return java.util.List.copyOf(lines);
+	}
+
+	private static final boolean guiTools$enhancedImageButton = true;
+	private net.minecraft.client.gui.components.ImageButton red_bookmark;
+	private net.minecraft.client.gui.components.ImageButton yellow_bookmark;
+	private net.minecraft.client.gui.components.ImageButton green_bookmark;
+	private net.minecraft.client.gui.components.ImageButton gray_bookmark;
+	private net.minecraft.client.gui.components.ImageButton blue_bookmark;
+
+	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static net.minecraft.resources.ResourceLocation guiTools$dynamicTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
 	}
 
 	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {

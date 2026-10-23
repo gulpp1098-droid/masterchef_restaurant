@@ -26,7 +26,7 @@ public class SpatulaGuideGUIMenu extends AbstractContainerMenu implements Omnich
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 13)
+			if (!this.containsKey(key) && this.size() >= 18)
 				return null;
 			return super.put(key, value);
 		}

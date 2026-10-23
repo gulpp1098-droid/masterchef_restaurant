@@ -15,7 +15,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.*;
+import net.mcreator.omnichef.procedures.ChefsDiaryFoodPreviousPageProcedure;
+import net.mcreator.omnichef.procedures.ChefsDiaryFoodNextPageProcedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -49,31 +50,29 @@ public record ChefsDiaryFoodTierGUIButtonMessage(int buttonID, int x, int y, int
 			return;
 		if (buttonID == 0) {
 
-			ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
+			ChefsDiaryFoodPreviousPageProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 
-			ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 2) {
-
-			ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 3) {
-
-			ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 4) {
-
-			ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 5) {
-
-			ChefsDiaryFoodPreviousPageProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 6) {
-
 			ChefsDiaryFoodNextPageProcedure.execute(world, x, y, z, entity);
+		}
+
+		guiTools$enhancedImageButton : {
+			if (buttonID == 38) {
+				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 39) {
+				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 40) {
+				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 41) {
+				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 42) {
+				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
+			}
 		}
 	}
 
