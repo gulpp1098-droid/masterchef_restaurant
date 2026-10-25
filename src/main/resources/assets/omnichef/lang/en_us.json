@@ -113,5 +113,6 @@
   "item.omnichef.foodwait": "Food Wait",
   "item.omnichef.groupwait": "Group wait",
   "block.omnichef.trade_board": "Trade Board",
-  "gui.omnichef.chefs_diary_food_tier_gui.label_my_recipes": "My Recipes"
+  "gui.omnichef.chefs_diary_food_tier_gui.label_my_recipes": "My Recipes",
+  "block.omnichef.trade_board.description_0": "Let's see what offers it has"
 }

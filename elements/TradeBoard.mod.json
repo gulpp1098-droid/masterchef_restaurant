@@ -40,7 +40,9 @@
     "customProperties": [],
     "name": "Trade Board",
     "specialInformation": {
-      "fixedValue": []
+      "fixedValue": [
+        "Let's see what offers it has"
+      ]
     },
     "hardness": 1.0,
     "resistance": 10.0,

@@ -17,6 +17,10 @@ public class CreateOverlayDataTransferProcedure {
 		double groupsIndex = 0;
 		double memberIndex = 0;
 		double clientDatabaseIndex = 0;
+		double nearestGroupIndex = 0;
+		double nearestSpawnTime = 0;
+		double previousGroupIndex = 0;
+		double previousSpawnTime = 0;
 		com.google.gson.JsonObject JSONObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject dailyStatsObject = new com.google.gson.JsonObject();
@@ -61,37 +65,56 @@ public class CreateOverlayDataTransferProcedure {
 				if (RestaurantObject.get("open").getAsBoolean() && clientDatabaseIndex >= 0) {
 					ClientsObject = FindClientsInfoByIndexViaIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 					groupsArray = ClientsObject.get("groups").getAsJsonArray();
-					groupsIndex = 0;
-					for (int _i1 = 0; _i1 < (int) groupsArray.size(); _i1++) {
-						groupObject = groupsArray.get((int) groupsIndex).getAsJsonObject();
-						groupsObject = new Object() {
-							public com.google.gson.JsonObject parse(String rawJson) {
-								try {
-									return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
-								} catch (Exception e) {
-									OmnichefMod.LOGGER.error(e);
-									return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+					previousGroupIndex = -1;
+					previousSpawnTime = -1;
+					for (int _i1 = 0; _i1 < 3; _i1++) {
+						nearestGroupIndex = -1;
+						nearestSpawnTime = 0;
+						groupsIndex = 0;
+						for (int _i2 = 0; _i2 < (int) groupsArray.size(); _i2++) {
+							groupObject = groupsArray.get((int) groupsIndex).getAsJsonObject();
+							if (!groupObject.get("spawned").getAsBoolean()) {
+								if (groupObject.get("spawn_time").getAsDouble() > previousSpawnTime || groupObject.get("spawn_time").getAsDouble() == previousSpawnTime && groupsIndex > previousGroupIndex) {
+									if (nearestGroupIndex == -1 || groupObject.get("spawn_time").getAsDouble() < nearestSpawnTime) {
+										nearestGroupIndex = groupsIndex;
+										nearestSpawnTime = groupObject.get("spawn_time").getAsDouble();
+									}
 								}
 							}
-						}.parse("{}");
-						critic = false;
-						groupsObject.addProperty("spawn_time", groupObject.get("spawn_time").getAsDouble());
-						members = groupObject.get("members").getAsJsonArray();
-						memberIndex = 0;
-						for (int _i2 = 0; _i2 < (int) members.size(); _i2++) {
-							memberObject = members.get((int) memberIndex).getAsJsonObject();
-							if (memberObject.get("critic").getAsBoolean()) {
-								critic = true;
+							groupsIndex = groupsIndex + 1;
+						}
+						if (nearestGroupIndex >= 0) {
+							groupObject = groupsArray.get((int) nearestGroupIndex).getAsJsonObject();
+							groupsObject = new Object() {
+								public com.google.gson.JsonObject parse(String rawJson) {
+									try {
+										return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
+									} catch (Exception e) {
+										OmnichefMod.LOGGER.error(e);
+										return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+									}
+								}
+							}.parse("{}");
+							critic = false;
+							groupsObject.addProperty("spawn_time", groupObject.get("spawn_time").getAsDouble());
+							members = groupObject.get("members").getAsJsonArray();
+							memberIndex = 0;
+							for (int _i2 = 0; _i2 < (int) members.size(); _i2++) {
+								memberObject = members.get((int) memberIndex).getAsJsonObject();
+								if (memberObject.get("critic").getAsBoolean()) {
+									critic = true;
+								}
+								memberIndex = memberIndex + 1;
 							}
-							memberIndex = memberIndex + 1;
+							if (critic) {
+								groupsObject.addProperty("critic", true);
+							} else {
+								groupsObject.addProperty("critic", false);
+							}
+							timelineGroupsArray.add(groupsObject);
+							previousGroupIndex = nearestGroupIndex;
+							previousSpawnTime = nearestSpawnTime;
 						}
-						if (critic) {
-							groupsObject.addProperty("critic", true);
-						} else {
-							groupsObject.addProperty("critic", false);
-						}
-						timelineGroupsArray.add(groupsObject);
-						groupsIndex = groupsIndex + 1;
 					}
 				}
 				JSONObject.add("groups", timelineGroupsArray);
