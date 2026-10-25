@@ -11,10 +11,10 @@
           "image": "background_exp.png",
           "width": 99,
           "height": 48,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 0,
-          "y": 192,
-          "locked": true
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 325,
+          "y": 189,
+          "locked": false
         }
       },
       {
@@ -24,9 +24,9 @@
           "image": "progress_bar.png",
           "width": 78,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 17,
-          "y": 202,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 343,
+          "y": 199,
           "locked": false
         }
       },
@@ -38,9 +38,9 @@
           "visibleWidthProcedure": "ReturnReputationBarWidth",
           "width": 76,
           "height": 6,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 18,
-          "y": 203,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 344,
+          "y": 200,
           "locked": false
         }
       },
@@ -51,9 +51,9 @@
           "image": "progress_bar.png",
           "width": 78,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 17,
-          "y": 223,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 343,
+          "y": 221,
           "locked": false
         }
       },
@@ -65,9 +65,9 @@
           "visibleWidthProcedure": "ReturnRecipeBarWidth",
           "width": 76,
           "height": 6,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 18,
-          "y": 224,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 344,
+          "y": 222,
           "locked": false
         }
       },
@@ -78,9 +78,9 @@
           "image": "star_reputation.png",
           "width": 11,
           "height": 10,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 5,
-          "y": 200,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 331,
+          "y": 197,
           "locked": false
         }
       },
@@ -91,9 +91,9 @@
           "image": "recipe.png",
           "width": 9,
           "height": 10,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 6,
-          "y": 222,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 332,
+          "y": 219,
           "locked": false
         }
       },
@@ -113,9 +113,9 @@
           "tooltipWhenTruncated": false,
           "width": 44,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 34,
-          "y": 203,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 360,
+          "y": 200,
           "locked": false
         }
       },
@@ -135,9 +135,9 @@
           "tooltipWhenTruncated": false,
           "width": 44,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 39,
-          "y": 224,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 365,
+          "y": 222,
           "locked": false
         }
       },
@@ -156,9 +156,9 @@
           "tooltipWhenTruncated": false,
           "width": 52,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 18,
-          "y": 196,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 344,
+          "y": 193,
           "locked": false
         }
       },
@@ -178,9 +178,9 @@
           "tooltipWhenTruncated": false,
           "width": 29,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 67,
-          "y": 196,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 393,
+          "y": 193,
           "locked": false
         }
       },
@@ -199,9 +199,9 @@
           "tooltipWhenTruncated": false,
           "width": 52,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 18,
-          "y": 217,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 344,
+          "y": 215,
           "locked": false
         }
       },
@@ -221,9 +221,9 @@
           "tooltipWhenTruncated": false,
           "width": 52,
           "height": 8,
-          "anchorPoint": "BOTTOM_LEFT",
-          "x": 4,
-          "y": 232,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 330,
+          "y": 229,
           "locked": false
         }
       }

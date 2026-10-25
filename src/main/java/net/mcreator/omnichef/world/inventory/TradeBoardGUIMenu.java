@@ -107,7 +107,7 @@ public class TradeBoardGUIMenu extends AbstractContainerMenu implements Omnichef
 				slotChanged(0, 0, 0);
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -39, 111) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, -35, 111) {
 			private final int slot = 1;
 			private int x = TradeBoardGUIMenu.this.x;
 			private int y = TradeBoardGUIMenu.this.y;

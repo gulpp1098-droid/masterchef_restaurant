@@ -134,15 +134,15 @@ public class ServeGuideP2GUIScreen extends AbstractContainerScreen<ServeGuideP2G
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.serve_guide_p_2_gui.label_overview_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.serve_guide_p_2_gui.label_more_space_to_claim_for"), 5, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.serve_guide_p_2_gui.label_more_space_to_claim_for"), 4, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_lose_patiance_while_wa",
 						"Once everything they asked for is ready, I arrange it at the Preparation Station.\nIt gathers the food into a single Prepared Dish that I can carry to the table. I should check it once more before leaving the kitchen."),
-				-145, -84, 130, 137, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 137, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_some_customers_may_order_more_th",
 						"Each customer accepts only one serving. Exact orders earn 100% satisfaction; 50\u201399% means satisfied, and below 50% means unhappy.\nMissing, wrong or extra food lowers the result."),
-				5, -84, 127, 103, -12829636, false, 1.00F, 0, 0);
+				4, -87, 130, 103, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

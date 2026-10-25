@@ -44,44 +44,44 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private ImageButton imagebutton_itemslot_icon_copy_15;
 	private ImageButton imagebutton_itemslot_icon_copy_16;
 	private ImageButton imagebutton_itemslot_icon_copy_17;
-	private ImageButton imagebutton_coin_icon;
-	private ImageButton imagebutton_coin_icon_copy;
-	private ImageButton imagebutton_coin_icon_copy_2;
-	private ImageButton imagebutton_coin_icon_copy_3;
-	private ImageButton imagebutton_coin_icon_copy_4;
-	private ImageButton imagebutton_coin_icon_copy_5;
-	private ImageButton imagebutton_coin_icon_copy_6;
-	private ImageButton imagebutton_coin_icon_copy_7;
-	private ImageButton imagebutton_coin_icon_copy_8;
-	private ImageButton imagebutton_coin_icon_copy_9;
-	private ImageButton imagebutton_coin_icon_copy_9_copy;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_2;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_3;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_4;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_5;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_6;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_7;
-	private ImageButton imagebutton_coin_icon_copy_9_copy_8;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/chefs_diary_food_tier_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_9 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_10 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_10 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_11 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_12 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_12 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_13 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_14 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_14 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_15 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_16 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_16 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 	private static final ResourceLocation IMAGE_17 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
-	private static final ResourceLocation IMAGE_18 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_18 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_19 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_20 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_21 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_22 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_23 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_24 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_25 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_26 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_27 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_28 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_29 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_30 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_31 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_32 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_33 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_34 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_35 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
+	private static final ResourceLocation IMAGE_36 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
 
 	public ChefsDiaryFoodTierGUIScreen(ChefsDiaryFoodTierGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -108,7 +108,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip18 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip18;
-				if (mouseX < this.leftPos + -128 || mouseX >= this.leftPos + -112 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+				if (mouseX < this.leftPos + -129 || mouseX >= this.leftPos + -113 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
 					break guiTools$itemDisplayTooltip18;
 				boolean guiTools$displayMasked18 = false;
 				if (guiTools$displayMasked18)
@@ -121,7 +121,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip19 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip19;
-				if (mouseX < this.leftPos + -86 || mouseX >= this.leftPos + -70 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+				if (mouseX < this.leftPos + -87 || mouseX >= this.leftPos + -71 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
 					break guiTools$itemDisplayTooltip19;
 				boolean guiTools$displayMasked19 = false;
 				if (guiTools$displayMasked19)
@@ -134,7 +134,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip20 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip20;
-				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+				if (mouseX < this.leftPos + -45 || mouseX >= this.leftPos + -29 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
 					break guiTools$itemDisplayTooltip20;
 				boolean guiTools$displayMasked20 = false;
 				if (guiTools$displayMasked20)
@@ -147,7 +147,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip21 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip21;
-				if (mouseX < this.leftPos + -128 || mouseX >= this.leftPos + -112 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+				if (mouseX < this.leftPos + -129 || mouseX >= this.leftPos + -113 || mouseY < this.topPos + -35 || mouseY >= this.topPos + -19)
 					break guiTools$itemDisplayTooltip21;
 				boolean guiTools$displayMasked21 = false;
 				if (guiTools$displayMasked21)
@@ -160,7 +160,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip22 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip22;
-				if (mouseX < this.leftPos + -86 || mouseX >= this.leftPos + -70 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+				if (mouseX < this.leftPos + -87 || mouseX >= this.leftPos + -71 || mouseY < this.topPos + -35 || mouseY >= this.topPos + -19)
 					break guiTools$itemDisplayTooltip22;
 				boolean guiTools$displayMasked22 = false;
 				if (guiTools$displayMasked22)
@@ -173,7 +173,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip23 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip23;
-				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+				if (mouseX < this.leftPos + -45 || mouseX >= this.leftPos + -29 || mouseY < this.topPos + -35 || mouseY >= this.topPos + -19)
 					break guiTools$itemDisplayTooltip23;
 				boolean guiTools$displayMasked23 = false;
 				if (guiTools$displayMasked23)
@@ -186,7 +186,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip24 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip24;
-				if (mouseX < this.leftPos + -128 || mouseX >= this.leftPos + -112 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+				if (mouseX < this.leftPos + -129 || mouseX >= this.leftPos + -113 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
 					break guiTools$itemDisplayTooltip24;
 				boolean guiTools$displayMasked24 = false;
 				if (guiTools$displayMasked24)
@@ -199,7 +199,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip25 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip25;
-				if (mouseX < this.leftPos + -86 || mouseX >= this.leftPos + -70 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+				if (mouseX < this.leftPos + -87 || mouseX >= this.leftPos + -71 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
 					break guiTools$itemDisplayTooltip25;
 				boolean guiTools$displayMasked25 = false;
 				if (guiTools$displayMasked25)
@@ -212,7 +212,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip26 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip26;
-				if (mouseX < this.leftPos + -44 || mouseX >= this.leftPos + -28 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+				if (mouseX < this.leftPos + -45 || mouseX >= this.leftPos + -29 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
 					break guiTools$itemDisplayTooltip26;
 				boolean guiTools$displayMasked26 = false;
 				if (guiTools$displayMasked26)
@@ -225,7 +225,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip27 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip27;
-				if (mouseX < this.leftPos + 17 || mouseX >= this.leftPos + 33 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+				if (mouseX < this.leftPos + 16 || mouseX >= this.leftPos + 32 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
 					break guiTools$itemDisplayTooltip27;
 				boolean guiTools$displayMasked27 = false;
 				if (guiTools$displayMasked27)
@@ -238,7 +238,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip28 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip28;
-				if (mouseX < this.leftPos + 58 || mouseX >= this.leftPos + 74 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+				if (mouseX < this.leftPos + 57 || mouseX >= this.leftPos + 73 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
 					break guiTools$itemDisplayTooltip28;
 				boolean guiTools$displayMasked28 = false;
 				if (guiTools$displayMasked28)
@@ -251,7 +251,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip29 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip29;
-				if (mouseX < this.leftPos + 99 || mouseX >= this.leftPos + 115 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
+				if (mouseX < this.leftPos + 98 || mouseX >= this.leftPos + 114 || mouseY < this.topPos + -80 || mouseY >= this.topPos + -64)
 					break guiTools$itemDisplayTooltip29;
 				boolean guiTools$displayMasked29 = false;
 				if (guiTools$displayMasked29)
@@ -264,7 +264,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip30 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip30;
-				if (mouseX < this.leftPos + 17 || mouseX >= this.leftPos + 33 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+				if (mouseX < this.leftPos + 16 || mouseX >= this.leftPos + 32 || mouseY < this.topPos + -35 || mouseY >= this.topPos + -19)
 					break guiTools$itemDisplayTooltip30;
 				boolean guiTools$displayMasked30 = false;
 				if (guiTools$displayMasked30)
@@ -277,7 +277,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip31 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip31;
-				if (mouseX < this.leftPos + 58 || mouseX >= this.leftPos + 74 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+				if (mouseX < this.leftPos + 57 || mouseX >= this.leftPos + 73 || mouseY < this.topPos + -35 || mouseY >= this.topPos + -19)
 					break guiTools$itemDisplayTooltip31;
 				boolean guiTools$displayMasked31 = false;
 				if (guiTools$displayMasked31)
@@ -290,7 +290,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip32 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip32;
-				if (mouseX < this.leftPos + 99 || mouseX >= this.leftPos + 115 || mouseY < this.topPos + -37 || mouseY >= this.topPos + -21)
+				if (mouseX < this.leftPos + 98 || mouseX >= this.leftPos + 114 || mouseY < this.topPos + -35 || mouseY >= this.topPos + -19)
 					break guiTools$itemDisplayTooltip32;
 				boolean guiTools$displayMasked32 = false;
 				if (guiTools$displayMasked32)
@@ -303,7 +303,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip33 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip33;
-				if (mouseX < this.leftPos + 17 || mouseX >= this.leftPos + 33 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+				if (mouseX < this.leftPos + 16 || mouseX >= this.leftPos + 32 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
 					break guiTools$itemDisplayTooltip33;
 				boolean guiTools$displayMasked33 = false;
 				if (guiTools$displayMasked33)
@@ -316,7 +316,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip34 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip34;
-				if (mouseX < this.leftPos + 58 || mouseX >= this.leftPos + 74 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+				if (mouseX < this.leftPos + 57 || mouseX >= this.leftPos + 73 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
 					break guiTools$itemDisplayTooltip34;
 				boolean guiTools$displayMasked34 = false;
 				if (guiTools$displayMasked34)
@@ -329,7 +329,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$itemDisplayTooltip35 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip35;
-				if (mouseX < this.leftPos + 99 || mouseX >= this.leftPos + 115 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
+				if (mouseX < this.leftPos + 98 || mouseX >= this.leftPos + 114 || mouseY < this.topPos + 10 || mouseY >= this.topPos + 26)
 					break guiTools$itemDisplayTooltip35;
 				boolean guiTools$displayMasked35 = false;
 				if (guiTools$displayMasked35)
@@ -349,7 +349,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -174, this.topPos + -120, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
@@ -359,20 +359,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked0 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -129), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked0) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -128, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -129, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -128, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -129, this.topPos + -80);
 					}
 					if (!guiTools$displayMasked0)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -128, this.topPos + -80);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -129, this.topPos + -80);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -386,20 +386,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked1 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -87), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked1) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -86, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -87, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -86, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -87, this.topPos + -80);
 					}
 					if (!guiTools$displayMasked1)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -86, this.topPos + -80);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -87, this.topPos + -80);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -413,20 +413,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked2 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -45), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked2) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -44, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -45, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -44, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + -45, this.topPos + -80);
 					}
 					if (!guiTools$displayMasked2)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + -44, this.topPos + -80);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack2, this.leftPos + -45, this.topPos + -80);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -440,20 +440,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked3 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -129), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked3) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + -128, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + -129, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + -128, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + -129, this.topPos + -35);
 					}
 					if (!guiTools$displayMasked3)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack3, this.leftPos + -128, this.topPos + -37);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack3, this.leftPos + -129, this.topPos + -35);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -467,20 +467,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked4 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -87), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked4) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + -86, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + -87, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + -86, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + -87, this.topPos + -35);
 					}
 					if (!guiTools$displayMasked4)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack4, this.leftPos + -86, this.topPos + -37);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack4, this.leftPos + -87, this.topPos + -35);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -494,20 +494,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked5 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -45), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked5) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -44, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -45, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -44, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + -45, this.topPos + -35);
 					}
 					if (!guiTools$displayMasked5)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + -44, this.topPos + -37);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack5, this.leftPos + -45, this.topPos + -35);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -521,20 +521,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked6 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -129), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked6) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + -128, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + -129, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + -128, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + -129, this.topPos + 10);
 					}
 					if (!guiTools$displayMasked6)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack6, this.leftPos + -128, this.topPos + 10);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack6, this.leftPos + -129, this.topPos + 10);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -548,20 +548,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked7 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -87), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked7) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack7, this.leftPos + -86, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack7, this.leftPos + -87, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack7, this.leftPos + -86, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack7, this.leftPos + -87, this.topPos + 10);
 					}
 					if (!guiTools$displayMasked7)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack7, this.leftPos + -86, this.topPos + 10);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack7, this.leftPos + -87, this.topPos + 10);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -575,20 +575,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked8 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -45), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked8) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack8, this.leftPos + -44, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack8, this.leftPos + -45, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack8, this.leftPos + -44, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack8, this.leftPos + -45, this.topPos + 10);
 					}
 					if (!guiTools$displayMasked8)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack8, this.leftPos + -44, this.topPos + 10);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack8, this.leftPos + -45, this.topPos + 10);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -602,20 +602,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked9 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 16), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked9) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + 17, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + 16, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + 17, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + 16, this.topPos + -80);
 					}
 					if (!guiTools$displayMasked9)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack9, this.leftPos + 17, this.topPos + -80);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack9, this.leftPos + 16, this.topPos + -80);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -629,20 +629,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked10 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked10) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 58, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 57, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 58, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 57, this.topPos + -80);
 					}
 					if (!guiTools$displayMasked10)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack10, this.leftPos + 58, this.topPos + -80);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack10, this.leftPos + 57, this.topPos + -80);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -656,20 +656,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked11 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 98), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked11) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 99, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 98, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 99, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 98, this.topPos + -80);
 					}
 					if (!guiTools$displayMasked11)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack11, this.leftPos + 99, this.topPos + -80);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack11, this.leftPos + 98, this.topPos + -80);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -683,20 +683,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked12 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 16), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked12) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 17, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 16, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 17, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 16, this.topPos + -35);
 					}
 					if (!guiTools$displayMasked12)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack12, this.leftPos + 17, this.topPos + -37);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack12, this.leftPos + 16, this.topPos + -35);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -710,20 +710,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked13 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked13) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 58, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 57, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 58, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 57, this.topPos + -35);
 					}
 					if (!guiTools$displayMasked13)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack13, this.leftPos + 58, this.topPos + -37);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack13, this.leftPos + 57, this.topPos + -35);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -737,20 +737,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked14 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 98), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked14) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 99, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 98, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 99, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 98, this.topPos + -35);
 					}
 					if (!guiTools$displayMasked14)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack14, this.leftPos + 99, this.topPos + -37);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack14, this.leftPos + 98, this.topPos + -35);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -764,20 +764,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked15 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 16), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked15) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack15, this.leftPos + 17, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack15, this.leftPos + 16, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack15, this.leftPos + 17, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack15, this.leftPos + 16, this.topPos + 10);
 					}
 					if (!guiTools$displayMasked15)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack15, this.leftPos + 17, this.topPos + 10);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack15, this.leftPos + 16, this.topPos + 10);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -791,20 +791,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked16 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked16) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack16, this.leftPos + 58, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack16, this.leftPos + 57, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack16, this.leftPos + 58, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack16, this.leftPos + 57, this.topPos + 10);
 					}
 					if (!guiTools$displayMasked16)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack16, this.leftPos + 58, this.topPos + 10);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack16, this.leftPos + 57, this.topPos + 10);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -818,20 +818,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked17 = !(false);
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 98), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked17) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack17, this.leftPos + 99, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack17, this.leftPos + 98, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack17, this.leftPos + 99, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack17, this.leftPos + 98, this.topPos + 10);
 					}
 					if (!guiTools$displayMasked17)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack17, this.leftPos + 99, this.topPos + 10);
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack17, this.leftPos + 98, this.topPos + 10);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -845,17 +845,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked18 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -129), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked18) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack18, this.leftPos + -128, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack18, this.leftPos + -129, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack18, this.leftPos + -128, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack18, this.leftPos + -129, this.topPos + -80);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -870,17 +870,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked19 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -87), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked19) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack19, this.leftPos + -86, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack19, this.leftPos + -87, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack19, this.leftPos + -86, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack19, this.leftPos + -87, this.topPos + -80);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -895,17 +895,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked20 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -45), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked20) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack20, this.leftPos + -44, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack20, this.leftPos + -45, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack20, this.leftPos + -44, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack20, this.leftPos + -45, this.topPos + -80);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -920,17 +920,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked21 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -129), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked21) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack21, this.leftPos + -128, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack21, this.leftPos + -129, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack21, this.leftPos + -128, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack21, this.leftPos + -129, this.topPos + -35);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -945,17 +945,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked22 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -87), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked22) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack22, this.leftPos + -86, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack22, this.leftPos + -87, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack22, this.leftPos + -86, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack22, this.leftPos + -87, this.topPos + -35);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -970,17 +970,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked23 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -45), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked23) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack23, this.leftPos + -44, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack23, this.leftPos + -45, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack23, this.leftPos + -44, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack23, this.leftPos + -45, this.topPos + -35);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -995,17 +995,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked24 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -128), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -129), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked24) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack24, this.leftPos + -128, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack24, this.leftPos + -129, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack24, this.leftPos + -128, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack24, this.leftPos + -129, this.topPos + 10);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1020,17 +1020,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked25 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -86), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -87), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked25) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack25, this.leftPos + -86, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack25, this.leftPos + -87, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack25, this.leftPos + -86, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack25, this.leftPos + -87, this.topPos + 10);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1045,17 +1045,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked26 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -44), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -45), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked26) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack26, this.leftPos + -44, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack26, this.leftPos + -45, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack26, this.leftPos + -44, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack26, this.leftPos + -45, this.topPos + 10);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1070,17 +1070,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked27 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 16), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked27) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack27, this.leftPos + 17, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack27, this.leftPos + 16, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack27, this.leftPos + 17, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack27, this.leftPos + 16, this.topPos + -80);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1095,17 +1095,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked28 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked28) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack28, this.leftPos + 58, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack28, this.leftPos + 57, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack28, this.leftPos + 58, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack28, this.leftPos + 57, this.topPos + -80);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1120,17 +1120,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked29 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 98), (1.0F - 1.0f) * (this.topPos + -80), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked29) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack29, this.leftPos + 99, this.topPos + -80);
+							guiGraphics.renderFakeItem(guiTools$displayStack29, this.leftPos + 98, this.topPos + -80);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack29, this.leftPos + 99, this.topPos + -80);
+						guiGraphics.renderFakeItem(guiTools$displayStack29, this.leftPos + 98, this.topPos + -80);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1145,17 +1145,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked30 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 16), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked30) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack30, this.leftPos + 17, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack30, this.leftPos + 16, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack30, this.leftPos + 17, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack30, this.leftPos + 16, this.topPos + -35);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1170,17 +1170,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked31 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked31) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack31, this.leftPos + 58, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack31, this.leftPos + 57, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack31, this.leftPos + 58, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack31, this.leftPos + 57, this.topPos + -35);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1195,17 +1195,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked32 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + -37), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 98), (1.0F - 1.0f) * (this.topPos + -35), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked32) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack32, this.leftPos + 99, this.topPos + -37);
+							guiGraphics.renderFakeItem(guiTools$displayStack32, this.leftPos + 98, this.topPos + -35);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack32, this.leftPos + 99, this.topPos + -37);
+						guiGraphics.renderFakeItem(guiTools$displayStack32, this.leftPos + 98, this.topPos + -35);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1220,17 +1220,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked33 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 17), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 16), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked33) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack33, this.leftPos + 17, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack33, this.leftPos + 16, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack33, this.leftPos + 17, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack33, this.leftPos + 16, this.topPos + 10);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1245,17 +1245,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked34 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 58), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked34) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack34, this.leftPos + 58, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack34, this.leftPos + 57, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack34, this.leftPos + 58, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack34, this.leftPos + 57, this.topPos + 10);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
@@ -1270,40 +1270,22 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked35 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 99), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 98), (1.0F - 1.0f) * (this.topPos + 10), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked35) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack35, this.leftPos + 99, this.topPos + 10);
+							guiGraphics.renderFakeItem(guiTools$displayStack35, this.leftPos + 98, this.topPos + 10);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack35, this.leftPos + 99, this.topPos + 10);
+						guiGraphics.renderFakeItem(guiTools$displayStack35, this.leftPos + 98, this.topPos + 10);
 					}
 				} finally {
 					guiGraphics.pose().popPose();
 				}
 			}
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -137, this.topPos + -52, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -95, this.topPos + -52, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -53, this.topPos + -52, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -137, this.topPos + -9, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -95, this.topPos + -9, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -53, this.topPos + -9, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + -137, this.topPos + 38, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + -95, this.topPos + 38, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + -53, this.topPos + 38, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + 8, this.topPos + -52, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + 50, this.topPos + -52, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + 90, this.topPos + -52, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + 8, this.topPos + -9, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + 49, this.topPos + -9, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + 90, this.topPos + -9, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + 8, this.topPos + 38, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + 49, this.topPos + 38, 0, 0, 10, 10, 10, 10);
-			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + 90, this.topPos + 38, 0, 0, 10, 10, 10, 10);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -1326,7 +1308,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				int guiTools$visibleHeight = 18;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/base_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 152 + guiTools$xOffset, this.topPos + -92 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 148 + guiTools$xOffset, this.topPos + -97 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -1335,7 +1317,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				int guiTools$visibleHeight = 18;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/food_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + -63 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + -68 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -1344,7 +1326,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				int guiTools$visibleHeight = 18;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/clients_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + -34 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + -39 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -1353,7 +1335,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				int guiTools$visibleHeight = 18;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/appliences_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + -5 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + -10 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -1362,8 +1344,44 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				int guiTools$visibleHeight = 18;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/stats_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 153 + guiTools$xOffset, this.topPos + 24 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + 19 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -138, this.topPos + -49, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -138, this.topPos + -60, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -96, this.topPos + -49, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + -96, this.topPos + -60, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + -54, this.topPos + -49, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + -54, this.topPos + -60, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + -138, this.topPos + -4, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + -138, this.topPos + -15, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_9, this.leftPos + -138, this.topPos + 41, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_10, this.leftPos + -138, this.topPos + 30, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_11, this.leftPos + -96, this.topPos + -4, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_12, this.leftPos + -96, this.topPos + -15, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_13, this.leftPos + -54, this.topPos + -4, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_14, this.leftPos + -54, this.topPos + -15, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_15, this.leftPos + -96, this.topPos + 41, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_16, this.leftPos + -96, this.topPos + 30, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_17, this.leftPos + -54, this.topPos + 41, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_18, this.leftPos + -54, this.topPos + 30, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_19, this.leftPos + 7, this.topPos + -49, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_20, this.leftPos + 7, this.topPos + -60, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_21, this.leftPos + 48, this.topPos + -49, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_22, this.leftPos + 48, this.topPos + -60, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_23, this.leftPos + 89, this.topPos + -49, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_24, this.leftPos + 89, this.topPos + -60, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_25, this.leftPos + 7, this.topPos + -4, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_26, this.leftPos + 7, this.topPos + -15, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_27, this.leftPos + 48, this.topPos + -4, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_28, this.leftPos + 48, this.topPos + -15, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_29, this.leftPos + 89, this.topPos + -4, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_30, this.leftPos + 89, this.topPos + -15, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_31, this.leftPos + 7, this.topPos + 41, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_32, this.leftPos + 7, this.topPos + 30, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_33, this.leftPos + 48, this.topPos + 41, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_34, this.leftPos + 48, this.topPos + 30, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_35, this.leftPos + 89, this.topPos + 41, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_36, this.leftPos + 89, this.topPos + 30, 0, 0, 10, 10, 10, 10);
 		}
 		RenderSystem.disableBlend();
 	}
@@ -1379,26 +1397,27 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, ChefsDiaryFoodTierPageTextProcedure.execute(entity), -135, -98, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_101", "120\n120"), -121, -60, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_102", "120\n120"), -79, -60, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_103", "120\n120"), -37, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_104", "120\n120"), -121, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_105", "120\n120"), -79, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_106", "120\n120"), -37, -17, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_107", "120\n120"), -121, 30, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_108", "120\n120"), -79, 30, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_109", "120\n120"), -37, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_110", "120\n120"), 23, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_111", "120\n120"), 65, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_112", "120\n120"), 105, -61, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_113", "120\n120"), 24, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_114", "120\n120"), 65, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_115", "120\n120"), 105, -18, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_116", "120\n120"), 24, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_117", "120\n120"), 65, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_118", "120\n120"), 105, 29, 26, 20, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_values_assume_one_perfectly_serv", "Values assume one perfectly served portion."), -111, 57, 98, 25, -12829636, false, 0.75F, 0, 0);
+		guiGraphics.drawString(this.font, ChefsDiaryFoodTierPageTextProcedure.execute(entity), 4, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_tier_gui.label_my_recipes"), -145, -98, -12829636, false);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_101", "120\n120"), -125, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_102", "120\n120"), -83, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_103", "120\n120"), -41, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_104", "120\n120"), -125, -13, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_105", "120\n120"), -83, -13, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_106", "120\n120"), -41, -13, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_107", "120\n120"), -125, 32, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_108", "120\n120"), -83, 32, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_109", "120\n120"), -41, 32, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_110", "120\n120"), 20, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_111", "120\n120"), 61, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_112", "120\n120"), 102, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_113", "120\n120"), 20, -13, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_114", "120\n120"), 61, -13, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_115", "120\n120"), 102, -13, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_116", "120\n120"), 21, 32, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_117", "120\n120"), 61, 32, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_118", "120\n120"), 102, 32, 26, 20, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_values_assume_one_perfectly_serv", "Values assume one perfectly served portion."), -113, 57, 94, 25, -12829636, false, 0.75F, 0, 0);
 	}
 
 	@Override
@@ -1434,7 +1453,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
-		imagebutton_itemslot_icon = new ImageButton(this.leftPos + -129, this.topPos + -81, 18, 18,
+		imagebutton_itemslot_icon = new ImageButton(this.leftPos + -130, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1443,7 +1462,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon);
-		imagebutton_itemslot_icon_copy = new ImageButton(this.leftPos + -87, this.topPos + -81, 18, 18,
+		imagebutton_itemslot_icon_copy = new ImageButton(this.leftPos + -88, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1452,7 +1471,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy);
-		imagebutton_itemslot_icon_copy_2 = new ImageButton(this.leftPos + -45, this.topPos + -81, 18, 18,
+		imagebutton_itemslot_icon_copy_2 = new ImageButton(this.leftPos + -46, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1461,7 +1480,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_2);
-		imagebutton_itemslot_icon_copy_3 = new ImageButton(this.leftPos + -129, this.topPos + -38, 18, 18,
+		imagebutton_itemslot_icon_copy_3 = new ImageButton(this.leftPos + -130, this.topPos + -36, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1470,7 +1489,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_3);
-		imagebutton_itemslot_icon_copy_4 = new ImageButton(this.leftPos + -87, this.topPos + -38, 18, 18,
+		imagebutton_itemslot_icon_copy_4 = new ImageButton(this.leftPos + -88, this.topPos + -36, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1479,7 +1498,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_4);
-		imagebutton_itemslot_icon_copy_5 = new ImageButton(this.leftPos + -45, this.topPos + -38, 18, 18,
+		imagebutton_itemslot_icon_copy_5 = new ImageButton(this.leftPos + -46, this.topPos + -36, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1488,7 +1507,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_5);
-		imagebutton_itemslot_icon_copy_6 = new ImageButton(this.leftPos + -129, this.topPos + 9, 18, 18,
+		imagebutton_itemslot_icon_copy_6 = new ImageButton(this.leftPos + -130, this.topPos + 9, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1497,7 +1516,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_6);
-		imagebutton_itemslot_icon_copy_7 = new ImageButton(this.leftPos + -87, this.topPos + 9, 18, 18,
+		imagebutton_itemslot_icon_copy_7 = new ImageButton(this.leftPos + -88, this.topPos + 9, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1506,7 +1525,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_7);
-		imagebutton_itemslot_icon_copy_8 = new ImageButton(this.leftPos + -45, this.topPos + 9, 18, 18,
+		imagebutton_itemslot_icon_copy_8 = new ImageButton(this.leftPos + -46, this.topPos + 9, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1515,7 +1534,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_8);
-		imagebutton_itemslot_icon_copy_9 = new ImageButton(this.leftPos + 16, this.topPos + -81, 18, 18,
+		imagebutton_itemslot_icon_copy_9 = new ImageButton(this.leftPos + 15, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1524,7 +1543,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_9);
-		imagebutton_itemslot_icon_copy_10 = new ImageButton(this.leftPos + 57, this.topPos + -81, 18, 18,
+		imagebutton_itemslot_icon_copy_10 = new ImageButton(this.leftPos + 56, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1533,7 +1552,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_10);
-		imagebutton_itemslot_icon_copy_11 = new ImageButton(this.leftPos + 98, this.topPos + -81, 18, 18,
+		imagebutton_itemslot_icon_copy_11 = new ImageButton(this.leftPos + 97, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1542,7 +1561,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_11);
-		imagebutton_itemslot_icon_copy_12 = new ImageButton(this.leftPos + 16, this.topPos + -38, 18, 18,
+		imagebutton_itemslot_icon_copy_12 = new ImageButton(this.leftPos + 15, this.topPos + -36, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1551,7 +1570,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_12);
-		imagebutton_itemslot_icon_copy_13 = new ImageButton(this.leftPos + 57, this.topPos + -38, 18, 18,
+		imagebutton_itemslot_icon_copy_13 = new ImageButton(this.leftPos + 56, this.topPos + -36, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1560,7 +1579,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_13);
-		imagebutton_itemslot_icon_copy_14 = new ImageButton(this.leftPos + 98, this.topPos + -38, 18, 18,
+		imagebutton_itemslot_icon_copy_14 = new ImageButton(this.leftPos + 97, this.topPos + -36, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1569,7 +1588,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_14);
-		imagebutton_itemslot_icon_copy_15 = new ImageButton(this.leftPos + 16, this.topPos + 9, 18, 18,
+		imagebutton_itemslot_icon_copy_15 = new ImageButton(this.leftPos + 15, this.topPos + 9, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1578,7 +1597,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_15);
-		imagebutton_itemslot_icon_copy_16 = new ImageButton(this.leftPos + 57, this.topPos + 9, 18, 18,
+		imagebutton_itemslot_icon_copy_16 = new ImageButton(this.leftPos + 56, this.topPos + 9, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1587,7 +1606,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_16);
-		imagebutton_itemslot_icon_copy_17 = new ImageButton(this.leftPos + 98, this.topPos + 9, 18, 18,
+		imagebutton_itemslot_icon_copy_17 = new ImageButton(this.leftPos + 97, this.topPos + 9, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
 			@Override
@@ -1596,175 +1615,13 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_17);
-		imagebutton_coin_icon = new ImageButton(this.leftPos + -136, this.topPos + -65, 10, 10, new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")),
-				e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon);
-		imagebutton_coin_icon_copy = new ImageButton(this.leftPos + -94, this.topPos + -65, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy);
-		imagebutton_coin_icon_copy_2 = new ImageButton(this.leftPos + -52, this.topPos + -65, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_2);
-		imagebutton_coin_icon_copy_3 = new ImageButton(this.leftPos + -136, this.topPos + -22, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_3);
-		imagebutton_coin_icon_copy_4 = new ImageButton(this.leftPos + -94, this.topPos + -22, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_4);
-		imagebutton_coin_icon_copy_5 = new ImageButton(this.leftPos + -52, this.topPos + -22, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_5);
-		imagebutton_coin_icon_copy_6 = new ImageButton(this.leftPos + -136, this.topPos + 25, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_6);
-		imagebutton_coin_icon_copy_7 = new ImageButton(this.leftPos + -94, this.topPos + 25, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_7);
-		imagebutton_coin_icon_copy_8 = new ImageButton(this.leftPos + -52, this.topPos + 25, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_8);
-		imagebutton_coin_icon_copy_9 = new ImageButton(this.leftPos + 9, this.topPos + -65, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9);
-		imagebutton_coin_icon_copy_9_copy = new ImageButton(this.leftPos + 51, this.topPos + -65, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy);
-		imagebutton_coin_icon_copy_9_copy_2 = new ImageButton(this.leftPos + 91, this.topPos + -65, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_2);
-		imagebutton_coin_icon_copy_9_copy_3 = new ImageButton(this.leftPos + 9, this.topPos + -22, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_3);
-		imagebutton_coin_icon_copy_9_copy_4 = new ImageButton(this.leftPos + 50, this.topPos + -22, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_4);
-		imagebutton_coin_icon_copy_9_copy_5 = new ImageButton(this.leftPos + 91, this.topPos + -22, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_5);
-		imagebutton_coin_icon_copy_9_copy_6 = new ImageButton(this.leftPos + 9, this.topPos + 25, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_6);
-		imagebutton_coin_icon_copy_9_copy_7 = new ImageButton(this.leftPos + 50, this.topPos + 25, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_7);
-		imagebutton_coin_icon_copy_9_copy_8 = new ImageButton(this.leftPos + 91, this.topPos + 25, 10, 10,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"), ResourceLocation.parse("omnichef:textures/screens/coin_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_coin_icon_copy_9_copy_8);
-		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -96, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -101, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(38, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 38, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(20, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 20, x, y, z);
 					}
 				}) {
 			@Override
@@ -1779,13 +1636,13 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addWidget(red_bookmark);
-		yellow_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -67, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+		yellow_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -72, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(39, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 39, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(21, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 21, x, y, z);
 					}
 				}) {
 			@Override
@@ -1800,13 +1657,13 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addWidget(yellow_bookmark);
-		green_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -38, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+		green_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -43, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(40, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 40, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(22, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 22, x, y, z);
 					}
 				}) {
 			@Override
@@ -1821,13 +1678,13 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addWidget(green_bookmark);
-		gray_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + -9, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+		gray_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -14, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(41, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 41, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(23, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 23, x, y, z);
 					}
 				}) {
 			@Override
@@ -1842,13 +1699,13 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addWidget(gray_bookmark);
-		blue_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 144, this.topPos + 20, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+		blue_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + 15, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(42, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 42, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(24, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 24, x, y, z);
 					}
 				}) {
 			@Override

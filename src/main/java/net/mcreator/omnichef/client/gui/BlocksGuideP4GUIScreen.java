@@ -152,7 +152,7 @@ public class BlocksGuideP4GUIScreen extends AbstractContainerScreen<BlocksGuideP
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_p_4_gui.label_service_table"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_will_gladly_come_and_e",
 				"Chairs placed next to a Service Table become part of that table. Their number determines how many customers can sit there together.\nI should make sure every group has enough room. A table for four with only one chair is not minimalist design. It is a problem."),
-				-145, -84, 129, 41, -12829636, false, 1.00F, 0, 0);
+				-145, -85, 130, 41, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

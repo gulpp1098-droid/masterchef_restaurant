@@ -25,7 +25,7 @@
         "data": {
           "name": "label_overview_wip",
           "text": {
-            "fixedValue": "Expanding My Restaurant"
+            "fixedValue": "Expanding Restaurant"
           },
           "color": {
             "value": -12829636,
@@ -42,8 +42,8 @@
         "data": {
           "image": "location_icon.png",
           "use1Xscale": false,
-          "x": 193,
-          "y": 18,
+          "x": 184,
+          "y": 17,
           "locked": false
         }
       },
@@ -62,9 +62,9 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 130,
-          "height": 167,
+          "height": 95,
           "x": 69,
-          "y": 36,
+          "y": 33,
           "locked": false
         }
       },
@@ -82,10 +82,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 124,
+          "width": 130,
           "height": 98,
-          "x": 219,
-          "y": 23,
+          "x": 218,
+          "y": 22,
           "locked": false
         }
       },
@@ -109,7 +109,7 @@
           "width": 84,
           "height": 57,
           "x": 232,
-          "y": 132,
+          "y": 124,
           "locked": false
         }
       },

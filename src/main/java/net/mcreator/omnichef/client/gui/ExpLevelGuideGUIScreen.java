@@ -59,7 +59,7 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -21, this.topPos + -102, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -63, this.topPos + -94, 0, 0, 10, 10, 10, 10);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -135,17 +135,17 @@ public class ExpLevelGuideGUIScreen extends AbstractContainerScreen<ExpLevelGuid
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.exp_level_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.exp_level_guide_gui.label_as_well_as_claim_area"), -145, 6, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.exp_level_guide_gui.label_as_well_as_claim_area"), -145, 12, -65485, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_customers_finish_eating_t",
 						"After a meal, customers leave coins on their Service Table. What they ordered and how satisfied they were both affect the payment.\nI can collect the money from the table once they leave."),
-				-145, -84, 132, 84, -12829636, false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_a_table_with_waiting_payment_wil", "A table holding uncollected payment cannot welcome another group."), -145, 17, 131, 48, -12829636,
+				-145, -78, 130, 84, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_a_table_with_waiting_payment_wil", "A table holding uncollected payment cannot welcome another group."), -145, 23, 130, 48, -12829636,
 				false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_experience_is_added_to_your_rest",
 				"Good service builds my restaurant\u2019s reputation. Perfect orders bring the full reward, while mistakes reduce it.\nLeaving too many parts of an order missing may even cost me reputation. With enough of it, my restaurant will reach new levels and opportunities."),
-				5, -84, 124, 168, -12829636, false, 1.00F, 0, 0);
+				4, -78, 130, 126, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_reputation_and_earnings", "Reputation and Earnings"), -145, -98, 120, 40, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

@@ -79,8 +79,8 @@
         "data": {
           "image": "location_icon.png",
           "use1Xscale": false,
-          "x": 224,
-          "y": 81,
+          "x": 226,
+          "y": 84,
           "locked": false
         }
       },
@@ -90,7 +90,7 @@
           "image": "requirements_icon.png",
           "use1Xscale": false,
           "x": 224,
-          "y": 62,
+          "y": 64,
           "locked": false
         }
       },
@@ -99,8 +99,8 @@
         "data": {
           "image": "open_icon.png",
           "use1Xscale": false,
-          "x": 224,
-          "y": 119,
+          "x": 226,
+          "y": 124,
           "locked": false
         }
       },
@@ -110,7 +110,7 @@
           "image": "serve_icon.png",
           "use1Xscale": false,
           "x": 224,
-          "y": 138,
+          "y": 142,
           "locked": false
         }
       },
@@ -119,8 +119,38 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
+          "x": 227,
+          "y": 162,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "hammer_icon.png",
+          "use1Xscale": false,
           "x": 224,
-          "y": 158,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "questionmark_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "spatula_icon.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 43,
           "locked": false
         }
       },
@@ -146,7 +176,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 219,
+          "x": 218,
           "y": 22,
           "locked": false
         }
@@ -158,26 +188,6 @@
           "use1Xscale": false,
           "x": 214,
           "y": 30,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "spatula_icon.png",
-          "use1Xscale": false,
-          "x": 224,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "hammer_icon.png",
-          "use1Xscale": false,
-          "x": 224,
-          "y": 101,
           "locked": false
         }
       },
@@ -195,7 +205,7 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 90,
+          "width": 87,
           "height": 22,
           "x": 112,
           "y": 52,
@@ -216,7 +226,7 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 135,
+          "width": 130,
           "height": 110,
           "x": 69,
           "y": 81,
@@ -240,7 +250,7 @@
           "text": "My Golden Spatula",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideSpatula",
-          "width": 60,
+          "width": 62,
           "height": 13,
           "x": 244,
           "y": 46,
@@ -264,7 +274,7 @@
           "text": "What My Restaurant Needs",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideBlocks",
-          "width": 86,
+          "width": 92,
           "height": 13,
           "x": 244,
           "y": 65,
@@ -288,7 +298,7 @@
           "text": "Finding the Right Place",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideLocation",
-          "width": 81,
+          "width": 85,
           "height": 13,
           "x": 244,
           "y": 84,
@@ -336,7 +346,7 @@
           "text": "Opening Day",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideOpen",
-          "width": 40,
+          "width": 43,
           "height": 13,
           "x": 244,
           "y": 123,
@@ -360,7 +370,7 @@
           "text": "Serving My Guests",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideServe",
-          "width": 61,
+          "width": 64,
           "height": 13,
           "x": 244,
           "y": 142,
@@ -384,7 +394,7 @@
           "text": "Reputation and Earnings",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideExpLevel",
-          "width": 82,
+          "width": 85,
           "height": 13,
           "x": 244,
           "y": 161,
@@ -408,20 +418,10 @@
           "text": "Notes to Self",
           "isUndecorated": true,
           "onClick": "ChefsDiaryTipsGUIOpen",
-          "width": 46,
+          "width": 49,
           "height": 13,
           "x": 244,
           "y": 180,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "questionmark_icon.png",
-          "use1Xscale": false,
-          "x": 224,
-          "y": 177,
           "locked": false
         }
       },

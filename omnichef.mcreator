@@ -8456,8 +8456,7 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/omnichef/client/gui/RecipesInfoGUIScreen.java",
-          "src/main/java/net/mcreator/omnichef/world/inventory/RecipesInfoGUIMenu.java",
-          "src/main/java/net/mcreator/omnichef/network/RecipesInfoGUIButtonMessage.java"
+          "src/main/java/net/mcreator/omnichef/world/inventory/RecipesInfoGUIMenu.java"
         ]
       },
       "path": "~/Restaurant Functioning/GUIs/Spatula"
@@ -12088,7 +12087,7 @@
       "gui.omnichef.chefs_diary_gui.label_overview_wip": "Chef\u0027s Diary",
       "gui.omnichef.chefs_diary_gui.label_welcome_chef": "A Dream of Mine",
       "gui.omnichef.chefs_diary_food_gui.label_food_wip": "My Recipes",
-      "gui.omnichef.chefs_diary_clients_gui.label_clients_wip": "My Guests - WIP",
+      "gui.omnichef.chefs_diary_clients_gui.label_clients_wip": "My Guests",
       "gui.omnichef.chefs_diary_applience_gui.label_appliences_wip": "Appliances - WIP",
       "gui.omnichef.chefs_diary_stats_gui.label_stats_wip": "My Restaurant",
       "gui.omnichef.chefs_diary_stats_gui.label_restaurant_stars": "My Stars",
@@ -12107,7 +12106,7 @@
       "gui.omnichef.spatula_guide_gui.label_overview_wip": "My Golden Spatula",
       "gui.omnichef.blocks_guide_gui.label_overview_wip": "What My Restaurant Needs",
       "gui.omnichef.blocks_guide_p_2_gui.label_service_table": "Reception",
-      "gui.omnichef.location_guide_gui.label_overview_wip": "Finding the Right Place",
+      "gui.omnichef.location_guide_gui.label_overview_wip": "Finding the Place",
       "gui.omnichef.set_up_guide_gui.label_overview_wip": "Putting It All Together",
       "gui.omnichef.open_guide_gui.label_inside_this_area_you_can": "Closing Time",
       "gui.omnichef.open_guide_gui.label_as_well_as_claim_area": "Remember!",
@@ -12124,7 +12123,7 @@
       "entity.omnichef.critic": "Critic",
       "item.omnichef.critic_spawn_egg": "Critic Spawn Egg",
       "gui.omnichef.exp_level_guide_p_2_gui.label_overview_wip": "Stars and Critics",
-      "gui.omnichef.location_guide_p_2_gui.label_overview_wip": "Expanding My Restaurant",
+      "gui.omnichef.location_guide_p_2_gui.label_overview_wip": "Expanding Restaurant",
       "gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy": "Food2",
       "gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy_2_copy_7": "Food10",
       "gui.omnichef.chefs_diary_food_tier_gui.label_food1_copy_2_copy_5": "Food8",
@@ -12175,7 +12174,8 @@
       "item.omnichef.foodpick": "Food Pick",
       "item.omnichef.foodwait": "Food Wait",
       "item.omnichef.groupwait": "Group wait",
-      "block.omnichef.trade_board": "Trade Board"
+      "block.omnichef.trade_board": "Trade Board",
+      "gui.omnichef.chefs_diary_food_tier_gui.label_my_recipes": "My Recipes"
     }
   },
   "metadata": {

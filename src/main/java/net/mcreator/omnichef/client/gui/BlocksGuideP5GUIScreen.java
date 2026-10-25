@@ -152,7 +152,7 @@ public class BlocksGuideP5GUIScreen extends AbstractContainerScreen<BlocksGuideP
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_p_5_gui.label_service_table"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_will_gladly_come_and_e",
 				"Queue Rugs extend the waiting line from my Reception. Every new rug must remain connected to the previous one.\nIf I remove one, every rug after it is removed from the queue as well. Extra rugs are optional, but they give more hungry customers somewhere to wait."),
-				-145, -84, 129, 41, -12829636, false, 1.00F, 0, 0);
+				-145, -85, 130, 41, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

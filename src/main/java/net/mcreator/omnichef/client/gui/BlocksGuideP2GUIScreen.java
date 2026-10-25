@@ -151,7 +151,7 @@ public class BlocksGuideP2GUIScreen extends AbstractContainerScreen<BlocksGuideP
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_p_2_gui.label_service_table"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_will_gladly_come_and_e",
 				"I need one Reception to welcome customers and organize the queue. Placing it automatically creates the first Queue Rug, so at least everyone will know where to wait.\nOne Reception is enough for the entire restaurant. Any more would probably just start an argument over who is in charge."),
-				-145, -84, 129, 41, -12829636, false, 1.00F, 0, 0);
+				-145, -85, 129, 140, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

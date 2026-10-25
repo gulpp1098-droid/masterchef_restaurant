@@ -96,9 +96,9 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 129,
-          "height": 41,
+          "height": 140,
           "x": 69,
-          "y": 36,
+          "y": 35,
           "locked": false
         }
       },

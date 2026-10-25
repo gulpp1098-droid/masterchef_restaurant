@@ -26,7 +26,7 @@ public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGu
 	private ImageButton imagebutton_last_page_icon;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/exp_level_guide_p_2_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
-	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/coin_icon.png");
+	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/star_icon.png");
 
 	public ExpLevelGuideP2GUIScreen(ExpLevelGuideP2GUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -59,7 +59,7 @@ public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGu
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -34, this.topPos + -102, 0, 0, 10, 10, 10, 10);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -49, this.topPos + -99, 0, 0, 12, 11, 12, 11);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -139,10 +139,10 @@ public class ExpLevelGuideP2GUIScreen extends AbstractContainerScreen<ExpLevelGu
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_customers_finish_eating_t",
 						"Most levels are earned when my reputation reaches the next goal.\nEvery tenth level is different. Reputation only makes my restaurant eligible \u2014 a Critic must award the next star."),
-				-145, -84, 134, 84, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 84, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_experience_is_added_to_your_rest",
 				"Critics are not predictable. Once I am eligible, each opening has a 30% chance of bringing one to my restaurant. Only a perfectly served order earns the next level and restaurant star. If I fail, another Critic may visit on a later day. My reputation cannot fall below a star milestone I have already earned. At least one bad meal cannot erase my entire career."),
-				5, -98, 128, 168, -12829636, false, 1.00F, 0, 0);
+				4, -98, 130, 168, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

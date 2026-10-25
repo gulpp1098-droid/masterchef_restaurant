@@ -1,5 +1,5 @@
 {
-  "parent": "omnichef:custom/blockreception_tier0",
+  "parent": "omnichef:custom/reception_tier0",
   "textures": {
     "all": "omnichef:block/texture_reception_tier0",
     "particle": "omnichef:block/texture_reception_tier0",

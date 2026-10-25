@@ -130,18 +130,18 @@ public class ChefsDiaryTipsP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip"), -143, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip_copy"), 5, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_p_2_gui.label_food_wip_copy"), 4, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple",
-				"Perfectly Served \u2014 100% satisfaction\nSatisfied \u2014 50\u201399% satisfaction\nUnsatisfied \u2014 below 50% or left hungry without food"), -143, -92, 126, 43, -12829636, false, 1.00F, 0, 0);
+				"Perfectly Served \u2014 100% satisfaction\nSatisfied \u2014 50\u201399% satisfaction\nUnsatisfied \u2014 below 50% or left hungry without food"), -145, -87, 130, 71, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple_copy",
-				"Coins Earned \u2014 today\u2019s income\nReputation \u2014 gained or lost today  \nNumbers are honest, even when I wish they were not."), 5, -92, 126, 43, -12829636, false, 1.00F, 0, 0);
+				"Coins Earned \u2014 today\u2019s income\nReputation \u2014 gained or lost today  \nNumbers are honest, even when I wish they were not."), 4, -87, 130, 70, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		enhanced_image_button_last_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -143, this.topPos + 54, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_last_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png")), e -> {
 					int x = ChefsDiaryTipsP2GUIScreen.this.x;
 					int y = ChefsDiaryTipsP2GUIScreen.this.y;

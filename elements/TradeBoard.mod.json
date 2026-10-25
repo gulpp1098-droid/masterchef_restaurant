@@ -16,7 +16,7 @@
     "displayFluidOverlay": false,
     "states": [],
     "animations": [],
-    "itemTexture": "trade_board_item",
+    "itemTexture": "",
     "particleTexture": "",
     "blockSetType": "OAK",
     "leavesParticleChance": 0.0,

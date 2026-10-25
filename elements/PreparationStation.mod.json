@@ -16,7 +16,7 @@
     "displayFluidOverlay": false,
     "states": [],
     "animations": [],
-    "itemTexture": "preparationstation_tier0",
+    "itemTexture": "",
     "particleTexture": "",
     "blockSetType": "OAK",
     "leavesParticleChance": 0.0,

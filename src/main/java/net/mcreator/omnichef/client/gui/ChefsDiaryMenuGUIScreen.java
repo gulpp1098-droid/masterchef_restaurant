@@ -51,7 +51,7 @@ public class ChefsDiaryMenuGUIScreen extends AbstractContainerScreen<ChefsDiaryM
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -175, this.topPos + -120, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			if (this.enhanced_image_button_next_page_icon != null && this.enhanced_image_button_next_page_icon.visible) {
 				this.enhanced_image_button_next_page_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -133,22 +133,22 @@ public class ChefsDiaryMenuGUIScreen extends AbstractContainerScreen<ChefsDiaryM
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_gui.label_food_wip"), -140, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_gui.label_current_menu"), 7, -86, -3407821, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_gui.label_current_menu_copy"), 7, -35, -3407821, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_gui.label_food_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_gui.label_current_menu"), 4, -87, -3407821, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_gui.label_current_menu_copy"), 4, -36, -3407821, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple", "I keep two menus: one for today and one for next time. Planning ahead keeps the kitchen panic manageable."), -140, -87, 126, 52, -12829636,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple", "I keep two menus: one for today and one for next time. Planning ahead keeps the kitchen panic manageable."), -145, -87, 130, 52, -12829636,
 				false, 1.00F, 0, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_contains_the_dishes_your_custome", "These are the dishes my guests may order today. If it is written here, I had better be ready."), 7,
-				-75, 125, 40, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_contains_the_dishes_your_custome", "These are the dishes my guests may order today. If it is written here, I had better be ready."), 4,
+				-76, 125, 40, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_contains_the_dishes_your_custome_copy",
-				"These dishes are planned for my next opening. When the day is truly over, they become my Current Menu and a new plan takes their place."), 7, -23, 125, 74, -12829636, false, 1.00F, 0, 0);
+				"These dishes are planned for my next opening. When the day is truly over, they become my Current Menu and a new plan takes their place."), 4, -24, 125, 74, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -135, this.topPos + 60, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -141, this.topPos + 57, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png")), e -> {
 					int x = ChefsDiaryMenuGUIScreen.this.x;
 					int y = ChefsDiaryMenuGUIScreen.this.y;

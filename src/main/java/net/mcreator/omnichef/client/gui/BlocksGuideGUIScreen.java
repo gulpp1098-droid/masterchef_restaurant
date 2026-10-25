@@ -126,12 +126,12 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + 19 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -22, this.topPos + -101, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 3, this.topPos + -90, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 30, this.topPos + -89, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 57, this.topPos + -89, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 111, this.topPos + -89, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 84, this.topPos + -89, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -37, this.topPos + -96, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 3, this.topPos + -84, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 30, this.topPos + -83, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 57, this.topPos + -83, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 111, this.topPos + -83, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 84, this.topPos + -83, 0, 0, 16, 16, 16, 16);
 			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 1, this.topPos + -98, 0, 0, 133, 11, 133, 11);
 			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
 			if (true) {
@@ -141,7 +141,7 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 				int guiTools$visibleHeight = 100;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/restaurant_setup.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 11 + guiTools$xOffset, this.topPos + -71 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 112, 100);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 11 + guiTools$xOffset, this.topPos + -58 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 112, 100);
 			}
 		}
 		RenderSystem.disableBlend();
@@ -158,10 +158,10 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.blocks_guide_gui.label_overview_wip"), -145, -97, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_customers_can_visit_your",
-				"An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula."),
-				-145, -84, 130, 40, -12829636, false, 1.00F, 0, 0);
+				"An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs(opt.)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula."),
+				-145, -78, 130, 160, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_what_my_restaurant_needs", "What My Restaurant Needs."), -145, -98, 124, 21, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

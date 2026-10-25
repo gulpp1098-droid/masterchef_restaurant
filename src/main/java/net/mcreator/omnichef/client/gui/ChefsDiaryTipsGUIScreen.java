@@ -130,19 +130,19 @@ public class ChefsDiaryTipsGUIScreen extends AbstractContainerScreen<ChefsDiaryT
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_gui.label_food_wip"), -143, -103, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_gui.label_food_wip_copy"), 5, -103, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_gui.label_food_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_tips_gui.label_food_wip_copy"), 4, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple", "The Timeline shows which groups should arrive and when. Critics have their own marker \u2014 apparently they enjoy making an entrance."),
-				-143, -92, 126, 43, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 43, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple_copy",
-				"Closing early stops new arrivals. Waiting guests will leave, while those already seated can finish. Once closed, the restaurant stays closed until tomorrow."), 5, -92, 126, 43, -12829636, false, 1.00F, 0, 0);
+				"Closing early stops new arrivals. Waiting guests will leave, while those already seated can finish. Once closed, the restaurant stays closed until tomorrow."), 4, -87, 130, 43, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 107, this.topPos + 59, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 108, this.topPos + 57, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
 					int x = ChefsDiaryTipsGUIScreen.this.x;
 					int y = ChefsDiaryTipsGUIScreen.this.y;

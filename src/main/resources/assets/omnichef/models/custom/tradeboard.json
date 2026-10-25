@@ -1315,5 +1315,145 @@
         }
       }
     }
-  ]
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        8,
+        161,
+        -7
+      ],
+      "translation": [
+        -2.25,
+        -0.25,
+        -1
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        8,
+        161,
+        -7
+      ],
+      "translation": [
+        -2.25,
+        -0.25,
+        -1
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        8,
+        161,
+        -7
+      ],
+      "translation": [
+        -2.25,
+        -0.25,
+        -1
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        8,
+        161,
+        -7
+      ],
+      "translation": [
+        -2.25,
+        -0.25,
+        -1
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "ground": {
+      "translation": [
+        2.25,
+        1,
+        -1
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "gui": {
+      "rotation": [
+        27,
+        149,
+        0
+      ],
+      "translation": [
+        -2.75,
+        -1.5,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "head": {
+      "translation": [
+        2.25,
+        8.5,
+        -1
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "fixed": {
+      "translation": [
+        4.75,
+        -3,
+        -0.25
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "on_shelf": {
+      "rotation": [
+        0,
+        -180,
+        0
+      ],
+      "translation": [
+        -4,
+        -3,
+        -3.5
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
 }

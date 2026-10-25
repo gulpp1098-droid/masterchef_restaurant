@@ -84,7 +84,7 @@ public class RelocateConfirmationGUIScreen extends AbstractContainerScreen<Reloc
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_your_restaurant_progress_will_be",
-				"Your restaurant progress will be preserved. All current restaurant areas will be replaced by the selected base area. The current Reception and Queue Rugs will be detached."), -97, -69, 205, 51, -12829636, false, 1.00F, 0, 3);
+				"Your restaurant progress will be preserved. All current restaurant areas will be replaced by the selected base area. The current Reception and Queue Rugs will be detached."), -97, -70, 205, 51, -12829636, false, 1.00F, 0, 3);
 	}
 
 	@Override

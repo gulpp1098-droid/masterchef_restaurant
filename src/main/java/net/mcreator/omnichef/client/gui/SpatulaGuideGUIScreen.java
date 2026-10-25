@@ -145,7 +145,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.spatula_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_every_chef_needs_a_proper_tool",
 				"I managed to craft this Golden Spatula with my own hands! With it, I can mark out land for my restaurant, expand it as the business grows and keep track of everything I have built.\nIt may be golden, but it still refuses to cook for me. I should keep it somewhere safe."),
-				-145, -84, 130, 165, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 165, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

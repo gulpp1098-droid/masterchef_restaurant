@@ -42,8 +42,8 @@
         "data": {
           "image": "serve_icon.png",
           "use1Xscale": false,
-          "x": 165,
-          "y": 18,
+          "x": 167,
+          "y": 17,
           "locked": false
         }
       },
@@ -73,10 +73,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 132,
+          "width": 130,
           "height": 161,
           "x": 69,
-          "y": 36,
+          "y": 33,
           "locked": false
         }
       },
@@ -94,10 +94,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 125,
+          "width": 130,
           "height": 126,
-          "x": 219,
-          "y": 36,
+          "x": 218,
+          "y": 33,
           "locked": false
         }
       },

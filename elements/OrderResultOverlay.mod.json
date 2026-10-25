@@ -44,7 +44,7 @@
           "name": "sized_text_label_completeness",
           "text": "Completeness",
           "color": {
-            "value": -39322,
+            "value": -10092544,
             "falpha": 0.0
           },
           "hasShadow": false,
@@ -65,7 +65,7 @@
           "name": "sized_text_label_completeness_copy",
           "text": "Accuracy",
           "color": {
-            "value": -39169,
+            "value": -65281,
             "falpha": 0.0
           },
           "hasShadow": false,
@@ -128,7 +128,7 @@
           "name": "sized_text_label_completeness_copy_4",
           "text": "100%",
           "color": {
-            "value": -39322,
+            "value": -6750208,
             "falpha": 0.0
           },
           "hasShadow": false,
@@ -150,7 +150,7 @@
           "name": "sized_text_label_completeness_copy_copy",
           "text": "75%",
           "color": {
-            "value": -39169,
+            "value": -65281,
             "falpha": 0.0
           },
           "hasShadow": false,

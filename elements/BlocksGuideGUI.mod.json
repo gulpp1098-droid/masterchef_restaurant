@@ -222,29 +222,12 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_overview_wip",
-          "text": {
-            "fixedValue": "What My Restaurant Needs"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 23,
-          "locked": false
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "requirements_icon.png",
           "use1Xscale": false,
-          "x": 192,
-          "y": 19,
+          "x": 177,
+          "y": 24,
           "locked": false
         }
       },
@@ -254,7 +237,7 @@
           "image": "reception_item.png",
           "use1Xscale": false,
           "x": 217,
-          "y": 30,
+          "y": 36,
           "locked": false
         }
       },
@@ -264,7 +247,7 @@
           "image": "servicetable_icon.png",
           "use1Xscale": false,
           "x": 244,
-          "y": 31,
+          "y": 37,
           "locked": false
         }
       },
@@ -274,7 +257,7 @@
           "image": "chair_icon.png",
           "use1Xscale": false,
           "x": 271,
-          "y": 31,
+          "y": 37,
           "locked": false
         }
       },
@@ -284,7 +267,7 @@
           "image": "queue_rug_item.png",
           "use1Xscale": false,
           "x": 325,
-          "y": 31,
+          "y": 37,
           "locked": false
         }
       },
@@ -294,7 +277,7 @@
           "image": "preparationstation_tier0.png",
           "use1Xscale": false,
           "x": 298,
-          "y": 31,
+          "y": 37,
           "locked": false
         }
       },
@@ -334,7 +317,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_customers_can_visit_your",
-          "text": "An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs (optional)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula.",
+          "text": "An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs(opt.)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -345,9 +328,9 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 130,
-          "height": 40,
+          "height": 160,
           "x": 69,
-          "y": 36,
+          "y": 42,
           "locked": false
         }
       },
@@ -359,7 +342,28 @@
           "width": 112,
           "height": 100,
           "x": 225,
-          "y": 49,
+          "y": 62,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_what_my_restaurant_needs",
+          "text": "What My Restaurant Needs.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 124,
+          "height": 21,
+          "x": 69,
+          "y": 22,
           "locked": false
         }
       }

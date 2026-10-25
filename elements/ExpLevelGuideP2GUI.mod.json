@@ -40,10 +40,10 @@
       {
         "type": "image",
         "data": {
-          "image": "coin_icon.png",
+          "image": "star_icon.png",
           "use1Xscale": false,
-          "x": 180,
-          "y": 18,
+          "x": 165,
+          "y": 21,
           "locked": false
         }
       },
@@ -61,10 +61,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 134,
+          "width": 130,
           "height": 84,
           "x": 69,
-          "y": 36,
+          "y": 33,
           "locked": false
         }
       },
@@ -82,9 +82,9 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 128,
+          "width": 130,
           "height": 168,
-          "x": 219,
+          "x": 218,
           "y": 22,
           "locked": false
         }

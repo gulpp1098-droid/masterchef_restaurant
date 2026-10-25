@@ -50,22 +50,22 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
 			String guiTools$sizedLabelText0 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1_name", "");
-			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 23 && mouseY < this.topPos + 31 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 54, 0.75F))
+			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 19 && mouseY < this.topPos + 27 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 54, 0.75F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
 			String guiTools$sizedLabelText1 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_2_name", "");
-			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 40 && mouseY < this.topPos + 48 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 54, 0.75F))
+			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 36 && mouseY < this.topPos + 44 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 54, 0.75F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
 			String guiTools$sizedLabelText2 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_3_name", "");
-			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 58 && mouseY < this.topPos + 66 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 54, 0.75F))
+			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 54 && mouseY < this.topPos + 62 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 54, 0.75F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText2), mouseX, mouseY);
 			String guiTools$sizedLabelText3 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_4_name", "");
-			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 75 && mouseY < this.topPos + 83 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText3, 54, 0.75F))
+			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 71 && mouseY < this.topPos + 79 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText3, 54, 0.75F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText3), mouseX, mouseY);
 			String guiTools$sizedLabelText4 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_5_name", "");
-			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 93 && mouseY < this.topPos + 101 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText4, 54, 0.75F))
+			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 89 && mouseY < this.topPos + 97 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText4, 54, 0.75F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText4), mouseX, mouseY);
 			String guiTools$sizedLabelText5 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_6_name", "");
-			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 110 && mouseY < this.topPos + 118 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText5, 54, 0.75F))
+			if (true && mouseX >= this.leftPos + 110 && mouseX < this.leftPos + 164 && mouseY >= this.topPos + 106 && mouseY < this.topPos + 114 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText5, 54, 0.75F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText5), mouseX, mouseY);
 		}
 		guiTools$itemDisplayTooltips : {
@@ -157,10 +157,10 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -1, this.topPos + 0, 0, 0, 176, 234, 176, 234);
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -1, this.topPos + 0, 0, 0, 176, 132, 176, 132);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 32, this.topPos + 87, 0, 0, 18, 18, 18, 18);
 			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 34, this.topPos + 94, 0, 0, 14, 8, 14, 8);
-			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 8, this.topPos + 41, 0, Mth.clamp((int) PatianceReturnProcedure.execute(entity) * 11, 0, 33), 11, 11, 11, 44);
+			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 17, this.topPos + 89, 0, Mth.clamp((int) PatianceReturnProcedure.execute(entity) * 11, 0, 33), 11, 11, 11, 44);
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
@@ -330,12 +330,12 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 40;
-				int guiTools$visibleHeight = 54;
+				int guiTools$visibleWidth = 56;
+				int guiTools$visibleHeight = 56;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnClientPortraitProcedure.execute(entity), ""),
 						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/client_chuck_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 22 + guiTools$xOffset, this.topPos + 30 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 40, 54);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 15 + guiTools$xOffset, this.topPos + 30 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 56, 56);
 			}
 		}
 		RenderSystem.disableBlend();
@@ -354,17 +354,17 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.client_order_gui.label_serve_dish"), 17, 109, -16777216, false);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1_name", ""), 110, 23, 54, -12829636, false, 0.75F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1_name", ""), 110, 19, 54, -12829636, false, 0.75F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_2_name", ""), 110, 40, 54, -12829636, false, 0.75F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_2_name", ""), 110, 36, 54, -12829636, false, 0.75F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_3_name", ""), 110, 58, 54, -12829636, false, 0.75F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_3_name", ""), 110, 54, 54, -12829636, false, 0.75F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_4_name", ""), 110, 75, 54, -12829636, false, 0.75F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_4_name", ""), 110, 71, 54, -12829636, false, 0.75F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_5_name", ""), 110, 93, 54, -12829636, false, 0.75F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_5_name", ""), 110, 89, 54, -12829636, false, 0.75F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_6_name", ""), 110, 110, 54, -12829636, false, 0.75F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_6_name", ""), 110, 106, 54, -12829636, false, 0.75F, 2);
 	}
 
 	@Override

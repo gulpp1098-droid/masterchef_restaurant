@@ -67,10 +67,10 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -66, this.topPos + -20, 0, 0, 250, 88, 250, 88);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 4, this.topPos + -10, 0, 0, 93, 21, 93, 21);
 			if (this.enhanced_image_button_trash_icon != null && this.enhanced_image_button_trash_icon.visible) {
 				this.enhanced_image_button_trash_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 13, this.topPos + -12, 0, 0, 93, 21, 93, 21);
 		}
 		RenderSystem.disableBlend();
 	}
@@ -95,7 +95,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.create_restaurant_gui.label_management"), 36, -7, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.create_restaurant_gui.label_management"), 42, -7, -1, false);
 	}
 
 	@Override
@@ -124,7 +124,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 			}
 		};
 		this.addRenderableWidget(imagebutton_checkboxon);
-		enhanced_image_button_trash_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 168, this.topPos + -65, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_trash_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 168, this.topPos + 74, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/trash_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/trash_icon.png")), e -> {
 					int x = CreateRestaurantGUIScreen.this.x;
 					int y = CreateRestaurantGUIScreen.this.y;

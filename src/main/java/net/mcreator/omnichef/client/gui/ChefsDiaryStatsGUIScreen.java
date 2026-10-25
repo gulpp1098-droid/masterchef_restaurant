@@ -66,8 +66,8 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
-			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 28, this.topPos + -84, 0, Mth.clamp((int) ReturnRestaurantStarsProcedure.execute(entity) * 25, 0, 250), 72, 25, 72, 275);
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 28, this.topPos + -84, 0, Mth.clamp((int) ReturnRestaurantStarsProcedure.execute(entity) * 25, 0, 250), 72, 25, 72, 275);
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -145, this.topPos + -89, 0, 0, 133, 11, 133, 11);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -145,10 +145,10 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_stats_gui.label_stats_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, 21, -12829636, false);
+		guiGraphics.drawString(this.font, ReturnRestaurantLevelProcedure.execute(entity), -145, 23, -12829636, false);
 		guiGraphics.drawString(this.font, ReturnRestaurantReputationProcedure.execute(entity), -145, 36, -12829636, false);
 		guiGraphics.drawString(this.font, ReturnRestaurantCloseTimeProcedure.execute(entity), -145, 49, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_stats_gui.label_restaurant_stars"), 5, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_stats_gui.label_restaurant_stars"), 4, -98, -12829636, false);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_name", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantNameProcedure.execute(entity), "")), -145, -3, 130,
 					-12829636, false, 1.00F, 2);
@@ -156,10 +156,10 @@ public class ChefsDiaryStatsGUIScreen extends AbstractContainerScreen<ChefsDiary
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:restaurant_s_owner", java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnRestaurantOwnerProcedure.execute(entity), "")), -145, 10, 130,
 					-12829636, false, 1.00F, 2);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_a_little_record_of_how_far_my_re",
-				"A little record of how far my restaurant has come. Every busy shift adds another chapter, though some days are better left out of the story."), -145, -75, 134, 69, -12829636, false, 1.00F, 0, 0);
+				"A little record of how far my restaurant has come. Every busy shift adds another chapter, though some days are better left out of the story."), -145, -75, 130, 69, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_these_stars_mark_the_milestones",
 				"These stars mark the milestones along my restaurant's journey. \nWhen my reputation reaches the next milestone, I need to impress a critic before I can keep climbing. Until then, there is always another meal worth getting right."),
-				4, -56, 121, 111, -12829636, false, 1.00F, 0, 0);
+				4, -56, 130, 111, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

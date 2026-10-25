@@ -59,7 +59,7 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -49, this.topPos + -102, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -47, this.topPos + -103, 0, 0, 16, 16, 16, 16);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -138,11 +138,11 @@ public class ServeGuideGUIScreen extends AbstractContainerScreen<ServeGuideGUIMe
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.serve_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_are_the_heart_of_your",
 				"Customers arrive in groups, wait in line and take an available table. Once seated, each customer places their own order.\nTheir patience falls while they wait. If it reaches zero, they leave. A hungry customer is rarely a patient one."),
-				-145, -84, 132, 161, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 161, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_a_customer_is_ready_you_wi",
 						"When an icon appears above a customer, they are ready to order. Speaking with them shows me everything they want and how much of it to prepare.\nI had better remember the details before returning to the kitchen."),
-				5, -84, 125, 126, -12829636, false, 1.00F, 0, 0);
+				4, -87, 130, 126, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

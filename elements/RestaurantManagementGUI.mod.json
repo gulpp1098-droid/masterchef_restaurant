@@ -332,8 +332,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 40,
-          "y": 147,
+          "x": 43,
+          "y": 152,
           "locked": false
         }
       },
@@ -496,8 +496,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 363,
-          "y": 60,
+          "x": 366,
+          "y": 66,
           "locked": false
         }
       },
@@ -506,8 +506,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 363,
-          "y": 98,
+          "x": 366,
+          "y": 104,
           "locked": false
         }
       },
@@ -516,8 +516,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 363,
-          "y": 136,
+          "x": 366,
+          "y": 142,
           "locked": false
         }
       },
@@ -534,8 +534,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 379,
-          "y": 65,
+          "x": 381,
+          "y": 67,
           "locked": false
         }
       },
@@ -552,8 +552,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 379,
-          "y": 103,
+          "x": 381,
+          "y": 105,
           "locked": false
         }
       },
@@ -570,8 +570,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 379,
-          "y": 141,
+          "x": 381,
+          "y": 143,
           "locked": false
         }
       },
@@ -596,7 +596,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "button_icon.png",
+          "image": "openclosebutton_icon.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -610,8 +610,8 @@
           "text": "View Next Menu",
           "isUndecorated": true,
           "onClick": "OpenNextDayMenuGUI",
-          "width": 78,
-          "height": 21,
+          "width": 81,
+          "height": 31,
           "x": 330,
           "y": 206,
           "locked": false
@@ -740,7 +740,7 @@
           "width": 65,
           "height": 10,
           "x": 336,
-          "y": 121,
+          "y": 123,
           "locked": false
         }
       },
@@ -761,7 +761,7 @@
           "width": 65,
           "height": 10,
           "x": 336,
-          "y": 158,
+          "y": 160,
           "locked": false
         }
       },

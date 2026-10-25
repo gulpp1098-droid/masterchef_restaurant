@@ -14,11 +14,11 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_0",
-          "image": "spatulasidegui.png",
-          "width": 150,
-          "height": 178,
-          "x": 139,
-          "y": 26,
+          "image": "spatulagui.png",
+          "width": 203,
+          "height": 176,
+          "x": 119,
+          "y": 25,
           "locked": false
         }
       },
@@ -55,8 +55,8 @@
           "tooltipWhenTruncated": true,
           "width": 112,
           "height": 10,
-          "x": 157,
-          "y": 57,
+          "x": 134,
+          "y": 58,
           "locked": false
         }
       },
@@ -74,34 +74,10 @@
           "textProcedure": "ReturnRecipeDiscoveryExp",
           "overflowMode": "ELLIPSIS",
           "tooltipWhenTruncated": true,
-          "width": 118,
+          "width": 154,
           "height": 10,
-          "x": 157,
-          "y": 72,
-          "locked": false
-        }
-      },
-      {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "last_page_icon.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "textShadow": true,
-          "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_last_page_icon",
-          "text": "",
-          "isUndecorated": true,
-          "onClick": "OpenManagmentGUI",
-          "width": 16,
-          "height": 16,
-          "x": 157,
-          "y": 173,
+          "x": 134,
+          "y": 73,
           "locked": false
         }
       }

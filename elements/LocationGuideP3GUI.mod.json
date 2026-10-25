@@ -62,9 +62,9 @@
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
           "width": 130,
-          "height": 167,
+          "height": 104,
           "x": 69,
-          "y": 36,
+          "y": 33,
           "locked": false
         }
       },
@@ -82,10 +82,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 124,
+          "width": 130,
           "height": 149,
           "x": 218,
-          "y": 22,
+          "y": 33,
           "locked": false
         }
       },

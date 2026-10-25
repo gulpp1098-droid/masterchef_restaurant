@@ -45,7 +45,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplayTooltip0 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip0;
-				if (mouseX < this.leftPos + -105 || mouseX >= this.leftPos + -73 || mouseY < this.topPos + 61 || mouseY >= this.topPos + 93)
+				if (mouseX < this.leftPos + -108 || mouseX >= this.leftPos + -76 || mouseY < this.topPos + 61 || mouseY >= this.topPos + 93)
 					break guiTools$itemDisplayTooltip0;
 				boolean guiTools$displayMasked0 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack0 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
@@ -56,7 +56,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 			guiTools$itemDisplayTooltip1 : {
 				if (!(true))
 					break guiTools$itemDisplayTooltip1;
-				if (mouseX < this.leftPos + -43 || mouseX >= this.leftPos + -11 || mouseY < this.topPos + 61 || mouseY >= this.topPos + 93)
+				if (mouseX < this.leftPos + -40 || mouseX >= this.leftPos + -8 || mouseY < this.topPos + 61 || mouseY >= this.topPos + 93)
 					break guiTools$itemDisplayTooltip1;
 				boolean guiTools$displayMasked1 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
@@ -175,19 +175,19 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked0 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 2.0f) * (this.leftPos + -105), (1.0F - 2.0f) * (this.topPos + 61), 0.0F);
+					guiGraphics.pose().translate((1.0F - 2.0f) * (this.leftPos + -108), (1.0F - 2.0f) * (this.topPos + 61), 0.0F);
 					guiGraphics.pose().scale(2.0f, 2.0f, 1.0F);
 					if (guiTools$displayMasked0) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
+							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -108, this.topPos + 61);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + -108, this.topPos + 61);
 					}
-					guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -105, this.topPos + 61);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack0, this.leftPos + -108, this.topPos + 61);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -201,19 +201,19 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				boolean guiTools$displayMasked1 = !(net.mcreator.omnichef.procedures.TradeBoardSelectedOfferUsedProcedure.execute(entity));
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 2.0f) * (this.leftPos + -43), (1.0F - 2.0f) * (this.topPos + 61), 0.0F);
+					guiGraphics.pose().translate((1.0F - 2.0f) * (this.leftPos + -40), (1.0F - 2.0f) * (this.topPos + 61), 0.0F);
 					guiGraphics.pose().scale(2.0f, 2.0f, 1.0F);
 					if (guiTools$displayMasked1) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.4f, 0.4f, 0.4f, 0.5f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
+							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -40, this.topPos + 61);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + -40, this.topPos + 61);
 					}
-					guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -43, this.topPos + 61);
+					guiGraphics.renderItemDecorations(font, guiTools$displayStack1, this.leftPos + -40, this.topPos + 61);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -362,7 +362,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				int guiTools$yOffset = 0;
 				int guiTools$visibleWidth = 18;
 				int guiTools$visibleHeight = 18;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/plateslot_icon.png"));
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -99 + guiTools$xOffset, this.topPos + 110 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
@@ -371,9 +371,9 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				int guiTools$yOffset = 0;
 				int guiTools$visibleWidth = 18;
 				int guiTools$visibleHeight = 18;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/plateslot_icon.png"));
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -40 + guiTools$xOffset, this.topPos + 110 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -36 + guiTools$xOffset, this.topPos + 110 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 		}
 	}

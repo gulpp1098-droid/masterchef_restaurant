@@ -59,7 +59,7 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -20, this.topPos + -101, 0, 0, 12, 15, 12, 15);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -48, this.topPos + -102, 0, 0, 12, 15, 12, 15);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -138,10 +138,10 @@ public class LocationGuideGUIScreen extends AbstractContainerScreen<LocationGuid
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.location_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
 				"Before placing anything important, I need to claim a home for my restaurant.\nThe Golden Spatula can reveal a 5x5 piece of land. A green outline means the spot is free, and I can make it the beginning of my restaurant.\nWhen I am done, sneaking and right-clicking puts my spatula back to normal."),
-				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 167, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
 				"I can claim up to four areas at the start. My Reception, Service Tables and Chairs only count when they stand inside this space.\nAs my restaurant grows, I will be able to claim more land. For once, success comes with extra floor space."),
-				5, -84, 125, 149, -12829636, false, 1.00F, 0, 0);
+				4, -87, 130, 149, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

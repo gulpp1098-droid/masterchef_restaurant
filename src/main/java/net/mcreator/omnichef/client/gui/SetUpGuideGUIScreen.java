@@ -53,7 +53,7 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -21, this.topPos + -103, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -65, this.topPos + -98, 0, 0, 16, 16, 16, 16);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -129,13 +129,13 @@ public class SetUpGuideGUIScreen extends AbstractContainerScreen<SetUpGuideGUIMe
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.set_up_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_now_it_is_time_to_prepare_your_r",
 				"I have claimed enough space, so now I can turn it into something resembling a real restaurant.\nI should place the Reception first and leave enough room for its queue. The Reception, Service Tables and Chairs must remain inside my claimed areas."),
-				-145, -84, 132, 163, -12829636, false, 1.00F, 0, 0);
+				-145, -78, 130, 163, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_service_tables_are_where_custome",
 				"Service Tables need Chairs beside them, and I will need a Preparation Station somewhere nearby if I want to serve anything.\nMy first opening does not need to be grand. One Reception, one Service Table and one Chair are enough to welcome a customer. Ambitious? No. Functional? Barely."),
-				5, -97, 123, 141, -12829636, false, 1.00F, 0, 0);
+				4, -98, 130, 141, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_putting_it_all_together", "Putting It All Together"), -145, -98, 79, 21, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

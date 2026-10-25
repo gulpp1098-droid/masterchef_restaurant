@@ -51,7 +51,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 		RenderSystem.defaultBlendFunc();
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -175, this.topPos + -120, 0, 0, 340, 230, 340, 230);
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
 			if (this.enhanced_image_button_next_page_icon != null && this.enhanced_image_button_next_page_icon.visible) {
 				this.enhanced_image_button_next_page_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -130,21 +130,21 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip"), -140, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip_copy"), 7, -97, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip"), -145, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_menu_p_2_gui.label_food_wip_copy"), 4, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_food_is_categoried_into_multiple",
 						"I cannot serve every dish I have merely heard about. Recipe Cards permanently add new recipes to my repertoire, and only discovered dishes can appear on my menus.\nApparently, culinary genius still requires paperwork."),
-				-140, -87, 126, 52, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 110, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_contains_the_dishes_your_custome",
 				"Every recipe I discover joins my restaurant\u2019s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Incoming Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests\u2014and considerably more shopping for me."),
-				7, -86, 125, 40, -12829636, false, 1.00F, 0, 0);
+				4, -87, 130, 40, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -135, this.topPos + 60, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
+		enhanced_image_button_next_page_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -140, this.topPos + 57, 16, 16, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/last_page_icon.png")), e -> {
 					int x = ChefsDiaryMenuP2GUIScreen.this.x;
 					int y = ChefsDiaryMenuP2GUIScreen.this.y;

@@ -53,7 +53,7 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -45, this.topPos + -103, 0, 0, 13, 13, 13, 13);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -75, this.topPos + -101, 0, 0, 13, 13, 13, 13);
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
 			}
@@ -130,17 +130,17 @@ public class OpenGuideGUIScreen extends AbstractContainerScreen<OpenGuideGUIMenu
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_overview_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can"), 5, -39, -65485, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can_copy"), -145, -12, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can"), 4, -25, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.open_guide_gui.label_inside_this_area_you_can_copy"), -145, -15, -65485, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y",
-				"When everything is ready, I can finally open the doors with my Golden Spatula. For that, I need a valid Reception, one Service Table and one Chair."), -145, -84, 132, 71, -12829636, false, 1.00F, 0, 0);
+				"When everything is ready, I can finally open the doors with my Golden Spatula. For that, I need a valid Reception, one Service Table and one Chair."), -145, -87, 130, 71, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				menu.getMenuState(0, "gui_tools:multiline:multiline_label_once_open_customers_will_begin", "Once the doors open, customers will begin arriving. They wait in the queue, find a table and order food from my current menu."), 5, -100, 128,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_once_open_customers_will_begin", "Once the doors open, customers will begin arriving. They wait in the queue, find a table and order food from my current menu."), 4, -87, 130,
 				51, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_restaurant_is_closed_8_hours_aft",
-				"My doors stay open for eight in-game hours \u2014 around 13 minutes \u2014 unless I close them earlier. Apparently, even dreams need business hours."), 5, -27, 127, 84, -12829636, false, 1.00F, 0, 0);
+				"My doors stay open for eight in-game hours \u2014 around 13 minutes \u2014 unless I close them earlier. Apparently, even dreams need business hours."), 4, -12, 130, 84, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
-				menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y_copy", "I can open once each day, between 6:00 and 15:00. If I miss that time, the kitchen stays quiet until tomorrow."), -146, -1, 132, 71,
+				menu.getMenuState(0, "gui_tools:multiline:multiline_label_when_your_restaurant_is_ready_y_copy", "I can open once each day, between 6:00 and 15:00. If I miss that time, the kitchen stays quiet until tomorrow."), -145, -2, 130, 71,
 				-12829636, false, 1.00F, 0, 0);
 	}
 

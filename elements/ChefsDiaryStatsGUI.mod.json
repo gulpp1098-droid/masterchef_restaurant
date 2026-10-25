@@ -11,6 +11,16 @@
     "doesPauseGame": false,
     "components": [
       {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": false
+        }
+      },
+      {
         "type": "sprite",
         "data": {
           "sprite": "stars_sprite_icon.png",
@@ -21,16 +31,6 @@
           },
           "x": 242,
           "y": 36,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "chefsdiary2.png",
-          "use1Xscale": false,
-          "x": 36,
-          "y": -5,
           "locked": false
         }
       },
@@ -75,7 +75,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 141,
+          "y": 143,
           "locked": false
         }
       },
@@ -127,7 +127,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 219,
+          "x": 218,
           "y": 22,
           "locked": false
         }
@@ -188,7 +188,7 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 134,
+          "width": 130,
           "height": 69,
           "x": 69,
           "y": 45,
@@ -209,7 +209,7 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 121,
+          "width": 130,
           "height": 111,
           "x": 218,
           "y": 64,

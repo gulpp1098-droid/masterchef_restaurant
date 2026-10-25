@@ -23,23 +23,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_overview_wip",
-          "text": {
-            "fixedValue": "Reputation and Earnings"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 69,
-          "y": 22,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_as_well_as_claim_area",
           "text": {
             "fixedValue": "Note to Myself"
@@ -50,7 +33,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 126,
+          "y": 132,
           "locked": false
         }
       },
@@ -59,8 +42,8 @@
         "data": {
           "image": "coin_icon.png",
           "use1Xscale": false,
-          "x": 193,
-          "y": 18,
+          "x": 151,
+          "y": 26,
           "locked": false
         }
       },
@@ -78,10 +61,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 132,
+          "width": 130,
           "height": 84,
           "x": 69,
-          "y": 36,
+          "y": 42,
           "locked": false
         }
       },
@@ -99,10 +82,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 131,
+          "width": 130,
           "height": 48,
           "x": 69,
-          "y": 137,
+          "y": 143,
           "locked": false
         }
       },
@@ -120,10 +103,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 124,
-          "height": 168,
-          "x": 219,
-          "y": 36,
+          "width": 130,
+          "height": 126,
+          "x": 218,
+          "y": 42,
           "locked": false
         }
       },
@@ -337,6 +320,27 @@
           "height": 18,
           "x": 363,
           "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_reputation_and_earnings",
+          "text": "Reputation and Earnings",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 120,
+          "height": 40,
+          "x": 69,
+          "y": 22,
           "locked": false
         }
       }

@@ -16,7 +16,7 @@
     "displayFluidOverlay": false,
     "states": [],
     "animations": [],
-    "itemTexture": "chair_icon",
+    "itemTexture": "",
     "particleTexture": "",
     "blockSetType": "OAK",
     "leavesParticleChance": 0.0,
@@ -44,7 +44,7 @@
         "You can sit there!"
       ]
     },
-    "hardness": 1.0,
+    "hardness": 3.0,
     "resistance": 20.0,
     "hasGravity": false,
     "isWaterloggable": false,

@@ -60,7 +60,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -21, this.topPos + -102, 0, 0, 12, 15, 12, 15);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -30, this.topPos + -103, 0, 0, 12, 15, 12, 15);
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -68,7 +68,7 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 				int guiTools$visibleHeight = 57;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/location.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 18 + guiTools$xOffset, this.topPos + 12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 84, 57);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 18 + guiTools$xOffset, this.topPos + 4 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 84, 57);
 			}
 			if (this.red_bookmark != null && this.red_bookmark.visible) {
 				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -149,11 +149,11 @@ public class LocationGuideP2GUIScreen extends AbstractContainerScreen<LocationGu
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_placing_down_your_blocks",
 						"Every new area must share a full side with an area I already own. Diagonal connections do not count.\nApparently, my restaurant cannot be held together by one corner and optimism."),
-				-145, -84, 130, 167, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 95, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics,
 				menu.getMenuState(0, "gui_tools:multiline:multiline_label_after_that_you_can_claim_3_more",
 						"My areas cannot overlap or touch areas claimed by another restaurant. The first area of a new restaurant must be placed even farther away. This should prevent two chefs from accidentally sharing the same kitchen."),
-				5, -97, 124, 98, -12829636, false, 1.00F, 0, 0);
+				4, -98, 130, 98, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

@@ -128,13 +128,13 @@ public class ChefsDiaryApplienceGUIScreen extends AbstractContainerScreen<ChefsD
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_applience_gui.label_appliences_wip_copy_copy"), 5, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_my_preparation_station_is_where",
-				"My Preparation Station is where cooked food becomes a meal ready for the table. I bring the food here first; this counter does not cook it for me.\nI gather what one guest ordered, check the amounts, and put their meal together. Even friends sharing a table deserve their own serving.\nOnce the meal is ready, I take it with me before preparing the next one."),
-				-145, -87, 135, 151, -12829636, false, 1.00F, 0, 0);
+				"My Preparation Station is where cooked food becomes a meal ready for the table. \nI gather what one guest ordered, check the amounts, and put their meal together. Even friends sharing a table deserve their own serving.\nOnce the meal is ready, I take it with me before preparing the next one."),
+				-145, -85, 130, 162, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_my_preparation_station_is_where_copy",
-				"Everything I put on the counter goes into the same serving, including the full amount of each food. Leaving tomorrow's supplies here would make today's meal rather generous. I should set aside only what I intend to serve and keep the rest in storage. The station can put a meal together, but it cannot decide what my guest wanted. Checking the order is still my job."),
-				5, -85, 135, 151, -12829636, false, 1.00F, 0, 0);
+				"Everything I put on the counter goes into the same serving. Leaving tomorrow's supplies here would make today's meal rather generous. I should set aside only what I intend to serve and keep the rest in storage. The station can put a meal together, but it cannot decide what my guest wanted. Checking the order is still my job."),
+				4, -85, 130, 151, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_it_leaves_kitchen", "Before It Leaves Kitchen"), 4, -97, 130, 13, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

@@ -49,8 +49,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 219,
-          "y": 81,
+          "x": 218,
+          "y": 95,
           "locked": false
         }
       },
@@ -59,8 +59,8 @@
         "data": {
           "image": "open_icon.png",
           "use1Xscale": false,
-          "x": 169,
-          "y": 17,
+          "x": 139,
+          "y": 19,
           "locked": false
         }
       },
@@ -78,10 +78,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 132,
+          "width": 130,
           "height": 71,
           "x": 69,
-          "y": 36,
+          "y": 33,
           "locked": false
         }
       },
@@ -99,10 +99,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 128,
+          "width": 130,
           "height": 51,
-          "x": 219,
-          "y": 20,
+          "x": 218,
+          "y": 33,
           "locked": false
         }
       },
@@ -120,10 +120,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 127,
+          "width": 130,
           "height": 84,
-          "x": 219,
-          "y": 93,
+          "x": 218,
+          "y": 108,
           "locked": false
         }
       },
@@ -140,7 +140,7 @@
           },
           "hasShadow": false,
           "x": 69,
-          "y": 108,
+          "y": 105,
           "locked": false
         }
       },
@@ -158,10 +158,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 132,
+          "width": 130,
           "height": 71,
-          "x": 68,
-          "y": 119,
+          "x": 69,
+          "y": 118,
           "locked": false
         }
       },

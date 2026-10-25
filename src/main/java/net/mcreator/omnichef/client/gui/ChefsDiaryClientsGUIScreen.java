@@ -128,13 +128,13 @@ public class ChefsDiaryClientsGUIScreen extends AbstractContainerScreen<ChefsDia
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_clients_gui.label_clients_wip"), -145, -98, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_clients_gui.label_clients_wip_copy"), 5, -98, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_clients_gui.label_clients_wip_copy"), 4, -98, -12829636, false);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_visit_your_restaurant",
 				"My guests arrive in groups, so I need room for everyone at the same table. Nobody wants to eat alone while their friends sit across the restaurant.\nMore active tables mean more groups during my shift. More chairs allow larger groups.\nA group needs a free table with enough chairs for every member. Until then, they wait in my queue."),
-				-145, -87, 126, 40, -12829636, false, 1.00F, 0, 0);
+				-145, -87, 130, 40, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_customers_visit_your_restaurant_copy",
 				"An empty stomach does not make anyone more patient. My guests can only wait so long for a table or their food.\nEach guest has their own patience. Serving one does not buy more time for the others.\nI should keep an eye on everyone at the table. A guest already enjoying their meal can finish it even when someone else runs out of patience."),
-				5, -87, 126, 40, -12829636, false, 1.00F, 0, 0);
+				4, -87, 130, 155, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override

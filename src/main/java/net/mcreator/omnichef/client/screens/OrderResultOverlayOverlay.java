@@ -44,17 +44,17 @@ public class OrderResultOverlayOverlay {
 				if (true)
 					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "ORDER RESULTS", 23, h - 159, 60, -1, false, 0.75F, 2);
 				if (true)
-					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Completeness", 16, h - 145, 55, -39322, false, 0.75F, 2);
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Completeness", 16, h - 145, 55, -10092544, false, 0.75F, 2);
 				if (true)
-					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Accuracy", 16, h - 134, 55, -39169, false, 0.75F, 2);
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Accuracy", 16, h - 134, 55, -65281, false, 0.75F, 2);
 				if (true)
 					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Portions", 16, h - 123, 55, -10040065, false, 0.75F, 2);
 				if (true)
 					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), "Satisfaction", 16, h - 112, 55, -10027009, false, 0.75F, 2);
 				if (true)
-					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultCompletenessTextProcedure.execute(entity), ""), 75, h - 145, 55, -39322, false, 0.75F, 2);
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultCompletenessTextProcedure.execute(entity), ""), 75, h - 145, 55, -6750208, false, 0.75F, 2);
 				if (true)
-					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultAccuracyTextProcedure.execute(entity), ""), 75, h - 134, 55, -39169, false, 0.75F, 2);
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultAccuracyTextProcedure.execute(entity), ""), 75, h - 134, 55, -65281, false, 0.75F, 2);
 				if (true)
 					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.OrderResultPortionsTextProcedure.execute(entity), ""), 75, h - 123, 55, -10040065, false, 0.75F, 2);
 				if (true)

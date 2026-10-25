@@ -32,7 +32,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 74,
+          "x": 69,
           "y": 22,
           "locked": false
         }
@@ -51,9 +51,9 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 127,
+          "width": 130,
           "height": 155,
-          "x": 74,
+          "x": 69,
           "y": 33,
           "locked": false
         }
@@ -65,10 +65,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty",
@@ -89,10 +89,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy",
@@ -113,10 +113,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_2",
@@ -137,10 +137,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_3",
@@ -161,10 +161,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_4",
@@ -185,10 +185,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_5",
@@ -209,10 +209,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_6",
@@ -233,10 +233,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_7",
@@ -257,10 +257,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_8",
@@ -281,10 +281,10 @@
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -1,
+            "value": -16764007,
             "falpha": 0.0
           },
-          "textShadow": true,
+          "textShadow": false,
           "fontScale": 100,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_9",
@@ -312,9 +312,9 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 120,
+          "width": 130,
           "height": 40,
-          "x": 220,
+          "x": 218,
           "y": 33,
           "locked": false
         }
@@ -331,7 +331,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 220,
+          "x": 218,
           "y": 22,
           "locked": false
         }

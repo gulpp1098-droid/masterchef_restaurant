@@ -83,10 +83,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 129,
+          "width": 130,
           "height": 41,
           "x": 69,
-          "y": 36,
+          "y": 35,
           "locked": false
         }
       },

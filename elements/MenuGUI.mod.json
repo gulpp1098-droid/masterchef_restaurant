@@ -17,7 +17,7 @@
           "use1Xscale": false,
           "x": 114,
           "y": 26,
-          "locked": true
+          "locked": false
         }
       },
       {
@@ -25,7 +25,7 @@
         "data": {
           "image": "ribbon_icon.png",
           "use1Xscale": false,
-          "x": 170,
+          "x": 169,
           "y": 37,
           "locked": false
         }
@@ -42,8 +42,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 182,
-          "y": 40,
+          "x": 180,
+          "y": 43,
           "locked": false
         }
       },
@@ -107,7 +107,7 @@
           "image": "coin_icon.png",
           "use1Xscale": false,
           "x": 151,
-          "y": 61,
+          "y": 66,
           "locked": false
         }
       },
@@ -117,7 +117,7 @@
           "image": "coin_icon.png",
           "use1Xscale": false,
           "x": 152,
-          "y": 96,
+          "y": 101,
           "locked": false
         }
       },
@@ -127,7 +127,7 @@
           "image": "coin_icon.png",
           "use1Xscale": false,
           "x": 152,
-          "y": 133,
+          "y": 138,
           "locked": false
         }
       },
@@ -145,7 +145,7 @@
           },
           "hasShadow": false,
           "x": 166,
-          "y": 66,
+          "y": 68,
           "locked": false
         }
       },
@@ -163,7 +163,7 @@
           },
           "hasShadow": false,
           "x": 166,
-          "y": 101,
+          "y": 103,
           "locked": false
         }
       },
@@ -181,7 +181,7 @@
           },
           "hasShadow": false,
           "x": 166,
-          "y": 139,
+          "y": 141,
           "locked": false
         }
       },
@@ -198,7 +198,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 198,
+          "x": 209,
           "y": 174,
           "locked": false
         }
@@ -239,7 +239,7 @@
           "image": "coin_icon.png",
           "use1Xscale": false,
           "x": 243,
-          "y": 61,
+          "y": 66,
           "locked": false
         }
       },
@@ -249,7 +249,7 @@
           "image": "coin_icon.png",
           "use1Xscale": false,
           "x": 243,
-          "y": 97,
+          "y": 102,
           "locked": false
         }
       },
@@ -259,7 +259,7 @@
           "image": "coin_icon.png",
           "use1Xscale": false,
           "x": 243,
-          "y": 133,
+          "y": 138,
           "locked": false
         }
       },
@@ -277,7 +277,7 @@
           },
           "hasShadow": false,
           "x": 258,
-          "y": 66,
+          "y": 68,
           "locked": false
         }
       },
@@ -295,7 +295,7 @@
           },
           "hasShadow": false,
           "x": 258,
-          "y": 101,
+          "y": 103,
           "locked": false
         }
       },
@@ -313,7 +313,7 @@
           },
           "hasShadow": false,
           "x": 258,
-          "y": 139,
+          "y": 141,
           "locked": false
         }
       },
@@ -460,7 +460,7 @@
           "width": 85,
           "height": 10,
           "x": 130,
-          "y": 83,
+          "y": 86,
           "locked": false
         }
       },
@@ -481,7 +481,7 @@
           "width": 85,
           "height": 10,
           "x": 130,
-          "y": 119,
+          "y": 122,
           "locked": false
         }
       },
@@ -502,7 +502,7 @@
           "width": 85,
           "height": 10,
           "x": 130,
-          "y": 154,
+          "y": 157,
           "locked": false
         }
       },
@@ -523,7 +523,7 @@
           "width": 85,
           "height": 10,
           "x": 219,
-          "y": 83,
+          "y": 86,
           "locked": false
         }
       },
@@ -544,7 +544,7 @@
           "width": 85,
           "height": 10,
           "x": 219,
-          "y": 119,
+          "y": 122,
           "locked": false
         }
       },
@@ -565,7 +565,7 @@
           "width": 85,
           "height": 10,
           "x": 219,
-          "y": 155,
+          "y": 158,
           "locked": false
         }
       }

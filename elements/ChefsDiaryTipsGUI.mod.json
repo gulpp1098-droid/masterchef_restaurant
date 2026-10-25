@@ -32,8 +32,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 71,
-          "y": 17,
+          "x": 69,
+          "y": 22,
           "locked": false
         }
       },
@@ -51,10 +51,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 126,
+          "width": 130,
           "height": 43,
-          "x": 71,
-          "y": 28,
+          "x": 69,
+          "y": 33,
           "locked": false
         }
       },
@@ -70,8 +70,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 219,
-          "y": 17,
+          "x": 218,
+          "y": 22,
           "locked": false
         }
       },
@@ -89,10 +89,10 @@
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "alignment": "LEFT",
-          "width": 126,
+          "width": 130,
           "height": 43,
-          "x": 219,
-          "y": 28,
+          "x": 218,
+          "y": 33,
           "locked": false
         }
       },
@@ -115,8 +115,8 @@
           "onClick": "ChefsDiaryTipsP2GUIOpen",
           "width": 16,
           "height": 16,
-          "x": 321,
-          "y": 179,
+          "x": 322,
+          "y": 177,
           "locked": false
         }
       },
