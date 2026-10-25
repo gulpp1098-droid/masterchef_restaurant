@@ -186,16 +186,6 @@ public class SpawnClientsProcedure {
 										Client.getPersistentData().putDouble("stuckCounter", 10);
 										indexMembers = indexMembers + 1;
 									}
-									if (owner != null) {
-										{
-											Entity _ent = owner;
-											if (!_ent.level().isClientSide() && _ent.getServer() != null) {
-												_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(),
-														_ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4, _ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent),
-														"playsound omnichef:clientring master @s ~ ~ ~ 1 1");
-											}
-										}
-									}
 									ModifyClientGroupLogicParameterProcedure.execute(true, nextSpawnGroupIndex, clientDatabaseIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name,
 											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "groups", "spawned");
 									singleGroup.addProperty("spawned", true);
@@ -217,6 +207,17 @@ public class SpawnClientsProcedure {
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_time");
 										ModifyRestaurantNumberParameterProcedure.execute(SpawnIndexModify, clientDatabaseIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name,
 												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "next_spawn_group_index");
+									}
+									if (owner != null) {
+										{
+											Entity _ent = owner;
+											if (!_ent.level().isClientSide() && _ent.getServer() != null) {
+												_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(),
+														_ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4, _ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent),
+														"playsound omnichef:clientring master @s ~ ~ ~ 1 1");
+											}
+										}
+										CreateOverlayDataTransferProcedure.execute(world, owner);
 									}
 								} else {
 									if (owner instanceof Player _player67 && !_player67.level().isClientSide())

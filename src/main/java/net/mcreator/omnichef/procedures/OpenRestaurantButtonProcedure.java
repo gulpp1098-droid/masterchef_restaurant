@@ -94,7 +94,7 @@ public class OpenRestaurantButtonProcedure {
 														OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "close_time");
 												OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.add(owner.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 												OmnichefModVariables.MapVariables.get(world).markSyncDirty();
-												RestaurantIsOpenProcedure.execute(world, entity, ChairsMax, AmountOfTables);
+												RestaurantIsOpenProcedure.execute(world, entity, ChairsMax);
 												CreateGUIDataTransferProcedure.execute(world, entity);
 												if (owner instanceof Player _player22 && !_player22.level().isClientSide())
 													_player22.displayClientMessage(Component.literal("Restaurant opened successfully.").withStyle(ChatFormatting.GREEN), true);

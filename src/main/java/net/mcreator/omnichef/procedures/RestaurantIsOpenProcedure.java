@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.BufferedReader;
 
 public class RestaurantIsOpenProcedure {
-	public static void execute(LevelAccessor world, Entity entity, double ChairAmount, double TablesAmount) {
+	public static void execute(LevelAccessor world, Entity entity, double ChairAmount) {
 		if (entity == null)
 			return;
 		File clientsFile = new File("");
@@ -61,6 +61,7 @@ public class RestaurantIsOpenProcedure {
 		double FoodAmountOrder = 0;
 		double restaurantIndex = 0;
 		double chairsNumber = 0;
+		double clientsRemaining = 0;
 		indexGroup = 0;
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 		CloseTime = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "close_time");
@@ -112,7 +113,8 @@ public class RestaurantIsOpenProcedure {
 			MinFood = 4;
 			MaxFood = 6;
 		}
-		for (int _i1 = 0; _i1 < Mth.nextInt(RandomSource.create(), (int) TablesAmount, (int) (TablesAmount * 2)); _i1++) {
+		clientsRemaining = Mth.nextInt(RandomSource.create(), Math.round(3 + tier * 0.27), Math.round(5 + tier * 0.35));
+		while (clientsRemaining > 0) {
 			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 500));
 			if (SpawnTime < smallestSpawnTime || indexGroup == 0) {
 				smallestSpawnTime = SpawnTime;
@@ -137,9 +139,9 @@ public class RestaurantIsOpenProcedure {
 			if (critic && indexGroup == 0) {
 				chairsNumber = 1;
 			} else {
-				chairsNumber = ChairAmount;
+				chairsNumber = Mth.nextInt(RandomSource.create(), 1, (int) Math.min(clientsRemaining, ChairAmount));
 			}
-			for (int _i2 = 0; _i2 < Mth.nextInt(RandomSource.create(), 1, (int) chairsNumber); _i2++) {
+			for (int _i1 = 0; _i1 < (int) chairsNumber; _i1++) {
 				foodArray = emptyArray.deepCopy();
 				foodAmountArray = emptyArray.deepCopy();
 				availableFoodList = foodList.deepCopy();
@@ -165,7 +167,7 @@ public class RestaurantIsOpenProcedure {
 					membersObject.addProperty("critic", false);
 				}
 				FoodAmountOrder = Math.min(Mth.nextInt(RandomSource.create(), (int) MinFood, (int) MaxFood), availableFoodList.size());
-				for (int _i3 = 0; _i3 < (int) FoodAmountOrder; _i3++) {
+				for (int _i2 = 0; _i2 < (int) FoodAmountOrder; _i2++) {
 					chosedFood = availableFoodList.get((int) (Mth.nextInt(RandomSource.create(), 0, (int) (availableFoodList.size() - 1)))).getAsString();
 					availableFoodList = RemoveFoodFromArrayProcedure.execute(availableFoodList, chosedFood);
 					foodArray.add(chosedFood);
@@ -179,6 +181,7 @@ public class RestaurantIsOpenProcedure {
 			}
 			Group.add("members", members);
 			GroupsArray.add(Group);
+			clientsRemaining = clientsRemaining + chairsNumber;
 			indexGroup = indexGroup + 1;
 		}
 		receptionString = GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
