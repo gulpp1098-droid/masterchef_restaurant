@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "aba",
+    "c c"
+  ],
+  "key": {
+    "a": {
+      "tag": "minecraft:planks"
+    },
+    "b": {
+      "item": "minecraft:paper"
+    },
+    "c": {
+      "tag": "minecraft:wooden_fences"
+    }
+  },
+  "result": {
+    "id": "omnichef:trade_board",
+    "count": 1
+  }
+}

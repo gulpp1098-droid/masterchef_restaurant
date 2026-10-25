@@ -57,7 +57,7 @@ public class EnsureTradeBoardCurrentDayProcedure {
 		if (!tradeBoard.has("day")) {
 			return false;
 		}
-		if (tradeBoard.get("day").getAsDouble() >= currentDay) {
+		if (tradeBoard.get("day").getAsDouble() == currentDay) {
 			return true;
 		}
 		unlocksFile = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);

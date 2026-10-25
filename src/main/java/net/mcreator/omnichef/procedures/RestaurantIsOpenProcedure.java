@@ -113,7 +113,7 @@ public class RestaurantIsOpenProcedure {
 			MinFood = 4;
 			MaxFood = 6;
 		}
-		clientsRemaining = Mth.nextInt(RandomSource.create(), Math.round(3 + tier * 0.27), Math.round(5 + tier * 0.35));
+		clientsRemaining = Mth.nextInt(RandomSource.create(), (int) (int) Math.round(3 + tier * 0.27), (int) (int) Math.round(5 + tier * 0.35));
 		while (clientsRemaining > 0) {
 			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 500));
 			if (SpawnTime < smallestSpawnTime || indexGroup == 0) {
@@ -181,7 +181,7 @@ public class RestaurantIsOpenProcedure {
 			}
 			Group.add("members", members);
 			GroupsArray.add(Group);
-			clientsRemaining = clientsRemaining + chairsNumber;
+			clientsRemaining = clientsRemaining - chairsNumber;
 			indexGroup = indexGroup + 1;
 		}
 		receptionString = GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,

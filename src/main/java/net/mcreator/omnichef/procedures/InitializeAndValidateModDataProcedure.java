@@ -280,6 +280,30 @@ public class InitializeAndValidateModDataProcedure {
 					bool(restaurant, "menu_advance_ready", path);
 					statistics(restaurant, "daily_stats", path);
 					statistics(restaurant, "last_day_stats", path);
+					supply(restaurant, "trade_board", new com.google.gson.JsonObject(), path);
+					com.google.gson.JsonObject tradeBoard = object(restaurant.get("trade_board"), path + ".trade_board");
+					boolean incompleteTradeBoard = !tradeBoard.has("day") || !tradeBoard.has("offers");
+					supply(tradeBoard, "day", new com.google.gson.JsonPrimitive(-1), path + ".trade_board");
+					supply(tradeBoard, "offers", new com.google.gson.JsonArray(), path + ".trade_board");
+					integer(tradeBoard, "day", path + ".trade_board", -1, Long.MAX_VALUE);
+					com.google.gson.JsonArray tradeOffers = array(tradeBoard, "offers", path + ".trade_board");
+					if (incompleteTradeBoard) {
+						tradeBoard.addProperty("day", -1);
+						tradeBoard.add("offers", new com.google.gson.JsonArray());
+						log.accept("Initialized " + path + ".trade_board");
+					} else {
+						if (tradeOffers.size() > 5)
+							throw bad(path + ".trade_board.offers", "more than five offers");
+						for (int offerIndex = 0; offerIndex < tradeOffers.size(); offerIndex++) {
+							String offerPath = path + ".trade_board.offers[" + offerIndex + "]";
+							com.google.gson.JsonObject offer = object(tradeOffers.get(offerIndex), offerPath);
+							text(offer, "input_id", offerPath, false);
+							text(offer, "output_id", offerPath, false);
+							integer(offer, "input_count", offerPath, 1, Integer.MAX_VALUE);
+							integer(offer, "output_count", offerPath, 1, Integer.MAX_VALUE);
+							bool(offer, "used", offerPath);
+						}
+					}
 					com.google.gson.JsonObject unlock = unlocks.get(id);
 					path = names[1] + ".restaurant(ID=" + id + ")";
 					if (number(unlock, "discovery_exp", path) < 0)
