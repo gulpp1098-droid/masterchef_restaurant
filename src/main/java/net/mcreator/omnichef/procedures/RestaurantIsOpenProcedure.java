@@ -176,6 +176,9 @@ public class RestaurantIsOpenProcedure {
 				membersObject.add("food", foodArray);
 				membersObject.add("food_amount", foodAmountArray);
 				membersObject.addProperty("potential_base_exp", GetClientOrderBaseExpFromArraysProcedure.execute(foodAmountArray, foodArray, foodDatabase));
+				membersObject.addProperty("result_recorded", false);
+				membersObject.addProperty("final_satisfaction", 0);
+				membersObject.addProperty("order_served", false);
 				membersObject.addProperty("patience", 100);
 				members.add(membersObject);
 				indexMember = indexMember + 1;
