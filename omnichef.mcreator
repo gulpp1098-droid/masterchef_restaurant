@@ -11826,6 +11826,34 @@
         ]
       },
       "path": "~/Restaurant Functioning/Recipes"
+    },
+    {
+      "name": "GetClientOrderBaseExpFromArrays",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_client_order_base_exp_from_arrays",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "orderAmounts",
+            "type": "jsonarray"
+          },
+          {
+            "name": "orderFoods",
+            "type": "jsonarray"
+          },
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetClientOrderBaseExpFromArraysProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
     }
   ],
   "variable_elements": [
@@ -12484,7 +12512,7 @@
   "workspaceSettings": {
     "modid": "omnichef",
     "modName": "OmniChef - Restaurant sim RPG mod",
-    "version": "0.6.6.5",
+    "version": "0.6.8",
     "description": "Manage your own Restaurant and become the best chef!",
     "author": "Maeestry",
     "websiteURL": "https://mcreator.net",
