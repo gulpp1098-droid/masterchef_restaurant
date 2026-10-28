@@ -183,6 +183,7 @@ public class SpawnClientsProcedure {
 										Client.getPersistentData().putDouble("group", singleGroup.get("group_id").getAsDouble());
 										Client.getPersistentData().putDouble("member", indexMembers);
 										Client.getPersistentData().putDouble("RestaurantID", restaurantID);
+										Client.getPersistentData().putDouble("shift_id", RestaurantsClientsObject.get("shift_id").getAsDouble());
 										Client.getPersistentData().putDouble("stuckCounter", 10);
 										indexMembers = indexMembers + 1;
 									}
@@ -220,8 +221,8 @@ public class SpawnClientsProcedure {
 										CreateOverlayDataTransferProcedure.execute(world, owner);
 									}
 								} else {
-									if (owner instanceof Player _player67 && !_player67.level().isClientSide())
-										_player67.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+									if (owner instanceof Player _player69 && !_player69.level().isClientSide())
+										_player69.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 								}
 							}
 						}

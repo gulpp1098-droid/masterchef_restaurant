@@ -230,6 +230,7 @@ public class RestaurantIsOpenProcedure {
 				clientDatabase = new com.google.gson.Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				restaurantsArray = clientDatabase.get("restaurants").getAsJsonArray();
 				restaurantObject.addProperty("ID", ((int) entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID));
+				restaurantObject.addProperty("shift_id", (world.dayTime()));
 				restaurantObject.addProperty("next_spawn_group_time", smallestSpawnTime);
 				restaurantObject.addProperty("next_spawn_group_index", smallestTimeIndex);
 				restaurantObject.addProperty("queue_start", (getBlockNBTString(world, BlockPos.containing(RecX, RecY, RecZ), "last_rug")));
