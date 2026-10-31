@@ -26,10 +26,14 @@ public class ClientSettleLeavingProcedure {
 										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_served_fully");
 								if (client instanceof ClientEntity) {
 									AddRecipeDiscoveryExpProcedure.execute(world, restaurantID);
+									AddRecipeDiscoveryExpProcedure.execute(world, restaurantID);
 								}
 							} else if ((satisfactionLevel).equals("satisfied")) {
 								ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_served");
+								if (client instanceof ClientEntity) {
+									AddRecipeDiscoveryExpProcedure.execute(world, restaurantID);
+								}
 							} else {
 								ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "daily_stats", "customers_lost");

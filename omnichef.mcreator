@@ -1562,7 +1562,8 @@
         ],
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/DeleteClientsDatabaseFileProcedure.java"
-        ]
+        ],
+        "return_type": "logic"
       },
       "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures/World On Tick Procedures"
     },
