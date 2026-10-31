@@ -57,15 +57,15 @@ public class SettleRestaurantShiftProcedure {
 		}
 		currentReputation = restaurant.get("reputation").getAsDouble();
 		restaurantLevel = restaurant.get("level").getAsDouble();
-		requestedChange = restaurant.get("reputation_change").getAsDouble();
+		requestedChange = shiftResult.get("reputation_change").getAsDouble();
 		targetReputation = currentReputation;
-		checkpointReputation = GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel);
-		gateLevel = Math.min(OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel, restaurantLevel + 1);
+		checkpointReputation = GetRequiredReputationForLevelProcedure.execute(world, Math.floor(restaurantLevel / 10) * 10);
+		gateLevel = Math.min(OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel, Math.floor(restaurantLevel / 10 + 1) * 10);
 		gateReputation = GetRequiredReputationForLevelProcedure.execute(world, gateLevel);
 		if (requestedChange > 0) {
 			targetReputation = Math.max(currentReputation, Math.min(currentReputation + requestedChange, gateReputation));
 		} else if (requestedChange < 0) {
-			if (!(gateLevel % 10 == 0 && currentReputation >= gateReputation)) {
+			if (!((restaurantLevel + 1) % 10 == 0 && currentReputation >= gateReputation)) {
 				targetReputation = Math.max(currentReputation + requestedChange, checkpointReputation);
 			}
 		}

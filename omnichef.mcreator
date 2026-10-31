@@ -11948,6 +11948,22 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "settle_restaurant_shift",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/SettleRestaurantShiftProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
