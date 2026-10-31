@@ -18,6 +18,11 @@ public class ClientMaximumLifetimeCheckProcedure {
 		restaurantID = client.getPersistentData().getDouble("RestaurantID");
 		if (!(client.getPersistentData().getString("state")).equals("leave") && !client.getPersistentData().getBoolean("leaving_started") && world.dayTime() >= client.getPersistentData().getDouble("client_expire_time")
 				&& client.getPersistentData().getDouble("client_expire_time") > 0) {
+			if (client instanceof ClientEntity) {
+				if (!RecordClientShiftResultProcedure.execute(world, client)) {
+					return true;
+				}
+			}
 			client.getPersistentData().putBoolean("patience_needed", false);
 			if (!client.getPersistentData().getBoolean("service_result_counted")) {
 				if (client.getPersistentData().getBoolean("order_served")) {
