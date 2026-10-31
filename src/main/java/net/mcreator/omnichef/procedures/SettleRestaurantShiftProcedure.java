@@ -22,6 +22,7 @@ public class SettleRestaurantShiftProcedure {
 		double gateLevel = 0;
 		double gateReputation = 0;
 		double actualChange = 0;
+		double previousLevel = 0;
 		if (world.isClientSide()) {
 			return false;
 		}
@@ -48,8 +49,16 @@ public class SettleRestaurantShiftProcedure {
 		shiftID = clientData.get("shift_id").getAsDouble();
 		if (restaurant.has("last_settled_shift_id")) {
 			if (restaurant.get("last_settled_shift_id").getAsDouble() == shiftID) {
-				return true;
+				restaurantLevel = restaurant.get("level").getAsDouble();
+				for (int _i1 = 0; _i1 < (int) OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel; _i1++) {
+					previousLevel = restaurantLevel;
+					restaurantLevel = RestaurantLevelUpCheckProcedure.execute(world, restaurantID);
+					if (restaurantLevel == previousLevel) {
+						return true;
+					}
+				}
 			}
+			return true;
 		}
 		shiftResult = CalculateRestaurantShiftResultProcedure.execute(clientData);
 		if (!shiftResult.get("ready").getAsBoolean()) {
@@ -77,6 +86,17 @@ public class SettleRestaurantShiftProcedure {
 		shiftResult.addProperty("reputation_change", actualChange);
 		restaurant.add("last_shift_result", shiftResult);
 		restaurant.addProperty("last_settled_shift_id", shiftID);
-		return SaveJsonAtomicallyProcedure.execute(database, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name);
+		if (!SaveJsonAtomicallyProcedure.execute(database, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name)) {
+			return false;
+		}
+		restaurantLevel = restaurant.get("level").getAsDouble();
+		for (int _i1 = 0; _i1 < (int) OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel; _i1++) {
+			previousLevel = restaurantLevel;
+			restaurantLevel = RestaurantLevelUpCheckProcedure.execute(world, restaurantID);
+			if (restaurantLevel == previousLevel) {
+				return true;
+			}
+		}
+		return true;
 	}
 }
