@@ -11941,6 +11941,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
+    },
+    {
+      "name": "SettleRestaurantShift",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "settle_restaurant_shift",
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
