@@ -22,8 +22,10 @@ public class SettleAllRestaurantShiftsProcedure {
 		for (int _i1 = 0; _i1 < (int) restaurants.size(); _i1++) {
 			restaurantData = restaurants.get((int) index).getAsJsonObject();
 			restaurantID = restaurantData.get("ID").getAsDouble();
-			if (!SettleRestaurantShiftProcedure.execute(world, restaurantID)) {
-				allSettled = false;
+			if (RestaurantIndexSearchByIDProcedure.execute(world, restaurantID) >= 0) {
+				if (!SettleRestaurantShiftProcedure.execute(world, restaurantID)) {
+					allSettled = false;
+				}
 			}
 			index = index + 1;
 		}

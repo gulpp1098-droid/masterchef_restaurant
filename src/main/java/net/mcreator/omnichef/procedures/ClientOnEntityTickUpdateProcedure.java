@@ -6,13 +6,18 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 public class ClientOnEntityTickUpdateProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		Entity client = null;
 		client = entity;
 		if (!world.isClientSide()) {
 			if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
+				if (Math.floor(client.getPersistentData().getDouble("shift_id") / 24000) < OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay) {
+					if (!client.level().isClientSide())
+						client.discard();
+					return true;
+				}
 				if (RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")) >= 0) {
 					if (client.getPersistentData().getBoolean("leader")) {
 						if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
@@ -85,5 +90,6 @@ public class ClientOnEntityTickUpdateProcedure {
 				}
 			}
 		}
+		return true;
 	}
 }
