@@ -11983,6 +11983,20 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "RestaurantResultGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "restaurant_result_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/world/inventory/RestaurantResultGUIMenu.java",
+          "src/main/java/net/mcreator/omnichef/client/gui/RestaurantResultGUIScreen.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs"
     }
   ],
   "variable_elements": [

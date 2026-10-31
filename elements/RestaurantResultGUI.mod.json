@@ -1,0 +1,320 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0",
+          "image": "spatulagui.png",
+          "width": 183,
+          "height": 198,
+          "x": 122,
+          "y": 14,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1",
+          "image": "ribbon_icon.png",
+          "width": 93,
+          "height": 21,
+          "x": 167,
+          "y": 25,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_day_18_results",
+          "text": "DAY 18 RESULTS",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 176,
+          "y": 29,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_customers_20",
+          "text": "CUSTOMERS: 20",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 125,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 13,
+          "x": 161,
+          "y": 49,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_2",
+          "image": "facehappy_icon.png",
+          "width": 16,
+          "height": 16,
+          "x": 137,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_2_copy",
+          "image": "facemedium_icon.png",
+          "width": 16,
+          "height": 16,
+          "x": 137,
+          "y": 84,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_2_copy_2",
+          "image": "faceangry_icon.png",
+          "width": 16,
+          "height": 16,
+          "x": 137,
+          "y": 104,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_5",
+          "image": "separator_icon.png",
+          "width": 133,
+          "height": 11,
+          "x": 147,
+          "y": 122,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_satisfaction",
+          "text": "SATISFACTION",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 137,
+          "y": 140,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_coins_earned",
+          "text": "COINS EARNED",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 160,
+          "y": 160,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_coins_earned_copy",
+          "text": "REPUTATION EARNED",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 160,
+          "y": 180,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_perfect",
+          "text": "PERFECT",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 160,
+          "y": 67,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_satisfied",
+          "text": "SATISFIED",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 160,
+          "y": 87,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_lost",
+          "text": "LOST",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 160,
+          "y": 107,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_1062",
+          "text": "10\n\n6\n\n2",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "RIGHT",
+          "width": 120,
+          "height": 40,
+          "x": 160,
+          "y": 66,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_1002010",
+          "text": "100%\n\n+20\n\n+10",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "RIGHT",
+          "width": 120,
+          "height": 40,
+          "x": 160,
+          "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_6",
+          "image": "coin_icon.png",
+          "width": 16,
+          "height": 16,
+          "x": 136,
+          "y": 157,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_7",
+          "image": "reputation_icon.png",
+          "width": 16,
+          "height": 16,
+          "x": 136,
+          "y": 177,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
