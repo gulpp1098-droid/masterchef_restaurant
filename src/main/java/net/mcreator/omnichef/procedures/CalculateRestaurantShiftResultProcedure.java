@@ -34,7 +34,7 @@ public class CalculateRestaurantShiftResultProcedure {
 						if (!memberObject.get("result_recorded").getAsBoolean()) {
 							return result;
 						}
-						weightedSatisfaction = weight * memberObject.get("final_satisfaction").getAsDouble();
+						weightedSatisfaction = weightedSatisfaction + weight * memberObject.get("final_satisfaction").getAsDouble();
 					} else {
 						weight = weight * 0.5;
 					}
@@ -46,15 +46,15 @@ public class CalculateRestaurantShiftResultProcedure {
 		}
 		if (totalBaseExp > 0) {
 			satisfaction = weightedSatisfaction / totalBaseExp;
-			if (totalBaseExp < 15) {
+			if (satisfaction < 15) {
 				multiplier = -0.5;
-			} else if (totalBaseExp < 30) {
+			} else if (satisfaction < 30) {
 				multiplier = -0.25;
-			} else if (totalBaseExp < 50) {
+			} else if (satisfaction < 50) {
 				multiplier = 0;
-			} else if (totalBaseExp < 75) {
+			} else if (satisfaction < 75) {
 				multiplier = 0.5;
-			} else if (totalBaseExp < 95) {
+			} else if (satisfaction < 95) {
 				multiplier = 1;
 			} else {
 				multiplier = 1.2;

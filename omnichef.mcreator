@@ -11908,7 +11908,39 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "calculate_restaurant_shift_result",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "restaurantData",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CalculateRestaurantShiftResultProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
+    },
+    {
+      "name": "ReadRestaurantsDatabase",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "read_restaurants_database",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReadRestaurantsDatabaseProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures/Restaurant Manimulation Procedures"
     }
   ],
   "variable_elements": [
