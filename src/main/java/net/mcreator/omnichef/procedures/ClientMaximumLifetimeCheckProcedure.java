@@ -52,7 +52,7 @@ public class ClientMaximumLifetimeCheckProcedure {
 				if (client.getPersistentData().getBoolean("order_served")) {
 					ClientCoinPayProcedure.execute(world, entity);
 				}
-				ClientExpPayProcedure.execute(world, entity);
+				ClientExpPayProcedure.execute(entity);
 			}
 			ClientBeginLeavingProcedure.execute(world, entity);
 			client.getPersistentData().putDouble("despawn_time", (world.dayTime()));

@@ -57,8 +57,8 @@ public class SettleRestaurantShiftProcedure {
 						return true;
 					}
 				}
+				return true;
 			}
-			return true;
 		}
 		shiftResult = CalculateRestaurantShiftResultProcedure.execute(clientData);
 		if (!shiftResult.get("ready").getAsBoolean()) {

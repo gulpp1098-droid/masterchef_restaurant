@@ -1,15 +1,9 @@
 package net.mcreator.omnichef.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerLevel;
-
-import net.mcreator.omnichef.network.OmnichefModVariables;
-
-import java.util.UUID;
 
 public class ClientExpPayProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
 		Entity client = null;
@@ -30,64 +24,6 @@ public class ClientExpPayProcedure {
 		com.google.gson.JsonArray orderFoods = new com.google.gson.JsonArray();
 		String ownerUUID = "";
 		client = entity;
-		if (!client.getPersistentData().getBoolean("exp_paid")) {
-			RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
-			RestaurantLevel = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-					"level");
-			CheckpointLevel = Math.floor(RestaurantLevel / 10) * 10;
-			CheckpointReputation = GetRequiredReputationForLevelProcedure.execute(world, CheckpointLevel);
-			requiredReputation = GetRequiredReputationForLevelProcedure.execute(world, RestaurantLevel + 1);
-			baseExp = GetClientOrderBaseExpProcedure.execute(world, client);
-			if (client.getPersistentData().getBoolean("order_served")) {
-				orderResult = GetClientOrderResultProcedure.execute(client);
-				satisfaction = GetClientOrderSatisfactionProcedure.execute(client);
-				missingFoodTypes = orderResult.get("missing_food_types").getAsDouble();
-			} else {
-				orderFoods = GetClientOrderFoodArrayProcedure.execute(client);
-				missingFoodTypes = orderFoods.size();
-				satisfaction = 0;
-			}
-			rewardMultiplier = (100 - missingFoodTypes * 40) / 100;
-			if (rewardMultiplier > 0) {
-				EXPTotal = Math.round(baseExp * (satisfaction / 100) * rewardMultiplier);
-			} else {
-				EXPTotal = Math.round(baseExp * ((100 - satisfaction) / 100) * rewardMultiplier);
-			}
-			CurrentReputation = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-					"reputation");
-			if (EXPTotal > 0) {
-				if ((RestaurantLevel + 1) % 10 == 0) {
-					ModifyRestaurantNumberParameterProcedure.execute(Math.min(CurrentReputation + EXPTotal, requiredReputation), RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
-				} else {
-					ModifyRestaurantNumberParameterProcedure.execute(CurrentReputation + EXPTotal, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
-				}
-			} else {
-				if (!((RestaurantLevel + 1) % 10 == 0 && CurrentReputation >= requiredReputation)) {
-					ModifyRestaurantNumberParameterProcedure.execute(Math.max(CurrentReputation + EXPTotal, CheckpointReputation), RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reputation");
-				}
-			}
-			RealReputationChange = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-					"reputation") - CurrentReputation;
-			ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndex, RealReputationChange, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-					"daily_stats", "reputation_change");
-			RestaurantLevelUpCheckProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
-			ownerUUID = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
-			owner = world instanceof ServerLevel _level6 ? getEntityFromUUID(_level6, ownerUUID) : null;
-			if (owner != null) {
-				CreateOverlayDataTransferProcedure.execute(world, owner);
-			}
-			entity.getPersistentData().putBoolean("exp_paid", true);
-		}
-	}
-
-	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
-		try {
-			return level.getEntity(UUID.fromString(uuid));
-		} catch (IllegalArgumentException e) {
-			return null;
-		}
+		entity.getPersistentData().putBoolean("exp_paid", true);
 	}
 }

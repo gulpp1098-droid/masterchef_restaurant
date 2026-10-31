@@ -49,7 +49,7 @@ public class ClientGroupWaitStateProcedure {
 					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(16 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator instanceof ClientEntity) {
 							if (IsMemberOfClientGroupProcedure.execute(entityiterator, client)) {
-								ClientExpPayProcedure.execute(world, entityiterator);
+								ClientExpPayProcedure.execute(entityiterator);
 								ClientBeginLeavingProcedure.execute(world, entityiterator);
 							}
 						}
@@ -62,7 +62,7 @@ public class ClientGroupWaitStateProcedure {
 						if (entityiterator instanceof ClientEntity) {
 							if (IsMemberOfClientGroupProcedure.execute(entityiterator, client)) {
 								ClientCoinPayProcedure.execute(world, entityiterator);
-								ClientExpPayProcedure.execute(world, entityiterator);
+								ClientExpPayProcedure.execute(entityiterator);
 								entityiterator.getPersistentData().putString("state", "leave");
 								entityiterator.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
 								entityiterator.stopRiding();

@@ -31,7 +31,7 @@ public class ClientOnEntityTickUpdateProcedure {
 								if ((client.getPersistentData().getString("state")).equals("restaurant_go")) {
 									if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 											OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-										ClientExpPayProcedure.execute(world, entity);
+										ClientExpPayProcedure.execute(entity);
 										ClientBeginLeavingProcedure.execute(world, entity);
 									} else {
 										ClientRestaurantGoStateProcedure.execute(world, entity);
@@ -39,7 +39,7 @@ public class ClientOnEntityTickUpdateProcedure {
 								} else if ((client.getPersistentData().getString("state")).equals("queue_wait")) {
 									if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
 											OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-										ClientExpPayProcedure.execute(world, entity);
+										ClientExpPayProcedure.execute(entity);
 										ClientBeginLeavingProcedure.execute(world, entity);
 									} else {
 										ClientQueueWaitStateProcedure.execute(world, entity);

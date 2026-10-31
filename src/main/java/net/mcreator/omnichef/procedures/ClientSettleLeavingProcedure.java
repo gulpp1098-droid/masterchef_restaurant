@@ -41,7 +41,7 @@ public class ClientSettleLeavingProcedure {
 						client.getPersistentData().putBoolean("service_result_counted", true);
 					}
 					ClientCoinPayProcedure.execute(world, client);
-					ClientExpPayProcedure.execute(world, client);
+					ClientExpPayProcedure.execute(client);
 				}
 			}
 		}

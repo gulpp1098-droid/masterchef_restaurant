@@ -60,7 +60,7 @@ public class ClientStuckStateProcedure {
 							} else {
 								if (client.getPersistentData().getBoolean("leader")) {
 									if (!(client instanceof CriticEntity)) {
-										ClientExpPayProcedure.execute(world, entity);
+										ClientExpPayProcedure.execute(entity);
 									}
 									ClientBeginLeavingProcedure.execute(world, entity);
 								} else {
