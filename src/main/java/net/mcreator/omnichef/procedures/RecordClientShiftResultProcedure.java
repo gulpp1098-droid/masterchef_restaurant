@@ -46,6 +46,9 @@ public class RecordClientShiftResultProcedure {
 			return false;
 		}
 		memberObject = members.get((int) memberIndex).getAsJsonObject();
+		if (memberObject.get("result_recorded").getAsBoolean()) {
+			return true;
+		}
 		served = clientEntity.getPersistentData().getBoolean("order_served");
 		if (served) {
 			satisfaction = GetClientOrderSatisfactionProcedure.execute(clientEntity);

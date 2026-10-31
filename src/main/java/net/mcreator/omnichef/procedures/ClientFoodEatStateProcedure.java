@@ -7,14 +7,19 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import net.mcreator.omnichef.entity.ClientEntity;
 
 public class ClientFoodEatStateProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static boolean execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		Entity client = null;
 		double restaurantID = 0;
 		String satisfactionLevel = "";
 		client = entity;
 		if (client.getPersistentData().getDouble("food_eat_time") <= world.dayTime()) {
+			if (client instanceof ClientEntity) {
+				if (!RecordClientShiftResultProcedure.execute(world, client)) {
+					return true;
+				}
+			}
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
 			satisfactionLevel = GetClientSatisfactionLevelProcedure.execute(client);
 			if ((satisfactionLevel).equals("perfect")) {
@@ -34,5 +39,6 @@ public class ClientFoodEatStateProcedure {
 			client.getPersistentData().putString("state", "group_wait");
 			StopClientPatienceProcedure.execute(entity);
 		}
+		return true;
 	}
 }
