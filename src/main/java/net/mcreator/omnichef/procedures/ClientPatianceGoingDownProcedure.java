@@ -8,15 +8,20 @@ import net.mcreator.omnichef.entity.CriticEntity;
 import net.mcreator.omnichef.entity.ClientEntity;
 
 public class ClientPatianceGoingDownProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static boolean execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		Entity client = null;
 		double nbtPatience = 0;
 		double restaurantID = 0;
 		client = entity;
-		if (client.getPersistentData().getBoolean("patience_needed") && world.dayTime() >= client.getPersistentData().getDouble("patience_end_time") && !client.getPersistentData().getBoolean("leaving_started")
+		if (world.dayTime() >= client.getPersistentData().getDouble("patience_end_time") && !client.getPersistentData().getBoolean("leaving_started") && client.getPersistentData().getBoolean("patience_needed")
 				&& !client.getPersistentData().getBoolean("order_served")) {
+			if (client instanceof ClientEntity) {
+				if (!RecordClientShiftResultProcedure.execute(world, client)) {
+					return true;
+				}
+			}
 			client.getPersistentData().putBoolean("patience_needed", false);
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
 			ModifyRestaurantObjectParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), 1, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -37,5 +42,6 @@ public class ClientPatianceGoingDownProcedure {
 			if (client instanceof CriticEntity _datEntSetI)
 				_datEntSetI.getEntityData().set(CriticEntity.DATA_PatienceBar, -1);
 		}
+		return true;
 	}
 }
