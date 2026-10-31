@@ -5,12 +5,19 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
 
+import net.mcreator.omnichef.entity.ClientEntity;
+
 public class ClientLeaveStateProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		double restaurantID = 0;
 		double leaveAngle = 0;
+		if (entity instanceof ClientEntity) {
+			if (!RecordClientShiftResultProcedure.execute(world, entity)) {
+				return true;
+			}
+		}
 		ClientSettleLeavingProcedure.execute(world, entity);
 		if (world.dayTime() % 24000 >= 18000 || world.dayTime() % 24000 >= 0 && world.dayTime() % 24000 <= 30
 				|| new Vec3(x, y, z).distanceTo(new Vec3((entity.getPersistentData().getDouble("DestX")), (entity.getPersistentData().getDouble("DestY")), (entity.getPersistentData().getDouble("DestZ")))) >= 60
@@ -30,5 +37,6 @@ public class ClientLeaveStateProcedure {
 			if (entity instanceof Mob _entity)
 				_entity.getNavigation().moveTo((x + entity.getPersistentData().getDouble("LeaveOffsetX")), y, (z + entity.getPersistentData().getDouble("LeaveOffsetZ")), 1);
 		}
+		return true;
 	}
 }
