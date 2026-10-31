@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.BufferedReader;
 
 public class DeleteClientsDatabaseFileProcedure {
-	public static void execute(LevelAccessor world) {
+	public static boolean execute(LevelAccessor world) {
 		com.google.gson.JsonArray emptyArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray restaurantsList = new com.google.gson.JsonArray();
 		double currentDay = 0;
@@ -29,6 +29,9 @@ public class DeleteClientsDatabaseFileProcedure {
 		boolean StatsAlreadyReset = false;
 		currentDay = Math.floor(world.dayTime() / 24000d);
 		if (OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay < currentDay) {
+			if (!SettleAllRestaurantShiftsProcedure.execute(world)) {
+				return false;
+			}
 			clientsDatabase = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).ClientsDatabase_File_Name);
 			{
 				try {
@@ -108,5 +111,6 @@ public class DeleteClientsDatabaseFileProcedure {
 				net.mcreator.omnichef.OmnichefMod.LOGGER.error("Failed to save the daily restaurant data reset.");
 			}
 		}
+		return false;
 	}
 }

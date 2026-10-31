@@ -11961,6 +11961,26 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "SettleAllRestaurantShifts",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "settle_all_restaurant_shifts",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/SettleAllRestaurantShiftsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
