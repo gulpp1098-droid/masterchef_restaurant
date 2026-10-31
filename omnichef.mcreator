@@ -11901,6 +11901,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "CalculateRestaurantShiftResult",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "calculate_restaurant_shift_result",
+      "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     }
   ],
   "variable_elements": [
