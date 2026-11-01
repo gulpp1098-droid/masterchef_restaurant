@@ -42,9 +42,7 @@ public class ClientDeathCleanupProcedure {
 						ClientBeginLeavingProcedure.execute(world, entity);
 					}
 					resultSaved = true;
-					if (entity instanceof ClientEntity) {
-						resultSaved = RecordClientShiftResultProcedure.execute(world, entity);
-					}
+					resultSaved = RecordClientShiftResultProcedure.execute(world, entity);
 					if (resultSaved) {
 						if (entity instanceof ClientEntity) {
 							ClientSettleLeavingProcedure.execute(world, entity);

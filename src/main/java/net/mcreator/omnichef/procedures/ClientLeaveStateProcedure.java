@@ -5,18 +5,14 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
 
-import net.mcreator.omnichef.entity.ClientEntity;
-
 public class ClientLeaveStateProcedure {
 	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return false;
 		double restaurantID = 0;
 		double leaveAngle = 0;
-		if (entity instanceof ClientEntity) {
-			if (!RecordClientShiftResultProcedure.execute(world, entity)) {
-				return true;
-			}
+		if (!RecordClientShiftResultProcedure.execute(world, entity)) {
+			return true;
 		}
 		ClientSettleLeavingProcedure.execute(world, entity);
 		if (world.dayTime() % 24000 >= 18000 || world.dayTime() % 24000 >= 0 && world.dayTime() % 24000 <= 30

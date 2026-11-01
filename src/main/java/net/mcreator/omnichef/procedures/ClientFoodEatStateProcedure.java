@@ -15,10 +15,8 @@ public class ClientFoodEatStateProcedure {
 		String satisfactionLevel = "";
 		client = entity;
 		if (client.getPersistentData().getDouble("food_eat_time") <= world.dayTime()) {
-			if (client instanceof ClientEntity) {
-				if (!RecordClientShiftResultProcedure.execute(world, client)) {
-					return true;
-				}
+			if (!RecordClientShiftResultProcedure.execute(world, client)) {
+				return true;
 			}
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
 			satisfactionLevel = GetClientSatisfactionLevelProcedure.execute(client);

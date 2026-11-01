@@ -17,10 +17,8 @@ public class ClientPatianceGoingDownProcedure {
 		client = entity;
 		if (world.dayTime() >= client.getPersistentData().getDouble("patience_end_time") && !client.getPersistentData().getBoolean("leaving_started") && client.getPersistentData().getBoolean("patience_needed")
 				&& !client.getPersistentData().getBoolean("order_served")) {
-			if (client instanceof ClientEntity) {
-				if (!RecordClientShiftResultProcedure.execute(world, client)) {
-					return true;
-				}
+			if (!RecordClientShiftResultProcedure.execute(world, client)) {
+				return true;
 			}
 			client.getPersistentData().putBoolean("patience_needed", false);
 			restaurantID = client.getPersistentData().getDouble("RestaurantID");
