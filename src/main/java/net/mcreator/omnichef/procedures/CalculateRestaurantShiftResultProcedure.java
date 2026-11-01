@@ -28,18 +28,19 @@ public class CalculateRestaurantShiftResultProcedure {
 			memberIndex = 0;
 			for (int _i2 = 0; _i2 < (int) members.size(); _i2++) {
 				memberObject = members.get((int) memberIndex).getAsJsonObject();
-				if (!memberObject.get("critic").getAsBoolean()) {
-					weight = memberObject.get("potential_base_exp").getAsDouble();
-					if (spawned) {
-						if (!memberObject.get("result_recorded").getAsBoolean()) {
-							return result;
-						}
-						weightedSatisfaction = weightedSatisfaction + weight * memberObject.get("final_satisfaction").getAsDouble();
-					} else {
-						weight = weight * 0.5;
-					}
-					totalBaseExp = totalBaseExp + weight;
+				weight = memberObject.get("potential_base_exp").getAsDouble();
+				if (memberObject.get("critic").getAsBoolean()) {
+					weight = weight * 5;
 				}
+				if (spawned) {
+					if (!memberObject.get("result_recorded").getAsBoolean()) {
+						return result;
+					}
+					weightedSatisfaction = weightedSatisfaction + weight * memberObject.get("final_satisfaction").getAsDouble();
+				} else {
+					weight = weight * 0.5;
+				}
+				totalBaseExp = totalBaseExp + weight;
 				memberIndex = memberIndex + 1;
 			}
 			groupIndex = groupIndex + 1;
