@@ -11997,6 +11997,17 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs"
+    },
+    {
+      "name": "ResultButtonGUI",
+      "type": "invedit",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "result_button_gui",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Restaurant Functioning/GUIs"
     }
   ],
   "variable_elements": [
@@ -12364,6 +12375,7 @@
       "src/main/java/net/mcreator/omnichef/init/OmnichefModScreens.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModMenus.java",
       "src/main/java/net/mcreator/omnichef/network/MenuStateUpdateMessage.java",
+      "src/main/java/net/mcreator/omnichef/client/InventoryRenderer.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModParticles.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModParticleTypes.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModBlocks.java",

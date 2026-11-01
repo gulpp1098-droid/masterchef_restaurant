@@ -14,7 +14,7 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_0",
-          "image": "spatulagui.png",
+          "image": "result_gui.png",
           "width": 183,
           "height": 198,
           "x": 122,

@@ -1,0 +1,27 @@
+{
+  "_fv": 89,
+  "_type": "invedit",
+  "definition": {
+    "components": [
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_result_icon",
+          "image": "result_icon.png",
+          "hoveredImage": "",
+          "x": 309,
+          "y": 37,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    },
+    "type": 0
+  }
+}

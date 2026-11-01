@@ -82,7 +82,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$yOffset = 0;
 				int guiTools$visibleWidth = 183;
 				int guiTools$visibleHeight = 198;
-				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/spatulagui.png"));
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/result_gui.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -92 + guiTools$xOffset, this.topPos + -23 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 183, 198);
 			}
