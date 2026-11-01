@@ -1,5 +1,10 @@
 package net.mcreator.omnichef.procedures;
 
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.Event;
+
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
@@ -7,13 +12,24 @@ import net.minecraft.network.chat.Component;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
+import javax.annotation.Nullable;
+
+@EventBusSubscriber
 public class CheckRestaurantResultNotificationProcedure {
+	@SubscribeEvent
+	public static void onPlayerTick(PlayerTickEvent.Post event) {
+		execute(event, event.getEntity().level(), event.getEntity());
+	}
+
 	public static boolean execute(LevelAccessor world, Entity entity) {
+		return execute(null, world, entity);
+	}
+
+	private static boolean execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return false;
 		com.google.gson.JsonObject restaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject result = new com.google.gson.JsonObject();
-		com.google.gson.JsonObject lastShift = new com.google.gson.JsonObject();
 		double restaurantID = 0;
 		String resultKey = "";
 		boolean unread = false;
@@ -48,8 +64,7 @@ public class CheckRestaurantResultNotificationProcedure {
 			}
 			return true;
 		}
-		lastShift = restaurantObject.get("last_shift_result").getAsJsonObject();
-		result.add("last_shift_result", lastShift);
+		result = restaurantObject.get("last_shift_result").getAsJsonObject();
 		resultKey = new java.text.DecimalFormat("0").format(restaurantID) + ":" + new java.text.DecimalFormat("0").format(result.get("shift_id").getAsDouble());
 		unread = !(resultKey).equals(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).LastViewedRestaurantResult);
 		if (!(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).RestaurantResultUnread == unread)) {
