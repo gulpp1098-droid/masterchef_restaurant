@@ -9,8 +9,19 @@
           "name": "imagebutton_result_icon",
           "image": "result_icon.png",
           "hoveredImage": "",
+          "onClick": "OpenRestaurantResultGUI",
           "x": 309,
           "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "new_result_icon.png",
+          "use1Xscale": false,
+          "x": 329,
+          "y": 30,
           "locked": false
         }
       }

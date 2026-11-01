@@ -12015,6 +12015,34 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "open_restaurant_result_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/OpenRestaurantResultGUIProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
     }
   ],
@@ -12384,6 +12412,7 @@
       "src/main/java/net/mcreator/omnichef/init/OmnichefModMenus.java",
       "src/main/java/net/mcreator/omnichef/network/MenuStateUpdateMessage.java",
       "src/main/java/net/mcreator/omnichef/client/InventoryRenderer.java",
+      "src/main/java/net/mcreator/omnichef/network/OmnichefModInventoryButtonMessage.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModParticles.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModParticleTypes.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModBlocks.java",

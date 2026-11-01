@@ -1,5 +1,6 @@
 package net.mcreator.omnichef.client;
 
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -16,6 +17,8 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.omnichef.network.OmnichefModInventoryButtonMessage;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 public class InventoryRenderer {
 	private static Minecraft mc = Minecraft.getInstance();
 	private static EffectRenderingInventoryScreen screen = null;
+	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/new_result_icon.png");
 	private static final List<AbstractWidget> buttons = new ArrayList<>();
 
 	@SubscribeEvent
@@ -63,7 +67,7 @@ public class InventoryRenderer {
 		if (!buttons.isEmpty()) {
 			buttons.get(0).visible = flag;
 		}
-
+		renderImages(event.getGuiGraphics(), event.getMouseX(), event.getMouseY());
 	}
 
 	@SubscribeEvent
@@ -80,6 +84,10 @@ public class InventoryRenderer {
 	private static void initButtons(ScreenEvent.Init.Pre event) {
 		buttons.add(new ImageButton(screen.getGuiLeft() + 308, screen.getGuiTop() + 37, 26, 26,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/result_icon.png"), ResourceLocation.parse("omnichef:textures/screens/result_icon.png")), e -> {
+					if (getFlag()) {
+						PacketDistributor.sendToServer(new OmnichefModInventoryButtonMessage(0, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ()));
+						OmnichefModInventoryButtonMessage.handleButtonAction(mc.player, 0, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ());
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -91,6 +99,13 @@ public class InventoryRenderer {
 		});
 		if (screen instanceof InventoryScreen)
 			event.addListener(buttons.get(0));
+	}
+
+	private static void renderImages(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+		if (screen instanceof InventoryScreen)
+
+			guiGraphics.blit(IMAGE_0, screen.getGuiLeft() + 203, screen.getGuiTop() + -7, 0, 0, 6, 22, 6, 22);
+
 	}
 
 	private static boolean getFlag() {
