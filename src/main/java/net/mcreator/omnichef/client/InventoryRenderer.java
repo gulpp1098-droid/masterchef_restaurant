@@ -17,6 +17,8 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.omnichef.procedures.ShowRestaurantResultNoticeProcedure;
+import net.mcreator.omnichef.procedures.ShowRestaurantResultButtonProcedure;
 import net.mcreator.omnichef.network.OmnichefModInventoryButtonMessage;
 
 import java.util.List;
@@ -65,7 +67,7 @@ public class InventoryRenderer {
 			screen = (EffectRenderingInventoryScreen) event.getContainerScreen();
 		boolean flag = getFlag();
 		if (!buttons.isEmpty()) {
-			buttons.get(0).visible = flag;
+			buttons.get(0).visible = flag && ShowRestaurantResultButtonProcedure.execute(mc.player);
 		}
 		renderImages(event.getGuiGraphics(), event.getMouseX(), event.getMouseY());
 	}
@@ -84,7 +86,7 @@ public class InventoryRenderer {
 	private static void initButtons(ScreenEvent.Init.Pre event) {
 		buttons.add(new ImageButton(screen.getGuiLeft() + 308, screen.getGuiTop() + 37, 26, 26,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/result_icon.png"), ResourceLocation.parse("omnichef:textures/screens/result_icon.png")), e -> {
-					if (getFlag()) {
+					if (getFlag() && ShowRestaurantResultButtonProcedure.execute(mc.player)) {
 						PacketDistributor.sendToServer(new OmnichefModInventoryButtonMessage(0, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ()));
 						OmnichefModInventoryButtonMessage.handleButtonAction(mc.player, 0, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ());
 					}
@@ -93,7 +95,7 @@ public class InventoryRenderer {
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 				this.setX(screen.getGuiLeft() + 183);
 				this.setY(screen.getGuiTop() + 0);
-				if (getFlag())
+				if (getFlag() && ShowRestaurantResultButtonProcedure.execute(mc.player))
 					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		});
@@ -103,9 +105,9 @@ public class InventoryRenderer {
 
 	private static void renderImages(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		if (screen instanceof InventoryScreen)
-
-			guiGraphics.blit(IMAGE_0, screen.getGuiLeft() + 203, screen.getGuiTop() + -7, 0, 0, 6, 22, 6, 22);
-
+			if (ShowRestaurantResultNoticeProcedure.execute(mc.player)) {
+				guiGraphics.blit(IMAGE_0, screen.getGuiLeft() + 203, screen.getGuiTop() + -7, 0, 0, 6, 22, 6, 22);
+			}
 	}
 
 	private static boolean getFlag() {

@@ -10,6 +10,7 @@
           "image": "result_icon.png",
           "hoveredImage": "",
           "onClick": "OpenRestaurantResultGUI",
+          "displayCondition": "ShowRestaurantResultButton",
           "x": 309,
           "y": 37,
           "locked": false
@@ -20,6 +21,7 @@
         "data": {
           "image": "new_result_icon.png",
           "use1Xscale": false,
+          "displayCondition": "ShowRestaurantResultNotice",
           "x": 329,
           "y": 30,
           "locked": false

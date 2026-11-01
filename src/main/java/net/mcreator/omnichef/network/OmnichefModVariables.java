@@ -104,6 +104,9 @@ public class OmnichefModVariables {
 		clone.CurrentClientTexture = original.CurrentClientTexture;
 		clone.TradeBoardSelectedOffer = original.TradeBoardSelectedOffer;
 		clone.TradeBoardViewedDay = original.TradeBoardViewedDay;
+		clone.RestaurantResultUnread = original.RestaurantResultUnread;
+		clone.LastNotifiedRestaurantResult = original.LastNotifiedRestaurantResult;
+		clone.LastViewedRestaurantResult = original.LastViewedRestaurantResult;
 		if (!event.isWasDeath()) {
 			clone.OrderResultCompleteness = original.OrderResultCompleteness;
 			clone.OrderResultAccuracy = original.OrderResultAccuracy;
@@ -327,6 +330,9 @@ public class OmnichefModVariables {
 		public String CurrentClientTexture = "\"\"";
 		public double TradeBoardSelectedOffer = -1.0;
 		public double TradeBoardViewedDay = -1.0;
+		public boolean RestaurantResultUnread = false;
+		public String LastNotifiedRestaurantResult = "\"\"";
+		public String LastViewedRestaurantResult = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -355,6 +361,9 @@ public class OmnichefModVariables {
 			nbt.putString("CurrentClientTexture", CurrentClientTexture);
 			nbt.putDouble("TradeBoardSelectedOffer", TradeBoardSelectedOffer);
 			nbt.putDouble("TradeBoardViewedDay", TradeBoardViewedDay);
+			nbt.putBoolean("RestaurantResultUnread", RestaurantResultUnread);
+			nbt.putString("LastNotifiedRestaurantResult", LastNotifiedRestaurantResult);
+			nbt.putString("LastViewedRestaurantResult", LastViewedRestaurantResult);
 			return nbt;
 		}
 
@@ -384,6 +393,9 @@ public class OmnichefModVariables {
 			CurrentClientTexture = nbt.getString("CurrentClientTexture");
 			TradeBoardSelectedOffer = nbt.getDouble("TradeBoardSelectedOffer");
 			TradeBoardViewedDay = nbt.getDouble("TradeBoardViewedDay");
+			RestaurantResultUnread = nbt.getBoolean("RestaurantResultUnread");
+			LastNotifiedRestaurantResult = nbt.getString("LastNotifiedRestaurantResult");
+			LastViewedRestaurantResult = nbt.getString("LastViewedRestaurantResult");
 		}
 
 		public void markSyncDirty() {

@@ -85,6 +85,12 @@ public class OpenRestaurantResultGUIProcedure {
 					(new java.text.DecimalFormat("0.#").format(result.get("satisfaction").getAsDouble()) + "%" + "\n" + "\n" + "+" + new java.text.DecimalFormat("0").format(result.get("coins_earned").getAsDouble()) + "\n" + "\n" + reputationText),
 					""), true);
 		}
+		{
+			OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+			_vars.LastViewedRestaurantResult = new java.text.DecimalFormat("0").format(restaurantID) + ":" + new java.text.DecimalFormat("0").format(result.get("shift_id").getAsDouble());
+			_vars.RestaurantResultUnread = false;
+			_vars.markSyncDirty();
+		}
 		return true;
 	}
 }
