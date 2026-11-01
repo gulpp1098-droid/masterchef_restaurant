@@ -84,6 +84,10 @@ public class SettleRestaurantShiftProcedure {
 		dailyStats.addProperty("reputation_change", (dailyStats.get("reputation_change").getAsDouble() + actualChange));
 		shiftResult.addProperty("raw_reputation_change", requestedChange);
 		shiftResult.addProperty("reputation_change", actualChange);
+		shiftResult.addProperty("customers_served_fully", dailyStats.get("customers_served_fully").getAsDouble());
+		shiftResult.addProperty("customers_served", dailyStats.get("customers_served").getAsDouble());
+		shiftResult.addProperty("customers_lost", dailyStats.get("customers_lost").getAsDouble());
+		shiftResult.addProperty("coins_earned", dailyStats.get("coins_earned").getAsDouble());
 		restaurant.add("last_shift_result", shiftResult);
 		restaurant.addProperty("last_settled_shift_id", shiftID);
 		if (!SaveJsonAtomicallyProcedure.execute(database, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name)) {
