@@ -11904,6 +11904,21 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures"
+    },
+    {
+      "name": "CreateRestaurantStatsSchema",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "create_restaurant_stats_schema",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CreateRestaurantStatsSchemaProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [

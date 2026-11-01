@@ -108,11 +108,6 @@ public class OmnichefModVariables {
 		clone.LastNotifiedRestaurantResult = original.LastNotifiedRestaurantResult;
 		clone.LastViewedRestaurantResult = original.LastViewedRestaurantResult;
 		if (!event.isWasDeath()) {
-			clone.OrderResultCompleteness = original.OrderResultCompleteness;
-			clone.OrderResultAccuracy = original.OrderResultAccuracy;
-			clone.OrderResultPortions = original.OrderResultPortions;
-			clone.OrderResultSatisfaction = original.OrderResultSatisfaction;
-			clone.OrderResultHideTime = original.OrderResultHideTime;
 			clone.RestaurantBoundaryData = original.RestaurantBoundaryData;
 			clone.RestaurantPreviewData = original.RestaurantPreviewData;
 			clone.ShowRestaurantBoundaries = original.ShowRestaurantBoundaries;
@@ -319,11 +314,6 @@ public class OmnichefModVariables {
 		public boolean BookGained = false;
 		public double DiaryFoodTier = 0;
 		public double DiaryFoodPage = 0;
-		public double OrderResultCompleteness = 0;
-		public double OrderResultAccuracy = 0;
-		public double OrderResultPortions = 0;
-		public double OrderResultSatisfaction = 0;
-		public double OrderResultHideTime = 0;
 		public String RestaurantBoundaryData = "\"\"";
 		public String RestaurantPreviewData = "\"\"";
 		public boolean ShowRestaurantBoundaries = false;
@@ -350,11 +340,6 @@ public class OmnichefModVariables {
 			nbt.putBoolean("BookGained", BookGained);
 			nbt.putDouble("DiaryFoodTier", DiaryFoodTier);
 			nbt.putDouble("DiaryFoodPage", DiaryFoodPage);
-			nbt.putDouble("OrderResultCompleteness", OrderResultCompleteness);
-			nbt.putDouble("OrderResultAccuracy", OrderResultAccuracy);
-			nbt.putDouble("OrderResultPortions", OrderResultPortions);
-			nbt.putDouble("OrderResultSatisfaction", OrderResultSatisfaction);
-			nbt.putDouble("OrderResultHideTime", OrderResultHideTime);
 			nbt.putString("RestaurantBoundaryData", RestaurantBoundaryData);
 			nbt.putString("RestaurantPreviewData", RestaurantPreviewData);
 			nbt.putBoolean("ShowRestaurantBoundaries", ShowRestaurantBoundaries);
@@ -382,11 +367,6 @@ public class OmnichefModVariables {
 			BookGained = nbt.getBoolean("BookGained");
 			DiaryFoodTier = nbt.getDouble("DiaryFoodTier");
 			DiaryFoodPage = nbt.getDouble("DiaryFoodPage");
-			OrderResultCompleteness = nbt.getDouble("OrderResultCompleteness");
-			OrderResultAccuracy = nbt.getDouble("OrderResultAccuracy");
-			OrderResultPortions = nbt.getDouble("OrderResultPortions");
-			OrderResultSatisfaction = nbt.getDouble("OrderResultSatisfaction");
-			OrderResultHideTime = nbt.getDouble("OrderResultHideTime");
 			RestaurantBoundaryData = nbt.getString("RestaurantBoundaryData");
 			RestaurantPreviewData = nbt.getString("RestaurantPreviewData");
 			ShowRestaurantBoundaries = nbt.getBoolean("ShowRestaurantBoundaries");
