@@ -11926,6 +11926,13 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "create_default_restaurant_fields",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/CreateDefaultRestaurantFieldsProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
