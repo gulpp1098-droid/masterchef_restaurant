@@ -214,6 +214,50 @@ public class InitializeAndValidateModDataProcedure {
 				}
 			}
 
+			void validateSchema(com.google.gson.JsonObject data, com.google.gson.JsonObject schema, String path) {
+				com.google.gson.JsonObject defaults = object(schema.get("defaults"), "TradeOfferSchema.defaults");
+				com.google.gson.JsonObject required = object(schema.get("required"), "TradeOfferSchema.required");
+				fillDefaults(data, defaults, path);
+				for (var entry : required.entrySet()) {
+					String key = entry.getKey();
+					com.google.gson.JsonElement rule = entry.getValue();
+					if (!rule.isJsonPrimitive() || !rule.getAsJsonPrimitive().isString()) {
+						throw bad(path + "." + key, "schema rule must be a string");
+					}
+					switch (rule.getAsString()) {
+						case "nonempty_string" :
+							text(data, key, path, false);
+							break;
+						case "string" :
+							text(data, key, path, true);
+							break;
+						case "boolean" :
+							bool(data, key, path);
+							break;
+						case "number" :
+							number(data, key, path);
+							break;
+						case "integer" :
+							integer(data, key, path, Long.MIN_VALUE, Long.MAX_VALUE);
+							break;
+						case "positive_integer" :
+							integer(data, key, path, 1, Integer.MAX_VALUE);
+							break;
+						case "nonnegative_integer" :
+							integer(data, key, path, 0, Integer.MAX_VALUE);
+							break;
+						case "object" :
+							object(data.get(key), path + "." + key);
+							break;
+						case "array" :
+							array(data, key, path);
+							break;
+						default :
+							throw bad(path + "." + key, "unknown schema rule: " + rule.getAsString());
+					}
+				}
+			}
+
 			void statistics(com.google.gson.JsonObject restaurant, String key, String path) {
 				com.google.gson.JsonObject schema = CreateRestaurantStatsSchemaProcedure.execute();
 				com.google.gson.JsonObject defaults = schema.getAsJsonObject("defaults");
@@ -355,11 +399,7 @@ public class InitializeAndValidateModDataProcedure {
 						for (int offerIndex = 0; offerIndex < tradeOffers.size(); offerIndex++) {
 							String offerPath = tradePath + ".offers[" + offerIndex + "]";
 							com.google.gson.JsonObject offer = object(tradeOffers.get(offerIndex), offerPath);
-							text(offer, "input_id", offerPath, false);
-							text(offer, "output_id", offerPath, false);
-							integer(offer, "input_count", offerPath, 1, Integer.MAX_VALUE);
-							integer(offer, "output_count", offerPath, 1, Integer.MAX_VALUE);
-							bool(offer, "used", offerPath);
+							validateSchema(offer, CreateTradeOfferSchemaProcedure.execute(), offerPath);
 						}
 					}
 					com.google.gson.JsonObject unlock = unlocks.get(id);
