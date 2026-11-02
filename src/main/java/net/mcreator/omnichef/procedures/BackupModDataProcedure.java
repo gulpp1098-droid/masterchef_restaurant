@@ -44,10 +44,25 @@ public class BackupModDataProcedure {
 				java.nio.file.Files.writeString(pendingDirectory.resolve("manifest.json"), new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(manifest), java.nio.charset.StandardCharsets.UTF_8);
 				String snapshotName = "startup-" + java.time.Instant.now().toEpochMilli() + "-" + java.util.UUID.randomUUID();
 				var completedDirectory = backupDirectory.resolve(snapshotName);
-				try {
-					java.nio.file.Files.move(pendingDirectory, completedDirectory, java.nio.file.StandardCopyOption.ATOMIC_MOVE);
-				} catch (java.nio.file.AtomicMoveNotSupportedException exception) {
-					java.nio.file.Files.move(pendingDirectory, completedDirectory);
+				for (int attempt = 0;; attempt++) {
+					try {
+						try {
+							java.nio.file.Files.move(pendingDirectory, completedDirectory, java.nio.file.StandardCopyOption.ATOMIC_MOVE);
+						} catch (java.nio.file.AtomicMoveNotSupportedException exception) {
+							java.nio.file.Files.move(pendingDirectory, completedDirectory);
+						}
+						break;
+					} catch (java.nio.file.AccessDeniedException exception) {
+						if (attempt >= 5) {
+							throw exception;
+						}
+						try {
+							Thread.sleep(100L);
+						} catch (InterruptedException interrupted) {
+							Thread.currentThread().interrupt();
+							throw new java.io.IOException("Startup backup interrupted", interrupted);
+						}
+					}
 				}
 			}
 			success = true;

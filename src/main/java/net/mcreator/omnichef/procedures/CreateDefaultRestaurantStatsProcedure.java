@@ -8,7 +8,6 @@ public class CreateDefaultRestaurantStatsProcedure {
 		stats.addProperty("customers_lost", 0);
 		stats.addProperty("coins_earned", 0);
 		stats.addProperty("reputation_change", 0);
-		stats.addProperty("schema_test", 123);
 		return stats;
 	}
 }
