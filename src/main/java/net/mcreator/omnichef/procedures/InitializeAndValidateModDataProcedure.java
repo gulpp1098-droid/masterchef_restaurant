@@ -174,13 +174,19 @@ public class InitializeAndValidateModDataProcedure {
 			}
 
 			void statistics(com.google.gson.JsonObject restaurant, String key, String path) {
+				com.google.gson.JsonObject schema = CreateRestaurantStatsSchemaProcedure.execute();
+				com.google.gson.JsonObject defaults = schema.getAsJsonObject("defaults");
+				com.google.gson.JsonArray negativeAllowed = schema.getAsJsonArray("negative_allowed");
 				supply(restaurant, key, new com.google.gson.JsonObject(), path);
-				com.google.gson.JsonObject stats = object(restaurant.get(key), path + "." + key);
-				for (String field : new String[]{"customers_served_fully", "customers_served", "customers_lost", "coins_earned", "reputation_change"}) {
-					supply(stats, field, new com.google.gson.JsonPrimitive(0), path + "." + key);
-					double value = number(stats, field, path + "." + key);
-					if (!field.equals("reputation_change") && value < 0)
-						throw bad(path + "." + key + "." + field, "negative statistic");
+				String statsPath = path + "." + key;
+				com.google.gson.JsonObject stats = object(restaurant.get(key), statsPath);
+				for (var entry : defaults.entrySet()) {
+					String field = entry.getKey();
+					supply(stats, field, entry.getValue(), statsPath);
+					double value = number(stats, field, statsPath);
+					if (value < 0 && !negativeAllowed.contains(new com.google.gson.JsonPrimitive(field))) {
+						throw bad(statsPath + "." + field, "negative statistic");
+					}
 				}
 			}
 
