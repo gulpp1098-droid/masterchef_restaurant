@@ -12,6 +12,8 @@ public class InitializeAndValidateModDataProcedure {
 			final String[] names;
 			final long day;
 			final com.google.gson.JsonObject catalog;
+			final com.google.gson.JsonObject schemas;
+			java.util.function.BiFunction<com.google.gson.JsonArray, com.google.gson.JsonArray, Double> baseExp;
 			final java.util.function.Consumer<String> log;
 			int maximumId;
 			boolean allowFreshDataset = true;
@@ -19,11 +21,12 @@ public class InitializeAndValidateModDataProcedure {
 			long statisticsDay;
 			long clientsDay;
 
-			public StartupDataEngine(java.nio.file.Path directory, String[] names, long day, com.google.gson.JsonObject catalog, java.util.function.Consumer<String> log) throws java.io.IOException {
-				this.directory = directory;
+			public StartupDataEngine(java.nio.file.Path directory, String[] names, long day, com.google.gson.JsonObject catalog, com.google.gson.JsonObject schemas, java.util.function.Consumer<String> log) throws java.io.IOException {
+				this.directory = directory.toAbsolutePath().normalize();
 				this.names = names.clone();
 				this.day = day;
 				this.catalog = catalog;
+				this.schemas = schemas.deepCopy();
 				this.log = log;
 				java.util.Set<String> unique = new java.util.HashSet<>();
 				for (String name : names) {
@@ -34,6 +37,7 @@ public class InitializeAndValidateModDataProcedure {
 				if (names.length != 3) {
 					throw new java.io.IOException("Expected three data filenames");
 				}
+				checkSchemas();
 			}
 
 			IllegalStateException bad(String path, String reason) {
@@ -41,9 +45,8 @@ public class InitializeAndValidateModDataProcedure {
 			}
 
 			com.google.gson.JsonElement readValue(com.google.gson.stream.JsonReader reader, String path, int depth) throws java.io.IOException {
-				if (depth > 128) {
+				if (depth > 128)
 					throw bad(path, "JSON nesting exceeds 128");
-				}
 				switch (reader.peek()) {
 					case BEGIN_OBJECT :
 						com.google.gson.JsonObject object = new com.google.gson.JsonObject();
@@ -154,32 +157,6 @@ public class InitializeAndValidateModDataProcedure {
 				}
 			}
 
-			void fillDefaults(com.google.gson.JsonObject data, com.google.gson.JsonObject defaults, String path) {
-				for (var entry : defaults.entrySet()) {
-					String key = entry.getKey();
-					com.google.gson.JsonElement expected = entry.getValue();
-					String fieldPath = path + "." + key;
-					if (expected.isJsonNull()) {
-						throw bad(fieldPath, "default cannot be null");
-					}
-					supply(data, key, expected, path);
-					com.google.gson.JsonElement actual = data.get(key);
-					if (expected.isJsonObject()) {
-						fillDefaults(object(actual, fieldPath), expected.getAsJsonObject(), fieldPath);
-					} else if (expected.isJsonArray()) {
-						array(data, key, path);
-					} else if (expected.getAsJsonPrimitive().isBoolean()) {
-						bool(data, key, path);
-					} else if (expected.getAsJsonPrimitive().isNumber()) {
-						number(data, key, path);
-					} else if (expected.getAsJsonPrimitive().isString()) {
-						text(data, key, path, true);
-					} else {
-						throw bad(fieldPath, "unsupported default type");
-					}
-				}
-			}
-
 			void strings(com.google.gson.JsonObject object, String key, String path, int coordinateParts) {
 				com.google.gson.JsonArray values = array(object, key, path);
 				for (int index = 0; index < values.size(); index++) {
@@ -205,74 +182,249 @@ public class InitializeAndValidateModDataProcedure {
 						if (numeric.compareTo(java.math.BigDecimal.valueOf(Integer.MIN_VALUE)) < 0 || numeric.compareTo(java.math.BigDecimal.valueOf(Integer.MAX_VALUE)) > 0) {
 							throw bad(path, "coordinate out of range");
 						}
-						if (parts == 2) {
+						if (parts == 2)
 							numeric.intValueExact();
-						}
 					} catch (NumberFormatException | ArithmeticException exception) {
 						throw bad(path, "invalid coordinate: " + coordinate);
 					}
 				}
 			}
 
-			void validateSchema(com.google.gson.JsonObject data, com.google.gson.JsonObject schema, String path) {
-				com.google.gson.JsonObject defaults = object(schema.get("defaults"), "TradeOfferSchema.defaults");
-				com.google.gson.JsonObject required = object(schema.get("required"), "TradeOfferSchema.required");
-				fillDefaults(data, defaults, path);
-				for (var entry : required.entrySet()) {
-					String key = entry.getKey();
-					com.google.gson.JsonElement rule = entry.getValue();
-					if (!rule.isJsonPrimitive() || !rule.getAsJsonPrimitive().isString()) {
-						throw bad(path + "." + key, "schema rule must be a string");
+			com.google.gson.JsonObject fields(com.google.gson.JsonObject data, String key) {
+				if (!data.has(key))
+					return new com.google.gson.JsonObject();
+				return object(data.get(key), "schema." + key);
+			}
+
+			void checkSchemas() {
+				java.util.Set<String> rules = java.util.Set.of("string", "nonempty_string", "uuid", "boolean", "number", "integer", "positive_integer", "nonnegative_integer", "object", "array", "nonempty_string_array", "positive_integer_array",
+						"coordinates_2_array", "coordinates_3_array", "coordinates_3_or_empty");
+				for (var entry : schemas.entrySet()) {
+					String name = entry.getKey();
+					var schema = object(entry.getValue(), "schema." + name);
+					var defaults = fields(schema, "defaults");
+					var required = fields(schema, "required");
+					var minimums = fields(schema, "minimums");
+					if (schema.has("negative_allowed")) {
+						java.util.Set<String> negative = new java.util.HashSet<>();
+						for (var value : array(schema, "negative_allowed", "schema." + name)) {
+							if (!value.isJsonPrimitive() || !value.getAsJsonPrimitive().isString() || !defaults.has(value.getAsString())) {
+								throw bad("schema." + name, "invalid negative_allowed entry");
+							}
+							negative.add(value.getAsString());
+						}
+						for (var field : defaults.entrySet()) {
+							number(defaults, field.getKey(), "schema." + name + ".defaults");
+							required.addProperty(field.getKey(), "number");
+							if (!negative.contains(field.getKey()) && !minimums.has(field.getKey())) {
+								minimums.addProperty(field.getKey(), 0);
+							}
+						}
 					}
-					switch (rule.getAsString()) {
-						case "nonempty_string" :
-							text(data, key, path, false);
-							break;
-						case "string" :
-							text(data, key, path, true);
-							break;
-						case "boolean" :
-							bool(data, key, path);
-							break;
-						case "number" :
-							number(data, key, path);
-							break;
-						case "integer" :
-							integer(data, key, path, Long.MIN_VALUE, Long.MAX_VALUE);
-							break;
-						case "positive_integer" :
-							integer(data, key, path, 1, Integer.MAX_VALUE);
-							break;
-						case "nonnegative_integer" :
-							integer(data, key, path, 0, Integer.MAX_VALUE);
-							break;
-						case "object" :
-							object(data.get(key), path + "." + key);
-							break;
-						case "array" :
-							array(data, key, path);
-							break;
-						default :
-							throw bad(path + "." + key, "unknown schema rule: " + rule.getAsString());
+					schema.add("defaults", defaults);
+					schema.add("required", required);
+					schema.add("minimums", minimums);
+					for (String key : new String[]{"optional", "maximums", "max_lengths", "array_items", "object_schemas"}) {
+						schema.add(key, fields(schema, key));
+					}
+					for (String key : new String[]{"required", "optional"}) {
+						for (var field : fields(schema, key).entrySet()) {
+							if (!field.getValue().isJsonPrimitive() || !field.getValue().getAsJsonPrimitive().isString() || !rules.contains(field.getValue().getAsString())) {
+								throw bad("schema." + name + "." + key + "." + field.getKey(), "unknown field rule");
+							}
+							if (key.equals("optional") && required.has(field.getKey())) {
+								throw bad("schema." + name, "field is both required and optional: " + field.getKey());
+							}
+						}
+					}
+					for (String key : new String[]{"minimums", "maximums", "max_lengths"}) {
+						for (var field : fields(schema, key).entrySet()) {
+							String fieldName = field.getKey();
+							number(fields(schema, key), fieldName, "schema." + name + "." + key);
+							if (!required.has(fieldName) && !fields(schema, "optional").has(fieldName) && !defaults.has(fieldName)) {
+								throw bad("schema." + name, "constraint for undeclared field: " + fieldName);
+							}
+							if (key.equals("max_lengths")) {
+								integer(fields(schema, key), fieldName, "schema." + name, 0, Long.MAX_VALUE);
+							}
+						}
+					}
+					for (var field : minimums.entrySet()) {
+						var maximums = fields(schema, "maximums");
+						if (maximums.has(field.getKey()) && field.getValue().getAsBigDecimal().compareTo(maximums.get(field.getKey()).getAsBigDecimal()) > 0) {
+							throw bad("schema." + name, "minimum exceeds maximum: " + field.getKey());
+						}
+					}
+					for (String key : new String[]{"array_items", "object_schemas"}) {
+						for (var field : fields(schema, key).entrySet()) {
+							String target = text(fields(schema, key), field.getKey(), "schema." + name, false);
+							if (!schemas.has(target)) {
+								throw bad("schema." + name, "unknown schema reference: " + target);
+							}
+							if (!required.has(field.getKey()) && !fields(schema, "optional").has(field.getKey()) && !defaults.has(field.getKey())) {
+								throw bad("schema." + name, "reference for undeclared field: " + field.getKey());
+							}
+						}
+					}
+				}
+				for (String name : new String[]{"restaurants_file", "unlocks_file", "clients_file", "restaurant", "restaurant_stats", "trade_board", "trade_offer", "restaurant_unlocks", "client_schedule", "client_group", "client_member",
+						"shift_result"}) {
+					if (!schemas.has(name)) {
+						throw bad("schemas", "missing schema: " + name);
 					}
 				}
 			}
 
-			void statistics(com.google.gson.JsonObject restaurant, String key, String path) {
-				com.google.gson.JsonObject schema = CreateRestaurantStatsSchemaProcedure.execute();
-				com.google.gson.JsonObject defaults = schema.getAsJsonObject("defaults");
-				com.google.gson.JsonArray negativeAllowed = schema.getAsJsonArray("negative_allowed");
-				supply(restaurant, key, new com.google.gson.JsonObject(), path);
-				String statsPath = path + "." + key;
-				com.google.gson.JsonObject stats = object(restaurant.get(key), statsPath);
+			void fillDefaults(com.google.gson.JsonObject data, com.google.gson.JsonObject defaults, String path, int depth) {
+				if (depth > 128) {
+					throw bad(path, "default nesting exceeds 128");
+				}
 				for (var entry : defaults.entrySet()) {
-					String field = entry.getKey();
-					supply(stats, field, entry.getValue(), statsPath);
-					double value = number(stats, field, statsPath);
-					if (value < 0 && !negativeAllowed.contains(new com.google.gson.JsonPrimitive(field))) {
-						throw bad(statsPath + "." + field, "negative statistic");
+					String key = entry.getKey();
+					var expected = entry.getValue();
+					if (expected.isJsonNull()) {
+						throw bad(path + "." + key, "null default is unsupported");
+					}
+					supply(data, key, expected, path);
+					if (expected.isJsonObject()) {
+						fillDefaults(object(data.get(key), path + "." + key), expected.getAsJsonObject(), path + "." + key, depth + 1);
+					} else if (expected.isJsonArray()) {
+						array(data, key, path);
+					} else if (expected.getAsJsonPrimitive().isBoolean()) {
+						bool(data, key, path);
+					} else if (expected.getAsJsonPrimitive().isNumber()) {
+						number(data, key, path);
+					} else {
+						text(data, key, path, true);
 					}
 				}
+			}
+
+			void validateType(com.google.gson.JsonObject data, String key, String rule, String path) {
+				switch (rule) {
+					case "string" :
+						text(data, key, path, true);
+						break;
+					case "nonempty_string" :
+						text(data, key, path, false);
+						break;
+					case "boolean" :
+						bool(data, key, path);
+						break;
+					case "number" :
+						number(data, key, path);
+						break;
+					case "integer" :
+						integer(data, key, path, Long.MIN_VALUE, Long.MAX_VALUE);
+						break;
+					case "positive_integer" :
+						integer(data, key, path, 1, Integer.MAX_VALUE);
+						break;
+					case "nonnegative_integer" :
+						integer(data, key, path, 0, Integer.MAX_VALUE);
+						break;
+					case "object" :
+						object(data.get(key), path + "." + key);
+						break;
+					case "array" :
+						array(data, key, path);
+						break;
+					case "nonempty_string_array" :
+						strings(data, key, path, 0);
+						break;
+					case "coordinates_2_array" :
+						strings(data, key, path, 2);
+						break;
+					case "coordinates_3_array" :
+						strings(data, key, path, 3);
+						break;
+					case "coordinates_3_or_empty" : {
+						String value = text(data, key, path, true);
+						if (!value.isEmpty()) {
+							coordinates(value, 3, path + "." + key);
+						}
+						break;
+					}
+					case "uuid" : {
+						String value = text(data, key, path, false);
+						try {
+							if (!java.util.UUID.fromString(value).toString().equalsIgnoreCase(value)) {
+								throw bad(path + "." + key, "invalid UUID");
+							}
+						} catch (IllegalArgumentException exception) {
+							throw bad(path + "." + key, "invalid UUID");
+						}
+						break;
+					}
+					case "positive_integer_array" : {
+						var values = array(data, key, path);
+						for (int i = 0; i < values.size(); i++) {
+							var box = new com.google.gson.JsonObject();
+							box.add("value", values.get(i));
+							integer(box, "value", path + "." + key + "[" + i + "]", 1, Integer.MAX_VALUE);
+						}
+						break;
+					}
+					default :
+						throw bad(path + "." + key, "unknown rule: " + rule);
+				}
+			}
+
+			void validate(String name, com.google.gson.JsonObject data, String path, int depth) {
+				if (depth > 128) {
+					throw bad(path, "schema nesting exceeds 128");
+				}
+				var schema = object(schemas.get(name), "schema." + name);
+				fillDefaults(data, fields(schema, "defaults"), path, depth);
+				for (var field : fields(schema, "required").entrySet()) {
+					validateType(data, field.getKey(), field.getValue().getAsString(), path);
+				}
+				for (var field : fields(schema, "optional").entrySet()) {
+					if (data.has(field.getKey())) {
+						validateType(data, field.getKey(), field.getValue().getAsString(), path);
+					}
+				}
+				for (String kind : new String[]{"minimums", "maximums"}) {
+					for (var bound : fields(schema, kind).entrySet()) {
+						String key = bound.getKey();
+						if (!data.has(key))
+							continue;
+						number(data, key, path);
+						int comparison = data.get(key).getAsBigDecimal().compareTo(bound.getValue().getAsBigDecimal());
+						if (kind.equals("minimums") ? comparison < 0 : comparison > 0) {
+							throw bad(path + "." + key, "value outside " + kind);
+						}
+					}
+				}
+				for (var bound : fields(schema, "max_lengths").entrySet()) {
+					String key = bound.getKey();
+					if (!data.has(key))
+						continue;
+					long length = array(data, key, path).size();
+					if (java.math.BigDecimal.valueOf(length).compareTo(bound.getValue().getAsBigDecimal()) > 0) {
+						throw bad(path + "." + key, "array too long");
+					}
+				}
+				for (var field : fields(schema, "object_schemas").entrySet()) {
+					String key = field.getKey();
+					if (data.has(key)) {
+						validate(field.getValue().getAsString(), object(data.get(key), path + "." + key), path + "." + key, depth + 1);
+					}
+				}
+				for (var field : fields(schema, "array_items").entrySet()) {
+					String key = field.getKey();
+					if (!data.has(key))
+						continue;
+					var values = array(data, key, path);
+					for (int i = 0; i < values.size(); i++) {
+						String itemPath = path + "." + key + "[" + i + "]";
+						validate(field.getValue().getAsString(), object(values.get(i), itemPath), itemPath, depth + 1);
+					}
+				}
+			}
+
+			com.google.gson.JsonObject defaultsFor(String name) {
+				return fields(object(schemas.get(name), "schema." + name), "defaults");
 			}
 
 			java.util.Map<Integer, com.google.gson.JsonObject> index(com.google.gson.JsonObject root, String file) {
@@ -333,169 +485,149 @@ public class InitializeAndValidateModDataProcedure {
 				return roots;
 			}
 
-			void prepare(com.google.gson.JsonObject[] roots) {
-				java.util.Map<Integer, com.google.gson.JsonObject> restaurants = index(roots[0], names[0]);
-				java.util.Map<Integer, com.google.gson.JsonObject> unlocks = index(roots[1], names[1]);
-				if (!restaurants.keySet().equals(unlocks.keySet())) {
-					throw bad("restaurants", "ID sets differ between restaurant and unlock files");
-				}
-				maximumId = 0;
-				openRestaurantIds.clear();
-				supply(roots[0], "last_stats_reset_day", new com.google.gson.JsonPrimitive(day), names[0]);
-				statisticsDay = integer(roots[0], "last_stats_reset_day", names[0], -1, Long.MAX_VALUE);
-				for (var entry : restaurants.entrySet()) {
-					int id = entry.getKey();
-					maximumId = Math.max(maximumId, id);
-					com.google.gson.JsonObject restaurant = entry.getValue();
-					String path = names[0] + ".restaurant(ID=" + id + ")";
-					fillDefaults(restaurant, CreateDefaultRestaurantFieldsProcedure.execute(), path);
-					text(restaurant, "name", path, false);
-					String owner = text(restaurant, "owner", path, false);
-					try {
-						if (!java.util.UUID.fromString(owner).toString().equalsIgnoreCase(owner)) {
-							throw bad(path + ".owner", "invalid java.util.UUID");
-						}
-					} catch (IllegalArgumentException exception) {
-						throw bad(path + ".owner", "invalid java.util.UUID");
+			void migrateUnlocks(com.google.gson.JsonObject unlock, String path) {
+				int stage = (int) integer(unlock, "stage_tier", path, 0, Integer.MAX_VALUE);
+				long starter = integer(unlock, "starter_unlocks_remaining", path, 0, 3);
+				strings(unlock, "unlocked", path, 0);
+				strings(unlock, "pending_cards", path, 0);
+				var cards = array(unlock, "pending_cards", path);
+				supply(unlock, "pending_unlocks", new com.google.gson.JsonPrimitive(starter <= 0 && !cards.isEmpty() ? 1 : 0), path);
+				if (!unlock.has("unlock_options")) {
+					var options = new com.google.gson.JsonArray();
+					java.util.Set<String> unlocked = new java.util.HashSet<>();
+					for (var value : array(unlock, "unlocked", path)) {
+						unlocked.add(value.getAsString());
 					}
-					supply(restaurant, "ownerName", new com.google.gson.JsonPrimitive(owner), path);
-					text(restaurant, "ownerName", path, false);
-					integer(restaurant, "level", path, 0, Integer.MAX_VALUE);
-					number(restaurant, "reputation", path);
-					strings(restaurant, "coowners", path, 0);
-					strings(restaurant, "locations", path, 2);
-					strings(restaurant, "tables", path, 3);
-					String reception = text(restaurant, "reception", path, true);
-					if (!reception.isEmpty()) {
-						coordinates(reception, 3, path + ".reception");
+					var tiers = object(catalog.get("tiers"), "FoodDatabase.tiers");
+					long count = integer(catalog, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
+					if (stage >= count) {
+						throw bad(path + ".stage_tier", "cannot reconstruct options: stage exceeds food tiers");
 					}
-					strings(restaurant, "menu", path, 0);
-					strings(restaurant, "next_menu", path, 0);
-					if (bool(restaurant, "open", path)) {
-						openRestaurantIds.add((double) id);
-					}
-					number(restaurant, "close_time", path);
-					integer(restaurant, "active_groups", path, 0, Integer.MAX_VALUE);
-					integer(restaurant, "last_day_open", path, -1, Long.MAX_VALUE);
-					bool(restaurant, "menu_advance_ready", path);
-					statistics(restaurant, "daily_stats", path);
-					statistics(restaurant, "last_day_stats", path);
-					supply(restaurant, "trade_board", new com.google.gson.JsonObject(), path);
-					String tradePath = path + ".trade_board";
-					com.google.gson.JsonObject tradeBoard = object(restaurant.get("trade_board"), tradePath);
-					boolean incompleteTradeBoard = !tradeBoard.has("day") || !tradeBoard.has("offers");
-					supply(tradeBoard, "day", new com.google.gson.JsonPrimitive(-1), tradePath);
-					supply(tradeBoard, "offers", new com.google.gson.JsonArray(), tradePath);
-					integer(tradeBoard, "day", tradePath, -1, Long.MAX_VALUE);
-					com.google.gson.JsonArray tradeOffers = array(tradeBoard, "offers", tradePath);
-					if (incompleteTradeBoard) {
-						tradeBoard.addProperty("day", -1);
-						tradeBoard.add("offers", new com.google.gson.JsonArray());
-						log.accept("Initialized " + tradePath);
-					} else {
-						if (tradeOffers.size() > 5) {
-							throw bad(tradePath + ".offers", "more than five offers");
-						}
-						for (int offerIndex = 0; offerIndex < tradeOffers.size(); offerIndex++) {
-							String offerPath = tradePath + ".offers[" + offerIndex + "]";
-							com.google.gson.JsonObject offer = object(tradeOffers.get(offerIndex), offerPath);
-							validateSchema(offer, CreateTradeOfferSchemaProcedure.execute(), offerPath);
-						}
-					}
-					com.google.gson.JsonObject unlock = unlocks.get(id);
-					path = names[1] + ".restaurant(ID=" + id + ")";
-					if (number(unlock, "discovery_exp", path) < 0) {
-						throw bad(path, "negative discovery experience");
-					}
-					int stage = (int) integer(unlock, "stage_tier", path, 0, Integer.MAX_VALUE);
-					long starter = integer(unlock, "starter_unlocks_remaining", path, 0, 3);
-					strings(unlock, "unlocked", path, 0);
-					com.google.gson.JsonArray cards = array(unlock, "pending_cards", path);
-					strings(unlock, "pending_cards", path, 0);
-					if (cards.size() > 3) {
-						throw bad(path + ".pending_cards", "more than three cards");
-					}
-					supply(unlock, "pending_unlocks", new com.google.gson.JsonPrimitive(starter <= 0 && !cards.isEmpty() ? 1 : 0), path);
-					integer(unlock, "pending_unlocks", path, 0, 5);
-					if (!unlock.has("unlock_options")) {
-						com.google.gson.JsonArray options = new com.google.gson.JsonArray();
-						java.util.Set<String> unlocked = new java.util.HashSet<>();
-						for (com.google.gson.JsonElement value : unlock.getAsJsonArray("unlocked")) {
-							unlocked.add(value.getAsString());
-						}
-						com.google.gson.JsonObject tiers = object(catalog.get("tiers"), "FoodDatabase.tiers");
-						long count = integer(catalog, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
-						if (stage >= count) {
-							throw bad(path + ".stage_tier", "cannot reconstruct options: stage exceeds current food tiers");
-						}
-						java.util.Set<String> seen = new java.util.HashSet<>();
-						for (int tier = 0; tier <= stage; tier++) {
-							for (com.google.gson.JsonElement value : array(tiers, Integer.toString(tier), "FoodDatabase.tiers")) {
-								String food = text(object(value, "FoodDatabase.food"), "id", "FoodDatabase.food", false);
-								if (!unlocked.contains(food) && seen.add(food)) {
-									options.add(food);
-								}
+					java.util.Set<String> seen = new java.util.HashSet<>();
+					for (int tier = 0; tier <= stage; tier++) {
+						for (var value : array(tiers, Integer.toString(tier), "FoodDatabase.tiers")) {
+							String food = text(object(value, "FoodDatabase.food"), "id", "FoodDatabase.food", false);
+							if (!unlocked.contains(food) && seen.add(food)) {
+								options.add(food);
 							}
 						}
-						unlock.add("unlock_options", options);
-						log.accept("Reconstructed " + path + ".unlock_options");
 					}
-					strings(unlock, "unlock_options", path, 0);
+					unlock.add("unlock_options", options);
+					log.accept("Reconstructed " + path + ".unlock_options");
 				}
-				com.google.gson.JsonArray ordered = new com.google.gson.JsonArray();
-				for (int id : restaurants.keySet()) {
-					ordered.add(unlocks.get(id));
-				}
-				roots[1].add("restaurants", ordered);
-				validateClients(roots[2]);
 			}
 
-			void validateClients(com.google.gson.JsonObject root) {
-				com.google.gson.JsonArray records = array(root, "restaurants", names[2]);
-				if (records.isEmpty()) {
+			void migrateRestaurant(com.google.gson.JsonObject restaurant, String path) {
+				fillDefaults(restaurant, defaultsFor("restaurant"), path, 0);
+				String owner = text(restaurant, "owner", path, false);
+				supply(restaurant, "ownerName", new com.google.gson.JsonPrimitive(owner), path);
+				supply(restaurant, "daily_stats", new com.google.gson.JsonObject(), path);
+				supply(restaurant, "last_day_stats", new com.google.gson.JsonObject(), path);
+				supply(restaurant, "trade_board", defaultsFor("trade_board"), path);
+				var tradeBoard = object(restaurant.get("trade_board"), path + ".trade_board");
+				if (!tradeBoard.has("day") && tradeBoard.has("offers") && !array(tradeBoard, "offers", path + ".trade_board").isEmpty()) {
+					throw bad(path + ".trade_board", "offers exist but their day is missing");
+				}
+				if (!tradeBoard.has("offers") && tradeBoard.has("day") && number(tradeBoard, "day", path + ".trade_board") >= 0) {
+					throw bad(path + ".trade_board", "saved offers are missing");
+				}
+				fillDefaults(tradeBoard, defaultsFor("trade_board"), path + ".trade_board", 0);
+			}
+
+			void migrateClients(com.google.gson.JsonObject root, java.util.Map<Integer, com.google.gson.JsonObject> restaurants) {
+				var schedules = array(root, "restaurants", names[2]);
+				if (schedules.isEmpty()) {
 					supply(root, "database_day", new com.google.gson.JsonPrimitive(day), names[2]);
 				}
 				clientsDay = integer(root, "database_day", names[2], -1, Long.MAX_VALUE);
 				for (var entry : index(root, names[2]).entrySet()) {
-					com.google.gson.JsonObject restaurant = entry.getValue();
+					var schedule = entry.getValue();
 					String path = names[2] + ".restaurant(ID=" + entry.getKey() + ")";
-					number(restaurant, "next_spawn_group_time", path);
-					integer(restaurant, "next_spawn_group_index", path, -1, Integer.MAX_VALUE);
-					String queue = text(restaurant, "queue_start", path, true);
-					if (!queue.isEmpty()) {
-						coordinates(queue, 3, path + ".queue_start");
+					var groups = array(schedule, "groups", path);
+					boolean anySpawned = false;
+					for (int i = 0; i < groups.size(); i++) {
+						String groupPath = path + ".groups[" + i + "]";
+						var group = object(groups.get(i), groupPath);
+						boolean spawned = bool(group, "spawned", groupPath);
+						anySpawned |= spawned;
+						var members = array(group, "members", groupPath);
+						for (int j = 0; j < members.size(); j++) {
+							String memberPath = groupPath + ".members[" + j + "]";
+							var member = object(members.get(j), memberPath);
+							if (!spawned) {
+								supply(member, "order_served", new com.google.gson.JsonPrimitive(false), memberPath);
+								supply(member, "final_satisfaction", new com.google.gson.JsonPrimitive(0), memberPath);
+								supply(member, "result_recorded", new com.google.gson.JsonPrimitive(false), memberPath);
+								if (!member.has("potential_base_exp")) {
+									validateType(member, "food", "nonempty_string_array", memberPath);
+									validateType(member, "food_amount", "positive_integer_array", memberPath);
+									var foods = array(member, "food", memberPath);
+									var amounts = array(member, "food_amount", memberPath);
+									if (foods.size() != amounts.size()) {
+										throw bad(memberPath, "food and food_amount lengths differ");
+									}
+									if (baseExp == null) {
+										throw bad(memberPath, "base EXP calculator is unavailable");
+									}
+									double value = baseExp.apply(amounts, foods);
+									if (!Double.isFinite(value) || value < 0) {
+										throw bad(memberPath, "cannot reconstruct potential base EXP");
+									}
+									supply(member, "potential_base_exp", new com.google.gson.JsonPrimitive(value), memberPath);
+								}
+							}
+						}
 					}
-					java.util.Set<Long> groupIds = new java.util.HashSet<>();
-					int groupIndex = 0;
-					for (com.google.gson.JsonElement groupValue : array(restaurant, "groups", path)) {
-						String groupPath = path + ".groups[" + groupIndex++ + "]";
-						com.google.gson.JsonObject group = object(groupValue, groupPath);
+					if (!schedule.has("shift_id")) {
+						var restaurant = restaurants.get(entry.getKey());
+						if (anySpawned || clientsDay < 0 || clientsDay > Long.MAX_VALUE / 24000L || (restaurant != null && (restaurant.has("last_settled_shift_id") || restaurant.has("last_shift_result")))) {
+							throw bad(path + ".shift_id", "cannot safely reconstruct an existing shift identity");
+						}
+						supply(schedule, "shift_id", new com.google.gson.JsonPrimitive(clientsDay * 24000L), path);
+					}
+				}
+			}
+
+			void checkClients(com.google.gson.JsonObject root) {
+				for (var entry : index(root, names[2]).entrySet()) {
+					var schedule = entry.getValue();
+					String path = names[2] + ".restaurant(ID=" + entry.getKey() + ")";
+					var groups = array(schedule, "groups", path);
+					long nextIndex = integer(schedule, "next_spawn_group_index", path, -1, Integer.MAX_VALUE);
+					if (nextIndex >= groups.size()) {
+						throw bad(path + ".next_spawn_group_index", "group index outside schedule");
+					}
+					java.util.Set<Long> ids = new java.util.HashSet<>();
+					for (int i = 0; i < groups.size(); i++) {
+						String groupPath = path + ".groups[" + i + "]";
+						var group = object(groups.get(i), groupPath);
 						long groupId = integer(group, "group_id", groupPath, 0, Integer.MAX_VALUE);
-						if (!groupIds.add(groupId)) {
+						if (!ids.add(groupId)) {
 							throw bad(groupPath, "duplicate group ID");
 						}
-						number(group, "spawn_time", groupPath);
-						bool(group, "spawned", groupPath);
-						text(group, "state", groupPath, false);
-						int memberIndex = 0;
+						boolean spawned = bool(group, "spawned", groupPath);
+						var members = array(group, "members", groupPath);
 						int leaders = 0;
-						for (com.google.gson.JsonElement memberValue : array(group, "members", groupPath)) {
-							String memberPath = groupPath + ".members[" + memberIndex++ + "]";
-							com.google.gson.JsonObject member = object(memberValue, memberPath);
+						for (int j = 0; j < members.size(); j++) {
+							String memberPath = groupPath + ".members[" + j + "]";
+							var member = object(members.get(j), memberPath);
 							if (bool(member, "leader", memberPath)) {
 								leaders++;
 							}
-							bool(member, "critic", memberPath);
-							number(member, "patience", memberPath);
-							strings(member, "food", memberPath, 0);
-							com.google.gson.JsonArray amounts = array(member, "food_amount", memberPath);
-							if (amounts.size() != member.getAsJsonArray("food").size()) {
+							if (array(member, "food", memberPath).size() != array(member, "food_amount", memberPath).size()) {
 								throw bad(memberPath, "food and food_amount lengths differ");
 							}
-							for (int index = 0; index < amounts.size(); index++) {
-								com.google.gson.JsonObject box = new com.google.gson.JsonObject();
-								box.add("amount", amounts.get(index));
-								integer(box, "amount", memberPath + ".food_amount[" + index + "]", 1, Integer.MAX_VALUE);
+							boolean served = bool(member, "order_served", memberPath);
+							boolean recorded = bool(member, "result_recorded", memberPath);
+							double satisfaction = number(member, "final_satisfaction", memberPath);
+							if (!spawned && (served || recorded || satisfaction != 0)) {
+								throw bad(memberPath, "unspawned member has a recorded visit");
+							}
+							if (!recorded && (served || satisfaction != 0)) {
+								throw bad(memberPath, "unfinished result contains final visit data");
+							}
+							if (!served && satisfaction != 0) {
+								throw bad(memberPath, "unserved member has nonzero satisfaction");
 							}
 						}
 						if (leaders != 1) {
@@ -503,6 +635,51 @@ public class InitializeAndValidateModDataProcedure {
 						}
 					}
 				}
+			}
+
+			void prepare(com.google.gson.JsonObject[] roots) {
+				var restaurants = index(roots[0], names[0]);
+				var unlocks = index(roots[1], names[1]);
+				if (!restaurants.keySet().equals(unlocks.keySet())) {
+					throw bad("restaurants", "ID sets differ between restaurant and unlock files");
+				}
+				maximumId = 0;
+				openRestaurantIds.clear();
+				supply(roots[0], "last_stats_reset_day", new com.google.gson.JsonPrimitive(day), names[0]);
+				for (var entry : restaurants.entrySet()) {
+					int id = entry.getKey();
+					maximumId = Math.max(maximumId, id);
+					migrateRestaurant(entry.getValue(), names[0] + ".restaurant(ID=" + id + ")");
+					migrateUnlocks(unlocks.get(id), names[1] + ".restaurant(ID=" + id + ")");
+				}
+				migrateClients(roots[2], restaurants);
+				validate("restaurants_file", roots[0], names[0], 0);
+				validate("unlocks_file", roots[1], names[1], 0);
+				validate("clients_file", roots[2], names[2], 0);
+				statisticsDay = integer(roots[0], "last_stats_reset_day", names[0], -1, Long.MAX_VALUE);
+				clientsDay = integer(roots[2], "database_day", names[2], -1, Long.MAX_VALUE);
+				for (var entry : restaurants.entrySet()) {
+					var restaurant = entry.getValue();
+					String path = names[0] + ".restaurant(ID=" + entry.getKey() + ")";
+					if (bool(restaurant, "open", path)) {
+						openRestaurantIds.add((double) entry.getKey());
+					}
+					if (restaurant.has("last_settled_shift_id") != restaurant.has("last_shift_result")) {
+						throw bad(path, "incomplete shift settlement record");
+					}
+					if (restaurant.has("last_shift_result")) {
+						var result = object(restaurant.get("last_shift_result"), path + ".last_shift_result");
+						if (!bool(result, "ready", path + ".last_shift_result") || integer(result, "shift_id", path + ".last_shift_result", 0, Long.MAX_VALUE) != integer(restaurant, "last_settled_shift_id", path, 0, Long.MAX_VALUE)) {
+							throw bad(path, "shift result does not match its settlement marker");
+						}
+					}
+				}
+				checkClients(roots[2]);
+				var ordered = new com.google.gson.JsonArray();
+				for (int id : restaurants.keySet()) {
+					ordered.add(unlocks.get(id));
+				}
+				roots[1].add("restaurants", ordered);
 			}
 
 			void durableWrite(java.nio.file.Path file, String content) throws java.io.IOException {
@@ -521,9 +698,8 @@ public class InitializeAndValidateModDataProcedure {
 			}
 
 			void cleanup(java.nio.file.Path folder) throws java.io.IOException {
-				if (!java.nio.file.Files.exists(folder)) {
+				if (!java.nio.file.Files.exists(folder))
 					return;
-				}
 				try (var files = java.nio.file.Files.walk(folder)) {
 					for (java.nio.file.Path file : files.sorted(java.util.Comparator.reverseOrder()).toList()) {
 						java.nio.file.Files.delete(file);
@@ -571,9 +747,8 @@ public class InitializeAndValidateModDataProcedure {
 
 			void recoverInterruptedCommit() throws java.io.IOException {
 				java.nio.file.Path transaction = directory.resolve(".startup-transaction");
-				if (!java.nio.file.Files.exists(transaction)) {
+				if (!java.nio.file.Files.exists(transaction))
 					return;
-				}
 				if (java.nio.file.Files.exists(transaction.resolve("COMMITTED"))) {
 					cleanup(transaction);
 				} else {
@@ -595,9 +770,8 @@ public class InitializeAndValidateModDataProcedure {
 						changed.add(index);
 					}
 				}
-				if (changed.isEmpty()) {
+				if (changed.isEmpty())
 					return;
-				}
 				java.nio.file.Path transaction = directory.resolve(".startup-transaction");
 				java.nio.file.Files.createDirectory(transaction);
 				boolean committed = false;
@@ -697,7 +871,7 @@ public class InitializeAndValidateModDataProcedure {
 				}
 				var variables = net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world);
 				String[] fileNames = {variables.Restaurant_File_Name, variables.RestaurantFood_File_Name, variables.ClientsDatabase_File_Name};
-				var engine = new StartupDataEngine(java.nio.file.Path.of(folder), fileNames, Math.floorDiv(level.getDayTime(), 24000L), new com.google.gson.JsonObject(),
+				var engine = new StartupDataEngine(java.nio.file.Path.of(folder), fileNames, Math.floorDiv(level.getDayTime(), 24000L), new com.google.gson.JsonObject(), CreateModDataSchemasProcedure.execute(),
 						message -> net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef startup: " + message));
 				engine.allowFreshDataset = variables.RestaurantID <= 1;
 				engine.recoverInterruptedCommit();
@@ -707,6 +881,7 @@ public class InitializeAndValidateModDataProcedure {
 				CreatingClientsNameDatabaseJsonFileProcedure.execute(world);
 				var config = net.neoforged.fml.loading.FMLPaths.GAMEDIR.get().resolve("config/omnichef");
 				var foodDatabase = engine.read(config.resolve(variables.FoodDatabase_File_Name));
+				engine.baseExp = (amounts, foods) -> GetClientOrderBaseExpFromArraysProcedure.execute(amounts, foods, foodDatabase);
 				engine.integer(foodDatabase, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
 				engine.object(foodDatabase.get("tiers"), "FoodDatabase.tiers");
 				engine.catalog.add("tier_count", foodDatabase.get("tier_count"));

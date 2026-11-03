@@ -17,7 +17,7 @@ public class CreateModDataSchemasProcedure {
 		com.google.gson.JsonObject tradeOffer = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject maxLengths = new com.google.gson.JsonObject();
 		restaurantStats = CreateRestaurantStatsSchemaProcedure.execute();
-		schemas.add("restaurants_stats", restaurantStats);
+		schemas.add("restaurant_stats", restaurantStats);
 		tradeOffer = CreateTradeOfferSchemaProcedure.execute();
 		schemas.add("trade_offer", tradeOffer);
 		required.addProperty("restaurants", "array");
