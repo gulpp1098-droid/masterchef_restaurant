@@ -76,7 +76,7 @@ public class SpawnClientsProcedure {
 									: null;
 							RestaurantsClientsObject = ClientsData.get((int) clientDatabaseIndex).getAsJsonObject();
 							nextSpawnGroupTime = RestaurantsClientsObject.get("next_spawn_group_time").getAsDouble();
-							if (world.dayTime() % 24000 >= nextSpawnGroupTime && Math.floor(RestaurantsClientsObject.get("shift_id").getAsDouble() / 24000) >= Math.floor(world.dayTime()) / 24000) {
+							if (world.dayTime() % 24000 >= nextSpawnGroupTime && Math.floor(RestaurantsClientsObject.get("shift_id").getAsDouble() / 24000) == Math.floor(world.dayTime() / 24000d)) {
 								nextSpawnGroupIndex = RestaurantsClientsObject.get("next_spawn_group_index").getAsDouble();
 								groupArray = RestaurantsClientsObject.get("groups").getAsJsonArray();
 								if (nextSpawnGroupIndex >= 0 && nextSpawnGroupIndex < groupArray.size()) {

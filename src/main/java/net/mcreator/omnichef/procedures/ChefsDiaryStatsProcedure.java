@@ -19,6 +19,7 @@ public class ChefsDiaryStatsProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		CreateGUIDataTransferProcedure.execute(world, entity);
 		if (entity instanceof ServerPlayer _ent) {
 			BlockPos _bpos = BlockPos.containing(x, y, z);
 			_ent.openMenu(new MenuProvider() {

@@ -33,7 +33,7 @@ public class ClosingRestaurantsProcedure {
 							"close_time");
 					openedDay = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 							"last_day_open");
-					if (Math.floor(world.dayTime() / 24000d) <= openedDay || CloseTime <= world.dayTime() % 24000) {
+					if (Math.floor(world.dayTime() / 24000d) > openedDay || CloseTime <= world.dayTime() % 24000) {
 						ModifyRestaurantLogicParameterProcedure.execute(false, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"open");
 						ModifyRestaurantLogicParameterProcedure.execute(true, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
