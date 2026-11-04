@@ -2281,6 +2281,7 @@
       "registry_name": "client_order_gui",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/omnichef/network/ClientOrderGUIButtonMessage.java",
           "src/main/java/net/mcreator/omnichef/client/gui/ClientOrderGUIScreen.java",
           "src/main/java/net/mcreator/omnichef/world/inventory/ClientOrderGUIMenu.java"
         ]

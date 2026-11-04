@@ -50,7 +50,8 @@ public class OpenSpatulaGUIProcedure {
 									CreateOverlayDataTransferProcedure.execute(world, entity);
 								}
 							}
-							if (pendingCards.size() > 0) {
+							if (pendingCards.size() > 0 && !GetRestaurantLogicParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 								if (entity instanceof ServerPlayer _ent) {
 									BlockPos _bpos = BlockPos.containing(x, y, z);
 									_ent.openMenu(new MenuProvider() {
