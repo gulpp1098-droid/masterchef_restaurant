@@ -11964,6 +11964,30 @@
         "return_type": "jsonobject"
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "GeneratePendingCardsFromData",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_pending_cards_from_data",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "unlockData",
+            "type": "jsonobject"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GeneratePendingCardsFromDataProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
