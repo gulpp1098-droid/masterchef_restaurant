@@ -30,7 +30,9 @@
     "damageVsEntity": 4.0,
     "attackSpeed": 1.2,
     "specialInformation": {
-      "fixedValue": []
+      "fixedValue": [
+        "Coins cannot be spent in this version yet."
+      ]
     },
     "glowCondition": {
       "fixedValue": false

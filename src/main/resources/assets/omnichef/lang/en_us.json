@@ -114,5 +114,8 @@
   "item.omnichef.groupwait": "Group wait",
   "block.omnichef.trade_board": "Trade Board",
   "gui.omnichef.chefs_diary_food_tier_gui.label_my_recipes": "My Recipes",
-  "block.omnichef.trade_board.description_0": "Let's see what offers it has"
+  "block.omnichef.trade_board.description_0": "Let's see what offers it has",
+  "item.omnichef.copper_coin.description_0": "Coins cannot be spent in this version yet.",
+  "item.omnichef.gold_coin.description_0": "Coins cannot be spent in this version yet.",
+  "item.omnichef.silver_coin.description_0": "Coins cannot be spent in this version yet."
 }

@@ -17,7 +17,7 @@
           "image": "result_gui.png",
           "width": 183,
           "height": 198,
-          "x": 122,
+          "x": 50,
           "y": 14,
           "locked": false
         }
@@ -29,7 +29,7 @@
           "image": "ribbon_icon.png",
           "width": 93,
           "height": 21,
-          "x": 167,
+          "x": 95,
           "y": 25,
           "locked": false
         }
@@ -49,7 +49,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 176,
+          "x": 104,
           "y": 29,
           "locked": false
         }
@@ -69,7 +69,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 13,
-          "x": 161,
+          "x": 89,
           "y": 49,
           "locked": false
         }
@@ -81,7 +81,7 @@
           "image": "facehappy_icon.png",
           "width": 16,
           "height": 16,
-          "x": 137,
+          "x": 65,
           "y": 64,
           "locked": false
         }
@@ -93,7 +93,7 @@
           "image": "facemedium_icon.png",
           "width": 16,
           "height": 16,
-          "x": 137,
+          "x": 65,
           "y": 84,
           "locked": false
         }
@@ -105,7 +105,7 @@
           "image": "faceangry_icon.png",
           "width": 16,
           "height": 16,
-          "x": 137,
+          "x": 65,
           "y": 104,
           "locked": false
         }
@@ -117,7 +117,7 @@
           "image": "separator_icon.png",
           "width": 133,
           "height": 11,
-          "x": 147,
+          "x": 75,
           "y": 122,
           "locked": false
         }
@@ -137,7 +137,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 137,
+          "x": 65,
           "y": 140,
           "locked": false
         }
@@ -157,7 +157,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 160,
+          "x": 88,
           "y": 160,
           "locked": false
         }
@@ -177,7 +177,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 160,
+          "x": 88,
           "y": 180,
           "locked": false
         }
@@ -197,7 +197,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 160,
+          "x": 88,
           "y": 67,
           "locked": false
         }
@@ -217,7 +217,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 160,
+          "x": 88,
           "y": 87,
           "locked": false
         }
@@ -237,7 +237,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 160,
+          "x": 88,
           "y": 107,
           "locked": false
         }
@@ -258,7 +258,7 @@
           "alignment": "RIGHT",
           "width": 120,
           "height": 40,
-          "x": 160,
+          "x": 88,
           "y": 66,
           "locked": false
         }
@@ -279,7 +279,7 @@
           "alignment": "RIGHT",
           "width": 120,
           "height": 40,
-          "x": 160,
+          "x": 88,
           "y": 139,
           "locked": false
         }
@@ -291,7 +291,7 @@
           "image": "coin_icon.png",
           "width": 16,
           "height": 16,
-          "x": 136,
+          "x": 64,
           "y": 157,
           "locked": false
         }
@@ -303,8 +303,207 @@
           "image": "reputation_icon.png",
           "width": 16,
           "height": 16,
-          "x": 136,
+          "x": 64,
           "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_0_copy",
+          "image": "result_gui.png",
+          "width": 138,
+          "height": 197,
+          "x": 233,
+          "y": 14,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_1_copy",
+          "image": "ribbon_icon.png",
+          "width": 93,
+          "height": 21,
+          "x": 258,
+          "y": 25,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_day_18_results_copy",
+          "text": "SERVICE NOTES",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 267,
+          "y": 29,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_customers_20_copy",
+          "text": "Orders with mistakes",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 128,
+          "height": 10,
+          "x": 251,
+          "y": 51,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_perfect_copy",
+          "text": "Missing food",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 245,
+          "y": 67,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_satisfied_copy",
+          "text": "Extra food",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 245,
+          "y": 87,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_lost_copy",
+          "text": "Wrong food",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 245,
+          "y": 107,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_1062_copy",
+          "text": "3\n\n1\n\n2",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "RIGHT",
+          "width": 120,
+          "height": 40,
+          "x": 239,
+          "y": 66,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_one_order_may_contain_several_mi",
+          "text": "One order may contain several mistakes.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "CENTER",
+          "width": 114,
+          "height": 40,
+          "x": 246,
+          "y": 122,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_5_copy",
+          "image": "separator_icon.png",
+          "width": 120,
+          "height": 11,
+          "x": 242,
+          "y": 144,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_one_order_may_contain_several_mi_copy",
+          "text": "Check food types and amounts before serving.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "CENTER",
+          "width": 114,
+          "height": 40,
+          "x": 246,
+          "y": 162,
           "locked": false
         }
       }

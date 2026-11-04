@@ -43,29 +43,44 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
 			String guiTools$sizedLabelText0 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_day_18_results", "DAY 18 RESULTS");
-			if (true && mouseX >= this.leftPos + -38 && mouseX < this.leftPos + 82 && mouseY >= this.topPos + -8 && mouseY < this.topPos + 2 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -110 && mouseX < this.leftPos + 10 && mouseY >= this.topPos + -8 && mouseY < this.topPos + 2 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText0, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText0), mouseX, mouseY);
 			String guiTools$sizedLabelText1 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_customers_20", "CUSTOMERS: 20");
-			if (true && mouseX >= this.leftPos + -53 && mouseX < this.leftPos + 67 && mouseY >= this.topPos + 12 && mouseY < this.topPos + 25 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 120, 1.25F))
+			if (true && mouseX >= this.leftPos + -125 && mouseX < this.leftPos + -5 && mouseY >= this.topPos + 12 && mouseY < this.topPos + 25 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText1, 120, 1.25F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText1), mouseX, mouseY);
 			String guiTools$sizedLabelText2 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfaction", "SATISFACTION");
-			if (true && mouseX >= this.leftPos + -77 && mouseX < this.leftPos + 43 && mouseY >= this.topPos + 103 && mouseY < this.topPos + 113 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -149 && mouseX < this.leftPos + -29 && mouseY >= this.topPos + 103 && mouseY < this.topPos + 113 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText2, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText2), mouseX, mouseY);
 			String guiTools$sizedLabelText3 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_coins_earned", "COINS EARNED");
-			if (true && mouseX >= this.leftPos + -54 && mouseX < this.leftPos + 66 && mouseY >= this.topPos + 123 && mouseY < this.topPos + 133 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText3, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -126 && mouseX < this.leftPos + -6 && mouseY >= this.topPos + 123 && mouseY < this.topPos + 133 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText3, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText3), mouseX, mouseY);
 			String guiTools$sizedLabelText4 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_coins_earned_copy", "REPUTATION EARNED");
-			if (true && mouseX >= this.leftPos + -54 && mouseX < this.leftPos + 66 && mouseY >= this.topPos + 143 && mouseY < this.topPos + 153 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText4, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -126 && mouseX < this.leftPos + -6 && mouseY >= this.topPos + 143 && mouseY < this.topPos + 153 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText4, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText4), mouseX, mouseY);
 			String guiTools$sizedLabelText5 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_perfect", "PERFECT");
-			if (true && mouseX >= this.leftPos + -54 && mouseX < this.leftPos + 66 && mouseY >= this.topPos + 30 && mouseY < this.topPos + 40 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText5, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -126 && mouseX < this.leftPos + -6 && mouseY >= this.topPos + 30 && mouseY < this.topPos + 40 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText5, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText5), mouseX, mouseY);
 			String guiTools$sizedLabelText6 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfied", "SATISFIED");
-			if (true && mouseX >= this.leftPos + -54 && mouseX < this.leftPos + 66 && mouseY >= this.topPos + 50 && mouseY < this.topPos + 60 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText6, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -126 && mouseX < this.leftPos + -6 && mouseY >= this.topPos + 50 && mouseY < this.topPos + 60 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText6, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText6), mouseX, mouseY);
 			String guiTools$sizedLabelText7 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_lost", "LOST");
-			if (true && mouseX >= this.leftPos + -54 && mouseX < this.leftPos + 66 && mouseY >= this.topPos + 70 && mouseY < this.topPos + 80 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText7, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + -126 && mouseX < this.leftPos + -6 && mouseY >= this.topPos + 70 && mouseY < this.topPos + 80 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText7, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText7), mouseX, mouseY);
+			String guiTools$sizedLabelText8 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_day_18_results_copy", "SERVICE NOTES");
+			if (true && mouseX >= this.leftPos + 53 && mouseX < this.leftPos + 173 && mouseY >= this.topPos + -8 && mouseY < this.topPos + 2 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText8, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText8), mouseX, mouseY);
+			String guiTools$sizedLabelText9 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_customers_20_copy", "Orders with mistakes");
+			if (true && mouseX >= this.leftPos + 37 && mouseX < this.leftPos + 165 && mouseY >= this.topPos + 14 && mouseY < this.topPos + 24 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText9, 128, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText9), mouseX, mouseY);
+			String guiTools$sizedLabelText10 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_perfect_copy", "Missing food");
+			if (true && mouseX >= this.leftPos + 31 && mouseX < this.leftPos + 151 && mouseY >= this.topPos + 30 && mouseY < this.topPos + 40 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText10, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText10), mouseX, mouseY);
+			String guiTools$sizedLabelText11 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfied_copy", "Extra food");
+			if (true && mouseX >= this.leftPos + 31 && mouseX < this.leftPos + 151 && mouseY >= this.topPos + 50 && mouseY < this.topPos + 60 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText11, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText11), mouseX, mouseY);
+			String guiTools$sizedLabelText12 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_lost_copy", "Wrong food");
+			if (true && mouseX >= this.leftPos + 31 && mouseX < this.leftPos + 151 && mouseY >= this.topPos + 70 && mouseY < this.topPos + 80 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText12, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText12), mouseX, mouseY);
 		}
 	}
 
@@ -84,7 +99,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 198;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/result_gui.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -92 + guiTools$xOffset, this.topPos + -23 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 183, 198);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -164 + guiTools$xOffset, this.topPos + -23 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 183, 198);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -93,7 +108,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 21;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/ribbon_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -47 + guiTools$xOffset, this.topPos + -12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 93, 21);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -119 + guiTools$xOffset, this.topPos + -12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 93, 21);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -102,7 +117,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 16;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/facehappy_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -77 + guiTools$xOffset, this.topPos + 27 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -149 + guiTools$xOffset, this.topPos + 27 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -111,7 +126,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 16;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/facemedium_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -77 + guiTools$xOffset, this.topPos + 47 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -149 + guiTools$xOffset, this.topPos + 47 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -120,7 +135,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 16;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/faceangry_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -77 + guiTools$xOffset, this.topPos + 67 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -149 + guiTools$xOffset, this.topPos + 67 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -129,7 +144,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 11;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/separator_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -67 + guiTools$xOffset, this.topPos + 85 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 133, 11);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -139 + guiTools$xOffset, this.topPos + 85 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 133, 11);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -138,7 +153,7 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 16;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/coin_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -78 + guiTools$xOffset, this.topPos + 120 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -150 + guiTools$xOffset, this.topPos + 120 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -147,7 +162,34 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 				int guiTools$visibleHeight = 16;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/reputation_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -78 + guiTools$xOffset, this.topPos + 140 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -150 + guiTools$xOffset, this.topPos + 140 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 16, 16);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 138;
+				int guiTools$visibleHeight = 197;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/result_gui.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 19 + guiTools$xOffset, this.topPos + -23 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 138, 197);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 93;
+				int guiTools$visibleHeight = 21;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/ribbon_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 44 + guiTools$xOffset, this.topPos + -12 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 93, 21);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 120;
+				int guiTools$visibleHeight = 11;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/separator_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 28 + guiTools$xOffset, this.topPos + 107 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 120, 11);
 			}
 		}
 	}
@@ -164,23 +206,37 @@ public class RestaurantResultGUIScreen extends AbstractContainerScreen<Restauran
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_day_18_results", "DAY 18 RESULTS"), -38, -8, 120, -1, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_day_18_results", "DAY 18 RESULTS"), -110, -8, 120, -1, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_customers_20", "CUSTOMERS: 20"), -53, 12, 120, -12829636, false, 1.25F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_customers_20", "CUSTOMERS: 20"), -125, 12, 120, -12829636, false, 1.25F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfaction", "SATISFACTION"), -77, 103, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfaction", "SATISFACTION"), -149, 103, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_coins_earned", "COINS EARNED"), -54, 123, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_coins_earned", "COINS EARNED"), -126, 123, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_coins_earned_copy", "REPUTATION EARNED"), -54, 143, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_coins_earned_copy", "REPUTATION EARNED"), -126, 143, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_perfect", "PERFECT"), -54, 30, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_perfect", "PERFECT"), -126, 30, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfied", "SATISFIED"), -54, 50, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfied", "SATISFIED"), -126, 50, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_lost", "LOST"), -54, 70, 120, -12829636, false, 1.00F, 2);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_1062", "10\n\n6\n\n2"), -54, 29, 120, 40, -12829636, false, 1.00F, 0, 1);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_1002010", "100%\n\n+20\n\n+10"), -54, 102, 120, 40, -12829636, false, 1.00F, 0, 1);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_lost", "LOST"), -126, 70, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_day_18_results_copy", "SERVICE NOTES"), 53, -8, 120, -1, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_customers_20_copy", "Orders with mistakes"), 37, 14, 128, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_perfect_copy", "Missing food"), 31, 30, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_satisfied_copy", "Extra food"), 31, 50, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_lost_copy", "Wrong food"), 31, 70, 120, -12829636, false, 1.00F, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_1062", "10\n\n6\n\n2"), -126, 29, 120, 40, -12829636, false, 1.00F, 0, 1);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_1002010", "100%\n\n+20\n\n+10"), -126, 102, 120, 40, -12829636, false, 1.00F, 0, 1);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_1062_copy", "3\n\n1\n\n2"), 25, 29, 120, 40, -12829636, false, 1.00F, 0, 1);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_one_order_may_contain_several_mi", "One order may contain several mistakes."), 32, 85, 114, 40, -12829636, false, 1.00F, 0, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_one_order_may_contain_several_mi_copy", "Check food types and amounts before serving."), 32, 125, 114, 40, -12829636, false, 1.00F, 0,
+				2);
 	}
 
 	@Override
