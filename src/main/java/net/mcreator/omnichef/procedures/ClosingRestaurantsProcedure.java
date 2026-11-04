@@ -19,35 +19,38 @@ public class ClosingRestaurantsProcedure {
 		double CloseTime = 0;
 		double RestaurantIndex = 0;
 		double RestaurantID = 0;
+		double openedDay = 0;
 		String owner = "";
 		Entity ownerEntity = null;
-		if (world.dayTime() % 24000 >= 7900 && world.dayTime() % 24000 <= 18000) {
-			if (world.dayTime() % 100 == 0) {
-				index = 0;
-				RestaurantsOpen.addAll(OmnichefModVariables.MapVariables.get(world).RestaurantsOpen);
-				for (int _i1 = 0; _i1 < (int) RestaurantsOpen.size(); _i1++) {
-					RestaurantID = RestaurantsOpen.get((int) index) instanceof Double _doub5 ? _doub5 : 0.0D;
-					RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, RestaurantID);
+		if (world.dayTime() % 100 == 0) {
+			index = 0;
+			RestaurantsOpen.addAll(OmnichefModVariables.MapVariables.get(world).RestaurantsOpen);
+			for (int _i1 = 0; _i1 < (int) RestaurantsOpen.size(); _i1++) {
+				RestaurantID = RestaurantsOpen.get((int) index) instanceof Double _doub3 ? _doub3 : 0.0D;
+				RestaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, RestaurantID);
+				if (RestaurantIndex >= 0) {
 					CloseTime = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 							"close_time");
-					if (CloseTime <= world.dayTime() % 24000) {
+					openedDay = GetRestaurantNumberParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+							"last_day_open");
+					if (Math.floor(world.dayTime() / 24000d) <= openedDay || CloseTime <= world.dayTime() % 24000) {
 						ModifyRestaurantLogicParameterProcedure.execute(false, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"open");
 						ModifyRestaurantLogicParameterProcedure.execute(true, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"menu_advance_ready");
-						OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.indexOf((RestaurantsOpen.get((int) index) instanceof Double _doub7 ? _doub7 : 0.0D)));
+						OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.remove((int) OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.indexOf((RestaurantsOpen.get((int) index) instanceof Double _doub6 ? _doub6 : 0.0D)));
 						MarkRestaurantsOpenDirtyProcedure.execute(world);
 						owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"owner");
-						ownerEntity = world instanceof ServerLevel _level10 ? getEntityFromUUID(_level10, owner) : null;
+						ownerEntity = world instanceof ServerLevel _level9 ? getEntityFromUUID(_level9, owner) : null;
 						if (ownerEntity != null) {
 							if (ownerEntity instanceof Player _player && !_player.level().isClientSide())
 								_player.displayClientMessage(Component.literal("Your restaurant has been closed!"), false);
 							CreateOverlayDataTransferProcedure.execute(world, ownerEntity);
 						}
 					}
-					index = index + 1;
 				}
+				index = index + 1;
 			}
 		}
 	}
