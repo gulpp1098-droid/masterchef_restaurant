@@ -31,7 +31,7 @@ public class CardsPickGUIMenu extends AbstractContainerMenu implements OmnichefM
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 11)
+			if (!this.containsKey(key) && this.size() >= 12)
 				return null;
 			return super.put(key, value);
 		}

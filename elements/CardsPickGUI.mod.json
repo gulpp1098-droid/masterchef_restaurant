@@ -244,6 +244,27 @@
           "y": 96,
           "locked": false
         }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_your_chosen_dish_may_appear_on_f",
+          "text": "Your chosen dish may appear on future menus. Pick something you can obtain or prepare.",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "CENTER",
+          "width": 261,
+          "height": 24,
+          "x": 97,
+          "y": 189,
+          "locked": false
+        }
       }
     ],
     "onOpen": "FillCardsPickGUI",

@@ -92,15 +92,6 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
 		guiTools$orderedLayers : {
-			if (this.enhanced_image_button_cardbigtier0 != null && this.enhanced_image_button_cardbigtier0.visible) {
-				this.enhanced_image_button_cardbigtier0.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_cardbigtier1 != null && this.enhanced_image_button_cardbigtier1.visible) {
-				this.enhanced_image_button_cardbigtier1.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_cardbigtier2 != null && this.enhanced_image_button_cardbigtier2.visible) {
-				this.enhanced_image_button_cardbigtier2.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
@@ -198,6 +189,8 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				38, 54, 22, -1, false, 1.00F, 0, 2);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_tier_nrfood_name_copy_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.Card3InfoReturnProcedure.execute(entity), "")),
 				92, 38, 54, 22, -1, false, 1.00F, 0, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_your_chosen_dish_may_appear_on_f", "Your chosen dish may appear on future menus. Pick something you can obtain or prepare."), -117, 69,
+				261, 24, -1, false, 1.00F, 0, 2);
 	}
 
 	@Override
@@ -223,7 +216,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_cardbigtier0);
+		this.addRenderableWidget(enhanced_image_button_cardbigtier0);
 		enhanced_image_button_cardbigtier1 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -24, this.topPos + -32, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png")), e -> {
 					int x = CardsPickGUIScreen.this.x;
@@ -244,7 +237,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_cardbigtier1);
+		this.addRenderableWidget(enhanced_image_button_cardbigtier1);
 		enhanced_image_button_cardbigtier2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 86, this.topPos + -33, 64, 64, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png")), e -> {
 					int x = CardsPickGUIScreen.this.x;
@@ -265,7 +258,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_cardbigtier2);
+		this.addRenderableWidget(enhanced_image_button_cardbigtier2);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
