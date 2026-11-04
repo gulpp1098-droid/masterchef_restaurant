@@ -158,9 +158,9 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -1, this.topPos + 0, 0, 0, 176, 132, 176, 132);
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 32, this.topPos + 87, 0, 0, 18, 18, 18, 18);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 34, this.topPos + 94, 0, 0, 14, 8, 14, 8);
-			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 17, this.topPos + 89, 0, Mth.clamp((int) PatianceReturnProcedure.execute(entity) * 11, 0, 33), 11, 11, 11, 44);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 12, this.topPos + 92, 0, 0, 18, 18, 18, 18);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 14, this.topPos + 99, 0, 0, 14, 8, 14, 8);
+			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + 71, this.topPos + 35, 0, Mth.clamp((int) PatianceReturnProcedure.execute(entity) * 11, 0, 33), 11, 11, 11, 44);
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
@@ -296,9 +296,6 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 					guiGraphics.pose().popPose();
 				}
 			}
-			if (this.enhanced_image_button_ribbonsmall_icon != null && this.enhanced_image_button_ribbonsmall_icon.visible) {
-				this.enhanced_image_button_ribbonsmall_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			guiTools$itemDisplay5 : {
 				if (!(true))
 					break guiTools$itemDisplay5;
@@ -352,7 +349,6 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.client_order_gui.label_serve_dish"), 17, 109, -16777216, false);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_food_1_name", ""), 110, 19, 54, -12829636, false, 0.75F, 2);
 		if (true)
@@ -393,7 +389,37 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_ribbonsmall_icon);
+		this.addRenderableWidget(enhanced_image_button_ribbonsmall_icon);
+		enhanced_image_button_preparation_station_button = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 33, this.topPos + 92, 42, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png")), e -> {
+					int x = ClientOrderGUIScreen.this.x;
+					int y = ClientOrderGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ClientOrderGUIButtonMessage(1, x, y, z));
+						net.mcreator.omnichef.network.ClientOrderGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				String guiTools$buttonText = "Serve";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -1, true);
+					guiGraphics.pose().popPose();
+				}
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_preparation_station_button);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -439,6 +465,7 @@ public class ClientOrderGUIScreen extends AbstractContainerScreen<ClientOrderGUI
 
 	private static final boolean guiTools$enhancedImageButton = true;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_ribbonsmall_icon;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_preparation_station_button;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

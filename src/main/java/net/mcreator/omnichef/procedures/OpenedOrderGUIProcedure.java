@@ -18,9 +18,6 @@ public class OpenedOrderGUIProcedure {
 					: ItemStack.EMPTY).getItem() == Blocks.AIR.asItem()) {
 				FillOrderSlotsProcedure.execute(world, entity);
 			}
-			if (!((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu3 ? _menu3.getSlots().get(0).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())) {
-				ClientIsServedProcedure.execute(world, entity);
-			}
 		}
 		PatianceInOrderGUIProcedure.execute(world, entity);
 	}

@@ -96,7 +96,7 @@ public class ClientOrderGUIMenu extends AbstractContainerMenu implements Omniche
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 33, 88) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 13, 93) {
 			private final int slot = 0;
 			private int x = ClientOrderGUIMenu.this.x;
 			private int y = ClientOrderGUIMenu.this.y;
