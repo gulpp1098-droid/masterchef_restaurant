@@ -292,6 +292,60 @@
           "y": 88,
           "locked": false
         }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_11",
+          "image": "info_note_icon.png",
+          "width": 60,
+          "height": 100,
+          "x": 313,
+          "y": 33,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_chefs_reminderone_guest_one_d",
+          "text": "One guest, one dish.\nEverything in the input slots gets packed together — including whole stacks!\nCheck the amounts before pressing Prepare.",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 50,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 52,
+          "height": 47,
+          "x": 320,
+          "y": 67,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_chefs_reminder",
+          "text": "Chef’s \nreminder",
+          "color": {
+            "value": -13434880,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 120,
+          "height": 40,
+          "x": 320,
+          "y": 44,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {

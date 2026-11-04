@@ -139,24 +139,6 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -13 + guiTools$xOffset, this.topPos + -3 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 203, 155);
 			}
-			if (this.enhanced_image_button_trade_board_sign != null && this.enhanced_image_button_trade_board_sign.visible) {
-				this.enhanced_image_button_trade_board_sign.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_note_1_icon != null && this.enhanced_image_button_note_1_icon.visible) {
-				this.enhanced_image_button_note_1_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_note_2_icon != null && this.enhanced_image_button_note_2_icon.visible) {
-				this.enhanced_image_button_note_2_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_note_3_icon != null && this.enhanced_image_button_note_3_icon.visible) {
-				this.enhanced_image_button_note_3_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_note_4_icon != null && this.enhanced_image_button_note_4_icon.visible) {
-				this.enhanced_image_button_note_4_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_note_5_icon != null && this.enhanced_image_button_note_5_icon.visible) {
-				this.enhanced_image_button_note_5_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -417,7 +399,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_trade_board_sign);
+		this.addRenderableWidget(enhanced_image_button_trade_board_sign);
 		enhanced_image_button_note_1_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 3, this.topPos + 35, 53, 45, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_1_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_1_icon.png")), e -> {
 					int x = TradeBoardGUIScreen.this.x;
@@ -438,7 +420,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_note_1_icon);
+		this.addRenderableWidget(enhanced_image_button_note_1_icon);
 		enhanced_image_button_note_2_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 62, this.topPos + 32, 58, 58, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_2_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_2_icon.png")), e -> {
 					int x = TradeBoardGUIScreen.this.x;
@@ -459,7 +441,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_note_2_icon);
+		this.addRenderableWidget(enhanced_image_button_note_2_icon);
 		enhanced_image_button_note_3_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 124, this.topPos + 33, 50, 41, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_3_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_3_icon.png")), e -> {
 					int x = TradeBoardGUIScreen.this.x;
@@ -480,7 +462,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_note_3_icon);
+		this.addRenderableWidget(enhanced_image_button_note_3_icon);
 		enhanced_image_button_note_4_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 21, this.topPos + 90, 55, 44, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_4_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_4_icon.png")), e -> {
 					int x = TradeBoardGUIScreen.this.x;
@@ -501,7 +483,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_note_4_icon);
+		this.addRenderableWidget(enhanced_image_button_note_4_icon);
 		enhanced_image_button_note_5_icon = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 98, this.topPos + 88, 49, 46, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_5_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_5_icon.png")), e -> {
 					int x = TradeBoardGUIScreen.this.x;
@@ -522,7 +504,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_note_5_icon);
+		this.addRenderableWidget(enhanced_image_button_note_5_icon);
 	}
 
 	private static final boolean guiTools$enhancedImageButton = true;
