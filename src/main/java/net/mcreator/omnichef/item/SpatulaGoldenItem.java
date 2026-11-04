@@ -60,7 +60,7 @@ public class SpatulaGoldenItem extends Item {
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		super.useOn(context);
-		SetRestaurantLocalizationWithSpatulaProcedure.execute(context.getLevel(), context.getClickedPos().getX(), context.getClickedPos().getZ(), context.getPlayer());
+		SetRestaurantLocalizationWithSpatulaProcedure.execute(context.getLevel(), context.getClickedPos().getX(), context.getClickedPos().getY(), context.getClickedPos().getZ(), context.getPlayer());
 		return InteractionResult.SUCCESS;
 	}
 

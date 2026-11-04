@@ -1,0 +1,41 @@
+{
+  "_fv": 89,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_rmb_on_block_add_new_area_foor",
+          "text": "RMB on block - Add new restaurant area\nRMB + shift - Quit area editor mode  ",
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 102,
+          "height": 40,
+          "anchorPoint": "TOP_LEFT",
+          "x": 9,
+          "y": 32,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "displayCondition": "ShowSpatulaInstructions",
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

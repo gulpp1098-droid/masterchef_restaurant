@@ -96,7 +96,7 @@ public class ProgressBarRestaurantOverlay {
 				}
 
 				if (true)
-					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressReputationTextProcedure.execute(entity), ""), w - 67, h - 40, 44, -1, false, 0.75F, 0);
+					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressReputationTextProcedure.execute(entity), ""), w - 65, h - 40, 44, -1, false, 0.75F, 0);
 				if (true)
 					guiTools$renderOverlaySizedTextLabel(event.getGuiGraphics(), java.util.Objects.toString(net.mcreator.omnichef.procedures.ReturnProgressDiscoveryTextProcedure.execute(entity), ""), w - 62, h - 18, 44, -1, false, 0.75F, 0);
 				if (true)

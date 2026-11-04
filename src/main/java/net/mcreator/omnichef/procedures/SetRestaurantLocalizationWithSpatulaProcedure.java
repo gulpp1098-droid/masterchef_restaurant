@@ -15,7 +15,7 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import java.io.File;
 
 public class SetRestaurantLocalizationWithSpatulaProcedure {
-	public static void execute(LevelAccessor world, double x, double z, Entity entity) {
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
 		Entity Owner = null;
@@ -35,96 +35,100 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 		double restaurantLevel = 0;
 		String restaurantsString = "";
 		Owner = entity;
-		if (Owner.isShiftKeyDown() && ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
-				|| (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant"))) {
-			SetSpatulaStateToNormalProcedure.execute(world, entity);
+		if (IsSpatulaInSelectingLocationStateProcedure.execute(Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) {
+			OpenSpatulaGUIProcedure.execute(world, x, y, z, entity, Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
 		} else {
-			if ((entity.level().dimension().location().toString()).equals("minecraft:overworld")) {
-				if (!world.isClientSide()) {
-					X = (int) Math.floor(x / 5);
-					Z = (int) Math.floor(z / 5);
-					AddingArray = false;
-					if ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant")) {
-						SelectRestaurantRelocationCandidateProcedure.execute(world, x, z, entity);
-					} else {
-						if ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")) {
-							if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
-								IndexNumber = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
-								restaurantLevel = GetRestaurantNumberParameterProcedure.execute(IndexNumber, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
-								RestaurantsArray = GetRestaurantArrayParameterProcedure.execute(IndexNumber, "restaurants", "locations", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-								locationAvailable = CanClaimRestaurantLocationProcedure.execute(world, X, Z, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
-								if (RestaurantsArray.size() < 1) {
-									if (locationAvailable) {
-										AddingArray = true;
-										if (Owner instanceof Player _player16 && !_player16.level().isClientSide())
-											_player16.displayClientMessage(Component.literal("Base restaurant area selected.").withStyle(ChatFormatting.GREEN), true);
-									} else {
-										if (Owner instanceof Player _player19 && !_player19.level().isClientSide())
-											_player19.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
-									}
-								}
-								if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
-									arrayIndex = 0;
-									for (int _i1 = 0; _i1 < (int) RestaurantsArray.size(); _i1++) {
-										restaurantsString = RestaurantsArray.get((int) arrayIndex).getAsString();
-										PosX = new Object() {
-											double convert(String s) {
-												try {
-													return Double.parseDouble(s.trim());
-												} catch (Exception e) {
-												}
-												return 0;
-											}
-										}.convert(GetPartFromStringProcedure.execute(0, restaurantsString));
-										PosZ = new Object() {
-											double convert(String s) {
-												try {
-													return Double.parseDouble(s.trim());
-												} catch (Exception e) {
-												}
-												return 0;
-											}
-										}.convert(GetPartFromStringProcedure.execute(1, restaurantsString));
-										if (Math.abs(X - PosX) + Math.abs(PosZ - Z) == 1) {
-											isConnectedToRestaurant = true;
-											if (locationAvailable) {
-												AddingArray = true;
-												if (Owner instanceof Player _player25 && !_player25.level().isClientSide())
-													_player25.displayClientMessage(Component.literal("Restaurant area expanded.").withStyle(ChatFormatting.GREEN), true);
-												break;
-											} else {
-												if (Owner instanceof Player _player28 && !_player28.level().isClientSide())
-													_player28.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
-											}
+			if (Owner.isShiftKeyDown() && ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")
+					|| (Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant"))) {
+				SetSpatulaStateToNormalProcedure.execute(world, entity);
+			} else {
+				if ((entity.level().dimension().location().toString()).equals("minecraft:overworld")) {
+					if (!world.isClientSide()) {
+						X = (int) Math.floor(x / 5);
+						Z = (int) Math.floor(z / 5);
+						AddingArray = false;
+						if ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("RelocatingRestaurant")) {
+							SelectRestaurantRelocationCandidateProcedure.execute(world, x, z, entity);
+						} else {
+							if ((Owner instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getBoolean("SelectingRestaurantLocation")) {
+								if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
+									IndexNumber = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+									restaurantLevel = GetRestaurantNumberParameterProcedure.execute(IndexNumber, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
+									RestaurantsArray = GetRestaurantArrayParameterProcedure.execute(IndexNumber, "restaurants", "locations", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+									locationAvailable = CanClaimRestaurantLocationProcedure.execute(world, X, Z, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+									if (RestaurantsArray.size() < 1) {
+										if (locationAvailable) {
+											AddingArray = true;
+											if (Owner instanceof Player _player18 && !_player18.level().isClientSide())
+												_player18.displayClientMessage(Component.literal("Base restaurant area selected.").withStyle(ChatFormatting.GREEN), true);
+										} else {
+											if (Owner instanceof Player _player21 && !_player21.level().isClientSide())
+												_player21.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
 										}
-										arrayIndex = arrayIndex + 1;
 									}
-								} else {
-									if (Owner instanceof Player _player31 && !_player31.level().isClientSide())
-										_player31.displayClientMessage(Component.literal("You have reached your current restaurant area limit.").withStyle(ChatFormatting.RED), true);
+									if (Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
+										arrayIndex = 0;
+										for (int _i1 = 0; _i1 < (int) RestaurantsArray.size(); _i1++) {
+											restaurantsString = RestaurantsArray.get((int) arrayIndex).getAsString();
+											PosX = new Object() {
+												double convert(String s) {
+													try {
+														return Double.parseDouble(s.trim());
+													} catch (Exception e) {
+													}
+													return 0;
+												}
+											}.convert(GetPartFromStringProcedure.execute(0, restaurantsString));
+											PosZ = new Object() {
+												double convert(String s) {
+													try {
+														return Double.parseDouble(s.trim());
+													} catch (Exception e) {
+													}
+													return 0;
+												}
+											}.convert(GetPartFromStringProcedure.execute(1, restaurantsString));
+											if (Math.abs(X - PosX) + Math.abs(PosZ - Z) == 1) {
+												isConnectedToRestaurant = true;
+												if (locationAvailable) {
+													AddingArray = true;
+													if (Owner instanceof Player _player27 && !_player27.level().isClientSide())
+														_player27.displayClientMessage(Component.literal("Restaurant area expanded.").withStyle(ChatFormatting.GREEN), true);
+													break;
+												} else {
+													if (Owner instanceof Player _player30 && !_player30.level().isClientSide())
+														_player30.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
+												}
+											}
+											arrayIndex = arrayIndex + 1;
+										}
+									} else {
+										if (Owner instanceof Player _player33 && !_player33.level().isClientSide())
+											_player33.displayClientMessage(Component.literal("You have reached your current restaurant area limit.").withStyle(ChatFormatting.RED), true);
+									}
 								}
 							}
 						}
 					}
-				}
-				if (AddingArray) {
-					ModifyRestaurantArrayParameterProcedure.execute(IndexNumber, "restaurants", "locations", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-							X + ":" + Z);
-					{
-						final String _tagName = "SpawnArea";
-						final boolean _tagValue = true;
-						CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
+					if (AddingArray) {
+						ModifyRestaurantArrayParameterProcedure.execute(IndexNumber, "restaurants", "locations", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+								X + ":" + Z);
+						{
+							final String _tagName = "SpawnArea";
+							final boolean _tagValue = true;
+							CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putBoolean(_tagName, _tagValue));
+						}
 					}
+					if (!isConnectedToRestaurant && RestaurantsArray.size() >= 1 && Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
+						if (Owner instanceof Player _player40 && !_player40.level().isClientSide())
+							_player40.displayClientMessage(Component.literal("New restaurant areas must connect to your existing area.").withStyle(ChatFormatting.RED), true);
+					}
+				} else {
+					if (Owner instanceof Player _player43 && !_player43.level().isClientSide())
+						_player43.displayClientMessage(Component.literal("Restaurant areas can only be selected in the Overworld.").withStyle(ChatFormatting.RED), true);
 				}
-				if (!isConnectedToRestaurant && RestaurantsArray.size() >= 1 && Math.min(30, 4 + Math.floor(restaurantLevel * (26d / 100))) > RestaurantsArray.size()) {
-					if (Owner instanceof Player _player38 && !_player38.level().isClientSide())
-						_player38.displayClientMessage(Component.literal("New restaurant areas must connect to your existing area.").withStyle(ChatFormatting.RED), true);
-				}
-			} else {
-				if (Owner instanceof Player _player41 && !_player41.level().isClientSide())
-					_player41.displayClientMessage(Component.literal("Restaurant areas can only be selected in the Overworld.").withStyle(ChatFormatting.RED), true);
 			}
 		}
 	}
