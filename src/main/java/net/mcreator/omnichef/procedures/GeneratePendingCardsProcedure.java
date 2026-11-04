@@ -33,13 +33,13 @@ public class GeneratePendingCardsProcedure {
 		if (restaurantIndex >= 0) {
 			options = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-			databaseObject.add("unlock_options", options);
+			unlockObject.add("unlock_options", options);
 			unlockedFoods = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-			databaseObject.add("unlocked", unlockedFoods);
+			unlockObject.add("unlocked", unlockedFoods);
 			stageTier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 					"stage_tier");
-			databaseObject.addProperty("stage_tier", stageTier);
+			unlockObject.addProperty("stage_tier", stageTier);
 			pendingCards = GeneratePendingCardsFromDataProcedure.execute(world, unlockObject);
 			ModifyRestaurantWholeArrayParameterProcedure.execute(pendingCards, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
