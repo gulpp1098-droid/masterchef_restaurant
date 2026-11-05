@@ -35,9 +35,9 @@ public class PerfectParticleParticle extends TextureSheetParticle {
 		super(world, x, y, z);
 		this.spriteSet = spriteSet;
 		this.setSize(0.2f, 0.2f);
-		this.quadSize *= 2f;
+		this.quadSize *= 1.5f;
 		this.lifetime = (int) Math.max(1, 25 + (this.random.nextInt(10) - 5));
-		this.gravity = -0.1f;
+		this.gravity = -0.003f;
 		this.hasPhysics = false;
 		this.xd = vx * 1;
 		this.yd = vy * 1;
