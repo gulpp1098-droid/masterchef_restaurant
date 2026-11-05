@@ -1,14 +1,23 @@
 package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.BlockPos;
 import net.minecraft.ChatFormatting;
 
+import net.mcreator.omnichef.world.inventory.RestaurantManagementGUIMenu;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 import java.util.ArrayList;
+
+import io.netty.buffer.Unpooled;
 
 public class ConfirmCloseRestaurantProcedure {
 	public static void execute(LevelAccessor world, Entity entity) {
@@ -46,6 +55,25 @@ public class ConfirmCloseRestaurantProcedure {
 					FillSlotsMenuProcedure.execute(world, entity);
 					if (owner instanceof Player _player6 && !_player6.level().isClientSide())
 						_player6.displayClientMessage(Component.literal("Restaurant closed.").withStyle(ChatFormatting.WHITE), true);
+					if (entity instanceof ServerPlayer _ent) {
+						BlockPos _bpos = BlockPos.containing(entity.getX(), entity.getY(), entity.getZ());
+						_ent.openMenu(new MenuProvider() {
+							@Override
+							public Component getDisplayName() {
+								return Component.literal("RestaurantManagementGUI");
+							}
+
+							@Override
+							public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+								return false;
+							}
+
+							@Override
+							public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+								return new RestaurantManagementGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+							}
+						}, _bpos);
+					}
 				}
 			}
 		}

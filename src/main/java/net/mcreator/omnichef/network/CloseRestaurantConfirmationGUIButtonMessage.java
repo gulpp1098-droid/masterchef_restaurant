@@ -52,7 +52,7 @@ public record CloseRestaurantConfirmationGUIButtonMessage(int buttonID, int x, i
 				net.mcreator.omnichef.procedures.ConfirmCloseRestaurantProcedure.execute(world, entity);
 			}
 			if (buttonID == 1) {
-				net.mcreator.omnichef.procedures.OpenManagmentGUIProcedure.execute(world, entity);
+				net.mcreator.omnichef.procedures.OpenRestaurantManagementGUIProcedure.execute(world, x, y, z, entity);
 			}
 		}
 	}

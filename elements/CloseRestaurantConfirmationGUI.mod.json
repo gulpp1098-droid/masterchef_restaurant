@@ -83,7 +83,7 @@
           "name": "enhanced_image_button_openclosebutton_icon_copy_copy",
           "text": "Cancel",
           "isUndecorated": true,
-          "onClick": "OpenManagmentGUI",
+          "onClick": "OpenRestaurantManagementGUI",
           "width": 81,
           "height": 31,
           "x": 236,
