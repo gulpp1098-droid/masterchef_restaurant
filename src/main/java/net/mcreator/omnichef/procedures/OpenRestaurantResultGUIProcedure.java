@@ -85,6 +85,26 @@ public class OpenRestaurantResultGUIProcedure {
 					(new java.text.DecimalFormat("0.#").format(result.get("satisfaction").getAsDouble()) + "%" + "\n" + "\n" + "+" + new java.text.DecimalFormat("0").format(result.get("coins_earned").getAsDouble()) + "\n" + "\n" + reputationText),
 					""), true);
 		}
+		if (result.has("service_notes_available")) {
+			if (restaurantObject.get("service_notes_available").getAsBoolean()) {
+				if (entity instanceof Player _guiToolsLabelPlayer23 && _guiToolsLabelPlayer23.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu23) {
+					_guiToolsLabelMenu23.sendMenuStateUpdate(_guiToolsLabelPlayer23, 0, "gui_tools:multiline:" + java.util.Objects.toString("multiline_label_1062_copy", ""),
+							java.util.Objects.toString((new java.text.DecimalFormat("0").format(result.get("orders_missing_food").getAsDouble()) + "\n" + "\n" + new java.text.DecimalFormat("0").format(result.get("orders_extra_food").getAsDouble())
+									+ "\n" + "\n" + new java.text.DecimalFormat("0").format(result.get("orders_wrong_food").getAsDouble())), ""),
+							true);
+				}
+			} else {
+				if (entity instanceof Player _guiToolsLabelPlayer24 && _guiToolsLabelPlayer24.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu24) {
+					_guiToolsLabelMenu24.sendMenuStateUpdate(_guiToolsLabelPlayer24, 0, "gui_tools:multiline:" + java.util.Objects.toString("multiline_label_1062_copy", ""),
+							java.util.Objects.toString(("-" + "\n" + "\n" + "-" + "\n" + "\n" + "-"), ""), true);
+				}
+			}
+		} else {
+			if (entity instanceof Player _guiToolsLabelPlayer25 && _guiToolsLabelPlayer25.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu25) {
+				_guiToolsLabelMenu25.sendMenuStateUpdate(_guiToolsLabelPlayer25, 0, "gui_tools:multiline:" + java.util.Objects.toString("multiline_label_1062_copy", ""), java.util.Objects.toString(("-" + "\n" + "\n" + "-" + "\n" + "\n" + "-"), ""),
+						true);
+			}
+		}
 		{
 			OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 			_vars.LastViewedRestaurantResult = new java.text.DecimalFormat("0").format(restaurantID) + ":" + new java.text.DecimalFormat("0").format(result.get("shift_id").getAsDouble());

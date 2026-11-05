@@ -13,6 +13,7 @@ public class RecordClientShiftResultProcedure {
 		com.google.gson.JsonObject restaurant = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject groupObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject memberObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject orderResult = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray groups = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray members = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray restaurants = new com.google.gson.JsonArray();
@@ -50,8 +51,15 @@ public class RecordClientShiftResultProcedure {
 			return true;
 		}
 		served = clientEntity.getPersistentData().getBoolean("order_served");
+		memberObject.addProperty("has_missing_food", false);
+		memberObject.addProperty("has_extra_food", false);
+		memberObject.addProperty("has_wrong_food", false);
 		if (served) {
 			satisfaction = GetClientOrderSatisfactionProcedure.execute(clientEntity);
+			orderResult = GetClientOrderResultProcedure.execute(clientEntity);
+			memberObject.addProperty("has_missing_food", (orderResult.get("missing_amount").getAsDouble() > 0));
+			memberObject.addProperty("has_extra_food", (orderResult.get("excess_amount").getAsDouble() > 0));
+			memberObject.addProperty("has_wrong_food", (orderResult.get("wrong_amount").getAsDouble() > 0));
 		}
 		memberObject.addProperty("order_served", served);
 		memberObject.addProperty("final_satisfaction", satisfaction);
