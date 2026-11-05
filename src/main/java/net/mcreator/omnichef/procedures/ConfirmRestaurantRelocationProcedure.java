@@ -68,7 +68,7 @@ public class ConfirmRestaurantRelocationProcedure {
 								if (entity instanceof Player _player)
 									_player.closeContainer();
 								if (owner instanceof Player _player28 && !_player28.level().isClientSide())
-									_player28.displayClientMessage(Component.literal("Restaurant relocated successfully. Set up a new Reception before opening.").withStyle(ChatFormatting.GREEN), true);
+									_player28.displayClientMessage(Component.literal("Restaurant relocated! Place a new Reception before opening.").withStyle(ChatFormatting.GREEN), true);
 							}
 						}
 					}

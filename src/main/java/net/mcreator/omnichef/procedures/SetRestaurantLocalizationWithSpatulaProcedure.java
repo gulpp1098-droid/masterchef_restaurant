@@ -62,7 +62,7 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 										if (locationAvailable) {
 											AddingArray = true;
 											if (Owner instanceof Player _player18 && !_player18.level().isClientSide())
-												_player18.displayClientMessage(Component.literal("Base restaurant area selected.").withStyle(ChatFormatting.GREEN), true);
+												_player18.displayClientMessage(Component.literal("Restaurant area claimed!").withStyle(ChatFormatting.GREEN), true);
 										} else {
 											if (Owner instanceof Player _player21 && !_player21.level().isClientSide())
 												_player21.displayClientMessage(Component.literal("This area is too close to another restaurant.").withStyle(ChatFormatting.RED), true);
@@ -95,7 +95,7 @@ public class SetRestaurantLocalizationWithSpatulaProcedure {
 												if (locationAvailable) {
 													AddingArray = true;
 													if (Owner instanceof Player _player27 && !_player27.level().isClientSide())
-														_player27.displayClientMessage(Component.literal("Restaurant area expanded.").withStyle(ChatFormatting.GREEN), true);
+														_player27.displayClientMessage(Component.literal("Restaurant area expanded!").withStyle(ChatFormatting.GREEN), true);
 													break;
 												} else {
 													if (Owner instanceof Player _player30 && !_player30.level().isClientSide())

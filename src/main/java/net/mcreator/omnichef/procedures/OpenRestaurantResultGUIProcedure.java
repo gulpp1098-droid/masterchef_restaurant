@@ -86,7 +86,7 @@ public class OpenRestaurantResultGUIProcedure {
 					""), true);
 		}
 		if (result.has("service_notes_available")) {
-			if (restaurantObject.get("service_notes_available").getAsBoolean()) {
+			if (result.get("service_notes_available").getAsBoolean()) {
 				if (entity instanceof Player _guiToolsLabelPlayer23 && _guiToolsLabelPlayer23.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu23) {
 					_guiToolsLabelMenu23.sendMenuStateUpdate(_guiToolsLabelPlayer23, 0, "gui_tools:multiline:" + java.util.Objects.toString("multiline_label_1062_copy", ""),
 							java.util.Objects.toString((new java.text.DecimalFormat("0").format(result.get("orders_missing_food").getAsDouble()) + "\n" + "\n" + new java.text.DecimalFormat("0").format(result.get("orders_extra_food").getAsDouble())

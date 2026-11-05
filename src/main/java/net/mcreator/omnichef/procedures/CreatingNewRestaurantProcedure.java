@@ -177,7 +177,7 @@ public class CreatingNewRestaurantProcedure {
 					}
 					CreateOverlayDataTransferProcedure.execute(world, entity);
 					if (Owner instanceof Player _player60 && !_player60.level().isClientSide())
-						_player60.displayClientMessage(Component.literal("Restaurant created successfully.").withStyle(ChatFormatting.GREEN), false);
+						_player60.displayClientMessage(Component.literal("Restaurant created!").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;
 					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 					if (entity instanceof ServerPlayer _ent) {
