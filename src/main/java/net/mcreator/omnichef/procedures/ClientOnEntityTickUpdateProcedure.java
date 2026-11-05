@@ -38,13 +38,13 @@ public class ClientOnEntityTickUpdateProcedure {
 							satisfaction = GetClientSatisfactionLevelProcedure.execute(client);
 							if ((satisfaction).equals("perfect")) {
 								if (world instanceof ServerLevel _level)
-									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.PERFECT_PARTICLE.get()), x, y, z, 2, 3, 3, 3, 1);
+									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.PERFECT_PARTICLE.get()), x, (y + 1.8), z, 2, 1, 1, 1, 1);
 							} else if ((satisfaction).equals("satisfied")) {
 								if (world instanceof ServerLevel _level)
-									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.SATISFIED_PARTICLE.get()), x, y, z, 1, 3, 3, 3, 1);
+									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.SATISFIED_PARTICLE.get()), x, (y + 1.8), z, 1, 1, 1, 1, 1);
 							} else if ((satisfaction).equals("unsatisfied")) {
 								if (world instanceof ServerLevel _level)
-									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.UNSATISFIED_PARTICLE.get()), x, y, z, 1, 3, 3, 3, 1);
+									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.UNSATISFIED_PARTICLE.get()), x, (y + 1.8), z, 1, 1, 1, 1, 1);
 							}
 						}
 						if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
