@@ -2,14 +2,18 @@ package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.particles.SimpleParticleType;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
+import net.mcreator.omnichef.init.OmnichefModParticleTypes;
 
 public class ClientOnEntityTickUpdateProcedure {
 	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return false;
 		Entity client = null;
+		String satisfaction = "";
 		client = entity;
 		if (!world.isClientSide()) {
 			if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
@@ -30,6 +34,19 @@ public class ClientOnEntityTickUpdateProcedure {
 					}
 					ClientAnimationSetUpProcedure.execute(world, entity);
 					if (world.dayTime() % 10 == 0) {
+						if (client.getPersistentData().getBoolean("service_result_counted") && client.getPersistentData().getBoolean("order_served")) {
+							satisfaction = GetClientSatisfactionLevelProcedure.execute(client);
+							if ((satisfaction).equals("perfect")) {
+								if (world instanceof ServerLevel _level)
+									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.PERFECT_PARTICLE.get()), x, y, z, 2, 3, 3, 3, 1);
+							} else if ((satisfaction).equals("satisfied")) {
+								if (world instanceof ServerLevel _level)
+									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.SATISFIED_PARTICLE.get()), x, y, z, 1, 3, 3, 3, 1);
+							} else if ((satisfaction).equals("unsatisfied")) {
+								if (world instanceof ServerLevel _level)
+									_level.sendParticles((SimpleParticleType) (OmnichefModParticleTypes.UNSATISFIED_PARTICLE.get()), x, y, z, 1, 3, 3, 3, 1);
+							}
+						}
 						if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
 							ClientPatianceGoingDownProcedure.execute(world, entity);
 							if (client.getPersistentData().getBoolean("leader")) {

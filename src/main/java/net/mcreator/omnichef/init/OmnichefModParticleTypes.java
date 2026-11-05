@@ -15,4 +15,7 @@ import net.mcreator.omnichef.OmnichefMod;
 public class OmnichefModParticleTypes {
 	public static final DeferredRegister<ParticleType<?>> REGISTRY = DeferredRegister.create(Registries.PARTICLE_TYPE, OmnichefMod.MODID);
 	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SELECT_AREA = REGISTRY.register("select_area", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PERFECT_PARTICLE = REGISTRY.register("perfect_particle", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SATISFIED_PARTICLE = REGISTRY.register("satisfied_particle", () -> new SimpleParticleType(false));
+	public static final DeferredHolder<ParticleType<?>, SimpleParticleType> UNSATISFIED_PARTICLE = REGISTRY.register("unsatisfied_particle", () -> new SimpleParticleType(false));
 }
