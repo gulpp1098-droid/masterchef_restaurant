@@ -56,6 +56,9 @@ public record MenuGUIButtonMessage(int buttonID, int x, int y, int z) implements
 
 			NextMenuPreviousPageProcedure.execute(world, entity);
 		}
+
+		guiTools$enhancedImageButton : {
+		}
 	}
 
 	@SubscribeEvent

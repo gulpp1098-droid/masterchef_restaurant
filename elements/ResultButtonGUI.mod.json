@@ -11,8 +11,8 @@
           "hoveredImage": "",
           "onClick": "OpenRestaurantResultGUI",
           "displayCondition": "ShowRestaurantResultButton",
-          "x": 309,
-          "y": 37,
+          "x": 307,
+          "y": 38,
           "locked": false
         }
       },
@@ -22,8 +22,8 @@
           "image": "new_result_icon.png",
           "use1Xscale": false,
           "displayCondition": "ShowRestaurantResultNotice",
-          "x": 329,
-          "y": 30,
+          "x": 337,
+          "y": 39,
           "locked": false
         }
       }

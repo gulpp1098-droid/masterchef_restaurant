@@ -1,0 +1,28 @@
+{
+  "_fv": 89,
+  "_type": "invedit",
+  "definition": {
+    "components": [
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_menu_gui_icon",
+          "image": "menu_gui_icon.png",
+          "hoveredImage": "",
+          "onClick": "OpenNextDayMenuGUI",
+          "x": 308,
+          "y": 72,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    },
+    "type": 0
+  }
+}

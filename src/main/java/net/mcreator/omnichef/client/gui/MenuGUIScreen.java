@@ -363,7 +363,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.menu_gui.label_management"), 32, -6, -1, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.menu_gui.label_management"), 57, -7, -1, false);
 		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(entity), 18, 19, -12829636, false);
 		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(entity), 18, 54, -12829636, false);
 		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(entity), 18, 92, -12829636, false);
@@ -424,6 +424,54 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 			}
 		};
 		this.addRenderableWidget(imagebutton_last_page_icon);
+		enhanced_image_button_preparation_station_button = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -125, this.topPos + -23, 77, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				String guiTools$buttonText = "Current Menu";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -1, true);
+					guiGraphics.pose().popPose();
+				}
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_preparation_station_button);
+		enhanced_image_button_preparation_station_button_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -125, this.topPos + 1, 77, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				String guiTools$buttonText = "Next Menu";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -1, true);
+					guiGraphics.pose().popPose();
+				}
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_preparation_station_button_copy);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -465,6 +513,29 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 				high = middle - 1;
 		}
 		return value.substring(0, low).stripTrailing() + ellipsis;
+	}
+
+	private static final boolean guiTools$enhancedImageButton = true;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_preparation_station_button;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_preparation_station_button_copy;
+
+	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
 	}
 
 	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {

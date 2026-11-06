@@ -16,6 +16,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
 import net.mcreator.omnichef.procedures.OpenRestaurantResultGUIProcedure;
+import net.mcreator.omnichef.procedures.OpenNextDayMenuGUIProcedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -50,6 +51,10 @@ public record OmnichefModInventoryButtonMessage(int buttonID, int x, int y, int 
 		if (buttonID == 0) {
 
 			OpenRestaurantResultGUIProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 1) {
+
+			OpenNextDayMenuGUIProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

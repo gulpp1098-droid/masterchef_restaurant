@@ -15,7 +15,7 @@
         "data": {
           "image": "spatulagui.png",
           "use1Xscale": false,
-          "x": 114,
+          "x": 78,
           "y": 26,
           "locked": true
         }
@@ -29,7 +29,7 @@
             "fixedValue": 0.0,
             "name": "OpenCloseReturn"
           },
-          "x": 144,
+          "x": 107,
           "y": 130,
           "locked": false
         }
@@ -39,7 +39,7 @@
         "data": {
           "image": "ribbon_icon.png",
           "use1Xscale": false,
-          "x": 170,
+          "x": 133,
           "y": 37,
           "locked": false
         }
@@ -49,7 +49,7 @@
         "data": {
           "image": "spatula_icon.png",
           "use1Xscale": false,
-          "x": 179,
+          "x": 142,
           "y": 36,
           "locked": false
         }
@@ -66,7 +66,7 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 195,
+          "x": 158,
           "y": 40,
           "locked": false
         }
@@ -76,8 +76,8 @@
         "data": {
           "image": "servicetable_icon.png",
           "use1Xscale": false,
-          "x": 138,
-          "y": 170,
+          "x": 299,
+          "y": 68,
           "locked": false
         }
       },
@@ -86,8 +86,8 @@
         "data": {
           "image": "localization_icon.png",
           "use1Xscale": false,
-          "x": 242,
-          "y": 170,
+          "x": 300,
+          "y": 130,
           "locked": false
         }
       },
@@ -104,8 +104,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 154,
-          "y": 175,
+          "x": 322,
+          "y": 71,
           "locked": false
         }
       },
@@ -114,8 +114,8 @@
         "data": {
           "image": "queue_rug_item.png",
           "use1Xscale": false,
-          "x": 190,
-          "y": 170,
+          "x": 299,
+          "y": 99,
           "locked": false
         }
       },
@@ -132,8 +132,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 208,
-          "y": 175,
+          "x": 322,
+          "y": 103,
           "locked": false
         }
       },
@@ -150,8 +150,8 @@
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 258,
-          "y": 175,
+          "x": 322,
+          "y": 133,
           "locked": false
         }
       },
@@ -160,17 +160,7 @@
         "data": {
           "image": "spatulasidegui.png",
           "use1Xscale": false,
-          "x": 17,
-          "y": 26,
-          "locked": true
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "spatulasidegui.png",
-          "use1Xscale": false,
-          "x": 323,
+          "x": 286,
           "y": 26,
           "locked": true
         }
@@ -180,440 +170,8 @@
         "data": {
           "image": "ribbonsmall_icon.png",
           "use1Xscale": false,
-          "x": 30,
+          "x": 299,
           "y": 37,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "ribbonsmall_icon.png",
-          "use1Xscale": false,
-          "x": 336,
-          "y": 37,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_stats",
-          "text": {
-            "fixedValue": "Day Stats"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 39,
-          "y": 41,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_fully",
-          "text": {
-            "fixedValue": "Perfect Serve"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 30,
-          "y": 62,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_part_served",
-          "text": {
-            "fixedValue": "Satisfied"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 40,
-          "y": 87,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_not_served",
-          "text": {
-            "fixedValue": "Unsatisfied"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 35,
-          "y": 113,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_coins_earned",
-          "text": {
-            "fixedValue": "Coins Earned"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 33,
-          "y": 139,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_reputation",
-          "text": {
-            "fixedValue": "Reputation"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 38,
-          "y": 165,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "facehappy_icon.png",
-          "use1Xscale": false,
-          "x": 42,
-          "y": 73,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "facemedium_icon.png",
-          "use1Xscale": false,
-          "x": 42,
-          "y": 98,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "faceangry_icon.png",
-          "use1Xscale": false,
-          "x": 42,
-          "y": 124,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 43,
-          "y": 152,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "reputation_icon.png",
-          "use1Xscale": false,
-          "x": 42,
-          "y": 177,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_80",
-          "text": {
-            "fixedValue": "80",
-            "name": "FullyServedReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 65,
-          "y": 74,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_801",
-          "text": {
-            "fixedValue": "80",
-            "name": "PartServedReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 65,
-          "y": 100,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_802",
-          "text": {
-            "fixedValue": "80",
-            "name": "NotServedReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 65,
-          "y": 126,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_803",
-          "text": {
-            "fixedValue": "80",
-            "name": "CoinsEarnedReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 65,
-          "y": 153,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_804",
-          "text": {
-            "fixedValue": "80",
-            "name": "ReputationReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 65,
-          "y": 179,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "MenuNextPage",
-          "x": 387,
-          "y": 174,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_last_page_icon",
-          "image": "last_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "MenuPreviousPage",
-          "x": 334,
-          "y": 174,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "itemslot_icon.png",
-          "use1Xscale": false,
-          "x": 336,
-          "y": 61,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "itemslot_icon.png",
-          "use1Xscale": false,
-          "x": 336,
-          "y": 99,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "itemslot_icon.png",
-          "use1Xscale": false,
-          "x": 336,
-          "y": 137,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 366,
-          "y": 66,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 366,
-          "y": 104,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 366,
-          "y": 142,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_10",
-          "text": {
-            "fixedValue": "10",
-            "name": "Food1RewardReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 381,
-          "y": 67,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_20",
-          "text": {
-            "fixedValue": "20",
-            "name": "Food2RewardReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 381,
-          "y": 105,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_30",
-          "text": {
-            "fixedValue": "30",
-            "name": "Food3RewardReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 381,
-          "y": 143,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_1",
-          "text": {
-            "fixedValue": "1",
-            "name": "PageReturn"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "x": 365,
-          "y": 178,
-          "locked": false
-        }
-      },
-      {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "openclosebutton_icon.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -13421773,
-            "falpha": 0.0
-          },
-          "textShadow": false,
-          "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_button_icon",
-          "text": "View Next Menu",
-          "isUndecorated": true,
-          "onClick": "OpenNextDayMenuGUI",
-          "width": 81,
-          "height": 31,
-          "x": 330,
-          "y": 206,
           "locked": false
         }
       },
@@ -621,7 +179,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_first_linesecond_line",
-          "text": "Current\nMenu",
+          "text": "???",
           "color": {
             "value": -1,
             "falpha": 0.0
@@ -634,134 +192,8 @@
           "alignment": "CENTER",
           "width": 42,
           "height": 13,
-          "x": 348,
+          "x": 311,
           "y": 38,
-          "locked": false
-        }
-      },
-      {
-        "type": "item_display",
-        "data": {
-          "name": "item_display_0",
-          "displayId": 0,
-          "maskEnabled": false,
-          "showTooltip": true,
-          "showTooltipWhenMasked": false,
-          "showCount": true,
-          "showCountWhenMasked": false,
-          "maskColor": {
-            "value": -16777216,
-            "falpha": 0.0
-          },
-          "maskOpacity": 100,
-          "scale": 100,
-          "x": 337,
-          "y": 62,
-          "locked": false
-        }
-      },
-      {
-        "type": "item_display",
-        "data": {
-          "name": "item_display_1",
-          "displayId": 1,
-          "maskEnabled": false,
-          "showTooltip": true,
-          "showTooltipWhenMasked": false,
-          "showCount": true,
-          "showCountWhenMasked": false,
-          "maskColor": {
-            "value": -16777216,
-            "falpha": 0.0
-          },
-          "maskOpacity": 100,
-          "scale": 100,
-          "x": 337,
-          "y": 100,
-          "locked": false
-        }
-      },
-      {
-        "type": "item_display",
-        "data": {
-          "name": "item_display_2",
-          "displayId": 2,
-          "maskEnabled": false,
-          "showTooltip": true,
-          "showTooltipWhenMasked": false,
-          "showCount": true,
-          "showCountWhenMasked": false,
-          "maskColor": {
-            "value": -16777216,
-            "falpha": 0.0
-          },
-          "maskOpacity": 100,
-          "scale": 100,
-          "x": 337,
-          "y": 138,
-          "locked": false
-        }
-      },
-      {
-        "type": "sized_text_label",
-        "data": {
-          "name": "sized_text_label_food_1",
-          "text": "Food 1 Name",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "textProcedure": "Food1NameReturn",
-          "overflowMode": "ELLIPSIS",
-          "tooltipWhenTruncated": true,
-          "width": 65,
-          "height": 10,
-          "x": 336,
-          "y": 84,
-          "locked": false
-        }
-      },
-      {
-        "type": "sized_text_label",
-        "data": {
-          "name": "sized_text_label_food_2",
-          "text": "Food 2 Name",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "textProcedure": "Food2NameReturn",
-          "overflowMode": "ELLIPSIS",
-          "tooltipWhenTruncated": true,
-          "width": 65,
-          "height": 10,
-          "x": 336,
-          "y": 123,
-          "locked": false
-        }
-      },
-      {
-        "type": "sized_text_label",
-        "data": {
-          "name": "sized_text_label_food_3",
-          "text": "Food 3 Name",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "hasShadow": false,
-          "fontScale": 100,
-          "textProcedure": "Food3NameReturn",
-          "overflowMode": "ELLIPSIS",
-          "tooltipWhenTruncated": true,
-          "width": 65,
-          "height": 10,
-          "x": 336,
-          "y": 160,
           "locked": false
         }
       },
@@ -784,7 +216,7 @@
           "onClick": "OpenCreateRestaurantGUI",
           "width": 165,
           "height": 20,
-          "x": 133,
+          "x": 96,
           "y": 61,
           "locked": false
         }
@@ -808,7 +240,7 @@
           "onClick": "SetSpatulaLocationModeTrue",
           "width": 81,
           "height": 20,
-          "x": 133,
+          "x": 96,
           "y": 84,
           "locked": false
         }
@@ -832,7 +264,7 @@
           "onClick": "StartRestaurantRelocation",
           "width": 81,
           "height": 20,
-          "x": 217,
+          "x": 180,
           "y": 84,
           "locked": false
         }
@@ -856,7 +288,7 @@
           "onClick": "OpenRestaurantButton",
           "width": 81,
           "height": 20,
-          "x": 133,
+          "x": 96,
           "y": 107,
           "locked": false
         }
@@ -880,7 +312,7 @@
           "onClick": "OpenRecipeInfoGUI",
           "width": 81,
           "height": 20,
-          "x": 217,
+          "x": 180,
           "y": 107,
           "locked": false
         }

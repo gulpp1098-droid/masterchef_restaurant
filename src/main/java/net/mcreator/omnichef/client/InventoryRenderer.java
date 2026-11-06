@@ -68,6 +68,7 @@ public class InventoryRenderer {
 		boolean flag = getFlag();
 		if (!buttons.isEmpty()) {
 			buttons.get(0).visible = flag && ShowRestaurantResultButtonProcedure.execute(mc.player);
+			buttons.get(1).visible = flag;
 		}
 		renderImages(event.getGuiGraphics(), event.getMouseX(), event.getMouseY());
 	}
@@ -84,7 +85,7 @@ public class InventoryRenderer {
 	}
 
 	private static void initButtons(ScreenEvent.Init.Pre event) {
-		buttons.add(new ImageButton(screen.getGuiLeft() + 308, screen.getGuiTop() + 37, 26, 26,
+		buttons.add(new ImageButton(screen.getGuiLeft() + 306, screen.getGuiTop() + 38, 26, 26,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/result_icon.png"), ResourceLocation.parse("omnichef:textures/screens/result_icon.png")), e -> {
 					if (getFlag() && ShowRestaurantResultButtonProcedure.execute(mc.player)) {
 						PacketDistributor.sendToServer(new OmnichefModInventoryButtonMessage(0, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ()));
@@ -93,20 +94,37 @@ public class InventoryRenderer {
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				this.setX(screen.getGuiLeft() + 183);
-				this.setY(screen.getGuiTop() + 0);
+				this.setX(screen.getGuiLeft() + 181);
+				this.setY(screen.getGuiTop() + 1);
 				if (getFlag() && ShowRestaurantResultButtonProcedure.execute(mc.player))
 					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		});
 		if (screen instanceof InventoryScreen)
 			event.addListener(buttons.get(0));
+		buttons.add(new ImageButton(screen.getGuiLeft() + 307, screen.getGuiTop() + 72, 26, 26,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/menu_gui_icon.png"), ResourceLocation.parse("omnichef:textures/screens/menu_gui_icon.png")), e -> {
+					if (getFlag()) {
+						PacketDistributor.sendToServer(new OmnichefModInventoryButtonMessage(1, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ()));
+						OmnichefModInventoryButtonMessage.handleButtonAction(mc.player, 1, (int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ());
+					}
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				this.setX(screen.getGuiLeft() + 182);
+				this.setY(screen.getGuiTop() + 35);
+				if (getFlag())
+					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		});
+		if (screen instanceof InventoryScreen)
+			event.addListener(buttons.get(1));
 	}
 
 	private static void renderImages(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		if (screen instanceof InventoryScreen)
 			if (ShowRestaurantResultNoticeProcedure.execute(mc.player)) {
-				guiGraphics.blit(IMAGE_0, screen.getGuiLeft() + 203, screen.getGuiTop() + -7, 0, 0, 6, 22, 6, 22);
+				guiGraphics.blit(IMAGE_0, screen.getGuiLeft() + 211, screen.getGuiTop() + 2, 0, 0, 6, 22, 6, 22);
 			}
 	}
 
