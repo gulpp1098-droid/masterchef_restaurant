@@ -8,6 +8,7 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Display;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
@@ -18,9 +19,18 @@ import java.util.Comparator;
 public class ServiceTableOnTickProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		Entity DisplaySpawn = null;
-		if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") > 0 && !(!((findEntityInWorldRange(world, Display.ItemDisplay.class, (x + 0.5), (y + 1), (z + 0.5), 0.5)) == null))) {
-			DisplaySpawn = world instanceof ServerLevel _level3 ? EntityType.ITEM_DISPLAY.spawn(_level3, BlockPos.containing(x + 0.5, y + 1, z + 0.5), MobSpawnType.MOB_SUMMONED) : null;
+		if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") > 0 && !(!((findEntityInWorldRange(world, Display.ItemDisplay.class, (x + 0.5), (y + 1.5), (z + 0.5), 0.5)) == null))) {
+			DisplaySpawn = world instanceof ServerLevel _level3 ? EntityType.ITEM_DISPLAY.spawn(_level3, BlockPos.containing(x + 0.5, y + 1.5, z + 0.5), MobSpawnType.MOB_SUMMONED) : null;
 			if (DisplaySpawn != null) {
+				{
+					Entity _ent = DisplaySpawn;
+					double _tx = (x + 0.5);
+					double _ty = (y + 1.5);
+					double _tz = (z + 0.5);
+					_ent.teleportTo(_tx, _ty, _tz);
+					if (_ent instanceof ServerPlayer _serverPlayer)
+						_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
+				}
 				DisplaySpawn.setNoGravity(true);
 				{
 					Entity _ent = DisplaySpawn;
@@ -40,7 +50,7 @@ public class ServiceTableOnTickProcedure {
 					Entity _ent = DisplaySpawn;
 					if (!_ent.level().isClientSide() && _ent.getServer() != null) {
 						_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-								_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "/data modify entity @s transformation.scale set value [0.5f, 0.5f, 0.5f]");
+								_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "/data modify entity @s transformation.scale set value [-0.5f, 0.5f, 0.5f]");
 					}
 				}
 			}
