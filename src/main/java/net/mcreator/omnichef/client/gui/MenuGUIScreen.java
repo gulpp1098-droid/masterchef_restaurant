@@ -363,7 +363,7 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.menu_gui.label_management"), 57, -7, -1, false);
+		guiGraphics.drawString(this.font, MenuViewTitleReturnProcedure.execute(entity), 44, -7, -1, false);
 		guiGraphics.drawString(this.font, Food1RewardReturnProcedure.execute(entity), 18, 19, -12829636, false);
 		guiGraphics.drawString(this.font, Food2RewardReturnProcedure.execute(entity), 18, 54, -12829636, false);
 		guiGraphics.drawString(this.font, Food3RewardReturnProcedure.execute(entity), 18, 92, -12829636, false);

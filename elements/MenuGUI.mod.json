@@ -35,14 +35,15 @@
         "data": {
           "name": "label_management",
           "text": {
-            "fixedValue": "Menu"
+            "fixedValue": "Menu",
+            "name": "MenuViewTitleReturn"
           },
           "color": {
             "value": -1,
             "falpha": 0.0
           },
           "hasShadow": false,
-          "x": 205,
+          "x": 192,
           "y": 42,
           "locked": false
         }

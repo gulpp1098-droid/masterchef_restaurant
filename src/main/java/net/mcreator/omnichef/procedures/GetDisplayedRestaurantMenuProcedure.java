@@ -16,7 +16,7 @@ public class GetDisplayedRestaurantMenuProcedure {
 		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).MenuShowNext) {
 			menu = restaurant.get("next_menu").getAsJsonArray();
 		} else {
-			if (!restaurant.get("open").getAsBoolean() && (!restaurant.get("menu_advance_ready").getAsBoolean() || menu.size() == 0)) {
+			if (!restaurant.get("open").getAsBoolean() && (restaurant.get("menu_advance_ready").getAsBoolean() || menu.size() == 0)) {
 				menu = restaurant.get("next_menu").getAsJsonArray();
 			}
 		}
