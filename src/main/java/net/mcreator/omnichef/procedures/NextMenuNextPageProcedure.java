@@ -19,16 +19,7 @@ public class NextMenuNextPageProcedure {
 		double ID = 0;
 		ID = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID;
 		if (ID > 0) {
-			if (GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-				menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-			} else {
-				checkMenu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				menu = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, ID), "restaurants", "next_menu", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-			}
+			menu = GetDisplayedRestaurantMenuProcedure.execute(world, entity);
 			page = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("page");
 			if (menu.size() > (page + 1) * 6) {
 				{
