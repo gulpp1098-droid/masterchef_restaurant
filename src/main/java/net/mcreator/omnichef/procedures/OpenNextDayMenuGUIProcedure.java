@@ -1,21 +1,18 @@
 package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.world.inventory.MenuGUIMenu;
+import net.mcreator.omnichef.network.OmnichefModVariables;
 
 import io.netty.buffer.Unpooled;
 
@@ -24,9 +21,10 @@ public class OpenNextDayMenuGUIProcedure {
 		if (entity == null)
 			return;
 		{
-			final String _tagName = "page";
-			final double _tagValue = 0;
-			CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putDouble(_tagName, _tagValue));
+			OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+			_vars.MenuPage = 0;
+			_vars.MenuShowNext = false;
+			_vars.markSyncDirty();
 		}
 		if (entity instanceof ServerPlayer _ent) {
 			BlockPos _bpos = BlockPos.containing(x, y, z);

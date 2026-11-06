@@ -1,11 +1,7 @@
 package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.core.component.DataComponents;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
@@ -20,12 +16,12 @@ public class NextMenuNextPageProcedure {
 		ID = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID;
 		if (ID > 0) {
 			menu = GetDisplayedRestaurantMenuProcedure.execute(world, entity);
-			page = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("page");
+			page = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).MenuPage;
 			if (menu.size() > (page + 1) * 6) {
 				{
-					final String _tagName = "page";
-					final double _tagValue = (page + 1);
-					CustomData.update(DataComponents.CUSTOM_DATA, (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY), tag -> tag.putDouble(_tagName, _tagValue));
+					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+					_vars.MenuPage = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).MenuPage + 1;
+					_vars.markSyncDirty();
 				}
 				FillSlotsNextMenuProcedure.execute(world, entity);
 			}

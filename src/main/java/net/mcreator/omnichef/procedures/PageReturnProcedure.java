@@ -1,15 +1,13 @@
 package net.mcreator.omnichef.procedures;
 
-import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.core.component.DataComponents;
+
+import net.mcreator.omnichef.network.OmnichefModVariables;
 
 public class PageReturnProcedure {
 	public static String execute(Entity entity) {
 		if (entity == null)
 			return "";
-		return "" + ((int) ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getDouble("page") + 1));
+		return "" + (int) (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).MenuPage + 1);
 	}
 }
