@@ -53,7 +53,6 @@ public class ConfirmCloseRestaurantProcedure {
 					}
 					CreateOverlayDataTransferProcedure.execute(world, entity);
 					CreateGUIDataTransferProcedure.execute(world, entity);
-					FillSlotsMenuProcedure.execute(world, entity);
 					if (owner instanceof Player _player6 && !_player6.level().isClientSide())
 						_player6.displayClientMessage(Component.literal("Your restaurant has been closed for today.").withStyle(ChatFormatting.GOLD), false);
 					if (world instanceof ServerLevel _level) {

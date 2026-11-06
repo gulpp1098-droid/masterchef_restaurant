@@ -117,5 +117,6 @@
   "block.omnichef.trade_board.description_0": "Let's see what offers it has",
   "item.omnichef.copper_coin.description_0": "Coins cannot be spent in this version yet.",
   "item.omnichef.gold_coin.description_0": "Coins cannot be spent in this version yet.",
-  "item.omnichef.silver_coin.description_0": "Coins cannot be spent in this version yet."
+  "item.omnichef.silver_coin.description_0": "Coins cannot be spent in this version yet.",
+  "item.omnichef.coin": "Coin"
 }

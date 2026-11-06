@@ -43,6 +43,7 @@ public class OmnichefModItems {
 	public static final DeferredItem<Item> FOODWAIT;
 	public static final DeferredItem<Item> GROUPWAIT;
 	public static final DeferredItem<Item> TRADE_BOARD;
+	public static final DeferredItem<Item> COIN;
 	static {
 		SPATULA_GOLDEN = REGISTRY.register("spatula_golden", SpatulaGoldenItem::new);
 		SERVICE_TABLE = block(OmnichefModBlocks.SERVICE_TABLE);
@@ -64,6 +65,7 @@ public class OmnichefModItems {
 		FOODWAIT = REGISTRY.register("foodwait", FoodwaitItem::new);
 		GROUPWAIT = REGISTRY.register("groupwait", GroupwaitItem::new);
 		TRADE_BOARD = block(OmnichefModBlocks.TRADE_BOARD, new Item.Properties().fireResistant());
+		COIN = REGISTRY.register("coin", CoinItem::new);
 	}
 
 	// Start of user code block custom items
