@@ -40,9 +40,9 @@ public class ServiceTableRightClickedProcedure {
 						ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 					}
 					SetNumberNBTProcedure.execute(world, X, Y, Z, 0, "coins");
-					if (!((findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)) == null)) {
-						if (!(findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).level().isClientSide())
-							(findEntityInWorldRange(world, Display.TextDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).discard();
+					if (!((findEntityInWorldRange(world, Display.ItemDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)) == null)) {
+						if (!(findEntityInWorldRange(world, Display.ItemDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).level().isClientSide())
+							(findEntityInWorldRange(world, Display.ItemDisplay.class, (X + 0.5), (Y + 1), (Z + 0.5), 0.5)).discard();
 					}
 				} else {
 					if (entity instanceof Player _player11 && !_player11.level().isClientSide())
