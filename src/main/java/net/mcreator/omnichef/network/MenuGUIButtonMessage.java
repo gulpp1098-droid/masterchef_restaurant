@@ -58,6 +58,12 @@ public record MenuGUIButtonMessage(int buttonID, int x, int y, int z) implements
 		}
 
 		guiTools$enhancedImageButton : {
+			if (buttonID == 2) {
+				net.mcreator.omnichef.procedures.ShowCurrentMenuProcedure.execute(world, entity);
+			}
+			if (buttonID == 3) {
+				net.mcreator.omnichef.procedures.ShowNextMenuProcedure.execute(world, entity);
+			}
 		}
 	}
 

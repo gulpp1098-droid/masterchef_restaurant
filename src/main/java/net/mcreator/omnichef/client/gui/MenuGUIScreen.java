@@ -426,6 +426,12 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 		this.addRenderableWidget(imagebutton_last_page_icon);
 		enhanced_image_button_preparation_station_button = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -125, this.topPos + -23, 77, 18, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png")), e -> {
+					int x = MenuGUIScreen.this.x;
+					int y = MenuGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.MenuGUIButtonMessage(2, x, y, z));
+						net.mcreator.omnichef.network.MenuGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -450,6 +456,12 @@ public class MenuGUIScreen extends AbstractContainerScreen<MenuGUIMenu> implemen
 		this.addRenderableWidget(enhanced_image_button_preparation_station_button);
 		enhanced_image_button_preparation_station_button_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -125, this.topPos + 1, 77, 18, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/preparation_station_button.png")), e -> {
+					int x = MenuGUIScreen.this.x;
+					int y = MenuGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.MenuGUIButtonMessage(3, x, y, z));
+						net.mcreator.omnichef.network.MenuGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
