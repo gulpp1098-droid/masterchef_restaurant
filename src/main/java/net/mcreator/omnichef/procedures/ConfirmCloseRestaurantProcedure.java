@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -54,7 +55,13 @@ public class ConfirmCloseRestaurantProcedure {
 					CreateGUIDataTransferProcedure.execute(world, entity);
 					FillSlotsMenuProcedure.execute(world, entity);
 					if (owner instanceof Player _player6 && !_player6.level().isClientSide())
-						_player6.displayClientMessage(Component.literal("Restaurant closed.").withStyle(ChatFormatting.WHITE), true);
+						_player6.displayClientMessage(Component.literal("Your restaurant has been closed for today.").withStyle(ChatFormatting.GOLD), false);
+					if (world instanceof ServerLevel _level) {
+						_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("["
+								+ GetRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ownerName")
+								+ "] " + GetRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "name")
+								+ " restaurant has been closed.")), false);
+					}
 					if (entity instanceof ServerPlayer _ent) {
 						BlockPos _bpos = BlockPos.containing(entity.getX(), entity.getY(), entity.getZ());
 						_ent.openMenu(new MenuProvider() {

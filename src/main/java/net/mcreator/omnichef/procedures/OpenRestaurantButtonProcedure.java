@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -114,45 +115,54 @@ public class OpenRestaurantButtonProcedure {
 													RestaurantIsOpenProcedure.execute(world, entity, ChairsMax);
 													CreateGUIDataTransferProcedure.execute(world, entity);
 													if (owner instanceof Player _player25 && !_player25.level().isClientSide())
-														_player25.displayClientMessage(Component.literal("Restaurant opened!").withStyle(ChatFormatting.GREEN), true);
-													if (owner instanceof Player _player28 && !_player28.level().isClientSide())
-														_player28.displayClientMessage(Component
+														_player25.displayClientMessage(Component.literal("Your restaurant is now open!").withStyle(ChatFormatting.GREEN), false);
+													if (world instanceof ServerLevel _level) {
+														_level.getServer().getPlayerList()
+																.broadcastSystemMessage(Component.literal(("["
+																		+ GetRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+																				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ownerName")
+																		+ "] " + GetRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+																				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "name")
+																		+ " restaurant has been opened.")), false);
+													}
+													if (owner instanceof Player _player29 && !_player29.level().isClientSide())
+														_player29.displayClientMessage(Component
 																.literal(("Active setup: " + new java.text.DecimalFormat("#").format(AmountOfTables) + " Service Tables, " + new java.text.DecimalFormat("#").format(AmountOfChairs) + " Chairs."))
 																.withStyle(ChatFormatting.WHITE), false);
 												} else {
 													ModifyRestaurantStringParameterProcedure.execute(index, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 															OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception", "");
-													if (owner instanceof Player _player31 && !_player31.level().isClientSide())
-														_player31.displayClientMessage(Component.literal("A valid Reception is required to open your restaurant.").withStyle(ChatFormatting.RED), true);
+													if (owner instanceof Player _player32 && !_player32.level().isClientSide())
+														_player32.displayClientMessage(Component.literal("A valid Reception is required to open your restaurant.").withStyle(ChatFormatting.RED), true);
 												}
 											} else {
-												if (owner instanceof Player _player34 && !_player34.level().isClientSide())
-													_player34.displayClientMessage(Component.literal("At least one valid Chair is required.").withStyle(ChatFormatting.RED), true);
+												if (owner instanceof Player _player35 && !_player35.level().isClientSide())
+													_player35.displayClientMessage(Component.literal("At least one valid Chair is required.").withStyle(ChatFormatting.RED), true);
 											}
 										} else {
-											if (owner instanceof Player _player37 && !_player37.level().isClientSide())
-												_player37.displayClientMessage(Component.literal("At least one valid Service Table is required.").withStyle(ChatFormatting.RED), true);
+											if (owner instanceof Player _player38 && !_player38.level().isClientSide())
+												_player38.displayClientMessage(Component.literal("At least one valid Service Table is required.").withStyle(ChatFormatting.RED), true);
 										}
 									} else {
-										if (owner instanceof Player _player40 && !_player40.level().isClientSide())
-											_player40.displayClientMessage(Component.literal("Opening hours: 6:00\u201315:00.").withStyle(ChatFormatting.RED), true);
+										if (owner instanceof Player _player41 && !_player41.level().isClientSide())
+											_player41.displayClientMessage(Component.literal("Opening hours: 6:00\u201315:00.").withStyle(ChatFormatting.RED), true);
 									}
 								} else {
-									if (owner instanceof Player _player43 && !_player43.level().isClientSide())
-										_player43.displayClientMessage(Component.literal("Your restaurant has already opened today.").withStyle(ChatFormatting.RED), true);
+									if (owner instanceof Player _player44 && !_player44.level().isClientSide())
+										_player44.displayClientMessage(Component.literal("Your restaurant has already opened today.").withStyle(ChatFormatting.RED), true);
 								}
 							} else {
-								if (owner instanceof Player _player46 && !_player46.level().isClientSide())
-									_player46.displayClientMessage(Component.literal("Restaurant data is not ready. Try again.").withStyle(ChatFormatting.RED), true);
+								if (owner instanceof Player _player47 && !_player47.level().isClientSide())
+									_player47.displayClientMessage(Component.literal("Restaurant data is not ready. Try again.").withStyle(ChatFormatting.RED), true);
 							}
 						}
 					} else {
-						if (owner instanceof Player _player49 && !_player49.level().isClientSide())
-							_player49.displayClientMessage(Component.literal("Restaurants can only open in the Overworld.").withStyle(ChatFormatting.RED), true);
+						if (owner instanceof Player _player50 && !_player50.level().isClientSide())
+							_player50.displayClientMessage(Component.literal("Restaurants can only open in the Overworld.").withStyle(ChatFormatting.RED), true);
 					}
 				} else {
-					if (owner instanceof Player _player52 && !_player52.level().isClientSide())
-						_player52.displayClientMessage(Component.literal("Select your restaurant area before opening.").withStyle(ChatFormatting.RED), true);
+					if (owner instanceof Player _player53 && !_player53.level().isClientSide())
+						_player53.displayClientMessage(Component.literal("Select your restaurant area before opening.").withStyle(ChatFormatting.RED), true);
 				}
 			}
 		}
