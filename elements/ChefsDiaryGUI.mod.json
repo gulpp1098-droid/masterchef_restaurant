@@ -79,8 +79,8 @@
         "data": {
           "image": "location_icon.png",
           "use1Xscale": false,
-          "x": 226,
-          "y": 84,
+          "x": 225,
+          "y": 102,
           "locked": false
         }
       },
@@ -89,8 +89,8 @@
         "data": {
           "image": "requirements_icon.png",
           "use1Xscale": false,
-          "x": 224,
-          "y": 64,
+          "x": 223,
+          "y": 75,
           "locked": false
         }
       },
@@ -99,28 +99,8 @@
         "data": {
           "image": "open_icon.png",
           "use1Xscale": false,
-          "x": 226,
-          "y": 124,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "serve_icon.png",
-          "use1Xscale": false,
-          "x": 224,
-          "y": 142,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "coin_icon.png",
-          "use1Xscale": false,
-          "x": 227,
-          "y": 162,
+          "x": 225,
+          "y": 156,
           "locked": false
         }
       },
@@ -129,18 +109,8 @@
         "data": {
           "image": "hammer_icon.png",
           "use1Xscale": false,
-          "x": 224,
-          "y": 104,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "questionmark_icon.png",
-          "use1Xscale": false,
-          "x": 224,
-          "y": 177,
+          "x": 223,
+          "y": 129,
           "locked": false
         }
       },
@@ -149,18 +119,8 @@
         "data": {
           "image": "spatula_icon.png",
           "use1Xscale": false,
-          "x": 224,
-          "y": 43,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "separator_icon.png",
-          "use1Xscale": false,
-          "x": 68,
-          "y": 178,
+          "x": 223,
+          "y": 47,
           "locked": false
         }
       },
@@ -188,6 +148,16 @@
           "use1Xscale": false,
           "x": 214,
           "y": 30,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "separator_icon.png",
+          "use1Xscale": false,
+          "x": 68,
+          "y": 178,
           "locked": false
         }
       },
@@ -236,11 +206,11 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "empty.png",
+          "image": "preparation_station_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -16764007,
+            "value": -1,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -250,9 +220,9 @@
           "text": "My Golden Spatula",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideSpatula",
-          "width": 62,
-          "height": 13,
-          "x": 244,
+          "width": 100,
+          "height": 18,
+          "x": 243,
           "y": 46,
           "locked": false
         }
@@ -260,11 +230,11 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "empty.png",
+          "image": "preparation_station_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -16764007,
+            "value": -1,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -274,21 +244,21 @@
           "text": "What My Restaurant Needs",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideBlocks",
-          "width": 92,
-          "height": 13,
-          "x": 244,
-          "y": 65,
+          "width": 100,
+          "height": 18,
+          "x": 243,
+          "y": 73,
           "locked": false
         }
       },
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "empty.png",
+          "image": "preparation_station_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -16764007,
+            "value": -1,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -298,21 +268,21 @@
           "text": "Finding the Right Place",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideLocation",
-          "width": 85,
-          "height": 13,
-          "x": 244,
-          "y": 84,
+          "width": 100,
+          "height": 18,
+          "x": 243,
+          "y": 100,
           "locked": false
         }
       },
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "empty.png",
+          "image": "preparation_station_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -16764007,
+            "value": -1,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -322,21 +292,21 @@
           "text": "Putting It All Together",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideSetUp",
-          "width": 81,
-          "height": 13,
-          "x": 244,
-          "y": 103,
+          "width": 100,
+          "height": 18,
+          "x": 243,
+          "y": 127,
           "locked": false
         }
       },
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "empty.png",
+          "image": "preparation_station_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
-            "value": -16764007,
+            "value": -1,
             "falpha": 0.0
           },
           "textShadow": false,
@@ -346,82 +316,10 @@
           "text": "Opening Day",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideOpen",
-          "width": 43,
-          "height": 13,
-          "x": 244,
-          "y": 123,
-          "locked": false
-        }
-      },
-      {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "empty.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -16764007,
-            "falpha": 0.0
-          },
-          "textShadow": false,
-          "fontScale": 75,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_empty_copy_5",
-          "text": "Serving My Guests",
-          "isUndecorated": true,
-          "onClick": "ChefsDiaryGuideServe",
-          "width": 64,
-          "height": 13,
-          "x": 244,
-          "y": 142,
-          "locked": false
-        }
-      },
-      {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "empty.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -16764007,
-            "falpha": 0.0
-          },
-          "textShadow": false,
-          "fontScale": 75,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_empty_copy_6",
-          "text": "Reputation and Earnings",
-          "isUndecorated": true,
-          "onClick": "ChefsDiaryGuideExpLevel",
-          "width": 85,
-          "height": 13,
-          "x": 244,
-          "y": 161,
-          "locked": false
-        }
-      },
-      {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "empty.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -16764007,
-            "falpha": 0.0
-          },
-          "textShadow": false,
-          "fontScale": 75,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_empty_copy_6_copy",
-          "text": "Notes to Self",
-          "isUndecorated": true,
-          "onClick": "ChefsDiaryTipsGUIOpen",
-          "width": 49,
-          "height": 13,
-          "x": 244,
-          "y": 180,
+          "width": 100,
+          "height": 18,
+          "x": 243,
+          "y": 154,
           "locked": false
         }
       },
@@ -623,6 +521,18 @@
           "height": 18,
           "x": 363,
           "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryGuideBlocksP5",
+          "x": 322,
+          "y": 177,
           "locked": false
         }
       }

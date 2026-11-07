@@ -118,5 +118,8 @@
   "item.omnichef.copper_coin.description_0": "Coins cannot be spent in this version yet.",
   "item.omnichef.gold_coin.description_0": "Coins cannot be spent in this version yet.",
   "item.omnichef.silver_coin.description_0": "Coins cannot be spent in this version yet.",
-  "item.omnichef.coin": "Coin"
+  "item.omnichef.coin": "Coin",
+  "gui.omnichef.chefs_diary_p_2_gui.label_overview_wip": "My Notes",
+  "gui.omnichef.chefs_diary_p_2_gui.label_basic_tutorial": "My Notes",
+  "gui.omnichef.chefs_diary_p_2_gui.label_welcome_chef": "A Dream of Mine"
 }

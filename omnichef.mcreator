@@ -12402,6 +12402,21 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "ChefsDiaryP2GUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_p_2_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/network/ChefsDiaryP2GUIButtonMessage.java",
+          "src/main/java/net/mcreator/omnichef/client/gui/ChefsDiaryP2GUIScreen.java",
+          "src/main/java/net/mcreator/omnichef/world/inventory/ChefsDiaryP2GUIMenu.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
     }
   ],
   "variable_elements": [
@@ -12765,7 +12780,10 @@
       "item.omnichef.copper_coin.description_0": "Coins cannot be spent in this version yet.",
       "item.omnichef.gold_coin.description_0": "Coins cannot be spent in this version yet.",
       "item.omnichef.silver_coin.description_0": "Coins cannot be spent in this version yet.",
-      "item.omnichef.coin": "Coin"
+      "item.omnichef.coin": "Coin",
+      "gui.omnichef.chefs_diary_p_2_gui.label_overview_wip": "My Notes",
+      "gui.omnichef.chefs_diary_p_2_gui.label_basic_tutorial": "My Notes",
+      "gui.omnichef.chefs_diary_p_2_gui.label_welcome_chef": "A Dream of Mine"
     }
   },
   "metadata": {
