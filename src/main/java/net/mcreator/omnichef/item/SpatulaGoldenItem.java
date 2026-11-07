@@ -28,7 +28,7 @@ import java.util.List;
 
 public class SpatulaGoldenItem extends Item {
 	public SpatulaGoldenItem() {
-		super(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)
 				.attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 2, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
 						.add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.8, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
 	}

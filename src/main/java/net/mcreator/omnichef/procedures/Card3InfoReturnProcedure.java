@@ -14,7 +14,7 @@ public class Card3InfoReturnProcedure {
 			return "";
 		ItemStack card = ItemStack.EMPTY;
 		card = (entity instanceof Player _guiToolsDisplayPlayer0 && _guiToolsDisplayPlayer0.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsDisplayMenu0
-				? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(0), ItemStack.EMPTY)
+				? _guiToolsDisplayMenu0.getMenuState(3, Integer.toString(2), ItemStack.EMPTY)
 				: ItemStack.EMPTY).copy();
 		if ((Food3RewardReturnProcedure.execute(entity)).equals("")) {
 			return "";

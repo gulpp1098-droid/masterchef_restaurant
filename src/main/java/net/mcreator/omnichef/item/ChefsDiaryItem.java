@@ -25,7 +25,7 @@ import io.netty.buffer.Unpooled;
 
 public class ChefsDiaryItem extends Item {
 	public ChefsDiaryItem() {
-		super(new Item.Properties().stacksTo(1).fireResistant());
+		super(new Item.Properties().stacksTo(1));
 	}
 
 	@Override
