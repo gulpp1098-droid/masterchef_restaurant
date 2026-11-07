@@ -36,16 +36,19 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 		execute(event, event.getLevel(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), event.getState(), event.getPlayer());
 	}
 
-	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
-		execute(null, world, x, y, z, blockstate, entity);
+	public static boolean execute(LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
+		return execute(null, world, x, y, z, blockstate, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
+	private static boolean execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, BlockState blockstate, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		double restaurantID = 0;
 		Entity entityChair = null;
 		Direction direction = Direction.NORTH;
+		if (CanBypassRestaurantProtectionProcedure.execute(entity)) {
+			return true;
+		}
 		if (blockstate.getBlock() == OmnichefModBlocks.SERVICE_TABLE.get() || blockstate.getBlock() == OmnichefModBlocks.RUG_QUEUE.get() || blockstate.getBlock() == OmnichefModBlocks.RECEPTION.get()
 				|| blockstate.getBlock() == OmnichefModBlocks.CHAIR.get()) {
 			restaurantID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
@@ -121,6 +124,7 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 				}
 			}
 		}
+		return true;
 	}
 
 	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {

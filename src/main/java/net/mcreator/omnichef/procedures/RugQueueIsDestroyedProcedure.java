@@ -23,13 +23,13 @@ public class RugQueueIsDestroyedProcedure {
 		execute(event, event.getLevel(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), event.getPlayer());
 	}
 
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		execute(null, world, x, y, z, entity);
+	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+		return execute(null, world, x, y, z, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
+	private static boolean execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		boolean CanBreak = false;
 		String receptionString = "";
 		double NBT = 0;
@@ -44,6 +44,10 @@ public class RugQueueIsDestroyedProcedure {
 		if (OmnichefModBlocks.RUG_QUEUE.get() == (world.getBlockState(BlockPos.containing(x, y, z))).getBlock()) {
 			ID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
 			if (ID != 0) {
+				if (CanBypassRestaurantProtectionProcedure.execute(entity)) {
+					CleanupRestaurantQueueFromRugProcedure.execute(world, x, y, z);
+					return true;
+				}
 				if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "queue") > 0) {
 					if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == ID
 							&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
@@ -61,6 +65,7 @@ public class RugQueueIsDestroyedProcedure {
 				}
 			}
 		}
+		return true;
 	}
 
 	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {

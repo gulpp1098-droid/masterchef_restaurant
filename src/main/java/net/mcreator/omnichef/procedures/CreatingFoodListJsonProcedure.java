@@ -653,24 +653,6 @@ public class CreatingFoodListJsonProcedure {
 					exception.printStackTrace();
 				}
 			}
-			FoodDatabaseObject = foodDatabase;
-			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
-			try {
-				FoodDatabase.getParentFile().mkdirs();
-				FoodDatabase.createNewFile();
-			} catch (IOException exception) {
-				exception.printStackTrace();
-			}
-			{
-				com.google.gson.Gson mainGSONBuilderVariable = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-				try {
-					FileWriter fileWriter = new FileWriter(FoodDatabase);
-					fileWriter.write(mainGSONBuilderVariable.toJson(FoodDatabaseObject));
-					fileWriter.close();
-				} catch (IOException exception) {
-					exception.printStackTrace();
-				}
-			}
 		}
 	}
 }
