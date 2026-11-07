@@ -256,15 +256,15 @@ public class RenderClientStateIconProcedure {
 			for (Entity entityiterator : ((ClientLevel) world).entitiesForRendering()) {
 				if (entityiterator instanceof ClientEntity) {
 					iconState = entityiterator instanceof ClientEntity _datEntS ? _datEntS.getEntityData().get(ClientEntity.DATA_DisplayState) : "";
-					iconHeight = 2.6;
+					iconHeight = 2.8;
 					if (entityiterator instanceof ClientEntity _datEntL2 && _datEntL2.getEntityData().get(ClientEntity.DATA_Sit)) {
-						iconHeight = 2.4;
+						iconHeight = 2.6;
 					}
 				} else if (entityiterator instanceof CriticEntity) {
 					iconState = entityiterator instanceof CriticEntity _datEntS ? _datEntS.getEntityData().get(CriticEntity.DATA_DisplayState) : "";
-					iconHeight = 2.6;
+					iconHeight = 2.8;
 					if (entityiterator instanceof CriticEntity _datEntL5 && _datEntL5.getEntityData().get(CriticEntity.DATA_Sit)) {
-						iconHeight = 2.4;
+						iconHeight = 2.6;
 					}
 				} else {
 					iconState = "";
