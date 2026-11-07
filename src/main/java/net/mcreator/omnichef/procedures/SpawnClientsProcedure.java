@@ -128,16 +128,16 @@ public class SpawnClientsProcedure {
 													SpawnY = RecY + Math.ceil(heightStep / 2);
 													if (heightStep % 2 == 0) {
 														SpawnY = RecY - Math.ceil(heightStep / 2);
-														if (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY, SpawnZ)) && world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY + 1, SpawnZ))
-																&& !world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ))) {
-															condition = true;
-															break;
-														}
-														heightStep = heightStep + 1;
 													}
-													if (condition) {
+													if (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY, SpawnZ)) && world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY + 1, SpawnZ))
+															&& !world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ))) {
+														condition = true;
 														break;
 													}
+													heightStep = heightStep + 1;
+												}
+												if (condition) {
+													break;
 												}
 											} else {
 												continue;
