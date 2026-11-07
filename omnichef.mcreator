@@ -12263,6 +12263,45 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "build_food_role_lookup",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "database",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/BuildFoodRoleLookupProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "ReceiveFoodRoles",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "receive_food_roles",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "inboundString",
+            "type": "string"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ReceiveFoodRolesProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "FoodRoleSync",
+      "type": "packet",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_role_sync",
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
