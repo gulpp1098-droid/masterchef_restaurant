@@ -86,7 +86,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_contains_the_dishes_your_custome",
-          "text": "Every recipe I discover joins my restaurant’s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Incoming Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests—and considerably more shopping for me.",
+          "text": "Every recipe I discover joins my restaurant’s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Next Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests—and considerably more shopping for me.",
           "color": {
             "value": -12829636,
             "falpha": 0.0

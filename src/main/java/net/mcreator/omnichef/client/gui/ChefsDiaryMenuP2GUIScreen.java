@@ -52,24 +52,6 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			if (this.enhanced_image_button_next_page_icon != null && this.enhanced_image_button_next_page_icon.visible) {
-				this.enhanced_image_button_next_page_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.red_bookmark != null && this.red_bookmark.visible) {
-				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.yellow_bookmark != null && this.yellow_bookmark.visible) {
-				this.yellow_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.green_bookmark != null && this.green_bookmark.visible) {
-				this.green_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.gray_bookmark != null && this.gray_bookmark.visible) {
-				this.gray_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.blue_bookmark != null && this.blue_bookmark.visible) {
-				this.blue_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -137,7 +119,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 						"I cannot serve every dish I have merely heard about. Recipe Cards permanently add new recipes to my repertoire, and only discovered dishes can appear on my menus.\nApparently, culinary genius still requires paperwork."),
 				-145, -87, 130, 110, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_contains_the_dishes_your_custome",
-				"Every recipe I discover joins my restaurant\u2019s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Incoming Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests\u2014and considerably more shopping for me."),
+				"Every recipe I discover joins my restaurant\u2019s collection and may appear when a future menu is planned. A dish discovered today will not replace anything already written on my Next Menu.\nAs my reputation grows, more of my collection can appear each day. More choice for my guests\u2014and considerably more shopping for me."),
 				4, -87, 130, 40, -12829636, false, 1.00F, 0, 0);
 	}
 
@@ -164,7 +146,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_next_page_icon);
+		this.addRenderableWidget(enhanced_image_button_next_page_icon);
 		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 143, this.topPos + -96, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
 					int x = ChefsDiaryMenuP2GUIScreen.this.x;
@@ -185,7 +167,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(red_bookmark);
+		this.addRenderableWidget(red_bookmark);
 		yellow_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 143, this.topPos + -67, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png")), e -> {
 					int x = ChefsDiaryMenuP2GUIScreen.this.x;
@@ -206,7 +188,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(yellow_bookmark);
+		this.addRenderableWidget(yellow_bookmark);
 		green_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 143, this.topPos + -38, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png")), e -> {
 					int x = ChefsDiaryMenuP2GUIScreen.this.x;
@@ -227,7 +209,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(green_bookmark);
+		this.addRenderableWidget(green_bookmark);
 		gray_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 143, this.topPos + -9, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png")), e -> {
 					int x = ChefsDiaryMenuP2GUIScreen.this.x;
@@ -248,7 +230,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(gray_bookmark);
+		this.addRenderableWidget(gray_bookmark);
 		blue_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 143, this.topPos + 20, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png")), e -> {
 					int x = ChefsDiaryMenuP2GUIScreen.this.x;
@@ -269,7 +251,7 @@ public class ChefsDiaryMenuP2GUIScreen extends AbstractContainerScreen<ChefsDiar
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(blue_bookmark);
+		this.addRenderableWidget(blue_bookmark);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();

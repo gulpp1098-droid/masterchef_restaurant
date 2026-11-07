@@ -232,7 +232,7 @@ public class ChefsDiaryP2GUIScreen extends AbstractContainerScreen<ChefsDiaryP2G
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Growning My Restaurant";
+				String guiTools$buttonText = "Growing My Restaurant";
 				if (!guiTools$buttonText.isEmpty()) {
 					guiGraphics.pose().pushPose();
 					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);

@@ -41,7 +41,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_food_is_categoried_into_multiple",
-          "text": "I keep two menus: one for today and one for next time. Planning ahead keeps the kitchen panic manageable.",
+          "text": "I can check my menus using the menu button in my inventory.\nOne tells me what to prepare for service; the other lets me plan further ahead. A little preparation should save me a few frantic trips to the pantry.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -59,30 +59,6 @@
         }
       },
       {
-        "type": "enhanced_image_button",
-        "data": {
-          "image": "last_page_icon.png",
-          "hoveredImage": "",
-          "pressedImage": "",
-          "textColor": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "textShadow": true,
-          "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_next_page_icon",
-          "text": "",
-          "isUndecorated": true,
-          "onClick": "ChefsDiaryFood",
-          "width": 16,
-          "height": 16,
-          "x": 73,
-          "y": 177,
-          "locked": false
-        }
-      },
-      {
         "type": "label",
         "data": {
           "name": "label_current_menu",
@@ -95,7 +71,7 @@
           },
           "hasShadow": false,
           "x": 218,
-          "y": 33,
+          "y": 22,
           "locked": false
         }
       },
@@ -103,7 +79,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_contains_the_dishes_your_custome",
-          "text": "These are the dishes my guests may order today. If it is written here, I had better be ready.",
+          "text": "These are the dishes for my current or upcoming service. While the restaurant is open, my guests choose their orders from this menu.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -116,7 +92,7 @@
           "width": 125,
           "height": 40,
           "x": 218,
-          "y": 44,
+          "y": 33,
           "locked": false
         }
       },
@@ -125,7 +101,7 @@
         "data": {
           "name": "label_current_menu_copy",
           "text": {
-            "fixedValue": "Incoming menu"
+            "fixedValue": "Next Menu"
           },
           "color": {
             "value": -3407821,
@@ -133,7 +109,7 @@
           },
           "hasShadow": false,
           "x": 218,
-          "y": 84,
+          "y": 93,
           "locked": false
         }
       },
@@ -141,7 +117,7 @@
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_contains_the_dishes_your_custome_copy",
-          "text": "These dishes are planned for my next opening. When the day is truly over, they become my Current Menu and a new plan takes their place.",
+          "text": "A preview of the menu that follows my current service. I can gather its ingredients in advance, but my guests will not order from it during the current opening.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
@@ -154,7 +130,7 @@
           "width": 125,
           "height": 74,
           "x": 218,
-          "y": 96,
+          "y": 105,
           "locked": false
         }
       },

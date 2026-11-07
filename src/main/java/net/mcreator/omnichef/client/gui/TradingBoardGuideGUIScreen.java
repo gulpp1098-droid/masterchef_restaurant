@@ -1,19 +1,14 @@
 package net.mcreator.omnichef.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.WidgetSprites;
-import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.omnichef.world.inventory.TradingBoardGuideGUIMenu;
-import net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage;
 import net.mcreator.omnichef.init.OmnichefModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -23,7 +18,6 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	private ImageButton imagebutton_next_page_icon;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/trading_board_guide_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/note_small_icon.png");
@@ -120,35 +114,22 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_customers_can_visit_your", "Trading description*"), -145, -78, 130, 160, -12829636, false, 1.00F, 0, 0);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_customers_can_visit_your",
+				"I am not the only one with a pantry to fill. Local growers and fellow cooks pin their offers here, trading what they can spare for what they need.\nThe notes change each day. They only offer ingredients I have already unlocked.\nNot every deal is a bargain, but it might save tonight\u2019s service."),
+				-145, -78, 130, 160, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_what_my_restaurant_needs", "Trading Board"), -145, -98, 104, 11, -12829636, false, 1.00F, 0, 0);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		imagebutton_next_page_icon = new ImageButton(this.leftPos + 108, this.topPos + 57, 15, 15,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png"), ResourceLocation.parse("omnichef:textures/screens/next_page_icon.png")), e -> {
-					int x = TradingBoardGuideGUIScreen.this.x;
-					int y = TradingBoardGuideGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new TradingBoardGuideGUIButtonMessage(0, x, y, z));
-						TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_next_page_icon);
 		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -101, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
 					int x = TradingBoardGuideGUIScreen.this.x;
 					int y = TradingBoardGuideGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(1, x, y, z));
-						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(0, x, y, z));
+						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {
 			@Override
@@ -168,8 +149,8 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 					int x = TradingBoardGuideGUIScreen.this.x;
 					int y = TradingBoardGuideGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(2, x, y, z));
-						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(1, x, y, z));
+						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 					}
 				}) {
 			@Override
@@ -189,8 +170,8 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 					int x = TradingBoardGuideGUIScreen.this.x;
 					int y = TradingBoardGuideGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(3, x, y, z));
-						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(2, x, y, z));
+						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {
 			@Override
@@ -210,8 +191,8 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 					int x = TradingBoardGuideGUIScreen.this.x;
 					int y = TradingBoardGuideGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(4, x, y, z));
-						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(3, x, y, z));
+						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 					}
 				}) {
 			@Override
@@ -231,8 +212,8 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 					int x = TradingBoardGuideGUIScreen.this.x;
 					int y = TradingBoardGuideGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(5, x, y, z));
-						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage(4, x, y, z));
+						net.mcreator.omnichef.network.TradingBoardGuideGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 					}
 				}) {
 			@Override

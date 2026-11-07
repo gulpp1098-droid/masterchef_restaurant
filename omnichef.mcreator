@@ -12867,7 +12867,7 @@
       "gui.omnichef.blocks_guide_p_4_gui.label_service_table": "Chair",
       "gui.omnichef.blocks_guide_p_5_gui.label_service_table": "Queue Rug",
       "gui.omnichef.chefs_diary_menu_gui.label_food_wip": "My Menus",
-      "gui.omnichef.chefs_diary_menu_gui.label_current_menu_copy": "Incoming menu",
+      "gui.omnichef.chefs_diary_menu_gui.label_current_menu_copy": "Next Menu",
       "gui.omnichef.chefs_diary_menu_gui.label_current_menu": "Current Menu",
       "gui.omnichef.chefs_diary_tips_gui.label_food_wip_copy": "Closing Early",
       "gui.omnichef.chefs_diary_tips_gui.label_food_wip": "Today’s Timeline",

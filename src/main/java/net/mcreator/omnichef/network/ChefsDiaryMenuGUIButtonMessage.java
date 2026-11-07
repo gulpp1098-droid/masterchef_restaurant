@@ -49,24 +49,21 @@ public record ChefsDiaryMenuGUIButtonMessage(int buttonID, int x, int y, int z) 
 
 		guiTools$enhancedImageButton : {
 			if (buttonID == 0) {
-				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
-			}
-			if (buttonID == 1) {
 				net.mcreator.omnichef.procedures.ChefsDiaryMenuP2Procedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 2) {
+			if (buttonID == 1) {
 				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 3) {
+			if (buttonID == 2) {
 				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 4) {
+			if (buttonID == 3) {
 				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 5) {
+			if (buttonID == 4) {
 				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 6) {
+			if (buttonID == 5) {
 				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 			}
 		}

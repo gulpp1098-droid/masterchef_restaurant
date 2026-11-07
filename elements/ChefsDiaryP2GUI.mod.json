@@ -159,7 +159,7 @@
           "fontScale": 75,
           "togglePressedTexture": false,
           "name": "enhanced_image_button_empty_copy_6",
-          "text": "Growning My Restaurant",
+          "text": "Growing My Restaurant",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideExpLevel",
           "width": 100,

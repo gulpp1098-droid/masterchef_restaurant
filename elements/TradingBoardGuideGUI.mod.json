@@ -232,22 +232,10 @@
         }
       },
       {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryGuideBlocksP2",
-          "x": 322,
-          "y": 177,
-          "locked": false
-        }
-      },
-      {
         "type": "multiline_label",
         "data": {
           "name": "multiline_label_before_customers_can_visit_your",
-          "text": "Trading description*",
+          "text": "I am not the only one with a pantry to fill. Local growers and fellow cooks pin their offers here, trading what they can spare for what they need.\nThe notes change each day. They only offer ingredients I have already unlocked.\nNot every deal is a bargain, but it might save tonight’s service.",
           "color": {
             "value": -12829636,
             "falpha": 0.0
