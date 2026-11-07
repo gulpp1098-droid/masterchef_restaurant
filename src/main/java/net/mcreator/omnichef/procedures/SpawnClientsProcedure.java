@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.SectionPos;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
@@ -140,6 +141,9 @@ public class SpawnClientsProcedure {
 												return 0;
 											}
 										}.convert(GetPartFromStringProcedure.execute(2, stringReception));
+										if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(RecX), SectionPos.blockToSectionCoord(RecZ))) {
+											continue;
+										}
 										condition = false;
 										for (int _i1 = 0; _i1 < 30; _i1++) {
 											OffsetX = 0;
@@ -150,6 +154,9 @@ public class SpawnClientsProcedure {
 											}
 											SpawnX = RecX + OffsetX;
 											SpawnZ = RecZ + OffsetZ;
+											if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(SpawnX), SectionPos.blockToSectionCoord(SpawnZ))) {
+												continue;
+											}
 											if (!IsInsideAnyRestaurantProcedure.execute(world, SpawnX, SpawnZ)) {
 												heightStep = 0;
 												for (int _i2 = 0; _i2 < 51; _i2++) {
@@ -181,11 +188,11 @@ public class SpawnClientsProcedure {
 												foodAmountArray = clientObject.get("food_amount").getAsJsonArray();
 												foodAmount = "" + foodAmountArray;
 												if (clientObject.get("critic").getAsBoolean()) {
-													Client = world instanceof ServerLevel _level40 ? OmnichefModEntities.CRITIC.get().spawn(_level40, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
-													if (owner instanceof Player _player43 && !_player43.level().isClientSide())
-														_player43.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
+													Client = world instanceof ServerLevel _level42 ? OmnichefModEntities.CRITIC.get().spawn(_level42, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+													if (owner instanceof Player _player45 && !_player45.level().isClientSide())
+														_player45.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
 												} else {
-													Client = world instanceof ServerLevel _level44 ? OmnichefModEntities.CLIENT.get().spawn(_level44, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+													Client = world instanceof ServerLevel _level46 ? OmnichefModEntities.CLIENT.get().spawn(_level46, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
 												}
 												patience = clientObject.get("patience").getAsDouble();
 												if (indexMembers == 0) {
@@ -258,8 +265,8 @@ public class SpawnClientsProcedure {
 												CreateOverlayDataTransferProcedure.execute(world, owner);
 											}
 										} else {
-											if (owner instanceof Player _player84 && !_player84.level().isClientSide())
-												_player84.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+											if (owner instanceof Player _player86 && !_player86.level().isClientSide())
+												_player86.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 										}
 									}
 								}

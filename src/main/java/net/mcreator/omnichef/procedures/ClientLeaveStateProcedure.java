@@ -20,6 +20,9 @@ public class ClientLeaveStateProcedure {
 				|| world.dayTime() >= entity.getPersistentData().getDouble("despawn_time")) {
 			if (entity.getPersistentData().getBoolean("leader")) {
 				ClientFinishActiveGroupProcedure.execute(world, entity);
+				if (!entity.getPersistentData().getBoolean("active_group_finished")) {
+					return true;
+				}
 			}
 			if (!entity.level().isClientSide())
 				entity.discard();

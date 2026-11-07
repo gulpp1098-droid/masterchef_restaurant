@@ -6,23 +6,50 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 public class ClientFinishActiveGroupProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static boolean execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		double restaurantID = 0;
 		double restaurantIndex = 0;
+		com.google.gson.JsonObject database = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject restaurant = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject clientData = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject completedGroups = new com.google.gson.JsonObject();
+		com.google.gson.JsonArray restaurants = new com.google.gson.JsonArray();
+		String groupKey = "";
 		if (!world.isClientSide() && entity.getPersistentData().getBoolean("leader") && !entity.getPersistentData().getBoolean("active_group_finished")) {
 			restaurantID = entity.getPersistentData().getDouble("RestaurantID");
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 			if (restaurantIndex >= 0) {
-				ModifyRestaurantNumberParameterProcedure
-						.execute(
-								Math.max(0,
-										GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-												OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "active_groups") - 1),
-								restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "active_groups");
-				entity.getPersistentData().putBoolean("active_group_finished", true);
+				clientData = FindClientsInfoByIndexViaIDProcedure.execute(world, restaurantID);
+				if (!clientData.has("shift_id")) {
+					return true;
+				}
+				if (!(entity.getPersistentData().getDouble("shift_id") == clientData.get("shift_id").getAsDouble())) {
+					return true;
+				}
+				database = ReadRestaurantsDatabaseProcedure.execute(world);
+				restaurants = database.get("restaurants").getAsJsonArray();
+				restaurant = restaurants.get((int) restaurantIndex).getAsJsonObject();
+				if (restaurant.has("group_completion_shift")) {
+					if (clientData.get("shift_id").getAsDouble() == restaurant.get("group_completion_shift").getAsDouble()) {
+						completedGroups = restaurant.get("completed_groups").getAsJsonObject();
+					}
+				}
+				groupKey = new java.text.DecimalFormat("##.##").format(entity.getPersistentData().getDouble("group"));
+				if (completedGroups.has(groupKey)) {
+					entity.getPersistentData().putBoolean("active_group_finished", true);
+					return true;
+				}
+				completedGroups.addProperty(groupKey, true);
+				restaurant.add("completed_groups", completedGroups);
+				restaurant.addProperty("group_completion_shift", clientData.get("shift_id").getAsDouble());
+				restaurant.addProperty("active_groups", Math.max(0, restaurant.get("active_groups").getAsDouble() - 1));
+				if (SaveJsonAtomicallyProcedure.execute(database, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name)) {
+					entity.getPersistentData().putBoolean("active_group_finished", true);
+				}
 			}
 		}
+		return true;
 	}
 }

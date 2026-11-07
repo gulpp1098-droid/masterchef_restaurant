@@ -10900,7 +10900,8 @@
         ],
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/ClientFinishActiveGroupProcedure.java"
-        ]
+        ],
+        "return_type": "logic"
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
     },

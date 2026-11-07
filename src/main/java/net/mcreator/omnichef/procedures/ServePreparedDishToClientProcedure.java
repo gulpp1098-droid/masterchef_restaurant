@@ -28,6 +28,10 @@ public class ServePreparedDishToClientProcedure {
 		comparisonResult = ComparePreparedDishWithOrderProcedure.execute(dishStack, orderAmountArray, orderFoodArray, database);
 		client.getPersistentData().putString("order_result", ("" + comparisonResult));
 		client.getPersistentData().putBoolean("order_served", true);
+		if (!RecordClientShiftResultProcedure.execute(world, client)) {
+			client.getPersistentData().putString("order_result", "{}");
+			client.getPersistentData().putBoolean("order_served", false);
+		}
 		return true;
 	}
 }
