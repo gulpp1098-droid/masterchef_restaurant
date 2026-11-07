@@ -12614,6 +12614,34 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures/States Procedures"
+    },
+    {
+      "name": "FinishUnspawnedClientGroup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "finish_unspawned_client_group",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "groupData",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/FinishUnspawnedClientGroupProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "FinishExpiredUnspawnedGroups",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "finish_expired_unspawned_groups",
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
