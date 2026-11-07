@@ -12302,7 +12302,24 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "food_role_sync",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/network/FoodRoleSyncMessage.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "FoodRoleClientCache",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "food_role_client_cache",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/FoodRoleClientCache.java"
+        ]
+      }
     }
   ],
   "variable_elements": [

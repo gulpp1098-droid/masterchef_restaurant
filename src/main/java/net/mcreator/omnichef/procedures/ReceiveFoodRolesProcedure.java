@@ -17,5 +17,6 @@ public class ReceiveFoodRolesProcedure {
 				}
 			}
 		}.parse(inboundString);
+		net.mcreator.omnichef.FoodRoleClientCache.receive(payload);
 	}
 }
