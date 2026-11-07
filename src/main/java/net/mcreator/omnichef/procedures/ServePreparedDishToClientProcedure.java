@@ -31,6 +31,7 @@ public class ServePreparedDishToClientProcedure {
 		if (!RecordClientShiftResultProcedure.execute(world, client)) {
 			client.getPersistentData().putString("order_result", "{}");
 			client.getPersistentData().putBoolean("order_served", false);
+			return false;
 		}
 		return true;
 	}

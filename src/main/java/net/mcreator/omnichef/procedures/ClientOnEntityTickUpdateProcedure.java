@@ -17,6 +17,9 @@ public class ClientOnEntityTickUpdateProcedure {
 		client = entity;
 		if (!world.isClientSide()) {
 			if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
+				if (RemoveClientFinishedInBackgroudProcedure.execute(world, entity)) {
+					return true;
+				}
 				if (Math.floor(client.getPersistentData().getDouble("shift_id") / 24000) < OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay) {
 					if (!client.level().isClientSide())
 						client.discard();

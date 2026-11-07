@@ -6,13 +6,16 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 public class CriticOnEntityTickUpdateProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static boolean execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		Entity client = null;
 		client = entity;
 		if (!world.isClientSide()) {
 			if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
+				if (RemoveClientFinishedInBackgroudProcedure.execute(world, entity)) {
+					return true;
+				}
 				if (Math.floor(client.getPersistentData().getDouble("shift_id") / 24000) < OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay) {
 					if (!client.level().isClientSide())
 						client.discard();
@@ -70,5 +73,6 @@ public class CriticOnEntityTickUpdateProcedure {
 				}
 			}
 		}
+		return true;
 	}
 }
