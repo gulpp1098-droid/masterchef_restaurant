@@ -35,8 +35,12 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		double restaurantID = 0;
+		double restaurantIndex = 0;
 		if (OmnichefModBlocks.RECEPTION.get() == (world.getBlockState(BlockPos.containing(x, y, z))).getBlock()) {
-			if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
+			restaurantID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
+			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
+			if (CanBypassRestaurantProtectionProcedure.execute(entity) || entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
 					&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
 							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 				if (IsQueueRugForRestaurantProcedure.execute(world, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y,
@@ -47,7 +51,10 @@ public class ReceptionIsDestroyedWithQueueRugsProcedure {
 							BlockPos.containing((getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepX() + x, y, (getDirectionFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))))).getStepZ() + z),
 							Blocks.AIR.defaultBlockState(), 3);
 				}
-				ReceptionBlockDestroyedProcedure.execute(world, entity);
+				if (restaurantIndex >= 0) {
+					ModifyRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception",
+							"");
+				}
 			}
 		}
 	}
