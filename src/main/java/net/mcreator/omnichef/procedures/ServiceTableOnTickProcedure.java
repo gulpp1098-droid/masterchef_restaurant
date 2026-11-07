@@ -50,7 +50,7 @@ public class ServiceTableOnTickProcedure {
 					Entity _ent = DisplaySpawn;
 					if (!_ent.level().isClientSide() && _ent.getServer() != null) {
 						_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4,
-								_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "/data modify entity @s transformation.scale set value [-0.5f, 0.5f, 0.5f]");
+								_ent.getName().getString(), _ent.getDisplayName(), _ent.level().getServer(), _ent), "data merge entity @s {transformation:{scale:[0.5f,0.5f,0.5f],right_rotation:[0f,1f,0f,0f]}}");
 					}
 				}
 			}

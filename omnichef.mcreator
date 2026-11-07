@@ -12256,6 +12256,14 @@
         ]
       },
       "path": "~/Restaurant Functioning/Items/DisplayItems"
+    },
+    {
+      "name": "BuildFoodRoleLookup",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "build_food_role_lookup",
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
