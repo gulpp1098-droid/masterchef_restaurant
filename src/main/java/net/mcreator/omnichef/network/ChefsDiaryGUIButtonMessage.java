@@ -15,7 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.ChefsDiaryGuideBlocksP5Procedure;
+import net.mcreator.omnichef.procedures.ChefsDiaryP2GUIOpenProcedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -49,7 +49,7 @@ public record ChefsDiaryGUIButtonMessage(int buttonID, int x, int y, int z) impl
 			return;
 		if (buttonID == 0) {
 
-			ChefsDiaryGuideBlocksP5Procedure.execute(world, x, y, z, entity);
+			ChefsDiaryP2GUIOpenProcedure.execute(world, x, y, z, entity);
 		}
 
 		guiTools$enhancedImageButton : {

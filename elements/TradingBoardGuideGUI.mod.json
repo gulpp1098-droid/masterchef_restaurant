@@ -1,0 +1,297 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": true
+        }
+      },
+      {
+        "type": "component_folder",
+        "data": {
+          "name": "Bookmarks",
+          "members": [
+            "red_bookmark",
+            "yellow_bookmark",
+            "green_bookmark",
+            "gray_bookmark",
+            "blue_bookmark",
+            "chefsdiary",
+            "food",
+            "clients",
+            "applience",
+            "stats"
+          ],
+          "x": -10000,
+          "y": -10000,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_red.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "red_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGUIOpen",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_yellow.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "yellow_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryFood",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 48,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_green.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "green_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryClients",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_gray.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "gray_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryApplience",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 106,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_blue.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "blue_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryStats",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 135,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "chefsdiary",
+          "image": "base_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 362,
+          "y": 23,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "food",
+          "image": "food_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "clients",
+          "image": "clients_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "applience",
+          "image": "appliences_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "stats",
+          "image": "stats_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "note_small_icon.png",
+          "use1Xscale": false,
+          "x": 153,
+          "y": 20,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryGuideBlocksP2",
+          "x": 322,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_before_customers_can_visit_your",
+          "text": "Trading description*",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 130,
+          "height": 160,
+          "x": 69,
+          "y": 42,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_what_my_restaurant_needs",
+          "text": "Trading Board",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 104,
+          "height": 11,
+          "x": 69,
+          "y": 22,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

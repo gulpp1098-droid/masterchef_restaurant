@@ -12417,6 +12417,126 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryP2GUIOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_p_2_gui_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ChefsDiaryP2GUIOpenProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "ChefsDiaryMenuOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_menu_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/ChefsDiaryMenuOpenProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "TradingBoardGuideGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trading_board_guide_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/client/gui/TradingBoardGuideGUIScreen.java",
+          "src/main/java/net/mcreator/omnichef/network/TradingBoardGuideGUIButtonMessage.java",
+          "src/main/java/net/mcreator/omnichef/world/inventory/TradingBoardGuideGUIMenu.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
+    },
+    {
+      "name": "TradingBoardGuideOpen",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trading_board_guide_open",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradingBoardGuideOpenProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
     }
   ],
   "variable_elements": [
