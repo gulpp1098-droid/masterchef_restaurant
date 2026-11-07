@@ -24,8 +24,11 @@ public class PrepareDishButtonClickedProcedure {
 		ItemStack preparedDish = ItemStack.EMPTY;
 		String foodID = "";
 		double slotIndex = 0;
+		double foodIndex = 0;
+		double mergedAmount = 0;
 		boolean valid = false;
 		boolean hadFood = false;
+		boolean foodFound = false;
 		if (!world.isClientSide()) {
 			database = ReadFoodDatabaseProcedure.execute(world);
 			valid = true;
@@ -36,8 +39,24 @@ public class PrepareDishButtonClickedProcedure {
 						hadFood = true;
 						foodID = BuiltInRegistries.ITEM.getKey(slotItem.getItem()).toString();
 						if (IsFoodInDatabaseProcedure.execute(database, foodID)) {
-							foodArray.add(foodID);
-							foodAmountArray.add((itemFromBlockInventory(world, BlockPos.containing(x, y, z), (int) slotIndex).getCount()));
+							foodIndex = 0;
+							foodFound = false;
+							for (int _i2 = 0; _i2 < (int) foodArray.size(); _i2++) {
+								if ((foodArray.get((int) foodIndex).getAsString()).equals(foodID)) {
+									mergedAmount = foodAmountArray.get((int) foodIndex).getAsDouble() + slotItem.getCount();
+									foodArray.remove(((int) foodIndex));
+									foodAmountArray.remove(((int) foodIndex));
+									foodArray.add(foodID);
+									foodAmountArray.add(mergedAmount);
+									foodFound = true;
+									break;
+								}
+								foodIndex = foodIndex + 1;
+							}
+							if (!foodFound) {
+								foodArray.add(foodID);
+								foodAmountArray.add(mergedAmount);
+							}
 						} else {
 							valid = false;
 						}
