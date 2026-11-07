@@ -12319,7 +12319,8 @@
         "files": [
           "src/main/java/net/mcreator/omnichef/FoodRoleClientCache.java"
         ]
-      }
+      },
+      "path": "~/Restaurant Functioning"
     },
     {
       "name": "SendFoodRoleBatch",
@@ -12358,6 +12359,33 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "send_food_roles_to_player",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "database",
+            "type": "jsonobject"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/SendFoodRolesToPlayerProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "FoodRoleTooltip",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_role_tooltip",
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],

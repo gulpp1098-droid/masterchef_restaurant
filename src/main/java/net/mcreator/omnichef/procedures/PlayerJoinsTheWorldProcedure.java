@@ -52,6 +52,7 @@ public class PlayerJoinsTheWorldProcedure {
 		}
 		if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
 			CreateOverlayDataTransferProcedure.execute(world, entity);
+			SendFoodRolesToPlayerProcedure.execute(world, entity, ReadFoodDatabaseProcedure.execute(world));
 		} else {
 			if (entity instanceof Player _player3 && !_player3.level().isClientSide())
 				_player3.displayClientMessage(Component.literal("[Omnichef] Failed to load restaurant data. Restaurant features are unavailable. See latest.log for details.").withStyle(ChatFormatting.RED), true);
