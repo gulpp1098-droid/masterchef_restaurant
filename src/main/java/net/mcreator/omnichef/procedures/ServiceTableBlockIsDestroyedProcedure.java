@@ -5,6 +5,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Display;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
@@ -22,6 +25,8 @@ import net.mcreator.omnichef.init.OmnichefModBlocks;
 import net.mcreator.omnichef.block.ChairBlock;
 
 import javax.annotation.Nullable;
+
+import java.util.Comparator;
 
 @EventBusSubscriber
 public class ServiceTableBlockIsDestroyedProcedure {
@@ -41,16 +46,24 @@ public class ServiceTableBlockIsDestroyedProcedure {
 		double ChairAmount = 0;
 		double chairIndex = 0;
 		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == OmnichefModBlocks.SERVICE_TABLE.get()) {
-			if (getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID") == 0 || entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
-					&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
-							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-				if (!getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied") && getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") == 0) {
+			if (CanBypassRestaurantProtectionProcedure.execute(entity) || getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID") == 0
+					|| entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID == getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID")
+							&& !GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID), "restaurants",
+									OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+				if (CanBypassRestaurantProtectionProcedure.execute(entity) || !getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied") && getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") == 0) {
+					if (CanBypassRestaurantProtectionProcedure.execute(entity)) {
+						ForceTableClientsToLeaveProcedure.execute(world, x, y, z, entity);
+					}
 					for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
 						ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
 						if (ChairBlock.getBlock() == OmnichefModBlocks.CHAIR.get() && (getDirectionFromBlockState(ChairBlock)) == (directioniterator.getOpposite())) {
 							setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "TableNumber", (-1));
 							setBlockNBTNumber(world, (x + directioniterator.getStepX()), y, (z + directioniterator.getStepZ()), "ChairNumber", (-1));
 						}
+					}
+					if (!((findEntityInWorldRange(world, Display.ItemDisplay.class, (x + 0.5), (y + 1.5), (z + 0.5), 0.5)) == null)) {
+						if (!(findEntityInWorldRange(world, Display.ItemDisplay.class, (x + 0.5), (y + 1.5), (z + 0.5), 0.5)).level().isClientSide())
+							(findEntityInWorldRange(world, Display.ItemDisplay.class, (x + 0.5), (y + 1.5), (z + 0.5), 0.5)).discard();
 					}
 				}
 			}
@@ -91,6 +104,10 @@ public class ServiceTableBlockIsDestroyedProcedure {
 				level.sendBlockUpdated(pos, blockState, blockState, 3);
 			}
 		}
+	}
+
+	private static Entity findEntityInWorldRange(LevelAccessor world, Class<? extends Entity> clazz, double x, double y, double z, double range) {
+		return (Entity) world.getEntitiesOfClass(clazz, AABB.ofSize(new Vec3(x, y, z), range, range, range), e -> true).stream().sorted(Comparator.comparingDouble(e -> e.distanceToSqr(x, y, z))).findFirst().orElse(null);
 	}
 
 	private static Property<?> getPropertyByName(BlockState state, String name) {
