@@ -59,6 +59,7 @@ public class SpawnClientsProcedure {
 		double SpawnZ = 0;
 		double OffsetX = 0;
 		double OffsetZ = 0;
+		double heightStep = 0;
 		if (!world.isClientSide() && (((Level) world).dimension().location().toString()).equals("minecraft:overworld") && Math.floor(world.dayTime() / 24000d) == OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay) {
 			OpenRestaurantsArray = OmnichefModVariables.MapVariables.get(world).RestaurantsOpen;
 			if (!OpenRestaurantsArray.isEmpty()) {
@@ -122,19 +123,21 @@ public class SpawnClientsProcedure {
 											SpawnX = RecX + OffsetX;
 											SpawnZ = RecZ + OffsetZ;
 											if (!IsInsideAnyRestaurantProcedure.execute(world, SpawnX, SpawnZ)) {
-												SpawnY = RecY;
-												if (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY, SpawnZ)) && world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY + 1, SpawnZ))) {
-													while (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ)) && RecY - 25 <= SpawnY) {
-														SpawnY = SpawnY - 1;
+												heightStep = 0;
+												for (int _i2 = 0; _i2 < 51; _i2++) {
+													SpawnY = RecY + Math.ceil(heightStep / 2);
+													if (heightStep % 2 == 0) {
+														SpawnY = RecY - Math.ceil(heightStep / 2);
+														if (world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY, SpawnZ)) && world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY + 1, SpawnZ))
+																&& !world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ))) {
+															condition = true;
+															break;
+														}
+														heightStep = heightStep + 1;
 													}
-													if (!world.isEmptyBlock(BlockPos.containing(SpawnX, SpawnY - 1, SpawnZ))) {
-														condition = true;
+													if (condition) {
 														break;
-													} else {
-														continue;
 													}
-												} else {
-													continue;
 												}
 											} else {
 												continue;
@@ -150,11 +153,11 @@ public class SpawnClientsProcedure {
 												foodAmountArray = clientObject.get("food_amount").getAsJsonArray();
 												foodAmount = "" + foodAmountArray;
 												if (clientObject.get("critic").getAsBoolean()) {
-													Client = world instanceof ServerLevel _level31 ? OmnichefModEntities.CRITIC.get().spawn(_level31, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
-													if (owner instanceof Player _player34 && !_player34.level().isClientSide())
-														_player34.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
+													Client = world instanceof ServerLevel _level30 ? OmnichefModEntities.CRITIC.get().spawn(_level30, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+													if (owner instanceof Player _player33 && !_player33.level().isClientSide())
+														_player33.displayClientMessage(Component.literal("Critic has arrived! Prepare your best dishes!").withStyle(ChatFormatting.GREEN), false);
 												} else {
-													Client = world instanceof ServerLevel _level35 ? OmnichefModEntities.CLIENT.get().spawn(_level35, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
+													Client = world instanceof ServerLevel _level34 ? OmnichefModEntities.CLIENT.get().spawn(_level34, BlockPos.containing(SpawnX, SpawnY, SpawnZ), MobSpawnType.MOB_SUMMONED) : null;
 												}
 												patience = clientObject.get("patience").getAsDouble();
 												if (indexMembers == 0) {
@@ -223,8 +226,8 @@ public class SpawnClientsProcedure {
 												CreateOverlayDataTransferProcedure.execute(world, owner);
 											}
 										} else {
-											if (owner instanceof Player _player74 && !_player74.level().isClientSide())
-												_player74.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
+											if (owner instanceof Player _player73 && !_player73.level().isClientSide())
+												_player73.displayClientMessage(Component.literal("A customer group could not spawn. Check the area around your restaurant.").withStyle(ChatFormatting.YELLOW), false);
 										}
 									}
 								}

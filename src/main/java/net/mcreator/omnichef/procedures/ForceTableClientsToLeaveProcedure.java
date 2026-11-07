@@ -13,16 +13,14 @@ import net.mcreator.omnichef.entity.ClientEntity;
 import java.util.Comparator;
 
 public class ForceTableClientsToLeaveProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		if (entity == null)
-			return;
+	public static void execute(LevelAccessor world, double x, double y, double z) {
 		Entity tableLeader = null;
 		double restaurantID = 0;
 		if (!world.isClientSide()) {
 			restaurantID = getBlockNBTNumber(world, BlockPos.containing(x, y, z), "RestaurantID");
 			{
 				final Vec3 _center = new Vec3(x, y, z);
-				for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+				for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(8 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 					if ((entityiterator instanceof ClientEntity || entityiterator instanceof CriticEntity) && entityiterator.getPersistentData().getBoolean("leader") && entityiterator.getPersistentData().getBoolean("table_reserved")
 							&& restaurantID == entityiterator.getPersistentData().getDouble("RestaurantID") && entityiterator.getPersistentData().getDouble("reserved_table_x") == x
 							&& entityiterator.getPersistentData().getDouble("reserved_table_y") == y && entityiterator.getPersistentData().getDouble("reserved_table_z") == z) {
@@ -34,9 +32,9 @@ public class ForceTableClientsToLeaveProcedure {
 			if (tableLeader != null) {
 				{
 					final Vec3 _center = new Vec3(x, y, z);
-					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
+					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(8 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator == tableLeader || IsMemberOfClientGroupProcedure.execute(entityiterator, tableLeader)) {
-							ForceClientToLeaveProcedure.execute(world, entity);
+							ForceClientToLeaveProcedure.execute(world, entityiterator);
 						}
 					}
 				}

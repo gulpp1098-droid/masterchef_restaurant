@@ -52,7 +52,7 @@ public class ServiceTableBlockIsDestroyedProcedure {
 									OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
 				if (CanBypassRestaurantProtectionProcedure.execute(entity) || !getBlockNBTLogic(world, BlockPos.containing(x, y, z), "occupied") && getBlockNBTNumber(world, BlockPos.containing(x, y, z), "coins") == 0) {
 					if (CanBypassRestaurantProtectionProcedure.execute(entity)) {
-						ForceTableClientsToLeaveProcedure.execute(world, x, y, z, entity);
+						ForceTableClientsToLeaveProcedure.execute(world, x, y, z);
 					}
 					for (Direction directioniterator : Direction.Plane.HORIZONTAL) {
 						ChairBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y, z + directioniterator.getStepZ())));
