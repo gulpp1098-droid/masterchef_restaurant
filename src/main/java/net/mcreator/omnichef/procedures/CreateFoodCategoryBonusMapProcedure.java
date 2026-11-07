@@ -4,7 +4,7 @@ public class CreateFoodCategoryBonusMapProcedure {
 	public static com.google.gson.JsonObject execute() {
 		com.google.gson.JsonObject specialBonuses = new com.google.gson.JsonObject();
 		specialBonuses.addProperty("c:foods/raw_fish", 3);
-		specialBonuses.addProperty("c:foods/berry", 2);
+		specialBonuses.addProperty("c:foods/berry", 3);
 		specialBonuses.addProperty("c:foods/raw_meat", 1);
 		specialBonuses.addProperty("c:foods/food_poisoning", (-1));
 		specialBonuses.addProperty("c:foods/cooked_fish", 0);

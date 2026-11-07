@@ -55,7 +55,7 @@ public class PrepareDishButtonClickedProcedure {
 							}
 							if (!foodFound) {
 								foodArray.add(foodID);
-								foodAmountArray.add(mergedAmount);
+								foodAmountArray.add((slotItem.getCount()));
 							}
 						} else {
 							valid = false;

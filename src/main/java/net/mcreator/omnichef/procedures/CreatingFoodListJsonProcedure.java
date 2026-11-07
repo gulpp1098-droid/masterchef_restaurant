@@ -31,7 +31,7 @@ public class CreatingFoodListJsonProcedure {
 			com.google.gson.JsonObject foodDatabase = new com.google.gson.JsonObject();
 			com.google.gson.JsonObject tiersObject = new com.google.gson.JsonObject();
 			com.google.gson.JsonArray disabledFoodsArray = new com.google.gson.JsonArray();
-			final double MODDED_FOOD_BONUS = 2.0;
+			final double MODDED_FOOD_BONUS = 4.0;
 			java.util.Map<String, net.minecraft.world.item.Item> itemsById = new java.util.HashMap<>();
 			for (net.minecraft.world.item.Item item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
 				var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
