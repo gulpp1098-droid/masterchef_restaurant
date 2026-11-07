@@ -135,7 +135,7 @@ public class RestaurantIsOpenProcedure {
 			Group.addProperty("group_id", ((int) indexGroup));
 			Group.addProperty("spawn_time", ((int) SpawnTime));
 			Group.addProperty("spawned", false);
-			Group.addProperty("client_expire_time", (Math.round(world.dayTime() / 24000d) * 24000 + SpawnTime + 8000));
+			Group.addProperty("client_expire_time", (Math.floor(world.dayTime() / 24000d) * 24000 + SpawnTime + 8000));
 			Group.addProperty("finished", false);
 			Group.addProperty("state", "walk");
 			if (critic && indexGroup == 0) {

@@ -46,7 +46,7 @@ public class FinishExpiredUnspawnedGroupsProcedure {
 						if (group.has("client_expire_time")) {
 							expireTime = group.get("client_expire_time").getAsDouble();
 						} else {
-							expireTime = Math.round(restaurantData.get("shift_id").getAsDouble() / 24000) * 24000 + group.get("spawn_time").getAsDouble() + 8000;
+							expireTime = Math.floor(restaurantData.get("shift_id").getAsDouble() / 24000) * 24000 + group.get("spawn_time").getAsDouble() + 8000;
 						}
 						if (world.dayTime() >= expireTime || !restaurantOpen) {
 							group = FinishUnspawnedClientGroupProcedure.execute(group);

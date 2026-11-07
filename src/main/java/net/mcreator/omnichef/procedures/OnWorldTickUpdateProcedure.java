@@ -25,13 +25,20 @@ public class OnWorldTickUpdateProcedure {
 
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		boolean shiftsSettled = false;
+		boolean groupsUpdated = false;
 		if ((((Level) world).dimension().location().toString()).equals("minecraft:overworld")) {
 			if (!world.isClientSide()) {
 				ChangingDayAndNightLengthProcedure.execute(world);
 				if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
 					ClosingRestaurantsProcedure.execute(world);
+					groupsUpdated = true;
 					if (world.dayTime() % 100 == 0) {
-						shiftsSettled = SettleAllRestaurantShiftsProcedure.execute(world);
+						groupsUpdated = FinishExpiredUnspawnedGroupsProcedure.execute(world);
+					}
+					if (groupsUpdated) {
+						if (world.dayTime() % 100 == 0) {
+							shiftsSettled = SettleAllRestaurantShiftsProcedure.execute(world);
+						}
 					}
 					DeleteClientsDatabaseFileProcedure.execute(world);
 					SpawnClientsProcedure.execute(world);
