@@ -22,7 +22,7 @@ public class CalculateTradeBoardAmountsProcedure {
 		double costMultiplier = 0;
 		double outputLimit = 0;
 		costMultiplier = 2.5;
-		outputLimit = 16;
+		outputLimit = 24;
 		inputItem = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((inputID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 		outputItem = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((outputID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 		if (inputItem.getItem() == Blocks.AIR.asItem() || inputItem.getItem() == outputItem.getItem() || outputItem.getItem() == Blocks.AIR.asItem()) {
@@ -39,10 +39,10 @@ public class CalculateTradeBoardAmountsProcedure {
 			return result;
 		}
 		maxOutputCount = Math.floor(Math.min(outputLimit, Math.min(outputMax, (inputMax * inputScore) / (costMultiplier * outputScore))));
-		if (maxOutputCount < 1) {
+		if (maxOutputCount < 5) {
 			return result;
 		}
-		outputCount = 1 + Math.floor(Math.random() * maxOutputCount);
+		outputCount = 5 + Math.floor(Math.random() * (maxOutputCount - 4));
 		inputCount = Math.ceil((outputScore * outputCount * costMultiplier) / inputScore);
 		if (inputCount < 1 || inputCount > inputMax) {
 			return result;
