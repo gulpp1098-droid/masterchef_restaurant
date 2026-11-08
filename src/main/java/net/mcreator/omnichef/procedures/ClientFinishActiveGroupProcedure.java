@@ -31,20 +31,8 @@ public class ClientFinishActiveGroupProcedure {
 				database = ReadRestaurantsDatabaseProcedure.execute(world);
 				restaurants = database.get("restaurants").getAsJsonArray();
 				restaurant = restaurants.get((int) restaurantIndex).getAsJsonObject();
-				if (restaurant.has("group_completion_shift")) {
-					if (clientData.get("shift_id").getAsDouble() == restaurant.get("group_completion_shift").getAsDouble()) {
-						completedGroups = restaurant.get("completed_groups").getAsJsonObject();
-					}
-				}
 				groupKey = new java.text.DecimalFormat("##.##").format(entity.getPersistentData().getDouble("group"));
-				if (completedGroups.has(groupKey)) {
-					entity.getPersistentData().putBoolean("active_group_finished", true);
-					return true;
-				}
-				completedGroups.addProperty(groupKey, true);
-				restaurant.add("completed_groups", completedGroups);
-				restaurant.addProperty("group_completion_shift", clientData.get("shift_id").getAsDouble());
-				restaurant.addProperty("active_groups", Math.max(0, restaurant.get("active_groups").getAsDouble() - 1));
+				restaurant = FinishActiveGroupDataProcedure.execute(restaurant, clientData.get("shift_id").getAsDouble(), groupKey);
 				if (SaveJsonAtomicallyProcedure.execute(database, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name)) {
 					entity.getPersistentData().putBoolean("active_group_finished", true);
 				}

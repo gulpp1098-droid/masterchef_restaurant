@@ -12701,6 +12701,34 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "FinishActiveGroupData",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "finish_active_group_data",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "restaurantData",
+            "type": "jsonobject"
+          },
+          {
+            "name": "shiftID",
+            "type": "number"
+          },
+          {
+            "name": "groupKey",
+            "type": "string"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/FinishActiveGroupDataProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
