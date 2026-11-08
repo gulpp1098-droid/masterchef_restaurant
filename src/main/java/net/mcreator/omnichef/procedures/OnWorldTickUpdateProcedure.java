@@ -39,9 +39,9 @@ public class OnWorldTickUpdateProcedure {
 						if (world.dayTime() % 100 == 0) {
 							shiftsSettled = SettleAllRestaurantShiftsProcedure.execute(world);
 						}
+						DeleteClientsDatabaseFileProcedure.execute(world);
+						SpawnClientsProcedure.execute(world);
 					}
-					DeleteClientsDatabaseFileProcedure.execute(world);
-					SpawnClientsProcedure.execute(world);
 				}
 			}
 		}

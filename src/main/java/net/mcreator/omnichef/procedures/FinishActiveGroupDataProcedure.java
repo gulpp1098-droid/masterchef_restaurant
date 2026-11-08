@@ -17,8 +17,8 @@ public class FinishActiveGroupDataProcedure {
 		}
 		completedGroups.addProperty(groupKey, true);
 		restaurant.add("completed_groups", completedGroups);
-		completedGroups.addProperty("group_completion_shift", shiftID);
-		completedGroups.addProperty("active_groups", Math.max(0, restaurant.get("active_group").getAsDouble() - 1));
+		restaurant.addProperty("group_completion_shift", shiftID);
+		restaurant.addProperty("active_groups", Math.max(0, restaurant.get("active_groups").getAsDouble() - 1));
 		return restaurant;
 	}
 }
