@@ -57,8 +57,8 @@ public class FinishExpiredUnspawnedGroupsProcedure {
 						}
 						if (group.get("spawned").getAsBoolean()) {
 							if (world.dayTime() >= expireTime) {
-								groupKey = new java.text.DecimalFormat("##.##").format(group.get("shift_id").getAsDouble());
-								restaurantObject = FinishActiveGroupDataProcedure.execute(restaurantObject, group.get("shift_id").getAsDouble(), groupKey);
+								groupKey = new java.text.DecimalFormat("##.##").format(group.get("group_id").getAsDouble());
+								restaurantObject = FinishActiveGroupDataProcedure.execute(restaurantObject, restaurantData.get("shift_id").getAsDouble(), groupKey);
 								group = FinishSpawnedClientGroupProcedure.execute(group);
 								restaurantChanged = true;
 								changed = true;
