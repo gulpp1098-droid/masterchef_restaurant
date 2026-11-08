@@ -69,35 +69,6 @@ public class ClientBeginLeavingProcedure {
 			if (client.getPersistentData().getBoolean("leader")) {
 				if (client.getPersistentData().getBoolean("queue_registered")) {
 					SetLogicNBTProcedure.execute(world, client.getPersistentData().getDouble("DestX"), client.getPersistentData().getDouble("DestY"), client.getPersistentData().getDouble("DestZ"), false, "occupied");
-					ReceptionPosition = GetRestaurantStringParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
-							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception");
-					RecX = new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
-						}
-					}.convert(GetPartFromStringProcedure.execute(0, ReceptionPosition));
-					RecY = new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
-						}
-					}.convert(GetPartFromStringProcedure.execute(1, ReceptionPosition));
-					RecZ = new Object() {
-						double convert(String s) {
-							try {
-								return Double.parseDouble(s.trim());
-							} catch (Exception e) {
-							}
-							return 0;
-						}
-					}.convert(GetPartFromStringProcedure.execute(2, ReceptionPosition));
 					SetNumberNBTProcedure.execute(world, RecX, RecY, RecZ, getBlockNBTNumber(world, BlockPos.containing(RecX, RecY, RecZ), "queue_length") - 1, "queue_length");
 					client.getPersistentData().putBoolean("queue_registered", false);
 				}
@@ -109,8 +80,8 @@ public class ClientBeginLeavingProcedure {
 			if (client instanceof Mob _entity)
 				_entity.getNavigation().stop();
 			client.setDeltaMovement(new Vec3(0, (client.getDeltaMovement().y()), 0));
-			if (client instanceof Mob _mob31)
-				_mob31.setNoAi(false);
+			if (client instanceof Mob _mob30)
+				_mob30.setNoAi(false);
 			client.getPersistentData().putString("state", "leave");
 			StopClientPatienceProcedure.execute(entity);
 			client.getPersistentData().putDouble("stuckCounter", (-1));

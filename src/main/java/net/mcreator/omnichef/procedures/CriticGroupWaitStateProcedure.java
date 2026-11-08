@@ -32,21 +32,24 @@ public class CriticGroupWaitStateProcedure {
 				? getEntityFromUUID(_level1,
 						GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
 				: null;
-		if ((satisfactionLevel).equals("perfect")) {
-			if (owner instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("The critic enjoyed their visit! Your restaurant earned a new star!"), false);
-			if (owner instanceof ServerPlayer player3)
-				PacketDistributor.sendToPlayer(player3, new LevelUpAnimationMessage(""));
-			ModifyRestaurantNumberParameterProcedure.execute(
-					GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level") + 1,
-					restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
-			AdvanceRecipeDiscoveryStageProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
-			if (owner != null) {
-				CreateOverlayDataTransferProcedure.execute(world, owner);
+		if (!entity.getPersistentData().getBoolean("critic_result_processed")) {
+			entity.getPersistentData().putBoolean("critic_result_processed", true);
+			if ((satisfactionLevel).equals("perfect")) {
+				if (owner instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("The critic enjoyed their visit! Your restaurant earned a new star!"), false);
+				if (owner instanceof ServerPlayer player5)
+					PacketDistributor.sendToPlayer(player5, new LevelUpAnimationMessage(""));
+				ModifyRestaurantNumberParameterProcedure.execute(
+						GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level") + 1,
+						restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
+				AdvanceRecipeDiscoveryStageProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID"));
+				if (owner != null) {
+					CreateOverlayDataTransferProcedure.execute(world, owner);
+				}
+			} else {
+				if (owner instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal("The critic is leaving unsatisfied. Better luck next time!"), false);
 			}
-		} else {
-			if (owner instanceof Player _player && !_player.level().isClientSide())
-				_player.displayClientMessage(Component.literal("The critic is leaving unsatisfied. Better luck next time!"), false);
 		}
 		ClientBeginLeavingProcedure.execute(world, entity);
 	}
