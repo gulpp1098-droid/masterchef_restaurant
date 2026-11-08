@@ -35,6 +35,10 @@ public class RemoveClientFinishedInBackgroudProcedure {
 		group = groups.get((int) groupIndex).getAsJsonObject();
 		if (group.has("finished")) {
 			if (group.get("finished").getAsBoolean()) {
+				ClientBeginLeavingProcedure.execute(world, entity);
+				if (!entity.getPersistentData().getBoolean("leaving_started")) {
+					return true;
+				}
 				entity.getPersistentData().putBoolean("active_group_finished", true);
 				entity.stopRiding();
 				if (!entity.level().isClientSide())

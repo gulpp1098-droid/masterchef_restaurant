@@ -5,14 +5,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.core.SectionPos;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 public class ClientBeginLeavingProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static boolean execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
-			return;
+			return false;
 		Entity client = null;
 		double RecX = 0;
 		double RecY = 0;
@@ -20,6 +21,50 @@ public class ClientBeginLeavingProcedure {
 		String ReceptionPosition = "";
 		client = entity;
 		if (!client.getPersistentData().getBoolean("leaving_started")) {
+			if (client.getPersistentData().getBoolean("leader")) {
+				if (client.getPersistentData().getBoolean("queue_registered")) {
+					if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(client.getPersistentData().getDouble("DestX")), SectionPos.blockToSectionCoord(client.getPersistentData().getDouble("DestZ")))) {
+						return true;
+					}
+					ReceptionPosition = GetRestaurantStringParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
+							OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "reception");
+					RecX = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(0, ReceptionPosition));
+					RecY = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(1, ReceptionPosition));
+					RecZ = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(2, ReceptionPosition));
+					if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(RecX), SectionPos.blockToSectionCoord(RecZ))) {
+						return true;
+					}
+				}
+				if (client.getPersistentData().getBoolean("table_reserved")) {
+					if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(client.getPersistentData().getDouble("reserved_table_x")), SectionPos.blockToSectionCoord(client.getPersistentData().getDouble("reserved_table_z")))) {
+						return true;
+					}
+				}
+			}
 			client.getPersistentData().putBoolean("leaving_started", true);
 			if (client.getPersistentData().getBoolean("leader")) {
 				if (client.getPersistentData().getBoolean("queue_registered")) {
@@ -64,14 +109,15 @@ public class ClientBeginLeavingProcedure {
 			if (client instanceof Mob _entity)
 				_entity.getNavigation().stop();
 			client.setDeltaMovement(new Vec3(0, (client.getDeltaMovement().y()), 0));
-			if (client instanceof Mob _mob18)
-				_mob18.setNoAi(false);
+			if (client instanceof Mob _mob31)
+				_mob31.setNoAi(false);
 			client.getPersistentData().putString("state", "leave");
 			StopClientPatienceProcedure.execute(entity);
 			client.getPersistentData().putDouble("stuckCounter", (-1));
 			client.stopRiding();
 			client.getPersistentData().putDouble("despawn_time", (world.dayTime() + 250));
 		}
+		return true;
 	}
 
 	private static double getBlockNBTNumber(LevelAccessor world, BlockPos pos, String tag) {
