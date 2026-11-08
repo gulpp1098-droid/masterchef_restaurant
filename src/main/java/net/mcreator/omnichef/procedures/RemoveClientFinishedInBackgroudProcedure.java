@@ -55,12 +55,12 @@ public class RemoveClientFinishedInBackgroudProcedure {
 				return false;
 			}
 			group = groups.get((int) groupIndex).getAsJsonObject();
-		}
-		if (!group.has("finished")) {
-			return false;
-		}
-		if (!group.get("finished").getAsBoolean()) {
-			return false;
+			if (!group.has("finished")) {
+				return false;
+			}
+			if (!group.get("finished").getAsBoolean()) {
+				return false;
+			}
 		}
 		entity.getPersistentData().putBoolean("active_group_finished", true);
 		if (entity instanceof Mob _entity)
@@ -92,8 +92,8 @@ public class RemoveClientFinishedInBackgroudProcedure {
 					} else if (satisfaction >= 75) {
 						AddRecipeDiscoveryExpProcedure.execute(world, entity.getPersistentData().getDouble("RestaurantID"));
 					}
-					entity.getPersistentData().putBoolean("service_result_counted", true);
 				}
+				entity.getPersistentData().putBoolean("service_result_counted", true);
 			}
 			ClientCoinPayProcedure.execute(world, entity);
 			ClientExpPayProcedure.execute(entity);
@@ -108,7 +108,7 @@ public class RemoveClientFinishedInBackgroudProcedure {
 		entity.stopRiding();
 		if (!entity.level().isClientSide())
 			entity.discard();
-		return false;
+		return true;
 	}
 
 	private static Direction getDirectionFromBlockState(BlockState blockState) {
