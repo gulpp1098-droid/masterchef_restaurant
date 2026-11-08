@@ -20,6 +20,9 @@ public class CalculateRestaurantShiftResultProcedure {
 		double missingFoodOrders = 0;
 		double extraFoodOrders = 0;
 		double wrongFoodOrders = 0;
+		double customerServedFully = 0;
+		double customersServed = 0;
+		double customersLost = 0;
 		boolean spawned = false;
 		boolean serviceNotesAvailable = false;
 		serviceNotesAvailable = true;
@@ -42,6 +45,13 @@ public class CalculateRestaurantShiftResultProcedure {
 						return result;
 					}
 					if (memberObject.get("order_served").getAsBoolean()) {
+						if (memberObject.get("final_satisfaction").getAsDouble() >= 100) {
+							customerServedFully = customerServedFully + 1;
+						} else if (memberObject.get("final_satisfaction").getAsDouble() >= 50) {
+							customersServed = customersServed + 1;
+						} else {
+							customersLost = customersLost + 1;
+						}
 						if (memberObject.has("has_missing_food") && memberObject.has("has_extra_food") && memberObject.has("has_wrong_food")) {
 							if (memberObject.get("has_missing_food").getAsBoolean()) {
 								missingFoodOrders = missingFoodOrders + 1;
@@ -55,6 +65,8 @@ public class CalculateRestaurantShiftResultProcedure {
 						} else {
 							serviceNotesAvailable = false;
 						}
+					} else {
+						customersLost = customersLost + 1;
 					}
 					weightedSatisfaction = weightedSatisfaction + weight * memberObject.get("final_satisfaction").getAsDouble();
 				} else {
@@ -91,6 +103,9 @@ public class CalculateRestaurantShiftResultProcedure {
 		result.addProperty("orders_wrong_food", wrongFoodOrders);
 		result.addProperty("service_notes_available", serviceNotesAvailable);
 		result.addProperty("ready", true);
+		result.addProperty("customers_served_fully", customerServedFully);
+		result.addProperty("customers_served", customersServed);
+		result.addProperty("customers_lost", customersLost);
 		return result;
 	}
 }

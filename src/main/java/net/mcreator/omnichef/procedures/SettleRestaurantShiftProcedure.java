@@ -80,6 +80,9 @@ public class SettleRestaurantShiftProcedure {
 		}
 		actualChange = targetReputation - currentReputation;
 		dailyStats = restaurant.get("daily_stats").getAsJsonObject();
+		dailyStats.addProperty("customers_served_fully", dailyStats.get("customers_served_fully").getAsDouble());
+		dailyStats.addProperty("customers_served", dailyStats.get("customers_served").getAsDouble());
+		dailyStats.addProperty("customers_lost", dailyStats.get("customers_lost").getAsDouble());
 		restaurant.addProperty("reputation", targetReputation);
 		dailyStats.addProperty("reputation_change", (dailyStats.get("reputation_change").getAsDouble() + actualChange));
 		shiftResult.addProperty("raw_reputation_change", requestedChange);
