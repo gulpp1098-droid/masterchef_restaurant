@@ -16,60 +16,55 @@ public class CriticOnEntityTickUpdateProcedure {
 				if (RemoveClientFinishedInBackgroudProcedure.execute(world, entity)) {
 					return true;
 				}
-				if (Math.floor(client.getPersistentData().getDouble("shift_id") / 24000) < OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay) {
+				if (RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")) >= 0) {
+					if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
+						ClientQueueMoveStateProcedure.execute(entity);
+					}
+					CriticAnimationSetUpProcedure.execute(world, entity);
+					if (world.dayTime() % 10 == 0) {
+						if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
+							ClientPatianceGoingDownProcedure.execute(world, entity);
+							if ((client.getPersistentData().getString("state")).equals("restaurant_go")) {
+								if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
+										OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+									ClientBeginLeavingProcedure.execute(world, entity);
+								} else {
+									ClientRestaurantGoStateProcedure.execute(world, entity);
+								}
+							} else if ((client.getPersistentData().getString("state")).equals("queue_wait")) {
+								if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
+										OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
+									ClientBeginLeavingProcedure.execute(world, entity);
+								} else {
+									ClientQueueWaitStateProcedure.execute(world, entity);
+								}
+							} else if ((client.getPersistentData().getString("state")).equals("table_go")) {
+								ClientTableGoStateProcedure.execute(world, entity);
+							} else if ((client.getPersistentData().getString("state")).equals("group_wait")) {
+								CriticGroupWaitStateProcedure.execute(world, entity);
+							}
+							if ((client.getPersistentData().getString("state")).equals("find_chair")) {
+								ClientFindChairStateProcedure.execute(entity);
+							} else if ((client.getPersistentData().getString("state")).equals("order_pick")) {
+								ClientOrderPickStateProcedure.execute(world, entity);
+							} else if ((client.getPersistentData().getString("state")).equals("food_wait")) {
+								ClientFoodWaitStateProcedure.execute(world, entity);
+							} else if ((client.getPersistentData().getString("state")).equals("food_eat")) {
+								ClientFoodEatStateProcedure.execute(world, entity);
+							} else if ((client.getPersistentData().getString("state")).equals("leave")) {
+								ClientLeaveStateProcedure.execute(world, x, y, z, entity);
+							} else if ((client.getPersistentData().getString("state")).equals("order_wait")) {
+							}
+							EntityStaysOnTableProcedure.execute(world, entity);
+							OrderWaitingProcedure.execute(world, entity);
+						}
+					}
+					if (world.dayTime() % 100 == 0) {
+						ClientStuckStateProcedure.execute(world, x, y, z, entity);
+					}
+				} else {
 					if (!client.level().isClientSide())
 						client.discard();
-				} else {
-					if (RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")) >= 0) {
-						if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
-							ClientQueueMoveStateProcedure.execute(entity);
-						}
-						CriticAnimationSetUpProcedure.execute(world, entity);
-						if (world.dayTime() % 10 == 0) {
-							if (!ClientMaximumLifetimeCheckProcedure.execute(world, entity)) {
-								ClientPatianceGoingDownProcedure.execute(world, entity);
-								if ((client.getPersistentData().getString("state")).equals("restaurant_go")) {
-									if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
-											OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-										ClientBeginLeavingProcedure.execute(world, entity);
-									} else {
-										ClientRestaurantGoStateProcedure.execute(world, entity);
-									}
-								} else if ((client.getPersistentData().getString("state")).equals("queue_wait")) {
-									if (!GetRestaurantLogicParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")), "restaurants",
-											OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {
-										ClientBeginLeavingProcedure.execute(world, entity);
-									} else {
-										ClientQueueWaitStateProcedure.execute(world, entity);
-									}
-								} else if ((client.getPersistentData().getString("state")).equals("table_go")) {
-									ClientTableGoStateProcedure.execute(world, entity);
-								} else if ((client.getPersistentData().getString("state")).equals("group_wait")) {
-									CriticGroupWaitStateProcedure.execute(world, entity);
-								}
-								if ((client.getPersistentData().getString("state")).equals("find_chair")) {
-									ClientFindChairStateProcedure.execute(entity);
-								} else if ((client.getPersistentData().getString("state")).equals("order_pick")) {
-									ClientOrderPickStateProcedure.execute(world, entity);
-								} else if ((client.getPersistentData().getString("state")).equals("food_wait")) {
-									ClientFoodWaitStateProcedure.execute(world, entity);
-								} else if ((client.getPersistentData().getString("state")).equals("food_eat")) {
-									ClientFoodEatStateProcedure.execute(world, entity);
-								} else if ((client.getPersistentData().getString("state")).equals("leave")) {
-									ClientLeaveStateProcedure.execute(world, x, y, z, entity);
-								} else if ((client.getPersistentData().getString("state")).equals("order_wait")) {
-								}
-								EntityStaysOnTableProcedure.execute(world, entity);
-								OrderWaitingProcedure.execute(world, entity);
-							}
-						}
-						if (world.dayTime() % 100 == 0) {
-							ClientStuckStateProcedure.execute(world, x, y, z, entity);
-						}
-					} else {
-						if (!client.level().isClientSide())
-							client.discard();
-					}
 				}
 			}
 		}

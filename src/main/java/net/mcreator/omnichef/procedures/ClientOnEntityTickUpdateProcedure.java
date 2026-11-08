@@ -20,11 +20,6 @@ public class ClientOnEntityTickUpdateProcedure {
 				if (RemoveClientFinishedInBackgroudProcedure.execute(world, entity)) {
 					return true;
 				}
-				if (Math.floor(client.getPersistentData().getDouble("shift_id") / 24000) < OmnichefModVariables.MapVariables.get(world).LastClientsDatabaseResetDay) {
-					if (!client.level().isClientSide())
-						client.discard();
-					return true;
-				}
 				if (RestaurantIndexSearchByIDProcedure.execute(world, client.getPersistentData().getDouble("RestaurantID")) >= 0) {
 					if (client.getPersistentData().getBoolean("leader")) {
 						if ((client.getPersistentData().getString("state")).equals("queue_move") || (client.getPersistentData().getString("state")).equals("queue_wait")) {
