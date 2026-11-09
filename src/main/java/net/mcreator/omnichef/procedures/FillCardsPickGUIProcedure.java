@@ -52,7 +52,7 @@ public class FillCardsPickGUIProcedure {
 			}
 			{
 				final String _tagName = "RecipeCardTextureIndex";
-				final double _tagValue = (Math.round(recipeTier * 9) / Math.max(1, tierCount - 1));
+				final double _tagValue = Math.round((recipeTier * 9) / Math.max(1, tierCount - 1));
 				CustomData.update(DataComponents.CUSTOM_DATA, card1, tag -> tag.putDouble(_tagName, _tagValue));
 			}
 			if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
@@ -71,7 +71,7 @@ public class FillCardsPickGUIProcedure {
 			}
 			{
 				final String _tagName = "RecipeCardTextureIndex";
-				final double _tagValue = (Math.round(recipeTier * 9) / Math.max(1, tierCount - 1));
+				final double _tagValue = Math.round((recipeTier * 9) / Math.max(1, tierCount - 1));
 				CustomData.update(DataComponents.CUSTOM_DATA, card2, tag -> tag.putDouble(_tagName, _tagValue));
 			}
 			if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
@@ -90,7 +90,7 @@ public class FillCardsPickGUIProcedure {
 			}
 			{
 				final String _tagName = "RecipeCardTextureIndex";
-				final double _tagValue = (Math.round(recipeTier * 9) / Math.max(1, tierCount - 1));
+				final double _tagValue = Math.round((recipeTier * 9) / Math.max(1, tierCount - 1));
 				CustomData.update(DataComponents.CUSTOM_DATA, card3, tag -> tag.putDouble(_tagName, _tagValue));
 			}
 			if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
