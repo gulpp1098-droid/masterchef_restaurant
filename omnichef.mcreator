@@ -2137,7 +2137,7 @@
           }
         ],
         "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/procedures/SetLogicNBTProcedure.java"
+          "src/main/java/net/mcreator/omnichef/procedures/SetLogicNBTProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Set NBT procedures"
@@ -2176,7 +2176,7 @@
           }
         ],
         "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/procedures/SetNumberNBTProcedure.java"
+          "src/main/java/net/mcreator/omnichef/procedures/SetNumberNBTProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Set NBT procedures"
@@ -3886,7 +3886,7 @@
           }
         ],
         "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/procedures/SetStringNBTProcedure.java"
+          "src/main/java/net/mcreator/omnichef/procedures/SetStringNBTProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Set NBT procedures"
@@ -7315,7 +7315,7 @@
         ],
         "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/masterchefrestaurant/procedures/GetMasterchefWorldPathProcedure.java"
+          "src/main/java/net/mcreator/omnichef/procedures/GetMasterchefWorldPathProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Return Procedures"
