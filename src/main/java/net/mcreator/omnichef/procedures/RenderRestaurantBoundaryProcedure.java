@@ -263,6 +263,13 @@ public class RenderRestaurantBoundaryProcedure {
 						}
 					}.convert(GetPartFromStringProcedure.execute(2, WallData));
 					renderShape(shape(), WallX, (-64), WallZ, (float) WallYaw, 0, 0, 5, 384, 1, 120 << 24 | 80 << 16 | 200 << 8 | 220);
+					if (WallYaw == 0) {
+						renderShape(shape(), (WallX - 2.47), (-64), WallZ, (float) WallYaw, 0, 0, (float) 0.06, 384, 1, 120 << 24 | 80 << 16 | 200 << 8 | 220);
+						renderShape(shape(), (WallX + 2.47), (-64), WallZ, (float) WallYaw, 0, 0, (float) 0.06, 384, 1, 120 << 24 | 80 << 16 | 200 << 8 | 220);
+					} else {
+						renderShape(shape(), WallX, (-64), (WallZ - 2.47), (float) WallYaw, 0, 0, (float) 0.06, 384, 1, 120 << 24 | 80 << 16 | 200 << 8 | 220);
+						renderShape(shape(), WallX, (-64), (WallZ + 2.47), (float) WallYaw, 0, 0, (float) 0.06, 384, 1, 120 << 24 | 80 << 16 | 200 << 8 | 220);
+					}
 				}
 			}
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == OmnichefModItems.SPATULA_GOLDEN.get()

@@ -21,6 +21,16 @@
         }
       },
       {
+        "type": "image",
+        "data": {
+          "image": "spatulasidegui.png",
+          "use1Xscale": false,
+          "x": 286,
+          "y": 26,
+          "locked": true
+        }
+      },
+      {
         "type": "sprite",
         "data": {
           "sprite": "signopenclose_sprite.png",
@@ -153,16 +163,6 @@
           "x": 322,
           "y": 133,
           "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "spatulasidegui.png",
-          "use1Xscale": false,
-          "x": 286,
-          "y": 26,
-          "locked": true
         }
       },
       {

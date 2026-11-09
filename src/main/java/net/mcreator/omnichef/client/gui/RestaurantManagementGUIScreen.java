@@ -25,12 +25,12 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 	private boolean menuStateUpdateActive = false;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/restaurant_management_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/spatulagui.png");
-	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/ribbon_icon.png");
-	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/spatula_icon.png");
-	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/servicetable_icon.png");
-	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/localization_icon.png");
-	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("omnichef:textures/screens/queue_rug_item.png");
-	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("omnichef:textures/screens/spatulasidegui.png");
+	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/spatulasidegui.png");
+	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/ribbon_icon.png");
+	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/spatula_icon.png");
+	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/servicetable_icon.png");
+	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("omnichef:textures/screens/localization_icon.png");
+	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("omnichef:textures/screens/queue_rug_item.png");
 	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("omnichef:textures/screens/ribbonsmall_icon.png");
 	private static final ResourceLocation SPRITE_0 = ResourceLocation.parse("omnichef:textures/screens/signopenclose_sprite.png");
 
@@ -64,12 +64,12 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiGraphics.blit(IMAGE_0, this.leftPos + -136, this.topPos + -94, 0, 0, 203, 176, 203, 176);
-		guiGraphics.blit(IMAGE_1, this.leftPos + -81, this.topPos + -83, 0, 0, 93, 21, 93, 21);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -72, this.topPos + -84, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_3, this.leftPos + 85, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_4, this.leftPos + 86, this.topPos + 10, 0, 0, 15, 14, 15, 14);
-		guiGraphics.blit(IMAGE_5, this.leftPos + 85, this.topPos + -21, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_6, this.leftPos + 72, this.topPos + -94, 0, 0, 91, 176, 91, 176);
+		guiGraphics.blit(IMAGE_1, this.leftPos + 72, this.topPos + -94, 0, 0, 91, 176, 91, 176);
+		guiGraphics.blit(IMAGE_2, this.leftPos + -81, this.topPos + -83, 0, 0, 93, 21, 93, 21);
+		guiGraphics.blit(IMAGE_3, this.leftPos + -72, this.topPos + -84, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(IMAGE_4, this.leftPos + 85, this.topPos + -52, 0, 0, 16, 16, 16, 16);
+		guiGraphics.blit(IMAGE_5, this.leftPos + 86, this.topPos + 10, 0, 0, 15, 14, 15, 14);
+		guiGraphics.blit(IMAGE_6, this.leftPos + 85, this.topPos + -21, 0, 0, 16, 16, 16, 16);
 		guiGraphics.blit(IMAGE_7, this.leftPos + 85, this.topPos + -83, 0, 0, 65, 20, 65, 20);
 		guiGraphics.blit(SPRITE_0, this.leftPos + -107, this.topPos + 10, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
 		RenderSystem.disableBlend();
