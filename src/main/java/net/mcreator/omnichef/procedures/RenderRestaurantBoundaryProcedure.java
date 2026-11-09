@@ -216,6 +216,7 @@ public class RenderRestaurantBoundaryProcedure {
 		double PreviewZ = 0;
 		double PreviewState = 0;
 		double PreviewColor = 0;
+		double FrameY = 0;
 		if (begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR, false)) {
 			add((float) (-0.5), 0, 0, 0, 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
 			add((float) 0.5, 0, 0, 0, 0, 255 << 24 | 255 << 16 | 255 << 8 | 255);
@@ -296,6 +297,15 @@ public class RenderRestaurantBoundaryProcedure {
 							return 0;
 						}
 					}.convert(GetPartFromStringProcedure.execute(2, PreviewData));
+					FrameY = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(GetPartFromStringProcedure.execute(3, PreviewData)) + 1;
 					if (PreviewState == 0) {
 						PreviewColor = 120 << 24 | 240 << 16 | 200 << 8 | 60;
 					} else if (PreviewState == 1) {
@@ -307,6 +317,21 @@ public class RenderRestaurantBoundaryProcedure {
 					renderShape(shape(), PreviewX, (-64), (PreviewZ - 2.5), 0, 0, 0, 5, 384, 1, (int) PreviewColor);
 					renderShape(shape(), (PreviewX - 2.5), (-64), PreviewZ, 90, 0, 0, 5, 384, 1, (int) PreviewColor);
 					renderShape(shape(), (PreviewX + 2.5), (-64), PreviewZ, 90, 0, 0, 5, 384, 1, (int) PreviewColor);
+					for (int _i1 = 0; _i1 < 6; _i1++) {
+						renderShape(shape(), PreviewX, FrameY, (PreviewZ + 2.5), 0, 0, 0, 5, (float) 0.05, 1, (int) PreviewColor);
+						renderShape(shape(), PreviewX, FrameY, (PreviewZ - 2.5), 0, 0, 0, 5, (float) 0.05, 1, (int) PreviewColor);
+						renderShape(shape(), (PreviewX - 2.5), FrameY, PreviewZ, 90, 0, 0, 5, (float) 0.05, 1, (int) PreviewColor);
+						renderShape(shape(), (PreviewX + 2.5), FrameY, PreviewZ, 90, 0, 0, 5, (float) 0.05, 1, (int) PreviewColor);
+						FrameY = FrameY + 1;
+					}
+					renderShape(shape(), (PreviewX + 2.47), (-64), (PreviewZ + 2.5), 0, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX - 2.47), (-64), (PreviewZ + 2.5), 0, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX + 2.47), (-64), (PreviewZ - 2.5), 0, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX - 2.47), (-64), (PreviewZ - 2.5), 0, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX - 2.5), (-64), (PreviewZ - 2.47), 90, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX + 2.5), (-64), (PreviewZ - 2.47), 90, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX - 2.5), (-64), (PreviewZ + 2.47), 90, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
+					renderShape(shape(), (PreviewX + 2.5), (-64), (PreviewZ + 2.47), 90, 0, 0, (float) 0.06, 384, 1, (int) PreviewColor);
 				}
 			}
 			RenderSystem.enableCull();

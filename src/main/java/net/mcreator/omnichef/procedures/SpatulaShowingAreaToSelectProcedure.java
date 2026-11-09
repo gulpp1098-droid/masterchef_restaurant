@@ -39,7 +39,7 @@ public class SpatulaShowingAreaToSelectProcedure {
 					EntityPositionX = BlockXPos + 2.5;
 					EntityPositionZ = BlockZPos + 2.5;
 					PreviewState = GetRestaurantPreviewStateProcedure.execute(world, EntityPositionX, EntityPositionZ, entity);
-					PreviewData = EntityPositionX + ":" + EntityPositionZ + ":" + PreviewState;
+					PreviewData = EntityPositionX + ":" + EntityPositionZ + ":" + PreviewState + ":" + HitY;
 				}
 			}
 			if (!(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).RestaurantPreviewData).equals(PreviewData)) {
