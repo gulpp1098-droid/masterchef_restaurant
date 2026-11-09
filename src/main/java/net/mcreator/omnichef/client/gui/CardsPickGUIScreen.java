@@ -207,7 +207,8 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png");
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card1TextureReturnProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
 				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
 				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
 				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
@@ -228,7 +229,8 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png");
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card2TextureReturnProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
 				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
 				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
 				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
@@ -249,7 +251,8 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png");
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card3TextureReturnProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
 				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
 				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
 				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;

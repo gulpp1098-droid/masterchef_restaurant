@@ -22,6 +22,8 @@ public class FillCardsPickGUIProcedure {
 		String Food3 = "";
 		Entity player = null;
 		double restaurantID = 0;
+		double tierCount = 0;
+		double recipeTier = 0;
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		ItemStack card1 = ItemStack.EMPTY;
 		ItemStack card2 = ItemStack.EMPTY;
@@ -38,43 +40,62 @@ public class FillCardsPickGUIProcedure {
 		}
 		pendingCards = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+		tierCount = GetFoodListTierCountProcedure.execute(world);
 		if (pendingCards.size() > 0) {
 			Food1 = pendingCards.get((int) 0).getAsString();
 			card1 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food1).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+			recipeTier = GetFoodTierFromIDProcedure.execute(world, Food1);
 			{
 				final String _tagName = "RecipeTier";
 				final double _tagValue = GetFoodTierFromIDProcedure.execute(world, Food1);
 				CustomData.update(DataComponents.CUSTOM_DATA, card1, tag -> tag.putDouble(_tagName, _tagValue));
 			}
+			{
+				final String _tagName = "RecipeCardTextureIndex";
+				final double _tagValue = (Math.round(recipeTier * 9) / Math.max(1, tierCount - 1));
+				CustomData.update(DataComponents.CUSTOM_DATA, card1, tag -> tag.putDouble(_tagName, _tagValue));
+			}
 			if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _displayStack7 = card1.copy();
-				_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack7, true);
+				ItemStack _displayStack8 = card1.copy();
+				_menu.sendMenuStateUpdate(_player, 3, Integer.toString(0), _displayStack8, true);
 			}
 		}
 		if (pendingCards.size() > 1) {
 			Food2 = pendingCards.get((int) 1).getAsString();
 			card2 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food2).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+			recipeTier = GetFoodTierFromIDProcedure.execute(world, Food2);
 			{
 				final String _tagName = "RecipeTier";
 				final double _tagValue = GetFoodTierFromIDProcedure.execute(world, Food2);
 				CustomData.update(DataComponents.CUSTOM_DATA, card2, tag -> tag.putDouble(_tagName, _tagValue));
 			}
+			{
+				final String _tagName = "RecipeCardTextureIndex";
+				final double _tagValue = (Math.round(recipeTier * 9) / Math.max(1, tierCount - 1));
+				CustomData.update(DataComponents.CUSTOM_DATA, card2, tag -> tag.putDouble(_tagName, _tagValue));
+			}
 			if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _displayStack12 = card2.copy();
-				_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack12, true);
+				ItemStack _displayStack14 = card2.copy();
+				_menu.sendMenuStateUpdate(_player, 3, Integer.toString(1), _displayStack14, true);
 			}
 		}
 		if (pendingCards.size() > 2) {
 			Food3 = pendingCards.get((int) 2).getAsString();
 			card3 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((Food3).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+			recipeTier = GetFoodTierFromIDProcedure.execute(world, Food3);
 			{
 				final String _tagName = "RecipeTier";
 				final double _tagValue = GetFoodTierFromIDProcedure.execute(world, Food3);
 				CustomData.update(DataComponents.CUSTOM_DATA, card3, tag -> tag.putDouble(_tagName, _tagValue));
 			}
+			{
+				final String _tagName = "RecipeCardTextureIndex";
+				final double _tagValue = (Math.round(recipeTier * 9) / Math.max(1, tierCount - 1));
+				CustomData.update(DataComponents.CUSTOM_DATA, card3, tag -> tag.putDouble(_tagName, _tagValue));
+			}
 			if (player instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _displayStack17 = card3.copy();
-				_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack17, true);
+				ItemStack _displayStack20 = card3.copy();
+				_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack20, true);
 			}
 		}
 	}
