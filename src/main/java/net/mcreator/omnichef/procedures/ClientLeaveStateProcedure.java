@@ -27,14 +27,8 @@ public class ClientLeaveStateProcedure {
 			if (!entity.level().isClientSide())
 				entity.discard();
 		} else {
-			if (!entity.getPersistentData().getBoolean("leave_direction_set")) {
-				leaveAngle = Math.toRadians(Math.random() * 360);
-				entity.getPersistentData().putDouble("LeaveOffsetX", (Math.cos(leaveAngle) * 100));
-				entity.getPersistentData().putDouble("LeaveOffsetZ", (Math.sin(leaveAngle) * 100));
-				entity.getPersistentData().putBoolean("leave_direction_set", true);
-			}
 			if (entity instanceof Mob _entity)
-				_entity.getNavigation().moveTo((x + entity.getPersistentData().getDouble("LeaveOffsetX")), y, (z + entity.getPersistentData().getDouble("LeaveOffsetZ")), 1);
+				_entity.getNavigation().moveTo((entity.getPersistentData().getDouble("spawn_x")), (entity.getPersistentData().getDouble("spawn_y")), (entity.getPersistentData().getDouble("spawn_z")), 1);
 		}
 		return true;
 	}
