@@ -12325,7 +12325,7 @@
           "src/main/java/net/mcreator/omnichef/FoodRoleClientCache.java"
         ]
       },
-      "path": "~/Restaurant Functioning"
+      "path": "~/Restaurant Functioning/Custom Elements"
     },
     {
       "name": "SendFoodRoleBatch",
@@ -12729,6 +12729,18 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "PreparedDishTooltipRenderer",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "prepared_dish_tooltip_renderer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/PreparedDishTooltipRenderer.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -13387,6 +13399,10 @@
           },
           {
             "name": "Mixins",
+            "children": []
+          },
+          {
+            "name": "Custom Elements",
             "children": []
           }
         ]
