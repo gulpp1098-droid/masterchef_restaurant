@@ -76,11 +76,7 @@ public class SpawnClientsProcedure {
 						if (clientDatabaseIndex >= 0 && clientDatabaseIndex < ClientsData.size() && restaurantIndex >= 0) {
 							ownerUUID = GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
-							owner = world instanceof ServerLevel _level8
-									? getEntityFromUUID(_level8,
-											GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
-													OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner"))
-									: null;
+							owner = world instanceof ServerLevel _level8 ? getEntityFromUUID(_level8, ownerUUID) : null;
 							RestaurantsClientsObject = ClientsData.get((int) clientDatabaseIndex).getAsJsonObject();
 							groupArray = RestaurantsClientsObject.get("groups").getAsJsonArray();
 							newSpawnGroupIndex = 0;
@@ -272,7 +268,7 @@ public class SpawnClientsProcedure {
 											if (world instanceof net.minecraft.server.level.ServerLevel serverLevel) {
 												net.minecraft.server.level.ServerPlayer onlineOwner = null;
 												try {
-													onlineOwner = serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(ownerUuid));
+													onlineOwner = serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(ownerUUID));
 												} catch (IllegalArgumentException ignored) {
 												}
 												if (onlineOwner != null) {
