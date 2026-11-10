@@ -52,51 +52,6 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
-			if (this.enhanced_image_button_empty != null && this.enhanced_image_button_empty.visible) {
-				this.enhanced_image_button_empty.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy != null && this.enhanced_image_button_empty_copy.visible) {
-				this.enhanced_image_button_empty_copy.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_2 != null && this.enhanced_image_button_empty_copy_2.visible) {
-				this.enhanced_image_button_empty_copy_2.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_3 != null && this.enhanced_image_button_empty_copy_3.visible) {
-				this.enhanced_image_button_empty_copy_3.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_4 != null && this.enhanced_image_button_empty_copy_4.visible) {
-				this.enhanced_image_button_empty_copy_4.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_5 != null && this.enhanced_image_button_empty_copy_5.visible) {
-				this.enhanced_image_button_empty_copy_5.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_6 != null && this.enhanced_image_button_empty_copy_6.visible) {
-				this.enhanced_image_button_empty_copy_6.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_7 != null && this.enhanced_image_button_empty_copy_7.visible) {
-				this.enhanced_image_button_empty_copy_7.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_8 != null && this.enhanced_image_button_empty_copy_8.visible) {
-				this.enhanced_image_button_empty_copy_8.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_empty_copy_9 != null && this.enhanced_image_button_empty_copy_9.visible) {
-				this.enhanced_image_button_empty_copy_9.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.red_bookmark != null && this.red_bookmark.visible) {
-				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.yellow_bookmark != null && this.yellow_bookmark.visible) {
-				this.yellow_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.green_bookmark != null && this.green_bookmark.visible) {
-				this.green_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.gray_bookmark != null && this.gray_bookmark.visible) {
-				this.gray_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.blue_bookmark != null && this.blue_bookmark.visible) {
-				this.blue_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -200,7 +155,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty);
+		this.addRenderableWidget(enhanced_image_button_empty);
 		enhanced_image_button_empty_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 8, this.topPos + -14, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -231,7 +186,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy);
+		this.addRenderableWidget(enhanced_image_button_empty_copy);
 		enhanced_image_button_empty_copy_2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 52, this.topPos + -14, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -262,7 +217,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_2);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_2);
 		enhanced_image_button_empty_copy_3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 96, this.topPos + -14, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -293,7 +248,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_3);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_3);
 		enhanced_image_button_empty_copy_4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 8, this.topPos + 13, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -324,7 +279,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_4);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_4);
 		enhanced_image_button_empty_copy_5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 51, this.topPos + 12, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -355,7 +310,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_5);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_5);
 		enhanced_image_button_empty_copy_6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 96, this.topPos + 12, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -386,7 +341,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_6);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_6);
 		enhanced_image_button_empty_copy_7 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 8, this.topPos + 39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -417,7 +372,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_7);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_7);
 		enhanced_image_button_empty_copy_8 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 51, this.topPos + 39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -448,7 +403,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_8);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_8);
 		enhanced_image_button_empty_copy_9 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 96, this.topPos + 39, 30, 18,
 				new net.minecraft.client.gui.components.WidgetSprites(net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/empty.png")),
 				e -> {
@@ -479,7 +434,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_empty_copy_9);
+		this.addRenderableWidget(enhanced_image_button_empty_copy_9);
 		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -101, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
 					int x = ChefsDiaryFoodGUIScreen.this.x;
@@ -500,7 +455,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(red_bookmark);
+		this.addRenderableWidget(red_bookmark);
 		yellow_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -72, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png")), e -> {
 					int x = ChefsDiaryFoodGUIScreen.this.x;
@@ -521,7 +476,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(yellow_bookmark);
+		this.addRenderableWidget(yellow_bookmark);
 		green_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -43, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png")), e -> {
 					int x = ChefsDiaryFoodGUIScreen.this.x;
@@ -542,7 +497,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(green_bookmark);
+		this.addRenderableWidget(green_bookmark);
 		gray_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -14, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png")), e -> {
 					int x = ChefsDiaryFoodGUIScreen.this.x;
@@ -563,7 +518,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(gray_bookmark);
+		this.addRenderableWidget(gray_bookmark);
 		blue_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + 15, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png")), e -> {
 					int x = ChefsDiaryFoodGUIScreen.this.x;
@@ -584,7 +539,7 @@ public class ChefsDiaryFoodGUIScreen extends AbstractContainerScreen<ChefsDiaryF
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(blue_bookmark);
+		this.addRenderableWidget(blue_bookmark);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();

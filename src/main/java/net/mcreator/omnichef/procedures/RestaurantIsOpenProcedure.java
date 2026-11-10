@@ -115,7 +115,7 @@ public class RestaurantIsOpenProcedure {
 		}
 		clientsRemaining = Mth.nextInt(RandomSource.create(), (int) (int) Math.round(3 + tier * 0.27), (int) (int) Math.round(5 + tier * 0.35));
 		while (clientsRemaining > 0) {
-			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 500));
+			SpawnTime = Mth.nextInt(RandomSource.create(), (int) (CloseTime - 7900), (int) (CloseTime - 1000));
 			if (SpawnTime < smallestSpawnTime || indexGroup == 0) {
 				smallestSpawnTime = SpawnTime;
 				smallestTimeIndex = indexGroup;

@@ -67,21 +67,6 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 21 + guiTools$xOffset, this.topPos + -65 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 90, 90);
 			}
-			if (this.red_bookmark != null && this.red_bookmark.visible) {
-				this.red_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.yellow_bookmark != null && this.yellow_bookmark.visible) {
-				this.yellow_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.green_bookmark != null && this.green_bookmark.visible) {
-				this.green_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.gray_bookmark != null && this.gray_bookmark.visible) {
-				this.gray_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.blue_bookmark != null && this.blue_bookmark.visible) {
-				this.blue_bookmark.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -171,7 +156,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(red_bookmark);
+		this.addRenderableWidget(red_bookmark);
 		yellow_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -72, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png")), e -> {
 					int x = SpatulaGuideGUIScreen.this.x;
@@ -192,7 +177,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(yellow_bookmark);
+		this.addRenderableWidget(yellow_bookmark);
 		green_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -43, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png")), e -> {
 					int x = SpatulaGuideGUIScreen.this.x;
@@ -213,7 +198,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(green_bookmark);
+		this.addRenderableWidget(green_bookmark);
 		gray_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -14, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png")), e -> {
 					int x = SpatulaGuideGUIScreen.this.x;
@@ -234,7 +219,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(gray_bookmark);
+		this.addRenderableWidget(gray_bookmark);
 		blue_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + 15, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png")), e -> {
 					int x = SpatulaGuideGUIScreen.this.x;
@@ -255,7 +240,7 @@ public class SpatulaGuideGUIScreen extends AbstractContainerScreen<SpatulaGuideG
 				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(blue_bookmark);
+		this.addRenderableWidget(blue_bookmark);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();

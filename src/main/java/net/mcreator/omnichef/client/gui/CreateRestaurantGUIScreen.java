@@ -64,14 +64,9 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiTools$orderedLayers : {
-			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -66, this.topPos + -20, 0, 0, 250, 88, 250, 88);
-			if (this.enhanced_image_button_trash_icon != null && this.enhanced_image_button_trash_icon.visible) {
-				this.enhanced_image_button_trash_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 13, this.topPos + -12, 0, 0, 93, 21, 93, 21);
-		}
+		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiGraphics.blit(IMAGE_0, this.leftPos + -66, this.topPos + -20, 0, 0, 250, 88, 250, 88);
+		guiGraphics.blit(IMAGE_1, this.leftPos + 13, this.topPos + -12, 0, 0, 93, 21, 93, 21);
 		RenderSystem.disableBlend();
 	}
 
@@ -120,7 +115,7 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_checkboxon);
@@ -141,10 +136,10 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
 				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
 				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
-		this.addWidget(enhanced_image_button_trash_icon);
+		this.addRenderableWidget(enhanced_image_button_trash_icon);
 	}
 
 	private static final boolean guiTools$enhancedImageButton = true;
@@ -166,18 +161,6 @@ public class CreateRestaurantGUIScreen extends AbstractContainerScreen<CreateRes
 			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
 		} catch (RuntimeException ignored) {
 			return fallback;
-		}
-	}
-
-	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
-		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
-		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
-		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
-		try {
-			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
-		} finally {
-			if (!wasBlending)
-				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
 		}
 	}
 }

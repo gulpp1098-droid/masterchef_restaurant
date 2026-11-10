@@ -60,12 +60,6 @@ public class DeleteConfirmationGUIScreen extends AbstractContainerScreen<DeleteC
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -120 + guiTools$xOffset, this.topPos + -88 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 250, 88);
 			}
-			if (this.enhanced_image_button_openclosebutton_icon != null && this.enhanced_image_button_openclosebutton_icon.visible) {
-				this.enhanced_image_button_openclosebutton_icon.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
-			if (this.enhanced_image_button_openclosebutton_icon_copy_copy != null && this.enhanced_image_button_openclosebutton_icon_copy_copy.visible) {
-				this.enhanced_image_button_openclosebutton_icon_copy_copy.render(guiGraphics, mouseX, mouseY, partialTicks);
-			}
 		}
 	}
 
@@ -117,7 +111,7 @@ public class DeleteConfirmationGUIScreen extends AbstractContainerScreen<DeleteC
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_openclosebutton_icon);
+		this.addRenderableWidget(enhanced_image_button_openclosebutton_icon);
 		enhanced_image_button_openclosebutton_icon_copy_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 22, this.topPos + 13, 81, 31, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png")), e -> {
 					int x = DeleteConfirmationGUIScreen.this.x;
@@ -147,7 +141,7 @@ public class DeleteConfirmationGUIScreen extends AbstractContainerScreen<DeleteC
 				}
 			}
 		};
-		this.addWidget(enhanced_image_button_openclosebutton_icon_copy_copy);
+		this.addRenderableWidget(enhanced_image_button_openclosebutton_icon_copy_copy);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
