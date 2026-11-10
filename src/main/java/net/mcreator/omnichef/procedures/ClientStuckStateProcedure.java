@@ -28,6 +28,7 @@ public class ClientStuckStateProcedure {
 		Entity leader = null;
 		String ownerString = "";
 		String receptionString = "";
+		String rugString = "";
 		BlockState block = Blocks.AIR.defaultBlockState();
 		double RecZ = 0;
 		double RecX = 0;
@@ -64,7 +65,23 @@ public class ClientStuckStateProcedure {
 							client.getPersistentData().putDouble("stuckCounter", 10);
 							if (client.getPersistentData().getBoolean("leader") && (client.getPersistentData().getString("state")).equals("restaurant_go")) {
 								client.getPersistentData().putDouble("stuckJumpDistance", (-1));
-								vektor = new Vec3(((client.getPersistentData().getDouble("RugX") + 0.5) - client.getX()), 0, ((client.getPersistentData().getDouble("RugZ") + 0.5) - client.getZ()));
+								vektor = new Vec3(((new Object() {
+									double convert(String s) {
+										try {
+											return Double.parseDouble(s.trim());
+										} catch (Exception e) {
+										}
+										return 0;
+									}
+								}.convert(GetPartFromStringProcedure.execute(0, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getX()), 0, ((new Object() {
+									double convert(String s) {
+										try {
+											return Double.parseDouble(s.trim());
+										} catch (Exception e) {
+										}
+										return 0;
+									}
+								}.convert(GetPartFromStringProcedure.execute(2, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getZ()));
 								client.setDeltaMovement(new Vec3(((vektor.normalize()).x() * 0.22), 0.68, ((vektor.normalize()).z() * 0.22)));
 								client.getPersistentData().putDouble("stuckCounter", 1);
 							}
@@ -75,10 +92,26 @@ public class ClientStuckStateProcedure {
 								if (client.getPersistentData().getBoolean("leader")) {
 									if ((client.getPersistentData().getString("state")).equals("restaurant_go")) {
 										if (!client.onGround()) {
-											client.getPersistentData().putDouble("stuckCounter", (-1));
+											client.getPersistentData().putDouble("stuckCounter", 1);
 											keepGoing = true;
 										} else {
-											vektor = new Vec3(((client.getPersistentData().getDouble("RugX") + 0.5) - client.getX()), 0, ((client.getPersistentData().getDouble("RugZ") + 0.5) - client.getZ()));
+											vektor = new Vec3(((new Object() {
+												double convert(String s) {
+													try {
+														return Double.parseDouble(s.trim());
+													} catch (Exception e) {
+													}
+													return 0;
+												}
+											}.convert(GetPartFromStringProcedure.execute(0, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getX()), 0, ((new Object() {
+												double convert(String s) {
+													try {
+														return Double.parseDouble(s.trim());
+													} catch (Exception e) {
+													}
+													return 0;
+												}
+											}.convert(GetPartFromStringProcedure.execute(2, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getZ()));
 											currentDistance = vektor.length();
 											if (client.getPersistentData().getDouble("stuckJumpDistance") == -1) {
 												client.getPersistentData().putDouble("stuckJumpDistance", currentDistance);
@@ -92,8 +125,8 @@ public class ClientStuckStateProcedure {
 												step = 1;
 												for (int _i1 = 0; _i1 < 2; _i1++) {
 													if (!keepGoing && currentDistance >= step && y == Math.floor(y)) {
-														targetX = x + (vektor.normalize()).x();
-														targetZ = z + (vektor.normalize()).z();
+														targetX = x + (vektor.normalize()).x() * step;
+														targetZ = z + (vektor.normalize()).z() * step;
 														if (!world.isEmptyBlock(BlockPos.containing(targetX, y - 1, targetZ)) && world.isEmptyBlock(BlockPos.containing(targetX, y, targetZ))
 																&& world.isEmptyBlock(BlockPos.containing(targetX, y + 1, targetZ))) {
 															{
@@ -105,10 +138,13 @@ public class ClientStuckStateProcedure {
 																if (_ent instanceof ServerPlayer _serverPlayer)
 																	_serverPlayer.connection.teleport(_tx, _ty, _tz, _ent.getYRot(), _ent.getXRot());
 															}
+															keepGoing = true;
+															client.getPersistentData().putDouble("stuckCounter", 10);
+															client.getPersistentData().putBoolean("alertSent", false);
 															break;
 														}
 													}
-													step = step + 1;
+													step = step + 0.5;
 												}
 											}
 										}
@@ -120,7 +156,7 @@ public class ClientStuckStateProcedure {
 										ClientBeginLeavingProcedure.execute(world, entity);
 									}
 								} else {
-									leader = world instanceof ServerLevel _level68 ? getEntityFromUUID(_level68, (client.getPersistentData().getString("leaderUUID"))) : null;
+									leader = world instanceof ServerLevel _level70 ? getEntityFromUUID(_level70, (client.getPersistentData().getString("leaderUUID"))) : null;
 									if (leader != null) {
 										client.stopRiding();
 										{
