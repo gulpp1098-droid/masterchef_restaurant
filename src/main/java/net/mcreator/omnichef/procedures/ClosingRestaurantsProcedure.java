@@ -56,7 +56,16 @@ public class ClosingRestaurantsProcedure {
 						if (ownerEntity != null) {
 							if (ownerEntity instanceof Player _player13 && !_player13.level().isClientSide())
 								_player13.displayClientMessage(Component.literal("Your restaurant has been closed for today.").withStyle(ChatFormatting.GOLD), false);
-							CreateOverlayDataTransferProcedure.execute(world, ownerEntity);
+						}
+						if (world instanceof net.minecraft.server.level.ServerLevel serverLevel) {
+							net.minecraft.server.level.ServerPlayer onlineOwner = null;
+							try {
+								onlineOwner = serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(owner));
+							} catch (IllegalArgumentException ignored) {
+							}
+							if (onlineOwner != null) {
+								CreateOverlayDataTransferProcedure.execute(world, onlineOwner);
+							}
 						}
 					}
 				}

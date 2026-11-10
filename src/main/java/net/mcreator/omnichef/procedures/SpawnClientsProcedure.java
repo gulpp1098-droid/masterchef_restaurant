@@ -35,6 +35,7 @@ public class SpawnClientsProcedure {
 		String food = "";
 		String LeaderUUID = "";
 		String foodAmount = "";
+		String ownerUUID = "";
 		com.google.gson.JsonArray ClientsData = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray groupArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray membersArray = new com.google.gson.JsonArray();
@@ -73,6 +74,8 @@ public class SpawnClientsProcedure {
 						clientDatabaseIndex = ClientDatabaseIndexSearchByIDProcedure.execute(world, restaurantID);
 						restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 						if (clientDatabaseIndex >= 0 && clientDatabaseIndex < ClientsData.size() && restaurantIndex >= 0) {
+							ownerUUID = GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
+									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
 							owner = world instanceof ServerLevel _level8
 									? getEntityFromUUID(_level8,
 											GetRestaurantStringParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
@@ -265,7 +268,16 @@ public class SpawnClientsProcedure {
 																"playsound omnichef:clientring master @s ~ ~ ~ 1 1");
 													}
 												}
-												CreateOverlayDataTransferProcedure.execute(world, owner);
+											}
+											if (world instanceof net.minecraft.server.level.ServerLevel serverLevel) {
+												net.minecraft.server.level.ServerPlayer onlineOwner = null;
+												try {
+													onlineOwner = serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(ownerUuid));
+												} catch (IllegalArgumentException ignored) {
+												}
+												if (onlineOwner != null) {
+													CreateOverlayDataTransferProcedure.execute(world, onlineOwner);
+												}
 											}
 										} else {
 											if (owner instanceof Player _player89 && !_player89.level().isClientSide())
