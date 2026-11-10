@@ -65,7 +65,7 @@ public class ClientStuckStateProcedure {
 							client.getPersistentData().putDouble("stuckCounter", 10);
 							if (client.getPersistentData().getBoolean("leader") && (client.getPersistentData().getString("state")).equals("restaurant_go")) {
 								client.getPersistentData().putDouble("stuckJumpDistance", (-1));
-								vektor = new Vec3(((new Object() {
+								vektor = new Vec3((new Object() {
 									double convert(String s) {
 										try {
 											return Double.parseDouble(s.trim());
@@ -73,7 +73,7 @@ public class ClientStuckStateProcedure {
 										}
 										return 0;
 									}
-								}.convert(GetPartFromStringProcedure.execute(0, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getX()), 0, ((new Object() {
+								}.convert(GetPartFromStringProcedure.execute(0, client.getPersistentData().getString("last_rug"))) - client.getX()), 0, (new Object() {
 									double convert(String s) {
 										try {
 											return Double.parseDouble(s.trim());
@@ -81,7 +81,7 @@ public class ClientStuckStateProcedure {
 										}
 										return 0;
 									}
-								}.convert(GetPartFromStringProcedure.execute(2, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getZ()));
+								}.convert(GetPartFromStringProcedure.execute(2, client.getPersistentData().getString("last_rug"))) - client.getZ()));
 								client.setDeltaMovement(new Vec3(((vektor.normalize()).x() * 0.22), 0.68, ((vektor.normalize()).z() * 0.22)));
 								client.getPersistentData().putDouble("stuckCounter", 1);
 							}
@@ -95,7 +95,7 @@ public class ClientStuckStateProcedure {
 											client.getPersistentData().putDouble("stuckCounter", 1);
 											keepGoing = true;
 										} else {
-											vektor = new Vec3(((new Object() {
+											vektor = new Vec3((new Object() {
 												double convert(String s) {
 													try {
 														return Double.parseDouble(s.trim());
@@ -103,7 +103,7 @@ public class ClientStuckStateProcedure {
 													}
 													return 0;
 												}
-											}.convert(GetPartFromStringProcedure.execute(0, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getX()), 0, ((new Object() {
+											}.convert(GetPartFromStringProcedure.execute(0, client.getPersistentData().getString("last_rug"))) - client.getX()), 0, (new Object() {
 												double convert(String s) {
 													try {
 														return Double.parseDouble(s.trim());
@@ -111,7 +111,7 @@ public class ClientStuckStateProcedure {
 													}
 													return 0;
 												}
-											}.convert(GetPartFromStringProcedure.execute(2, client.getPersistentData().getString("last_rug"))) + 0.5) - client.getZ()));
+											}.convert(GetPartFromStringProcedure.execute(2, client.getPersistentData().getString("last_rug"))) - client.getZ()));
 											currentDistance = vektor.length();
 											if (client.getPersistentData().getDouble("stuckJumpDistance") == -1) {
 												client.getPersistentData().putDouble("stuckJumpDistance", currentDistance);

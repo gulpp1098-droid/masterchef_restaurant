@@ -12798,6 +12798,29 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/PickCard"
+    },
+    {
+      "name": "PreparedDishHoldingAnimation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prepared_dish_holding_animation",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/PreparedDishHoldingAnimationProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
     }
   ],
   "variable_elements": [
@@ -13181,6 +13204,7 @@
       "src/main/java/net/mcreator/omnichef/init/OmnichefModItems.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModEntities.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModEntityRenderers.java",
+      "src/main/java/net/mcreator/omnichef/mixin/LivingEntityRendererMixin.java",
       "src/main/java/net/mcreator/omnichef/world/TeleportBlockHandler.java",
       "src/main/resources/assets/omnichef/sounds.json",
       "src/main/java/net/mcreator/omnichef/entity/CustomFireballEntity.java",
@@ -13190,14 +13214,18 @@
       "src/main/java/net/mcreator/omnichef/entity/CustomEyeOfEnderEntity.java",
       "src/main/java/net/mcreator/omnichef/math/CallCounter.java",
       "src/main/java/net/mcreator/omnichef/client/renderer/SemiAquaticRenderer.java",
+      "src/main/java/net/mcreator/omnichef/mixin/PlayerAnimationRendererMixin.java",
       "src/main/java/net/mcreator/omnichef/network/OmnichefModVariables.java",
       "src/main/java/net/mcreator/omnichef/world/BlackHoleManager.java",
+      "src/main/java/net/mcreator/omnichef/network/PlayPlayerAnimationMessage.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/omnichef/network/NbtArrayLists.java",
       "src/main/java/net/mcreator/omnichef/world/BlackHoleSavedData.java",
+      "src/main/java/net/mcreator/omnichef/mixin/LevelRendererMixin.java",
       "src/main/java/net/mcreator/omnichef/client/renderer/CustomFireballRenderer.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModModels.java",
       "src/main/java/net/mcreator/omnichef/client/ClientHelper.java",
+      "src/main/java/net/mcreator/omnichef/mixin/EntityRenderDispatcherMixin.java",
       "src/main/resources/omnichef.mixins.json",
       "src/main/java/net/mcreator/omnichef/client/renderer/CustomEyeOfEnderRenderer.java",
       "src/main/java/net/mcreator/omnichef/ai/MoveToStructureGoal.java",
@@ -13205,14 +13233,19 @@
       "src/main/java/net/mcreator/omnichef/client/CameraShakeManager.java",
       "src/main/resources/META-INF/accesstransformer.cfg",
       "src/main/java/net/mcreator/omnichef/network/NetworkRegister.java",
+      "src/main/java/net/mcreator/omnichef/mixin/ItemInHandLayerMixin.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModTabs.java",
       "src/main/java/net/mcreator/omnichef/client/CameraShakeClientEvents.java",
       "src/main/java/net/mcreator/omnichef/world/BlockDamageHandler.java",
+      "src/main/java/net/mcreator/omnichef/OmnichefModPlayerAnimationAPI.java",
+      "src/main/java/net/mcreator/omnichef/mixin/PlayerAnimationMixin.java",
       "src/main/java/net/mcreator/omnichef/world/PortalSavedData.java",
       "src/main/java/net/mcreator/omnichef/OmnichefMod.java",
+      "src/main/java/net/mcreator/omnichef/mixin/CameraAccessor.java",
       "src/main/java/net/mcreator/omnichef/network/CameraShakePayload.java",
       "src/main/java/net/mcreator/omnichef/init/OmnichefModSounds.java",
-      "src/main/java/net/mcreator/omnichef/ai/MoveToBlockGoal.java"
+      "src/main/java/net/mcreator/omnichef/ai/MoveToBlockGoal.java",
+      "src/main/java/net/mcreator/omnichef/mixin/ItemInHandRendererMixin.java"
     ]
   },
   "foldersRoot": {
