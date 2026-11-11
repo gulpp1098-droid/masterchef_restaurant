@@ -1434,25 +1434,6 @@
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures/Animations Procedures"
     },
     {
-      "name": "ChangingDayAndNightLength",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "changing_day_and_night_length",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/ChangingDayAndNightLengthProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures/World On Tick Procedures"
-    },
-    {
       "name": "OnWorldTickUpdate",
       "type": "procedure",
       "compiles": true,
@@ -7681,48 +7662,6 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Entity Procedures/Client Procedures"
-    },
-    {
-      "name": "PlayerGoesToBed",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "player_goes_to_bed",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/PlayerGoesToBedProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
-    },
-    {
-      "name": "PlayerWakesUp",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "player_wakes_up",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/PlayerWakesUpProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
     },
     {
       "name": "ChefsDiaryFoodTierGUI",

@@ -28,7 +28,6 @@ public class OnWorldTickUpdateProcedure {
 		boolean groupsUpdated = false;
 		if ((((Level) world).dimension().location().toString()).equals("minecraft:overworld")) {
 			if (!world.isClientSide()) {
-				ChangingDayAndNightLengthProcedure.execute(world);
 				if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
 					ClosingRestaurantsProcedure.execute(world);
 					groupsUpdated = true;
