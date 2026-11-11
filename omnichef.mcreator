@@ -11106,7 +11106,6 @@
           "src/main/resources/assets/omnichef/models/item/trade_board.json",
           "src/main/resources/data/omnichef/loot_table/blocks/trade_board.json",
           "src/main/resources/assets/omnichef/models/block/trade_board_3.json",
-          "src/main/java/net/mcreator/omnichef/block/entity/TradeBoardBlockEntity.java",
           "src/main/resources/assets/omnichef/models/block/trade_board_0.json"
         ]
       },
@@ -12851,6 +12850,76 @@
         ],
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/TradeBoardPlacedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Trade Board Procedures"
+    },
+    {
+      "name": "TradeBoardDestroyed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_destroyed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardDestroyedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Trade Board Procedures"
+    },
+    {
+      "name": "TradeBoardExplosion",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_explosion",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardExplosionProcedure.java"
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Trade Board Procedures"

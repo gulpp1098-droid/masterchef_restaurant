@@ -253,7 +253,7 @@
     "vibrationSensitivityRadius": {
       "fixedValue": 7.0
     },
-    "hasInventory": true,
+    "hasInventory": false,
     "guiBoundTo": "TradeBoardGUI",
     "openGUIOnRightClick": true,
     "inventorySize": 2,
@@ -270,6 +270,7 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onDestroyedByPlayer": "TradeBoardDestroyed",
     "onBlockPlayedBy": "TradeBoardPlaced",
     "generateFeature": false,
     "restrictionBiomes": [],
