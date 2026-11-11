@@ -46,7 +46,7 @@ public class GetFoodTierFromIDProcedure {
 			for (int _i2 = 0; _i2 < (int) tierArray.size(); _i2++) {
 				foodObject = tierArray.get((int) foodIndex).getAsJsonObject();
 				if ((foodObject.get("id").getAsString()).equals(foodID)) {
-					return tierIndex + 1;
+					return tierIndex;
 				}
 				foodIndex = foodIndex + 1;
 			}

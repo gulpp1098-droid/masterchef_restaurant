@@ -7,12 +7,15 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,6 +25,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.Containers;
@@ -32,6 +36,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.omnichef.world.inventory.TradeBoardGUIMenu;
+import net.mcreator.omnichef.procedures.TradeBoardPlacedProcedure;
+import net.mcreator.omnichef.procedures.TradeBoardCanPlaceProcedure;
 import net.mcreator.omnichef.block.entity.TradeBoardBlockEntity;
 
 import java.util.List;
@@ -42,15 +48,45 @@ import com.google.common.collect.ImmutableMap;
 
 public class TradeBoardBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final IntegerProperty PART = IntegerProperty.create("part", 0, 3);
 	private final ImmutableMap<BlockState, VoxelShape> shapes = this.makeShapes();
 
 	public TradeBoardBlock() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(PART, 0));
 	}
 
 	private ImmutableMap<BlockState, VoxelShape> makeShapes() {
 		return this.getShapeForEachState(state -> {
+			if (state.getValue(PART) == 0) {
+				return switch (state.getValue(FACING)) {
+					case NORTH -> box(0, 0, 6, 15, 16, 9);
+					case EAST -> box(7, 0, 0, 10, 16, 15);
+					case WEST -> box(6, 0, 1, 9, 16, 16);
+					default -> box(1, 0, 7, 16, 16, 10);
+				};
+			} else if (state.getValue(PART) == 1) {
+				return switch (state.getValue(FACING)) {
+					case NORTH -> box(1, 0, 6, 16, 16, 9);
+					case EAST -> box(7, 0, 1, 10, 16, 16);
+					case WEST -> box(6, 0, 0, 9, 16, 15);
+					default -> box(0, 0, 7, 15, 16, 10);
+				};
+			} else if (state.getValue(PART) == 2) {
+				return switch (state.getValue(FACING)) {
+					case NORTH -> box(0, 0, 6, 15, 12, 9);
+					case EAST -> box(7, 0, 0, 10, 12, 15);
+					case WEST -> box(6, 0, 1, 9, 12, 16);
+					default -> box(1, 0, 7, 16, 12, 10);
+				};
+			} else if (state.getValue(PART) == 3) {
+				return switch (state.getValue(FACING)) {
+					case NORTH -> box(1, 0, 6, 16, 12, 9);
+					case EAST -> box(7, 0, 1, 10, 12, 16);
+					case WEST -> box(6, 0, 0, 9, 12, 15);
+					default -> box(0, 0, 7, 15, 12, 10);
+				};
+			}
 			return switch (state.getValue(FACING)) {
 				case NORTH -> box(-15, 0, 6, 15, 28, 9);
 				case EAST -> box(7, 0, -15, 10, 28, 15);
@@ -90,7 +126,7 @@ public class TradeBoardBlock extends Block implements EntityBlock {
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
-		builder.add(FACING);
+		builder.add(FACING, PART);
 	}
 
 	@Override
@@ -98,7 +134,7 @@ public class TradeBoardBlock extends Block implements EntityBlock {
 		BlockState state = super.getStateForPlacement(context);
 		if (state == null)
 			return null;
-		return state.setValue(FACING, context.getHorizontalDirection().getOpposite());
+		return state.setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(PART, 0);
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -107,6 +143,28 @@ public class TradeBoardBlock extends Block implements EntityBlock {
 
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
+	}
+
+	@Override
+	public boolean canSurvive(BlockState blockstate, LevelReader worldIn, BlockPos pos) {
+		if (worldIn instanceof LevelAccessor world) {
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			return TradeBoardCanPlaceProcedure.execute(world, x, y, z, blockstate);
+		}
+		return super.canSurvive(blockstate, worldIn, pos);
+	}
+
+	@Override
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos currentPos, BlockPos facingPos) {
+		return !state.canSurvive(world, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, world, currentPos, facingPos);
+	}
+
+	@Override
+	public void setPlacedBy(Level world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
+		super.setPlacedBy(world, pos, blockstate, entity, itemstack);
+		TradeBoardPlacedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
 	@Override

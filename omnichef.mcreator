@@ -11099,11 +11099,15 @@
       "metadata": {
         "files": [
           "src/main/resources/assets/omnichef/blockstates/trade_board.json",
+          "src/main/resources/assets/omnichef/models/block/trade_board_1.json",
           "src/main/resources/assets/omnichef/models/block/trade_board.json",
           "src/main/java/net/mcreator/omnichef/block/TradeBoardBlock.java",
+          "src/main/resources/assets/omnichef/models/block/trade_board_2.json",
           "src/main/resources/assets/omnichef/models/item/trade_board.json",
           "src/main/resources/data/omnichef/loot_table/blocks/trade_board.json",
-          "src/main/java/net/mcreator/omnichef/block/entity/TradeBoardBlockEntity.java"
+          "src/main/resources/assets/omnichef/models/block/trade_board_3.json",
+          "src/main/java/net/mcreator/omnichef/block/entity/TradeBoardBlockEntity.java",
+          "src/main/resources/assets/omnichef/models/block/trade_board_0.json"
         ]
       },
       "path": "~/Restaurant Functioning/Blocks"
@@ -12779,6 +12783,77 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ItemDisplayReturns"
+    },
+    {
+      "name": "TradeBoardCanPlace",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_can_place",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardCanPlaceProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Trade Board Procedures"
+    },
+    {
+      "name": "TradeBoardPlaced",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trade_board_placed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/TradeBoardPlacedProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Trade Board Procedures"
     }
   ],
   "variable_elements": [
@@ -13335,6 +13410,10 @@
                   },
                   {
                     "name": "Chair Procedures",
+                    "children": []
+                  },
+                  {
+                    "name": "Trade Board Procedures",
                     "children": []
                   }
                 ]

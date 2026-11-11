@@ -1,18 +1,63 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "omnichef:block/trade_board"
+    "facing=north,part=0": {
+      "model": "omnichef:block/trade_board_0"
     },
-    "facing=east": {
-      "model": "omnichef:block/trade_board",
+    "facing=north,part=1": {
+      "model": "omnichef:block/trade_board_1"
+    },
+    "facing=north,part=2": {
+      "model": "omnichef:block/trade_board_2"
+    },
+    "facing=north,part=3": {
+      "model": "omnichef:block/trade_board_3"
+    },
+    "facing=east,part=0": {
+      "model": "omnichef:block/trade_board_0",
       "y": 90
     },
-    "facing=south": {
-      "model": "omnichef:block/trade_board",
+    "facing=east,part=1": {
+      "model": "omnichef:block/trade_board_1",
+      "y": 90
+    },
+    "facing=east,part=2": {
+      "model": "omnichef:block/trade_board_2",
+      "y": 90
+    },
+    "facing=east,part=3": {
+      "model": "omnichef:block/trade_board_3",
+      "y": 90
+    },
+    "facing=south,part=0": {
+      "model": "omnichef:block/trade_board_0",
       "y": 180
     },
-    "facing=west": {
-      "model": "omnichef:block/trade_board",
+    "facing=south,part=1": {
+      "model": "omnichef:block/trade_board_1",
+      "y": 180
+    },
+    "facing=south,part=2": {
+      "model": "omnichef:block/trade_board_2",
+      "y": 180
+    },
+    "facing=south,part=3": {
+      "model": "omnichef:block/trade_board_3",
+      "y": 180
+    },
+    "facing=west,part=0": {
+      "model": "omnichef:block/trade_board_0",
+      "y": 270
+    },
+    "facing=west,part=1": {
+      "model": "omnichef:block/trade_board_1",
+      "y": 270
+    },
+    "facing=west,part=2": {
+      "model": "omnichef:block/trade_board_2",
+      "y": 270
+    },
+    "facing=west,part=3": {
+      "model": "omnichef:block/trade_board_3",
       "y": 270
     }
   }
