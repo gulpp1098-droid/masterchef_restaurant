@@ -139,6 +139,84 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -13 + guiTools$xOffset, this.topPos + -3 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 203, 155);
 			}
+			if (enhanced_image_button_trade_board_sign.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/trade_board_sign.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_trade_board_sign.getX() && mouseY >= enhanced_image_button_trade_board_sign.getY() && mouseX < enhanced_image_button_trade_board_sign.getX() + 110
+						&& mouseY < enhanced_image_button_trade_board_sign.getY() + 27;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_trade_board_sign.getX(), enhanced_image_button_trade_board_sign.getY(), 0, 0, 110, 27, 110, 27);
+				String guiTools$buttonText = "Trade Board";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					try {
+						guiGraphics.pose().translate(enhanced_image_button_trade_board_sign.getX() + 110 / 2.0, enhanced_image_button_trade_board_sign.getY() + 27 / 2.0, 0);
+						guiGraphics.pose().scale(1.25f, 1.25f, 1.0f);
+						guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+								-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -1, false);
+					} finally {
+						guiGraphics.pose().popPose();
+					}
+				}
+			}
+			if (enhanced_image_button_note_1_icon.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_1_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_note_1_icon.getX() && mouseY >= enhanced_image_button_note_1_icon.getY() && mouseX < enhanced_image_button_note_1_icon.getX() + 53
+						&& mouseY < enhanced_image_button_note_1_icon.getY() + 45;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_note_1_icon.getX(), enhanced_image_button_note_1_icon.getY(), 0, 0, 53, 45, 53, 45);
+			}
+			if (enhanced_image_button_note_2_icon.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_2_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_note_2_icon.getX() && mouseY >= enhanced_image_button_note_2_icon.getY() && mouseX < enhanced_image_button_note_2_icon.getX() + 58
+						&& mouseY < enhanced_image_button_note_2_icon.getY() + 58;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_note_2_icon.getX(), enhanced_image_button_note_2_icon.getY(), 0, 0, 58, 58, 58, 58);
+			}
+			if (enhanced_image_button_note_3_icon.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_3_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_note_3_icon.getX() && mouseY >= enhanced_image_button_note_3_icon.getY() && mouseX < enhanced_image_button_note_3_icon.getX() + 50
+						&& mouseY < enhanced_image_button_note_3_icon.getY() + 41;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_note_3_icon.getX(), enhanced_image_button_note_3_icon.getY(), 0, 0, 50, 41, 50, 41);
+			}
+			if (enhanced_image_button_note_4_icon.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_4_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_note_4_icon.getX() && mouseY >= enhanced_image_button_note_4_icon.getY() && mouseX < enhanced_image_button_note_4_icon.getX() + 55
+						&& mouseY < enhanced_image_button_note_4_icon.getY() + 44;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_note_4_icon.getX(), enhanced_image_button_note_4_icon.getY(), 0, 0, 55, 44, 55, 44);
+			}
+			if (enhanced_image_button_note_5_icon.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_5_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_note_5_icon.getX() && mouseY >= enhanced_image_button_note_5_icon.getY() && mouseX < enhanced_image_button_note_5_icon.getX() + 49
+						&& mouseY < enhanced_image_button_note_5_icon.getY() + 46;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_note_5_icon.getX(), enhanced_image_button_note_5_icon.getY(), 0, 0, 49, 46, 49, 46);
+			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -381,22 +459,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/trade_board_sign.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Trade Board";
-				if (!guiTools$buttonText.isEmpty()) {
-					guiGraphics.pose().pushPose();
-					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.25f, 1.25f, 1.0f);
-					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -1, false);
-					guiGraphics.pose().popPose();
-				}
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_trade_board_sign);
@@ -411,13 +474,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_1_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_note_1_icon);
@@ -432,13 +489,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_2_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_note_2_icon);
@@ -453,13 +504,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_3_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_note_3_icon);
@@ -474,13 +519,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_4_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_note_4_icon);
@@ -495,13 +534,7 @@ public class TradeBoardGUIScreen extends AbstractContainerScreen<TradeBoardGUIMe
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/note_5_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_note_5_icon);

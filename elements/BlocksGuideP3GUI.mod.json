@@ -106,22 +106,12 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_1",
-          "image": "servicetable_crafting.png",
-          "width": 90,
-          "height": 90,
+          "image": "crafting_icon.png",
+          "width": 92,
+          "height": 92,
           "x": 235,
           "y": 55,
           "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "servicetable_icon.png",
-          "use1Xscale": false,
-          "x": 273,
-          "y": 175,
-          "locked": true
         }
       },
       {
@@ -324,8 +314,222 @@
           "y": 139,
           "locked": false
         }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0",
+          "displayId": 101,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 272,
+          "y": 175,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.WOODEN_SLAB#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 239,
+          "y": 59,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.WOODEN_SLAB#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 269,
+          "y": 59,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_2",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.WOODEN_SLAB#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 299,
+          "y": 59,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_3",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.PLANKS#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 239,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_3_copy",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.PLANKS#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 239,
+          "y": 119,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_3_copy_2",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.PLANKS#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 299,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_3_copy_3",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.PLANKS#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 299,
+          "y": 120,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_3_copy_4",
+          "displayId": 107,
+          "placeholderItem": {
+            "value": "Blocks.PLANKS#0"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 269,
+          "y": 89,
+          "locked": false
+        }
       }
     ],
+    "onOpen": "FillGuideItemDisplays",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

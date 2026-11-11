@@ -58,19 +58,19 @@ public record BlocksGuideP2GUIButtonMessage(int buttonID, int x, int y, int z) i
 		}
 
 		guiTools$enhancedImageButton : {
-			if (buttonID == 3) {
+			if (buttonID == 2) {
 				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 4) {
+			if (buttonID == 3) {
 				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 5) {
+			if (buttonID == 4) {
 				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 6) {
+			if (buttonID == 5) {
 				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 7) {
+			if (buttonID == 6) {
 				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 			}
 		}

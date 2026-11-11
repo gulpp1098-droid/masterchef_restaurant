@@ -363,7 +363,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_2",
-          "displayId": 101,
+          "displayId": 102,
           "maskEnabled": false,
           "showTooltip": false,
           "showTooltipWhenMasked": false,
@@ -384,7 +384,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_3",
-          "displayId": 101,
+          "displayId": 103,
           "maskEnabled": false,
           "showTooltip": false,
           "showTooltipWhenMasked": false,
@@ -405,7 +405,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_4",
-          "displayId": 101,
+          "displayId": 104,
           "maskEnabled": false,
           "showTooltip": false,
           "showTooltipWhenMasked": false,

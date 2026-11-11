@@ -100,7 +100,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "preparation_station_button.png",
+          "image": "chefs_diary_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -114,9 +114,9 @@
           "text": "Planning My Menu",
           "isUndecorated": true,
           "onClick": "ChefsDiaryMenuOpen",
-          "width": 100,
+          "width": 110,
           "height": 18,
-          "x": 90,
+          "x": 88,
           "y": 47,
           "locked": false
         }
@@ -124,7 +124,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "preparation_station_button.png",
+          "image": "chefs_diary_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -138,9 +138,9 @@
           "text": "Serving My Guests",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideServe",
-          "width": 100,
+          "width": 110,
           "height": 18,
-          "x": 90,
+          "x": 88,
           "y": 74,
           "locked": false
         }
@@ -148,7 +148,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "preparation_station_button.png",
+          "image": "chefs_diary_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -162,9 +162,9 @@
           "text": "Growing My Restaurant",
           "isUndecorated": true,
           "onClick": "ChefsDiaryGuideExpLevel",
-          "width": 100,
+          "width": 110,
           "height": 18,
-          "x": 90,
+          "x": 88,
           "y": 101,
           "locked": false
         }
@@ -172,7 +172,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "preparation_station_button.png",
+          "image": "chefs_diary_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -186,9 +186,9 @@
           "text": "Trading for Ingredients",
           "isUndecorated": true,
           "onClick": "TradingBoardGuideOpen",
-          "width": 100,
+          "width": 110,
           "height": 18,
-          "x": 90,
+          "x": 88,
           "y": 128,
           "locked": false
         }
@@ -196,7 +196,7 @@
       {
         "type": "enhanced_image_button",
         "data": {
-          "image": "preparation_station_button.png",
+          "image": "chefs_diary_button.png",
           "hoveredImage": "",
           "pressedImage": "",
           "textColor": {
@@ -210,9 +210,9 @@
           "text": "Notes to Self",
           "isUndecorated": true,
           "onClick": "ChefsDiaryTipsGUIOpen",
-          "width": 100,
+          "width": 110,
           "height": 18,
-          "x": 90,
+          "x": 88,
           "y": 155,
           "locked": false
         }

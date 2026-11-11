@@ -62,16 +62,133 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		guiGraphics.blit(IMAGE_0, this.leftPos + -136, this.topPos + -94, 0, 0, 203, 176, 203, 176);
-		guiGraphics.blit(IMAGE_1, this.leftPos + 72, this.topPos + -94, 0, 0, 91, 176, 91, 176);
-		guiGraphics.blit(IMAGE_2, this.leftPos + -81, this.topPos + -83, 0, 0, 93, 21, 93, 21);
-		guiGraphics.blit(IMAGE_3, this.leftPos + -72, this.topPos + -84, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_4, this.leftPos + 85, this.topPos + -52, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_5, this.leftPos + 86, this.topPos + 10, 0, 0, 15, 14, 15, 14);
-		guiGraphics.blit(IMAGE_6, this.leftPos + 85, this.topPos + -21, 0, 0, 16, 16, 16, 16);
-		guiGraphics.blit(IMAGE_7, this.leftPos + 85, this.topPos + -83, 0, 0, 65, 20, 65, 20);
-		guiGraphics.blit(SPRITE_0, this.leftPos + -107, this.topPos + 10, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
+		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiTools$orderedLayers : {
+			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -136, this.topPos + -94, 0, 0, 203, 176, 203, 176);
+			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + 72, this.topPos + -94, 0, 0, 91, 176, 91, 176);
+			guiTools$alphaBlit(guiGraphics, SPRITE_0, this.leftPos + -107, this.topPos + 10, 0, Mth.clamp((int) OpenCloseReturnProcedure.execute(entity) * 39, 0, 39), 57, 39, 57, 78);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + -81, this.topPos + -83, 0, 0, 93, 21, 93, 21);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + -72, this.topPos + -84, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 85, this.topPos + -52, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 86, this.topPos + 10, 0, 0, 15, 14, 15, 14);
+			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 85, this.topPos + -21, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 85, this.topPos + -83, 0, 0, 65, 20, 65, 20);
+			if (enhanced_image_button_button_icon2.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/button_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_button_icon2.getX() && mouseY >= enhanced_image_button_button_icon2.getY() && mouseX < enhanced_image_button_button_icon2.getX() + 165
+						&& mouseY < enhanced_image_button_button_icon2.getY() + 20;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_button_icon2.getX(), enhanced_image_button_button_icon2.getY(), 0, 0, 165, 20, 165, 20);
+				String guiTools$buttonText = "Create / Delete Restaurant";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					try {
+						guiGraphics.pose().translate(enhanced_image_button_button_icon2.getX() + 165 / 2.0, enhanced_image_button_button_icon2.getY() + 20 / 2.0, 0);
+						guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+						guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+								-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					} finally {
+						guiGraphics.pose().popPose();
+					}
+				}
+			}
+			if (enhanced_image_button_button_icon2_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_button_icon2_copy.getX() && mouseY >= enhanced_image_button_button_icon2_copy.getY() && mouseX < enhanced_image_button_button_icon2_copy.getX() + 81
+						&& mouseY < enhanced_image_button_button_icon2_copy.getY() + 20;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_button_icon2_copy.getX(), enhanced_image_button_button_icon2_copy.getY(), 0, 0, 81, 20, 81, 20);
+				String guiTools$buttonText = "Set Area";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					try {
+						guiGraphics.pose().translate(enhanced_image_button_button_icon2_copy.getX() + 81 / 2.0, enhanced_image_button_button_icon2_copy.getY() + 20 / 2.0, 0);
+						guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+						guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+								-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					} finally {
+						guiGraphics.pose().popPose();
+					}
+				}
+			}
+			if (enhanced_image_button_button_icon2_copy_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_button_icon2_copy_copy.getX() && mouseY >= enhanced_image_button_button_icon2_copy_copy.getY() && mouseX < enhanced_image_button_button_icon2_copy_copy.getX() + 81
+						&& mouseY < enhanced_image_button_button_icon2_copy_copy.getY() + 20;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_button_icon2_copy_copy.getX(), enhanced_image_button_button_icon2_copy_copy.getY(), 0, 0, 81, 20, 81, 20);
+				String guiTools$buttonText = "Relocate Area";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					try {
+						guiGraphics.pose().translate(enhanced_image_button_button_icon2_copy_copy.getX() + 81 / 2.0, enhanced_image_button_button_icon2_copy_copy.getY() + 20 / 2.0, 0);
+						guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+						guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+								-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					} finally {
+						guiGraphics.pose().popPose();
+					}
+				}
+			}
+			if (enhanced_image_button_button_icon2_copy_copy_2.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_button_icon2_copy_copy_2.getX() && mouseY >= enhanced_image_button_button_icon2_copy_copy_2.getY()
+						&& mouseX < enhanced_image_button_button_icon2_copy_copy_2.getX() + 81 && mouseY < enhanced_image_button_button_icon2_copy_copy_2.getY() + 20;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_button_icon2_copy_copy_2.getX(), enhanced_image_button_button_icon2_copy_copy_2.getY(), 0, 0, 81, 20, 81, 20);
+				String guiTools$buttonText = "Open / Close";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					try {
+						guiGraphics.pose().translate(enhanced_image_button_button_icon2_copy_copy_2.getX() + 81 / 2.0, enhanced_image_button_button_icon2_copy_copy_2.getY() + 20 / 2.0, 0);
+						guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+						guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+								-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					} finally {
+						guiGraphics.pose().popPose();
+					}
+				}
+			}
+			if (enhanced_image_button_button_icon2_copy_copy_2_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_button_icon2_copy_copy_2_copy.getX() && mouseY >= enhanced_image_button_button_icon2_copy_copy_2_copy.getY()
+						&& mouseX < enhanced_image_button_button_icon2_copy_copy_2_copy.getX() + 81 && mouseY < enhanced_image_button_button_icon2_copy_copy_2_copy.getY() + 20;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_button_icon2_copy_copy_2_copy.getX(), enhanced_image_button_button_icon2_copy_copy_2_copy.getY(), 0, 0, 81, 20, 81, 20);
+				String guiTools$buttonText = "Recipes Info";
+				if (!guiTools$buttonText.isEmpty()) {
+					guiGraphics.pose().pushPose();
+					try {
+						guiGraphics.pose().translate(enhanced_image_button_button_icon2_copy_copy_2_copy.getX() + 81 / 2.0, enhanced_image_button_button_icon2_copy_copy_2_copy.getY() + 20 / 2.0, 0);
+						guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
+						guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
+								-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
+					} finally {
+						guiGraphics.pose().popPose();
+					}
+				}
+			}
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -108,22 +225,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/button_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Create / Delete Restaurant";
-				if (!guiTools$buttonText.isEmpty()) {
-					guiGraphics.pose().pushPose();
-					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
-					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
-					guiGraphics.pose().popPose();
-				}
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_button_icon2);
@@ -138,22 +240,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Set Area";
-				if (!guiTools$buttonText.isEmpty()) {
-					guiGraphics.pose().pushPose();
-					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
-					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
-					guiGraphics.pose().popPose();
-				}
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_button_icon2_copy);
@@ -168,22 +255,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Relocate Area";
-				if (!guiTools$buttonText.isEmpty()) {
-					guiGraphics.pose().pushPose();
-					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
-					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
-					guiGraphics.pose().popPose();
-				}
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_button_icon2_copy_copy);
@@ -198,22 +270,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Open / Close";
-				if (!guiTools$buttonText.isEmpty()) {
-					guiGraphics.pose().pushPose();
-					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
-					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
-					guiGraphics.pose().popPose();
-				}
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_button_icon2_copy_copy_2);
@@ -228,22 +285,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/openclosebutton_icon.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiGraphics.blit(buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
-				String guiTools$buttonText = "Recipes Info";
-				if (!guiTools$buttonText.isEmpty()) {
-					guiGraphics.pose().pushPose();
-					guiGraphics.pose().translate(getX() + width / 2.0, getY() + height / 2.0, 0);
-					guiGraphics.pose().scale(1.0f, 1.0f, 1.0f);
-					guiGraphics.drawString(net.minecraft.client.Minecraft.getInstance().font, guiTools$buttonText, -net.minecraft.client.Minecraft.getInstance().font.width(guiTools$buttonText) / 2,
-							-net.minecraft.client.Minecraft.getInstance().font.lineHeight / 2, -16777216, false);
-					guiGraphics.pose().popPose();
-				}
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_button_icon2_copy_copy_2_copy);
@@ -342,6 +384,18 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
 		} catch (RuntimeException ignored) {
 			return fallback;
+		}
+	}
+
+	private static void guiTools$alphaBlit(net.minecraft.client.gui.GuiGraphics graphics, net.minecraft.resources.ResourceLocation texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
+		boolean wasBlending = org.lwjgl.opengl.GL11.glIsEnabled(org.lwjgl.opengl.GL11.GL_BLEND);
+		com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+		com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+		try {
+			graphics.blit(texture, x, y, u, v, width, height, textureWidth, textureHeight);
+		} finally {
+			if (!wasBlending)
+				com.mojang.blaze3d.systems.RenderSystem.disableBlend();
 		}
 	}
 }

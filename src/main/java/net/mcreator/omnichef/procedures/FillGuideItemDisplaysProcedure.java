@@ -27,6 +27,8 @@ public class FillGuideItemDisplaysProcedure {
 			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(105), _displayStack5, true);
 			ItemStack _displayStack6 = new ItemStack(OmnichefModItems.PREPARED_DISH.get()).copy();
 			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(106), _displayStack6, true);
+			ItemStack _displayStack7 = new ItemStack(OmnichefModItems.CHEFS_DIARY.get()).copy();
+			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(107), _displayStack7, true);
 		}
 	}
 }

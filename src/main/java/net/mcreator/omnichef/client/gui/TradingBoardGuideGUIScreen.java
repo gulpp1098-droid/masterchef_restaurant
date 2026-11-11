@@ -1,6 +1,8 @@
 package net.mcreator.omnichef.client.gui;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
@@ -21,6 +23,8 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/trading_board_guide_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/note_small_icon.png");
+	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
+	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
 
 	public TradingBoardGuideGUIScreen(TradingBoardGuideGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -43,6 +47,112 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		guiTools$itemDisplayTooltips : {
+			guiTools$itemDisplayTooltip1 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip1;
+				if (mouseX < this.leftPos + 25 || mouseX >= this.leftPos + 49 || mouseY < this.topPos + -61 || mouseY >= this.topPos + -37)
+					break guiTools$itemDisplayTooltip1;
+				boolean guiTools$displayMasked1 = false;
+				if (guiTools$displayMasked1)
+					break guiTools$itemDisplayTooltip1;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack1 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$tooltipStack1 == null || guiTools$tooltipStack1.isEmpty())
+					break guiTools$itemDisplayTooltip1;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack1, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip2 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip2;
+				if (mouseX < this.leftPos + 55 || mouseX >= this.leftPos + 79 || mouseY < this.topPos + -61 || mouseY >= this.topPos + -37)
+					break guiTools$itemDisplayTooltip2;
+				boolean guiTools$displayMasked2 = false;
+				if (guiTools$displayMasked2)
+					break guiTools$itemDisplayTooltip2;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack2 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$tooltipStack2 == null || guiTools$tooltipStack2.isEmpty())
+					break guiTools$itemDisplayTooltip2;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack2, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip3 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip3;
+				if (mouseX < this.leftPos + 85 || mouseX >= this.leftPos + 109 || mouseY < this.topPos + -61 || mouseY >= this.topPos + -37)
+					break guiTools$itemDisplayTooltip3;
+				boolean guiTools$displayMasked3 = false;
+				if (guiTools$displayMasked3)
+					break guiTools$itemDisplayTooltip3;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack3 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$tooltipStack3 == null || guiTools$tooltipStack3.isEmpty())
+					break guiTools$itemDisplayTooltip3;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack3, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip4 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip4;
+				if (mouseX < this.leftPos + 25 || mouseX >= this.leftPos + 49 || mouseY < this.topPos + -31 || mouseY >= this.topPos + -7)
+					break guiTools$itemDisplayTooltip4;
+				boolean guiTools$displayMasked4 = false;
+				if (guiTools$displayMasked4)
+					break guiTools$itemDisplayTooltip4;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack4 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$tooltipStack4 == null || guiTools$tooltipStack4.isEmpty())
+					break guiTools$itemDisplayTooltip4;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack4, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip5 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip5;
+				if (mouseX < this.leftPos + 85 || mouseX >= this.leftPos + 109 || mouseY < this.topPos + -31 || mouseY >= this.topPos + -7)
+					break guiTools$itemDisplayTooltip5;
+				boolean guiTools$displayMasked5 = false;
+				if (guiTools$displayMasked5)
+					break guiTools$itemDisplayTooltip5;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack5 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$tooltipStack5 == null || guiTools$tooltipStack5.isEmpty())
+					break guiTools$itemDisplayTooltip5;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack5, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip6 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip6;
+				if (mouseX < this.leftPos + 55 || mouseX >= this.leftPos + 79 || mouseY < this.topPos + -31 || mouseY >= this.topPos + -7)
+					break guiTools$itemDisplayTooltip6;
+				boolean guiTools$displayMasked6 = false;
+				if (guiTools$displayMasked6)
+					break guiTools$itemDisplayTooltip6;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack6 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.PAPER, 1));
+				if (guiTools$tooltipStack6 == null || guiTools$tooltipStack6.isEmpty())
+					break guiTools$itemDisplayTooltip6;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack6, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip7 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip7;
+				if (mouseX < this.leftPos + 85 || mouseX >= this.leftPos + 109 || mouseY < this.topPos + -1 || mouseY >= this.topPos + 23)
+					break guiTools$itemDisplayTooltip7;
+				boolean guiTools$displayMasked7 = false;
+				if (guiTools$displayMasked7)
+					break guiTools$itemDisplayTooltip7;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack7 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_FENCE, 1));
+				if (guiTools$tooltipStack7 == null || guiTools$tooltipStack7.isEmpty())
+					break guiTools$itemDisplayTooltip7;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack7, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip8 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip8;
+				if (mouseX < this.leftPos + 25 || mouseX >= this.leftPos + 49 || mouseY < this.topPos + -1 || mouseY >= this.topPos + 23)
+					break guiTools$itemDisplayTooltip8;
+				boolean guiTools$displayMasked8 = false;
+				if (guiTools$displayMasked8)
+					break guiTools$itemDisplayTooltip8;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack8 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_FENCE, 1));
+				if (guiTools$tooltipStack8 == null || guiTools$tooltipStack8.isEmpty())
+					break guiTools$itemDisplayTooltip8;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack8, mouseX, mouseY);
+			}
+		}
 	}
 
 	@Override
@@ -53,6 +163,56 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		guiTools$orderedLayers : {
 			guiTools$alphaBlit(guiGraphics, IMAGE_0, this.leftPos + -178, this.topPos + -125, 0, 0, 340, 230, 340, 230);
+			if (red_bookmark.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= red_bookmark.getX() && mouseY >= red_bookmark.getY() && mouseX < red_bookmark.getX() + 35 && mouseY < red_bookmark.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, red_bookmark.getX(), red_bookmark.getY(), 0, 0, 35, 26, 35, 26);
+			}
+			if (yellow_bookmark.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= yellow_bookmark.getX() && mouseY >= yellow_bookmark.getY() && mouseX < yellow_bookmark.getX() + 35 && mouseY < yellow_bookmark.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, yellow_bookmark.getX(), yellow_bookmark.getY(), 0, 0, 35, 26, 35, 26);
+			}
+			if (green_bookmark.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= green_bookmark.getX() && mouseY >= green_bookmark.getY() && mouseX < green_bookmark.getX() + 35 && mouseY < green_bookmark.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, green_bookmark.getX(), green_bookmark.getY(), 0, 0, 35, 26, 35, 26);
+			}
+			if (gray_bookmark.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= gray_bookmark.getX() && mouseY >= gray_bookmark.getY() && mouseX < gray_bookmark.getX() + 35 && mouseY < gray_bookmark.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, gray_bookmark.getX(), gray_bookmark.getY(), 0, 0, 35, 26, 35, 26);
+			}
+			if (blue_bookmark.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= blue_bookmark.getX() && mouseY >= blue_bookmark.getY() && mouseX < blue_bookmark.getX() + 35 && mouseY < blue_bookmark.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, blue_bookmark.getX(), blue_bookmark.getY(), 0, 0, 35, 26, 35, 26);
+			}
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -99,6 +259,242 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + 19 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -61, this.topPos + -100, 0, 0, 16, 16, 16, 16);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 1, this.topPos + -90, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 1, this.topPos + 40, 0, 0, 133, 11, 133, 11);
+			guiTools$itemDisplay0 : {
+				if (!(true))
+					break guiTools$itemDisplay0;
+				net.minecraft.world.item.ItemStack guiTools$displayStack0 = menu.getMenuState(3, "105", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack0 == null || guiTools$displayStack0.isEmpty())
+					break guiTools$itemDisplay0;
+				boolean guiTools$displayMasked0 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 59), (1.0F - 1.0f) * (this.topPos + 53), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked0) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 59, this.topPos + 53);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 59, this.topPos + 53);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 92;
+				int guiTools$visibleHeight = 92;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/crafting_icon.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 21 + guiTools$xOffset, this.topPos + -65 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 92, 92);
+			}
+			guiTools$itemDisplay1 : {
+				if (!(true))
+					break guiTools$itemDisplay1;
+				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$displayStack1 == null || guiTools$displayStack1.isEmpty())
+					break guiTools$itemDisplay1;
+				boolean guiTools$displayMasked1 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 25), (1.0F - 1.5f) * (this.topPos + -61), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked1) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 25, this.topPos + -61);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 25, this.topPos + -61);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay2 : {
+				if (!(true))
+					break guiTools$itemDisplay2;
+				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
+					break guiTools$itemDisplay2;
+				boolean guiTools$displayMasked2 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 55), (1.0F - 1.5f) * (this.topPos + -61), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked2) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 55, this.topPos + -61);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 55, this.topPos + -61);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay3 : {
+				if (!(true))
+					break guiTools$itemDisplay3;
+				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$displayStack3 == null || guiTools$displayStack3.isEmpty())
+					break guiTools$itemDisplay3;
+				boolean guiTools$displayMasked3 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 85), (1.0F - 1.5f) * (this.topPos + -61), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked3) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 85, this.topPos + -61);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 85, this.topPos + -61);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay4 : {
+				if (!(true))
+					break guiTools$itemDisplay4;
+				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$displayStack4 == null || guiTools$displayStack4.isEmpty())
+					break guiTools$itemDisplay4;
+				boolean guiTools$displayMasked4 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 25), (1.0F - 1.5f) * (this.topPos + -31), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked4) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 25, this.topPos + -31);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 25, this.topPos + -31);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay5 : {
+				if (!(true))
+					break guiTools$itemDisplay5;
+				net.minecraft.world.item.ItemStack guiTools$displayStack5 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_PLANKS, 1));
+				if (guiTools$displayStack5 == null || guiTools$displayStack5.isEmpty())
+					break guiTools$itemDisplay5;
+				boolean guiTools$displayMasked5 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 85), (1.0F - 1.5f) * (this.topPos + -31), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked5) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 85, this.topPos + -31);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack5, this.leftPos + 85, this.topPos + -31);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay6 : {
+				if (!(true))
+					break guiTools$itemDisplay6;
+				net.minecraft.world.item.ItemStack guiTools$displayStack6 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.PAPER, 1));
+				if (guiTools$displayStack6 == null || guiTools$displayStack6.isEmpty())
+					break guiTools$itemDisplay6;
+				boolean guiTools$displayMasked6 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 55), (1.0F - 1.5f) * (this.topPos + -31), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked6) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + 55, this.topPos + -31);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack6, this.leftPos + 55, this.topPos + -31);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay7 : {
+				if (!(true))
+					break guiTools$itemDisplay7;
+				net.minecraft.world.item.ItemStack guiTools$displayStack7 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_FENCE, 1));
+				if (guiTools$displayStack7 == null || guiTools$displayStack7.isEmpty())
+					break guiTools$itemDisplay7;
+				boolean guiTools$displayMasked7 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 85), (1.0F - 1.5f) * (this.topPos + -1), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked7) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack7, this.leftPos + 85, this.topPos + -1);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack7, this.leftPos + 85, this.topPos + -1);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay8 : {
+				if (!(true))
+					break guiTools$itemDisplay8;
+				net.minecraft.world.item.ItemStack guiTools$displayStack8 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Blocks.OAK_FENCE, 1));
+				if (guiTools$displayStack8 == null || guiTools$displayStack8.isEmpty())
+					break guiTools$itemDisplay8;
+				boolean guiTools$displayMasked8 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + 25), (1.0F - 1.5f) * (this.topPos + -1), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked8) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack8, this.leftPos + 25, this.topPos + -1);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack8, this.leftPos + 25, this.topPos + -1);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -134,13 +530,7 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(red_bookmark);
@@ -155,13 +545,7 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_yellow.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(yellow_bookmark);
@@ -176,13 +560,7 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_green.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(green_bookmark);
@@ -197,13 +575,7 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_gray.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(gray_bookmark);
@@ -218,13 +590,7 @@ public class TradingBoardGuideGUIScreen extends AbstractContainerScreen<TradingB
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blue.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(blue_bookmark);

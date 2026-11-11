@@ -2,6 +2,9 @@ package net.mcreator.omnichef.world.inventory;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.event.entity.player.PlayerContainerEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -15,6 +18,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.omnichef.procedures.FillGuideItemDisplaysProcedure;
 import net.mcreator.omnichef.init.OmnichefModMenus;
 
 import java.util.function.Supplier;
@@ -22,11 +26,12 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+@EventBusSubscriber
 public class BlocksGuideP4GUIMenu extends AbstractContainerMenu implements OmnichefModMenus.MenuAccessor {
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 20)
+			if (!this.containsKey(key) && this.size() >= 27)
 				return null;
 			return super.put(key, value);
 		}
@@ -83,5 +88,17 @@ public class BlocksGuideP4GUIMenu extends AbstractContainerMenu implements Omnic
 	@Override
 	public Map<String, Object> getMenuState() {
 		return menuState;
+	}
+
+	@SubscribeEvent
+	public static void onContainerOpen(PlayerContainerEvent.Open event) {
+		Player entity = event.getEntity();
+		if (event.getContainer() instanceof BlocksGuideP4GUIMenu menu) {
+			Level world = menu.world;
+			double x = menu.x;
+			double y = menu.y;
+			double z = menu.z;
+			FillGuideItemDisplaysProcedure.execute(entity);
+		}
 	}
 }

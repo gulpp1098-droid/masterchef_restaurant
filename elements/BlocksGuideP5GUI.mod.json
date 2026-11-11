@@ -94,21 +94,11 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_1",
-          "image": "queuerug_crafting.png",
-          "width": 90,
-          "height": 90,
+          "image": "crafting_icon.png",
+          "width": 92,
+          "height": 92,
           "x": 235,
           "y": 55,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "queue_rug_item.png",
-          "use1Xscale": false,
-          "x": 272,
-          "y": 174,
           "locked": false
         }
       },
@@ -324,8 +314,99 @@
           "y": 139,
           "locked": false
         }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0",
+          "displayId": 103,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 272,
+          "y": 174,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1",
+          "displayId": 107,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 269,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.CARPET#14"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 299,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1_copy_copy",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Blocks.CARPET#14"
+          },
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 239,
+          "y": 89,
+          "locked": false
+        }
       }
     ],
+    "onOpen": "FillGuideItemDisplays",
     "gridSettings": {
       "sx": 18,
       "sy": 18,

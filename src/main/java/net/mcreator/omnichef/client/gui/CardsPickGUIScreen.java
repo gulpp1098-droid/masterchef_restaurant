@@ -92,6 +92,42 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 		guiTools$alphaBlit(guiGraphics, BACKGROUND, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
 		guiTools$orderedLayers : {
+			if (enhanced_image_button_cardbigtier0.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card1TextureReturnProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_cardbigtier0.getX() && mouseY >= enhanced_image_button_cardbigtier0.getY() && mouseX < enhanced_image_button_cardbigtier0.getX() + 64
+						&& mouseY < enhanced_image_button_cardbigtier0.getY() + 64;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_cardbigtier0.getX(), enhanced_image_button_cardbigtier0.getY(), 0, 0, 64, 64, 64, 64);
+			}
+			if (enhanced_image_button_cardbigtier1.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card2TextureReturnProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_cardbigtier1.getX() && mouseY >= enhanced_image_button_cardbigtier1.getY() && mouseX < enhanced_image_button_cardbigtier1.getX() + 64
+						&& mouseY < enhanced_image_button_cardbigtier1.getY() + 64;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_cardbigtier1.getX(), enhanced_image_button_cardbigtier1.getY(), 0, 0, 64, 64, 64, 64);
+			}
+			if (enhanced_image_button_cardbigtier2.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card3TextureReturnProcedure.execute(entity), ""),
+						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_cardbigtier2.getX() && mouseY >= enhanced_image_button_cardbigtier2.getY() && mouseX < enhanced_image_button_cardbigtier2.getX() + 64
+						&& mouseY < enhanced_image_button_cardbigtier2.getY() + 64;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_cardbigtier2.getX(), enhanced_image_button_cardbigtier2.getY(), 0, 0, 64, 64, 64, 64);
+			}
 			guiTools$itemDisplay0 : {
 				if (!(true))
 					break guiTools$itemDisplay0;
@@ -207,14 +243,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card1TextureReturnProcedure.execute(entity), ""),
-						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_cardbigtier0);
@@ -229,14 +258,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card2TextureReturnProcedure.execute(entity), ""),
-						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_cardbigtier1);
@@ -251,14 +273,7 @@ public class CardsPickGUIScreen extends AbstractContainerScreen<CardsPickGUIMenu
 				}) {
 			@Override
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = guiTools$buttonTexture(java.util.Objects.toString(net.mcreator.omnichef.procedures.Card3TextureReturnProcedure.execute(entity), ""),
-						net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/card-big-tier0.png"));
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean mouseOverButton = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
-				boolean mousePressed = mouseOverButton && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = mousePressed ? guiTools$pressedTexture : mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, getX(), getY(), 0, 0, width, height, width, height);
+				// Rendered manually in the ordered GUI layer block.
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_cardbigtier2);
