@@ -27,13 +27,8 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/blocks_guide_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/requirements_icon.png");
-	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/reception_item.png");
-	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/servicetable_icon.png");
-	private static final ResourceLocation IMAGE_4 = ResourceLocation.parse("omnichef:textures/screens/chair_icon.png");
-	private static final ResourceLocation IMAGE_5 = ResourceLocation.parse("omnichef:textures/screens/queue_rug_item.png");
-	private static final ResourceLocation IMAGE_6 = ResourceLocation.parse("omnichef:textures/screens/preparationstation_tier0.png");
-	private static final ResourceLocation IMAGE_7 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
-	private static final ResourceLocation IMAGE_8 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
+	private static final ResourceLocation IMAGE_2 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
+	private static final ResourceLocation IMAGE_3 = ResourceLocation.parse("omnichef:textures/screens/separator_icon.png");
 
 	public BlocksGuideGUIScreen(BlocksGuideGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -112,13 +107,8 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 149 + guiTools$xOffset, this.topPos + 19 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
 			}
 			guiTools$alphaBlit(guiGraphics, IMAGE_1, this.leftPos + -37, this.topPos + -96, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 3, this.topPos + -84, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 30, this.topPos + -83, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_4, this.leftPos + 57, this.topPos + -83, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_5, this.leftPos + 111, this.topPos + -83, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_6, this.leftPos + 84, this.topPos + -83, 0, 0, 16, 16, 16, 16);
-			guiTools$alphaBlit(guiGraphics, IMAGE_7, this.leftPos + 1, this.topPos + -98, 0, 0, 133, 11, 133, 11);
-			guiTools$alphaBlit(guiGraphics, IMAGE_8, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_2, this.leftPos + 1, this.topPos + -98, 0, 0, 133, 11, 133, 11);
+			guiTools$alphaBlit(guiGraphics, IMAGE_3, this.leftPos + 1, this.topPos + 49, 0, 0, 133, 11, 133, 11);
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
@@ -127,6 +117,131 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/restaurant_setup.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 11 + guiTools$xOffset, this.topPos + -58 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 112, 100);
+			}
+			guiTools$itemDisplay0 : {
+				if (!(true))
+					break guiTools$itemDisplay0;
+				net.minecraft.world.item.ItemStack guiTools$displayStack0 = menu.getMenuState(3, "100", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack0 == null || guiTools$displayStack0.isEmpty())
+					break guiTools$itemDisplay0;
+				boolean guiTools$displayMasked0 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 57), (1.0F - 1.0f) * (this.topPos + -83), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked0) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 57, this.topPos + -83);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack0, this.leftPos + 57, this.topPos + -83);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay1 : {
+				if (!(true))
+					break guiTools$itemDisplay1;
+				net.minecraft.world.item.ItemStack guiTools$displayStack1 = menu.getMenuState(3, "101", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack1 == null || guiTools$displayStack1.isEmpty())
+					break guiTools$itemDisplay1;
+				boolean guiTools$displayMasked1 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 30), (1.0F - 1.0f) * (this.topPos + -83), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked1) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 30, this.topPos + -83);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack1, this.leftPos + 30, this.topPos + -83);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay2 : {
+				if (!(true))
+					break guiTools$itemDisplay2;
+				net.minecraft.world.item.ItemStack guiTools$displayStack2 = menu.getMenuState(3, "101", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack2 == null || guiTools$displayStack2.isEmpty())
+					break guiTools$itemDisplay2;
+				boolean guiTools$displayMasked2 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 3), (1.0F - 1.0f) * (this.topPos + -83), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked2) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 3, this.topPos + -83);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack2, this.leftPos + 3, this.topPos + -83);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay3 : {
+				if (!(true))
+					break guiTools$itemDisplay3;
+				net.minecraft.world.item.ItemStack guiTools$displayStack3 = menu.getMenuState(3, "101", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack3 == null || guiTools$displayStack3.isEmpty())
+					break guiTools$itemDisplay3;
+				boolean guiTools$displayMasked3 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 111), (1.0F - 1.0f) * (this.topPos + -83), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked3) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 111, this.topPos + -83);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack3, this.leftPos + 111, this.topPos + -83);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay4 : {
+				if (!(true))
+					break guiTools$itemDisplay4;
+				net.minecraft.world.item.ItemStack guiTools$displayStack4 = menu.getMenuState(3, "101", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack4 == null || guiTools$displayStack4.isEmpty())
+					break guiTools$itemDisplay4;
+				boolean guiTools$displayMasked4 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 84), (1.0F - 1.0f) * (this.topPos + -83), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked4) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 84, this.topPos + -83);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack4, this.leftPos + 84, this.topPos + -83);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
 			}
 		}
 		RenderSystem.disableBlend();
@@ -145,7 +260,7 @@ public class BlocksGuideGUIScreen extends AbstractContainerScreen<BlocksGuideGUI
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_before_customers_can_visit_your",
 				"An empty room and a dream are apparently not enough. To run this place properly, I need:\n- Reception\n- Service Table\n- Chair\n- Preparation Station\n- Extra Queue Rugs(opt.)\nEach piece has its own job. Without them, my restaurant is mostly just a room where I stand around holding a spatula."),
-				-145, -78, 130, 160, -12829636, false, 1.00F, 0, 0);
+				-145, -79, 130, 160, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_what_my_restaurant_needs", "What My Restaurant Needs."), -145, -98, 124, 21, -12829636, false, 1.00F, 0, 0);
 	}
 

@@ -234,56 +234,6 @@
       {
         "type": "image",
         "data": {
-          "image": "reception_item.png",
-          "use1Xscale": false,
-          "x": 217,
-          "y": 36,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "servicetable_icon.png",
-          "use1Xscale": false,
-          "x": 244,
-          "y": 37,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "chair_icon.png",
-          "use1Xscale": false,
-          "x": 271,
-          "y": 37,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "queue_rug_item.png",
-          "use1Xscale": false,
-          "x": 325,
-          "y": 37,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "preparationstation_tier0.png",
-          "use1Xscale": false,
-          "x": 298,
-          "y": 37,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
           "image": "separator_icon.png",
           "use1Xscale": false,
           "x": 215,
@@ -330,7 +280,7 @@
           "width": 130,
           "height": 160,
           "x": 69,
-          "y": 42,
+          "y": 41,
           "locked": false
         }
       },
@@ -366,8 +316,114 @@
           "y": 22,
           "locked": false
         }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0",
+          "displayId": 100,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 271,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_1",
+          "displayId": 101,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 244,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_2",
+          "displayId": 101,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 217,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_3",
+          "displayId": 101,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 325,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_4",
+          "displayId": 101,
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 298,
+          "y": 37,
+          "locked": false
+        }
       }
     ],
+    "onOpen": "FillGuideItemDisplays",
     "gridSettings": {
       "sx": 18,
       "sy": 18,
