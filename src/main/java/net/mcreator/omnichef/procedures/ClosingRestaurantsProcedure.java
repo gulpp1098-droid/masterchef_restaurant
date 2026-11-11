@@ -9,7 +9,6 @@ import net.minecraft.ChatFormatting;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
-import java.util.UUID;
 import java.util.ArrayList;
 
 public class ClosingRestaurantsProcedure {
@@ -52,10 +51,10 @@ public class ClosingRestaurantsProcedure {
 						}
 						owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 								"owner");
-						ownerEntity = world instanceof ServerLevel _level10 ? getEntityFromUUID(_level10, owner) : null;
+						ownerEntity = world instanceof net.minecraft.server.level.ServerLevel serverLevel ? serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(owner)) : null;
 						if (ownerEntity != null) {
-							if (ownerEntity instanceof Player _player13 && !_player13.level().isClientSide())
-								_player13.displayClientMessage(Component.literal("Your restaurant has been closed for today.").withStyle(ChatFormatting.GOLD), false);
+							if (ownerEntity instanceof Player _player12 && !_player12.level().isClientSide())
+								_player12.displayClientMessage(Component.literal("Your restaurant has been closed for today.").withStyle(ChatFormatting.GOLD), false);
 						}
 						if (world instanceof net.minecraft.server.level.ServerLevel serverLevel) {
 							net.minecraft.server.level.ServerPlayer onlineOwner = null;
@@ -71,14 +70,6 @@ public class ClosingRestaurantsProcedure {
 				}
 				index = index + 1;
 			}
-		}
-	}
-
-	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
-		try {
-			return level.getEntity(UUID.fromString(uuid));
-		} catch (IllegalArgumentException e) {
-			return null;
 		}
 	}
 }

@@ -3,13 +3,10 @@ package net.mcreator.omnichef.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.ChatFormatting;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
-
-import java.util.UUID;
 
 public class RestaurantLevelUpCheckProcedure {
 	public static double execute(LevelAccessor world, double IDrestaurant) {
@@ -32,10 +29,10 @@ public class RestaurantLevelUpCheckProcedure {
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 				AdvanceRecipeDiscoveryStageProcedure.execute(world, restaurantID);
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
-				ownerentity = world instanceof ServerLevel _level0 ? getEntityFromUUID(_level0, owner) : null;
+				ownerentity = world instanceof net.minecraft.server.level.ServerLevel serverLevel ? serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(owner)) : null;
 				if (ownerentity != null) {
-					if (ownerentity instanceof Player _player4 && !_player4.level().isClientSide())
-						_player4.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel + 1) + "!")).withStyle(ChatFormatting.GREEN), false);
+					if (ownerentity instanceof Player _player3 && !_player3.level().isClientSide())
+						_player3.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel + 1) + "!")).withStyle(ChatFormatting.GREEN), false);
 				}
 				return restaurantLevel + 1;
 			}
@@ -47,22 +44,14 @@ public class RestaurantLevelUpCheckProcedure {
 				ModifyRestaurantNumberParameterProcedure.execute(restaurantLevel - 1, RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level");
 				owner = GetRestaurantStringParameterProcedure.execute(RestaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "owner");
-				ownerentity = world instanceof ServerLevel _level5 ? getEntityFromUUID(_level5, owner) : null;
+				ownerentity = world instanceof net.minecraft.server.level.ServerLevel serverLevel ? serverLevel.getServer().getPlayerList().getPlayer(java.util.UUID.fromString(owner)) : null;
 				if (ownerentity != null) {
-					if (ownerentity instanceof Player _player9 && !_player9.level().isClientSide())
-						_player9.displayClientMessage(Component.literal(("Your restaurant dropped to Level " + (int) (restaurantLevel - 1) + ".")).withStyle(ChatFormatting.RED), false);
+					if (ownerentity instanceof Player _player7 && !_player7.level().isClientSide())
+						_player7.displayClientMessage(Component.literal(("Your restaurant dropped to Level " + (int) (restaurantLevel - 1) + ".")).withStyle(ChatFormatting.RED), false);
 				}
 				return restaurantLevel - 1;
 			}
 		}
 		return restaurantLevel;
-	}
-
-	private static Entity getEntityFromUUID(ServerLevel level, String uuid) {
-		try {
-			return level.getEntity(UUID.fromString(uuid));
-		} catch (IllegalArgumentException e) {
-			return null;
-		}
 	}
 }

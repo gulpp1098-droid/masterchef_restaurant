@@ -207,8 +207,7 @@ public class RestaurantManagementGUIScreen extends AbstractContainerScreen<Resta
 		guiGraphics.drawString(this.font, MaxTablesReturnProcedure.execute(entity), 108, -49, -12829636, false);
 		guiGraphics.drawString(this.font, MaxQueueReturnProcedure.execute(entity), 108, -17, -12829636, false);
 		guiGraphics.drawString(this.font, MaxLocationsReturnProcedure.execute(entity), 108, 13, -12829636, false);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_first_linesecond_line", java.util.Objects.toString(net.mcreator.omnichef.procedures.MenuNameReturnProcedure.execute(entity), "")), 96,
-				-78, 42, 13, -1, false, 0.75F, 0, 2);
+		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_first_linesecond_line", "Limits"), 96, -81, 42, 13, -1, false, 0.75F, 0, 2);
 	}
 
 	@Override
