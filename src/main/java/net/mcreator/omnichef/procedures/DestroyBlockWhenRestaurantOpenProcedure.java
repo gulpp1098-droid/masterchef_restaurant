@@ -74,7 +74,7 @@ public class DestroyBlockWhenRestaurantOpenProcedure {
 					if (getBlockNBTNumber(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "coins") > 0
 							|| getBlockNBTLogic(world, BlockPos.containing(x + direction.getStepX(), y, z + direction.getStepZ()), "occupied")) {
 						if (entity instanceof Player _player31 && !_player31.level().isClientSide())
-							_player31.displayClientMessage(Component.literal("You cannot modify this table or its chairs while customers are using it or coins remain uncollected.").withStyle(ChatFormatting.RED), true);
+							_player31.displayClientMessage(Component.literal(("You cannot modify this table or its chairs while customers" + "\n" + "are using it or coins remain uncollected.")).withStyle(ChatFormatting.RED), true);
 						if (event instanceof ICancellableEvent _cancellable) {
 							_cancellable.setCanceled(true);
 						}
