@@ -33,7 +33,6 @@ public class TradeBoardExplosionProcedure {
 		}
 	}
 
-}
 
 	public static void execute() {
 		execute(null);

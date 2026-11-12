@@ -14,6 +14,7 @@ public class SendFoodRolesToPlayerProcedure {
 		com.google.gson.JsonObject food = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject batch = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject entry = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray foods = new com.google.gson.JsonArray();
 		double tierIndex = 0;
 		double foodIndex = 0;
@@ -28,7 +29,19 @@ public class SendFoodRolesToPlayerProcedure {
 				foodIndex = 0;
 				for (int _i2 = 0; _i2 < (int) foods.size(); _i2++) {
 					food = foods.get((int) foodIndex).getAsJsonObject();
-					batch.addProperty(food.get("id").getAsString(), lookup.get(food.get("id").getAsString()).getAsString());
+					entry = new Object() {
+						public com.google.gson.JsonObject parse(String rawJson) {
+							try {
+								return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
+							} catch (Exception e) {
+								OmnichefMod.LOGGER.error(e);
+								return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+							}
+						}
+					}.parse("{}");
+					entry.addProperty("role", food.get("role").getAsString());
+					entry.addProperty("tier", food.get("tier").getAsString());
+					batch.add(food.get("id").getAsString(), entry);
 					batchCount = batchCount + 1;
 					if (batchCount >= 100) {
 						SendFoodRoleBatchProcedure.execute(world, entity, batch, false);

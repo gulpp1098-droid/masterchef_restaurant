@@ -12893,31 +12893,10 @@
       "name": "TradeBoardExplosion",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "trade_board_explosion",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "blockstate",
-            "type": "blockstate"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
+        "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/omnichef/procedures/TradeBoardExplosionProcedure.java"
         ]
@@ -13612,7 +13591,7 @@
   "workspaceSettings": {
     "modid": "omnichef",
     "modName": "OmniChef - Restaurant sim RPG mod",
-    "version": "0.6.8",
+    "version": "0.6.9",
     "description": "Manage your own Restaurant and become the best chef!",
     "author": "Maeestry",
     "websiteURL": "https://mcreator.net",

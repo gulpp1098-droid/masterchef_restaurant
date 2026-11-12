@@ -113,7 +113,7 @@ public class ClientEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.getNavigation().getNodeEvaluator().setCanOpenDoors(true);
-		this.goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(1, new OpenDoorGoal(this, false));
 		this.goalSelector.addGoal(2, new RandomStrollGoal(this, 1) {
 			@Override
 			public boolean canUse() {
@@ -289,7 +289,7 @@ public class ClientEntity extends PathfinderMob {
 		builder = builder.add(Attributes.MAX_HEALTH, 10);
 		builder = builder.add(Attributes.ARMOR, 0);
 		builder = builder.add(Attributes.ATTACK_DAMAGE, 0);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 16);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 64);
 		builder = builder.add(Attributes.STEP_HEIGHT, 0.6);
 		return builder;
 	}
