@@ -312,7 +312,7 @@ public class OmnichefModVariables {
 		public String owner = "\"\"";
 		public double ClientPatiance = -1.0;
 		public String GUIstring = "";
-		public String OverlayString = "\"\"";
+		public String OverlayString = "{}";
 		public boolean BookGained = false;
 		public double DiaryFoodTier = 0;
 		public double DiaryFoodPage = 0;

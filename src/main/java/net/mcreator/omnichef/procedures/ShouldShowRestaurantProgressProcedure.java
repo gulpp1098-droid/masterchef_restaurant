@@ -20,6 +20,9 @@ public class ShouldShowRestaurantProgressProcedure {
 				}
 			}
 		}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0) {
+			return false;
+		}
 		return entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID > 0 && data.has("reputation_current");
 	}
 }

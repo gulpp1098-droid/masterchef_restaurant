@@ -13023,7 +13023,7 @@
       "name": "OverlayString",
       "type": "string",
       "scope": "player_persistent",
-      "value": "\"\""
+      "value": "{}"
     },
     {
       "name": "BookGained",

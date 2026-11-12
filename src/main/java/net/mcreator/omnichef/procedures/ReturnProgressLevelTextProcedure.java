@@ -10,6 +10,9 @@ public class ReturnProgressLevelTextProcedure {
 		if (entity == null)
 			return "";
 		com.google.gson.JsonObject data = new com.google.gson.JsonObject();
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0) {
+			return "";
+		}
 		data = new Object() {
 			public com.google.gson.JsonObject parse(String rawJson) {
 				try {
@@ -20,9 +23,6 @@ public class ReturnProgressLevelTextProcedure {
 				}
 			}
 		}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0) {
-			return "";
-		}
 		if (!data.has("restaurant_level")) {
 			return "";
 		}

@@ -20,7 +20,7 @@ public class CreatingFoodListJsonProcedure {
 				return;
 			}
 			final long generationStarted = System.nanoTime();
-			net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v5: indexing items and recipe outputs.");
+			net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: indexing items and recipe outputs.");
 			java.util.Set<String> excludedFoods = new java.util.HashSet<>();
 			excludedFoods.add("minecraft:ominous_bottle");
 			excludedFoods.add("minecraft:enchanted_golden_apple");
@@ -55,6 +55,12 @@ public class CreatingFoodListJsonProcedure {
 			}
 			class FoodClassificationRules {
 				final java.util.Set<String> excludedItems = new java.util.HashSet<>();
+				final java.util.Set<String> pantryItems = new java.util.HashSet<>();
+				final java.util.Set<String> preparedItems = new java.util.HashSet<>();
+				final java.util.Set<String> harmlessEffects = new java.util.HashSet<>();
+				final java.util.Map<String, Integer> sourceTiers = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> progressionMinimumTiers = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> recipeAccessTiers = new java.util.HashMap<>();
 				final java.util.Set<String> excludedClasses = new java.util.HashSet<>();
 				final java.util.Set<String> zeroNutritionAllowed = new java.util.HashSet<>();
 				final java.util.Map<String, Integer> minimumTiers = new java.util.HashMap<>();
@@ -88,7 +94,7 @@ public class CreatingFoodListJsonProcedure {
 
 				com.google.gson.JsonObject defaults() {
 					com.google.gson.JsonObject config = new com.google.gson.JsonObject();
-					config.addProperty("config_version", 3);
+					config.addProperty("config_version", 5);
 					config.add("excluded_items", strings("artifacts:everlasting_beef", "artifacts:eternal_steak"));
 					config.add("excluded_item_classes", strings("artifacts.item.EverlastingFoodItem"));
 					config.add("zero_nutrition_allow_items", strings());
@@ -107,6 +113,71 @@ public class CreatingFoodListJsonProcedure {
 					acquisition.add("tag_minimum_tiers", tagMinimums);
 					config.add("acquisition", acquisition);
 					config.add("role_overrides", new com.google.gson.JsonObject());
+					config.add("pantry_items", strings("herbsandharvest:cream_cheese", "farmersdelight:tomato_sauce", "merrymaking:cookie_dough", "merrymaking:gingerbread_dough", "aquaculture:fish_fillet_raw", "pamhc2foodcore:flouritem",
+							"pamhc2foodcore:doughitem", "pamhc2foodcore:butteritem", "pamhc2foodcore:mayonaiseitem", "pamhc2foodcore:vinegaritem", "pamhc2foodcore:creamitem", "pamhc2foodcore:cheeseitem"));
+					config.add("prepared_items", strings("farmersdelight:melon_popsicle", "farmersdelight:cake_slice", "pneumaticcraft:salmon_tempura", "pamhc2foodextended:honeyglazedhamitem", "pamhc2foodextended:meringuebrownieitem",
+							"actuallyadditions:coffee_cup", "iceandfire:cannoli", "extended_industrialization:canned_food"));
+					config.add("compatibility_exclusions", strings("modern_industrialization:mixed_ingot_iridium", "potionsmaster:activated_charcoal", "potionsmaster:bezoar", "potionsmaster:gallbladder", "extended_industrialization:mulch"));
+					config.add("harmless_effects", strings("minecraft:glowing"));
+					com.google.gson.JsonObject origins = new com.google.gson.JsonObject();
+					origins.addProperty("aether:black_moa_egg", 3);
+					origins.addProperty("aether:blue_berry", 3);
+					origins.addProperty("aether:blue_gummy_swet", 3);
+					origins.addProperty("aether:blue_moa_egg", 3);
+					origins.addProperty("aether:candy_cane", 3);
+					origins.addProperty("aether:enchanted_berry", 3);
+					origins.addProperty("aether:gingerbread_man", 3);
+					origins.addProperty("aether:golden_gummy_swet", 3);
+					origins.addProperty("aether:white_moa_egg", 3);
+					origins.addProperty("deeperdarker:angler_fish", 4);
+					origins.addProperty("eternal_starlight:aurora_deer_steak", 3);
+					origins.addProperty("eternal_starlight:blossom_of_stars", 3);
+					origins.addProperty("eternal_starlight:luminaris", 3);
+					origins.addProperty("eternal_starlight:luminofish", 3);
+					origins.addProperty("eternal_starlight:lunar_berries", 3);
+					origins.addProperty("eternal_starlight:lunaris_cactus_gel", 3);
+					origins.addProperty("eternal_starlight:ratlin_meat", 3);
+					origins.addProperty("eternal_starlight:rookfish", 3);
+					origins.addProperty("eternal_starlight:rotten_flesh_jerky", 3);
+					origins.addProperty("eternal_starlight:seeker_tentacle", 3);
+					origins.addProperty("eternal_starlight:shadow_snail_pie", 3);
+					origins.addProperty("eternal_starlight:velvetumoss_ball", 3);
+					origins.addProperty("minecraft:apple", 0);
+					origins.addProperty("minecraft:chorus_flower", 4);
+					origins.addProperty("minecraft:chorus_fruit", 4);
+					origins.addProperty("minecraft:end_stone", 4);
+					origins.addProperty("twilightforest:blackberry", 2);
+					origins.addProperty("twilightforest:blightberry", 2);
+					origins.addProperty("twilightforest:blueberry", 2);
+					origins.addProperty("twilightforest:duskberry", 2);
+					origins.addProperty("twilightforest:experiment_115", 2);
+					origins.addProperty("twilightforest:gelatinous_maze_slime_drop", 2);
+					origins.addProperty("twilightforest:hydra_chop", 2);
+					origins.addProperty("twilightforest:maloberry", 2);
+					origins.addProperty("twilightforest:maze_wafer", 2);
+					origins.addProperty("twilightforest:meef_stroganoff", 2);
+					origins.addProperty("twilightforest:raspberry", 2);
+					origins.addProperty("twilightforest:raw_meef", 2);
+					origins.addProperty("twilightforest:raw_venison", 2);
+					origins.addProperty("twilightforest:shika_senbei", 2);
+					origins.addProperty("twilightforest:skyberry", 2);
+					origins.addProperty("twilightforest:stingberry", 2);
+					origins.addProperty("undergarden:blisterberry", 3);
+					origins.addProperty("undergarden:raw_dweller_meat", 3);
+					origins.addProperty("undergarden:raw_gloomper_leg", 3);
+					origins.addProperty("undergarden:raw_gwibling", 3);
+					origins.addProperty("undergarden:roasted_underbeans", 3);
+					origins.addProperty("undergarden:underbeans", 3);
+					config.add("base_source_tiers", origins);
+					com.google.gson.JsonObject minimums = new com.google.gson.JsonObject();
+					minimums.addProperty("minecraft:chorus_fruit", 4);
+					minimums.addProperty("iceandfire:fire_dragon_flesh", 6);
+					minimums.addProperty("iceandfire:ice_dragon_flesh", 6);
+					minimums.addProperty("iceandfire:lightning_dragon_flesh", 6);
+					config.add("progression_minimum_tiers", minimums);
+					com.google.gson.JsonObject access = new com.google.gson.JsonObject();
+					access.addProperty("create_dragons_plus:ending", 4);
+					config.add("recipe_access_tiers", access);
 					config.add("ingredient_tags", strings("c:foods/raw_meat", "c:foods/raw_fish", "c:foods/fruit", "c:foods/vegetable", "c:foods/berry", "c:foods/dough", "c:crops", "c:eggs", "c:drinks/milk", "c:buckets/milk", "c:flours", "c:flour",
 							"c:dough", "c:doughs"));
 					config.add("prepared_tags", strings("c:foods/bread", "c:foods/cookie", "c:foods/soup", "c:foods/cooked_meat", "c:foods/cooked_fish", "c:foods/pie", "c:foods/candy", "c:foods/golden"));
@@ -132,7 +203,8 @@ public class CreatingFoodListJsonProcedure {
 				}
 
 				void validate(com.google.gson.JsonObject config) {
-					for (String key : new String[]{"ingredient_tags", "prepared_tags", "culinary_tags", "culinary_items", "excluded_items", "zero_nutrition_allow_items"}) {
+					for (String key : new String[]{"ingredient_tags", "prepared_tags", "culinary_tags", "culinary_items", "excluded_items", "zero_nutrition_allow_items", "pantry_items", "prepared_items", "compatibility_exclusions",
+							"harmless_effects"}) {
 						for (String id : stringList(config, key))
 							net.minecraft.resources.ResourceLocation.parse(id);
 					}
@@ -162,6 +234,13 @@ public class CreatingFoodListJsonProcedure {
 							double tier = entry.getValue().getAsDouble();
 							if (!Double.isFinite(tier) || tier < 0 || tier > 9 || tier != Math.floor(tier))
 								throw new IllegalArgumentException("Minimum tiers must be integers from 0 to 9");
+						}
+					for (String key : new String[]{"base_source_tiers", "progression_minimum_tiers", "recipe_access_tiers"})
+						for (var entry : config.getAsJsonObject(key).entrySet()) {
+							net.minecraft.resources.ResourceLocation.parse(entry.getKey());
+							double tier = entry.getValue().getAsDouble();
+							if (!Double.isFinite(tier) || tier < 0 || tier > 9 || tier != Math.floor(tier))
+								throw new IllegalArgumentException("Invalid base source tier");
 						}
 					if (!config.get("role_overrides").isJsonObject())
 						throw new IllegalArgumentException("role_overrides must be an object");
@@ -212,6 +291,16 @@ public class CreatingFoodListJsonProcedure {
 					allowedTypes.addAll(stringList(config, "culinary_recipe_types"));
 					cuttingTypes.addAll(stringList(config, "cutting_recipe_types"));
 					excludedItems.addAll(stringList(config, "excluded_items"));
+					excludedItems.addAll(stringList(config, "compatibility_exclusions"));
+					pantryItems.addAll(stringList(config, "pantry_items"));
+					preparedItems.addAll(stringList(config, "prepared_items"));
+					harmlessEffects.addAll(stringList(config, "harmless_effects"));
+					for (var entry : config.getAsJsonObject("base_source_tiers").entrySet())
+						sourceTiers.put(entry.getKey(), entry.getValue().getAsInt());
+					for (var entry : config.getAsJsonObject("progression_minimum_tiers").entrySet())
+						progressionMinimumTiers.put(entry.getKey(), entry.getValue().getAsInt());
+					for (var entry : config.getAsJsonObject("recipe_access_tiers").entrySet())
+						recipeAccessTiers.put(entry.getKey(), entry.getValue().getAsInt());
 					excludedClasses.addAll(stringList(config, "excluded_item_classes"));
 					zeroNutritionAllowed.addAll(stringList(config, "zero_nutrition_allow_items"));
 					var acquisition = config.getAsJsonObject("acquisition");
@@ -237,8 +326,45 @@ public class CreatingFoodListJsonProcedure {
 								if (stack.is(entry.getKey()))
 									tier = Math.max(tier, entry.getValue());
 						}
+						if ("aquaculture:fish_fillet_raw".equals(key))
+							tier = Math.max(tier, 1);
 						return tier;
 					});
+				}
+
+				boolean hasClass(String id, String name) {
+					var item = itemsById.get(id);
+					for (Class<?> type = item == null ? null : item.getClass(); type != null; type = type.getSuperclass())
+						if (name.equals(type.getName()))
+							return true;
+					return false;
+				}
+
+				boolean equipment(String id) {
+					return java.util.Set.of("pamhc2foodcore:potitem", "pamhc2foodcore:skilletitem", "pamhc2foodcore:cuttingboarditem", "pamhc2foodcore:grinderitem", "pamhc2foodcore:bakewareitem", "pamhc2foodcore:saucepanitem",
+							"pamhc2foodcore:mixingbowlitem", "pamhc2foodcore:juiceritem", "pamhc2foodcore:rolleritem").contains(id);
+				}
+
+				boolean pantry(String id) {
+					String path = id.substring(id.indexOf(':') + 1);
+					return pantryItems.contains(id) || (id.startsWith("pamhc2crops:") && path.endsWith("seeditem"))
+							|| matchesTags(id, java.util.List.of(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:seeds"))));
+				}
+
+				boolean natural(String id) {
+					if (sourceTiers.containsKey(id))
+						return true;
+					if ("FOOD".equals(hint(id)) || pantryItems.contains(id))
+						return false;
+					return "INGREDIENT".equals(hint(id));
+				}
+
+				boolean harmless(String effectId) {
+					return harmlessEffects.contains(effectId);
+				}
+
+				int sourceTier(String id) {
+					return sourceTiers.getOrDefault(id, -1);
 				}
 
 				String exclusionReason(String id, net.minecraft.world.food.FoodProperties food) {
@@ -287,6 +413,14 @@ public class CreatingFoodListJsonProcedure {
 						if (overrides.containsKey(key)) {
 							hintReasons.put(key, "override");
 							return overrides.get(key);
+						}
+						if (pantry(key)) {
+							hintReasons.put(key, "pantry_or_seed");
+							return "INGREDIENT";
+						}
+						if (preparedItems.contains(key) || hasClass(key, "com.buuz135.sushigocrafting.item.FoodItem")) {
+							hintReasons.put(key, "prepared_compatibility");
+							return "FOOD";
 						}
 						if (preparedPortions.contains(key)) {
 							hintReasons.put(key, "feast_portion");
@@ -374,6 +508,107 @@ public class CreatingFoodListJsonProcedure {
 				}
 			}
 			FeastPortions feastPortions = new FeastPortions();
+			class CulinaryAdapters {
+				final class Dish {
+					final String method, whole;
+					final int count;
+					final java.util.List<java.util.List<String>> slots;
+
+					Dish(String method, String whole, int count, java.util.List<java.util.List<String>> slots) {
+						this.method = method;
+						this.whole = whole;
+						this.count = count;
+						this.slots = slots;
+					}
+				}
+
+				final java.util.Map<String, java.util.List<Dish>> dishes = new java.util.HashMap<>();
+				int sushi = 0, portions = 0, warnings = 0;
+
+				void add(String output, Dish dish) {
+					dishes.computeIfAbsent(output, key -> new java.util.ArrayList<>()).add(dish);
+				}
+
+				CulinaryAdapters() {
+					for (var entry : itemsById.entrySet()) {
+						String id = entry.getKey();
+						if (!classificationRules.hasClass(id, "com.buuz135.sushigocrafting.item.FoodItem"))
+							continue;
+						try {
+							Object value = entry.getValue().getClass().getMethod("getIngredientList").invoke(entry.getValue());
+							java.util.List<java.util.List<String>> slots = new java.util.ArrayList<>();
+							if (value instanceof Iterable<?> list)
+								for (Object ingredient : list) {
+									if (Boolean.TRUE.equals(ingredient.getClass().getMethod("isEmpty").invoke(ingredient)))
+										continue;
+									Object item = ingredient.getClass().getMethod("getItem").invoke(ingredient);
+									if (item instanceof net.minecraft.world.item.Item input)
+										slots.add(java.util.List.of(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(input).toString()));
+								}
+							if (!slots.isEmpty()) {
+								add(id, new Dish("omnichef:sushi_rolling", "", 1, slots));
+								sushi++;
+							}
+						} catch (ReflectiveOperationException | RuntimeException | LinkageError exception) {
+							warnings++;
+							net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef sushi adapter {}: {}", id, exception.toString());
+						}
+					}
+					// Preserve the real one-input portion route. Whole dishes remain nodes even when not edible.
+					for (var entry : recipesByOutput.entrySet()) {
+						String output = entry.getKey();
+						if (!classificationRules.isEdible(output))
+							continue;
+						for (var holder : entry.getValue()) {
+							if (!classificationRules.matchesType(classificationRules.typeId(holder), classificationRules.cuttingTypes))
+								continue;
+							var ingredients = holder.value().getIngredients();
+							java.util.List<java.util.List<String>> slots = new java.util.ArrayList<>();
+							for (var ingredient : ingredients) {
+								if (ingredient.isEmpty())
+									continue;
+								java.util.List<String> ids = new java.util.ArrayList<>();
+								for (var stack : ingredient.getItems())
+									if (!stack.isEmpty())
+										ids.add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
+								slots.add(ids);
+							}
+							if (slots.size() != 1 || slots.get(0).isEmpty())
+								continue;
+							boolean prepared = false;
+							for (String whole : slots.get(0)) {
+								prepared |= "FOOD".equals(classificationRules.hint(whole));
+								if (!classificationRules.isEdible(whole)) {
+									for (var parent : recipesByOutput.getOrDefault(whole, java.util.Collections.emptyList())) {
+										if (!classificationRules.matchesType(classificationRules.typeId(parent), classificationRules.allowedTypes))
+											continue;
+										int culinary = 0;
+										for (var input : parent.value().getIngredients()) {
+											for (var stack : input.getItems()) {
+												String id = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
+												if (classificationRules.isCulinary(id)) {
+													culinary++;
+													break;
+												}
+											}
+										}
+										if (culinary >= 2)
+											prepared = true;
+									}
+								}
+							}
+							if (prepared) {
+								classificationRules.preparedPortions.add(output);
+								portions++;
+							}
+						}
+					}
+					classificationRules.hints.clear();
+					classificationRules.hintReasons.clear();
+					classificationRules.culinary.clear();
+				}
+			}
+			CulinaryAdapters culinaryAdapters = new CulinaryAdapters();
 			class AcquisitionSources {
 				final java.util.Map<String, java.util.List<SourceRoute>> routes = new java.util.HashMap<>();
 				final java.util.Map<String, Double> costs = new java.util.HashMap<>();
@@ -562,7 +797,7 @@ public class CreatingFoodListJsonProcedure {
 				void build() {
 					if (!classificationRules.acquisitionEnabled)
 						return;
-					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v5: indexing acquisition sources.");
+					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: indexing acquisition sources.");
 					loadTrees();
 					for (var holder : recipeManager.getRecipes()) {
 						var recipe = holder.value();
@@ -576,13 +811,35 @@ public class CreatingFoodListJsonProcedure {
 							if (ingredients == null || ingredients.isEmpty())
 								continue;
 							java.util.List<java.util.List<String>> inputs = new java.util.ArrayList<>();
-							for (var ingredient : ingredients)
-								inputs.add(ingredientNodes(ingredient));
-							add(stackNode(result), classificationRules.typeId(holder), inputs, 1.0, 1.0, result.getCount());
+							for (var ingredient : ingredients) {
+								if (ingredient.isEmpty())
+									continue;
+								var alternatives = ingredientNodes(ingredient);
+								if (!alternatives.isEmpty() && alternatives.stream().allMatch(node -> classificationRules.equipment(nodeItems.getOrDefault(node, ""))))
+									continue;
+								inputs.add(alternatives);
+							}
+							String method = classificationRules.typeId(holder);
+							double access = classificationRules.matchesType(method, classificationRules.allowedTypes) ? 0.0 : 1.0;
+							if (method.startsWith("pneumaticcraft:"))
+								access = 4.0;
+							access = Math.max(access, classificationRules.recipeAccessTiers.getOrDefault(method, 0) * classificationRules.stepsPerTier);
+							add(stackNode(result), method, inputs, access, 1.0, result.getCount());
 						} catch (ReflectiveOperationException | RuntimeException | LinkageError exception) {
 							warnings.putIfAbsent(recipe.getClass().getName(), exception.toString());
 						}
 					}
+					for (var entry : culinaryAdapters.dishes.entrySet())
+						for (var dish : entry.getValue()) {
+							java.util.List<java.util.List<String>> requirements = new java.util.ArrayList<>();
+							for (var slot : dish.slots) {
+								java.util.List<String> alternatives = new java.util.ArrayList<>();
+								for (String id : slot)
+									alternatives.add(itemNode(id));
+								requirements.add(alternatives);
+							}
+							add(itemNode(entry.getKey()), dish.method, requirements, 0.0, 1.0, dish.count);
+						}
 					for (var sources : feastPortions.sources.values()) {
 						for (var source : sources) {
 							java.util.List<java.util.List<String>> requirements = new java.util.ArrayList<>();
@@ -596,15 +853,20 @@ public class CreatingFoodListJsonProcedure {
 						if (classificationRules.isEdible(id))
 							itemNode(id);
 					}
+					for (var list : routes.values())
+						list.sort(java.util.Comparator.comparing((SourceRoute route) -> route.system).thenComparing(route -> route.requirements.toString()).thenComparingDouble(route -> route.chance).thenComparingDouble(route -> route.yield));
 					java.util.List<String> ordered = new java.util.ArrayList<>(nodes);
 					java.util.Collections.sort(ordered);
 					for (String node : ordered) {
 						String id = nodeItems.get(node);
 						boolean assumedBase = !routes.containsKey(node) && !controlled.contains(node);
 						assumedBase |= treeSaplings.contains(node) && !breedingTargets.contains(node);
-						assumedBase |= node.startsWith("item|") && !controlled.contains(node) && id != null && "INGREDIENT".equals(classificationRules.hint(id));
+						assumedBase |= node.startsWith("item|") && !controlled.contains(node) && id != null && classificationRules.natural(id);
+						// Known natural alternatives remain available even when a mod also offers a machine recipe.
+						if (id != null && classificationRules.sourceTier(id) >= 0 && node.startsWith("item|"))
+							assumedBase = true;
 						if (assumedBase)
-							costs.put(node, 0.0);
+							costs.put(node, id == null ? 0.0 : Math.max(Math.max(0, classificationRules.sourceTier(id)), classificationRules.progressionMinimumTiers.getOrDefault(id, 0)) * classificationRules.stepsPerTier);
 					}
 					for (int pass = 0; pass < classificationRules.sourcePasses; pass++) {
 						boolean changed = false;
@@ -620,6 +882,9 @@ public class CreatingFoodListJsonProcedure {
 									dependency = Math.max(dependency, cheapest);
 								}
 								double candidate = dependency + route.effort;
+								String itemId = nodeItems.get(output);
+								if (itemId != null)
+									candidate = Math.max(candidate, classificationRules.progressionMinimumTiers.getOrDefault(itemId, 0) * classificationRules.stepsPerTier);
 								if (candidate + 0.0000001 < current) {
 									current = candidate;
 									next.put(output, candidate);
@@ -640,7 +905,7 @@ public class CreatingFoodListJsonProcedure {
 						net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef acquisition adapter {}: {}", entry.getKey(), entry.getValue());
 					if (!settled)
 						net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef acquisition analysis reached its pass limit; some source estimates may be incomplete.");
-					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v5: acquisition analysis: {} nodes, {} routes, {} trees, {} bee routes, {} passes, settled={}; base sources are estimates.", nodes.size(), totalRoutes,
+					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: acquisition analysis: {} nodes, {} routes, {} trees, {} bee routes, {} passes, settled={}; base sources are estimates.", nodes.size(), totalRoutes,
 							treeCount, beeRoutes, passes, settled);
 				}
 
@@ -656,6 +921,7 @@ public class CreatingFoodListJsonProcedure {
 					}
 					tier = Math.max(tier, classificationRules.minimumTiers.getOrDefault(id, 0));
 					tier = Math.max(tier, classificationRules.categoryMinimum(id));
+					tier = Math.max(tier, classificationRules.progressionMinimumTiers.getOrDefault(id, 0));
 					return Math.max(0, Math.min(tierCount - 1, tier));
 				}
 
@@ -670,7 +936,10 @@ public class CreatingFoodListJsonProcedure {
 					result.addProperty("status", status);
 					result.addProperty("minimum_tier", minimumTier(id, tierCount));
 					result.addProperty("manual_minimum", classificationRules.minimumTiers.getOrDefault(id, 0));
+					result.addProperty("progression_minimum", classificationRules.progressionMinimumTiers.getOrDefault(id, 0));
 					result.addProperty("category_minimum", classificationRules.categoryMinimum(id));
+					result.addProperty("base_source_profile", classificationRules.sourceTier(id));
+					result.addProperty("confidence", route == null && classificationRules.sourceTier(id) < 0 ? "assumed" : "estimated");
 					if (cost != null)
 						result.addProperty("effort", cost);
 					if (route != null) {
@@ -720,6 +989,7 @@ public class CreatingFoodListJsonProcedure {
 				int scoredItems = 0;
 				int foodsProcessed = 0;
 				int cyclicComponents = 0;
+				final java.util.List<String> scoreOrder = new java.util.ArrayList<>();
 				int cycleAnchors = 0;
 				String currentFood = "";
 				String phase = "indexing";
@@ -743,7 +1013,7 @@ public class CreatingFoodListJsonProcedure {
 				void logProgress(boolean force) {
 					long now = System.nanoTime();
 					if (force || now - lastProgressLog >= 2000000000L) {
-						net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v5: phase={}, indexed={}, scored={}/{}, foods={}, current={}, evaluated={}, elapsed={}s", phase, indexedOutputs, scoredItems, graphNodes, foodsProcessed,
+						net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: phase={}, indexed={}, scored={}/{}, foods={}, current={}, evaluated={}, elapsed={}s", phase, indexedOutputs, scoredItems, graphNodes, foodsProcessed,
 								currentFood, evaluatedRecipes, (now - generationStarted) / 1000000000L);
 						lastProgressLog = now;
 					}
@@ -776,7 +1046,7 @@ public class CreatingFoodListJsonProcedure {
 					com.google.gson.JsonObject toJson() {
 						com.google.gson.JsonObject recipeObject = new com.google.gson.JsonObject();
 						recipeObject.addProperty("method", method);
-						recipeObject.addProperty("acquisition", recipeHolder == null);
+						recipeObject.addProperty("acquisition", "omnichef:acquisition".equals(method));
 						recipeObject.addProperty("outputCount", outputCount);
 						if (!portionSource.isEmpty()) {
 							recipeObject.addProperty("portion_source", portionSource);
@@ -820,6 +1090,53 @@ public class CreatingFoodListJsonProcedure {
 					});
 				}
 
+				java.util.List<IndexedRecipe> expandCutPortions(String output, java.util.List<IndexedRecipe> indexed) {
+					if (!classificationRules.preparedPortions.contains(output))
+						return indexed;
+					java.util.List<IndexedRecipe> result = new java.util.ArrayList<>();
+					for (var cut : indexed) {
+						if (cut.slots.size() != 1 || !classificationRules.matchesType(cut.method, classificationRules.cuttingTypes)) {
+							result.add(cut);
+							continue;
+						}
+						boolean retained = false;
+						for (String whole : cut.slots.get(0)) {
+							if (classificationRules.isEdible(whole)) {
+								result.add(new IndexedRecipe(cut.holder, cut.method, cut.outputCount, java.util.List.of(java.util.List.of(whole))));
+								retained = true;
+								continue;
+							}
+							for (var holder : recipesByOutput.getOrDefault(whole, java.util.Collections.emptyList())) {
+								String method = classificationRules.typeId(holder);
+								if (!classificationRules.matchesType(method, classificationRules.allowedTypes))
+									continue;
+								java.util.List<java.util.List<String>> slots = new java.util.ArrayList<>();
+								boolean valid = true;
+								for (var input : holder.value().getIngredients()) {
+									if (input.isEmpty())
+										continue;
+									var ids = idsOf(input);
+									if (!ids.isEmpty() && ids.stream().allMatch(classificationRules::equipment))
+										continue;
+									if (ids.isEmpty())
+										valid = false;
+									slots.add(ids);
+								}
+								long count = (long) holder.value().getResultItem(level.registryAccess()).getCount() * cut.outputCount;
+								if (!valid || slots.isEmpty() || count < 1 || count > 4096)
+									continue;
+								var expanded = new IndexedRecipe(holder, method, (int) count, slots);
+								expanded.portionSource = whole;
+								expanded.servings = cut.outputCount;
+								result.add(expanded);
+								retained = true;
+							}
+						}
+						// Unsupported non-edible whole dishes are reported through the incomplete-recipe fallback.
+					}
+					return result;
+				}
+
 				java.util.List<IndexedRecipe> rawRecipesFor(String output) {
 					java.util.List<IndexedRecipe> cached = rawRecipes.get(output);
 					if (cached != null)
@@ -836,7 +1153,11 @@ public class CreatingFoodListJsonProcedure {
 						java.util.Set<String> mandatory = new java.util.HashSet<>();
 						boolean valid = true;
 						for (var ingredient : ingredients) {
+							if (ingredient.isEmpty())
+								continue;
 							java.util.List<String> ids = idsOf(ingredient);
+							if (!ids.isEmpty() && ids.stream().allMatch(classificationRules::equipment))
+								continue;
 							inputs.addAll(ids);
 							slots.add(ids);
 							if (ids.isEmpty())
@@ -844,7 +1165,7 @@ public class CreatingFoodListJsonProcedure {
 							if (ids.size() == 1)
 								mandatory.add(ids.get(0));
 						}
-						if (!valid)
+						if (!valid || slots.isEmpty())
 							continue;
 						independentRecipeOutputs.add(output);
 						if (unavoidable == null)
@@ -867,7 +1188,11 @@ public class CreatingFoodListJsonProcedure {
 							java.util.Set<String> mandatory = new java.util.HashSet<>();
 							boolean valid = true;
 							for (var ingredient : ingredients) {
+								if (ingredient.isEmpty())
+									continue;
 								var ids = idsOf(ingredient);
+								if (!ids.isEmpty() && ids.stream().allMatch(classificationRules::equipment))
+									continue;
 								slots.add(ids);
 								if (ids.isEmpty())
 									valid = false;
@@ -893,6 +1218,13 @@ public class CreatingFoodListJsonProcedure {
 							indexed.add(normalized);
 						}
 					}
+					for (var dish : culinaryAdapters.dishes.getOrDefault(output, java.util.Collections.emptyList())) {
+						var normalized = new IndexedRecipe(null, dish.method, dish.count, dish.slots);
+						indexed.add(normalized);
+						for (var slot : dish.slots)
+							inputs.addAll(slot);
+					}
+					indexed = expandCutPortions(output, indexed);
 					indexed.sort(java.util.Comparator.comparing((IndexedRecipe recipe) -> recipe.method).thenComparingInt(recipe -> recipe.outputCount).thenComparing(recipe -> recipe.slots.toString()));
 					directInputs.put(output, inputs);
 					unavoidableInputs.put(output, unavoidable == null ? java.util.Collections.emptySet() : unavoidable);
@@ -914,7 +1246,7 @@ public class CreatingFoodListJsonProcedure {
 				}
 
 				boolean culinaryRecipe(IndexedRecipe recipe, String output) {
-					if (!classificationRules.matchesType(recipe.method, classificationRules.allowedTypes))
+					if (!"omnichef:sushi_rolling".equals(recipe.method) && !classificationRules.matchesType(recipe.method, classificationRules.allowedTypes))
 						return false;
 					boolean culinaryInput = false;
 					for (java.util.List<String> slot : recipe.slots) {
@@ -929,6 +1261,8 @@ public class CreatingFoodListJsonProcedure {
 							conversion |= hasRecipeUsingItem(ingredient, output);
 					}
 					if (recipe.slots.size() == 1 && conversion) {
+						if (classificationRules.preparedPortions.contains(output))
+							return true;
 						// A single raw ingredient being cut or unpacked does not become a prepared dish.
 						for (String ingredient : recipe.slots.get(0)) {
 							if ("FOOD".equals(classificationRules.hint(ingredient)))
@@ -1134,6 +1468,7 @@ public class CreatingFoodListJsonProcedure {
 								chosenIngredientsCache.put(output, best.selectedIngredients);
 							}
 							scoreCache.put(output, score);
+							scoreOrder.add(output);
 							validRecipesCache.put(output, validRecipes);
 							scoredItems++;
 							logProgress(false);
@@ -1142,7 +1477,7 @@ public class CreatingFoodListJsonProcedure {
 					phase = "exporting foods";
 					currentFood = "";
 					logProgress(true);
-					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v5: dependency analysis completed; cyclic groups={}, acquisition anchors={}, evaluated recipes={}.", cyclicComponents, cycleAnchors, evaluatedRecipes);
+					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: dependency analysis completed; cyclic groups={}, acquisition anchors={}, evaluated recipes={}.", cyclicComponents, cycleAnchors, evaluatedRecipes);
 				}
 
 				RecipeAnalysis analyzeIndexedRecipe(IndexedRecipe recipe, String output) {
@@ -1192,6 +1527,53 @@ public class CreatingFoodListJsonProcedure {
 					return Math.round(value * 10.0) / 10.0;
 				}
 
+				void alignRecipesWithTiers(java.util.Map<String, Integer> tiers) {
+					for (String output : scoreOrder) {
+						java.util.List<RecipeAnalysis> updated = new java.util.ArrayList<>();
+						for (var previous : getValidRecipes(output)) {
+							double total = 0;
+							java.util.List<String> selected = new java.util.ArrayList<>();
+							for (var slot : previous.ingredientSlots) {
+								String best = null;
+								for (String id : slot) {
+									if (best == null || tiers.getOrDefault(id, 0) < tiers.getOrDefault(best, 0)
+											|| (tiers.getOrDefault(id, 0).equals(tiers.getOrDefault(best, 0)) && (resolve(id) < resolve(best) || (resolve(id) == resolve(best) && id.compareTo(best) < 0))))
+										best = id;
+								}
+								if (best != null) {
+									selected.add(best);
+									total += resolve(best);
+								}
+							}
+							if ("omnichef:acquisition".equals(previous.method))
+								total = 1.0;
+							total = roundScore(total);
+							var analysis = new RecipeAnalysis(previous.recipeHolder, previous.method, previous.outputCount, previous.preparePoints, total, roundScore((total + previous.preparePoints) / previous.outputCount), previous.ingredientSlots,
+									selected);
+							analysis.portionSource = previous.portionSource;
+							analysis.servings = previous.servings;
+							updated.add(analysis);
+						}
+						updated.sort((first, second) -> {
+							int firstTier = 0, secondTier = 0;
+							for (String id : first.selectedIngredients)
+								firstTier = Math.max(firstTier, tiers.getOrDefault(id, 0));
+							for (String id : second.selectedIngredients)
+								secondTier = Math.max(secondTier, tiers.getOrDefault(id, 0));
+							int compare = Integer.compare(firstTier, secondTier);
+							return compare == 0 ? compareRecipes(first, second) : compare;
+						});
+						validRecipesCache.put(output, updated);
+						if (!updated.isEmpty()) {
+							var best = updated.get(0);
+							chosenAnalyses.put(output, best);
+							chosenIngredientsCache.put(output, best.selectedIngredients);
+							recipeScoreCache.put(output, best.recipeScore);
+							scoreCache.put(output, roundScore(Math.max(0.1, best.recipeScore + qualityScores.get(output) + acquisitionBonuses.get(output))));
+						}
+					}
+				}
+
 				int compareRecipes(RecipeAnalysis first, RecipeAnalysis second) {
 					int scoreComparison = Double.compare(first.recipeScore, second.recipeScore);
 					if (scoreComparison != 0)
@@ -1231,25 +1613,11 @@ public class CreatingFoodListJsonProcedure {
 				}
 
 				double getAppliedAcquisitionBonus(String itemName) {
-					return roundScore((hasSpecialFoodBonus(itemName) ? getSpecialFoodBonus(itemName) : getCategoryBonus(itemName)) + getModdedFoodBonus(itemName));
+					return roundScore(Math.max(-3.0, Math.min(3.0, getSpecialFoodBonus(itemName))));
 				}
 
 				double getModdedFoodBonus(String itemName) {
-					if (itemName == null)
-						return 0.0;
-					net.minecraft.world.item.Item item = itemsById.get(itemName);
-					if (item == null)
-						return 0.0;
-					net.minecraft.world.item.ItemStack stack = new net.minecraft.world.item.ItemStack(item);
-					if (item.getFoodProperties(stack, null) == null)
-						return 0.0;
-					var itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
-					if (itemId == null)
-						return 0.0;
-					String namespace = itemId.getNamespace();
-					if ("minecraft".equals(namespace) || "omnichef".equals(namespace))
-						return 0.0;
-					return MODDED_FOOD_BONUS;
+					return 0.0;
 				}
 
 				double getCategoryBonus(String itemName) {
@@ -1331,10 +1699,12 @@ public class CreatingFoodListJsonProcedure {
 						if (mobEffectInstance.getEffect().value().isBeneficial()) {
 							positiveEffects++;
 						} else {
-							negativeEffects++;
+							var effectId = net.minecraft.core.registries.BuiltInRegistries.MOB_EFFECT.getKey(mobEffectInstance.getEffect().value());
+							if (effectId == null || !classificationRules.harmless(effectId.toString()))
+								negativeEffects++;
 						}
 					}
-					return roundScore(food.nutrition() + food.saturation() * 1.5 + positiveEffects * 4.0 - negativeEffects * 8.0);
+					return roundScore(food.nutrition() + food.saturation() * 1.5 + Math.min(2.0, positiveEffects) - negativeEffects * 8.0);
 				}
 			}
 			FoodScoreResolver scoreResolver = new FoodScoreResolver();
@@ -1375,7 +1745,7 @@ public class CreatingFoodListJsonProcedure {
 						continue;
 					if (effect.isBeneficial()) {
 						positiveEffectsArray.add(effectId.toString());
-					} else {
+					} else if (!classificationRules.harmless(effectId.toString())) {
 						negativeEffectsArray.add(effectId.toString());
 					}
 				}
@@ -1455,46 +1825,322 @@ public class CreatingFoodListJsonProcedure {
 			com.google.gson.JsonArray tier8Array = new com.google.gson.JsonArray();
 			com.google.gson.JsonArray tier9Array = new com.google.gson.JsonArray();
 			int totalFoods = allFoods.size();
+			class FoodProgression {
+				final java.util.Map<String, Double> effort = new java.util.HashMap<>();
+				final java.util.Map<String, java.util.List<String>> selectedInputs = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> tiers = new java.util.HashMap<>();
+				final java.util.Map<String, java.util.List<FoodScoreResolver.IndexedRecipe>> recipes = new java.util.HashMap<>();
+				final java.util.Set<String> uncertain = new java.util.HashSet<>();
+				int passes = 0;
+				boolean settled = false;
+
+				int tierForWork(double value) {
+					return value <= 0 ? 0 : Math.min(9, 1 + (int) Math.floor((value + 0.000001) / 2.0));
+				}
+
+				double work(FoodScoreResolver.IndexedRecipe recipe) {
+					if (classificationRules.matchesType(recipe.method, classificationRules.cuttingTypes))
+						return 0.0;
+					java.util.Set<String> distinct = new java.util.HashSet<>();
+					for (var slot : recipe.slots) {
+						java.util.List<String> group = new java.util.ArrayList<>();
+						for (String id : slot)
+							if (!classificationRules.equipment(id) && !"minecraft:bowl".equals(id) && !"minecraft:glass_bottle".equals(id))
+								group.add(id);
+						if (!group.isEmpty())
+							distinct.add(group.toString());
+					}
+					return 1.0 + Math.min(2.0, Math.max(0, distinct.size() - 1) * 0.4);
+				}
+
+				void build() {
+					java.util.ArrayDeque<String> pending = new java.util.ArrayDeque<>();
+					java.util.Set<String> nodes = new java.util.TreeSet<>();
+					for (var food : allFoods) {
+						String id = food.get("id").getAsString();
+						nodes.add(id);
+						pending.add(id);
+					}
+					while (!pending.isEmpty()) {
+						String id = pending.removeFirst();
+						java.util.List<FoodScoreResolver.IndexedRecipe> list = new java.util.ArrayList<>();
+						if (!classificationRules.natural(id))
+							for (var recipe : scoreResolver.rawRecipesFor(id)) {
+								if (!classificationRules.matchesType(recipe.method, classificationRules.allowedTypes) && !"omnichef:sushi_rolling".equals(recipe.method))
+									continue;
+								list.add(recipe);
+								for (var slot : recipe.slots)
+									for (String input : slot)
+										if (nodes.add(input))
+											pending.addLast(input);
+							}
+						recipes.put(id, list);
+					}
+					for (String id : nodes) {
+						int minimum = acquisitionSources.minimumTier(id, 10);
+						if (recipes.get(id).isEmpty()) {
+							boolean unknownDish = "FOOD".equals(classificationRules.hint(id)) && !classificationRules.natural(id);
+							effort.put(id, 0.0);
+							tiers.put(id, Math.max(minimum, unknownDish ? 3 : 0));
+							if (unknownDish)
+								uncertain.add(id);
+						} else {
+							effort.put(id, Double.POSITIVE_INFINITY);
+							tiers.put(id, 99);
+						}
+					}
+					for (int pass = 0; pass < 64; pass++) {
+						boolean changed = false;
+						var nextEffort = new java.util.HashMap<>(effort);
+						var nextTiers = new java.util.HashMap<>(tiers);
+						for (String id : nodes) {
+							int bestTier = tiers.get(id);
+							double bestWork = effort.get(id);
+							java.util.List<String> bestInputs = selectedInputs.getOrDefault(id, java.util.Collections.emptyList());
+							for (var recipe : recipes.get(id)) {
+								int dependencyTier = 0;
+								double dependencyWork = 0;
+								boolean valid = true;
+								java.util.List<String> selected = new java.util.ArrayList<>();
+								for (var slot : recipe.slots) {
+									int slotTier = 99;
+									double slotWork = Double.POSITIVE_INFINITY;
+									String slotInput = null;
+									for (String input : slot) {
+										int t = tiers.getOrDefault(input, 99);
+										double w = effort.getOrDefault(input, Double.POSITIVE_INFINITY);
+										if (t < slotTier || (t == slotTier && (w < slotWork || (w == slotWork && (slotInput == null || input.compareTo(slotInput) < 0))))) {
+											slotTier = t;
+											slotWork = w;
+											slotInput = input;
+										}
+									}
+									if (slotTier == 99) {
+										valid = false;
+										break;
+									}
+									selected.add(slotInput);
+									dependencyTier = Math.max(dependencyTier, slotTier);
+									dependencyWork = Math.max(dependencyWork, slotWork);
+								}
+								if (!valid)
+									continue;
+								double candidateWork = dependencyWork + work(recipe);
+								int candidate = Math.max(acquisitionSources.minimumTier(id, 10), Math.max(dependencyTier, tierForWork(candidateWork)));
+								if (candidate < bestTier || (candidate == bestTier && candidateWork + 0.000001 < bestWork)) {
+									bestTier = candidate;
+									bestWork = candidateWork;
+									bestInputs = selected;
+									changed = true;
+								}
+							}
+							nextTiers.put(id, bestTier);
+							nextEffort.put(id, bestWork);
+							selectedInputs.put(id, bestInputs);
+						}
+						tiers.clear();
+						tiers.putAll(nextTiers);
+						effort.clear();
+						effort.putAll(nextEffort);
+						passes = pass + 1;
+						if (!changed) {
+							settled = true;
+							break;
+						}
+					}
+					for (String id : nodes)
+						if (tiers.get(id) == 99) {
+							tiers.put(id, Math.max(3, acquisitionSources.minimumTier(id, 10)));
+							uncertain.add(id);
+						}
+					// Retained culinary alternatives are acyclic; keep their actual unlock prerequisites within the assigned tier.
+					for (int pass = 0; pass < 64; pass++) {
+						boolean changed = false;
+						for (String id : nodes) {
+							int minimum = 99;
+							for (var recipe : scoreResolver.getValidRecipes(id)) {
+								if ("omnichef:acquisition".equals(recipe.method))
+									continue;
+								int requirement = 0;
+								for (var slot : recipe.ingredientSlots) {
+									int easiest = 99;
+									for (String input : slot)
+										easiest = Math.min(easiest, tiers.getOrDefault(input, 0));
+									requirement = Math.max(requirement, easiest);
+								}
+								minimum = Math.min(minimum, requirement);
+							}
+							if (minimum < 99 && minimum > tiers.get(id)) {
+								tiers.put(id, minimum);
+								changed = true;
+							}
+						}
+						if (!changed)
+							break;
+					}
+				}
+
+				int tier(String id, int tierCount) {
+					return Math.min(tierCount - 1, tiers.getOrDefault(id, acquisitionSources.minimumTier(id, tierCount)));
+				}
+
+				com.google.gson.JsonObject describe(String id) {
+					com.google.gson.JsonObject result = new com.google.gson.JsonObject();
+					result.addProperty("preparation_effort", Double.isFinite(effort.getOrDefault(id, 0.0)) ? effort.getOrDefault(id, 0.0) : 0);
+					result.addProperty("availability_minimum", acquisitionSources.minimumTier(id, 10));
+					result.addProperty("status", uncertain.contains(id) ? "incomplete_recipe" : (settled ? "estimated" : "estimated_partial"));
+					return result;
+				}
+			}
+			FoodProgression foodProgression = new FoodProgression();
+			foodProgression.build();
+			scoreResolver.alignRecipesWithTiers(foodProgression.tiers);
+			for (var food : allFoods) {
+				String id = food.get("id").getAsString();
+				var chosen = scoreResolver.chosenAnalyses.get(id);
+				com.google.gson.JsonArray ingredients = new com.google.gson.JsonArray();
+				for (String input : scoreResolver.chosenIngredientsCache.getOrDefault(id, java.util.Collections.emptyList()))
+					ingredients.add(input);
+				com.google.gson.JsonArray recipes = new com.google.gson.JsonArray();
+				int selected = -1, index = 0;
+				for (var recipe : scoreResolver.getValidRecipes(id)) {
+					recipes.add(recipe.toJson());
+					if (recipe == chosen)
+						selected = index;
+					index++;
+				}
+				food.add("ingredients", ingredients);
+				food.add("recipes", recipes);
+				food.addProperty("selectedRecipe", selected);
+				food.addProperty("validRecipeCount", recipes.size());
+				food.addProperty("method", chosen == null ? "none" : chosen.method);
+				food.addProperty("recipeOutputCount", chosen == null ? 0 : chosen.outputCount);
+				food.addProperty("recipeScore", scoreResolver.recipeScoreCache.getOrDefault(id, 0.0));
+				food.addProperty("score", scoreResolver.resolve(id));
+			}
 			int tierCount = totalFoods / 40;
 			tierCount = Math.max(6, tierCount);
 			tierCount = Math.min(10, tierCount);
-			for (int i = 0; i < totalFoods; i++) {
-				com.google.gson.JsonObject food = allFoods.get(i);
-				double percentile = (double) i / totalFoods;
-				int tier = (int) (percentile * tierCount);
-				if (tier >= tierCount)
-					tier = tierCount - 1;
-				String foodId = food.get("id").getAsString();
-				food.add("acquisition", acquisitionSources.describe(foodId, tierCount));
-				food.addProperty("tier", Math.max(tier, acquisitionSources.minimumTier(foodId, tierCount)));
+			for (var food : allFoods) {
+				String id = food.get("id").getAsString();
+				food.add("acquisition", acquisitionSources.describe(id, tierCount));
+				food.add("progression", foodProgression.describe(id));
+				food.addProperty("tier", foodProgression.tier(id, tierCount));
 			}
-			java.util.Map<String, com.google.gson.JsonObject> foodObjectsById = new java.util.HashMap<>();
-			for (com.google.gson.JsonObject food : allFoods) {
-				foodObjectsById.put(food.get("id").getAsString(), food);
-			}
-			boolean tierChanged;
-			do {
-				tierChanged = false;
-				for (com.google.gson.JsonObject food : allFoods) {
-					if (!food.has("ingredients") || !food.get("ingredients").isJsonArray())
-						continue;
-					int currentTier = food.get("tier").getAsInt();
-					int requiredTier = currentTier;
-					for (com.google.gson.JsonElement ingredientElement : food.getAsJsonArray("ingredients")) {
-						if (ingredientElement == null || !ingredientElement.isJsonPrimitive())
-							continue;
-						String ingredientId = ingredientElement.getAsString();
-						com.google.gson.JsonObject ingredientFood = foodObjectsById.get(ingredientId);
-						if (ingredientFood == null || !ingredientFood.has("tier"))
-							continue;
-						requiredTier = Math.max(requiredTier, ingredientFood.get("tier").getAsInt());
-					}
-					if (requiredTier > currentTier) {
-						food.addProperty("tier", requiredTier);
-						tierChanged = true;
-					}
+			class BalancedFoodTiers {
+				final java.util.Map<String, com.google.gson.JsonObject> foods = new java.util.TreeMap<>();
+				final java.util.Map<String, java.util.Set<String>> dependencies = new java.util.HashMap<>();
+				final java.util.Map<String, java.util.Set<String>> actualDependencies = new java.util.HashMap<>();
+				final java.util.Map<String, java.util.Set<String>> dependents = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> indegree = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> floors = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> assigned = new java.util.HashMap<>();
+				final java.util.Map<String, Double> ranking = new java.util.HashMap<>();
+				final int[] sizes;
+				int cycleFallbacks = 0;
+
+				BalancedFoodTiers(int tierCount) {
+					sizes = new int[tierCount];
 				}
-			} while (tierChanged);
+
+				void build() {
+					for (var food : allFoods)
+						foods.put(food.get("id").getAsString(), food);
+					for (var entry : foods.entrySet()) {
+						String id = entry.getKey();
+						java.util.Set<String> direct = new java.util.TreeSet<>();
+						for (var input : entry.getValue().getAsJsonArray("ingredients"))
+							if (foods.containsKey(input.getAsString()) && !id.equals(input.getAsString()))
+								direct.add(input.getAsString());
+						actualDependencies.put(id, direct);
+						java.util.Set<String> projected = new java.util.TreeSet<>(direct);
+						java.util.ArrayDeque<String> pending = new java.util.ArrayDeque<>();
+						if ("FOOD".equals(entry.getValue().get("role").getAsString())) {
+							for (var input : entry.getValue().getAsJsonArray("ingredients"))
+								pending.addLast(input.getAsString());
+						} else
+							pending.addAll(foodProgression.selectedInputs.getOrDefault(id, java.util.Collections.emptyList()));
+						java.util.Set<String> visited = new java.util.HashSet<>();
+						int floor = acquisitionSources.minimumTier(id, sizes.length);
+						while (!pending.isEmpty()) {
+							String input = pending.removeFirst();
+							if (id.equals(input) || !visited.add(input))
+								continue;
+							if (foods.containsKey(input)) {
+								projected.add(input);
+								continue;
+							}
+							floor = Math.max(floor, acquisitionSources.minimumTier(input, sizes.length));
+							pending.addAll(foodProgression.selectedInputs.getOrDefault(input, java.util.Collections.emptyList()));
+						}
+						dependencies.put(id, projected);
+						indegree.put(id, projected.size());
+						floors.put(id, floor);
+						for (String input : projected)
+							dependents.computeIfAbsent(input, key -> new java.util.TreeSet<>()).add(id);
+						double work = foodProgression.effort.getOrDefault(id, 0.0);
+						if (!Double.isFinite(work))
+							work = 0.0;
+						double score = entry.getValue().get("score").getAsDouble() + foodProgression.tiers.getOrDefault(id, 0) * 8.0 + work * 2.0;
+						score = Math.round(score * 10.0) / 10.0;
+						ranking.put(id, score);
+						entry.getValue().addProperty("ranking_score", Math.round(score * 10.0) / 10.0);
+					}
+					java.util.Comparator<String> byScore = java.util.Comparator.<String>comparingDouble(ranking::get).thenComparing(java.util.Comparator.naturalOrder());
+					java.util.PriorityQueue<String> waiting = new java.util.PriorityQueue<>(java.util.Comparator.<String>comparingInt(floors::get).thenComparing(byScore));
+					java.util.PriorityQueue<String> ready = new java.util.PriorityQueue<>(byScore);
+					for (String id : foods.keySet())
+						if (indegree.get(id) == 0)
+							waiting.add(id);
+					for (int tier = 0; tier < sizes.length; tier++) {
+						int remaining = foods.size() - assigned.size();
+						int target = (remaining + sizes.length - tier - 1) / (sizes.length - tier);
+						while (sizes[tier] < target || (tier == sizes.length - 1 && assigned.size() < foods.size())) {
+							while (!waiting.isEmpty() && floors.get(waiting.peek()) <= tier)
+								ready.add(waiting.remove());
+							if (ready.isEmpty()) {
+								if (tier < sizes.length - 1)
+									break;
+								// An inferred pantry cycle must not freeze generation or erase actual FOOD prerequisites.
+								String anchor = null;
+								for (String id : foods.keySet()) {
+									if (assigned.containsKey(id) || !assigned.keySet().containsAll(actualDependencies.get(id)))
+										continue;
+									if (anchor == null || byScore.compare(id, anchor) < 0)
+										anchor = id;
+								}
+								if (anchor == null)
+									throw new IllegalStateException("Retained culinary recipes contain a cycle");
+								indegree.put(anchor, 0);
+								ready.add(anchor);
+								cycleFallbacks++;
+							}
+							String id = ready.remove();
+							if (assigned.containsKey(id))
+								continue;
+							assigned.put(id, tier);
+							sizes[tier]++;
+							for (String parent : dependents.getOrDefault(id, java.util.Collections.emptySet())) {
+								if (assigned.containsKey(parent))
+									continue;
+								floors.put(parent, Math.max(floors.get(parent), tier));
+								int next = indegree.merge(parent, -1, Integer::sum);
+								if (next == 0)
+									waiting.add(parent);
+							}
+						}
+					}
+					for (var entry : foods.entrySet()) {
+						String id = entry.getKey();
+						entry.getValue().addProperty("tier", assigned.get(id));
+						entry.getValue().getAsJsonObject("progression").addProperty("ranked_with_dependencies", true);
+					}
+					if (cycleFallbacks > 0)
+						net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef tier ranking: {} inferred dependency cycles used conservative fallback.", cycleFallbacks);
+				}
+			}
+			BalancedFoodTiers balancedFoodTiers = new BalancedFoodTiers(tierCount);
+			balancedFoodTiers.build();
 			java.util.List<com.google.gson.JsonArray> finalTierArrays = java.util.Arrays.asList(tier0Array, tier1Array, tier2Array, tier3Array, tier4Array, tier5Array, tier6Array, tier7Array, tier8Array, tier9Array);
 			double tierStep = tierCount > 1 ? 90.0 / (tierCount - 1) : 90.0;
 			for (int finalTierIndex = 0; finalTierIndex < tierCount; finalTierIndex++) {
@@ -1554,14 +2200,26 @@ public class CreatingFoodListJsonProcedure {
 			net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 			foodDatabase.addProperty("recipe_discovery_exp_required", discoveryExpRequired);
 			foodDatabase.addProperty("schema_version", 6);
-			foodDatabase.addProperty("scoring_version", 11);
+			foodDatabase.addProperty("scoring_version", 13);
+			foodDatabase.addProperty("tier_assignment_version", 2);
 			foodDatabase.addProperty("eligibility_version", 1);
 			foodDatabase.addProperty("acquisition_version", 1);
-			foodDatabase.addProperty("classification_version", 2);
+			foodDatabase.addProperty("classification_version", 3);
+			foodDatabase.addProperty("progression_version", 1);
 			foodDatabase.add("disabledFoods", disabledFoodsArray);
 			foodDatabase.add("excludedFoods", excludedFoodsArray);
 			com.google.gson.JsonObject sourceSummary = new com.google.gson.JsonObject();
 			sourceSummary.addProperty("trees", acquisitionSources.treeCount);
+			com.google.gson.JsonArray tierSizes = new com.google.gson.JsonArray();
+			for (int size : balancedFoodTiers.sizes)
+				tierSizes.add(size);
+			sourceSummary.add("balanced_tier_sizes", tierSizes);
+			sourceSummary.addProperty("tier_dependency_fallbacks", balancedFoodTiers.cycleFallbacks);
+			sourceSummary.addProperty("sushi_recipes", culinaryAdapters.sushi);
+			sourceSummary.addProperty("cut_portions", culinaryAdapters.portions);
+			sourceSummary.addProperty("culinary_warnings", culinaryAdapters.warnings);
+			sourceSummary.addProperty("progression_passes", foodProgression.passes);
+			sourceSummary.addProperty("progression_settled", foodProgression.settled);
 			sourceSummary.addProperty("feast_portions", feastPortions.count);
 			sourceSummary.addProperty("feast_warnings", feastPortions.warnings);
 			sourceSummary.addProperty("bee_routes", acquisitionSources.beeRoutes);
@@ -1571,7 +2229,7 @@ public class CreatingFoodListJsonProcedure {
 			sourceSummary.addProperty("coverage",
 					"Loaded item recipes, Productive Trees registry/pollination, Productive Bees breeding/conversion/production. Base sources are assumed; worldgen, loot, trades, machinery and environment gates are not fully assessed.");
 			foodDatabase.add("acquisition_analysis", sourceSummary);
-			net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v5: analysis completed; enabled foods={}, disabled={}, elapsed={}ms.", totalFoods, disabledFoodsArray.size(), (System.nanoTime() - generationStarted) / 1000000L);
+			net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: analysis completed; enabled foods={}, disabled={}, elapsed={}ms.", totalFoods, disabledFoodsArray.size(), (System.nanoTime() - generationStarted) / 1000000L);
 			FoodDatabaseObject = foodDatabase;
 			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
 			try {
