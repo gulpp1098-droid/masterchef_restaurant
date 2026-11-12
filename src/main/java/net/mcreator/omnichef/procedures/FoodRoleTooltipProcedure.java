@@ -36,13 +36,17 @@ public class FoodRoleTooltipProcedure {
 		foodID = BuiltInRegistries.ITEM.getKey(itemstack.getItem()).toString();
 		role = net.mcreator.omnichef.FoodRoleClientCache.getRole(foodID);
 		tier = net.mcreator.omnichef.FoodRoleClientCache.getTier(foodID);
+		if (tier >= 0 && ((role).equals("INGREDIENT") || (role).equals("FOOD"))) {
+			if (tier == 0) {
+				tooltip.add(1, Component.literal(("\u00A7fTier: " + (int) tier)));
+			} else {
+				tooltip.add(1, Component.literal(("\u00A7" + (int) tier + "Tier: " + (int) tier)));
+			}
+		}
 		if ((role).equals("FOOD")) {
 			tooltip.add(2, Component.literal("\u00A7aFood"));
 		} else if ((role).equals("INGREDIENT")) {
 			tooltip.add(2, Component.literal("\u00A77Ingredient"));
-		}
-		if (tier >= 0 && ((role).equals("INGREDIENT") || (role).equals("FOOD"))) {
-			tooltip.add(1, Component.literal(("\u00A7" + (int) tier + "Tier: " + (int) tier)));
 		}
 	}
 }
