@@ -4,9 +4,9 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 public class ChooseCard1Procedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-		if (entity == null)
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, String unlockGroup) {
+		if (entity == null || unlockGroup == null)
 			return;
-		ChoosePendingCardProcedure.execute(world, x, y, z, entity, 0);
+		ChoosePendingCardProcedure.execute(world, x, y, z, entity, 0, unlockGroup);
 	}
 }

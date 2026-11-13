@@ -17,8 +17,8 @@ import net.mcreator.omnichef.network.OmnichefModVariables;
 import io.netty.buffer.Unpooled;
 
 public class ChoosePendingCardProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, double indexCard) {
-		if (entity == null)
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, double indexCard, String unlockGroup) {
+		if (entity == null || unlockGroup == null)
 			return;
 		double restaurantID = 0;
 		double restaurantIndex = 0;
@@ -27,13 +27,22 @@ public class ChoosePendingCardProcedure {
 		double pendingUnlocks = 0;
 		String selectedFood = "";
 		String seletctedRole = "";
+		String cardsKey = "";
+		String choicesKey = "";
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockOptions = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject database = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			restaurantID = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID;
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
-			pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+			if ((unlockGroup).equals("FOOD")) {
+				cardsKey = "pending_food_cards";
+				choicesKey = "pending_food_unlocks";
+			} else {
+				cardsKey = "pending_ingredient_cards";
+				choicesKey = "pending_ingredient_unlocks";
+			}
+			pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			cardIndex = indexCard;
 			if (cardIndex >= 0 && cardIndex < pendingCards.size()) {
@@ -51,17 +60,20 @@ public class ChoosePendingCardProcedure {
 						selectedFood);
 				RemoveRestaurantArrayParameterIndexProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
-				remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						"starter_unlocks_remaining");
+				ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				remaining = 0;
+				if (!(unlockGroup).equals("FOOD")) {
+					remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+							"ingredient_starter_unlocks_remaining");
+				}
 				if (remaining > 0) {
 					ModifyRestaurantNumberParameterProcedure.execute(remaining - 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "starter_unlocks_remaining");
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ingredient_starter_unlocks_remaining");
 					if (remaining - 1 > 0) {
 						GeneratePendingCardsProcedure.execute(world, restaurantID);
 						FillCardsPickGUIProcedure.execute(world, entity);
 					} else {
-						ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 						GenerateRestaurantMenuProcedure.execute(world, restaurantID, GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "level"));
 						if (entity instanceof ServerPlayer _ent) {
@@ -86,16 +98,14 @@ public class ChoosePendingCardProcedure {
 					}
 				} else {
 					pendingUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, choicesKey);
 					pendingUnlocks = Math.max(0, pendingUnlocks - 1);
 					ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
-					ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, choicesKey);
 					if (pendingUnlocks > 0) {
 						GeneratePendingCardsProcedure.execute(world, restaurantID);
 					}
-					pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+					pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 					if (pendingCards.size() > 0) {
 						FillCardsPickGUIProcedure.execute(world, entity);

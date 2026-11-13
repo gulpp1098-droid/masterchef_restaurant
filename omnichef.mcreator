@@ -8148,6 +8148,10 @@
             "type": "number"
           },
           {
+            "name": "unlockGroup",
+            "type": "string"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -8181,6 +8185,10 @@
           {
             "name": "z",
             "type": "number"
+          },
+          {
+            "name": "unlockGroup",
+            "type": "string"
           },
           {
             "name": "world",
@@ -8218,6 +8226,10 @@
             "type": "number"
           },
           {
+            "name": "unlockGroup",
+            "type": "string"
+          },
+          {
             "name": "world",
             "type": "world"
           }
@@ -8251,6 +8263,10 @@
           {
             "name": "z",
             "type": "number"
+          },
+          {
+            "name": "unlockGroup",
+            "type": "string"
           },
           {
             "name": "world",
