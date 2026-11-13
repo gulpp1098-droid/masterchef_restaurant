@@ -75,7 +75,7 @@ public class EnsureTradeBoardCurrentDayProcedure {
 				for (int _i1 = 0; _i1 < (int) unlockRestaurants.size(); _i1++) {
 					unlockRestaurant = unlockRestaurants.get((int) index).getAsJsonObject();
 					if (unlockRestaurant.get("ID").getAsDouble() == restaurantID) {
-						unlocked = unlockRestaurant.get("unlocked").getAsJsonArray();
+						unlocked = unlockRestaurant.get("unlocked_ingredients").getAsJsonArray();
 						foundUnlocks = true;
 						break;
 					}

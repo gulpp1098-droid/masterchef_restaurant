@@ -21,6 +21,7 @@ public class GeneratePendingCardsFromDataProcedure {
 		double totalWeight = 0;
 		double randomWeight = 0;
 		double unlockedIndex = 0;
+		double filterIndex = 0;
 		com.google.gson.JsonArray options = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray currentPool = new com.google.gson.JsonArray();
@@ -29,10 +30,15 @@ public class GeneratePendingCardsFromDataProcedure {
 		com.google.gson.JsonArray temporaryPool = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray selectedPool = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockedFoods = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray filteredOptions = new com.google.gson.JsonArray();
 		String selectedFood = "";
+		String cardGroup = "";
 		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject unlockObject = new com.google.gson.JsonObject();
 		unlockObject = unlockData;
+		if (unlockObject.has("unlock_group")) {
+			cardGroup = unlockObject.get("unlock_group").getAsString();
+		}
 		options = unlockObject.get("unlock_options").getAsJsonArray();
 		unlockedFoods = unlockObject.get("unlocked").getAsJsonArray();
 		databaseObject = ReadFoodDatabaseProcedure.execute(world);
@@ -45,6 +51,15 @@ public class GeneratePendingCardsFromDataProcedure {
 			}
 		} else {
 			options = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(options, unlockedFoods, databaseObject);
+		}
+		if ((cardGroup).equals("INGREDIENT") || (cardGroup).equals("FOOD")) {
+			for (int _i1 = 0; _i1 < (int) options.size(); _i1++) {
+				if ((cardGroup).equals(GetFoodRoleByIDProcedure.execute(databaseObject, options.get((int) filterIndex).getAsString()))) {
+					filteredOptions.add(options.get((int) filterIndex).getAsString());
+				}
+				filterIndex = filterIndex + 1;
+			}
+			options = filteredOptions;
 		}
 		stageTier = unlockObject.get("stage_tier").getAsDouble();
 		currentPool = GetAvailableFoodFromTierProcedure.execute(world, options, stageTier);

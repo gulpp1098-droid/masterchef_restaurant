@@ -17,10 +17,12 @@ public class AddRecipeDiscoveryExpProcedure {
 		double starterRemaining = 0;
 		double newDiscoveryExp = 0;
 		double pendingUnlocks = 0;
+		double unlockIndex = 0;
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockOptions = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockedFoods = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray currentlyUnlockableOptions = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray unlockedDishes = new com.google.gson.JsonArray();
 		Entity owner = null;
 		String ownerUUID = "";
 		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
@@ -37,8 +39,14 @@ public class AddRecipeDiscoveryExpProcedure {
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				unlockOptions = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				unlockedFoods = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+				unlockedFoods = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_ingredients", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				unlockedDishes = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_foods", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				for (int _i1 = 0; _i1 < (int) unlockedDishes.size(); _i1++) {
+					unlockedFoods.add(unlockedDishes.get((int) unlockIndex).getAsString());
+					unlockIndex = unlockIndex + 1;
+				}
 				databaseObject = ReadFoodDatabaseProcedure.execute(world);
 				currentlyUnlockableOptions = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(unlockOptions, unlockedFoods, databaseObject);
 				if (starterRemaining <= 0 && pendingUnlocks < 5 && !currentlyUnlockableOptions.isEmpty()) {

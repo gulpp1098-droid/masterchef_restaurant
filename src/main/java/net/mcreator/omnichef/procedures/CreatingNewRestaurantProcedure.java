@@ -153,12 +153,12 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurantFoodUnlock.addProperty("pending_ingredient_unlocks", 0);
 				NewRestaurantFoodUnlock.addProperty("pending_food_unlocks", 0);
 				NewRestaurantFoodUnlock.addProperty("ingredient_starter_unlocks_remaining", 3);
-				NewRestaurantFoodUnlock.add("pending_ingredient_cards", LocationArray);
 				NewRestaurantFoodUnlock.add("pending_food_cards", LocationArray);
 				NewRestaurantFoodUnlock.addProperty("pending_unlocks", 0);
 				NewRestaurantFoodUnlock.add("unlocked", LocationArray);
 				NewRestaurantFoodUnlock.add("unlock_options", GetFoodListFromTierProcedure.execute(world, 0));
 				pending_cards = GeneratePendingCardsFromDataProcedure.execute(world, NewRestaurantFoodUnlock);
+				NewRestaurantFoodUnlock.add("pending_ingredient_cards", pending_cards);
 				NewRestaurantFoodUnlock.add("pending_cards", pending_cards);
 				RestaurantsFoodUnlock = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);
 				{
