@@ -152,7 +152,7 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurantFoodUnlock.addProperty("food_stage_tier", 0);
 				NewRestaurantFoodUnlock.addProperty("pending_ingredient_unlocks", 0);
 				NewRestaurantFoodUnlock.addProperty("pending_food_unlocks", 0);
-				NewRestaurantFoodUnlock.addProperty("ingredient_stage_tier", 3);
+				NewRestaurantFoodUnlock.addProperty("ingredient_starter_unlocks_remaining", 3);
 				NewRestaurantFoodUnlock.add("pending_ingredient_cards", LocationArray);
 				NewRestaurantFoodUnlock.add("pending_food_cards", LocationArray);
 				NewRestaurantFoodUnlock.addProperty("pending_unlocks", 0);

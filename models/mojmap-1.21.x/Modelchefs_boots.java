@@ -24,8 +24,8 @@ public class Modelchefs_boots<T extends Entity> extends EntityModel<T> {
 				PartPose.offset(-1.9F, 12.0F, 0.0F));
 
 		PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(2, 11)
-				.addBox(-0.2F, 10.0F, -3.9F, 4.0F, 2.0F, 6.0F, new CubeDeformation(0.1F)),
-				PartPose.offset(0.1F, 12.0F, 0.0F));
+				.addBox(-2.0F, 10.0F, -3.9F, 4.0F, 2.0F, 6.0F, new CubeDeformation(0.1F)),
+				PartPose.offset(1.9F, 12.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 32, 32);
 	}

@@ -18,6 +18,7 @@ public class GeneratePendingCardsProcedure {
 		double olderWeight = 0;
 		double totalWeight = 0;
 		double randomWeight = 0;
+		double starterRemaining = 0;
 		com.google.gson.JsonArray options = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray currentPool = new com.google.gson.JsonArray();
@@ -40,6 +41,9 @@ public class GeneratePendingCardsProcedure {
 			stageTier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 					"stage_tier");
 			unlockObject.addProperty("stage_tier", stageTier);
+			starterRemaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+					"starter_unlocks_remaining");
+			unlockObject.addProperty("starter_unlocks_remaining", starterRemaining);
 			pendingCards = GeneratePendingCardsFromDataProcedure.execute(world, unlockObject);
 			ModifyRestaurantWholeArrayParameterProcedure.execute(pendingCards, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 					OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);

@@ -20,13 +20,17 @@ public class GenerateRestaurantMenuProcedure {
 		com.google.gson.JsonArray menusArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray menuArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray UnlockedFood = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray ingredientUnlocks = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray foodUnlocks = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject Meal = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject FoodDatabase = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject menusObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject RestaurantObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject availableTiers = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject unlockData = new com.google.gson.JsonObject();
 		String MealID = "";
 		String MealDuplicate = "";
+		String unlockID = "";
 		boolean isDuplicate = false;
 		boolean saveSuccessful = false;
 		double MaxRestaurantLevel = 0;
@@ -52,11 +56,33 @@ public class GenerateRestaurantMenuProcedure {
 		double amountOfTiers = 0;
 		double restaurantIndex = 0;
 		double randomFoodIndex = 0;
+		double unlockIndex = 0;
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantIndexDependency);
-		UnlockedFood = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+		FoodDatabase = ReadFoodDatabaseProcedure.execute(world);
+		ingredientUnlocks = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_ingredients", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+		foodUnlocks = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_foods", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+		unlockIndex = 0;
+		for (int _i1 = 0; _i1 < (int) ingredientUnlocks.size(); _i1++) {
+			unlockID = ingredientUnlocks.get((int) unlockIndex).getAsString();
+			unlockData = GetFoodDataFromIDProcedure.execute(FoodDatabase, unlockID);
+			if (unlockData.has("can_serve") && unlockData.get("can_serve").getAsBoolean()) {
+				UnlockedFood.add(unlockID);
+			}
+			unlockIndex = unlockIndex + 1;
+		}
+		unlockIndex = 0;
+		for (int _i1 = 0; _i1 < (int) foodUnlocks.size(); _i1++) {
+			unlockID = foodUnlocks.get((int) unlockIndex).getAsString();
+			unlockData = GetFoodDataFromIDProcedure.execute(FoodDatabase, unlockID);
+			if (unlockData.has("can_serve") && unlockData.get("can_serve").getAsBoolean()) {
+				UnlockedFood.add(unlockID);
+			}
+			unlockIndex = unlockIndex + 1;
+		}
 		MaxRestaurantLevel = OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel;
 		CurrentRestaurantLevel = restaurantLevelDependency;
-		FoodDatabase = ReadFoodDatabaseProcedure.execute(world);
 		TierCount = FoodDatabase.get("tier_count").getAsDouble();
 		CurrentTier = Math.floor((CurrentRestaurantLevel / MaxRestaurantLevel) * TierCount);
 		if (CurrentTier >= TierCount) {

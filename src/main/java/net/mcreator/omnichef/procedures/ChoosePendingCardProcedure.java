@@ -26,8 +26,10 @@ public class ChoosePendingCardProcedure {
 		double cardIndex = 0;
 		double pendingUnlocks = 0;
 		String selectedFood = "";
+		String seletctedRole = "";
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockOptions = new com.google.gson.JsonArray();
+		com.google.gson.JsonObject database = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			restaurantID = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID;
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
@@ -36,8 +38,15 @@ public class ChoosePendingCardProcedure {
 			cardIndex = indexCard;
 			if (cardIndex >= 0 && cardIndex < pendingCards.size()) {
 				selectedFood = pendingCards.get((int) cardIndex).getAsString();
-				ModifyRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						selectedFood);
+				database = ReadFoodDatabaseProcedure.execute(world);
+				seletctedRole = GetFoodRoleByIDProcedure.execute(database, selectedFood);
+				if ((seletctedRole).equals("INGREDIENT")) {
+					ModifyRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_ingredients", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
+				} else if ((seletctedRole).equals("FOOD")) {
+					ModifyRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_foods", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
+				}
 				RemoveRestaurantArrayParameterIndexProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
 				remaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
