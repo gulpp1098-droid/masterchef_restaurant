@@ -2,7 +2,9 @@ package net.mcreator.omnichef.procedures;
 
 import net.neoforged.fml.loading.FMLPaths;
 
+import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.crafting.Recipe;
 
 import java.io.IOException;
 import java.io.FileWriter;
@@ -2230,6 +2232,1693 @@ public class CreatingFoodListJsonProcedure {
 					"Loaded item recipes, Productive Trees registry/pollination, Productive Bees breeding/conversion/production. Base sources are assumed; worldgen, loot, trades, machinery and environment gates are not fully assessed.");
 			foodDatabase.add("acquisition_analysis", sourceSummary);
 			net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef food database v7: analysis completed; enabled foods={}, disabled={}, elapsed={}ms.", totalFoods, disabledFoodsArray.size(), (System.nanoTime() - generationStarted) / 1000000L);
+			class SplitTierPlanner {
+				static final int UNREACHABLE = 1000000;
+
+				final class Node {
+					final String id;
+					final String kind;
+					final int minimum;
+					final double rank;
+					final boolean canServe;
+					final java.util.List<java.util.List<java.util.List<String>>> routes = new java.util.ArrayList<>();
+					int tier = -1;
+					int priority = 0;
+					boolean starterEligible;
+					String aliasOf = "";
+					int preparationTier = UNREACHABLE;
+
+					Node(String id, String kind, int minimum, double rank, boolean canServe) {
+						this.id = id;
+						this.kind = kind;
+						this.minimum = Math.max(0, Math.min(("INGREDIENT".equals(kind) ? ingredientTierCount : tierCount) - 1, minimum));
+						this.rank = Double.isFinite(rank) ? rank : 0.0;
+						this.canServe = canServe;
+						this.starterEligible = canServe;
+					}
+				}
+
+				final int tierCount;
+				final int ingredientTierCount;
+				final java.util.Map<String, Node> nodes = new java.util.TreeMap<>();
+				final java.util.Map<String, int[]> groupSizes = new java.util.TreeMap<>();
+
+				SplitTierPlanner(int tierCount) {
+					this(tierCount, tierCount);
+				}
+
+				SplitTierPlanner(int ingredientTierCount, int foodTierCount) {
+					if (ingredientTierCount < 1 || foodTierCount < ingredientTierCount || foodTierCount > 10)
+						throw new IllegalArgumentException("Invalid ingredient/food tier counts");
+					this.ingredientTierCount = ingredientTierCount;
+					this.tierCount = foodTierCount;
+				}
+
+				Node add(String id, String kind, int minimum, double rank, boolean canServe) {
+					if (nodes.containsKey(id))
+						throw new IllegalArgumentException("Duplicate catalog ID: " + id);
+					Node node = new Node(id, kind, minimum, rank, canServe);
+					nodes.put(id, node);
+					return node;
+				}
+
+				boolean isCatalog(Node node) {
+					return "INGREDIENT".equals(node.kind) || "FOOD".equals(node.kind);
+				}
+
+				void rankGroup(String kind) {
+					int count = "INGREDIENT".equals(kind) ? ingredientTierCount : tierCount;
+					java.util.Comparator<Node> byRank = java.util.Comparator.comparingInt((Node n) -> n.priority).thenComparingDouble(n -> n.rank).thenComparing(n -> n.id);
+					java.util.List<Node> waiting = new java.util.ArrayList<>();
+					for (Node node : nodes.values())
+						if (kind.equals(node.kind))
+							waiting.add(node);
+					waiting.sort(java.util.Comparator.comparingInt(this::rankingMinimum).thenComparing(byRank));
+					java.util.PriorityQueue<Node> ready = new java.util.PriorityQueue<>(byRank);
+					int[] sizes = new int[count];
+					int next = 0, assigned = 0;
+					for (int tier = 0; tier < count; tier++) {
+						while (next < waiting.size() && rankingMinimum(waiting.get(next)) <= tier)
+							ready.add(waiting.get(next++));
+						int remaining = waiting.size() - assigned;
+						int target = (remaining + count - tier - 1) / (count - tier);
+						if (tier == 0 && "INGREDIENT".equals(kind)) {
+							java.util.List<Node> starters = new java.util.ArrayList<>();
+							for (Node node : ready)
+								if (node.canServe && node.starterEligible)
+									starters.add(node);
+							starters.sort(byRank);
+							for (int index = 0; index < Math.min(3, starters.size()); index++) {
+								Node node = starters.get(index);
+								ready.remove(node);
+								node.tier = 0;
+								sizes[0]++;
+								assigned++;
+							}
+						}
+						while (!ready.isEmpty() && (sizes[tier] < target || tier == count - 1)) {
+							Node node = ready.remove();
+							node.tier = tier;
+							sizes[tier]++;
+							assigned++;
+						}
+					}
+					if (assigned != waiting.size())
+						throw new IllegalStateException("Unassigned " + kind + " entries");
+					groupSizes.put(kind, sizes);
+				}
+
+				int rankingMinimum(Node node) {
+					if (!"FOOD".equals(node.kind))
+						return node.minimum;
+					return node.preparationTier == UNREACHABLE ? tierCount - 1 : Math.max(node.minimum, node.preparationTier);
+				}
+
+				int routeTier(java.util.List<java.util.List<String>> route) {
+					int result = 0;
+					for (java.util.List<String> slot : route) {
+						int easiest = UNREACHABLE;
+						for (String id : slot) {
+							Node input = nodes.get(id);
+							if (input != null)
+								easiest = Math.min(easiest, input.preparationTier);
+						}
+						if (easiest == UNREACHABLE)
+							return UNREACHABLE;
+						result = Math.max(result, easiest);
+					}
+					return result;
+				}
+
+				void build() {
+					rankGroup("INGREDIENT");
+					for (Node node : nodes.values()) {
+						if ("INGREDIENT".equals(node.kind))
+							node.preparationTier = node.tier;
+						else if ("AUXILIARY".equals(node.kind))
+							node.preparationTier = 0;
+						else if ("EXTERNAL".equals(node.kind))
+							node.preparationTier = node.minimum;
+					}
+					// Values can only decrease. An unanchored recipe cycle remains unavailable.
+					for (int pass = 0; pass <= nodes.size(); pass++) {
+						boolean changed = false;
+						for (Node node : nodes.values()) {
+							if ("ALIAS".equals(node.kind)) {
+								Node target = nodes.get(node.aliasOf);
+								if (target != null && target.preparationTier < node.preparationTier) {
+									node.preparationTier = target.preparationTier;
+									changed = true;
+								}
+								continue;
+							}
+							if (!("FOOD".equals(node.kind) || "INTERMEDIATE".equals(node.kind)))
+								continue;
+							int best = node.preparationTier;
+							for (var route : node.routes) {
+								int requirement = routeTier(route);
+								if (requirement < UNREACHABLE)
+									best = Math.min(best, Math.max(node.minimum, requirement));
+							}
+							if (best < node.preparationTier) {
+								node.preparationTier = best;
+								changed = true;
+							}
+						}
+						if (!changed) {
+							rankGroup("FOOD");
+							return;
+						}
+					}
+					throw new IllegalStateException("Split recipe requirements did not converge");
+				}
+
+				int earliestUnlock(Node node) {
+					return node.preparationTier == UNREACHABLE ? -1 : Math.max(node.tier, node.preparationTier);
+				}
+
+				boolean canPrepare(String id, java.util.Set<String> unlockedIngredients) {
+					return preparableNodes(unlockedIngredients).contains(id);
+				}
+
+				java.util.Set<String> preparableNodes(java.util.Set<String> unlockedIngredients) {
+					java.util.Set<String> usable = new java.util.HashSet<>();
+					for (Node node : nodes.values()) {
+						if ("AUXILIARY".equals(node.kind) || "EXTERNAL".equals(node.kind) || ("INGREDIENT".equals(node.kind) && unlockedIngredients.contains(node.id)))
+							usable.add(node.id);
+					}
+					boolean changed;
+					do {
+						changed = false;
+						for (Node node : nodes.values()) {
+							if ("ALIAS".equals(node.kind)) {
+								if (usable.contains(node.aliasOf) && usable.add(node.id))
+									changed = true;
+								continue;
+							}
+							if (usable.contains(node.id) || !("FOOD".equals(node.kind) || "INTERMEDIATE".equals(node.kind)))
+								continue;
+							for (var route : node.routes) {
+								boolean possible = true;
+								for (var slot : route) {
+									boolean slotPossible = false;
+									for (String input : slot)
+										if (usable.contains(input)) {
+											slotPossible = true;
+											break;
+										}
+									if (!slotPossible) {
+										possible = false;
+										break;
+									}
+								}
+								if (possible) {
+									usable.add(node.id);
+									changed = true;
+									break;
+								}
+							}
+						}
+					} while (changed);
+					return usable;
+				}
+			}
+			class SplitSourceCatalog {
+				final class Recipe {
+					final String output, method;
+					final int count;
+					final java.util.List<java.util.List<String>> slots;
+					final com.google.gson.JsonObject evidence;
+
+					Recipe(String output, String method, int count, java.util.List<java.util.List<String>> slots, com.google.gson.JsonObject evidence) {
+						this.output = output;
+						this.method = method;
+						this.count = count;
+						this.slots = slots;
+						this.evidence = evidence.deepCopy();
+					}
+				}
+
+				final java.util.Map<String, java.util.List<Recipe>> recipes = new java.util.TreeMap<>();
+				final java.util.Set<String> wholeSources = new java.util.TreeSet<>(), containers = new java.util.TreeSet<>();
+				final java.util.Set<String> inputs = new java.util.TreeSet<>();
+				final java.util.Map<String, Integer> skipped = new java.util.TreeMap<>();
+				final com.google.gson.JsonArray rejectedResources = new com.google.gson.JsonArray();
+				final java.util.function.Predicate<String> registered;
+				final java.util.function.Function<String, java.util.List<String>> tagItems;
+
+				SplitSourceCatalog(java.util.function.Predicate<String> registered, java.util.function.Function<String, java.util.List<String>> tagItems) {
+					this.registered = registered;
+					this.tagItems = tagItems;
+				}
+
+				void skip(String reason) {
+					skipped.merge(reason, 1, Integer::sum);
+				}
+
+				String shape(com.google.gson.JsonElement value) {
+					if (value == null || value.isJsonNull())
+						return "missing_or_null";
+					if (value.isJsonObject())
+						return "object";
+					if (value.isJsonArray())
+						return "array";
+					if (value.getAsJsonPrimitive().isString())
+						return "string";
+					if (value.getAsJsonPrimitive().isNumber())
+						return "number";
+					return "boolean";
+				}
+
+				boolean reject(String reason, String resource, String field, String expected, com.google.gson.JsonElement actual) {
+					skip(reason);
+					if (rejectedResources.size() < 100) {
+						var entry = new com.google.gson.JsonObject();
+						entry.addProperty("resource", resource);
+						entry.addProperty("reason", reason);
+						entry.addProperty("field", field);
+						entry.addProperty("expected", expected);
+						entry.addProperty("actual_type", shape(actual));
+						rejectedResources.add(entry);
+					}
+					return false;
+				}
+
+				int quantity(com.google.gson.JsonObject object, String key, int fallback, int maximum) {
+					if (!object.has(key))
+						return fallback;
+					var value = object.get(key);
+					if (!value.isJsonPrimitive() || !value.getAsJsonPrimitive().isNumber())
+						throw new IllegalArgumentException("Expected integer count");
+					int count = value.getAsBigDecimal().intValueExact();
+					if (count < 1 || count > maximum)
+						throw new IllegalArgumentException("Count outside supported range");
+					return count;
+				}
+
+				boolean add(String output, String method, int count, java.util.List<java.util.List<String>> slots, com.google.gson.JsonObject evidence) {
+					if (!registered.test(output) || count < 1 || count > 4096 || slots.isEmpty() || slots.size() > 256)
+						return false;
+					for (var slot : slots)
+						if (slot.isEmpty() || slot.stream().anyMatch(id -> !registered.test(id)))
+							return false;
+					var list = recipes.computeIfAbsent(output, key -> new java.util.ArrayList<>());
+					for (var existing : list)
+						if (existing.method.equals(method) && existing.count == count && existing.slots.equals(slots) && existing.evidence.equals(evidence))
+							return true;
+					list.add(new Recipe(output, method, count, slots, evidence));
+					for (var slot : slots)
+						inputs.addAll(slot);
+					return true;
+				}
+
+				boolean minecolonies(com.google.gson.JsonObject json, String resourceId) {
+					String field = "type";
+					com.google.gson.JsonElement actual = json.get(field);
+					try {
+						if (!json.has("type") || !"recipe".equals(json.get("type").getAsString()) || json.has("conditions") || json.has("neoforge:conditions") || json.has("must-exist") && json.get("must-exist").getAsBoolean())
+							return reject("minecolonies_conditional_or_template", resourceId, "type/conditions/must-exist", "supported unconditional recipe definition", json.get("type"));
+						field = "crafter";
+						actual = json.get(field);
+						String crafter = json.get("crafter").getAsString();
+						if (!java.util.Set.of("chef_crafting", "baker_crafting", "baker_smelting", "chef_smelting").contains(crafter))
+							return false;
+						field = "result";
+						actual = json.get(field);
+						String output;
+						int count;
+						if (actual != null && actual.isJsonObject()) {
+							var result = actual.getAsJsonObject();
+							if (result.has("components") || result.has("nbt"))
+								return reject("minecolonies_special_result", resourceId, "result.components/nbt", "result representable by item ID without components", actual);
+							field = "result.id";
+							actual = result.get("id");
+							output = actual.getAsString();
+							field = "result.count";
+							actual = result.get("count");
+							count = quantity(result, "count", 1, 4096);
+							if (json.has("count")) {
+								field = "count";
+								actual = json.get("count");
+								int legacyCount = quantity(json, "count", 1, 4096);
+								if (result.has("count") && count != legacyCount)
+									return reject("minecolonies_conflicting_counts", resourceId, "count/result.count", "equal counts when both forms exist", actual);
+								if (!result.has("count"))
+									count = legacyCount;
+							}
+						} else {
+							output = actual.getAsString();
+							field = "count";
+							actual = json.get("count");
+							count = quantity(json, "count", 1, 4096);
+						}
+						java.util.List<java.util.List<String>> slots = new java.util.ArrayList<>();
+						field = "inputs";
+						actual = json.get(field);
+						int inputIndex = 0;
+						for (var value : json.getAsJsonArray("inputs")) {
+							String inputField = "inputs[" + inputIndex++ + "]";
+							field = inputField;
+							actual = value;
+							var input = value.getAsJsonObject();
+							if (input.has("nbt") || input.has("components") || input.has("type"))
+								return reject("minecolonies_special_ingredient", resourceId, inputField, "item ID or tag without component restrictions", actual);
+							field = inputField + ".id/item/tag";
+							if (input.has("id") && input.has("item") && !input.get("id").equals(input.get("item")))
+								return reject("minecolonies_conflicting_ids", resourceId, field, "matching IDs when both forms exist", value);
+							java.util.List<String> alternatives = input.has("id")
+									? java.util.List.of(input.get("id").getAsString())
+									: input.has("item") ? java.util.List.of(input.get("item").getAsString()) : input.has("tag") ? tagItems.apply(input.get("tag").getAsString()) : java.util.Collections.emptyList();
+							field = inputField + ".count";
+							actual = input.get("count");
+							int amount = quantity(input, "count", 1, 64);
+							if (alternatives.isEmpty() || alternatives.stream().anyMatch(id -> !registered.test(id)))
+								return reject("minecolonies_unresolved_input", resourceId, inputField + ".id/item/tag", "registered item alternatives", value);
+							for (int i = 0; i < amount; i++)
+								slots.add(alternatives);
+						}
+						var evidence = new com.google.gson.JsonObject();
+						evidence.addProperty("adapter", "minecolonies_crafterrecipes");
+						evidence.addProperty("resource", resourceId);
+						var conditions = new com.google.gson.JsonObject();
+						conditions.addProperty("crafter", crafter);
+						for (String key : java.util.List.of("min-building-level", "max-building-level", "research-id", "excluded-research-id", "intermediate", "tool"))
+							if (json.has(key))
+								conditions.add(key, json.get(key).deepCopy());
+						evidence.add("source_conditions", conditions);
+						if (json.has("loot-table"))
+							evidence.add("byproduct_loot_table", json.get("loot-table").deepCopy());
+						if (!add(output, "minecolonies:" + crafter, count, slots, evidence))
+							return reject("minecolonies_invalid_recipe", resourceId, "result/inputs", "registered output and 1..256 input slots", json.get("result"));
+						return true;
+					} catch (RuntimeException invalid) {
+						return reject("minecolonies_invalid_json", resourceId, field, "value matching the supported MineColonies recipe schema", actual);
+					}
+				}
+
+				boolean portion(String whole, String output, int servings, String container, String mapping, boolean heated) {
+					if (servings < 1 || servings > 64 || whole.equals(output)) {
+						skip("herbs_invalid_portion_size");
+						return false;
+					}
+					java.util.List<java.util.List<String>> slots = new java.util.ArrayList<>();
+					slots.add(java.util.List.of(whole));
+					if (!container.isEmpty())
+						for (int i = 0; i < servings; i++)
+							slots.add(java.util.List.of(container));
+					var evidence = new com.google.gson.JsonObject();
+					evidence.addProperty("adapter", "herbsandharvest_portions");
+					evidence.addProperty("runtime_mapping", mapping);
+					evidence.addProperty("portion_source", whole);
+					evidence.addProperty("servings", servings);
+					if (heated) {
+						var conditions = new com.google.gson.JsonObject();
+						conditions.addProperty("heat_source", true);
+						evidence.add("source_conditions", conditions);
+					}
+					if (!add(output, "omnichef:herbs_portion", servings, slots, evidence)) {
+						skip("herbs_unresolved_portion_mapping");
+						return false;
+					}
+					wholeSources.add(whole);
+					if (!container.isEmpty())
+						containers.add(container);
+					return true;
+				}
+
+				com.google.gson.JsonObject diagnostics() {
+					var json = new com.google.gson.JsonObject();
+					var counts = new com.google.gson.JsonObject();
+					for (var list : recipes.values())
+						for (var recipe : list) {
+							String key = recipe.evidence.get("adapter").getAsString();
+							counts.addProperty(key, counts.has(key) ? counts.get(key).getAsInt() + 1 : 1);
+						}
+					json.add("imported_routes", counts);
+					var missing = new com.google.gson.JsonObject();
+					for (var e : skipped.entrySet())
+						missing.addProperty(e.getKey(), e.getValue());
+					json.add("skipped", missing);
+					json.add("rejected_resources", rejectedResources.deepCopy());
+					json.addProperty("rejected_resource_limit", 100);
+					json.addProperty("conditions_policy", "Imported source conditions are retained verbatim; this catalog does not verify player colony, research or heat state.");
+					return json;
+				}
+			}
+			SplitSourceCatalog splitSources = new SplitSourceCatalog(itemsById::containsKey, tag -> {
+				var location = net.minecraft.resources.ResourceLocation.tryParse(tag);
+				if (location == null)
+					return java.util.Collections.emptyList();
+				var key = net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, location);
+				java.util.List<String> ids = new java.util.ArrayList<>();
+				net.minecraft.core.registries.BuiltInRegistries.ITEM.getTag(key).ifPresent(values -> {
+					for (var value : values)
+						ids.add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(value.value()).toString());
+				});
+				java.util.Collections.sort(ids);
+				return ids;
+			});
+			try {
+				var resources = level.getServer().getResourceManager().listResources("crafterrecipes", id -> id.getNamespace().equals("minecolonies") && id.getPath().endsWith(".json"));
+				for (var resource : new java.util.TreeMap<>(resources).entrySet()) {
+					try (var reader = resource.getValue().openAsReader()) {
+						splitSources.minecolonies(com.google.gson.JsonParser.parseReader(reader).getAsJsonObject(), resource.getKey().toString());
+					} catch (Exception invalid) {
+						splitSources.reject("minecolonies_resource_read_failed", resource.getKey().toString(), "resource", "readable JSON object", null);
+					}
+				}
+			} catch (Exception unavailable) {
+				splitSources.skip("minecolonies_resource_scan_failed");
+			}
+			class SplitHerbsRuntime {
+				Object field(Class<?> type, String name) throws ReflectiveOperationException {
+					var field = type.getDeclaredField(name);
+					if (!field.trySetAccessible())
+						throw new IllegalAccessException(name);
+					return field.get(null);
+				}
+
+				String itemId(Object value) {
+					if (value instanceof java.util.function.Supplier<?> supplier)
+						value = supplier.get();
+					return value instanceof net.minecraft.world.item.Item item ? net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).toString() : "";
+				}
+
+				int servings(net.minecraft.world.level.block.Block block, String property) {
+					for (var key : block.defaultBlockState().getProperties())
+						if (key.getName().equals(property) && key instanceof net.minecraft.world.level.block.state.properties.IntegerProperty count)
+							return count.getPossibleValues().stream().mapToInt(Integer::intValue).max().orElse(0);
+					return 0;
+				}
+
+				void scan() {
+					java.util.Map<Object, String> plates = new java.util.LinkedHashMap<>();
+					for (var entry : itemsById.entrySet())
+						if (entry.getValue().getClass().getName().equals("com.mamailes.herbsandharvest.item.DinnerPlateBlockItem")) {
+							try {
+								plates.put(entry.getValue().getClass().getMethod("getType").invoke(entry.getValue()), entry.getKey());
+							} catch (ReflectiveOperationException invalid) {
+								splitSources.skip("herbs_plate_mapping_unavailable");
+							}
+						}
+					for (var entry : itemsById.entrySet()) {
+						if (!entry.getKey().startsWith("herbsandharvest:") || !(entry.getValue() instanceof net.minecraft.world.item.BlockItem item))
+							continue;
+						var block = item.getBlock();
+						String name = item.getClass().getName(), blockName = block.getClass().getName();
+						try {
+							if (name.equals("com.mamailes.herbsandharvest.item.PotFoodBlockItem")) {
+								Object type = item.getClass().getMethod("getType").invoke(item);
+								var map = (java.util.Map<?, ?>) field(item.getClass(), "FOOD_TO_BOWL");
+								splitSources.portion(entry.getKey(), itemId(map.get(type)), servings(block, "bites"), "minecraft:bowl", "PotFoodBlockItem.FOOD_TO_BOWL", true);
+							} else if (name.equals("com.mamailes.herbsandharvest.item.PieBlockItem")) {
+								Object type = item.getClass().getMethod("getType").invoke(item);
+								var map = (java.util.Map<?, ?>) field(block.getClass(), "TYPE_TO_SLICE");
+								splitSources.portion(entry.getKey(), itemId(map.get(type)), servings(block, "slices"), "", "EdiblePieBlock.TYPE_TO_SLICE", false);
+							} else if (block.getClass().getSuperclass() != null && block.getClass().getSuperclass().getName().equals("com.mamailes.herbsandharvest.block.food.AbstractPanBlock")) {
+								for (var plate : plates.entrySet()) {
+									var method = block.getClass().getDeclaredMethod("getPlateItem", plate.getKey().getClass());
+									if (!method.trySetAccessible())
+										throw new IllegalAccessException("getPlateItem");
+									var output = method.invoke(block, plate.getKey());
+									if (output instanceof net.minecraft.world.item.ItemStack stack && !stack.isEmpty())
+										splitSources.portion(entry.getKey(), itemId(stack.getItem()), servings(block, "servings"), plate.getValue(), "AbstractPanBlock.getPlateItem", false);
+								}
+							} else if (blockName.equals("com.mamailes.herbsandharvest.block.food.CharcuterieBoardBlock")) {
+								var map = (java.util.Map<?, ?>) field(block.getClass(), "PLATE_TO_ITEM");
+								for (var meal : map.entrySet())
+									for (var plate : plates.entrySet())
+										if (meal.getKey() instanceof Enum<?> mealType && plate.getKey() instanceof Enum<?> plateType && mealType.name().equals(plateType.name()))
+											splitSources.portion(entry.getKey(), itemId(meal.getValue()), servings(block, "servings"), plate.getValue(), "CharcuterieBoardBlock.PLATE_TO_ITEM", false);
+							}
+						} catch (Exception incompatible) {
+							splitSources.skip("herbs_runtime_mapping_unavailable");
+						}
+					}
+				}
+			}
+			new SplitHerbsRuntime().scan();
+			// Split-catalog preview: current menu/discovery readers continue using the legacy database.
+			class SplitCatalogPreview {
+				final java.util.Set<String> vanillaIngredients = java.util.Set.of("minecraft:wheat", "minecraft:cocoa_beans", "minecraft:sugar", "minecraft:milk_bucket", "minecraft:egg", "minecraft:pumpkin", "minecraft:melon",
+						"minecraft:brown_mushroom", "minecraft:red_mushroom", "minecraft:sugar_cane", "minecraft:kelp");
+				final java.util.Set<String> auxiliaryItems = java.util.Set.of("minecraft:bowl", "minecraft:glass_bottle", "minecraft:bucket", "minecraft:stick");
+				final java.util.Map<String, com.google.gson.JsonObject> catalog = new java.util.TreeMap<>();
+				final java.util.Map<String, com.google.gson.JsonArray> recipeData = new java.util.TreeMap<>();
+				final java.util.Map<String, java.util.List<FoodScoreResolver.IndexedRecipe>> allowedRecipeCache = new java.util.HashMap<>();
+				final java.util.Map<FoodScoreResolver.IndexedRecipe, com.google.gson.JsonObject> importedEvidence = new java.util.IdentityHashMap<>();
+				final java.util.Set<String> preparedSources = new java.util.HashSet<>();
+				final java.util.Set<String> basicSupplies = java.util.Set.of("minecraft:apple", "minecraft:carrot", "minecraft:potato", "minecraft:wheat", "minecraft:cocoa_beans", "minecraft:brown_mushroom", "minecraft:red_mushroom",
+						"minecraft:chicken", "minecraft:mutton", "minecraft:egg", "minecraft:milk_bucket", "minecraft:sugar_cane");
+				final java.util.Set<String> basicFoods = java.util.Set.of("minecraft:bread", "minecraft:baked_potato", "minecraft:cooked_chicken", "minecraft:cookie");
+				final java.util.Map<String, String> correctedRoles = new java.util.TreeMap<>();
+				final java.util.Set<String> blocked = new java.util.HashSet<>();
+				final java.util.Map<String, Double> firstFoodUse = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> foodUses = new java.util.HashMap<>();
+				final java.util.Map<String, String> aliases = new java.util.TreeMap<>();
+				final java.util.Set<String> culinarySeeds = new java.util.HashSet<>();
+				final java.util.Set<String> plantingSeeds = new java.util.TreeSet<>();
+				final java.util.Map<String, Double> kitchenCosts = new java.util.HashMap<>();
+				final java.util.Map<String, Integer> kitchenDepths = new java.util.HashMap<>();
+				final java.util.Set<String> unverifiedAcquisition = new java.util.TreeSet<>();
+				final java.util.Map<String, Integer> sourceFloors = new java.util.HashMap<>();
+				final java.util.Map<String, Double> ingredientRanks = new java.util.HashMap<>();
+				final java.util.Map<String, Double> ingredientBaseRanks = new java.util.HashMap<>();
+				final java.util.Set<String> foundationalPromotions = new java.util.HashSet<>();
+				final java.util.Set<String> pantryCompat = java.util.Set.of("herbsandharvest:cinnamon", "herbsandharvest:corn_kernels", "herbsandharvest:pinto_beans", "minecolonies:cornmeal", "minecolonies:creamcheese", "minecolonies:soysauce",
+						"minecolonies:large_milk_bottle", "minecolonies:large_soy_milk_bottle", "productivebees:milk_bottle", "pneumaticcraft:sourdough");
+				double foodRankReference = 1.0;
+				SplitTierPlanner planner;
+
+				boolean auxiliary(String id) {
+					String path = id.substring(id.indexOf(':') + 1);
+					return auxiliaryItems.contains(id) || splitSources.containers.contains(id) || classificationRules.equipment(id) || path.contains("empty_bottle") || path.contains("empty_bucket") || path.contains("empty_mug")
+							|| path.contains("empty_cup") || path.contains("empty_plate") || path.contains("empty_bowl");
+				}
+
+				String path(String id) {
+					return id.substring(id.indexOf(':') + 1);
+				}
+
+				boolean plantingSeedName(String id) {
+					return id.startsWith("pamhc2crops:") && path(id).endsWith("seeditem");
+				}
+
+				String cosmeticBase(String id) {
+					if (classificationRules.overrides.containsKey(id))
+						return id;
+					String p = path(id), base = id;
+					if (id.startsWith("chromacarvings:") && p.endsWith("_pumpkin")
+							&& java.util.Set.of("white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black").contains(p.substring(0, p.length() - 8)))
+						base = "minecraft:pumpkin";
+					if (id.startsWith("herbsandharvest:") && (p.endsWith("_plate_holiday") || p.endsWith("_plate_delftware")))
+						base = id.substring(0, id.lastIndexOf('_') + 1) + "plain";
+					return catalog.containsKey(base) && !blocked.contains(base) && catalog.get(base).get("role").getAsString().equals(catalog.get(id).get("role").getAsString()) ? base : id;
+				}
+
+				boolean pantryName(String id) {
+					String p = path(id);
+					if (p.endsWith("item"))
+						p = p.substring(0, p.length() - 4);
+					if (pantryCompat.contains(id) || id.startsWith("herbsandharvest:") && (p.startsWith("chopped_") || p.startsWith("ground_") || p.startsWith("minced_")))
+						return true;
+					String compact = p.replace("_", "");
+					if (id.startsWith("pamhc2food") && java.util.Set.of("stock", "groundbeef", "groundchicken", "groundduck", "groundfish", "groundmutton", "groundpork", "groundrabbit", "groundturkey", "groundvenison").contains(compact))
+						return true;
+					if (java.util.Set.of("cookingoil", "sesameoil", "soysauce", "hotsauce", "mustard", "relish", "creamcheese", "freshmilk", "cornmeal", "sourdough").contains(compact))
+						return true;
+					if (id.startsWith("pamhc2food") && java.util.Set.of("almondbutter", "cashewbutter", "chestnutbutter", "hazelnutbutter", "peanutbutter", "pecanbutter", "pistachiobutter", "sunflowerseedsbutter", "walnutbutter", "applesauce",
+							"bbqsauce", "cranberrysauce", "hoisinsauce", "mintsauce", "oystersauce", "sweetandsoursauce", "tomatosauce", "caramelsauce", "mushroomoil", "oliveoil", "sunfloweroil", "coconutoil").contains(compact))
+						return true;
+					if (p.startsWith("raw_") && (p.endsWith("_pie") || p.endsWith("_pizza") || p.endsWith("_cake")))
+						return true;
+					return java.util.Set.of("icing", "frosting", "dough", "batter", "flour", "broth", "sugar", "salt", "butter", "cream", "cheese", "vinegar", "oil", "mayonnaise", "mayonaise", "ketchup", "raw_pasta").contains(p)
+							|| p.endsWith("_icing") || p.endsWith("_frosting") || p.endsWith("_dough") || p.endsWith("_batter") || p.endsWith("_flour") || p.endsWith("_broth") || p.endsWith("_sauce") || p.endsWith("_extract") || p.endsWith("_oil");
+				}
+
+				boolean preparedName(String id) {
+					String p = path(id);
+					return p.contains("cake_slice") || p.contains("pie_slice") || p.contains("bread_slice") || p.contains("pizza_slice") || p.endsWith("cheesecake") || p.contains("charcuterie_plate") || p.contains("_plate_plain")
+							|| p.contains("_plate_holiday") || p.contains("_plate_delftware") || p.endsWith("_cake") || p.endsWith("_pie") || p.endsWith("_loaf") || p.endsWith("_sandwich") || p.endsWith("_pizza") || p.endsWith("_stew")
+							|| p.endsWith("_soup") || p.endsWith("_curry") || p.endsWith("_dinner") || p.endsWith("_meal") && classificationRules.isEdible(id);
+				}
+
+				boolean rawTagged(String id) {
+					return classificationRules.matchesTags(id, classificationRules.ingredientTags);
+				}
+
+				boolean starterCandidate(String id, String role, boolean canServe) {
+					return "INGREDIENT".equals(role) && canServe && !pantryName(id) && !plantingSeedName(id) && !preparedName(id) && recipes(id).isEmpty() && basicSupplies.contains(id);
+				}
+
+				boolean foundationalPantry(String id) {
+					String p = path(id);
+					if (p.endsWith("item"))
+						p = p.substring(0, p.length() - 4);
+					return java.util.Set.of("flour", "wheatflour", "dough", "wheatdough", "breaddough", "salt", "sugar", "rawpasta").contains(p.replace("_", ""));
+				}
+
+				String correctedRole(String id, String oldRole) {
+					if (classificationRules.overrides.containsKey(id))
+						return classificationRules.overrides.get(id);
+					if (classificationRules.pantryItems.contains(id) || pantryName(id))
+						return "INGREDIENT";
+					if (classificationRules.preparedItems.contains(id))
+						return "FOOD";
+					if ("minecraft:melon_slice".equals(id) || "farmersdelight:pumpkin_slice".equals(id))
+						return "INGREDIENT";
+					if (preparedName(id))
+						return "FOOD";
+					if (classificationRules.matchesTags(id, classificationRules.preparedTags))
+						return "FOOD";
+					if (rawTagged(id))
+						return "INGREDIENT";
+					return oldRole;
+				}
+
+				boolean portionIntermediate(String id) {
+					return !classificationRules.overrides.containsKey(id) && !classificationRules.isEdible(id) && !pantryName(id) && (preparedSources.contains(id) || preparedName(id));
+				}
+
+				int declaredSourceMinimum(String id, int tiers) {
+					int minimum = acquisitionSources.minimumTier(id, tiers);
+					// Exact compatibility profile: these routes originate from Ad Astra's Moon cheese ore.
+					if (java.util.Set.of("ad_astra:cheese", "ad_astra:cheese_block", "ad_astra:moon_cheese_ore").contains(id))
+						minimum = Math.max(minimum, (int) Math.ceil((tiers - 1) * 0.75));
+					return minimum;
+				}
+
+				int sourceMinimum(String id, int tiers) {
+					return Math.min(tiers - 1, Math.max(declaredSourceMinimum(id, tiers), sourceFloors.getOrDefault(id, 0)));
+				}
+
+				void measureSourceFloors() {
+					for (var node : planner.nodes.values()) {
+						if ("BLOCKED".equals(node.kind) || "ALIAS".equals(node.kind))
+							continue;
+						if ("AUXILIARY".equals(node.kind))
+							sourceFloors.put(node.id, 0);
+						else if ("EXTERNAL".equals(node.kind) || "INGREDIENT".equals(node.kind) && node.routes.isEmpty())
+							sourceFloors.put(node.id, declaredSourceMinimum(node.id, planner.tierCount));
+					}
+					for (int pass = 0; pass <= planner.nodes.size(); pass++) {
+						boolean changed = false;
+						for (var node : planner.nodes.values()) {
+							if ("BLOCKED".equals(node.kind) || "EXTERNAL".equals(node.kind) || "AUXILIARY".equals(node.kind))
+								continue;
+							int best = sourceFloors.getOrDefault(node.id, SplitTierPlanner.UNREACHABLE);
+							if ("ALIAS".equals(node.kind))
+								best = Math.min(best, sourceFloors.getOrDefault(node.aliasOf, SplitTierPlanner.UNREACHABLE));
+							else
+								for (var value : recipeData.get(node.id)) {
+									var recipe = value.getAsJsonObject();
+									if (packingOnly(node.id, recipe))
+										continue;
+									int required = declaredSourceMinimum(node.id, planner.tierCount);
+									for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+										int easiest = SplitTierPlanner.UNREACHABLE;
+										for (var input : slot.getAsJsonArray())
+											easiest = Math.min(easiest, sourceFloors.getOrDefault(input.getAsString(), SplitTierPlanner.UNREACHABLE));
+										required = Math.max(required, easiest);
+									}
+									best = Math.min(best, required);
+								}
+							if (best < sourceFloors.getOrDefault(node.id, SplitTierPlanner.UNREACHABLE)) {
+								sourceFloors.put(node.id, best);
+								changed = true;
+							}
+						}
+						if (!changed)
+							break;
+					}
+					for (var node : planner.nodes.values())
+						if ("INGREDIENT".equals(node.kind) && !sourceFloors.containsKey(node.id))
+							sourceFloors.put(node.id, planner.ingredientTierCount - 1);
+				}
+
+				boolean evidencedAcquisition(String id) {
+					var source = acquisitionSources.describe(id, planner.tierCount);
+					if (!source.has("status") || !java.util.Set.of("estimated", "estimated_partial").contains(source.get("status").getAsString()) || !source.has("system") || source.get("system").getAsString().isEmpty())
+						return false;
+					if (source.has("confidence") && "assumed".equals(source.get("confidence").getAsString()))
+						return false;
+					return source.has("requirements");
+				}
+
+				java.util.List<java.util.List<String>> acquisitionInputs(String id) {
+					java.util.List<java.util.List<String>> slots = new java.util.ArrayList<>();
+					for (var value : acquisitionSources.describe(id, planner.tierCount).getAsJsonArray("requirements")) {
+						java.util.List<String> alternatives = new java.util.ArrayList<>();
+						for (var input : value.getAsJsonArray()) {
+							String key = input.getAsString();
+							if (key.startsWith("item|") && itemsById.containsKey(key.substring(5)))
+								alternatives.add(key.substring(5));
+						}
+						// Unsupported fluids/entities must not silently turn into an empty, free slot.
+						if (alternatives.isEmpty())
+							return null;
+						slots.add(alternatives);
+					}
+					return slots;
+				}
+
+				int ingredientAccessMinimum(String id, int sourceMinimum) {
+					// Vanilla startup profiles: rabbit meat and honey are not initial supply choices.
+					return "minecraft:rabbit".equals(id) || "minecraft:honey_bottle".equals(id) ? Math.max(1, sourceMinimum) : sourceMinimum;
+				}
+
+				boolean culinaryIngredient(String id) {
+					if (auxiliary(id) || excludedFoods.contains(id) || classificationRules.excludedItems.contains(id))
+						return false;
+					if ("FOOD".equals(classificationRules.hint(id)) && !pantryName(id) && !rawTagged(id))
+						return false;
+					return vanillaIngredients.contains(id) || classificationRules.culinaryIds.contains(id) || classificationRules.pantryItems.contains(id) || splitSources.inputs.contains(id) && rawTagged(id)
+							|| (foodProgression.recipes.containsKey(id) && classificationRules.isCulinary(id));
+				}
+
+				boolean culinaryInput(String id) {
+					return !auxiliary(id) && (catalog.containsKey(id) || vanillaIngredients.contains(id) || classificationRules.isCulinary(id) || classificationRules.pantryItems.contains(id) || pantryName(id) || preparedSources.contains(id)
+							|| preparedName(id) || splitSources.inputs.contains(id) && rawTagged(id));
+				}
+
+				com.google.gson.JsonObject ingredient(String id) {
+					com.google.gson.JsonObject entry = new com.google.gson.JsonObject();
+					entry.addProperty("id", id);
+					entry.addProperty("role", "INGREDIENT");
+					entry.addProperty("role_reason", "non_edible_culinary_ingredient");
+					entry.addProperty("edible", false);
+					entry.addProperty("can_serve", false);
+					entry.addProperty("starter_eligible", false);
+					entry.add("acquisition", acquisitionSources.describe(id, planner.tierCount));
+					double score = scoreResolver.resolve(id);
+					entry.addProperty("score", Double.isFinite(score) ? score : 1.0);
+					entry.addProperty("nutrition", 0);
+					entry.addProperty("saturation", 0);
+					return entry;
+				}
+
+				java.util.List<FoodScoreResolver.IndexedRecipe> allowedRecipes(String id) {
+					if (allowedRecipeCache.containsKey(id))
+						return allowedRecipeCache.get(id);
+					java.util.List<FoodScoreResolver.IndexedRecipe> result = new java.util.ArrayList<>();
+					for (var recipe : scoreResolver.rawRecipesFor(id)) {
+						if (!classificationRules.matchesType(recipe.method, classificationRules.allowedTypes) && !"omnichef:sushi_rolling".equals(recipe.method))
+							continue;
+						if (!recipe.slots.isEmpty())
+							result.add(recipe);
+					}
+					for (var imported : splitSources.recipes.getOrDefault(id, java.util.Collections.emptyList())) {
+						var recipe = scoreResolver.new IndexedRecipe(null, imported.method, imported.count, imported.slots);
+						if (imported.evidence.has("portion_source")) {
+							recipe.portionSource = imported.evidence.get("portion_source").getAsString();
+							recipe.servings = imported.count;
+						}
+						result.add(recipe);
+						importedEvidence.put(recipe, imported.evidence);
+					}
+					allowedRecipeCache.put(id, result);
+					return result;
+				}
+
+				java.util.List<FoodScoreResolver.IndexedRecipe> recipes(String id) {
+					if (auxiliary(id))
+						return java.util.Collections.emptyList();
+					boolean dish = catalog.containsKey(id) && "FOOD".equals(catalog.get(id).get("role").getAsString());
+					if (dish || preparedSources.contains(id) || preparedName(id) || classificationRules.pantryItems.contains(id) || pantryName(id))
+						return allowedRecipes(id);
+					// Raw ingredients are acquisition leaves. Farming, essence recipes and packaging do not define culinary discovery prerequisites.
+					if (catalog.containsKey(id)) {
+						java.util.List<FoodScoreResolver.IndexedRecipe> thermal = new java.util.ArrayList<>();
+						for (var recipe : allowedRecipes(id))
+							if (recipe.method.equals("minecraft:smelting") || recipe.method.equals("minecraft:smoking") || recipe.method.equals("minecraft:campfire_cooking"))
+								thermal.add(recipe);
+						return thermal;
+					}
+					if (classificationRules.isCulinary(id))
+						return allowedRecipes(id);
+					return java.util.Collections.emptyList();
+				}
+
+				double rank(String id, String role, com.google.gson.JsonObject entry) {
+					double work = kitchenCosts.getOrDefault(id, "FOOD".equals(role) ? 6.0 : 1.0);
+					int depth = kitchenDepths.getOrDefault(id, 0);
+					if ("FOOD".equals(role)) {
+						double structural = scoreResolver.recipeScoreCache.getOrDefault(id, 0.0);
+						if (!Double.isFinite(structural))
+							structural = 0;
+						return Math.round((work + depth * 1.5 + Math.log1p(Math.max(0, structural)) * 0.5) * 100.0) / 100.0;
+					}
+					double source = acquisitionSources.costs.getOrDefault("item|" + id, 0.0);
+					if (!Double.isFinite(source))
+						source = sourceMinimum(id, planner.tierCount) * classificationRules.stepsPerTier;
+					source = Math.max(0, source);
+					// Availability and production effort come first; usefulness distinguishes cheap base ingredients.
+					double usefulness = firstFoodUse.containsKey(id) ? 20.0 * Math.min(1.0, firstFoodUse.get(id) / foodRankReference) : 25.0;
+					double result = source * 10.0 + work * 2.0 + usefulness + (3 - Math.min(3, foodUses.getOrDefault(id, 0))) * 0.5;
+					return Math.round(result * 100.0) / 100.0;
+				}
+
+				void measureIngredientRanks() {
+					// A processing step cannot rank before the easiest complete route's raw supplies.
+					// This orders discovery choices; it does not require unlocking each raw input to buy/use a prepared ingredient.
+					java.util.Map<String, Double> bounds = new java.util.HashMap<>();
+					for (var node : planner.nodes.values()) {
+						if ("INGREDIENT".equals(node.kind) && catalog.containsKey(node.id)) {
+							double base = rank(node.id, "INGREDIENT", catalog.get(node.id));
+							ingredientBaseRanks.put(node.id, base);
+							if (recipeData.get(node.id).isEmpty())
+								bounds.put(node.id, base);
+						} else if ("AUXILIARY".equals(node.kind) || "EXTERNAL".equals(node.kind))
+							bounds.put(node.id, 0.0);
+					}
+					for (int pass = 0; pass <= planner.nodes.size(); pass++) {
+						boolean changed = false;
+						for (var node : planner.nodes.values()) {
+							if ("BLOCKED".equals(node.kind) || "AUXILIARY".equals(node.kind) || "EXTERNAL".equals(node.kind))
+								continue;
+							double best = bounds.getOrDefault(node.id, Double.POSITIVE_INFINITY);
+							if ("ALIAS".equals(node.kind))
+								best = Math.min(best, bounds.getOrDefault(node.aliasOf, Double.POSITIVE_INFINITY));
+							else
+								for (var value : recipeData.get(node.id)) {
+									var recipe = value.getAsJsonObject();
+									if (packingOnly(node.id, recipe))
+										continue;
+									double inputFloor = 0.0;
+									for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+										double easiest = Double.POSITIVE_INFINITY;
+										for (var input : slot.getAsJsonArray())
+											easiest = Math.min(easiest, bounds.getOrDefault(input.getAsString(), Double.POSITIVE_INFINITY));
+										inputFloor = Math.max(inputFloor, easiest);
+									}
+									if (!Double.isFinite(inputFloor))
+										continue;
+									double candidate = Math.max(ingredientBaseRanks.getOrDefault(node.id, 0.0), inputFloor + 0.25);
+									best = Math.min(best, candidate);
+								}
+							if (best + 0.00001 < bounds.getOrDefault(node.id, Double.POSITIVE_INFINITY)) {
+								bounds.put(node.id, best);
+								changed = true;
+							}
+						}
+						if (!changed)
+							break;
+					}
+					for (var entry : ingredientBaseRanks.entrySet())
+						ingredientRanks.put(entry.getKey(), Math.round(Math.max(entry.getValue(), bounds.getOrDefault(entry.getKey(), entry.getValue())) * 100.0) / 100.0);
+				}
+
+				void measureFoundationalPromotions() {
+					java.util.Set<String> ready = new java.util.HashSet<>();
+					for (var node : planner.nodes.values())
+						if (sourceMinimum(node.id, planner.tierCount) == 0 && (basicSupplies.contains(node.id) || "AUXILIARY".equals(node.kind) || "EXTERNAL".equals(node.kind)))
+							ready.add(node.id);
+					boolean changed;
+					do {
+						changed = false;
+						for (var node : planner.nodes.values()) {
+							if (ready.contains(node.id) || sourceMinimum(node.id, planner.tierCount) > 0)
+								continue;
+							if ("ALIAS".equals(node.kind)) {
+								if (ready.contains(node.aliasOf) && ready.add(node.id))
+									changed = true;
+								continue;
+							}
+							boolean foundation = "INGREDIENT".equals(node.kind) && catalog.containsKey(node.id) && foundationalPantry(node.id) && kitchenCosts.getOrDefault(node.id, Double.POSITIVE_INFINITY) <= 6.0
+									&& kitchenDepths.getOrDefault(node.id, 0) <= 3;
+							if (!foundation && !"FOOD".equals(node.kind) && !"INTERMEDIATE".equals(node.kind))
+								continue;
+							for (var value : recipeData.get(node.id)) {
+								var recipe = value.getAsJsonObject();
+								if (packingOnly(node.id, recipe) || recipe.has("source_evidence") && recipe.getAsJsonObject("source_evidence").has("source_conditions"))
+									continue;
+								boolean possible = true;
+								for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+									boolean any = false;
+									for (var input : slot.getAsJsonArray())
+										if (ready.contains(input.getAsString()))
+											any = true;
+									if (!any) {
+										possible = false;
+										break;
+									}
+								}
+								if (possible) {
+									if (ready.add(node.id))
+										changed = true;
+									if (foundation)
+										foundationalPromotions.add(node.id);
+									break;
+								}
+							}
+						}
+					} while (changed);
+				}
+
+				void measureKitchenWork() {
+					// Recompute culinary production cost independently of nutrition and legacy farming/essence chains.
+					for (var node : planner.nodes.values()) {
+						if ("BLOCKED".equals(node.kind) || "ALIAS".equals(node.kind))
+							continue;
+						if (("FOOD".equals(node.kind) || "INTERMEDIATE".equals(node.kind)) && recipeData.get(node.id).isEmpty())
+							continue;
+						boolean processed = !recipeData.get(node.id).isEmpty();
+						if (processed && !"EXTERNAL".equals(node.kind) && !"AUXILIARY".equals(node.kind))
+							continue;
+						double source = acquisitionSources.costs.getOrDefault("item|" + node.id, 0.0);
+						if (!Double.isFinite(source))
+							source = node.minimum * classificationRules.stepsPerTier;
+						double cost = "AUXILIARY".equals(node.kind) ? 0.0 : 1.0 + Math.min(12, Math.max(0, source));
+						if ("EXTERNAL".equals(node.kind)) {
+							double legacy = scoreResolver.resolve(node.id);
+							if (Double.isFinite(legacy))
+								cost += Math.min(12, Math.log1p(Math.max(0, legacy)));
+						}
+						kitchenCosts.put(node.id, cost);
+						kitchenDepths.put(node.id, 0);
+					}
+					for (int pass = 0; pass <= planner.nodes.size(); pass++) {
+						boolean changed = false;
+						for (var node : planner.nodes.values()) {
+							if ("ALIAS".equals(node.kind)) {
+								if (kitchenCosts.containsKey(node.aliasOf)
+										&& (Double.compare(kitchenCosts.get(node.aliasOf), kitchenCosts.getOrDefault(node.id, Double.POSITIVE_INFINITY)) != 0 || !kitchenDepths.get(node.aliasOf).equals(kitchenDepths.get(node.id)))) {
+									kitchenCosts.put(node.id, kitchenCosts.get(node.aliasOf));
+									kitchenDepths.put(node.id, kitchenDepths.get(node.aliasOf));
+									changed = true;
+								}
+								continue;
+							}
+							if ("BLOCKED".equals(node.kind) || "EXTERNAL".equals(node.kind) || "AUXILIARY".equals(node.kind))
+								continue;
+							for (var value : recipeData.get(node.id)) {
+								var recipe = value.getAsJsonObject();
+								if (packingOnly(node.id, recipe))
+									continue;
+								double total = 0;
+								int depth = 0;
+								boolean possible = true;
+								for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+									double best = Double.POSITIVE_INFINITY;
+									int bestDepth = 0;
+									for (var input : slot.getAsJsonArray()) {
+										String id = input.getAsString();
+										double candidate = kitchenCosts.getOrDefault(id, Double.POSITIVE_INFINITY);
+										if (candidate < best) {
+											best = candidate;
+											bestDepth = kitchenDepths.getOrDefault(id, 0);
+										}
+									}
+									if (!Double.isFinite(best)) {
+										possible = false;
+										break;
+									}
+									total += best;
+									depth = Math.max(depth, bestDepth);
+								}
+								if (!possible)
+									continue;
+								String method = recipe.get("method").getAsString();
+								double step = method.contains("cutting") || method.contains("slicing") ? 0.5 : 1.5;
+								double cost = Math.max(0.25, (total + step) / Math.max(1, recipe.get("outputCount").getAsInt()));
+								depth++;
+								if (cost + depth * 1.5 + 0.0001 < kitchenCosts.getOrDefault(node.id, Double.POSITIVE_INFINITY) + kitchenDepths.getOrDefault(node.id, 0) * 1.5) {
+									kitchenCosts.put(node.id, cost);
+									kitchenDepths.put(node.id, depth);
+									changed = true;
+								}
+							}
+						}
+						if (!changed)
+							break;
+					}
+				}
+
+				void measureFoodUses() {
+					firstFoodUse.clear();
+					foodUses.clear();
+					java.util.List<Double> foodRanks = new java.util.ArrayList<>();
+					for (var entry : catalog.entrySet())
+						if ("FOOD".equals(entry.getValue().get("role").getAsString()))
+							foodRanks.add(Math.max(0.1, rank(entry.getKey(), "FOOD", entry.getValue())));
+					java.util.Collections.sort(foodRanks);
+					if (!foodRanks.isEmpty())
+						foodRankReference = Math.max(1.0, foodRanks.get((int) Math.floor((foodRanks.size() - 1) * 0.75)));
+					for (var entry : catalog.entrySet()) {
+						if (!"FOOD".equals(entry.getValue().get("role").getAsString()))
+							continue;
+						double foodRank = Math.max(0.1, rank(entry.getKey(), "FOOD", entry.getValue()));
+						java.util.ArrayDeque<String> pending = new java.util.ArrayDeque<>();
+						java.util.Set<String> visited = new java.util.HashSet<>();
+						pending.add(entry.getKey());
+						while (!pending.isEmpty()) {
+							String id = pending.removeFirst();
+							if (!visited.add(id))
+								continue;
+							if (aliases.containsKey(id)) {
+								pending.addLast(aliases.get(id));
+								continue;
+							}
+							var ingredient = catalog.get(id);
+							if (ingredient != null && "INGREDIENT".equals(ingredient.get("role").getAsString())) {
+								firstFoodUse.merge(id, foodRank, Math::min);
+								foodUses.merge(id, 1, Integer::sum);
+							}
+							for (var recipe : recipes(id))
+								for (var slot : recipe.slots)
+									for (String input : slot)
+										if (!auxiliary(input) && !blocked.contains(input))
+											pending.addLast(input);
+						}
+					}
+				}
+
+				com.google.gson.JsonArray routeJson(java.util.List<java.util.List<String>> route) {
+					com.google.gson.JsonArray slots = new com.google.gson.JsonArray();
+					for (var slot : route) {
+						com.google.gson.JsonArray alternatives = new com.google.gson.JsonArray();
+						for (String id : slot)
+							alternatives.add(id);
+						slots.add(alternatives);
+					}
+					return slots;
+				}
+
+				String singleMaterial(com.google.gson.JsonArray slots) {
+					String material = null;
+					for (var value : slots) {
+						var alternatives = value.getAsJsonArray();
+						if (alternatives.size() != 1)
+							return null;
+						String input = alternatives.get(0).getAsString();
+						if (material != null && !material.equals(input))
+							return null;
+						material = input;
+					}
+					return material;
+				}
+
+				boolean packingOnly(String output, com.google.gson.JsonObject recipe) {
+					var slots = recipe.getAsJsonArray("ingredientSlots");
+					String input = singleMaterial(slots);
+					if (input == null || output.equals(input) || !recipeData.containsKey(input))
+						return false;
+					for (var value : recipeData.get(input)) {
+						var reverse = value.getAsJsonObject();
+						var reverseSlots = reverse.getAsJsonArray("ingredientSlots");
+						if (!output.equals(singleMaterial(reverseSlots)))
+							continue;
+						long consumed = (long) slots.size() * reverseSlots.size();
+						long produced = (long) recipe.get("outputCount").getAsInt() * reverse.get("outputCount").getAsInt();
+						if (consumed == produced && (slots.size() != recipe.get("outputCount").getAsInt() || reverseSlots.size() != reverse.get("outputCount").getAsInt()))
+							return true;
+					}
+					return false;
+				}
+
+				java.util.Set<String> neededIngredients() {
+					java.util.Set<String> allIngredients = new java.util.HashSet<>();
+					for (var node : planner.nodes.values())
+						if ("INGREDIENT".equals(node.kind))
+							allIngredients.add(node.id);
+					var usable = planner.preparableNodes(allIngredients);
+					java.util.Set<String> visited = new java.util.HashSet<>(), needed = new java.util.HashSet<>();
+					java.util.ArrayDeque<String> pending = new java.util.ArrayDeque<>();
+					for (var node : planner.nodes.values())
+						if (node.canServe && usable.contains(node.id))
+							pending.addLast(node.id);
+					while (!pending.isEmpty()) {
+						String id = pending.removeFirst();
+						if (!visited.add(id))
+							continue;
+						var node = planner.nodes.get(id);
+						if (node == null)
+							continue;
+						if ("ALIAS".equals(node.kind)) {
+							pending.addLast(node.aliasOf);
+							continue;
+						}
+						if ("INGREDIENT".equals(node.kind))
+							needed.add(id);
+						for (var value : recipeData.get(id)) {
+							var recipe = value.getAsJsonObject();
+							if (packingOnly(id, recipe))
+								continue;
+							var slots = recipe.getAsJsonArray("ingredientSlots");
+							boolean feasible = true;
+							for (var slot : slots) {
+								boolean available = false;
+								for (var input : slot.getAsJsonArray())
+									if (usable.contains(input.getAsString())) {
+										available = true;
+										break;
+									}
+								if (!available) {
+									feasible = false;
+									break;
+								}
+							}
+							if (feasible)
+								for (var slot : slots)
+									for (var input : slot.getAsJsonArray())
+										if (usable.contains(input.getAsString()))
+											pending.addLast(input.getAsString());
+						}
+					}
+					return needed;
+				}
+
+				boolean restorableInput(String id, java.util.Set<String> referenced) {
+					if (!itemsById.containsKey(id) || !referenced.contains(id) || excludedFoods.contains(id) || classificationRules.excludedItems.contains(id) || auxiliary(id) || !culinaryInput(id))
+						return false;
+					for (var value : excludedFoodsArray) {
+						var excluded = value.getAsJsonObject();
+						if (id.equals(excluded.get("id").getAsString()) && (!excluded.has("reason") || !"no_nutritional_value".equals(excluded.get("reason").getAsString())))
+							return false;
+					}
+					return true;
+				}
+
+				java.util.Set<String> conditionFreeNodes() {
+					java.util.Set<String> usable = new java.util.HashSet<>();
+					for (var node : planner.nodes.values())
+						if (java.util.Set.of("INGREDIENT", "AUXILIARY", "EXTERNAL").contains(node.kind))
+							usable.add(node.id);
+					boolean changed;
+					do {
+						changed = false;
+						for (var node : planner.nodes.values()) {
+							if (usable.contains(node.id))
+								continue;
+							if ("ALIAS".equals(node.kind)) {
+								if (usable.contains(node.aliasOf) && usable.add(node.id))
+									changed = true;
+								continue;
+							}
+							if (!"FOOD".equals(node.kind) && !"INTERMEDIATE".equals(node.kind))
+								continue;
+							for (var value : recipeData.get(node.id)) {
+								var recipe = value.getAsJsonObject();
+								if (recipe.has("source_evidence") && recipe.getAsJsonObject("source_evidence").has("source_conditions"))
+									continue;
+								boolean possible = true;
+								for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+									boolean any = false;
+									for (var input : slot.getAsJsonArray())
+										if (usable.contains(input.getAsString()))
+											any = true;
+									if (!any) {
+										possible = false;
+										break;
+									}
+								}
+								if (possible) {
+									if (usable.add(node.id))
+										changed = true;
+									break;
+								}
+							}
+						}
+					} while (changed);
+					return usable;
+				}
+
+				com.google.gson.JsonObject build() {
+					preparedSources.addAll(splitSources.wholeSources);
+					for (var entry : disabledFoodsArray)
+						blocked.add(entry.getAsJsonObject().get("id").getAsString());
+					for (var entry : excludedFoodsArray)
+						blocked.add(entry.getAsJsonObject().get("id").getAsString());
+					blocked.addAll(excludedFoods);
+					blocked.addAll(classificationRules.excludedItems);
+					for (var old : allFoods) {
+						String id = old.get("id").getAsString();
+						com.google.gson.JsonObject entry = old.deepCopy();
+						String previousRole = old.get("role").getAsString(), role = correctedRole(id, previousRole);
+						entry.addProperty("role", role);
+						if (!role.equals(previousRole)) {
+							entry.addProperty("role_reason", "split_role_corrected_from_" + previousRole);
+							correctedRoles.put(id, previousRole + " -> " + role);
+						}
+						for (String key : java.util.List.of("tier", "ranking_score", "base_exp", "score_position"))
+							entry.remove(key);
+						entry.addProperty("edible", true);
+						entry.addProperty("can_serve", true);
+						entry.addProperty("legacy_tier", old.get("tier").getAsInt());
+						entry.addProperty("legacy_base_exp", old.get("base_exp").getAsInt());
+						entry.remove("progression");
+						catalog.put(id, entry);
+					}
+					for (var entry : catalog.entrySet())
+						if ("FOOD".equals(entry.getValue().get("role").getAsString()))
+							for (var recipe : scoreResolver.rawRecipesFor(entry.getKey()))
+								if (!recipe.portionSource.isEmpty())
+									preparedSources.add(recipe.portionSource);
+					java.util.Set<String> additions = new java.util.TreeSet<>();
+					for (String id : itemsById.keySet())
+						if (!catalog.containsKey(id) && !blocked.contains(id) && !classificationRules.isEdible(id) && !auxiliary(id) && (culinaryIngredient(id) || pantryName(id))) {
+							if (!portionIntermediate(id))
+								additions.add(id);
+						}
+					java.util.Set<String> unsafeIngredients = new java.util.TreeSet<>();
+					java.util.Set<String> referencedInputs = new java.util.HashSet<>(foodProgression.recipes.keySet());
+					referencedInputs.addAll(splitSources.inputs);
+					for (var food : allFoods)
+						for (var recipe : scoreResolver.rawRecipesFor(food.get("id").getAsString()))
+							for (var slot : recipe.slots)
+								referencedInputs.addAll(slot);
+					for (var value : disabledFoodsArray) {
+						var entry = value.getAsJsonObject();
+						String id = entry.get("id").getAsString();
+						if (restorableInput(id, referencedInputs)) {
+							unsafeIngredients.add(id);
+							blocked.remove(id);
+						}
+					}
+					for (var value : excludedFoodsArray) {
+						String id = value.getAsJsonObject().get("id").getAsString();
+						if (restorableInput(id, referencedInputs)) {
+							unsafeIngredients.add(id);
+							blocked.remove(id);
+						}
+					}
+					for (String id : new java.util.ArrayList<>(unsafeIngredients))
+						if (portionIntermediate(id))
+							unsafeIngredients.remove(id);
+					int ingredientCount = additions.size() + unsafeIngredients.size(), foodCount = 0;
+					for (var entry : catalog.values())
+						if ("INGREDIENT".equals(entry.get("role").getAsString()))
+							ingredientCount++;
+						else
+							foodCount++;
+					int ingredientTierCount = Math.max(3, Math.min(10, (ingredientCount + 79) / 80));
+					int splitTierCount = Math.max(ingredientTierCount, Math.max(5, Math.min(10, (foodCount + 39) / 40)));
+					planner = new SplitTierPlanner(ingredientTierCount, splitTierCount);
+					for (String id : additions)
+						catalog.put(id, ingredient(id));
+					for (String id : unsafeIngredients) {
+						var entry = ingredient(id);
+						entry.addProperty("edible", classificationRules.isEdible(id));
+						entry.addProperty("role_reason", "culinary_input_not_safe_to_serve");
+						catalog.put(id, entry);
+					}
+					// A planting seed is a culinary discovery only when an actual kitchen recipe explicitly names it.
+					// Broad seed-tag alternatives do not turn hundreds of propagation items into restaurant products.
+					for (var entry : catalog.entrySet())
+						if ("FOOD".equals(entry.getValue().get("role").getAsString()) || pantryName(entry.getKey()))
+							for (var recipe : allowedRecipes(entry.getKey()))
+								for (var slot : recipe.slots)
+									if (slot.size() == 1 && plantingSeedName(slot.get(0)))
+										culinarySeeds.add(slot.get(0));
+					for (String id : new java.util.ArrayList<>(catalog.keySet())) {
+						if (plantingSeedName(id) && !culinarySeeds.contains(id) && !classificationRules.overrides.containsKey(id)) {
+							catalog.remove(id);
+							plantingSeeds.add(id);
+							blocked.add(id);
+							continue;
+						}
+						String base = cosmeticBase(id);
+						if (!base.equals(id))
+							aliases.put(id, base);
+					}
+					com.google.gson.JsonObject discoveryVariants = new com.google.gson.JsonObject();
+					for (var alias : aliases.entrySet()) {
+						var original = catalog.remove(alias.getKey());
+						if (!discoveryVariants.has(alias.getValue()))
+							discoveryVariants.add(alias.getValue(), new com.google.gson.JsonArray());
+						var variant = new com.google.gson.JsonObject();
+						variant.addProperty("id", alias.getKey());
+						variant.addProperty("can_serve", original.get("can_serve").getAsBoolean());
+						variant.addProperty("role", original.get("role").getAsString());
+						discoveryVariants.getAsJsonArray(alias.getValue()).add(variant);
+					}
+					ingredientCount = 0;
+					foodCount = 0;
+					for (var entry : catalog.values())
+						if ("INGREDIENT".equals(entry.get("role").getAsString()))
+							ingredientCount++;
+						else
+							foodCount++;
+					measureFoodUses();
+					for (var entry : catalog.entrySet()) {
+						String id = entry.getKey(), role = entry.getValue().get("role").getAsString();
+						int minimum = sourceMinimum(id, "INGREDIENT".equals(role) ? ingredientTierCount : splitTierCount);
+						if ("INGREDIENT".equals(role))
+							minimum = ingredientAccessMinimum(id, minimum);
+						double ranking = rank(id, role, entry.getValue());
+						entry.getValue().addProperty("ranking_score", ranking);
+						var node = planner.add(id, role, minimum, ranking, entry.getValue().get("can_serve").getAsBoolean());
+						node.starterEligible = starterCandidate(id, role, node.canServe);
+						if ("INGREDIENT".equals(role) && basicSupplies.contains(id))
+							node.priority = -2;
+					}
+					for (var alias : aliases.entrySet())
+						planner.add(alias.getKey(), "ALIAS", 0, 0.0, false).aliasOf = alias.getValue();
+					java.util.ArrayDeque<String> pending = new java.util.ArrayDeque<>(catalog.keySet());
+					pending.addAll(aliases.keySet());
+					java.util.Set<String> processed = new java.util.HashSet<>();
+					while (!pending.isEmpty()) {
+						String id = pending.removeFirst();
+						if (!processed.add(id))
+							continue;
+						var node = planner.nodes.get(id);
+						com.google.gson.JsonArray variants = new com.google.gson.JsonArray();
+						if ("FOOD".equals(node.kind) || "INTERMEDIATE".equals(node.kind) || "INGREDIENT".equals(node.kind) || "ALIAS".equals(node.kind)) {
+							for (var recipe : "ALIAS".equals(node.kind) ? allowedRecipes(id) : recipes(id)) {
+								node.routes.add(recipe.slots);
+								com.google.gson.JsonObject variant = new com.google.gson.JsonObject();
+								variant.addProperty("method", recipe.method);
+								variant.addProperty("outputCount", recipe.outputCount);
+								variant.add("ingredientSlots", routeJson(recipe.slots));
+								if (!recipe.portionSource.isEmpty()) {
+									variant.addProperty("portion_source", recipe.portionSource);
+									variant.addProperty("servings", recipe.servings);
+								}
+								if (importedEvidence.containsKey(recipe))
+									variant.add("source_evidence", importedEvidence.get(recipe));
+								variants.add(variant);
+								for (var slot : recipe.slots)
+									for (String input : slot) {
+										if (planner.nodes.containsKey(input))
+											continue;
+										String kind = blocked.contains(input) || plantingSeedName(input) && !culinarySeeds.contains(input) && !classificationRules.overrides.containsKey(input) || !itemsById.containsKey(input)
+												? "BLOCKED"
+												: (auxiliary(input) ? "AUXILIARY" : (!recipes(input).isEmpty() ? "INTERMEDIATE" : (culinaryInput(input) ? "BLOCKED" : "EXTERNAL")));
+										planner.add(input, kind, sourceMinimum(input, splitTierCount), 0.0, false);
+										pending.addLast(input);
+									}
+							}
+							// Only an exported source route is evidence. An assumed base is not a discovered acquisition method.
+							if ("FOOD".equals(node.kind) && variants.isEmpty() && scoreResolver.rawRecipesFor(id).isEmpty()) {
+								var slots = evidencedAcquisition(id) ? acquisitionInputs(id) : null;
+								if (slots != null) {
+									node.routes.add(slots);
+									var variant = new com.google.gson.JsonObject();
+									variant.addProperty("method", "omnichef:acquisition");
+									variant.addProperty("outputCount", 1);
+									variant.add("ingredientSlots", routeJson(slots));
+									variant.add("source_evidence", acquisitionSources.describe(id, splitTierCount));
+									variants.add(variant);
+									for (var slot : slots)
+										for (String input : slot)
+											if (!planner.nodes.containsKey(input)) {
+												String kind = blocked.contains(input) ? "BLOCKED" : auxiliary(input) ? "AUXILIARY" : !recipes(input).isEmpty() ? "INTERMEDIATE" : culinaryInput(input) ? "BLOCKED" : "EXTERNAL";
+												planner.add(input, kind, sourceMinimum(input, splitTierCount), 0.0, false);
+												pending.addLast(input);
+											}
+								} else
+									unverifiedAcquisition.add(id);
+							}
+						}
+						recipeData.put(id, variants);
+					}
+					var needed = neededIngredients();
+					needed.addAll(aliases.values());
+					com.google.gson.JsonArray filteredIngredients = new com.google.gson.JsonArray();
+					java.util.List<String> unnecessary = new java.util.ArrayList<>();
+					for (var entry : catalog.entrySet())
+						if ("INGREDIENT".equals(entry.getValue().get("role").getAsString()) && !entry.getValue().get("can_serve").getAsBoolean() && !needed.contains(entry.getKey()))
+							unnecessary.add(entry.getKey());
+					for (String id : unnecessary) {
+						catalog.remove(id);
+						com.google.gson.JsonObject removed = new com.google.gson.JsonObject();
+						removed.addProperty("id", id);
+						removed.addProperty("reason", "no_non_packing_path_to_servable_product");
+						filteredIngredients.add(removed);
+					}
+					for (String id : plantingSeeds) {
+						var removed = new com.google.gson.JsonObject();
+						removed.addProperty("id", id);
+						removed.addProperty("reason", "planting_seed_without_explicit_culinary_use");
+						filteredIngredients.add(removed);
+					}
+					additions.retainAll(catalog.keySet());
+					unsafeIngredients.retainAll(catalog.keySet());
+					ingredientCount -= unnecessary.size();
+					ingredientTierCount = Math.max(3, Math.min(10, (ingredientCount + 79) / 80));
+					splitTierCount = Math.max(ingredientTierCount, Math.max(5, Math.min(10, (foodCount + 39) / 40)));
+					SplitTierPlanner candidatePlanner = planner;
+					java.util.Set<String> retainedNodes = new java.util.HashSet<>();
+					java.util.ArrayDeque<String> retainedPending = new java.util.ArrayDeque<>(catalog.keySet());
+					retainedPending.addAll(aliases.keySet());
+					while (!retainedPending.isEmpty()) {
+						String id = retainedPending.removeFirst();
+						if (!retainedNodes.add(id))
+							continue;
+						if (aliases.containsKey(id))
+							retainedPending.addLast(aliases.get(id));
+						for (var value : recipeData.get(id))
+							for (var slot : value.getAsJsonObject().getAsJsonArray("ingredientSlots"))
+								for (var input : slot.getAsJsonArray())
+									retainedPending.addLast(input.getAsString());
+					}
+					measureSourceFloors();
+					measureKitchenWork();
+					measureFoodUses();
+					measureIngredientRanks();
+					measureFoundationalPromotions();
+					planner = new SplitTierPlanner(ingredientTierCount, splitTierCount);
+					for (var old : candidatePlanner.nodes.values()) {
+						if (!retainedNodes.contains(old.id))
+							continue;
+						boolean removed = "INGREDIENT".equals(old.kind) && !catalog.containsKey(old.id);
+						String kind = removed ? (old.routes.isEmpty() ? "EXTERNAL" : "INTERMEDIATE") : old.kind;
+						int minimum = sourceMinimum(old.id, "INGREDIENT".equals(kind) ? ingredientTierCount : splitTierCount);
+						if ("INGREDIENT".equals(kind))
+							minimum = ingredientAccessMinimum(old.id, minimum);
+						double finalRank = catalog.containsKey(old.id) ? ("INGREDIENT".equals(kind) ? ingredientRanks.get(old.id) : rank(old.id, kind, catalog.get(old.id))) : 0.0;
+						var node = planner.add(old.id, kind, minimum, finalRank, old.canServe);
+						node.priority = old.priority;
+						node.aliasOf = old.aliasOf;
+						node.starterEligible = old.starterEligible;
+						if ("INGREDIENT".equals(kind) && node.priority == 0 && foundationalPromotions.contains(node.id))
+							node.priority = -1;
+						if ("FOOD".equals(kind) && basicFoods.contains(node.id))
+							node.priority = -1;
+						node.routes.addAll(old.routes);
+					}
+					planner.build();
+					var conditionFree = conditionFreeNodes();
+					var conditionalFoods = new com.google.gson.JsonArray();
+					com.google.gson.JsonObject graph = new com.google.gson.JsonObject();
+					com.google.gson.JsonObject ingredientTiers = new com.google.gson.JsonObject(), foodTiers = new com.google.gson.JsonObject();
+					for (int tier = 0; tier < ingredientTierCount; tier++)
+						ingredientTiers.add("" + tier, new com.google.gson.JsonArray());
+					for (int tier = 0; tier < splitTierCount; tier++)
+						foodTiers.add("" + tier, new com.google.gson.JsonArray());
+					com.google.gson.JsonArray starters = new com.google.gson.JsonArray(), unresolved = new com.google.gson.JsonArray();
+					com.google.gson.JsonArray external = new com.google.gson.JsonArray(), auxiliaries = new com.google.gson.JsonArray();
+					com.google.gson.JsonObject blockedInputs = new com.google.gson.JsonObject();
+					com.google.gson.JsonArray roleReview = new com.google.gson.JsonArray();
+					java.util.List<SplitTierPlanner.Node> ordered = new java.util.ArrayList<>(planner.nodes.values());
+					ordered.sort(java.util.Comparator.comparingInt((SplitTierPlanner.Node n) -> n.tier).thenComparingDouble(n -> n.rank).thenComparing(n -> n.id));
+					for (var node : ordered) {
+						if (planner.isCatalog(node)) {
+							var original = catalog.get(node.id);
+							var entry = new com.google.gson.JsonObject();
+							entry.addProperty("id", node.id);
+							entry.addProperty("role", node.kind);
+							entry.addProperty("tier", node.tier);
+							entry.addProperty("can_serve", node.canServe);
+							entry.addProperty("edible", original.get("edible").getAsBoolean());
+							boolean starter = "INGREDIENT".equals(node.kind) && node.canServe && node.starterEligible && node.tier == 0;
+							entry.addProperty("starter_eligible", starter);
+							boolean conditional = "FOOD".equals(node.kind) && node.preparationTier != SplitTierPlanner.UNREACHABLE && !conditionFree.contains(node.id);
+							entry.addProperty("unlock_status", node.preparationTier == SplitTierPlanner.UNREACHABLE ? "unresolved_recipe" : conditional ? "external_conditions_required" : "available_after_requirements");
+							if (conditional)
+								conditionalFoods.add(node.id);
+							entry.add("recipes", recipeData.get(node.id));
+							var analysis = new com.google.gson.JsonObject();
+							analysis.addProperty("ranking_score", node.rank);
+							if ("INGREDIENT".equals(node.kind))
+								analysis.addProperty("ranking_base_score", ingredientBaseRanks.get(node.id));
+							analysis.addProperty("startup_priority", node.priority);
+							analysis.addProperty("requires_external_source_validation", conditional);
+							if (kitchenCosts.containsKey(node.id))
+								analysis.addProperty("kitchen_cost", kitchenCosts.get(node.id));
+							analysis.addProperty("kitchen_depth", kitchenDepths.getOrDefault(node.id, 0));
+							analysis.addProperty("kitchen_work_status", kitchenCosts.containsKey(node.id) ? "estimated_from_supported_routes_or_raw_source" : "unsupported_or_blocked_route");
+							analysis.addProperty("structural_recipe_score", scoreResolver.recipeScoreCache.getOrDefault(node.id, 0.0));
+							analysis.addProperty("source_minimum_tier", sourceMinimum(node.id, "INGREDIENT".equals(node.kind) ? ingredientTierCount : splitTierCount));
+							analysis.addProperty("declared_source_minimum_tier", acquisitionSources.minimumTier(node.id, "INGREDIENT".equals(node.kind) ? ingredientTierCount : splitTierCount));
+							analysis.addProperty("inferred_source_minimum_tier", sourceFloors.getOrDefault(node.id, 0));
+							analysis.addProperty("access_minimum_tier", node.minimum);
+							if ("INGREDIENT".equals(node.kind)) {
+								if ("minecraft:apple".equals(node.id) || "minecraft:carrot".equals(node.id))
+									analysis.addProperty("startup_profile", "basic_supply_preference");
+								else if ("minecraft:rabbit".equals(node.id) || "minecraft:honey_bottle".equals(node.id))
+									analysis.addProperty("startup_profile", "after_startup");
+							}
+							analysis.addProperty("recipe_requirement_tier", node.preparationTier == SplitTierPlanner.UNREACHABLE ? -1 : node.preparationTier);
+							analysis.addProperty("food_uses", foodUses.getOrDefault(node.id, 0));
+							if (original.has("role_reason"))
+								analysis.add("classification", original.get("role_reason"));
+							if ("FOOD".equals(node.kind) && node.preparationTier == SplitTierPlanner.UNREACHABLE)
+								analysis.addProperty("requirement_issue",
+										unverifiedAcquisition.contains(node.id) ? "no_supported_recipe_or_verified_acquisition" : recipeData.get(node.id).size() == 0 ? "no_supported_recipe_exported" : "blocked_or_cyclic_input");
+							if (node.id.equals("ad_astra:cheese"))
+								analysis.addProperty("compatibility_source_profile", "ad_astra_moon_cheese");
+							if (original.has("role_reason") && "no_culinary_recipe".equals(original.get("role_reason").getAsString()))
+								roleReview.add(node.id);
+							if (original.has("acquisition"))
+								analysis.add("acquisition", original.get("acquisition"));
+							entry.add("analysis", analysis);
+							("INGREDIENT".equals(node.kind) ? ingredientTiers : foodTiers).getAsJsonArray("" + node.tier).add(entry);
+							if (starter)
+								starters.add(node.id);
+							if (node.preparationTier == SplitTierPlanner.UNREACHABLE)
+								unresolved.add(node.id);
+						}
+						com.google.gson.JsonObject graphNode = new com.google.gson.JsonObject();
+						graphNode.addProperty("kind", node.kind);
+						if ("ALIAS".equals(node.kind))
+							graphNode.addProperty("discovery_id", node.aliasOf);
+						graphNode.addProperty("minimum_tier", node.minimum);
+						if (planner.isCatalog(node))
+							graphNode.addProperty("tier", node.tier);
+						graphNode.addProperty("ingredient_unlock_required", "INGREDIENT".equals(node.kind));
+						graphNode.add("recipes", recipeData.get(node.id));
+						graph.add(node.id, graphNode);
+						if ("EXTERNAL".equals(node.kind))
+							external.add(node.id);
+						if ("AUXILIARY".equals(node.kind))
+							auxiliaries.add(node.id);
+						if ("BLOCKED".equals(node.kind)) {
+							String reason = itemsById.containsKey(node.id) ? "unresolved_culinary_input" : "unregistered_item";
+							if (excludedFoods.contains(node.id) || classificationRules.excludedItems.contains(node.id))
+								reason = "explicit_exclusion";
+							for (var value : excludedFoodsArray) {
+								var excluded = value.getAsJsonObject();
+								if (node.id.equals(excluded.get("id").getAsString()) && excluded.has("reason"))
+									reason = excluded.get("reason").getAsString();
+							}
+							blockedInputs.addProperty(node.id, reason);
+						}
+					}
+					com.google.gson.JsonObject result = new com.google.gson.JsonObject();
+					result.addProperty("schema_version", 4);
+					result.addProperty("split_generator_version", 10);
+					result.addProperty("mode", "split_catalog_preview");
+					result.addProperty("generated_at_epoch_ms", System.currentTimeMillis());
+					result.addProperty("source_commit", "1a5a12777b0f82cc7d969b59889fdfb0bc6c6d42");
+					result.addProperty("tier_count", splitTierCount);
+					result.addProperty("ingredient_tier_count", ingredientTierCount);
+					result.addProperty("food_tier_count", splitTierCount);
+					result.addProperty("ingredient_count", ingredientCount);
+					result.addProperty("food_count", foodCount);
+					result.addProperty("item_count", catalog.size());
+					result.addProperty("variant_count", aliases.size());
+					result.addProperty("registry_item_count", catalog.size() + aliases.size());
+					result.add("discovery_variants", discoveryVariants);
+					result.addProperty("non_edible_ingredient_count", additions.size());
+					result.addProperty("unsafe_ingredient_count", unsafeIngredients.size());
+					result.addProperty("tier_numbering", "zero_based; displayed tier = tier + 1; both groups share the FOOD stage scale");
+					com.google.gson.JsonObject ingredientsGroup = new com.google.gson.JsonObject(), foodsGroup = new com.google.gson.JsonObject();
+					ingredientsGroup.addProperty("count", ingredientCount);
+					ingredientsGroup.addProperty("tier_count", ingredientTierCount);
+					ingredientsGroup.add("tiers", ingredientTiers);
+					foodsGroup.addProperty("count", foodCount);
+					foodsGroup.addProperty("tier_count", splitTierCount);
+					foodsGroup.add("tiers", foodTiers);
+					result.add("ingredients", ingredientsGroup);
+					result.add("foods", foodsGroup);
+					result.add("starter_options", starters);
+					result.addProperty("starter_choices_required", Math.min(3, starters.size()));
+					result.addProperty("starter_status", starters.size() >= 3 ? "ready" : (starters.isEmpty() ? "blocked_no_servable_starters" : "reduced_pool"));
+					com.google.gson.JsonObject diagnostics = new com.google.gson.JsonObject();
+					for (String role : java.util.List.of("INGREDIENT", "FOOD")) {
+						com.google.gson.JsonArray sizes = new com.google.gson.JsonArray();
+						for (int size : planner.groupSizes.get(role))
+							sizes.add(size);
+						diagnostics.add(role.toLowerCase(java.util.Locale.ROOT) + "_tier_sizes", sizes);
+					}
+					diagnostics.add("unresolved_foods", unresolved);
+					diagnostics.add("external_requirements", external);
+					diagnostics.add("automatic_auxiliaries", auxiliaries);
+					diagnostics.add("filtered_ingredients", filteredIngredients);
+					com.google.gson.JsonObject roleChanges = new com.google.gson.JsonObject();
+					for (var correction : correctedRoles.entrySet())
+						roleChanges.addProperty(correction.getKey(), correction.getValue());
+					diagnostics.add("role_corrections", roleChanges);
+					diagnostics.addProperty("food_rank_reference_p75", foodRankReference);
+					diagnostics.add("blocked_inputs", blockedInputs);
+					diagnostics.add("role_review_no_recipe", roleReview);
+					diagnostics.add("source_adapters", splitSources.diagnostics());
+					diagnostics.add("conditional_source_foods", conditionalFoods);
+					diagnostics.addProperty("starter_policy",
+							"Only serveable unprocessed basic-supply profiles qualify, preserving the four verified native starter choices as other raw ingredients move earlier. Serving eligibility remains independent.");
+					var unverified = new com.google.gson.JsonArray();
+					for (String id : unverifiedAcquisition)
+						if (catalog.containsKey(id))
+							unverified.add(id);
+					diagnostics.add("unverified_acquisition_foods", unverified);
+					var intermediateIds = new com.google.gson.JsonArray();
+					for (var node : planner.nodes.values())
+						if ("INTERMEDIATE".equals(node.kind))
+							intermediateIds.add(node.id);
+					diagnostics.add("preparation_intermediates", intermediateIds);
+					diagnostics.addProperty("acquisition_evidence_policy",
+							"Food without a supported recipe requires an estimated source with explicit system and representable requirements. Assumed base, unrecognized, disabled and unsupported source routes never create free preparation paths.");
+					diagnostics.addProperty("source_floor_policy",
+							"Culinary processing propagates the easiest complete route's source minimum through every mandatory slot; alternatives do not all need to be late. Ad Astra cheese, cheese block and Moon cheese ore share an explicit late source profile. Original acquisition estimates remain separately exported.");
+					diagnostics.addProperty("graph_boundary_policy", "Only known culinary products, prepared portion sources and pantry processing are expanded. Raw acquisition, empty containers, tools and technical materials stop traversal.");
+					diagnostics.addProperty("ranking_policy",
+							"Ingredients: source effort, culinary work/usefulness and easiest complete input-route rank floor. Pantry priority is limited to basic flour/dough/salt/sugar/pasta with supported low-cost routes and zero source floor. Basic vanilla supplies include eggs, milk and sugar cane. Ingredient input floors affect ordering, not a new requirement to discover upstream ingredients. Food ranking formula is unchanged.");
+					diagnostics.addProperty("variant_policy",
+							"Known colored Chromacarvings pumpkins and Herbs & Harvest plate decorations share a discovery. Physical recipe IDs are preserved through ALIAS nodes. Explicit role overrides are not grouped.");
+					diagnostics.addProperty("seed_policy",
+							"Pam propagation seeditem discoveries require explicit singleton culinary use; broad tag use is insufficient. Ordinary edible seed crops are retained. Unapproved propagation inputs remain BLOCKED, never free EXTERNAL requirements.");
+					diagnostics.addProperty("requirements_policy", "Every recipe slot needs one usable alternative. FOOD intermediates are expanded; ingredient nodes require discovery. Unanchored cycles remain unresolved.");
+					diagnostics.addProperty("legacy_database_unchanged", true);
+					com.google.gson.JsonObject technical = new com.google.gson.JsonObject();
+					technical.add("diagnostics", diagnostics);
+					technical.add("recipe_nodes", graph);
+					result.add("technical", technical);
+					return result;
+				}
+
+				String summary(com.google.gson.JsonObject database) {
+					StringBuilder text = new StringBuilder("OMNICHEF — TEST PODZIALU INGREDIENTS / FOOD v10\nTiery ponizej sa numerowane od 1. W JSON indeksy zaczynaja sie od 0.\n\n");
+					text.append("Ingredients: ").append(database.get("ingredient_count")).append(" / tiery: ").append(database.get("ingredient_tier_count")).append('\n');
+					text.append("Food: ").append(database.get("food_count")).append(" / tiery: ").append(database.get("food_tier_count")).append("\n\n");
+					text.append("Warianty wspolnych odkryc: ").append(database.get("variant_count")).append("\n\n");
+					for (String key : java.util.List.of("ingredients", "foods")) {
+						text.append(key.toUpperCase(java.util.Locale.ROOT)).append('\n');
+						for (var tier : database.getAsJsonObject(key).getAsJsonObject("tiers").entrySet()) {
+							text.append("Tier ").append(Integer.parseInt(tier.getKey()) + 1).append(" (pozycji: ").append(tier.getValue().getAsJsonArray().size()).append(")\n");
+							for (var value : tier.getValue().getAsJsonArray()) {
+								var item = value.getAsJsonObject();
+								text.append("  ").append(item.get("id").getAsString());
+								text.append(item.get("can_serve").getAsBoolean() ? " | mozna podawac" : " | tylko do receptur");
+								if (item.get("starter_eligible").getAsBoolean())
+									text.append(" | wybor startowy");
+								if (database.getAsJsonObject("discovery_variants").has(item.get("id").getAsString()))
+									text.append(" | warianty: ").append(database.getAsJsonObject("discovery_variants").get(item.get("id").getAsString()));
+								if ("unresolved_recipe".equals(item.get("unlock_status").getAsString()))
+									text.append(" | UWAGA: nierozwiazana receptura");
+								if ("external_conditions_required".equals(item.get("unlock_status").getAsString()))
+									text.append(" | warunki zrodla do sprawdzenia");
+								text.append('\n');
+							}
+							text.append('\n');
+						}
+					}
+					text.append("Nierozwiazane potrawy: ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("unresolved_foods")).append('\n');
+					text.append("Food bez receptury lub potwierdzonej sciezki pozyskania: ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("unverified_acquisition_foods")).append('\n');
+					text.append("Pominiete odkrycia bez zastosowania: ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("filtered_ingredients")).append('\n');
+					text.append("Obecne menu i odblokowania restauracji nadal korzystaja ze starego FoodDatabase.json.\n");
+					return text.toString();
+				}
+			}
+			java.nio.file.Path splitPreviewFile = net.neoforged.fml.loading.FMLPaths.GAMEDIR.get().resolve("config/omnichef/FoodDatabase_split_test.json");
+			java.nio.file.Path splitPreviewTemp = null;
+			try {
+				SplitCatalogPreview splitBuilder = new SplitCatalogPreview();
+				com.google.gson.JsonObject splitPreview = splitBuilder.build();
+				java.nio.file.Files.createDirectories(splitPreviewFile.getParent());
+				splitPreviewTemp = java.nio.file.Files.createTempFile(splitPreviewFile.getParent(), "FoodDatabase_split_test-", ".tmp");
+				java.nio.file.Files.writeString(splitPreviewTemp, new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(splitPreview), java.nio.charset.StandardCharsets.UTF_8);
+				try {
+					java.nio.file.Files.move(splitPreviewTemp, splitPreviewFile, java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+				} catch (java.nio.file.AtomicMoveNotSupportedException unsupported) {
+					java.nio.file.Files.move(splitPreviewTemp, splitPreviewFile, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+				}
+				java.nio.file.Path summaryFile = splitPreviewFile.resolveSibling("FoodDatabase_split_test_summary.txt");
+				java.nio.file.Files.writeString(summaryFile, splitBuilder.summary(splitPreview), java.nio.charset.StandardCharsets.UTF_8);
+				net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef split catalog: {} ingredients ({} non-edible), {} foods, {} starter options; saved to {}.", splitPreview.get("ingredient_count"), splitPreview.get("non_edible_ingredient_count"),
+						splitPreview.get("food_count"), splitPreview.getAsJsonArray("starter_options").size(), splitPreviewFile);
+				if (!"ready".equals(splitPreview.get("starter_status").getAsString()))
+					net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef split catalog: starter pool status is {}.", splitPreview.get("starter_status"));
+			} catch (Exception splitPreviewError) {
+				net.mcreator.omnichef.OmnichefMod.LOGGER.error("Omnichef split catalog generation failed; the current food database is still generated normally.", splitPreviewError);
+			} finally {
+				if (splitPreviewTemp != null)
+					try {
+						java.nio.file.Files.deleteIfExists(splitPreviewTemp);
+					} catch (java.io.IOException cleanupError) {
+						net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Could not remove split catalog temporary file {}.", splitPreviewTemp, cleanupError);
+					}
+			}
 			FoodDatabaseObject = foodDatabase;
 			FoodDatabase = new File((FMLPaths.GAMEDIR.get().toString() + "/config/omnichef"), File.separator + "FoodDatabase.json");
 			try {
