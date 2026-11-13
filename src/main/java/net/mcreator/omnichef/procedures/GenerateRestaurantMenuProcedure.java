@@ -1,7 +1,6 @@
 package net.mcreator.omnichef.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.Tier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
@@ -21,7 +20,6 @@ public class GenerateRestaurantMenuProcedure {
 		com.google.gson.JsonArray menusArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray menuArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray UnlockedFood = new com.google.gson.JsonArray();
-		com.google.gson.JsonObject Tiers = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject Meal = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject FoodDatabase = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject menusObject = new com.google.gson.JsonObject();
@@ -60,7 +58,6 @@ public class GenerateRestaurantMenuProcedure {
 		CurrentRestaurantLevel = restaurantLevelDependency;
 		FoodDatabase = ReadFoodDatabaseProcedure.execute(world);
 		TierCount = FoodDatabase.get("tier_count").getAsDouble();
-		Tiers = FoodDatabase.get("tiers").getAsJsonObject();
 		CurrentTier = Math.floor((CurrentRestaurantLevel / MaxRestaurantLevel) * TierCount);
 		if (CurrentTier >= TierCount) {
 			CurrentTier = TierCount - 1;
@@ -77,7 +74,7 @@ public class GenerateRestaurantMenuProcedure {
 			MenuSize = UnlockedFood.size();
 		}
 		for (int _i1 = 0; _i1 < (int) (CurrentTier + 1); _i1++) {
-			Tier = Tiers.get(("" + (int) loopTier)).getAsJsonArray();
+			Tier = GetFoodDataFromTierProcedure.execute(world, (int) loopTier);
 			Tier = FilterAvailableFoodsFromTierArrayProcedure.execute(UnlockedFood, Tier);
 			availableTiers.add(("" + (int) loopTier), Tier);
 			if (Tier.size() > 0) {

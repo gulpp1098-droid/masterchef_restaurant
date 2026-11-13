@@ -8,7 +8,7 @@ public class GetFoodListFromTierProcedure {
 		com.google.gson.JsonArray tierArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		double foodIndex = 0;
-		tierArray = GetFoodListFromTierProcedure.execute(world, tier);
+		tierArray = GetFoodDataFromTierProcedure.execute(world, tier);
 		foodIndex = 0;
 		for (int _i1 = 0; _i1 < (int) tierArray.size(); _i1++) {
 			foodObject = tierArray.get((int) foodIndex).getAsJsonObject();

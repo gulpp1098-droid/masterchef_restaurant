@@ -34,7 +34,7 @@ public class GetFoodDataFromIDProcedure {
 		groupObject = database.get("foods").getAsJsonObject();
 		tiersObject = groupObject.get("tiers").getAsJsonObject();
 		tierCount = groupObject.get("tier_count").getAsDouble();
-		foodIndex = 0;
+		tierIndex = 0;
 		for (int _i1 = 0; _i1 < (int) tierCount; _i1++) {
 			tierKey = new java.text.DecimalFormat("#").format(tierIndex);
 			tierArray = tiersObject.get(tierKey).getAsJsonArray();

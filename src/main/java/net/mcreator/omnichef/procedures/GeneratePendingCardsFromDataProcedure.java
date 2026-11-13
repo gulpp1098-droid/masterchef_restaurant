@@ -20,6 +20,7 @@ public class GeneratePendingCardsFromDataProcedure {
 		double olderWeight = 0;
 		double totalWeight = 0;
 		double randomWeight = 0;
+		double unlockedIndex = 0;
 		com.google.gson.JsonArray options = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray currentPool = new com.google.gson.JsonArray();
@@ -35,7 +36,16 @@ public class GeneratePendingCardsFromDataProcedure {
 		options = unlockObject.get("unlock_options").getAsJsonArray();
 		unlockedFoods = unlockObject.get("unlocked").getAsJsonArray();
 		databaseObject = ReadFoodDatabaseProcedure.execute(world);
-		options = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(options, unlockedFoods, databaseObject);
+		if (unlockObject.get("starter_unlocks_remaining").getAsDouble() > 0) {
+			options = databaseObject.get("starter_options").getAsJsonArray();
+			unlockedIndex = 0;
+			for (int _i1 = 0; _i1 < (int) unlockedFoods.size(); _i1++) {
+				options = RemoveFoodFromArrayProcedure.execute(options, unlockedFoods.get((int) unlockedIndex).getAsString());
+				unlockedIndex = unlockedIndex + 1;
+			}
+		} else {
+			options = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(options, unlockedFoods, databaseObject);
+		}
 		stageTier = unlockObject.get("stage_tier").getAsDouble();
 		currentPool = GetAvailableFoodFromTierProcedure.execute(world, options, stageTier);
 		if (stageTier >= 1) {

@@ -16,13 +16,15 @@ public class FilterAvailableFoodsFromTierArrayProcedure {
 		for (int _i1 = 0; _i1 < (int) tierFoodsArray.size(); _i1++) {
 			foodObject = tierFoodsArray.get((int) tierIndex).getAsJsonObject();
 			foodID = foodObject.get("id").getAsString();
-			optionIndex = 0;
-			for (int _i2 = 0; _i2 < (int) optionsArray.size(); _i2++) {
-				if ((foodID).equals(optionsArray.get((int) optionIndex).getAsString())) {
-					availableFoods.add(foodID);
-					break;
+			if (foodObject.get("can_serve").getAsBoolean()) {
+				optionIndex = 0;
+				for (int _i2 = 0; _i2 < (int) optionsArray.size(); _i2++) {
+					if ((foodID).equals(optionsArray.get((int) optionIndex).getAsString())) {
+						availableFoods.add(foodID);
+						break;
+					}
+					optionIndex = optionIndex + 1;
 				}
-				optionIndex = optionIndex + 1;
 			}
 			tierIndex = tierIndex + 1;
 		}

@@ -498,17 +498,22 @@ public class InitializeAndValidateModDataProcedure {
 					for (var value : array(unlock, "unlocked", path)) {
 						unlocked.add(value.getAsString());
 					}
-					var tiers = object(catalog.get("tiers"), "FoodDatabase.tiers");
 					long count = integer(catalog, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
 					if (stage >= count) {
 						throw bad(path + ".stage_tier", "cannot reconstruct options: stage exceeds food tiers");
 					}
 					java.util.Set<String> seen = new java.util.HashSet<>();
-					for (int tier = 0; tier <= stage; tier++) {
-						for (var value : array(tiers, Integer.toString(tier), "FoodDatabase.tiers")) {
-							String food = text(object(value, "FoodDatabase.food"), "id", "FoodDatabase.food", false);
-							if (!unlocked.contains(food) && seen.add(food)) {
-								options.add(food);
+					for (String groupKey : java.util.List.of("ingredients", "foods")) {
+						String groupPath = "FoodDatabase." + groupKey;
+						var group = object(catalog.get(groupKey), groupPath);
+						long groupCount = integer(group, "tier_count", groupPath, 1, Integer.MAX_VALUE);
+						var tiers = object(group.get("tiers"), groupPath + ".tiers");
+						for (int tier = 0; tier <= stage && tier < groupCount; tier++) {
+							for (var value : array(tiers, Integer.toString(tier), groupPath + ".tiers")) {
+								String food = text(object(value, groupPath + ".food"), "id", groupPath + ".food", false);
+								if (!unlocked.contains(food) && seen.add(food)) {
+									options.add(food);
+								}
 							}
 						}
 					}
@@ -883,9 +888,17 @@ public class InitializeAndValidateModDataProcedure {
 				var foodDatabase = engine.read(config.resolve(variables.FoodDatabase_File_Name));
 				engine.baseExp = (amounts, foods) -> GetClientOrderBaseExpFromArraysProcedure.execute(amounts, foods, foodDatabase);
 				engine.integer(foodDatabase, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
-				engine.object(foodDatabase.get("tiers"), "FoodDatabase.tiers");
 				engine.catalog.add("tier_count", foodDatabase.get("tier_count"));
-				engine.catalog.add("tiers", foodDatabase.get("tiers"));
+				for (String groupKey : java.util.List.of("ingredients", "foods")) {
+					String groupPath = "FoodDatabase." + groupKey;
+					var group = engine.object(foodDatabase.get(groupKey), groupPath);
+					long groupCount = engine.integer(group, "tier_count", groupPath, 1, Integer.MAX_VALUE);
+					var tiers = engine.object(group.get("tiers"), groupPath + ".tiers");
+					for (int tier = 0; tier < groupCount; tier++) {
+						engine.array(tiers, Integer.toString(tier), groupPath + ".tiers");
+					}
+					engine.catalog.add(groupKey, group);
+				}
 				var nameDatabase = engine.read(config.resolve("ClientsNameList.json"));
 				engine.strings(nameDatabase, "Clients names", "ClientsNameList", 0);
 				engine.strings(nameDatabase, "Critics names", "ClientsNameList", 0);

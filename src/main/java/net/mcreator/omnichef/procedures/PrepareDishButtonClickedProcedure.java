@@ -18,6 +18,7 @@ import net.mcreator.omnichef.init.OmnichefModItems;
 public class PrepareDishButtonClickedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		com.google.gson.JsonObject database = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject foodData = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray foodAmountArray = new com.google.gson.JsonArray();
 		ItemStack slotItem = ItemStack.EMPTY;
@@ -38,7 +39,8 @@ public class PrepareDishButtonClickedProcedure {
 					if (!(slotItem.getItem() == Blocks.AIR.asItem())) {
 						hadFood = true;
 						foodID = BuiltInRegistries.ITEM.getKey(slotItem.getItem()).toString();
-						if (IsFoodInDatabaseProcedure.execute(database, foodID)) {
+						foodData = GetFoodDataFromIDProcedure.execute(database, foodID);
+						if (IsFoodInDatabaseProcedure.execute(database, foodID) && foodData.get("can_serve").getAsBoolean()) {
 							foodIndex = 0;
 							foodFound = false;
 							for (int _i2 = 0; _i2 < (int) foodArray.size(); _i2++) {
