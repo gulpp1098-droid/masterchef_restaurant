@@ -50,6 +50,7 @@ public class GeneratePendingCardsProcedure {
 				unlockedFoods.add(unlockedDishes.get((int) unlockIndex).getAsString());
 				unlockIndex = unlockIndex + 1;
 			}
+			unlockObject.add("unlocked", unlockedFoods);
 			databaseObject = ReadFoodDatabaseProcedure.execute(world);
 			starterRemaining = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 					"ingredient_starter_unlocks_remaining");
@@ -57,25 +58,25 @@ public class GeneratePendingCardsProcedure {
 				if (groupIndex == 0) {
 					cardGroup = "INGREDIENT";
 					stageKey = "ingredient_stage_tier";
-					cardsKey = "\tpending_ingredient_cards";
+					cardsKey = "pending_ingredient_cards";
 					choicesKey = "pending_ingredient_unlocks";
 				} else {
 					cardGroup = "FOOD";
 					stageKey = "food_stage_tier";
-					cardsKey = "\tpending_food_cards";
+					cardsKey = "pending_food_cards";
 					choicesKey = "pending_food_unlocks";
 				}
 				stageTier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						stageKey);
 				pendingChoices = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						choicesKey);
-				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						cardsKey);
+				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				if (pendingCards.isEmpty() && (pendingChoices > 0 || (cardGroup).equals("INGREDIENT") && starterRemaining > 0)) {
 					options = emptyOptions.deepCopy();
 					tierIndex = 0;
 					for (int _i2 = 0; _i2 < (int) (stageTier + 1); _i2++) {
-						tierItems = GetFoodListFromTierProcedure.execute(world, tierIndex);
+						tierItems = GetFoodDataFromTierProcedure.execute(world, tierIndex);
 						cardIndex = 0;
 						for (int _i3 = 0; _i3 < (int) tierItems.size(); _i3++) {
 							optionData = tierItems.get((int) cardIndex).getAsJsonObject();
@@ -89,17 +90,17 @@ public class GeneratePendingCardsProcedure {
 						options = RemoveFoodFromArrayProcedure.execute(options, unlockedFoods.get((int) unlockIndex).getAsString());
 						unlockIndex = unlockIndex + 1;
 					}
+					unlockObject.add("unlock_options", options);
+					unlockObject.addProperty("stage_tier", stageTier);
+					unlockObject.addProperty("unlock_group", cardGroup);
+					unlockObject.addProperty("starter_unlocks_remaining", 0);
+					if ((cardGroup).equals("INGREDIENT")) {
+						unlockObject.addProperty("starter_unlocks_remaining", starterRemaining);
+					}
+					pendingCards = GeneratePendingCardsFromDataProcedure.execute(world, unlockObject);
+					ModifyRestaurantWholeArrayParameterProcedure.execute(pendingCards, restaurantIndex, "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				}
-				unlockObject.add("unlock_options", options);
-				unlockObject.addProperty("stage_tier", stageTier);
-				unlockObject.addProperty("unlock_group", cardGroup);
-				unlockObject.addProperty("starter_unlocks_remaining", 0);
-				if ((cardGroup).equals("INGREDIENT")) {
-					unlockObject.addProperty("starter_unlocks_remaining", starterRemaining);
-				}
-				pendingCards = GeneratePendingCardsFromDataProcedure.execute(world, unlockObject);
-				ModifyRestaurantWholeArrayParameterProcedure.execute(pendingCards, restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				groupIndex = groupIndex + 1;
 			}
 		}
