@@ -121,5 +121,9 @@
   "item.omnichef.coin": "Coin",
   "gui.omnichef.chefs_diary_p_2_gui.label_overview_wip": "My Notes",
   "gui.omnichef.chefs_diary_p_2_gui.label_basic_tutorial": "My Notes",
-  "gui.omnichef.chefs_diary_p_2_gui.label_welcome_chef": "A Dream of Mine"
+  "gui.omnichef.chefs_diary_p_2_gui.label_welcome_chef": "A Dream of Mine",
+  "item.omnichef.chefs_set_leggings": "Chef's Leggings",
+  "item.omnichef.chefs_set_helmet": "Chef's Hat",
+  "item.omnichef.chefs_set_chestplate": "Chef's Apron",
+  "item.omnichef.chefs_set_boots": "Chef's Boots"
 }

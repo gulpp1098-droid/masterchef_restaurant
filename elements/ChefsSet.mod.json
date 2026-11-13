@@ -1,0 +1,102 @@
+{
+  "_fv": 89,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "minecraft:chainmail_helmet",
+    "enableBody": true,
+    "textureBody": "minecraft:chainmail_chestplate",
+    "enableLeggings": true,
+    "textureLeggings": "minecraft:chainmail_leggings",
+    "enableBoots": true,
+    "textureBoots": "minecraft:chainmail_boots",
+    "creativeTabs": [
+      "CUSTOM:MasterChef"
+    ],
+    "armorTextureFile": "chef_base",
+    "helmetName": "Chef's Hat",
+    "bodyName": "Chef's Apron",
+    "leggingsName": "Chef's Leggings",
+    "bootsName": "Chef's Boots",
+    "helmetSpecialInformation": {
+      "fixedValue": []
+    },
+    "bodySpecialInformation": {
+      "fixedValue": []
+    },
+    "leggingsSpecialInformation": {
+      "fixedValue": []
+    },
+    "bootsSpecialInformation": {
+      "fixedValue": []
+    },
+    "helmetModelName": "Modelchefs_hat",
+    "helmetModelPart": "Head",
+    "helmetModelTexture": "texture_chefs_hat.png",
+    "bodyModelName": "Modelchefs_chestplate",
+    "bodyModelPart": "Body",
+    "armsModelPartL": "left_arm",
+    "armsModelPartR": "right_arm",
+    "bodyModelTexture": "texture_chefs_chestplate.png",
+    "leggingsModelName": "Modelchefs_leggings",
+    "leggingsModelPartL": "left_leg",
+    "leggingsModelPartR": "right_leg",
+    "leggingsModelTexture": "texture_chefs_leggings.png",
+    "bootsModelName": "Modelchefs_boots",
+    "bootsModelPartL": "left_leg",
+    "bootsModelPartR": "right_leg",
+    "bootsModelTexture": "texture_chefs_boots.png",
+    "helmetItemRenderType": 0,
+    "helmetItemCustomModelName": "Normal",
+    "bodyItemRenderType": 0,
+    "bodyItemCustomModelName": "Normal",
+    "leggingsItemRenderType": 0,
+    "leggingsItemCustomModelName": "Normal",
+    "bootsItemRenderType": 0,
+    "bootsItemCustomModelName": "Normal",
+    "helmetTranslucency": false,
+    "bodyTranslucency": false,
+    "leggingsTranslucency": false,
+    "bootsTranslucency": false,
+    "helmetImmuneToFire": false,
+    "bodyImmuneToFire": false,
+    "leggingsImmuneToFire": false,
+    "bootsImmuneToFire": false,
+    "helmetGlowCondition": {
+      "fixedValue": false
+    },
+    "bodyGlowCondition": {
+      "fixedValue": false
+    },
+    "leggingsGlowCondition": {
+      "fixedValue": false
+    },
+    "bootsGlowCondition": {
+      "fixedValue": false
+    },
+    "helmetPiglinNeutral": {
+      "fixedValue": false
+    },
+    "bodyPiglinNeutral": {
+      "fixedValue": false
+    },
+    "leggingsPiglinNeutral": {
+      "fixedValue": false
+    },
+    "bootsPiglinNeutral": {
+      "fixedValue": false
+    },
+    "maxDamage": 15,
+    "damageValueHelmet": 1,
+    "damageValueBody": 2,
+    "damageValueLeggings": 1,
+    "damageValueBoots": 2,
+    "enchantability": 9,
+    "toughness": 0.0,
+    "knockbackResistance": 0.0,
+    "equipSound": "entity.horse.armor",
+    "repairItems": [],
+    "rarity": "COMMON",
+    "attributeModifiers": []
+  }
+}

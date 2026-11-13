@@ -36,6 +36,10 @@ public class OmnichefModTabs {
 				tabData.accept(OmnichefModItems.CRITIC_SPAWN_EGG.get());
 				tabData.accept(OmnichefModBlocks.PREPARATION_STATION.get().asItem());
 				tabData.accept(OmnichefModBlocks.TRADE_BOARD.get().asItem());
+				tabData.accept(OmnichefModItems.CHEFS_SET_HELMET.get());
+				tabData.accept(OmnichefModItems.CHEFS_SET_CHESTPLATE.get());
+				tabData.accept(OmnichefModItems.CHEFS_SET_LEGGINGS.get());
+				tabData.accept(OmnichefModItems.CHEFS_SET_BOOTS.get());
 			}).build());
 
 	@SubscribeEvent

@@ -8,20 +8,20 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
-import net.mcreator.omnichef.client.model.ModelRestaurantEdge;
-import net.mcreator.omnichef.client.model.ModelRestaurantArea;
-import net.mcreator.omnichef.client.model.ModelCriticBase;
-import net.mcreator.omnichef.client.model.ModelClientBase;
-import net.mcreator.omnichef.client.model.ModelChairMob;
+import net.mcreator.omnichef.client.model.*;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class OmnichefModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		event.registerLayerDefinition(Modelchefs_leggings.LAYER_LOCATION, Modelchefs_leggings::createBodyLayer);
 		event.registerLayerDefinition(ModelClientBase.LAYER_LOCATION, ModelClientBase::createBodyLayer);
 		event.registerLayerDefinition(ModelRestaurantArea.LAYER_LOCATION, ModelRestaurantArea::createBodyLayer);
 		event.registerLayerDefinition(ModelRestaurantEdge.LAYER_LOCATION, ModelRestaurantEdge::createBodyLayer);
 		event.registerLayerDefinition(ModelChairMob.LAYER_LOCATION, ModelChairMob::createBodyLayer);
+		event.registerLayerDefinition(Modelchefs_chestplate.LAYER_LOCATION, Modelchefs_chestplate::createBodyLayer);
+		event.registerLayerDefinition(Modelchefs_hat.LAYER_LOCATION, Modelchefs_hat::createBodyLayer);
 		event.registerLayerDefinition(ModelCriticBase.LAYER_LOCATION, ModelCriticBase::createBodyLayer);
+		event.registerLayerDefinition(Modelchefs_boots.LAYER_LOCATION, Modelchefs_boots::createBodyLayer);
 	}
 }
