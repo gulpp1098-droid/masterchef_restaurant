@@ -12902,6 +12902,23 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/Blocks Procedures/Trade Board Procedures"
+    },
+    {
+      "name": "ChefsSet",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_set",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/chefs_set_chestplate.json",
+          "src/main/resources/assets/omnichef/models/item/chefs_set_leggings.json",
+          "src/main/resources/assets/omnichef/models/item/chefs_set_helmet.json",
+          "src/main/resources/assets/omnichef/models/item/chefs_set_boots.json",
+          "src/main/java/net/mcreator/omnichef/item/ChefsSetItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Armor"
     }
   ],
   "variable_elements": [
@@ -13141,6 +13158,18 @@
   "tag_elements": {
     "ITEMS:minecraft:piglin_loved": [
       "~GoldCoin@CUSTOM:GoldCoin"
+    ],
+    "ITEMS:minecraft:head_armor": [
+      "~ChefsSet@CUSTOM:ChefsSet.helmet"
+    ],
+    "ITEMS:minecraft:chest_armor": [
+      "~ChefsSet@CUSTOM:ChefsSet.body"
+    ],
+    "ITEMS:minecraft:leg_armor": [
+      "~ChefsSet@CUSTOM:ChefsSet.legs"
+    ],
+    "ITEMS:minecraft:foot_armor": [
+      "~ChefsSet@CUSTOM:ChefsSet.boots"
     ]
   },
   "tab_element_order": {},
@@ -13268,7 +13297,11 @@
       "item.omnichef.coin": "Coin",
       "gui.omnichef.chefs_diary_p_2_gui.label_overview_wip": "My Notes",
       "gui.omnichef.chefs_diary_p_2_gui.label_basic_tutorial": "My Notes",
-      "gui.omnichef.chefs_diary_p_2_gui.label_welcome_chef": "A Dream of Mine"
+      "gui.omnichef.chefs_diary_p_2_gui.label_welcome_chef": "A Dream of Mine",
+      "item.omnichef.chefs_set_leggings": "Chef\u0027s Leggings",
+      "item.omnichef.chefs_set_helmet": "Chef\u0027s Hat",
+      "item.omnichef.chefs_set_chestplate": "Chef\u0027s Apron",
+      "item.omnichef.chefs_set_boots": "Chef\u0027s Boots"
     }
   },
   "metadata": {
@@ -13582,6 +13615,10 @@
           },
           {
             "name": "Custom Elements",
+            "children": []
+          },
+          {
+            "name": "Armor",
             "children": []
           }
         ]
