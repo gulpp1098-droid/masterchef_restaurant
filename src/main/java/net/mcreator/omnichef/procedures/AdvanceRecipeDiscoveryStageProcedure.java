@@ -14,37 +14,41 @@ public class AdvanceRecipeDiscoveryStageProcedure {
 		double maxRestaurantLevel = 0;
 		double targetTier = 0;
 		double tierToAdd = 0;
+		double ingredientTierCount = 0;
+		double ingredientStage = 0;
+		double ingredientTarget = 0;
 		com.google.gson.JsonArray unlocksOptions = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray newTierFoods = new com.google.gson.JsonArray();
+		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject groupObject = new com.google.gson.JsonObject();
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 		if (restaurantIndex >= 0) {
 			stageTier = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-					"stage_tier");
+					"food_stage_tier");
 			restaurantLevel = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 					"level");
-			tierCount = GetFoodListTierCountProcedure.execute(world);
+			databaseObject = ReadFoodDatabaseProcedure.execute(world);
+			groupObject = databaseObject.get("foods").getAsJsonObject();
+			tierCount = groupObject.get("tier_count").getAsDouble();
+			groupObject = databaseObject.get("ingredients").getAsJsonObject();
+			ingredientTierCount = groupObject.get("tier_count").getAsDouble();
 			maxRestaurantLevel = OmnichefModVariables.MapVariables.get(world).MaxRestaurantLevel;
 			if (tierCount > 0 && maxRestaurantLevel > 0) {
 				targetTier = Math.floor((restaurantLevel / maxRestaurantLevel) * tierCount);
 				targetTier = Math.min(targetTier, tierCount - 1);
 				targetTier = Math.max(targetTier, 0);
 				if (targetTier > stageTier) {
-					unlocksOptions = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-					tierToAdd = stageTier + 1;
-					for (int _i1 = 0; _i1 < (int) (targetTier - stageTier); _i1++) {
-						newTierFoods = GetFoodListFromTierProcedure.execute(world, tierToAdd);
-						index = 0;
-						for (int _i2 = 0; _i2 < (int) newTierFoods.size(); _i2++) {
-							unlocksOptions.add(newTierFoods.get((int) index).getAsString());
-							index = index + 1;
-						}
-						tierToAdd = tierToAdd + 1;
-					}
-					ModifyRestaurantWholeArrayParameterProcedure.execute(unlocksOptions, restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 					ModifyRestaurantNumberParameterProcedure.execute(targetTier, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-							"stage_tier");
+							"food_stage_tier");
+				}
+				if (ingredientTierCount > 0) {
+					ingredientStage = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ingredient_stage_tier");
+					ingredientTarget = Math.min(targetTier, ingredientTierCount - 1);
+					if (ingredientTarget > ingredientStage) {
+						ModifyRestaurantNumberParameterProcedure.execute(ingredientTarget, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ingredient_stage_tier");
+					}
 				}
 			}
 		}

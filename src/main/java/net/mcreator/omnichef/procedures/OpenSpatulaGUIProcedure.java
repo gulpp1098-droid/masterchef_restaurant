@@ -38,17 +38,22 @@ public class OpenSpatulaGUIProcedure {
 					if (IsSpatulaInSelectingLocationStateProcedure.execute(itemstack)) {
 						restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 						if (restaurantIndex >= 0) {
-							pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+							GeneratePendingCardsProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+							{
+								OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+								_vars.FoodUnlockGroup = "INGREDIENT";
+								_vars.markSyncDirty();
+							}
+							pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_ingredient_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 							if (pendingCards.isEmpty()) {
-								pendingUnlocks = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_unlocks");
-								if (pendingUnlocks > 0) {
-									GeneratePendingCardsProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
-									pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-											OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-									CreateOverlayDataTransferProcedure.execute(world, entity);
+								{
+									OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+									_vars.FoodUnlockGroup = "FOOD";
+									_vars.markSyncDirty();
 								}
+								pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_food_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+										OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 							}
 							if (pendingCards.size() > 0 && !GetRestaurantLogicParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 									OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "open")) {

@@ -8187,10 +8187,6 @@
             "type": "number"
           },
           {
-            "name": "unlockGroup",
-            "type": "string"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -8226,10 +8222,6 @@
             "type": "number"
           },
           {
-            "name": "unlockGroup",
-            "type": "string"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -8263,10 +8255,6 @@
           {
             "name": "z",
             "type": "number"
-          },
-          {
-            "name": "unlockGroup",
-            "type": "string"
           },
           {
             "name": "world",
@@ -13159,6 +13147,12 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
+    },
+    {
+      "name": "FoodUnlockGroup",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [

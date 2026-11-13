@@ -20,6 +20,7 @@ public class FillCardsPickGUIProcedure {
 		String Food1 = "";
 		String Food2 = "";
 		String Food3 = "";
+		String cardsKey = "";
 		Entity player = null;
 		double restaurantID = 0;
 		double tierCount = 0;
@@ -38,7 +39,12 @@ public class FillCardsPickGUIProcedure {
 			ItemStack _displayStack2 = new ItemStack(Blocks.AIR).copy();
 			_menu.sendMenuStateUpdate(_player, 3, Integer.toString(2), _displayStack2, true);
 		}
-		pendingCards = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+		if ((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).FoodUnlockGroup).equals("FOOD")) {
+			cardsKey = "pending_food_cards";
+		} else {
+			cardsKey = "pending_ingredient_cards";
+		}
+		pendingCards = GetRestaurantArrayParameterProcedure.execute(RestaurantIndexSearchByIDProcedure.execute(world, restaurantID), "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 		tierCount = GetFoodListTierCountProcedure.execute(world);
 		if (pendingCards.size() > 0) {

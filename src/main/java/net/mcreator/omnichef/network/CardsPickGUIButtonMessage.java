@@ -49,13 +49,13 @@ public record CardsPickGUIButtonMessage(int buttonID, int x, int y, int z) imple
 
 		guiTools$enhancedImageButton : {
 			if (buttonID == 0) {
-				net.mcreator.omnichef.procedures.ChooseCard1Procedure.execute(world, x, y, z, entity, unlockGroup);
+				net.mcreator.omnichef.procedures.ChooseCard1Procedure.execute(world, x, y, z, entity);
 			}
 			if (buttonID == 1) {
-				net.mcreator.omnichef.procedures.ChooseCard2Procedure.execute(world, x, y, z, entity, unlockGroup);
+				net.mcreator.omnichef.procedures.ChooseCard2Procedure.execute(world, x, y, z, entity);
 			}
 			if (buttonID == 2) {
-				net.mcreator.omnichef.procedures.ChooseCard3Procedure.execute(world, x, y, z, entity, unlockGroup);
+				net.mcreator.omnichef.procedures.ChooseCard3Procedure.execute(world, x, y, z, entity);
 			}
 		}
 	}

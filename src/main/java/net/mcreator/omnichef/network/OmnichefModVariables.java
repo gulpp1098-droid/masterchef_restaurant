@@ -109,6 +109,7 @@ public class OmnichefModVariables {
 		clone.LastViewedRestaurantResult = original.LastViewedRestaurantResult;
 		clone.MenuShowNext = original.MenuShowNext;
 		clone.MenuPage = original.MenuPage;
+		clone.FoodUnlockGroup = original.FoodUnlockGroup;
 		if (!event.isWasDeath()) {
 			clone.RestaurantBoundaryData = original.RestaurantBoundaryData;
 			clone.RestaurantPreviewData = original.RestaurantPreviewData;
@@ -327,6 +328,7 @@ public class OmnichefModVariables {
 		public String LastViewedRestaurantResult = "\"\"";
 		public boolean MenuShowNext = false;
 		public double MenuPage = 0;
+		public String FoodUnlockGroup = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -355,6 +357,7 @@ public class OmnichefModVariables {
 			nbt.putString("LastViewedRestaurantResult", LastViewedRestaurantResult);
 			nbt.putBoolean("MenuShowNext", MenuShowNext);
 			nbt.putDouble("MenuPage", MenuPage);
+			nbt.putString("FoodUnlockGroup", FoodUnlockGroup);
 			return nbt;
 		}
 
@@ -384,6 +387,7 @@ public class OmnichefModVariables {
 			LastViewedRestaurantResult = nbt.getString("LastViewedRestaurantResult");
 			MenuShowNext = nbt.getBoolean("MenuShowNext");
 			MenuPage = nbt.getDouble("MenuPage");
+			FoodUnlockGroup = nbt.getString("FoodUnlockGroup");
 		}
 
 		public void markSyncDirty() {

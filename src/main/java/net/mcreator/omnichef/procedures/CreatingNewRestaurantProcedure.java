@@ -191,6 +191,11 @@ public class CreatingNewRestaurantProcedure {
 						_player71.displayClientMessage(Component.literal("Restaurant created!").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;
 					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
+					{
+						OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
+						_vars.FoodUnlockGroup = "INGREDIENT";
+						_vars.markSyncDirty();
+					}
 					if (entity instanceof ServerPlayer _ent) {
 						BlockPos _bpos = BlockPos.containing(x, y, z);
 						_ent.openMenu(new MenuProvider() {
