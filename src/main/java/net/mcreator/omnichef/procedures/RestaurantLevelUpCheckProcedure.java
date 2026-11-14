@@ -33,6 +33,8 @@ public class RestaurantLevelUpCheckProcedure {
 				if (ownerentity != null) {
 					if (ownerentity instanceof Player _player3 && !_player3.level().isClientSide())
 						_player3.displayClientMessage(Component.literal(("Your restaurant reached Level " + (int) (restaurantLevel + 1) + "!")).withStyle(ChatFormatting.GREEN), false);
+					CreateOverlayDataTransferProcedure.execute(world, ownerentity);
+					CreateGUIDataTransferProcedure.execute(world, ownerentity);
 				}
 				return restaurantLevel + 1;
 			}
@@ -48,6 +50,8 @@ public class RestaurantLevelUpCheckProcedure {
 				if (ownerentity != null) {
 					if (ownerentity instanceof Player _player7 && !_player7.level().isClientSide())
 						_player7.displayClientMessage(Component.literal(("Your restaurant dropped to Level " + (int) (restaurantLevel - 1) + ".")).withStyle(ChatFormatting.RED), false);
+					CreateOverlayDataTransferProcedure.execute(world, ownerentity);
+					CreateGUIDataTransferProcedure.execute(world, ownerentity);
 				}
 				return restaurantLevel - 1;
 			}

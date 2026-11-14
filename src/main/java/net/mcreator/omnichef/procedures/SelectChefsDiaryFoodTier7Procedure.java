@@ -17,7 +17,7 @@ public class SelectChefsDiaryFoodTier7Procedure {
 				groupName = "ingredients";
 			}
 			array = GetFoodDataFromGroupTierProcedure.execute(world, 7, groupName);
-			if (array.size() > 7) {
+			if (array.size() > 0) {
 				{
 					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 					_vars.DiaryFoodTier = 7;

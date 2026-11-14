@@ -1449,17 +1449,17 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				boolean guiTools$displayMasked36 = false;
 				guiGraphics.pose().pushPose();
 				try {
-					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -178), (1.0F - 1.0f) * (this.topPos + -67), 0.0F);
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -178), (1.0F - 1.0f) * (this.topPos + -96), 0.0F);
 					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
 					if (guiTools$displayMasked36) {
 						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
 						try {
-							guiGraphics.renderFakeItem(guiTools$displayStack36, this.leftPos + -178, this.topPos + -67);
+							guiGraphics.renderFakeItem(guiTools$displayStack36, this.leftPos + -178, this.topPos + -96);
 						} finally {
 							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
 						}
 					} else {
-						guiGraphics.renderFakeItem(guiTools$displayStack36, this.leftPos + -178, this.topPos + -67);
+						guiGraphics.renderFakeItem(guiTools$displayStack36, this.leftPos + -178, this.topPos + -96);
 					}
 				} finally {
 					guiGraphics.pose().popPose();

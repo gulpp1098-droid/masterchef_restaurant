@@ -10,32 +10,45 @@ public class InitializeAndValidateModDataProcedure {
 		class StartupDataEngine {
 			final java.nio.file.Path directory;
 			final String[] names;
+			final String[] rootSchemas;
+			final String[] keys;
 			final long day;
 			final com.google.gson.JsonObject catalog;
 			final com.google.gson.JsonObject schemas;
-			java.util.function.BiFunction<com.google.gson.JsonArray, com.google.gson.JsonArray, Double> baseExp;
+			final java.util.function.Function<com.google.gson.JsonObject, com.google.gson.JsonObject> rules;
 			final java.util.function.Consumer<String> log;
-			int maximumId;
 			boolean allowFreshDataset = true;
+			boolean freshDataset;
+			int nextRecordId;
 			final java.util.List<Double> openRestaurantIds = new java.util.ArrayList<>();
 			long statisticsDay;
 			long clientsDay;
 
-			public StartupDataEngine(java.nio.file.Path directory, String[] names, long day, com.google.gson.JsonObject catalog, com.google.gson.JsonObject schemas, java.util.function.Consumer<String> log) throws java.io.IOException {
+			StartupDataEngine(java.nio.file.Path directory, String[] names, String[] rootSchemas, String[] keys, long day, com.google.gson.JsonObject catalog, com.google.gson.JsonObject schemas,
+					java.util.function.Function<com.google.gson.JsonObject, com.google.gson.JsonObject> rules, java.util.function.Consumer<String> log) throws java.io.IOException {
 				this.directory = directory.toAbsolutePath().normalize();
 				this.names = names.clone();
+				this.rootSchemas = rootSchemas.clone();
+				this.keys = keys.clone();
 				this.day = day;
-				this.catalog = catalog;
+				this.catalog = catalog.deepCopy();
 				this.schemas = schemas.deepCopy();
-				this.log = log;
-				java.util.Set<String> unique = new java.util.HashSet<>();
-				for (String name : names) {
-					if (name.isBlank() || !java.nio.file.Path.of(name).getFileName().toString().equals(name) || name.contains("\\") || name.equals(".") || name.equals("..") || !unique.add(name)) {
-						throw new java.io.IOException("Invalid or duplicate data filename: " + name);
-					}
+				this.rules = java.util.Objects.requireNonNull(rules);
+				this.log = java.util.Objects.requireNonNull(log);
+				if (names.length == 0 || names.length != rootSchemas.length || names.length != keys.length) {
+					throw bad("startup bindings", "file, schema and key counts differ");
 				}
-				if (names.length != 3) {
-					throw new java.io.IOException("Expected three data filenames");
+				var uniqueNames = new java.util.HashSet<String>();
+				var uniqueKeys = new java.util.HashSet<String>();
+				for (int i = 0; i < names.length; i++) {
+					String name = names[i];
+					if (name == null || name.isBlank() || name.equals(".") || name.equals("..") || name.contains("\\") || !java.nio.file.Path.of(name).getFileName().toString().equals(name) || !uniqueNames.add(name)) {
+						throw new java.io.IOException("Invalid or duplicate filename: " + name);
+					}
+					if (keys[i] == null || keys[i].isBlank() || !uniqueKeys.add(keys[i]))
+						throw bad("startup bindings", "invalid file key");
+					if (!this.schemas.has(rootSchemas[i]))
+						throw bad("startup bindings", "missing root schema: " + rootSchemas[i]);
 				}
 				checkSchemas();
 			}
@@ -267,12 +280,6 @@ public class InitializeAndValidateModDataProcedure {
 						}
 					}
 				}
-				for (String name : new String[]{"restaurants_file", "unlocks_file", "clients_file", "restaurant", "restaurant_stats", "trade_board", "trade_offer", "restaurant_unlocks", "client_schedule", "client_group", "client_member",
-						"shift_result"}) {
-					if (!schemas.has(name)) {
-						throw bad("schemas", "missing schema: " + name);
-					}
-				}
 			}
 
 			void fillDefaults(com.google.gson.JsonObject data, com.google.gson.JsonObject defaults, String path, int depth) {
@@ -423,268 +430,105 @@ public class InitializeAndValidateModDataProcedure {
 				}
 			}
 
-			com.google.gson.JsonObject defaultsFor(String name) {
-				return fields(object(schemas.get(name), "schema." + name), "defaults");
-			}
-
-			java.util.Map<Integer, com.google.gson.JsonObject> index(com.google.gson.JsonObject root, String file) {
-				java.util.Map<Integer, com.google.gson.JsonObject> result = new java.util.LinkedHashMap<>();
-				com.google.gson.JsonArray records = array(root, "restaurants", file);
-				for (int index = 0; index < records.size(); index++) {
-					String path = file + ".restaurants[" + index + "]";
-					com.google.gson.JsonObject record = object(records.get(index), path);
-					int id = (int) integer(record, "ID", path, 1, Integer.MAX_VALUE - 1);
-					if (result.put(id, record) != null) {
-						throw bad(path + ".ID", "duplicate restaurant ID " + id);
-					}
-				}
-				return result;
-			}
-
-			com.google.gson.JsonObject emptyRoot(String dayField) {
-				com.google.gson.JsonObject root = new com.google.gson.JsonObject();
-				root.add("restaurants", new com.google.gson.JsonArray());
-				if (dayField != null) {
-					root.addProperty(dayField, day);
-				}
-				return root;
-			}
-
 			com.google.gson.JsonObject[] load(java.nio.file.Path source) throws java.io.IOException {
+				freshDataset = false;
 				boolean anyExists = false;
-				for (String name : names) {
+				for (String name : names)
 					anyExists |= java.nio.file.Files.exists(source.resolve(name));
-				}
+				var roots = new com.google.gson.JsonObject[names.length];
 				if (!anyExists) {
-					if (source.equals(directory) && (!allowFreshDataset || java.nio.file.Files.isDirectory(source.resolve("backups")))) {
-						throw bad("dataset", "all files missing from an existing world");
+					if (!source.equals(directory) || !allowFreshDataset || java.nio.file.Files.isDirectory(source.resolve("backups"))) {
+						throw new java.io.IOException("All data files are missing from an existing dataset");
 					}
-					return new com.google.gson.JsonObject[]{emptyRoot("last_stats_reset_day"), emptyRoot(null), emptyRoot("database_day")};
+					freshDataset = true;
+					for (int i = 0; i < roots.length; i++)
+						roots[i] = new com.google.gson.JsonObject();
+					return roots;
 				}
-				com.google.gson.JsonObject[] roots = new com.google.gson.JsonObject[3];
-				for (int index = 0; index < 3; index++) {
-					java.nio.file.Path file = source.resolve(names[index]);
-					if (java.nio.file.Files.isRegularFile(file)) {
-						roots[index] = read(file);
-					}
-				}
-				if (roots[0] == null) {
-					throw bad(names[0], "file missing from an existing dataset");
-				}
-				if (roots[1] == null && array(roots[0], "restaurants", names[0]).isEmpty()) {
-					roots[1] = emptyRoot(null);
-				}
-				if (roots[2] == null && array(roots[0], "restaurants", names[0]).isEmpty()) {
-					roots[2] = emptyRoot("database_day");
-				}
-				for (int index = 0; index < 3; index++) {
-					if (roots[index] == null) {
-						throw bad(names[index], "file missing from an existing dataset");
+				for (int i = 0; i < roots.length; i++) {
+					var path = source.resolve(names[i]);
+					if (java.nio.file.Files.isRegularFile(path)) {
+						try {
+							roots[i] = read(path);
+						} catch (RuntimeException failure) {
+							throw new java.io.IOException("Unreadable JSON: " + names[i] + ": " + failure.getMessage(), failure);
+						}
+					} else if (!source.equals(directory)) {
+						throw new java.io.IOException("Incomplete backup: " + names[i]);
 					}
 				}
 				return roots;
 			}
 
-			void migrateUnlocks(com.google.gson.JsonObject unlock, String path) {
-				int stage = (int) integer(unlock, "stage_tier", path, 0, Integer.MAX_VALUE);
-				long starter = integer(unlock, "starter_unlocks_remaining", path, 0, 3);
-				strings(unlock, "unlocked", path, 0);
-				strings(unlock, "pending_cards", path, 0);
-				var cards = array(unlock, "pending_cards", path);
-				supply(unlock, "pending_unlocks", new com.google.gson.JsonPrimitive(starter <= 0 && !cards.isEmpty() ? 1 : 0), path);
-				if (!unlock.has("unlock_options")) {
-					var options = new com.google.gson.JsonArray();
-					java.util.Set<String> unlocked = new java.util.HashSet<>();
-					for (var value : array(unlock, "unlocked", path)) {
-						unlocked.add(value.getAsString());
-					}
-					long count = integer(catalog, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
-					if (stage >= count) {
-						throw bad(path + ".stage_tier", "cannot reconstruct options: stage exceeds food tiers");
-					}
-					java.util.Set<String> seen = new java.util.HashSet<>();
-					for (String groupKey : java.util.List.of("ingredients", "foods")) {
-						String groupPath = "FoodDatabase." + groupKey;
-						var group = object(catalog.get(groupKey), groupPath);
-						long groupCount = integer(group, "tier_count", groupPath, 1, Integer.MAX_VALUE);
-						var tiers = object(group.get("tiers"), groupPath + ".tiers");
-						for (int tier = 0; tier <= stage && tier < groupCount; tier++) {
-							for (var value : array(tiers, Integer.toString(tier), groupPath + ".tiers")) {
-								String food = text(object(value, groupPath + ".food"), "id", groupPath + ".food", false);
-								if (!unlocked.contains(food) && seen.add(food)) {
-									options.add(food);
-								}
-							}
-						}
-					}
-					unlock.add("unlock_options", options);
-					log.accept("Reconstructed " + path + ".unlock_options");
+			com.google.gson.JsonObject applyRules(com.google.gson.JsonObject request, boolean incomplete) throws java.io.IOException {
+				var result = object(rules.apply(request), "PrepareModDataForStartup result");
+				String error = text(result, "error", "PrepareModDataForStartup result", true);
+				if (!error.isBlank()) {
+					if (incomplete)
+						throw new java.io.IOException("Incomplete dataset: " + error);
+					throw bad("startup rules", error);
 				}
+				return result;
 			}
 
-			void migrateRestaurant(com.google.gson.JsonObject restaurant, String path) {
-				fillDefaults(restaurant, defaultsFor("restaurant"), path, 0);
-				String owner = text(restaurant, "owner", path, false);
-				supply(restaurant, "ownerName", new com.google.gson.JsonPrimitive(owner), path);
-				supply(restaurant, "daily_stats", new com.google.gson.JsonObject(), path);
-				supply(restaurant, "last_day_stats", new com.google.gson.JsonObject(), path);
-				supply(restaurant, "trade_board", defaultsFor("trade_board"), path);
-				var tradeBoard = object(restaurant.get("trade_board"), path + ".trade_board");
-				if (!tradeBoard.has("day") && tradeBoard.has("offers") && !array(tradeBoard, "offers", path + ".trade_board").isEmpty()) {
-					throw bad(path + ".trade_board", "offers exist but their day is missing");
-				}
-				if (!tradeBoard.has("offers") && tradeBoard.has("day") && number(tradeBoard, "day", path + ".trade_board") >= 0) {
-					throw bad(path + ".trade_board", "saved offers are missing");
-				}
-				fillDefaults(tradeBoard, defaultsFor("trade_board"), path + ".trade_board", 0);
-			}
-
-			void migrateClients(com.google.gson.JsonObject root, java.util.Map<Integer, com.google.gson.JsonObject> restaurants) {
-				var schedules = array(root, "restaurants", names[2]);
-				if (schedules.isEmpty()) {
-					supply(root, "database_day", new com.google.gson.JsonPrimitive(day), names[2]);
-				}
-				clientsDay = integer(root, "database_day", names[2], -1, Long.MAX_VALUE);
-				for (var entry : index(root, names[2]).entrySet()) {
-					var schedule = entry.getValue();
-					String path = names[2] + ".restaurant(ID=" + entry.getKey() + ")";
-					var groups = array(schedule, "groups", path);
-					boolean anySpawned = false;
-					for (int i = 0; i < groups.size(); i++) {
-						String groupPath = path + ".groups[" + i + "]";
-						var group = object(groups.get(i), groupPath);
-						boolean spawned = bool(group, "spawned", groupPath);
-						anySpawned |= spawned;
-						var members = array(group, "members", groupPath);
-						for (int j = 0; j < members.size(); j++) {
-							String memberPath = groupPath + ".members[" + j + "]";
-							var member = object(members.get(j), memberPath);
-							if (!spawned) {
-								supply(member, "order_served", new com.google.gson.JsonPrimitive(false), memberPath);
-								supply(member, "final_satisfaction", new com.google.gson.JsonPrimitive(0), memberPath);
-								supply(member, "result_recorded", new com.google.gson.JsonPrimitive(false), memberPath);
-								if (!member.has("potential_base_exp")) {
-									validateType(member, "food", "nonempty_string_array", memberPath);
-									validateType(member, "food_amount", "positive_integer_array", memberPath);
-									var foods = array(member, "food", memberPath);
-									var amounts = array(member, "food_amount", memberPath);
-									if (foods.size() != amounts.size()) {
-										throw bad(memberPath, "food and food_amount lengths differ");
-									}
-									if (baseExp == null) {
-										throw bad(memberPath, "base EXP calculator is unavailable");
-									}
-									double value = baseExp.apply(amounts, foods);
-									if (!Double.isFinite(value) || value < 0) {
-										throw bad(memberPath, "cannot reconstruct potential base EXP");
-									}
-									supply(member, "potential_base_exp", new com.google.gson.JsonPrimitive(value), memberPath);
-								}
-							}
-						}
-					}
-					if (!schedule.has("shift_id")) {
-						var restaurant = restaurants.get(entry.getKey());
-						if (anySpawned || clientsDay < 0 || clientsDay > Long.MAX_VALUE / 24000L || (restaurant != null && (restaurant.has("last_settled_shift_id") || restaurant.has("last_shift_result")))) {
-							throw bad(path + ".shift_id", "cannot safely reconstruct an existing shift identity");
-						}
-						supply(schedule, "shift_id", new com.google.gson.JsonPrimitive(clientsDay * 24000L), path);
-					}
-				}
-			}
-
-			void checkClients(com.google.gson.JsonObject root) {
-				for (var entry : index(root, names[2]).entrySet()) {
-					var schedule = entry.getValue();
-					String path = names[2] + ".restaurant(ID=" + entry.getKey() + ")";
-					var groups = array(schedule, "groups", path);
-					long nextIndex = integer(schedule, "next_spawn_group_index", path, -1, Integer.MAX_VALUE);
-					if (nextIndex >= groups.size()) {
-						throw bad(path + ".next_spawn_group_index", "group index outside schedule");
-					}
-					java.util.Set<Long> ids = new java.util.HashSet<>();
-					for (int i = 0; i < groups.size(); i++) {
-						String groupPath = path + ".groups[" + i + "]";
-						var group = object(groups.get(i), groupPath);
-						long groupId = integer(group, "group_id", groupPath, 0, Integer.MAX_VALUE);
-						if (!ids.add(groupId)) {
-							throw bad(groupPath, "duplicate group ID");
-						}
-						boolean spawned = bool(group, "spawned", groupPath);
-						var members = array(group, "members", groupPath);
-						int leaders = 0;
-						for (int j = 0; j < members.size(); j++) {
-							String memberPath = groupPath + ".members[" + j + "]";
-							var member = object(members.get(j), memberPath);
-							if (bool(member, "leader", memberPath)) {
-								leaders++;
-							}
-							if (array(member, "food", memberPath).size() != array(member, "food_amount", memberPath).size()) {
-								throw bad(memberPath, "food and food_amount lengths differ");
-							}
-							boolean served = bool(member, "order_served", memberPath);
-							boolean recorded = bool(member, "result_recorded", memberPath);
-							double satisfaction = number(member, "final_satisfaction", memberPath);
-							if (!spawned && (served || recorded || satisfaction != 0)) {
-								throw bad(memberPath, "unspawned member has a recorded visit");
-							}
-							if (!recorded && (served || satisfaction != 0)) {
-								throw bad(memberPath, "unfinished result contains final visit data");
-							}
-							if (!served && satisfaction != 0) {
-								throw bad(memberPath, "unserved member has nonzero satisfaction");
-							}
-						}
-						if (leaders != 1) {
-							throw bad(groupPath, "expected exactly one leader");
-						}
-					}
-				}
-			}
-
-			void prepare(com.google.gson.JsonObject[] roots) {
-				var restaurants = index(roots[0], names[0]);
-				var unlocks = index(roots[1], names[1]);
-				if (!restaurants.keySet().equals(unlocks.keySet())) {
-					throw bad("restaurants", "ID sets differ between restaurant and unlock files");
-				}
-				maximumId = 0;
+			void prepare(com.google.gson.JsonObject[] roots) throws java.io.IOException {
 				openRestaurantIds.clear();
-				supply(roots[0], "last_stats_reset_day", new com.google.gson.JsonPrimitive(day), names[0]);
-				for (var entry : restaurants.entrySet()) {
-					int id = entry.getKey();
-					maximumId = Math.max(maximumId, id);
-					migrateRestaurant(entry.getValue(), names[0] + ".restaurant(ID=" + id + ")");
-					migrateUnlocks(unlocks.get(id), names[1] + ".restaurant(ID=" + id + ")");
+				nextRecordId = 0;
+				statisticsDay = -1;
+				clientsDay = -1;
+				var request = new com.google.gson.JsonObject();
+				var files = new com.google.gson.JsonObject();
+				boolean incomplete = false;
+				for (int i = 0; i < roots.length; i++) {
+					if (roots[i] == null)
+						incomplete = true;
+					else
+						files.add(keys[i], roots[i].deepCopy());
 				}
-				migrateClients(roots[2], restaurants);
-				validate("restaurants_file", roots[0], names[0], 0);
-				validate("unlocks_file", roots[1], names[1], 0);
-				validate("clients_file", roots[2], names[2], 0);
-				statisticsDay = integer(roots[0], "last_stats_reset_day", names[0], -1, Long.MAX_VALUE);
-				clientsDay = integer(roots[2], "database_day", names[2], -1, Long.MAX_VALUE);
-				for (var entry : restaurants.entrySet()) {
-					var restaurant = entry.getValue();
-					String path = names[0] + ".restaurant(ID=" + entry.getKey() + ")";
-					if (bool(restaurant, "open", path)) {
-						openRestaurantIds.add((double) entry.getKey());
-					}
-					if (restaurant.has("last_settled_shift_id") != restaurant.has("last_shift_result")) {
-						throw bad(path, "incomplete shift settlement record");
-					}
-					if (restaurant.has("last_shift_result")) {
-						var result = object(restaurant.get("last_shift_result"), path + ".last_shift_result");
-						if (!bool(result, "ready", path + ".last_shift_result") || integer(result, "shift_id", path + ".last_shift_result", 0, Long.MAX_VALUE) != integer(restaurant, "last_settled_shift_id", path, 0, Long.MAX_VALUE)) {
-							throw bad(path, "shift result does not match its settlement marker");
-						}
-					}
+				var context = new com.google.gson.JsonObject();
+				context.addProperty("day", day);
+				context.addProperty("fresh", freshDataset);
+				context.add("catalog", catalog.deepCopy());
+				context.add("schemas", schemas.deepCopy());
+				request.add("files", files);
+				request.add("context", context);
+				request.addProperty("phase", "prepare");
+				request.addProperty("error", "");
+				request = applyRules(request, incomplete);
+				files = object(request.get("files"), "startup rules.files");
+				if (files.size() != roots.length) {
+					if (incomplete)
+						throw new java.io.IOException("Missing data files after preparation");
+					throw bad("startup rules.files", "unexpected file key count");
 				}
-				checkClients(roots[2]);
-				var ordered = new com.google.gson.JsonArray();
-				for (int id : restaurants.keySet()) {
-					ordered.add(unlocks.get(id));
+				for (int i = 0; i < roots.length; i++) {
+					roots[i] = object(files.get(keys[i]), "startup rules.files." + keys[i]).deepCopy();
+					validate(rootSchemas[i], roots[i], names[i], 0);
 				}
-				roots[1].add("restaurants", ordered);
+				var validated = new com.google.gson.JsonObject();
+				for (int i = 0; i < roots.length; i++)
+					validated.add(keys[i], roots[i]);
+				request.add("files", validated.deepCopy());
+				request.addProperty("phase", "validate");
+				request.addProperty("error", "");
+				// Metadata must be supplied by the block procedure, never guessed by the engine.
+				for (String field : new String[]{"next_id", "open_ids", "stats_day", "clients_day"})
+					request.remove(field);
+				request = applyRules(request, false);
+				if (!validated.equals(object(request.get("files"), "startup validation.files"))) {
+					throw bad("startup validation", "validation modified data after schema validation");
+				}
+				nextRecordId = (int) integer(request, "next_id", "startup metadata", 1, Integer.MAX_VALUE);
+				validateType(request, "open_ids", "positive_integer_array", "startup metadata");
+				var unique = new java.util.HashSet<Integer>();
+				for (var value : array(request, "open_ids", "startup metadata")) {
+					int id = value.getAsInt();
+					if (!unique.add(id))
+						throw bad("startup metadata.open_ids", "duplicate ID");
+					openRestaurantIds.add((double) id);
+				}
+				statisticsDay = integer(request, "stats_day", "startup metadata", -1, Long.MAX_VALUE);
+				clientsDay = integer(request, "clients_day", "startup metadata", -1, Long.MAX_VALUE);
 			}
 
 			void durableWrite(java.nio.file.Path file, String content) throws java.io.IOException {
@@ -763,7 +607,7 @@ public class InitializeAndValidateModDataProcedure {
 
 			void commit(com.google.gson.JsonObject[] roots) throws java.io.IOException {
 				java.util.List<Integer> changed = new java.util.ArrayList<>();
-				for (int index = 0; index < 3; index++) {
+				for (int index = 0; index < names.length; index++) {
 					java.nio.file.Path target = directory.resolve(names[index]);
 					boolean same = false;
 					try {
@@ -784,7 +628,7 @@ public class InitializeAndValidateModDataProcedure {
 					com.google.gson.JsonObject manifest = new com.google.gson.JsonObject();
 					com.google.gson.JsonArray files = new com.google.gson.JsonArray();
 					com.google.gson.Gson gson = new com.google.gson.GsonBuilder().setPrettyPrinting().create();
-					for (int index = 0; index < 3; index++) {
+					for (int index = 0; index < names.length; index++) {
 						java.nio.file.Path target = directory.resolve(names[index]);
 						boolean existed = java.nio.file.Files.exists(target);
 						if (existed) {
@@ -805,7 +649,7 @@ public class InitializeAndValidateModDataProcedure {
 					for (int index : changed) {
 						replace(transaction.resolve(index + ".after"), directory.resolve(names[index]));
 					}
-					for (int index = 0; index < 3; index++) {
+					for (int index = 0; index < names.length; index++) {
 						if (!roots[index].equals(read(directory.resolve(names[index])))) {
 							throw bad(names[index], "final write verification failed");
 						}
@@ -837,48 +681,45 @@ public class InitializeAndValidateModDataProcedure {
 				try {
 					roots = load(directory);
 					prepare(roots);
-				} catch (java.io.IOException | RuntimeException originalFailure) {
+				} catch (java.io.IOException originalFailure) {
 					roots = null;
-					java.nio.file.Path backups = directory.resolve("backups");
+					var backups = directory.resolve("backups");
 					if (java.nio.file.Files.isDirectory(backups)) {
 						java.util.List<java.nio.file.Path> candidates;
-						try (var files = java.nio.file.Files.list(backups)) {
-							candidates = files.filter(java.nio.file.Files::isDirectory).filter(file -> file.getFileName().toString().startsWith("startup-"))
-									.sorted(java.util.Comparator.comparing((java.nio.file.Path path) -> path.getFileName().toString()).reversed()).toList();
+						try (var stream = java.nio.file.Files.list(backups)) {
+							candidates = stream.filter(java.nio.file.Files::isDirectory).filter(p -> p.getFileName().toString().startsWith("startup-"))
+									.sorted(java.util.Comparator.comparing((java.nio.file.Path p) -> p.getFileName().toString()).reversed()).toList();
 						}
-						for (java.nio.file.Path candidate : candidates) {
-							if (!java.nio.file.Files.isRegularFile(candidate.resolve(names[0]))) {
-								continue;
-							}
+						for (var candidate : candidates) {
 							try {
-								com.google.gson.JsonObject[] restored = load(candidate);
+								var restored = load(candidate);
 								prepare(restored);
 								roots = restored;
-								log.accept("RESTORING ALL THREE FILES from " + candidate + "; current dataset failed: " + originalFailure.getMessage());
+								log.accept("Restoring complete dataset from " + candidate + "; read failure: " + originalFailure.getMessage());
 								break;
 							} catch (java.io.IOException | RuntimeException ignored) {
-								// Try the next complete, valid backup.
+								// Only complete backups valid under the current schema and rules qualify.
 							}
 						}
 					}
-					if (roots == null) {
+					if (roots == null)
 						throw originalFailure;
-					}
 				}
 				commit(roots);
-				return maximumId + 1;
+				return nextRecordId;
 			}
 		}
+		success = false;
 		try {
 			if (world instanceof net.minecraft.server.level.ServerLevel level && level.dimension().equals(net.minecraft.world.level.Level.OVERWORLD)) {
-				if (folder.isBlank()) {
+				if (folder.isBlank())
 					throw new java.io.IOException("World data path is empty");
-				}
 				var variables = net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world);
 				String[] fileNames = {variables.Restaurant_File_Name, variables.RestaurantFood_File_Name, variables.ClientsDatabase_File_Name};
-				var engine = new StartupDataEngine(java.nio.file.Path.of(folder), fileNames, Math.floorDiv(level.getDayTime(), 24000L), new com.google.gson.JsonObject(), CreateModDataSchemasProcedure.execute(),
+				var engine = new StartupDataEngine(java.nio.file.Path.of(folder), fileNames, new String[]{"restaurants_file", "unlocks_file", "clients_file"}, new String[]{"restaurants", "unlocks", "clients"},
+						Math.floorDiv(level.getDayTime(), 24000L), new com.google.gson.JsonObject(), CreateModDataSchemasProcedure.execute(), startupData -> PrepareModDataForStartupProcedure.execute(world, startupData),
 						message -> net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef startup: " + message));
-				engine.allowFreshDataset = variables.RestaurantID <= 1;
+				engine.allowFreshDataset = Double.isFinite(variables.RestaurantID) && variables.RestaurantID <= 1;
 				engine.recoverInterruptedCommit();
 				variables.Restaurant_Info_Path = folder;
 				variables.markSyncDirty();
@@ -886,19 +727,8 @@ public class InitializeAndValidateModDataProcedure {
 				CreatingClientsNameDatabaseJsonFileProcedure.execute(world);
 				var config = net.neoforged.fml.loading.FMLPaths.GAMEDIR.get().resolve("config/omnichef");
 				var foodDatabase = engine.read(config.resolve(variables.FoodDatabase_File_Name));
-				engine.baseExp = (amounts, foods) -> GetClientOrderBaseExpFromArraysProcedure.execute(amounts, foods, foodDatabase);
-				engine.integer(foodDatabase, "tier_count", "FoodDatabase", 1, Integer.MAX_VALUE);
-				engine.catalog.add("tier_count", foodDatabase.get("tier_count"));
-				for (String groupKey : java.util.List.of("ingredients", "foods")) {
-					String groupPath = "FoodDatabase." + groupKey;
-					var group = engine.object(foodDatabase.get(groupKey), groupPath);
-					long groupCount = engine.integer(group, "tier_count", groupPath, 1, Integer.MAX_VALUE);
-					var tiers = engine.object(group.get("tiers"), groupPath + ".tiers");
-					for (int tier = 0; tier < groupCount; tier++) {
-						engine.array(tiers, Integer.toString(tier), groupPath + ".tiers");
-					}
-					engine.catalog.add(groupKey, group);
-				}
+				for (var entry : foodDatabase.entrySet())
+					engine.catalog.add(entry.getKey(), entry.getValue().deepCopy());
 				var nameDatabase = engine.read(config.resolve("ClientsNameList.json"));
 				engine.strings(nameDatabase, "Clients names", "ClientsNameList", 0);
 				engine.strings(nameDatabase, "Critics names", "ClientsNameList", 0);
@@ -908,11 +738,11 @@ public class InitializeAndValidateModDataProcedure {
 				int nextId = engine.run();
 				if (!Double.isFinite(variables.RestaurantID) || variables.RestaurantID < nextId || variables.RestaurantID != Math.rint(variables.RestaurantID)) {
 					variables.RestaurantID = Math.max(nextId, Double.isFinite(variables.RestaurantID) ? Math.ceil(variables.RestaurantID) : nextId);
-					variables.markSyncDirty();
 				}
 				variables.RestaurantsOpen.clear();
 				variables.RestaurantsOpen.addAll(engine.openRestaurantIds);
-				variables.LastClientsDatabaseResetDay = Math.min(engine.day, Math.min(engine.statisticsDay, engine.clientsDay));
+				long resetDay = Math.min(engine.day, Math.min(engine.statisticsDay, engine.clientsDay));
+				variables.LastClientsDatabaseResetDay = resetDay;
 				variables.markSyncDirty();
 				success = true;
 				net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef: startup data initialization completed.");

@@ -8,7 +8,7 @@ public class ChefsDiaryGroupNameTextProcedure {
 	public static String execute(Entity entity) {
 		if (entity == null)
 			return "";
-		if ((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup).equals("ingredient")) {
+		if ((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup).equals("ingredients")) {
 			return "INGREDIENTS";
 		}
 		return "FOODS";

@@ -56,10 +56,6 @@ public class ChoosePendingCardProcedure {
 					ModifyRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_foods", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
 				}
-				ModifyRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-						selectedFood);
-				RemoveRestaurantArrayParameterIndexProcedure.execute(restaurantIndex, "restaurants", "unlock_options", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, selectedFood);
 				ModifyRestaurantWholeArrayParameterProcedure.execute(unlockOptions, restaurantIndex, "restaurants", cardsKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				remaining = 0;
