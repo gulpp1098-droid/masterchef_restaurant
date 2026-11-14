@@ -32,6 +32,7 @@ public class CreateOverlayDataTransferProcedure {
 		com.google.gson.JsonArray members = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray timelineGroupsArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray pendingIngredientCards = new com.google.gson.JsonArray();
 		boolean critic = false;
 		if (!world.isClientSide()) {
 			JSONObject = new Object() {
@@ -127,10 +128,12 @@ public class CreateOverlayDataTransferProcedure {
 				JSONObject.addProperty("reputation_start", ((int) GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel)));
 				JSONObject.addProperty("reputation_target", ((int) GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel + 1)));
 				JSONObject.addProperty("discovery_current", ((int) GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
-						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "discovery_exp")));
-				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "food_exp")));
+				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_food_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
-				JSONObject.addProperty("recipe_ready", (pendingCards.size() > 0));
+				pendingIngredientCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_ingredient_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				JSONObject.addProperty("recipe_ready", (pendingCards.size() > 0 || pendingIngredientCards.size() > 0));
 				JSONObject.addProperty("name", ("Name: " + RestaurantObject.get("name").getAsString()));
 				JSONObject.addProperty("owner", ("Owner: " + RestaurantObject.get("ownerName").getAsString()));
 				if (restaurantLevel >= 100) {

@@ -39,6 +39,7 @@ import java.util.ArrayList;
 public class OmnichefModVariables {
 	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, OmnichefMod.MODID);
 	public static final Supplier<AttachmentType<PlayerVariables>> PLAYER_VARIABLES = ATTACHMENT_TYPES.register("player_variables", () -> AttachmentType.serializable(() -> new PlayerVariables()).build());
+	public static double IngredientExpTickCounter = 0;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

@@ -12923,6 +12923,33 @@
         ]
       },
       "path": "~/Restaurant Functioning/Armor"
+    },
+    {
+      "name": "AddIngredientExp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_ingredient_exp",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "amount",
+            "type": "number"
+          },
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/AddIngredientExpProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
@@ -13153,6 +13180,12 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "IngredientExpTickCounter",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
     }
   ],
   "sound_elements": [

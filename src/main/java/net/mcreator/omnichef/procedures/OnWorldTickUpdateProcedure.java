@@ -26,10 +26,21 @@ public class OnWorldTickUpdateProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world) {
 		boolean shiftsSettled = false;
 		boolean groupsUpdated = false;
+		double ingredientIndex = 0;
+		double ingredientRestaurantID = 0;
 		if ((((Level) world).dimension().location().toString()).equals("minecraft:overworld")) {
 			if (!world.isClientSide()) {
 				if (OmnichefModVariables.MapVariables.get(world).ModDataReady) {
 					ClosingRestaurantsProcedure.execute(world);
+					OmnichefModVariables.IngredientExpTickCounter = OmnichefModVariables.IngredientExpTickCounter + 1;
+					if (OmnichefModVariables.IngredientExpTickCounter >= 100) {
+						OmnichefModVariables.IngredientExpTickCounter = 0;
+						for (int _i1 = 0; _i1 < (int) OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.size(); _i1++) {
+							ingredientRestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantsOpen.get((int) ingredientIndex) instanceof Double _doub3 ? _doub3 : 0.0D;
+							AddIngredientExpProcedure.execute(world, 1, ingredientRestaurantID);
+							ingredientIndex = ingredientIndex + 1;
+						}
+					}
 					groupsUpdated = true;
 					if (world.dayTime() % 100 == 0) {
 						groupsUpdated = FinishExpiredUnspawnedGroupsProcedure.execute(world);

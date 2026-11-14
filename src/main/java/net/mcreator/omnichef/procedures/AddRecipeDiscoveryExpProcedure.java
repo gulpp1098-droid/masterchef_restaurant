@@ -43,7 +43,7 @@ public class AddRecipeDiscoveryExpProcedure {
 					newDiscoveryExp = Math.min(discoveryExp + 1, OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired);
 					if (newDiscoveryExp >= OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired) {
 						ModifyRestaurantNumberParameterProcedure.execute(0, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-								"discovery_exp");
+								"food_exp");
 						ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 								OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_food_unlocks");
 						if (pendingCards.isEmpty()) {
