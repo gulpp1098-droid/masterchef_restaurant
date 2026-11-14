@@ -33,8 +33,8 @@ public class AddIngredientActionExpProcedure {
 					"pending_ingredient_unlocks");
 			grantedExp = Math.min(amount, Math.max(0, 20 - bonusUsed));
 			if (grantedExp > 0 && pendingUnlocks < 5) {
-				AddIngredientExpProcedure.execute(world, amount, restaurantID);
-				ModifyRestaurantNumberParameterProcedure.execute(bonusDay, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
+				AddIngredientExpProcedure.execute(world, grantedExp, restaurantID);
+				ModifyRestaurantNumberParameterProcedure.execute(bonusDay, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"ingredient_bonus_day");
 				ModifyRestaurantNumberParameterProcedure.execute(bonusUsed + grantedExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).Restaurant_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ingredient_bonus_used");

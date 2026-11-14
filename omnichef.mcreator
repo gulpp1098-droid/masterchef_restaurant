@@ -13027,6 +13027,45 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "IngredientExpFromRightClickHarvest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ingredient_exp_from_right_click_harvest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/IngredientExpFromRightClickHarvestProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [

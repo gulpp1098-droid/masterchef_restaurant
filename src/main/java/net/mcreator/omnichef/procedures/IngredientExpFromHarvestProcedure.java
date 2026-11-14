@@ -36,8 +36,10 @@ public class IngredientExpFromHarvestProcedure {
 		if (!world.isClientSide()) {
 			if (IsUserRestaurantOwnerProcedure.execute(world, entity)) {
 				if (blockstate.is(BlockTags.create(ResourceLocation.parse("minecraft:crops")))) {
-					if (getIntFromBlockState(blockstate, "age") >= (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _max6 ? _max6.getPossibleValues().stream().max(Integer::compareTo).get() : -1)) {
-						AddIngredientActionExpProcedure.execute(world, 1, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+					if (getIntFromBlockState(blockstate, "age") >= 0) {
+						if (getIntFromBlockState(blockstate, "age") >= (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _max8 ? _max8.getPossibleValues().stream().max(Integer::compareTo).get() : -1)) {
+							AddIngredientActionExpProcedure.execute(world, 1, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
+						}
 					}
 				}
 			}
