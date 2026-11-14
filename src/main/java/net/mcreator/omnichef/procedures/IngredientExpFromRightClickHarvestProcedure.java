@@ -45,8 +45,8 @@ public class IngredientExpFromRightClickHarvestProcedure {
 						if (getIntFromBlockState(blockstate, "age") >= (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _max8 ? _max8.getPossibleValues().stream().max(Integer::compareTo).get() : -1)) {
 							OmnichefMod.queueServerWork(1, () -> {
 								if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == blockstate.getBlock()) {
-									if (getIntFromBlockState(blockstate, "age") >= 0) {
-										if (getIntFromBlockState(blockstate,
+									if (getIntFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))), "age") >= 0) {
+										if (getIntFromBlockState((world.getBlockState(BlockPos.containing(x, y, z))),
 												"age") < (blockstate.getBlock().getStateDefinition().getProperty("age") instanceof IntegerProperty _max17 ? _max17.getPossibleValues().stream().max(Integer::compareTo).get() : -1)) {
 											AddIngredientActionExpProcedure.execute(world, 1, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 										}
