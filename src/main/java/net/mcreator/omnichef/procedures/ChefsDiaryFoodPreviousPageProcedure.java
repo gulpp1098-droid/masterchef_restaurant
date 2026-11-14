@@ -16,10 +16,11 @@ public class ChefsDiaryFoodPreviousPageProcedure {
 		double previousTier = 0;
 		com.google.gson.JsonArray foodArray = new com.google.gson.JsonArray();
 		boolean foundTier = false;
+		String groupName = "";
 		if (!world.isClientSide()) {
+			groupName = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup;
 			currentTier = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodTier;
 			currentPage = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
-			tierCount = GetFoodListTierCountProcedure.execute(world);
 			if (currentPage > 0) {
 				{
 					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
@@ -30,7 +31,7 @@ public class ChefsDiaryFoodPreviousPageProcedure {
 			} else {
 				previousTier = currentTier - 1;
 				while (previousTier >= 0 && !foundTier) {
-					foodArray = GetFoodListFromTierProcedure.execute(world, previousTier);
+					foodArray = GetFoodDataFromGroupTierProcedure.execute(world, previousTier, groupName);
 					if (foodArray.size() > 0) {
 						{
 							OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);

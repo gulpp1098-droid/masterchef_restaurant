@@ -73,6 +73,12 @@ public record ChefsDiaryFoodTierGUIButtonMessage(int buttonID, int x, int y, int
 			if (buttonID == 24) {
 				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 			}
+			if (buttonID == 25) {
+				net.mcreator.omnichef.procedures.ChefsDiaryShowIngredientsProcedure.execute(world, x, y, z, entity);
+			}
+			if (buttonID == 26) {
+				net.mcreator.omnichef.procedures.ChefsDiaryShowFoodsProcedure.execute(world, x, y, z, entity);
+			}
 		}
 	}
 

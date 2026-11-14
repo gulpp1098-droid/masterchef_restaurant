@@ -13,9 +13,9 @@ public class GetFoodDataFromGroupTierProcedure {
 		databaseObject = ReadFoodDatabaseProcedure.execute(world);
 		if (databaseObject.has(groupName)) {
 			groupObject = databaseObject.get(groupName).getAsJsonObject();
-			tiersObject = databaseObject.get("tiers").getAsJsonObject();
+			tiersObject = groupObject.get("tiers").getAsJsonObject();
 			if (tiersObject.has((new java.text.DecimalFormat("0").format(tier)))) {
-				tierArray = databaseObject.get((new java.text.DecimalFormat("0").format(tier))).getAsJsonArray();
+				tierArray = tiersObject.get((new java.text.DecimalFormat("0").format(tier))).getAsJsonArray();
 			}
 		}
 		return tierArray;
