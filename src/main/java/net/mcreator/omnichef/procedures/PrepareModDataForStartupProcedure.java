@@ -49,6 +49,7 @@ public class PrepareModDataForStartupProcedure {
 		com.google.gson.JsonArray unlocks = new com.google.gson.JsonArray();
 		String phase = "";
 		boolean anySpawned = false;
+		boolean groupFinished = false;
 		startupObject = startupData;
 		if (world.isClientSide()) {
 			return startupObject;
@@ -206,7 +207,7 @@ public class PrepareModDataForStartupProcedure {
 					groupIndex = groupIndex + 1;
 				}
 				if (!schedule.has("shift_id")) {
-					if (anySpawned || clientsDay < 0 || clientsDay > 375299968947) {
+					if (anySpawned || clientsDay < 0 || clientsDay > 2147483647) {
 						startupObject.addProperty("error", "Cannot safely reconstruct client shift identity");
 						return startupObject;
 					}
@@ -327,6 +328,10 @@ public class PrepareModDataForStartupProcedure {
 				groupIndex = 0;
 				for (int _i2 = 0; _i2 < (int) groups.size(); _i2++) {
 					group = groups.get((int) groupIndex).getAsJsonObject();
+					groupFinished = false;
+					if (group.has("finished")) {
+						groupFinished = group.get("finished").getAsBoolean();
+					}
 					groupId = group.get("group_id").getAsDouble();
 					searchIndex = 0;
 					for (int _i3 = 0; _i3 < (int) groupIndex; _i3++) {
@@ -351,7 +356,7 @@ public class PrepareModDataForStartupProcedure {
 							startupObject.addProperty("error", "Food and food_amount lengths differ");
 							return startupObject;
 						}
-						if (!group.get("spawned").getAsBoolean() && (member.get("order_served").getAsBoolean() || member.get("result_recorded").getAsBoolean() || !(member.get("final_satisfaction").getAsDouble() == 0))) {
+						if (!group.get("spawned").getAsBoolean() && (member.get("order_served").getAsBoolean() || member.get("result_recorded").getAsBoolean() && !groupFinished || !(member.get("final_satisfaction").getAsDouble() == 0))) {
 							startupObject.addProperty("error", "Unspawned member has recorded visit data");
 							return startupObject;
 						}

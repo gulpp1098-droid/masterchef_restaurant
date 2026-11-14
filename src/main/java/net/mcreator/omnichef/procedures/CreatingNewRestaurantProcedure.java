@@ -64,6 +64,7 @@ public class CreatingNewRestaurantProcedure {
 		com.google.gson.JsonObject NewRestaurantFood = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject NewRestaurantFoodUnlock = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject tradeBoardData = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject starterUnlockData = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			Owner = entity;
 			NewRestaurant_Name = (Owner instanceof Player _entity1 && _entity1.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "Restaurant_Name", "") : "";
@@ -141,9 +142,8 @@ public class CreatingNewRestaurantProcedure {
 					}
 				}
 				NewRestaurantFoodUnlock.addProperty("ID", ((int) OmnichefModVariables.MapVariables.get(world).RestaurantID));
-				NewRestaurantFoodUnlock.addProperty("discovery_exp", 0);
-				NewRestaurantFoodUnlock.addProperty("stage_tier", 0);
-				NewRestaurantFoodUnlock.addProperty("starter_unlocks_remaining", 3);
+				starterUnlockData.addProperty("stage_tier", 0);
+				starterUnlockData.addProperty("starter_unlocks_remaining", 3);
 				NewRestaurantFoodUnlock.add("unlocked_ingredients", LocationArray);
 				NewRestaurantFoodUnlock.add("unlocked_foods", LocationArray);
 				NewRestaurantFoodUnlock.addProperty("ingredient_exp", 0);
@@ -154,12 +154,11 @@ public class CreatingNewRestaurantProcedure {
 				NewRestaurantFoodUnlock.addProperty("pending_food_unlocks", 0);
 				NewRestaurantFoodUnlock.addProperty("ingredient_starter_unlocks_remaining", 3);
 				NewRestaurantFoodUnlock.add("pending_food_cards", LocationArray);
-				NewRestaurantFoodUnlock.addProperty("pending_unlocks", 0);
-				NewRestaurantFoodUnlock.add("unlocked", LocationArray);
-				NewRestaurantFoodUnlock.add("unlock_options", GetFoodListFromTierProcedure.execute(world, 0));
-				pending_cards = GeneratePendingCardsFromDataProcedure.execute(world, NewRestaurantFoodUnlock);
+				starterUnlockData.add("unlocked", LocationArray);
+				starterUnlockData.add("unlock_options", GetFoodListFromTierProcedure.execute(world, 0));
+				starterUnlockData.addProperty("unlock_group", "INGREDIENT");
+				pending_cards = GeneratePendingCardsFromDataProcedure.execute(world, starterUnlockData);
 				NewRestaurantFoodUnlock.add("pending_ingredient_cards", pending_cards);
-				NewRestaurantFoodUnlock.add("pending_cards", pending_cards);
 				RestaurantsFoodUnlock = new File(OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, File.separator + OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name);
 				{
 					try {
@@ -187,8 +186,8 @@ public class CreatingNewRestaurantProcedure {
 						_vars.markSyncDirty();
 					}
 					CreateOverlayDataTransferProcedure.execute(world, entity);
-					if (Owner instanceof Player _player71 && !_player71.level().isClientSide())
-						_player71.displayClientMessage(Component.literal("Restaurant created!").withStyle(ChatFormatting.GREEN), false);
+					if (Owner instanceof Player _player69 && !_player69.level().isClientSide())
+						_player69.displayClientMessage(Component.literal("Restaurant created!").withStyle(ChatFormatting.GREEN), false);
 					OmnichefModVariables.MapVariables.get(world).RestaurantID = OmnichefModVariables.MapVariables.get(world).RestaurantID + 1;
 					OmnichefModVariables.MapVariables.get(world).markSyncDirty();
 					{
@@ -216,8 +215,8 @@ public class CreatingNewRestaurantProcedure {
 						}, _bpos);
 					}
 				} else {
-					if (Owner instanceof Player _player75 && !_player75.level().isClientSide())
-						_player75.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
+					if (Owner instanceof Player _player73 && !_player73.level().isClientSide())
+						_player73.displayClientMessage(Component.literal("Restaurant data could not be saved.").withStyle(ChatFormatting.RED), false);
 					net.mcreator.omnichef.OmnichefMod.LOGGER.error("Failed to save the new restaurant.");
 				}
 			}
