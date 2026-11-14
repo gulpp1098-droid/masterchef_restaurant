@@ -8,6 +8,7 @@ import net.neoforged.bus.api.Event;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
 
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
@@ -32,7 +33,7 @@ public class IngredientExpFromHuntingProcedure {
 		double cropAge = 0;
 		double nextAge = 0;
 		if (!world.isClientSide()) {
-			if (IsUserRestaurantOwnerProcedure.execute(world, sourceentity)) {
+			if (sourceentity instanceof ServerPlayer && IsUserRestaurantOwnerProcedure.execute(world, sourceentity)) {
 				if (entity instanceof Animal) {
 					AddIngredientActionExpProcedure.execute(world, 1, sourceentity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 				}

@@ -34,7 +34,7 @@
         "type": "dynamic_image",
         "data": {
           "name": "reputation_bar",
-          "image": "reputation_bar.png",
+          "image": "recipe_bar.png",
           "visibleWidthProcedure": "ReturnReputationBarWidth",
           "width": 76,
           "height": 6,
@@ -75,11 +75,11 @@
         "type": "dynamic_image",
         "data": {
           "name": "dynamic_image_3",
-          "image": "star_reputation.png",
-          "width": 11,
+          "image": "recipe.png",
+          "width": 9,
           "height": 10,
           "anchorPoint": "BOTTOM_RIGHT",
-          "x": 331,
+          "x": 332,
           "y": 197,
           "locked": false
         }
@@ -101,7 +101,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_320_520",
-          "text": "320 / 520",
+          "text": "5 / 10",
           "color": {
             "value": -1,
             "falpha": 0.0
@@ -114,7 +114,7 @@
           "width": 44,
           "height": 8,
           "anchorPoint": "BOTTOM_RIGHT",
-          "x": 362,
+          "x": 368,
           "y": 200,
           "locked": false
         }
@@ -136,7 +136,7 @@
           "width": 44,
           "height": 8,
           "anchorPoint": "BOTTOM_RIGHT",
-          "x": 365,
+          "x": 368,
           "y": 222,
           "locked": false
         }
@@ -145,7 +145,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_reputation",
-          "text": "REPUTATION",
+          "text": "Food",
           "color": {
             "value": -1,
             "falpha": 0.0
@@ -178,9 +178,9 @@
           "tooltipWhenTruncated": false,
           "width": 29,
           "height": 8,
-          "anchorPoint": "BOTTOM_RIGHT",
-          "x": 393,
-          "y": 193,
+          "anchorPoint": "BOTTOM_CENTER",
+          "x": 263,
+          "y": 173,
           "locked": false
         }
       },
@@ -188,7 +188,7 @@
         "type": "sized_text_label",
         "data": {
           "name": "sized_text_label_reputation_copy_2",
-          "text": "RECIPE DISCOVERY",
+          "text": "Ingredient",
           "color": {
             "value": -1,
             "falpha": 0.0
@@ -224,6 +224,54 @@
           "anchorPoint": "BOTTOM_RIGHT",
           "x": 330,
           "y": 229,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_reputation_copy_2_copy_copy",
+          "text": "NEW!",
+          "color": {
+            "value": -16711936,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 75,
+          "displayCondition": "ShouldShowNewRecipe",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 52,
+          "height": 8,
+          "anchorPoint": "BOTTOM_RIGHT",
+          "x": 330,
+          "y": 207,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_7",
+          "image": "progress_bar_level.png",
+          "width": 156,
+          "height": 8,
+          "anchorPoint": "BOTTOM_CENTER",
+          "x": 136,
+          "y": 181,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8",
+          "image": "progress_bar_level_sprite.png",
+          "width": 156,
+          "height": 8,
+          "anchorPoint": "BOTTOM_CENTER",
+          "x": 136,
+          "y": 181,
           "locked": false
         }
       }
