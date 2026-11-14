@@ -20,6 +20,9 @@ public class ChefsDiaryFoodNextPageProcedure {
 		com.google.gson.JsonObject groupObject = new com.google.gson.JsonObject();
 		if (!world.isClientSide()) {
 			groupName = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup;
+			if ((groupName).equals("")) {
+				groupName = "ingredients";
+			}
 			currentTier = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodTier;
 			currentPage = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
 			databaseObject = ReadFoodDatabaseProcedure.execute(world);

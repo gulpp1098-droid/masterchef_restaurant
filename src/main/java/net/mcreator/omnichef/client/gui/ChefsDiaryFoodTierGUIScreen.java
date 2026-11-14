@@ -1507,6 +1507,9 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, ChefsDiaryFoodTierPageTextProcedure.execute(entity), 4, -98, -12829636, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.omnichef.chefs_diary_food_tier_gui.label_my_recipes"), -145, -98, -12829636, false);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -82,
+					-97, 120, -12829636, false, 1.00F, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_101", "120\n120"), -125, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_102", "120\n120"), -83, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
 		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:t_103", "120\n120"), -41, -58, 26, 20, -12829636, false, 1.00F, 0, 0);
@@ -1828,6 +1831,47 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_bookmark_cyan_copy);
+	}
+
+	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
+		if (text == null || scale <= 0.0F || boxWidth <= 0)
+			return;
+		int textWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
+		String displayed = overflowMode == 2 ? this.guiTools$ellipsizeSizedText(text, textWidth) : text;
+		boolean clip = overflowMode != 0;
+		if (clip)
+			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + Math.max(1, (int) Math.ceil(this.font.lineHeight * scale)));
+		guiGraphics.pose().pushPose();
+		try {
+			guiGraphics.pose().translate(x, y, 0.0F);
+			guiGraphics.pose().scale(scale, scale, 1.0F);
+			guiGraphics.drawString(this.font, displayed, 0, 0, color, shadow);
+		} finally {
+			guiGraphics.pose().popPose();
+			if (clip)
+				guiGraphics.disableScissor();
+		}
+	}
+
+	private boolean guiTools$isSizedTextTruncated(String text, int boxWidth, float scale) {
+		return text != null && scale > 0.0F && this.font.width(text) > Math.max(1, (int) Math.floor(boxWidth / scale));
+	}
+
+	private String guiTools$ellipsizeSizedText(String value, int maxWidth) {
+		if (this.font.width(value) <= maxWidth)
+			return value;
+		String ellipsis = "…";
+		if (this.font.width(ellipsis) > maxWidth)
+			return "";
+		int low = 0, high = value.length();
+		while (low < high) {
+			int middle = (low + high + 1) >>> 1;
+			if (this.font.width(value.substring(0, middle) + ellipsis) <= maxWidth)
+				low = middle;
+			else
+				high = middle - 1;
+		}
+		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();

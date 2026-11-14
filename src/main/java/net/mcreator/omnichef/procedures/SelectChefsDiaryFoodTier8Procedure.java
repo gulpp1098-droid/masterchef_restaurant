@@ -9,8 +9,15 @@ public class SelectChefsDiaryFoodTier8Procedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
+		String groupName = "";
+		com.google.gson.JsonArray array = new com.google.gson.JsonArray();
 		if (!world.isClientSide()) {
-			if (GetFoodListTierCountProcedure.execute(world) > 8) {
+			groupName = "foods";
+			if ((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup).equals("ingredients")) {
+				groupName = "ingredients";
+			}
+			array = GetFoodDataFromGroupTierProcedure.execute(world, 8, groupName);
+			if (array.size() > 8) {
 				{
 					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 					_vars.DiaryFoodTier = 8;

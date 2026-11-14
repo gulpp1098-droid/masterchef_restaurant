@@ -1981,7 +1981,7 @@
         "data": {
           "name": "label_my_recipes",
           "text": {
-            "fixedValue": "My Recipes"
+            "fixedValue": "My Recipes:"
           },
           "color": {
             "value": -12829636,
@@ -2086,6 +2086,27 @@
           "scale": 100,
           "x": 36,
           "y": 53,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label",
+          "text": "INGREDIENTS",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 132,
+          "y": 23,
           "locked": false
         }
       }

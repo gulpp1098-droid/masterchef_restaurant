@@ -19,6 +19,9 @@ public class ChefsDiaryFoodPreviousPageProcedure {
 		String groupName = "";
 		if (!world.isClientSide()) {
 			groupName = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup;
+			if ((groupName).equals("")) {
+				groupName = "ingredients";
+			}
 			currentTier = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodTier;
 			currentPage = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
 			if (currentPage > 0) {
