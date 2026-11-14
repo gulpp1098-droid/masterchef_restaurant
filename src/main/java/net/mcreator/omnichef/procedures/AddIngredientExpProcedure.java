@@ -10,6 +10,7 @@ public class AddIngredientExpProcedure {
 		double ingredientExp = 0;
 		double pendingUnlocks = 0;
 		double newExp = 0;
+		boolean unlockEarned = false;
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantID);
 		if (restaurantIndex >= 0 && amount > 0) {
 			ingredientExp = GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
@@ -22,10 +23,13 @@ public class AddIngredientExpProcedure {
 					newExp = newExp - 100;
 					ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 							OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "pending_ingredient_unlocks");
+					unlockEarned = true;
 				}
 				ModifyRestaurantNumberParameterProcedure.execute(newExp, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
 						"ingredient_exp");
-				GeneratePendingCardsProcedure.execute(world, restaurantID);
+				if (unlockEarned) {
+					GeneratePendingCardsProcedure.execute(world, restaurantID);
+				}
 			}
 		}
 	}
