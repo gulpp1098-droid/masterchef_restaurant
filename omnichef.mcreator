@@ -12957,6 +12957,75 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "add_ingredient_action_exp",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "amount",
+            "type": "number"
+          },
+          {
+            "name": "restaurantID",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/AddIngredientActionExpProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "IngredientExpFromFishing",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ingredient_exp_from_fishing",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/IngredientExpFromFishingProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "IngredientExpFromHarvest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ingredient_exp_from_harvest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/IngredientExpFromHarvestProcedure.java"
+        ]
+      },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
