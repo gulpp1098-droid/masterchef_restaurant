@@ -366,25 +366,6 @@
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/Spatula Procedures"
     },
     {
-      "name": "CreatingRestaurantJsonFile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "creating_restaurant_json_file",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/CreatingRestaurantJsonFileProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
-    },
-    {
       "name": "ModifyRestaurantNumberParameter",
       "type": "procedure",
       "compiles": true,
@@ -8029,25 +8010,6 @@
         ]
       },
       "path": "~/Restaurant Functioning/GUIs"
-    },
-    {
-      "name": "CreatingRestaurantFoodJsonFile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "creating_restaurant_food_json_file",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/CreatingRestaurantFoodJsonFileProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
     },
     {
       "name": "GetFoodListFromTier",
