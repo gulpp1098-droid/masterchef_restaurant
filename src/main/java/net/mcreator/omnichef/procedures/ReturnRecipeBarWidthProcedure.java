@@ -22,7 +22,7 @@ public class ReturnRecipeBarWidthProcedure {
 				}
 			}
 		}.parse(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).OverlayString);
-		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0 || !data.has("reputation_current")) {
+		if (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID <= 0 || !data.has("discovery_current") || !data.has("discovery_target")) {
 			return 0;
 		}
 		current = data.get("discovery_current").getAsDouble();

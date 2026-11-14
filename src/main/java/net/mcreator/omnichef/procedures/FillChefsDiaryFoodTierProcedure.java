@@ -30,6 +30,8 @@ public class FillChefsDiaryFoodTierProcedure {
 		com.google.gson.JsonArray foodDataArray = new com.google.gson.JsonArray();
 		String foodID = "";
 		String rewardText = "";
+		String groupName = "";
+		String unlockedKey = "";
 		ItemStack displayStack = ItemStack.EMPTY;
 		boolean isUnlocked = false;
 		com.google.gson.JsonObject foodObject = new com.google.gson.JsonObject();
@@ -53,9 +55,16 @@ public class FillChefsDiaryFoodTierProcedure {
 			page = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodPage;
 			startIndex = page * 18;
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
-			foodDataArray = GetFoodDataFromTierProcedure.execute(world, tier);
+			if ((entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryFoodGroup).equals("ingredients")) {
+				groupName = "ingredients";
+				unlockedKey = "unlocked_ingredients";
+			} else {
+				groupName = "foods";
+				unlockedKey = "unlocked_foods";
+			}
+			foodDataArray = GetFoodDataFromGroupTierProcedure.execute(world, tier, groupName);
 			if (restaurantIndex >= 0) {
-				unlockedArray = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+				unlockedArray = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", unlockedKey, OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 			}
 			for (int _i1 = 0; _i1 < 18; _i1++) {

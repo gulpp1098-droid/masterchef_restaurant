@@ -27,7 +27,7 @@ public class ReturnReputationBarWidthProcedure {
 			return 0;
 		}
 		if (data.get("restaurant_level").getAsDouble() >= 100) {
-			return 76;
+			return 156;
 		}
 		current = data.get("reputation_current").getAsDouble();
 		start = data.get("reputation_start").getAsDouble();
@@ -35,6 +35,6 @@ public class ReturnReputationBarWidthProcedure {
 		if (target <= start) {
 			return 0;
 		}
-		return 76 * Math.min(1, Math.max(0, (current - start) / (target - start)));
+		return 156 * Math.min(1, Math.max(0, (current - start) / (target - start)));
 	}
 }

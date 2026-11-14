@@ -1992,6 +1992,100 @@
           "y": 22,
           "locked": false
         }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_cyan.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_bookmark_cyan",
+          "text": "",
+          "isUndecorated": true,
+          "width": 35,
+          "height": 26,
+          "x": 25,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_purple.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_bookmark_cyan_copy",
+          "text": "",
+          "isUndecorated": true,
+          "width": 35,
+          "height": 26,
+          "x": 25,
+          "y": 48,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_36",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Items.WHEAT"
+          },
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 36,
+          "y": 53,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_37",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Items.RABBIT_STEW"
+          },
+          "maskEnabled": false,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 36,
+          "y": 53,
+          "locked": false
+        }
       }
     ],
     "onOpen": "FillChefsDiaryFoodTier",

@@ -3,6 +3,7 @@ package net.mcreator.omnichef.client.gui;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
@@ -1417,6 +1418,78 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			guiTools$alphaBlit(guiGraphics, IMAGE_34, this.leftPos + 48, this.topPos + 30, 0, 0, 10, 10, 10, 10);
 			guiTools$alphaBlit(guiGraphics, IMAGE_35, this.leftPos + 89, this.topPos + 41, 0, 0, 10, 10, 10, 10);
 			guiTools$alphaBlit(guiGraphics, IMAGE_36, this.leftPos + 89, this.topPos + 30, 0, 0, 10, 10, 10, 10);
+			if (enhanced_image_button_bookmark_cyan.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_cyan.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_bookmark_cyan.getX() && mouseY >= enhanced_image_button_bookmark_cyan.getY() && mouseX < enhanced_image_button_bookmark_cyan.getX() + 35
+						&& mouseY < enhanced_image_button_bookmark_cyan.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_bookmark_cyan.getX(), enhanced_image_button_bookmark_cyan.getY(), 0, 0, 35, 26, 35, 26);
+			}
+			if (enhanced_image_button_bookmark_cyan_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_purple.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_bookmark_cyan_copy.getX() && mouseY >= enhanced_image_button_bookmark_cyan_copy.getY() && mouseX < enhanced_image_button_bookmark_cyan_copy.getX() + 35
+						&& mouseY < enhanced_image_button_bookmark_cyan_copy.getY() + 26;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_bookmark_cyan_copy.getX(), enhanced_image_button_bookmark_cyan_copy.getY(), 0, 0, 35, 26, 35, 26);
+			}
+			guiTools$itemDisplay36 : {
+				if (!(true))
+					break guiTools$itemDisplay36;
+				net.minecraft.world.item.ItemStack guiTools$displayStack36 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.WHEAT, 1));
+				if (guiTools$displayStack36 == null || guiTools$displayStack36.isEmpty())
+					break guiTools$itemDisplay36;
+				boolean guiTools$displayMasked36 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -178), (1.0F - 1.0f) * (this.topPos + -67), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked36) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack36, this.leftPos + -178, this.topPos + -67);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack36, this.leftPos + -178, this.topPos + -67);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay37 : {
+				if (!(true))
+					break guiTools$itemDisplay37;
+				net.minecraft.world.item.ItemStack guiTools$displayStack37 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.RABBIT_STEW, 1));
+				if (guiTools$displayStack37 == null || guiTools$displayStack37.isEmpty())
+					break guiTools$itemDisplay37;
+				boolean guiTools$displayMasked37 = false;
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + -178), (1.0F - 1.0f) * (this.topPos + -67), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked37) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack37, this.leftPos + -178, this.topPos + -67);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack37, this.leftPos + -178, this.topPos + -67);
+					}
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -1725,6 +1798,24 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(blue_bookmark);
+		enhanced_image_button_bookmark_cyan = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -189, this.topPos + -101, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_cyan.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_cyan.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				// Rendered manually in the ordered GUI layer block.
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_bookmark_cyan);
+		enhanced_image_button_bookmark_cyan_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -189, this.topPos + -72, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_purple.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_purple.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				// Rendered manually in the ordered GUI layer block.
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_bookmark_cyan_copy);
 	}
 
 	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
@@ -1803,6 +1894,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private net.minecraft.client.gui.components.ImageButton green_bookmark;
 	private net.minecraft.client.gui.components.ImageButton gray_bookmark;
 	private net.minecraft.client.gui.components.ImageButton blue_bookmark;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_cyan;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_cyan_copy;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

@@ -55,6 +55,10 @@ public class CreateOverlayDataTransferProcedure {
 			JSONObject.addProperty("discovery_current", 0);
 			JSONObject.addProperty("discovery_target", OmnichefModVariables.MapVariables.get(world).RecipeDiscoveryExpRequired);
 			JSONObject.addProperty("recipe_ready", false);
+			JSONObject.addProperty("ingredient_current", 0);
+			JSONObject.addProperty("ingredient_target", 100);
+			JSONObject.addProperty("ingredient_ready", false);
+			JSONObject.addProperty("food_ready", false);
 			JSONObject.add("groups", timelineGroupsArray);
 			restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID);
 			if (restaurantIndex >= 0 && entity.getData(OmnichefModVariables.PLAYER_VARIABLES).Restaurant_ID > -1) {
@@ -129,10 +133,14 @@ public class CreateOverlayDataTransferProcedure {
 				JSONObject.addProperty("reputation_target", ((int) GetRequiredReputationForLevelProcedure.execute(world, restaurantLevel + 1)));
 				JSONObject.addProperty("discovery_current", ((int) GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "food_exp")));
+				JSONObject.addProperty("ingredient_current", ((int) GetRestaurantNumberParameterProcedure.execute(restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
+						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path, "ingredient_exp")));
 				pendingCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_food_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 				pendingIngredientCards = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "pending_ingredient_cards", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
 						OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
+				JSONObject.addProperty("food_ready", (pendingCards.size() > 0));
+				JSONObject.addProperty("ingredient_ready", (pendingIngredientCards.size() > 0));
 				JSONObject.addProperty("recipe_ready", (pendingCards.size() > 0 || pendingIngredientCards.size() > 0));
 				JSONObject.addProperty("name", ("Name: " + RestaurantObject.get("name").getAsString()));
 				JSONObject.addProperty("owner", ("Owner: " + RestaurantObject.get("ownerName").getAsString()));
