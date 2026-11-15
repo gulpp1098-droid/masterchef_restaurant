@@ -1469,25 +1469,6 @@
       "path": "~/Restaurant Functioning/Procedures/External Trigger Procedures"
     },
     {
-      "name": "CreatingClientsDatabaseJsonFile",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "creating_clients_database_json_file",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/omnichef/procedures/CreatingClientsDatabaseJsonFileProcedure.java"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Procedures/Creating World Procedures"
-    },
-    {
       "name": "RestaurantIsOpen",
       "type": "procedure",
       "compiles": true,
