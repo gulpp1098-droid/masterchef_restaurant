@@ -3,13 +3,13 @@
   "_type": "armor",
   "definition": {
     "enableHelmet": true,
-    "textureHelmet": "minecraft:chainmail_helmet",
+    "textureHelmet": "chefs_hat",
     "enableBody": true,
-    "textureBody": "minecraft:chainmail_chestplate",
+    "textureBody": "chefs_kitel",
     "enableLeggings": true,
-    "textureLeggings": "minecraft:chainmail_leggings",
+    "textureLeggings": "chefs_leggins",
     "enableBoots": true,
-    "textureBoots": "minecraft:chainmail_boots",
+    "textureBoots": "chefs_boots",
     "creativeTabs": [
       "CUSTOM:MasterChef"
     ],

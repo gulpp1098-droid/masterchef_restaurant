@@ -33,7 +33,7 @@ public class DebugAddIngredientChoiceProcedure {
 			return false;
 		}
 		ModifyRestaurantNumberParameterProcedure.execute(pendingUnlocks + 1, restaurantIndex, "restaurants", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name, OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path,
-				"pending_food_unlocks");
+				"pending_ingredient_unlocks");
 		GeneratePendingCardsProcedure.execute(world, restaurantID);
 		CreateOverlayDataTransferProcedure.execute(world, entity);
 		if (entity instanceof Player _player && !_player.level().isClientSide())
