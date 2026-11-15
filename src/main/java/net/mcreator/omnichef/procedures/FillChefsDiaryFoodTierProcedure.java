@@ -76,7 +76,7 @@ public class FillChefsDiaryFoodTierProcedure {
 					coins = tier + 1;
 					dishExp = foodObject.get("base_exp").getAsDouble();
 					rewardText = (int) coins + "\n" + (int) dishExp;
-					isUnlocked = false;
+					isUnlocked = entity instanceof Player _plr ? _plr.getAbilities().instabuild : false;
 					unlockedIndex = 0;
 					for (int _i2 = 0; _i2 < (int) unlockedArray.size(); _i2++) {
 						if ((foodID).equals(unlockedArray.get((int) unlockedIndex).getAsString())) {
@@ -86,19 +86,19 @@ public class FillChefsDiaryFoodTierProcedure {
 					}
 					if (isUnlocked) {
 						if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-							ItemStack _displayStack13 = displayStack.copy();
-							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 19)), _displayStack13, true);
+							ItemStack _displayStack14 = displayStack.copy();
+							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 19)), _displayStack14, true);
 						}
-						if (entity instanceof Player _guiToolsLabelPlayer15 && _guiToolsLabelPlayer15.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu15) {
-							_guiToolsLabelMenu15.sendMenuStateUpdate(_guiToolsLabelPlayer15, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) (slotIndex + 101)), ""), java.util.Objects.toString(rewardText, ""), true);
+						if (entity instanceof Player _guiToolsLabelPlayer16 && _guiToolsLabelPlayer16.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu16) {
+							_guiToolsLabelMenu16.sendMenuStateUpdate(_guiToolsLabelPlayer16, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) (slotIndex + 101)), ""), java.util.Objects.toString(rewardText, ""), true);
 						}
 					} else {
 						if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-							ItemStack _displayStack16 = displayStack.copy();
-							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack16, true);
+							ItemStack _displayStack17 = displayStack.copy();
+							_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack17, true);
 						}
-						if (entity instanceof Player _guiToolsLabelPlayer18 && _guiToolsLabelPlayer18.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu18) {
-							_guiToolsLabelMenu18.sendMenuStateUpdate(_guiToolsLabelPlayer18, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) (slotIndex + 101)), ""), java.util.Objects.toString(("???" + "\n" + "???"), ""), true);
+						if (entity instanceof Player _guiToolsLabelPlayer19 && _guiToolsLabelPlayer19.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu19) {
+							_guiToolsLabelMenu19.sendMenuStateUpdate(_guiToolsLabelPlayer19, 0, "gui_tools:multiline:" + java.util.Objects.toString(("t_" + (int) (slotIndex + 101)), ""), java.util.Objects.toString(("???" + "\n" + "???"), ""), true);
 						}
 					}
 				}

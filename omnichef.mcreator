@@ -13258,6 +13258,80 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "DebugAddFoodChoice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_add_food_choice",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/DebugAddFoodChoiceProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Debug"
+    },
+    {
+      "name": "DebugAddIngredientChoice",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_add_ingredient_choice",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/DebugAddIngredientChoiceProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Debug"
+    },
+    {
+      "name": "RestDebugFoodChoice",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rest_debug_food_choice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/command/RestDebugFoodChoiceCommand.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Debug"
+    },
+    {
+      "name": "RestDebugIngredientChoice",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rest_debug_ingredient_choice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/command/RestDebugIngredientChoiceCommand.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Debug"
     }
   ],
   "variable_elements": [
