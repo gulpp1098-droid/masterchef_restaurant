@@ -40,7 +40,7 @@ public class FilterCurrentlyUnlockableFoodOptionsProcedure {
 					availableIndex = availableIndex + 1;
 				}
 				if (!intermediateAlreadyAvailable) {
-					if (IsFoodRecipeCurrentlyUnlockableProcedure.execute(unlockedFoodsArray, database, foodID)) {
+					if (IsFoodRecipeCurrentlyUnlockableProcedure.execute(unlockedFoodsArray, database, intermediateID)) {
 						unlockedFoodsArray.add(intermediateID);
 						foundNewIntermediate = true;
 					}

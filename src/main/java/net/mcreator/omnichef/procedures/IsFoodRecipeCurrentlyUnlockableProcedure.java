@@ -51,7 +51,7 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 				alternativeIndex = 0;
 				for (int _i3 = 0; _i3 < (int) alternatives.size(); _i3++) {
 					alternativeID = alternatives.get((int) alternativeIndex).getAsString();
-					if (IsFoodInDatabaseProcedure.execute(databaseObject, alternativeID)) {
+					if (!IsFoodInDatabaseProcedure.execute(databaseObject, alternativeID)) {
 						if (recipeNodes.has(alternativeID)) {
 							alternativeData = recipeNodes.get(alternativeID).getAsJsonObject();
 							alternativeKind = alternativeData.get("kind").getAsString();

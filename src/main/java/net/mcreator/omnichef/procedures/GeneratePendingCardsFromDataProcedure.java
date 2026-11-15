@@ -22,6 +22,7 @@ public class GeneratePendingCardsFromDataProcedure {
 		double randomWeight = 0;
 		double unlockedIndex = 0;
 		double filterIndex = 0;
+		double safeStarterCount = 0;
 		com.google.gson.JsonArray options = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray pendingCards = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray currentPool = new com.google.gson.JsonArray();
@@ -31,6 +32,7 @@ public class GeneratePendingCardsFromDataProcedure {
 		com.google.gson.JsonArray selectedPool = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockedFoods = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray filteredOptions = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray safeStarterOption = new com.google.gson.JsonArray();
 		String selectedFood = "";
 		String cardGroup = "";
 		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
@@ -44,10 +46,16 @@ public class GeneratePendingCardsFromDataProcedure {
 		databaseObject = ReadFoodDatabaseProcedure.execute(world);
 		if (unlockObject.get("starter_unlocks_remaining").getAsDouble() > 0) {
 			options = databaseObject.get("starter_options").getAsJsonArray();
+			safeStarterOption = databaseObject.get("starter_safe_options").getAsJsonArray();
+			safeStarterCount = safeStarterOption.size();
 			unlockedIndex = 0;
 			for (int _i1 = 0; _i1 < (int) unlockedFoods.size(); _i1++) {
 				options = RemoveFoodFromArrayProcedure.execute(options, unlockedFoods.get((int) unlockedIndex).getAsString());
+				safeStarterOption = RemoveFoodFromArrayProcedure.execute(safeStarterOption, unlockedFoods.get((int) unlockedIndex).getAsString());
 				unlockedIndex = unlockedIndex + 1;
+			}
+			if (safeStarterOption.size() == safeStarterCount) {
+				options = safeStarterOption;
 			}
 		} else {
 			options = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(options, unlockedFoods, databaseObject);
