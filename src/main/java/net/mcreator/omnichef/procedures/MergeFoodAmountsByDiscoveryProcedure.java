@@ -26,8 +26,8 @@ public class MergeFoodAmountsByDiscoveryProcedure {
 			for (int _i2 = 0; _i2 < (int) mergedFoods.size(); _i2++) {
 				if ((mergedFoods.get((int) mergedIndex).getAsString()).equals(foodID)) {
 					amount = amount + mergedAmounts.get((int) mergedIndex).getAsDouble();
-					mergedFoods.remove(mergedIndex);
-					mergedAmounts.remove(mergedIndex);
+					mergedFoods.remove(((int) mergedIndex));
+					mergedAmounts.remove(((int) mergedIndex));
 					mergedFoods.add(foodID);
 					mergedAmounts.add(amount);
 					found = true;

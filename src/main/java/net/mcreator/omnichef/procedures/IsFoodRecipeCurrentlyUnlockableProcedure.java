@@ -64,7 +64,7 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 								}
 								unlockedIndex = 0;
 								for (int _i4 = 0; _i4 < (int) unlockedFoodsArray.size(); _i4++) {
-									if ((GetFoodDiscoveryIDProcedure.execute(databaseObject, unlockedFoodsArray.get((int) unlockedIndex).getAsString())).equals(unlockedFoodsArray.get((int) unlockedIndex).getAsString())) {
+									if ((GetFoodDiscoveryIDProcedure.execute(databaseObject, unlockedFoodsArray.get((int) unlockedIndex).getAsString())).equals(alternativeID)) {
 										slotPossible = true;
 									}
 									unlockedIndex = unlockedIndex + 1;
@@ -74,7 +74,7 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 					} else {
 						unlockedIndex = 0;
 						for (int _i4 = 0; _i4 < (int) unlockedFoodsArray.size(); _i4++) {
-							if ((GetFoodDiscoveryIDProcedure.execute(databaseObject, unlockedFoodsArray.get((int) unlockedIndex).getAsString())).equals(unlockedFoodsArray.get((int) unlockedIndex).getAsString())) {
+							if ((GetFoodDiscoveryIDProcedure.execute(databaseObject, unlockedFoodsArray.get((int) unlockedIndex).getAsString())).equals(alternativeID)) {
 								slotPossible = true;
 							}
 							unlockedIndex = unlockedIndex + 1;

@@ -13384,6 +13384,30 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "GetFoodDiscoveryVariants",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_discovery_variants",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodDiscoveryVariantsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [
