@@ -14,7 +14,9 @@ public class GetFoodDataFromIDProcedure {
 		double tierIndex = 0;
 		double foodIndex = 0;
 		String tierKey = "";
+		String discoveryID = "";
 		database = databaseObject;
+		discoveryID = GetFoodDiscoveryIDProcedure.execute(database, foodID);
 		groupObject = database.get("ingredients").getAsJsonObject();
 		tiersObject = groupObject.get("tiers").getAsJsonObject();
 		tierCount = groupObject.get("tier_count").getAsDouble();
@@ -24,7 +26,7 @@ public class GetFoodDataFromIDProcedure {
 			foodIndex = 0;
 			for (int _i2 = 0; _i2 < (int) tierArray.size(); _i2++) {
 				currentFood = tierArray.get((int) foodIndex).getAsJsonObject();
-				if ((currentFood.get("id").getAsString()).equals(foodID)) {
+				if ((currentFood.get("id").getAsString()).equals(discoveryID)) {
 					return currentFood;
 				}
 				foodIndex = foodIndex + 1;
@@ -41,7 +43,7 @@ public class GetFoodDataFromIDProcedure {
 			foodIndex = 0;
 			for (int _i2 = 0; _i2 < (int) tierArray.size(); _i2++) {
 				currentFood = tierArray.get((int) foodIndex).getAsJsonObject();
-				if ((currentFood.get("id").getAsString()).equals(foodID)) {
+				if ((currentFood.get("id").getAsString()).equals(discoveryID)) {
 					return currentFood;
 				}
 				foodIndex = foodIndex + 1;

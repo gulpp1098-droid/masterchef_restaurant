@@ -33,6 +33,7 @@ public class GenerateRestaurantMenuProcedure {
 		String unlockID = "";
 		boolean isDuplicate = false;
 		boolean saveSuccessful = false;
+		boolean discoveryAlreadyAdded = false;
 		double MaxRestaurantLevel = 0;
 		double CurrentRestaurantLevel = 0;
 		double TierCount = 0;
@@ -57,6 +58,7 @@ public class GenerateRestaurantMenuProcedure {
 		double restaurantIndex = 0;
 		double randomFoodIndex = 0;
 		double unlockIndex = 0;
+		double discoveryIndex = 0;
 		restaurantIndex = RestaurantIndexSearchByIDProcedure.execute(world, restaurantIndexDependency);
 		FoodDatabase = ReadFoodDatabaseProcedure.execute(world);
 		ingredientUnlocks = GetRestaurantArrayParameterProcedure.execute(restaurantIndex, "restaurants", "unlocked_ingredients", OmnichefModVariables.MapVariables.get(world).RestaurantFood_File_Name,
@@ -65,19 +67,39 @@ public class GenerateRestaurantMenuProcedure {
 				OmnichefModVariables.MapVariables.get(world).Restaurant_Info_Path);
 		unlockIndex = 0;
 		for (int _i1 = 0; _i1 < (int) ingredientUnlocks.size(); _i1++) {
-			unlockID = ingredientUnlocks.get((int) unlockIndex).getAsString();
+			unlockID = GetFoodDiscoveryIDProcedure.execute(FoodDatabase, ingredientUnlocks.get((int) unlockIndex).getAsString());
 			unlockData = GetFoodDataFromIDProcedure.execute(FoodDatabase, unlockID);
 			if (unlockData.has("can_serve") && unlockData.get("can_serve").getAsBoolean()) {
-				UnlockedFood.add(unlockID);
+				discoveryAlreadyAdded = false;
+				discoveryIndex = 0;
+				for (int _i2 = 0; _i2 < (int) UnlockedFood.size(); _i2++) {
+					if ((UnlockedFood.get((int) discoveryIndex).getAsString()).equals(unlockID)) {
+						discoveryAlreadyAdded = true;
+					}
+					discoveryIndex = discoveryIndex + 1;
+				}
+				if (!discoveryAlreadyAdded) {
+					UnlockedFood.add(unlockID);
+				}
 			}
 			unlockIndex = unlockIndex + 1;
 		}
 		unlockIndex = 0;
 		for (int _i1 = 0; _i1 < (int) foodUnlocks.size(); _i1++) {
-			unlockID = foodUnlocks.get((int) unlockIndex).getAsString();
+			unlockID = GetFoodDiscoveryIDProcedure.execute(FoodDatabase, foodUnlocks.get((int) unlockIndex).getAsString());
 			unlockData = GetFoodDataFromIDProcedure.execute(FoodDatabase, unlockID);
 			if (unlockData.has("can_serve") && unlockData.get("can_serve").getAsBoolean()) {
-				UnlockedFood.add(unlockID);
+				discoveryAlreadyAdded = false;
+				discoveryIndex = 0;
+				for (int _i2 = 0; _i2 < (int) UnlockedFood.size(); _i2++) {
+					if ((UnlockedFood.get((int) discoveryIndex).getAsString()).equals(unlockID)) {
+						discoveryAlreadyAdded = true;
+					}
+					discoveryIndex = discoveryIndex + 1;
+				}
+				if (!discoveryAlreadyAdded) {
+					UnlockedFood.add(unlockID);
+				}
 			}
 			unlockIndex = unlockIndex + 1;
 		}

@@ -13332,6 +13332,58 @@
         ]
       },
       "path": "~/Restaurant Functioning/Debug"
+    },
+    {
+      "name": "GetFoodDiscoveryID",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_food_discovery_id",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "foodID",
+            "type": "string"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetFoodDiscoveryIDProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/Return Procedures"
+    },
+    {
+      "name": "MergeFoodAmountsByDiscovery",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "merge_food_amounts_by_discovery",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "foodAmountArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "foodArray",
+            "type": "jsonarray"
+          },
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          }
+        ],
+        "return_type": "jsonobject",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/MergeFoodAmountsByDiscoveryProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/System Procedures"
     }
   ],
   "variable_elements": [

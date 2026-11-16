@@ -36,7 +36,7 @@ public class CreatingFoodListJsonProcedure {
 				}
 
 				void phase(String name) {
-					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef catalog v29: finished stage={} in {} ms; next={}", stage, (System.nanoTime() - phaseStarted) / 1000000L, name);
+					net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef catalog v34: finished stage={} in {} ms; next={}", stage, (System.nanoTime() - phaseStarted) / 1000000L, name);
 					stage = name;
 					phaseStarted = System.nanoTime();
 					current = "";
@@ -428,10 +428,96 @@ public class CreatingFoodListJsonProcedure {
 						return technical;
 					}
 
+					final java.util.Map<String, Boolean> externalMaterialFlags = new java.util.HashMap<>();
+					final java.util.Set<String> servingContainers = new java.util.TreeSet<>();
+					boolean servingContainersIndexed = false;
+					final java.util.List<net.minecraft.tags.TagKey<net.minecraft.world.item.Item>> materialTags = new java.util.ArrayList<>();
+					final java.util.List<net.minecraft.tags.TagKey<net.minecraft.world.item.Item>> toolTags = java.util.List.of(
+							net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:tools")),
+							net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("minecraft:tools")));
+					final java.util.List<net.minecraft.tags.TagKey<net.minecraft.world.item.Item>> botanicalTags = java.util.List
+							.of(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("minecraft:flowers")));
+					final java.util.List<net.minecraft.tags.TagKey<net.minecraft.world.item.Item>> rawMaterialTags = java.util.List
+							.of(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:raw_materials")));
+					final java.util.List<net.minecraft.tags.TagKey<net.minecraft.world.item.Item>> dyeRawMaterialTags = java.util.List
+							.of(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:raw_materials/dyes")));
+
+					boolean botanical(String id) {
+						return matchesTags(id, botanicalTags);
+					}
+
+					void indexMaterialTags() {
+						if (!materialTags.isEmpty())
+							return;
+						for (String name : java.util.List.of("c:ingots", "c:nuggets", "c:gems", "c:ores", "c:glass_blocks", "c:glass_panes", "c:stones", "c:cobblestones", "c:strings", "c:rods/wooden", "minecraft:leaves", "c:bones", "c:bone_meals",
+								"c:dusts/bone"))
+							materialTags.add(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse(name)));
+					}
+
+					boolean externalMaterial(String id) {
+						return externalMaterialFlags.computeIfAbsent(id, key -> {
+							var item = itemsById.get(key);
+							if (item == null || overrides.containsKey(key) || pantryItems.contains(key) || culinaryIds.contains(key) || preparedItems.contains(key) || preparedPortions.contains(key))
+								return false;
+							var food = item.getFoodProperties(new net.minecraft.world.item.ItemStack(item), null);
+							// FoodProperties alone does not imply useful nutrition (some technical items have zeroes).
+							if (food != null && (food.nutrition() > 0 || food.saturation() > 0 || zeroNutritionAllowed.contains(key)))
+								return false;
+							if (matchesTags(key, ingredientTags) || matchesTags(key, supplementalIngredientTags) || botanical(key))
+								return false;
+							indexMaterialTags();
+							return java.util.Set.of("minecraft:gold_ingot", "minecraft:gold_nugget", "minecraft:bone", "minecraft:bone_meal", "minecraft:ice", "minecraft:packed_ice", "minecraft:blue_ice", "minecraft:snowball").contains(key)
+									|| matchesTags(key, materialTags) || matchesTags(key, rawMaterialTags) && !matchesTags(key, dyeRawMaterialTags) && !matchesTags(key, culinaryTags);
+						});
+					}
+
+					void indexServingContainers() {
+						if (servingContainersIndexed)
+							return;
+						servingContainersIndexed = true;
+						for (var item : itemsById.values()) {
+							var stack = new net.minecraft.world.item.ItemStack(item);
+							var food = item.getFoodProperties(stack, null);
+							String source = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item).toString();
+							if (food == null && !isCulinary(source))
+								continue;
+							try {
+								if (stack.hasCraftingRemainingItem())
+									registerServingContainer(stack.getCraftingRemainingItem());
+							} catch (RuntimeException unsupported) {
+								// Custom crafting-remainder implementations may need a populated stack.
+							}
+							if (food == null)
+								continue;
+							try {
+								Object value = food.getClass().getMethod("usingConvertsTo").invoke(food);
+								if (!(value instanceof java.util.Optional<?> result) || !(result.orElse(null) instanceof net.minecraft.world.item.ItemStack remainder) || remainder.isEmpty())
+									continue;
+								registerServingContainer(remainder);
+							} catch (ReflectiveOperationException | RuntimeException unsupported) {
+								// Optional conversion APIs cannot turn an unknown mandatory slot into a free supply.
+							}
+						}
+					}
+
+					void registerServingContainer(net.minecraft.world.item.ItemStack remainder) {
+						if (remainder == null || remainder.isEmpty())
+							return;
+						String id = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(remainder.getItem()).toString();
+						if (!itemsById.containsKey(id) || isEdible(id) || overrides.containsKey(id) || pantryItems.contains(id) || culinaryIds.contains(id) || matchesTags(id, ingredientTags) || matchesTags(id, supplementalIngredientTags))
+							return;
+						servingContainers.add(id);
+					}
+
+					boolean servingContainer(String id) {
+						indexServingContainers();
+						return servingContainers.contains(id);
+					}
+
 					boolean equipment(String id) {
 						return java.util.Set.of("pamhc2foodcore:potitem", "pamhc2foodcore:skilletitem", "pamhc2foodcore:cuttingboarditem", "pamhc2foodcore:grinderitem", "pamhc2foodcore:bakewareitem", "pamhc2foodcore:saucepanitem",
 								"pamhc2foodcore:mixingbowlitem", "pamhc2foodcore:juiceritem", "pamhc2foodcore:rolleritem", "croptopia:cooking_pot", "croptopia:frying_pan", "croptopia:food_press", "croptopia:knife", "croptopia:mortar_and_pestle")
-								.contains(id);
+								.contains(id) || !isEdible(id) && !isCulinary(id) && matchesTags(id, toolTags);
 					}
 
 					boolean pantry(String id) {
@@ -1691,6 +1777,24 @@ public class CreatingFoodListJsonProcedure {
 						return fluidNode(node) ? java.util.List.of(node) : java.util.List.of();
 					}
 
+					final java.util.Map<String, String> containedFluidCache = new java.util.HashMap<>();
+
+					boolean carrierRepresents(String carrier, String output) {
+						if (!itemsById.containsKey(carrier))
+							return false;
+						String fluid = containedFluidCache.computeIfAbsent(carrier, key -> {
+							try {
+								var value = net.neoforged.neoforge.fluids.FluidUtil.getFluidContained(new net.minecraft.world.item.ItemStack(itemsById.get(key)));
+								if (value.isPresent() && !value.get().isEmpty())
+									return net.minecraft.core.registries.BuiltInRegistries.FLUID.getKey(value.get().getFluid()).toString();
+							} catch (RuntimeException unsupported) {
+								// No proven fluid content means no inferred packaging equivalence.
+							}
+							return "";
+						});
+						return !fluid.isEmpty() && itemsForFluid(fluid).contains(output);
+					}
+
 					void appendVatContainer(net.minecraft.world.item.crafting.RecipeHolder<?> holder, java.util.List<java.util.List<String>> slots) {
 						if (!"culturaldelights:aging".equals(classificationRules.typeId(holder)))
 							return;
@@ -2072,7 +2176,7 @@ public class CreatingFoodListJsonProcedure {
 						// Match known empty supplies; culinary contents such as milk are never accessories.
 						if (java.util.Set.of("minecraft:bowl", "minecraft:glass_bottle", "minecraft:bucket", "minecraft:stick", "minecraft:water_bucket").contains(id))
 							return true;
-						if (completeRecipeInputs.automaticContainers.contains(id) || classificationRules.equipment(id))
+						if (completeRecipeInputs.automaticContainers.contains(id) || classificationRules.equipment(id) || classificationRules.servingContainer(id))
 							return true;
 						if (classificationRules.isEdible(id) || classificationRules.isCulinary(id))
 							return false;
@@ -2099,31 +2203,67 @@ public class CreatingFoodListJsonProcedure {
 						return material.isEmpty() ? null : material;
 					}
 
+					final java.util.Map<IndexedRecipe, Boolean> repackagingCache = new java.util.IdentityHashMap<>();
+
 					boolean repackagingRecipe(IndexedRecipe recipe, String output) {
-						var materials = singlePackagingMaterial(recipe);
-						if (materials == null)
-							return false;
-						String input = materials.get(0);
-						// Known fluid discovery mappings can produce a direct identity route (refilling a bottle).
-						if (input.equals(output))
-							return true;
-						if (!itemsById.containsKey(output) || classificationRules.isEdible(input))
-							return false;
+						Boolean cached = repackagingCache.get(recipe);
+						if (cached != null)
+							return cached;
+						boolean result = repackagingEvidence(recipe, output);
+						repackagingCache.put(recipe, result);
+						return result;
+					}
+
+					boolean repackagingEvidence(IndexedRecipe recipe, String output) {
 						var packingMethods = java.util.Set.of("minecraft:crafting", "create:compacting", "create:filling", "create:emptying");
 						if (!packingMethods.contains(recipe.method))
 							return false;
-						for (var reverse : rawRecipesFor(input)) {
-							if (!packingMethods.contains(reverse.method))
-								continue;
-							var reverseMaterials = singlePackagingMaterial(reverse);
-							if (reverseMaterials == null || !output.equals(reverseMaterials.get(0)))
-								continue;
-							long consumed = (long) materials.size() * reverseMaterials.size();
-							long produced = (long) recipe.outputCount * reverse.outputCount;
-							if (consumed == produced && (materials.size() != recipe.outputCount || reverseMaterials.size() != reverse.outputCount))
-								return true;
+						java.util.List<java.util.List<String>> materials = new java.util.ArrayList<>();
+						for (var slot : recipe.slots) {
+							if (slot.isEmpty())
+								return false;
+							if (!slot.stream().allMatch(this::packagingAccessory))
+								materials.add(slot);
 						}
-						return false;
+						if (materials.isEmpty())
+							return false;
+						// A sole content slot containing the output is a transfer, even when a fluid tag
+						// also accepts another carrier. Extra mandatory culinary slots still mean preparation.
+						if (materials.size() == 1 && materials.get(0).contains(output))
+							return true;
+						boolean fluidTransfer = true;
+						for (var slot : materials)
+							for (String input : slot)
+								if (!input.equals(output) && !completeRecipeInputs.carrierRepresents(input, output))
+									fluidTransfer = false;
+						if (fluidTransfer)
+							return true;
+						// Verify every OR alternative and both quantities; names and tags alone do not prove storage.
+						java.util.Set<String> candidates = new java.util.TreeSet<>(materials.get(0));
+						for (var slot : materials)
+							if (!candidates.equals(new java.util.TreeSet<>(slot)))
+								return false;
+						for (String input : candidates) {
+							if (!itemsById.containsKey(input) || classificationRules.isEdible(input))
+								return false;
+							boolean reversed = false;
+							for (var reverse : rawRecipesFor(input)) {
+								if (!packingMethods.contains(reverse.method))
+									continue;
+								var reverseMaterials = singlePackagingMaterial(reverse);
+								if (reverseMaterials == null || !output.equals(reverseMaterials.get(0)))
+									continue;
+								long consumed = (long) materials.size() * reverseMaterials.size();
+								long produced = (long) recipe.outputCount * reverse.outputCount;
+								if (consumed == produced && (materials.size() != recipe.outputCount || reverseMaterials.size() != reverse.outputCount)) {
+									reversed = true;
+									break;
+								}
+							}
+							if (!reversed)
+								return false;
+						}
+						return true;
 					}
 
 					boolean culinaryRecipe(IndexedRecipe recipe, String output) {
@@ -2750,7 +2890,7 @@ public class CreatingFoodListJsonProcedure {
 						while (!pending.isEmpty()) {
 							String id = pending.removeFirst();
 							java.util.List<FoodScoreResolver.IndexedRecipe> list = new java.util.ArrayList<>();
-							if (!classificationRules.natural(id))
+							if (!classificationRules.natural(id) && !classificationRules.externalMaterial(id) && !classificationRules.equipment(id))
 								for (var recipe : scoreResolver.rawRecipesFor(id)) {
 									if (!classificationRules.matchesType(recipe.method, classificationRules.allowedTypes) && !"omnichef:sushi_rolling".equals(recipe.method))
 										continue;
@@ -3043,8 +3183,8 @@ public class CreatingFoodListJsonProcedure {
 							for (Node node : nodes.values()) {
 								if ("ALIAS".equals(node.kind)) {
 									Node target = nodes.get(node.aliasOf);
-									if (target != null && target.preparationTier < node.preparationTier) {
-										node.preparationTier = target.preparationTier;
+									if (target != null && Math.max(node.minimum, target.preparationTier) < node.preparationTier) {
+										node.preparationTier = Math.max(node.minimum, target.preparationTier);
 										changed = true;
 									}
 									continue;
@@ -3478,7 +3618,7 @@ public class CreatingFoodListJsonProcedure {
 
 					boolean auxiliary(String id) {
 						String path = id.substring(id.indexOf(':') + 1);
-						return auxiliaryItems.contains(id) || completeRecipeInputs.automaticContainers.contains(id)
+						return auxiliaryItems.contains(id) || classificationRules.servingContainer(id) || completeRecipeInputs.automaticContainers.contains(id)
 								|| classificationRules.matchesTags(id,
 										java.util.List.of(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:water_bottles")),
 												net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:water_buckets"))))
@@ -3499,16 +3639,7 @@ public class CreatingFoodListJsonProcedure {
 					}
 
 					boolean technicalMaterial(String id) {
-						if (classificationRules.isEdible(id) || culinaryInput(id) || plantingSeedName(id))
-							return false;
-						if (java.util.Set.of("minecraft:gold_ingot", "minecraft:gold_nugget", "minecraft:ice", "minecraft:packed_ice", "minecraft:blue_ice", "minecraft:snowball").contains(id))
-							return true;
-						for (String name : java.util.List.of("c:ingots", "c:nuggets", "c:gems", "c:glass_blocks", "c:glass_panes", "c:stones", "c:cobblestones", "c:strings", "c:rods/wooden", "minecraft:leaves")) {
-							var tag = net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse(name));
-							if (classificationRules.matchesTags(id, java.util.List.of(tag)))
-								return true;
-						}
-						return false;
+						return classificationRules.externalMaterial(id);
 					}
 
 					String inputKind(String id) {
@@ -3520,9 +3651,15 @@ public class CreatingFoodListJsonProcedure {
 							return "BLOCKED";
 						if (auxiliary(id))
 							return "AUXILIARY";
+						if (technicalMaterial(id))
+							return "EXTERNAL";
 						if (!recipes(id).isEmpty())
 							return "INTERMEDIATE";
-						return technicalMaterial(id) ? "EXTERNAL" : "BLOCKED";
+						return "BLOCKED";
+					}
+
+					boolean botanicalKitchenInput(String id) {
+						return referencedKitchenInputs.contains(id) && classificationRules.botanical(id);
 					}
 
 					boolean ingredientDiscoveryProfile(String id) {
@@ -3531,7 +3668,7 @@ public class CreatingFoodListJsonProcedure {
 							return "INGREDIENT".equals(classificationRules.overrides.get(id));
 						if (reversibleStorage.containsKey(id))
 							return false;
-						if (referencedKitchenInputs.contains(id) && (recipeOnlyRawProfiles.contains(id) || culinarySeeds.contains(id)))
+						if (botanicalKitchenInput(id) || referencedKitchenInputs.contains(id) && (recipeOnlyRawProfiles.contains(id) || culinarySeeds.contains(id)))
 							return true;
 						if (catalog.containsKey(id) && "INGREDIENT".equals(catalog.get(id).get("role").getAsString()))
 							return true;
@@ -3548,7 +3685,7 @@ public class CreatingFoodListJsonProcedure {
 						java.util.Set<String> visited = new java.util.HashSet<>();
 						while (!pending.isEmpty()) {
 							String id = pending.removeFirst();
-							if (!visited.add(id) || !itemsById.containsKey(id) && !completeRecipeInputs.fluidNode(id) || auxiliary(id) || excludedFoods.contains(id) || classificationRules.excludedItems.contains(id))
+							if (!visited.add(id) || !itemsById.containsKey(id) && !completeRecipeInputs.fluidNode(id) || auxiliary(id) || technicalMaterial(id) || excludedFoods.contains(id) || classificationRules.excludedItems.contains(id))
 								continue;
 							if (!catalog.containsKey(id) && (plantingSeedName(id) || rawTagged(id) && !pantryName(id)))
 								continue;
@@ -3562,7 +3699,7 @@ public class CreatingFoodListJsonProcedure {
 										culinarySeeds.add(slot.get(0));
 									for (String input : slot) {
 										referencedKitchenInputs.add(input);
-										if (!catalog.containsKey(input) && (itemsById.containsKey(input) || completeRecipeInputs.fluidNode(input)) && !auxiliary(input) && !classificationRules.isEdible(input)
+										if (!catalog.containsKey(input) && (itemsById.containsKey(input) || completeRecipeInputs.fluidNode(input)) && !auxiliary(input) && !technicalMaterial(input) && !classificationRules.isEdible(input)
 												&& (!rawTagged(input) || pantryName(input)) && !plantingSeedName(input))
 											pending.addLast(input);
 									}
@@ -3570,7 +3707,7 @@ public class CreatingFoodListJsonProcedure {
 						}
 						// Verify both directions and quantities; a bag name or storage tag is not sufficient evidence.
 						for (String output : referencedKitchenInputs) {
-							if (!itemsById.containsKey(output) || classificationRules.isEdible(output) || auxiliary(output) || classificationRules.overrides.containsKey(output) || blocked.contains(output))
+							if (!itemsById.containsKey(output) || classificationRules.isEdible(output) || auxiliary(output) || technicalMaterial(output) || classificationRules.overrides.containsKey(output) || blocked.contains(output))
 								continue;
 							for (var packing : allowedRecipes(output)) {
 								if (!"minecraft:crafting".equals(packing.method) || packing.outputCount != 1 || packing.slots.size() < 2)
@@ -3603,8 +3740,8 @@ public class CreatingFoodListJsonProcedure {
 							boolean changed = false;
 							for (var entry : evidenceRoutes.entrySet()) {
 								String output = entry.getKey();
-								if (catalog.containsKey(output) || !referencedKitchenInputs.contains(output) || recoveredIntermediateInputs.contains(output) || ingredientDiscoveryProfile(output) || plantingSeedName(output)
-										|| classificationRules.overrides.containsKey(output))
+								if (catalog.containsKey(output) || !referencedKitchenInputs.contains(output) || recoveredIntermediateInputs.contains(output) || technicalMaterial(output) || auxiliary(output) || ingredientDiscoveryProfile(output)
+										|| plantingSeedName(output) || classificationRules.overrides.containsKey(output))
 									continue;
 								boolean anchored = false;
 								for (var recipe : entry.getValue())
@@ -3621,6 +3758,276 @@ public class CreatingFoodListJsonProcedure {
 							if (!changed)
 								break;
 						}
+					}
+
+					final class CulinaryDiscoveryUses {
+						final java.util.Map<String, String> kinds = new java.util.TreeMap<>();
+						final java.util.Map<String, com.google.gson.JsonArray> routes = new java.util.TreeMap<>();
+						final java.util.Map<String, String> redirects = new java.util.TreeMap<>();
+						final java.util.Set<String> roots = new java.util.TreeSet<>();
+						final java.util.Set<String> ready = new java.util.HashSet<>();
+						final java.util.Set<String> reachable = new java.util.HashSet<>();
+						final java.util.Map<String, java.util.Set<String>> uses = new java.util.TreeMap<>();
+
+						boolean viable(com.google.gson.JsonObject recipe) {
+							if (!recipe.has("ingredientSlots"))
+								return false;
+							for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+								boolean any = false;
+								for (var input : slot.getAsJsonArray())
+									if (ready.contains(input.getAsString())) {
+										any = true;
+										break;
+									}
+								if (!any)
+									return false;
+							}
+							return true;
+						}
+
+						String physicalContext(String output, com.google.gson.JsonObject recipe, String focus) {
+							var slots = new java.util.ArrayList<String>();
+							for (var slot : recipe.getAsJsonArray("ingredientSlots")) {
+								var alternatives = new java.util.TreeSet<String>();
+								boolean focused = false;
+								for (var value : slot.getAsJsonArray()) {
+									String id = value.getAsString();
+									if (focus.equals(id))
+										focused = true;
+									if (ready.contains(id))
+										alternatives.add(redirects.getOrDefault(id, id));
+								}
+								// The alternatives in this slot are substitutes for the focus, not extra requirements.
+								// Other slots remain explicit: A + sugar is not equivalent to B + an unknown tool.
+								slots.add(focused ? "<ingredient>" : alternatives.toString());
+							}
+							java.util.Collections.sort(slots);
+							// Discovery equivalence ignores recipe IDs, equipment methods and batch yield.
+							// These still belong to the unchanged physical recipe and its production-cost analysis.
+							return output + "|" + slots;
+						}
+
+						void index() {
+							for (var e : kinds.entrySet())
+								if (java.util.Set.of("INGREDIENT", "EXTERNAL", "AUXILIARY").contains(e.getValue()))
+									ready.add(e.getKey());
+							// Activate recipes incrementally: an unanchored cycle or blocked mandatory slot stays unavailable.
+							var dependents = new java.util.HashMap<String, java.util.Set<String>>();
+							for (var e : routes.entrySet())
+								for (var value : e.getValue())
+									for (var slot : value.getAsJsonObject().getAsJsonArray("ingredientSlots"))
+										for (var input : slot.getAsJsonArray())
+											dependents.computeIfAbsent(input.getAsString(), ignored -> new java.util.HashSet<>()).add(e.getKey());
+							for (var e : redirects.entrySet())
+								dependents.computeIfAbsent(e.getValue(), ignored -> new java.util.HashSet<>()).add(e.getKey());
+							var pending = new java.util.ArrayDeque<String>(kinds.keySet());
+							var queued = new java.util.HashSet<String>(kinds.keySet());
+							while (!pending.isEmpty()) {
+								String id = pending.removeFirst();
+								queued.remove(id);
+								if (ready.contains(id) || "BLOCKED".equals(kinds.get(id)))
+									continue;
+								boolean possible = "ALIAS".equals(kinds.get(id)) && ready.contains(redirects.get(id));
+								if (!possible && java.util.Set.of("FOOD", "INTERMEDIATE").contains(kinds.get(id)))
+									for (var value : routes.getOrDefault(id, new com.google.gson.JsonArray()))
+										if (viable(value.getAsJsonObject())) {
+											possible = true;
+											break;
+										}
+								if (!possible)
+									continue;
+								ready.add(id);
+								for (String next : dependents.getOrDefault(id, java.util.Collections.emptySet()))
+									if (queued.add(next))
+										pending.addLast(next);
+							}
+							pending.addAll(roots);
+							while (!pending.isEmpty()) {
+								String output = pending.removeFirst();
+								if (!ready.contains(output) || !reachable.add(output))
+									continue;
+								if (redirects.containsKey(output))
+									pending.addLast(redirects.get(output));
+								if (java.util.Set.of("BLOCKED", "EXTERNAL", "AUXILIARY", "ALIAS").contains(kinds.get(output)))
+									continue;
+								for (var value : routes.getOrDefault(output, new com.google.gson.JsonArray())) {
+									var recipe = value.getAsJsonObject();
+									if (!viable(recipe))
+										continue;
+									var inputs = new java.util.TreeSet<String>();
+									for (var slot : recipe.getAsJsonArray("ingredientSlots"))
+										for (var input : slot.getAsJsonArray())
+											if (ready.contains(input.getAsString()))
+												inputs.add(input.getAsString());
+									for (String input : inputs) {
+										uses.computeIfAbsent(input, ignored -> new java.util.TreeSet<>()).add(physicalContext(output, recipe, input));
+										pending.addLast(input);
+									}
+								}
+							}
+						}
+					}
+
+					final java.util.Set<String> culinaryRelevantIds = new java.util.HashSet<>();
+					final com.google.gson.JsonObject culinaryGroupingAudit = new com.google.gson.JsonObject();
+
+					CulinaryDiscoveryUses indexCulinaryDiscoveryUses() {
+						catalogDiagnostics.phase("FoodCatalogBuilder.indexCulinaryDiscoveryUses");
+						var index = new CulinaryDiscoveryUses();
+						var pending = new java.util.ArrayDeque<String>();
+						for (var entry : catalog.entrySet())
+							if ("FOOD".equals(entry.getValue().get("role").getAsString()) || entry.getValue().get("can_serve").getAsBoolean()) {
+								index.roots.add(entry.getKey());
+								pending.addLast(entry.getKey());
+							}
+						var visited = new java.util.HashSet<String>();
+						while (!pending.isEmpty()) {
+							String id = pending.removeFirst();
+							if (!visited.add(id))
+								continue;
+							catalogDiagnostics.current = id;
+							String kind = aliases.containsKey(id) ? "ALIAS" : catalog.containsKey(id) ? catalog.get(id).get("role").getAsString() : inputKind(id);
+							index.kinds.put(id, kind);
+							if ("ALIAS".equals(kind)) {
+								index.redirects.put(id, aliases.get(id));
+								pending.addLast(aliases.get(id));
+							}
+							var exported = new com.google.gson.JsonArray();
+							index.routes.put(id, exported);
+							if (java.util.Set.of("BLOCKED", "AUXILIARY", "EXTERNAL", "ALIAS").contains(kind))
+								continue;
+							for (var recipe : recipes(id)) {
+								var data = new com.google.gson.JsonObject();
+								data.add("ingredientSlots", routeJson(recipe.slots));
+								exported.add(data);
+								for (var slot : recipe.slots)
+									pending.addAll(slot);
+							}
+						}
+						index.index();
+						culinaryRelevantIds.addAll(index.reachable);
+						culinaryGroupingAudit.addProperty("policy",
+								"Only anchored, complete routes from Food or directly servable Ingredients. Equivalent preparation outputs share a use signature when companion slots agree; physical recipe IDs, methods, quantities and source evidence remain unchanged.");
+						culinaryGroupingAudit.addProperty("indexed_nodes", index.kinds.size());
+						culinaryGroupingAudit.addProperty("reachable_nodes", index.reachable.size());
+						culinaryGroupingAudit.addProperty("signature_inputs", index.uses.size());
+						return index;
+					}
+
+					final java.util.Map<String, String> ingredientGroupReasons = new java.util.TreeMap<>();
+					final java.util.Map<String, com.google.gson.JsonObject> ingredientVariantProfiles = new java.util.TreeMap<>();
+
+					java.util.Set<String> exactIngredientTags(String id) {
+						var result = new java.util.TreeSet<String>();
+						var item = itemsById.get(id);
+						if (item != null)
+							new net.minecraft.world.item.ItemStack(item).getTags().forEach(tag -> result.add(tag.location().toString()));
+						return result;
+					}
+
+					String cropFamily(String tag) {
+						String p;
+						if (tag.startsWith("c:crops/"))
+							p = tag.substring(8);
+						else if (tag.startsWith("forge:crops/"))
+							p = tag.substring(12);
+						else if (tag.startsWith("c:foods/vegetables/"))
+							p = tag.substring(19);
+						else if (tag.startsWith("c:foods/fruits/"))
+							p = tag.substring(15);
+						else
+							return "";
+						if (p.isEmpty() || p.contains("/") || java.util.Set.of("fruit", "fruits", "vegetable", "vegetables", "grain", "grains", "cereal", "cereals", "seed", "seeds", "berry", "berries", "mushroom", "mushrooms").contains(p))
+							return "";
+						// Common singular/plural spellings describe one crop, not a fuzzy item-name match.
+						if (p.endsWith("oes"))
+							p = p.substring(0, p.length() - 2);
+						else if (p.endsWith("ies"))
+							p = p.substring(0, p.length() - 3) + "y";
+						else if (p.endsWith("s") && !p.endsWith("ss") && !p.endsWith("us"))
+							p = p.substring(0, p.length() - 1);
+						return p;
+					}
+
+					boolean rawGroupCandidate(String id) {
+						var entry = catalog.get(id);
+						return entry != null && "INGREDIENT".equals(entry.get("role").getAsString()) && !aliases.containsKey(id) && !classificationRules.overrides.containsKey(id) && !blocked.contains(id) && !plantingSeedName(id) && !pantryName(id)
+								&& !preparedName(id) && recipes(id).isEmpty();
+					}
+
+					String chooseGroupRepresentative(java.util.List<String> members) {
+						var order = java.util.Comparator.comparingInt((String id) -> sourceMinimum(id, planner.ingredientTierCount)).thenComparingInt(id -> basicSupplies.contains(id) ? 0 : 1).thenComparingDouble(id -> {
+							double cost = acquisitionSources.costs.getOrDefault("item|" + id, Double.POSITIVE_INFINITY);
+							return Double.isFinite(cost) ? cost : Double.POSITIVE_INFINITY;
+						}).thenComparing(id -> id.startsWith("minecraft:") ? 0 : 1).thenComparing(id -> id);
+						return members.stream().min(order).orElseThrow();
+					}
+
+					void mergeIngredientGroup(java.util.List<String> members, String reason) {
+						if (members.size() < 2)
+							return;
+						String base = chooseGroupRepresentative(members);
+						ingredientGroupReasons.put(base, reason);
+						for (String id : members) {
+							var profile = catalog.get(id).deepCopy();
+							profile.add("acquisition", acquisitionSources.describe(id, planner.ingredientTierCount));
+							var tags = new com.google.gson.JsonArray();
+							for (String tag : exactIngredientTags(id))
+								tags.add(tag);
+							profile.add("semantic_tags", tags);
+							ingredientVariantProfiles.put(id, profile);
+							if (!id.equals(base))
+								aliases.put(id, base);
+						}
+					}
+
+					void groupIngredientDiscoveries() {
+						catalogDiagnostics.phase("FoodCatalogBuilder.groupIngredientDiscoveries");
+						var culinaryIndex = indexCulinaryDiscoveryUses();
+						// Families are exact semantic crop tags. Broad food tags never establish a family.
+						var knownFamilies = new java.util.TreeSet<String>();
+						var tagsById = new java.util.TreeMap<String, java.util.Set<String>>();
+						for (String id : catalog.keySet())
+							if (rawGroupCandidate(id)) {
+								var tags = exactIngredientTags(id);
+								tagsById.put(id, tags);
+								for (String tag : tags) {
+									String family = cropFamily(tag);
+									if (!family.isEmpty())
+										knownFamilies.add(family);
+								}
+							}
+						var families = new java.util.TreeMap<String, java.util.List<String>>();
+						for (var entry : tagsById.entrySet()) {
+							String id = entry.getKey();
+							// Non-edible inputs use the stricter complete culinary-use signature below.
+							if (!catalog.get(id).get("edible").getAsBoolean() || !culinaryIndex.reachable.contains(id))
+								continue;
+							var candidates = new java.util.TreeSet<String>();
+							for (String tag : entry.getValue()) {
+								String family = cropFamily(tag);
+								if (family.isEmpty() && tag.startsWith("c:foods/") && tag.substring(8).indexOf('/') < 0)
+									family = cropFamily("c:crops/" + tag.substring(8));
+								if (knownFamilies.contains(family))
+									candidates.add(family);
+							}
+							// Do not transitively join ambiguous tags into unrelated ingredient families.
+							if (candidates.size() == 1) {
+								String key = candidates.first() + "|serve=" + catalog.get(id).get("can_serve").getAsBoolean();
+								families.computeIfAbsent(key, ignored -> new java.util.ArrayList<>()).add(id);
+							}
+						}
+						for (var entry : families.entrySet())
+							mergeIngredientGroup(entry.getValue(), "exact_crop_family:" + entry.getKey());
+						var uses = culinaryIndex.uses;
+						var botanicalGroups = new java.util.TreeMap<String, java.util.List<String>>();
+						for (String id : catalog.keySet())
+							if (rawGroupCandidate(id) && !catalog.get(id).get("edible").getAsBoolean() && !catalog.get(id).get("can_serve").getAsBoolean() && uses.containsKey(id) && !uses.get(id).isEmpty()) {
+								String signature = String.join("\n", uses.get(id));
+								botanicalGroups.computeIfAbsent(signature, ignored -> new java.util.ArrayList<>()).add(id);
+							}
+						for (var members : botanicalGroups.values())
+							mergeIngredientGroup(members, members.stream().allMatch(classificationRules::botanical) ? "equivalent_botanical_culinary_functions" : "equivalent_non_edible_culinary_functions");
 					}
 
 					String cosmeticBase(String id) {
@@ -3910,7 +4317,7 @@ public class CreatingFoodListJsonProcedure {
 									continue;
 								int best = sourceFloors.getOrDefault(node.id, SplitTierPlanner.UNREACHABLE);
 								if ("ALIAS".equals(node.kind))
-									best = Math.min(best, sourceFloors.getOrDefault(node.aliasOf, SplitTierPlanner.UNREACHABLE));
+									best = Math.min(best, Math.max(node.minimum, sourceFloors.getOrDefault(node.aliasOf, SplitTierPlanner.UNREACHABLE)));
 								else
 									for (var value : recipeData.get(node.id)) {
 										var recipe = value.getAsJsonObject();
@@ -3971,19 +4378,19 @@ public class CreatingFoodListJsonProcedure {
 					}
 
 					boolean culinaryIngredient(String id) {
-						if (classificationRules.technicalIntermediate(id) || auxiliary(id) || excludedFoods.contains(id) || classificationRules.excludedItems.contains(id))
+						if (classificationRules.technicalIntermediate(id) || auxiliary(id) || technicalMaterial(id) || excludedFoods.contains(id) || classificationRules.excludedItems.contains(id))
 							return false;
 						if ("FOOD".equals(classificationRules.hint(id)) && !pantryName(id) && !rawTagged(id))
 							return false;
-						if (referencedKitchenInputs.contains(id) && (recipeOnlyRawProfiles.contains(id) || culinarySeeds.contains(id)))
+						if (botanicalKitchenInput(id) || referencedKitchenInputs.contains(id) && (recipeOnlyRawProfiles.contains(id) || culinarySeeds.contains(id)))
 							return true;
 						return vanillaIngredients.contains(id) || classificationRules.culinaryIds.contains(id) || classificationRules.pantryItems.contains(id) || rawTagged(id)
 								|| referencedKitchenInputs.contains(id) && classificationRules.isCulinary(id) || (foodProgression.recipes.containsKey(id) && classificationRules.isCulinary(id));
 					}
 
 					boolean culinaryInput(String id) {
-						return !auxiliary(id) && (catalog.containsKey(id) || vanillaIngredients.contains(id) || classificationRules.isCulinary(id) || classificationRules.pantryItems.contains(id) || pantryName(id) || preparedSources.contains(id)
-								|| preparedName(id) || rawTagged(id) || recoveredIntermediateInputs.contains(id));
+						return !auxiliary(id) && !technicalMaterial(id) && (catalog.containsKey(id) || vanillaIngredients.contains(id) || botanicalKitchenInput(id) || classificationRules.isCulinary(id) || classificationRules.pantryItems.contains(id)
+								|| pantryName(id) || preparedSources.contains(id) || preparedName(id) || rawTagged(id) || recoveredIntermediateInputs.contains(id));
 					}
 
 					com.google.gson.JsonObject ingredient(String id) {
@@ -4035,9 +4442,11 @@ public class CreatingFoodListJsonProcedure {
 					}
 
 					java.util.List<FoodScoreResolver.IndexedRecipe> recipes(String id) {
+						if (ingredientVariantProfiles.containsKey(id) && aliases.containsKey(id))
+							return java.util.Collections.emptyList();
 						if (completeRecipeInputs.fluidNode(id))
 							return allowedRecipes(id);
-						if (auxiliary(id))
+						if (auxiliary(id) || technicalMaterial(id))
 							return java.util.Collections.emptyList();
 						boolean dish = catalog.containsKey(id) && "FOOD".equals(catalog.get(id).get("role").getAsString());
 						if (classificationRules.technicalIntermediate(id) || dish || recoveredIntermediateInputs.contains(id) || preparedSources.contains(id) || preparedName(id) || classificationRules.pantryItems.contains(id) || pantryName(id))
@@ -4181,7 +4590,7 @@ public class CreatingFoodListJsonProcedure {
 						// Recompute culinary production cost independently of nutrition and legacy farming/essence chains.
 						for (var node : planner.nodes.values()) {
 							catalogDiagnostics.current = node.id;
-							if ("BLOCKED".equals(node.kind) || "ALIAS".equals(node.kind))
+							if ("BLOCKED".equals(node.kind) || "ALIAS".equals(node.kind) && !ingredientVariantProfiles.containsKey(node.id))
 								continue;
 							if (("FOOD".equals(node.kind) || "INTERMEDIATE".equals(node.kind)) && recipeData.get(node.id).isEmpty())
 								continue;
@@ -4205,7 +4614,7 @@ public class CreatingFoodListJsonProcedure {
 							boolean changed = false;
 							for (var node : planner.nodes.values()) {
 								catalogDiagnostics.current = node.id;
-								if ("ALIAS".equals(node.kind)) {
+								if ("ALIAS".equals(node.kind) && !ingredientVariantProfiles.containsKey(node.id)) {
 									if (kitchenCosts.containsKey(node.aliasOf)
 											&& (Double.compare(kitchenCosts.get(node.aliasOf), kitchenCosts.getOrDefault(node.id, Double.POSITIVE_INFINITY)) != 0 || !kitchenDepths.get(node.aliasOf).equals(kitchenDepths.get(node.id)))) {
 										kitchenCosts.put(node.id, kitchenCosts.get(node.aliasOf));
@@ -4574,6 +4983,12 @@ public class CreatingFoodListJsonProcedure {
 							blocked.add(entry.getAsJsonObject().get("id").getAsString());
 						blocked.addAll(excludedFoods);
 						blocked.addAll(classificationRules.excludedItems);
+						for (var value : excludedFoodsArray) {
+							var entry = value.getAsJsonObject();
+							String id = entry.get("id").getAsString();
+							if (entry.has("reason") && "no_nutritional_value".equals(entry.get("reason").getAsString()) && !excludedFoods.contains(id) && !classificationRules.excludedItems.contains(id) && technicalMaterial(id))
+								blocked.remove(id);
+						}
 						for (var old : allFoods) {
 							String id = old.get("id").getAsString();
 							if (classificationRules.technicalIntermediate(id))
@@ -4665,6 +5080,19 @@ public class CreatingFoodListJsonProcedure {
 							if (!base.equals(id))
 								aliases.put(id, base);
 						}
+						groupIngredientDiscoveries();
+						// Runtime alias resolution is deliberately one hop.
+						for (String id : new java.util.ArrayList<>(aliases.keySet())) {
+							String base = aliases.get(id);
+							var seen = new java.util.HashSet<String>();
+							seen.add(id);
+							while (aliases.containsKey(base)) {
+								if (!seen.add(base))
+									throw new IllegalStateException("Cyclic ingredient discovery group: " + id);
+								base = aliases.get(base);
+							}
+							aliases.put(id, base);
+						}
 						com.google.gson.JsonObject discoveryVariants = new com.google.gson.JsonObject();
 						for (var alias : aliases.entrySet()) {
 							var original = catalog.remove(alias.getKey());
@@ -4674,6 +5102,10 @@ public class CreatingFoodListJsonProcedure {
 							variant.addProperty("id", alias.getKey());
 							variant.addProperty("can_serve", original.get("can_serve").getAsBoolean());
 							variant.addProperty("role", original.get("role").getAsString());
+							if (ingredientVariantProfiles.containsKey(alias.getKey())) {
+								variant.addProperty("edible", original.get("edible").getAsBoolean());
+								variant.add("physical_profile", ingredientVariantProfiles.get(alias.getKey()));
+							}
 							discoveryVariants.getAsJsonArray(alias.getValue()).add(variant);
 						}
 						ingredientCount = 0;
@@ -4697,7 +5129,7 @@ public class CreatingFoodListJsonProcedure {
 								node.priority = -2;
 						}
 						for (var alias : aliases.entrySet())
-							planner.add(alias.getKey(), "ALIAS", 0, 0.0, false).aliasOf = alias.getValue();
+							planner.add(alias.getKey(), "ALIAS", ingredientVariantProfiles.containsKey(alias.getKey()) ? sourceMinimum(alias.getKey(), splitTierCount) : 0, 0.0, false).aliasOf = alias.getValue();
 						java.util.ArrayDeque<String> pending = new java.util.ArrayDeque<>(catalog.keySet());
 						pending.addAll(aliases.keySet());
 						java.util.Set<String> processed = new java.util.HashSet<>();
@@ -4708,7 +5140,7 @@ public class CreatingFoodListJsonProcedure {
 							var node = planner.nodes.get(id);
 							com.google.gson.JsonArray variants = new com.google.gson.JsonArray();
 							if ("FOOD".equals(node.kind) || "INTERMEDIATE".equals(node.kind) || "INGREDIENT".equals(node.kind) || "ALIAS".equals(node.kind)) {
-								for (var recipe : "ALIAS".equals(node.kind) ? allowedRecipes(id) : recipes(id)) {
+								for (var recipe : "ALIAS".equals(node.kind) && !ingredientVariantProfiles.containsKey(id) ? allowedRecipes(id) : recipes(id)) {
 									node.routes.add(recipe.slots);
 									com.google.gson.JsonObject variant = new com.google.gson.JsonObject();
 									variant.addProperty("method", recipe.method);
@@ -4761,13 +5193,14 @@ public class CreatingFoodListJsonProcedure {
 						com.google.gson.JsonArray filteredIngredients = new com.google.gson.JsonArray();
 						java.util.List<String> unnecessary = new java.util.ArrayList<>();
 						for (var entry : catalog.entrySet())
-							if ("INGREDIENT".equals(entry.getValue().get("role").getAsString()) && !entry.getValue().get("can_serve").getAsBoolean() && !needed.contains(entry.getKey()))
+							if ("INGREDIENT".equals(entry.getValue().get("role").getAsString()) && !entry.getValue().get("can_serve").getAsBoolean() && (!needed.contains(entry.getKey()) || !culinaryRelevantIds.contains(entry.getKey()))
+									&& !classificationRules.overrides.containsKey(entry.getKey()))
 								unnecessary.add(entry.getKey());
 						for (String id : unnecessary) {
 							catalog.remove(id);
 							com.google.gson.JsonObject removed = new com.google.gson.JsonObject();
 							removed.addProperty("id", id);
-							removed.addProperty("reason", "no_non_packing_path_to_servable_product");
+							removed.addProperty("reason", !culinaryRelevantIds.contains(id) ? "no_complete_culinary_path_to_servable_product" : "no_non_packing_path_to_servable_product");
 							filteredIngredients.add(removed);
 						}
 						for (String id : plantingSeeds) {
@@ -4865,6 +5298,16 @@ public class CreatingFoodListJsonProcedure {
 								var original = catalog.get(node.id);
 								var entry = new com.google.gson.JsonObject();
 								entry.addProperty("id", node.id);
+								if (ingredientGroupReasons.containsKey(node.id)) {
+									var group = new com.google.gson.JsonObject();
+									group.addProperty("reason", ingredientGroupReasons.get(node.id));
+									group.addProperty("representative_id", node.id);
+									group.addProperty("member_count", discoveryVariants.getAsJsonArray(node.id).size() + 1);
+									group.addProperty("recipes_keep_physical_item_ids", true);
+									group.addProperty("ranking_policy", "representative_is_lowest_access_floor_then_basic_supply_then_lowest_estimated_acquisition_effort; not_a_rarity_guarantee");
+									group.add("representative_physical_profile", ingredientVariantProfiles.get(node.id));
+									entry.add("discovery_group", group);
+								}
 								entry.addProperty("role", node.kind);
 								entry.addProperty("tier", node.tier);
 								entry.addProperty("can_serve", node.canServe);
@@ -4984,7 +5427,7 @@ public class CreatingFoodListJsonProcedure {
 						com.google.gson.JsonObject result = new com.google.gson.JsonObject();
 						result.addProperty("schema_version", 7);
 						result.addProperty("catalog_integration_version", 1);
-						result.addProperty("split_generator_version", 29);
+						result.addProperty("split_generator_version", 34);
 						result.addProperty("mode", "split_catalog");
 						result.addProperty("generated_at_epoch_ms", System.currentTimeMillis());
 						result.addProperty("source_commit", "414d8821558f7de0c22ef0763f16944c5657c59a");
@@ -5090,11 +5533,21 @@ public class CreatingFoodListJsonProcedure {
 						diagnostics.addProperty("source_floor_policy",
 								"Culinary processing propagates the easiest complete route's source minimum through every mandatory slot; alternatives do not all need to be late. Ad Astra cheese, cheese block and Moon cheese ore share an explicit late source profile. Original acquisition estimates remain separately exported.");
 						diagnostics.addProperty("graph_boundary_policy",
-								"Explicit ingredient overrides, vanilla ingredient profiles, pantry profiles and ingredient tags retain discovery priority. Other supported non-edible processing routes used by culinary recipes are expanded from known culinary anchors, retaining every mandatory slot. Unknown inputs are BLOCKED. Only recognized empty containers, tools and positively tagged technical materials are automatic. Removed discoveries never become free EXTERNAL inputs.");
+								"Explicit ingredient overrides, vanilla ingredient profiles, pantry profiles and ingredient tags retain discovery priority. Other supported non-edible processing routes used by culinary recipes are expanded from known culinary anchors, retaining every mandatory slot. Unknown inputs are BLOCKED. Verified non-culinary remainders from eating or crafting with culinary items are empty serving supplies. Recognized technical materials stop expansion before their crafting/recycling recipes. Referenced flower-tagged kitchen inputs retain ingredient discoveries; raw_materials/dyes never establishes an external material by itself. Other raw materials require no competing culinary declaration. Nutritional foods and explicit culinary profiles retain discovery priority over generic material tags. Only no-nutrition technical exclusions may become EXTERNAL; explicit exclusions remain blocked. Unknown removed discoveries never become free EXTERNAL inputs.");
 						diagnostics.addProperty("ranking_policy",
 								"Ingredients: source effort, yield-independent preparation difficulty/depth, earliest Food usefulness and easiest complete input-route rank floor. Early pantry priority covers basic flour/dough/salt/sugar/pasta and recognized simple one-step pantry preparations with zero source floor. Basic vanilla supplies include eggs, milk and sugar cane. Ingredient input floors affect ordering, not a new requirement to discover upstream ingredients. Food tiers use distinct-input preparation difficulty and processing depth without division by output yield. Production cost per portion remains separate; ingredient usefulness follows yield-independent Food difficulty. Per-portion production cost remains a separate production metric.");
 						diagnostics.addProperty("variant_policy",
-								"Known colored Chromacarvings pumpkins and Herbs & Harvest plate decorations share a discovery. Physical recipe IDs are preserved through ALIAS nodes. Explicit role overrides are not grouped.");
+								"Known cosmetic variants, exact unambiguous semantic crop families, and non-edible raw leaves with equivalent culinary functions on anchored complete paths to servable products share discoveries. Broad food/seed tags, name resemblance, ambiguous families, processed ingredients and explicit overrides never establish a new group. Physical recipe IDs and per-variant source evidence are preserved. Tiers count discoveries, not variant IDs.");
+						var grouping = new com.google.gson.JsonObject();
+						for (var entry : ingredientGroupReasons.entrySet())
+							if (catalog.containsKey(entry.getKey())) {
+								var detail = new com.google.gson.JsonObject();
+								detail.addProperty("reason", entry.getValue());
+								detail.add("variants", discoveryVariants.get(entry.getKey()).deepCopy());
+								grouping.add(entry.getKey(), detail);
+							}
+						diagnostics.add("ingredient_discovery_groups", grouping);
+						diagnostics.add("culinary_grouping_audit", culinaryGroupingAudit);
 						diagnostics.addProperty("seed_policy", "Propagation-named items require explicit singleton culinary use. The c:seeds tag alone does not exclude a crop from cooking. Unapproved propagation alternatives remain BLOCKED.");
 						diagnostics.addProperty("requirements_policy",
 								"Every item and supported fluid slot needs one usable alternative. Missing tags, placeholder barriers and unrepresented fluids retain BLOCKED mandatory requirements. FOOD intermediates are expanded; ingredient nodes require discovery. Unanchored cycles remain unresolved.");
@@ -5107,7 +5560,7 @@ public class CreatingFoodListJsonProcedure {
 					}
 
 					String summary(com.google.gson.JsonObject database) {
-						StringBuilder text = new StringBuilder("OMNICHEF — KATALOG INGREDIENTS / FOOD v29\nTiery ponizej oraz indeksy w JSON zaczynaja sie od 0.\n\n");
+						StringBuilder text = new StringBuilder("OMNICHEF — KATALOG INGREDIENTS / FOOD v34\nTiery ponizej oraz indeksy w JSON zaczynaja sie od 0.\n\n");
 						text.append("Ingredients: ").append(database.get("ingredient_count")).append(" / tiery: ").append(database.get("ingredient_tier_count")).append('\n');
 						text.append("Food: ").append(database.get("food_count")).append(" / tiery: ").append(database.get("food_tier_count")).append("\n\n");
 						text.append("Warianty wspolnych odkryc: ").append(database.get("variant_count")).append("\n\n");
@@ -5121,6 +5574,8 @@ public class CreatingFoodListJsonProcedure {
 									text.append(item.get("can_serve").getAsBoolean() ? " | mozna podawac" : " | tylko do receptur");
 									if (item.get("starter_eligible").getAsBoolean())
 										text.append(" | wybor startowy");
+									if (item.has("discovery_group"))
+										text.append(" | grupa: ").append(item.getAsJsonObject("discovery_group").get("member_count")).append(" pozycji");
 									if (database.getAsJsonObject("discovery_variants").has(item.get("id").getAsString()))
 										text.append(" | warianty: ").append(database.getAsJsonObject("discovery_variants").get(item.get("id").getAsString()));
 									if ("unresolved_recipe".equals(item.get("unlock_status").getAsString()))
@@ -5135,8 +5590,695 @@ public class CreatingFoodListJsonProcedure {
 						text.append("Wykluczone z progresji (nierozwiazane potrawy): ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("unresolved_foods")).append('\n');
 						text.append("Food bez receptury lub potwierdzonej sciezki pozyskania: ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("unverified_acquisition_foods")).append('\n');
 						text.append("Pominiete odkrycia bez zastosowania: ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("filtered_ingredients")).append('\n');
+						var plantAudit = database.getAsJsonObject("technical").getAsJsonObject("diagnostics").getAsJsonObject("plant_source_audit");
+						if (plantAudit != null) {
+							text.append("\nDIAGNOSTYKA ZRODEL ROSLIN — bez wplywu na ranking\n");
+							text.append("Status: ").append(plantAudit.get("status")).append("; czas ms: ").append(plantAudit.get("elapsed_ms")).append('\n');
+							text.append("Ingredients ze sladem roslinnym: ").append(plantAudit.get("with_plant_evidence")).append(" / ").append(plantAudit.get("ingredient_count")).append('\n');
+							text.append("Ingredients z potencjalna generacja: ").append(plantAudit.get("with_potential_worldgen")).append('\n');
+							text.append("Sa to kandydaci z definicji, nie gwarantowane dropy ani potwierdzona dostepnosc.\n");
+							text.append("Pelne sciezki, warunki i braki dla kazdego Ingredient: technical.diagnostics.plant_source_audit w FoodDatabase.json.\n");
+						}
 						text.append("Gra korzysta z tego katalogu w FoodDatabase.json z oddzielnym postepem Ingredients/Food.\n");
 						return text.toString();
+					}
+				}
+				class PlantEvidenceIndex {
+					final java.util.Map<String, com.google.gson.JsonObject> placed = new java.util.TreeMap<>(), configured = new java.util.TreeMap<>(), tables = new java.util.TreeMap<>();
+					final java.util.Map<String, java.util.Set<String>> seeds = new java.util.TreeMap<>(), featureBiomes = new java.util.TreeMap<>(), biomeDimensions = new java.util.TreeMap<>();
+					final java.util.Map<String, java.util.Map<String, String>> states = new java.util.TreeMap<>();
+					final java.util.Map<String, String> blockTables = new java.util.TreeMap<>();
+					final java.util.Map<String, java.util.Set<String>> plantingEvidence = new java.util.TreeMap<>();
+					final java.util.Set<String> crops = new java.util.TreeSet<>();
+					final java.util.Map<String, java.util.Set<String>> problems = new java.util.TreeMap<>();
+					final java.util.Map<String, java.util.Set<String>> featureBlocksCache = new java.util.HashMap<>();
+					final java.util.Map<String, com.google.gson.JsonArray> locations = new java.util.TreeMap<>(), drops = new java.util.TreeMap<>();
+					int visits;
+
+					void issue(String id, String reason) {
+						problems.computeIfAbsent(id, k -> new java.util.TreeSet<>()).add(reason);
+					}
+
+					void link(java.util.Map<String, java.util.Set<String>> map, String key, String value) {
+						map.computeIfAbsent(key, k -> new java.util.TreeSet<>()).add(value);
+					}
+
+					com.google.gson.JsonArray array(java.util.Collection<String> values) {
+						var a = new com.google.gson.JsonArray();
+						for (String value : values)
+							a.add(value);
+						return a;
+					}
+
+					String str(com.google.gson.JsonObject o, String key) {
+						return o.has(key) && o.get(key).isJsonPrimitive() ? o.get(key).getAsString() : "";
+					}
+
+					void provider(com.google.gson.JsonElement value, java.util.Set<String> blocks, String owner) {
+						if (value == null || !value.isJsonObject()) {
+							issue(owner, "unsupported_state_provider");
+							return;
+						}
+						var o = value.getAsJsonObject();
+						String type = str(o, "type");
+						if ("minecraft:simple_state_provider".equals(type)) {
+							if (o.has("state") && o.get("state").isJsonObject()) {
+								String id = str(o.getAsJsonObject("state"), "Name");
+								if (!id.isEmpty())
+									blocks.add(id);
+							}
+						} else if ("minecraft:weighted_state_provider".equals(type) && o.has("entries")) {
+							for (var e : o.getAsJsonArray("entries")) {
+								var entry = e.getAsJsonObject();
+								if (entry.has("data") && entry.get("data").isJsonObject()) {
+									String id = str(entry.getAsJsonObject("data"), "Name");
+									if (!id.isEmpty())
+										blocks.add(id);
+								}
+							}
+						} else
+							issue(owner, "unsupported_state_provider:" + type);
+					}
+
+					void placedBlocks(com.google.gson.JsonElement value, java.util.Set<String> blocks, java.util.Set<String> visiting, String owner) {
+						if (++visits > 200000 || visiting.size() > 48) {
+							issue(owner, "feature_analysis_budget_exceeded");
+							return;
+						}
+						if (value == null) {
+							issue(owner, "missing_placed_feature");
+							return;
+						}
+						if (value.isJsonPrimitive()) {
+							String id = value.getAsString();
+							if (!visiting.add("p|" + id)) {
+								issue(owner, "feature_reference_cycle");
+								return;
+							}
+							var o = placed.get(id);
+							if (o == null)
+								issue(owner, "unresolved_placed_feature:" + id);
+							else
+								configuredBlocks(o.get("feature"), blocks, visiting, owner);
+							visiting.remove("p|" + id);
+						} else if (value.isJsonObject())
+							configuredBlocks(value.getAsJsonObject().get("feature"), blocks, visiting, owner);
+						else
+							issue(owner, "unsupported_placed_reference");
+					}
+
+					void configuredBlocks(com.google.gson.JsonElement value, java.util.Set<String> blocks, java.util.Set<String> visiting, String owner) {
+						if (++visits > 200000 || visiting.size() > 48) {
+							issue(owner, "feature_analysis_budget_exceeded");
+							return;
+						}
+						if (value == null) {
+							issue(owner, "missing_configured_feature");
+							return;
+						}
+						if (value.isJsonPrimitive()) {
+							String id = value.getAsString();
+							if (!visiting.add("c|" + id)) {
+								issue(owner, "feature_reference_cycle");
+								return;
+							}
+							var o = configured.get(id);
+							if (o == null)
+								issue(owner, "unresolved_configured_feature:" + id);
+							else
+								configuredBlocks(o, blocks, visiting, owner);
+							visiting.remove("c|" + id);
+							return;
+						}
+						if (!value.isJsonObject()) {
+							issue(owner, "unsupported_configured_reference");
+							return;
+						}
+						var o = value.getAsJsonObject();
+						String type = str(o, "type");
+						if (!o.has("config") || !o.get("config").isJsonObject()) {
+							issue(owner, "missing_feature_config:" + type);
+							return;
+						}
+						var config = o.getAsJsonObject("config");
+						if (java.util.Set.of("minecraft:random_patch", "minecraft:flower", "minecraft:no_bonemeal_flower").contains(type))
+							placedBlocks(config.get("feature"), blocks, visiting, owner);
+						else if ("farmersdelight:wild_crop".equals(type)) {
+							// WildCropConfiguration executes primary, secondary and optional floor placed features.
+							if (!config.has("primary_feature") || !config.has("secondary_feature"))
+								issue(owner, "unsupported_fd_wild_crop_schema");
+							else {
+								placedBlocks(config.get("primary_feature"), blocks, visiting, owner);
+								placedBlocks(config.get("secondary_feature"), blocks, visiting, owner);
+								if (config.has("floor_feature"))
+									placedBlocks(config.get("floor_feature"), blocks, visiting, owner);
+							}
+						} else if ("farmersdelight:wild_rice".equals(type)) {
+							// WildRiceFeature places ModBlocks.WILD_RICE directly, not config.feature().
+							if (config.has("tries") && config.has("xz_spread") && config.has("y_spread")) {
+								blocks.add("farmersdelight:wild_rice");
+								issue(owner, "fd_wild_rice_water_surface_and_survival_conditions_not_simulated");
+							} else
+								issue(owner, "unsupported_fd_wild_rice_schema");
+						} else if ("minecraft:simple_block".equals(type))
+							provider(config.get("to_place"), blocks, owner);
+						else if ("minecraft:tree".equals(type)) {
+							provider(config.get("trunk_provider"), blocks, owner);
+							provider(config.get("foliage_provider"), blocks, owner);
+							if (config.has("decorators") && !config.getAsJsonArray("decorators").isEmpty())
+								issue(owner, "tree_decorator_outputs_not_interpreted");
+						} else if ("minecraft:random_selector".equals(type)) {
+							placedBlocks(config.get("default"), blocks, visiting, owner);
+							for (var e : config.getAsJsonArray("features"))
+								placedBlocks(e.getAsJsonObject().get("feature"), blocks, visiting, owner);
+						} else if ("minecraft:simple_random_selector".equals(type) && config.has("features") && config.get("features").isJsonArray()) {
+							for (var e : config.getAsJsonArray("features"))
+								placedBlocks(e, blocks, visiting, owner);
+						} else
+							issue(owner, "unsupported_feature_type:" + type);
+					}
+
+					// 1=true under the chosen plant state, 0=false, -1=requires external context or unsupported.
+					int condition(com.google.gson.JsonObject c, String block) {
+						String type = str(c, "condition");
+						if ("minecraft:block_state_property".equals(type)) {
+							if (!str(c, "block").equals(block))
+								return 0;
+							var state = states.getOrDefault(block, java.util.Collections.emptyMap());
+							if (!c.has("properties"))
+								return 1;
+							int result = 1;
+							for (var e : c.getAsJsonObject("properties").entrySet()) {
+								String actual = state.get(e.getKey());
+								if (actual == null) {
+									result = -1;
+									continue;
+								}
+								if (e.getValue().isJsonPrimitive()) {
+									if (!actual.equals(e.getValue().getAsString()))
+										return 0;
+								} else {
+									try {
+										int n = Integer.parseInt(actual);
+										var range = e.getValue().getAsJsonObject();
+										if (range.has("min") && n < range.get("min").getAsInt() || range.has("max") && n > range.get("max").getAsInt())
+											return 0;
+									} catch (RuntimeException unsupported) {
+										result = -1;
+									}
+								}
+							}
+							return result;
+						}
+						if ("minecraft:inverted".equals(type) && c.has("term")) {
+							int v = condition(c.getAsJsonObject("term"), block);
+							return v < 0 ? -1 : 1 - v;
+						}
+						if (java.util.Set.of("minecraft:all_of", "minecraft:any_of").contains(type) && c.has("terms")) {
+							if (c.getAsJsonArray("terms").isEmpty())
+								return -1;
+							boolean any = "minecraft:any_of".equals(type), unknown = false;
+							for (var e : c.getAsJsonArray("terms")) {
+								int v = condition(e.getAsJsonObject(), block);
+								if (v == (any ? 1 : 0))
+									return v;
+								if (v < 0)
+									unknown = true;
+							}
+							return unknown ? -1 : any ? 0 : 1;
+						}
+						return -1;
+					}
+
+					void loot(com.google.gson.JsonElement value, String block, String table, com.google.gson.JsonArray inheritedConditions, com.google.gson.JsonArray inheritedFunctions, java.util.Set<String> visiting, int depth,
+							com.google.gson.JsonArray inheritedSelection) {
+						if (value == null)
+							return;
+						if (depth > 48 || ++visits > 400000) {
+							issue(block, "loot_analysis_budget_exceeded");
+							return;
+						}
+						if (value.isJsonArray()) {
+							for (var e : value.getAsJsonArray())
+								loot(e, block, table, inheritedConditions, inheritedFunctions, visiting, depth + 1, inheritedSelection);
+							return;
+						}
+						if (!value.isJsonObject())
+							return;
+						var o = value.getAsJsonObject();
+						var selection = inheritedSelection.deepCopy();
+						var scope = new com.google.gson.JsonObject();
+						for (String key : java.util.List.of("type", "weight", "quality", "rolls", "bonus_rolls"))
+							if (o.has(key))
+								scope.add(key, o.get(key).deepCopy());
+						if (!scope.isEmpty())
+							selection.add(scope);
+						if (o.has("rolls") && o.get("rolls").isJsonPrimitive() && o.get("rolls").getAsDouble() <= 0)
+							return;
+						var conditions = inheritedConditions.deepCopy();
+						var functions = inheritedFunctions.deepCopy();
+						if (o.has("conditions"))
+							for (var e : o.getAsJsonArray("conditions")) {
+								if (condition(e.getAsJsonObject(), block) == 0)
+									return;
+								conditions.add(e.deepCopy());
+							}
+						if (o.has("functions"))
+							for (var e : o.getAsJsonArray("functions"))
+								functions.add(e.deepCopy());
+						String type = str(o, "type");
+						if ("minecraft:item".equals(type)) {
+							String id = str(o, "name");
+							if (!id.isEmpty()) {
+								var r = new com.google.gson.JsonObject();
+								r.addProperty("plant_block", block);
+								r.addProperty("loot_table", table);
+								r.addProperty("mode", "block_break_declared_candidate");
+								r.addProperty("maturity", crops.contains(block) ? "CropBlock_max_age" : "default_state_only");
+								r.add("state", new com.google.gson.Gson().toJsonTree(states.getOrDefault(block, java.util.Collections.emptyMap())));
+								r.add("selection_context", selection);
+								r.addProperty("root_loot_table", blockTables.getOrDefault(block, table));
+								r.add("conditions", conditions);
+								r.add("functions", functions);
+								boolean context = false;
+								for (var c : conditions)
+									if (condition(c.getAsJsonObject(), block) < 0)
+										context = true;
+								r.addProperty("requires_context_validation", context);
+								r.addProperty("requires_function_interpretation", !functions.isEmpty());
+								r.addProperty("exact_yield_computed", false);
+								r.addProperty("right_click_verified", false);
+								var list = drops.computeIfAbsent(id, k -> new com.google.gson.JsonArray());
+								if (!list.contains(r))
+									list.add(r);
+							}
+						} else if ("minecraft:loot_table".equals(type)) {
+							String id = str(o, "value");
+							if (id.isEmpty())
+								id = str(o, "name");
+							if (id.isEmpty() || !visiting.add(id)) {
+								issue(block, "unsupported_or_cyclic_nested_loot_table");
+								return;
+							}
+							var nested = tables.get(id);
+							if (nested == null)
+								issue(block, "unresolved_nested_loot_table:" + id);
+							else
+								loot(nested, block, id, conditions, functions, visiting, depth + 1, selection);
+							visiting.remove(id);
+						} else if ("minecraft:tag".equals(type) || "minecraft:dynamic".equals(type))
+							issue(block, "unsupported_loot_entry:" + type);
+						else if (!type.isEmpty() && !java.util.Set.of("minecraft:block", "minecraft:empty", "minecraft:alternatives", "minecraft:group", "minecraft:sequence").contains(type))
+							issue(block, "unsupported_loot_type:" + type);
+						// Branch conditions and weights are preserved as candidates, never claimed as guaranteed drops.
+						for (String key : java.util.List.of("pools", "entries", "children"))
+							if (o.has(key))
+								loot(o.get(key), block, table, conditions, functions, visiting, depth + 1, selection);
+					}
+
+					void index() {
+						for (var e : featureBiomes.entrySet()) {
+							var blocks = featureBlocksCache.get(e.getKey());
+							if (blocks == null) {
+								blocks = new java.util.TreeSet<>();
+								placedBlocks(new com.google.gson.JsonPrimitive(e.getKey()), blocks, new java.util.HashSet<>(), e.getKey());
+								featureBlocksCache.put(e.getKey(), blocks);
+							}
+							for (String block : blocks) {
+								var r = new com.google.gson.JsonObject();
+								r.add("biomes", array(e.getValue()));
+								r.addProperty("placed_feature", e.getKey());
+								var dimensionSet = new java.util.TreeSet<String>();
+								var memberships = new com.google.gson.JsonObject();
+								for (String biome : e.getValue()) {
+									var ds = biomeDimensions.getOrDefault(biome, java.util.Collections.emptySet());
+									dimensionSet.addAll(ds);
+									memberships.add(biome, array(ds));
+								}
+								r.add("biome_dimensions", memberships);
+								r.add("dimensions", array(dimensionSet));
+								r.addProperty("evidence", "potential_generation_from_registered_feature");
+								r.addProperty("placement_conditions_evaluated", false);
+								r.add("analysis_notes", array(problems.getOrDefault(e.getKey(), java.util.Collections.emptySet())));
+								var p = placed.get(e.getKey());
+								if (p != null && p.has("placement"))
+									r.add("placement", p.get("placement").deepCopy());
+								locations.computeIfAbsent(block, k -> new com.google.gson.JsonArray()).add(r);
+							}
+						}
+						visits = 0;
+						for (var e : blockTables.entrySet()) {
+							var t = tables.get(e.getValue());
+							if (t == null) {
+								issue(e.getKey(), "missing_or_unserializable_live_loot_table");
+								continue;
+							}
+							loot(t, e.getKey(), e.getValue(), new com.google.gson.JsonArray(), new com.google.gson.JsonArray(), new java.util.HashSet<>(java.util.List.of(e.getValue())), 0, new com.google.gson.JsonArray());
+						}
+					}
+
+					com.google.gson.JsonObject report(com.google.gson.JsonObject database) {
+						var result = new com.google.gson.JsonObject();
+						result.addProperty("reader_version", 3);
+						result.addProperty("diagnostic_only", true);
+						result.addProperty("ranking_applied", false);
+						result.addProperty("world_chunks_generated", false);
+						result.addProperty("policy",
+								"Declared block-loot candidates and potential registered worldgen only; conditions/functions retained, no guaranteed yield, no rarity estimate, no right-click simulation, no arbitrary custom-code or global-loot-modifier execution. A missing route is unknown, not proof of absence.");
+						var items = new com.google.gson.JsonObject();
+						int withPlant = 0, withLocation = 0;
+						var ingredientIds = new java.util.TreeSet<String>();
+						for (var tier : database.getAsJsonObject("ingredients").getAsJsonObject("tiers").entrySet())
+							for (var e : tier.getValue().getAsJsonArray())
+								ingredientIds.add(e.getAsJsonObject().get("id").getAsString());
+						int discoveryCount = ingredientIds.size();
+						var variantOwners = new java.util.TreeMap<String, String>();
+						if (database.has("discovery_variants"))
+							for (var group : database.getAsJsonObject("discovery_variants").entrySet())
+								if (ingredientIds.contains(group.getKey()))
+									for (var member : group.getValue().getAsJsonArray()) {
+										String id = member.getAsJsonObject().get("id").getAsString();
+										ingredientIds.add(id);
+										variantOwners.put(id, group.getKey());
+									}
+						result.addProperty("discovery_count", discoveryCount);
+						result.addProperty("physical_item_count", ingredientIds.size());
+						for (String id : ingredientIds) {
+							var entry = new com.google.gson.JsonObject();
+							entry.addProperty("discovery_id", variantOwners.getOrDefault(id, id));
+							var harvest = drops.getOrDefault(id, new com.google.gson.JsonArray()).deepCopy();
+							var planting = new com.google.gson.JsonArray();
+							var first = new com.google.gson.JsonArray();
+							var related = new java.util.TreeSet<String>();
+							for (var e : harvest)
+								related.add(e.getAsJsonObject().get("plant_block").getAsString());
+							for (var e : seeds.entrySet())
+								if (e.getValue().contains(id)) {
+									planting.add(e.getKey());
+									related.add(e.getKey());
+								}
+							for (String block : related) {
+								var ls = locations.getOrDefault(block, new com.google.gson.JsonArray());
+								for (var l : ls) {
+									var r = l.getAsJsonObject().deepCopy();
+									r.addProperty("plant_block", block);
+									first.add(r);
+								}
+							}
+							// First seeds may drop from a different wild plant than the cultivated crop.
+							for (String crop : related)
+								for (String seed : seeds.getOrDefault(crop, java.util.Collections.emptySet()))
+									for (var seedDrop : drops.getOrDefault(seed, new com.google.gson.JsonArray())) {
+										String wild = seedDrop.getAsJsonObject().get("plant_block").getAsString();
+										for (var location : locations.getOrDefault(wild, new com.google.gson.JsonArray())) {
+											var r = location.getAsJsonObject().deepCopy();
+											r.addProperty("plant_block", wild);
+											r.addProperty("target_crop", crop);
+											r.addProperty("via_planting_item", seed);
+											r.add("seed_drop_evidence", seedDrop.deepCopy());
+											if (!first.contains(r))
+												first.add(r);
+										}
+									}
+							var gaps = new com.google.gson.JsonArray();
+							if (harvest.isEmpty())
+								gaps.add("no_recognized_plant_drop_for_item");
+							if (first.isEmpty())
+								gaps.add("first_acquisition_not_located_by_supported_worldgen");
+							boolean dim = false;
+							for (var e : first)
+								if (!e.getAsJsonObject().getAsJsonArray("dimensions").isEmpty())
+									dim = true;
+							if (!first.isEmpty() && !dim)
+								gaps.add("biome_found_but_dimension_not_mapped");
+							for (String block : related) {
+								if (seeds.getOrDefault(block, java.util.Collections.emptySet()).isEmpty())
+									gaps.add("planting_item_not_identified:" + block);
+								for (String issue : problems.getOrDefault(block, java.util.Collections.emptySet()))
+									gaps.add(issue);
+							}
+							entry.add("planting_blocks", planting);
+							entry.add("harvest_candidates", harvest);
+							entry.add("potential_first_acquisition", first);
+							entry.add("gaps", gaps);
+							entry.addProperty("status", first.isEmpty() ? harvest.isEmpty() && planting.isEmpty() ? "no_plant_evidence" : "cultivation_or_drop_only" : "potential_worldgen_path");
+							var supplies = new com.google.gson.JsonObject();
+							for (String block : related)
+								supplies.add(block, array(seeds.getOrDefault(block, java.util.Collections.emptySet())));
+							entry.add("planting_items_by_block", supplies);
+							var seedEvidence = new com.google.gson.JsonObject();
+							for (String block : related)
+								seedEvidence.add(block, array(plantingEvidence.getOrDefault(block, java.util.Collections.emptySet())));
+							entry.add("planting_link_evidence", seedEvidence);
+							items.add(id, entry);
+							if (!harvest.isEmpty() || !planting.isEmpty())
+								withPlant++;
+							if (!first.isEmpty())
+								withLocation++;
+						}
+						result.add("ingredients", items);
+						result.addProperty("ingredient_count", ingredientIds.size());
+						result.addProperty("with_plant_evidence", withPlant);
+						result.addProperty("with_potential_worldgen", withLocation);
+						var issues = new com.google.gson.JsonObject();
+						for (var e : problems.entrySet())
+							issues.add(e.getKey(), array(e.getValue()));
+						result.add("issues", issues);
+						return result;
+					}
+				}
+				class PlantSourceDiagnostics {
+					final PlantEvidenceIndex index = new PlantEvidenceIndex();
+					static final int MAX_FEATURES = 16000, MAX_BLOCKS = 16000, MAX_TABLES = 16000;
+					final com.google.gson.JsonObject stages = new com.google.gson.JsonObject();
+
+					<T> void encoded(java.util.Map<String, com.google.gson.JsonObject> target, String id, com.mojang.serialization.Codec<T> codec, T value) {
+						try {
+							var ops = net.minecraft.resources.RegistryOps.create(com.mojang.serialization.JsonOps.INSTANCE, level.registryAccess());
+							var result = codec.encodeStart(ops, value);
+							var json = result.result();
+							if (json.isPresent() && json.get().isJsonObject())
+								target.put(id, json.get().getAsJsonObject());
+							else
+								index.issue(id, "live_codec_serialization_failed");
+						} catch (RuntimeException failure) {
+							index.issue(id, "live_codec_serialization_exception:" + failure.getClass().getSimpleName());
+						}
+					}
+
+					void dimensions() {
+						catalogDiagnostics.phase("plant diagnostics: dimension biome membership");
+						try {
+							var registry = level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.LEVEL_STEM);
+							for (var e : registry.entrySet())
+								for (var biome : e.getValue().generator().getBiomeSource().possibleBiomes()) {
+									var key = biome.unwrapKey();
+									if (key.isPresent())
+										index.link(index.biomeDimensions, key.get().location().toString(), e.getKey().location().toString());
+								}
+							stages.addProperty("dimension_definitions", "read_live_registry");
+						} catch (RuntimeException failure) {
+							stages.addProperty("dimension_definitions", "partial_or_unavailable");
+							index.issue("dimensions", failure.getClass().getSimpleName());
+						}
+						for (var dimension : level.getServer().getAllLevels())
+							try {
+								for (var biome : dimension.getChunkSource().getGenerator().getBiomeSource().possibleBiomes()) {
+									var key = biome.unwrapKey();
+									if (key.isPresent())
+										index.link(index.biomeDimensions, key.get().location().toString(), dimension.dimension().location().toString());
+								}
+							} catch (RuntimeException failure) {
+								index.issue("dimensions", failure.getClass().getSimpleName());
+							}
+					}
+
+					void worldgen() {
+						catalogDiagnostics.phase("plant diagnostics: live worldgen definitions");
+						var placed = level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.PLACED_FEATURE);
+						int count = 0;
+						for (var e : placed.entrySet()) {
+							if (++count > MAX_FEATURES) {
+								index.issue("worldgen", "placed_feature_budget_exceeded");
+								break;
+							}
+							String id = e.getKey().location().toString();
+							catalogDiagnostics.current = id;
+							encoded(index.placed, id, net.minecraft.world.level.levelgen.placement.PlacedFeature.DIRECT_CODEC, e.getValue());
+						}
+						var configured = level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.CONFIGURED_FEATURE);
+						count = 0;
+						for (var e : configured.entrySet()) {
+							if (++count > MAX_FEATURES) {
+								index.issue("worldgen", "configured_feature_budget_exceeded");
+								break;
+							}
+							String id = e.getKey().location().toString();
+							catalogDiagnostics.current = id;
+							encoded(index.configured, id, net.minecraft.world.level.levelgen.feature.ConfiguredFeature.DIRECT_CODEC, e.getValue());
+						}
+						var biomes = level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME);
+						for (var e : biomes.entrySet())
+							for (var step : e.getValue().getGenerationSettings().features())
+								for (var feature : step) {
+									var key = feature.unwrapKey();
+									String id;
+									if (key.isPresent())
+										id = key.get().location().toString();
+									else {
+										id = "inline_placed_" + index.placed.size();
+										encoded(index.placed, id, net.minecraft.world.level.levelgen.placement.PlacedFeature.DIRECT_CODEC, feature.value());
+									}
+									index.link(index.featureBiomes, id, e.getKey().location().toString());
+								}
+						stages.addProperty("worldgen", "live_effective_biome_features_and_registry_codecs");
+					}
+
+					void nestedTables(com.google.gson.JsonElement value, java.util.Set<String> ids) {
+						if (value == null)
+							return;
+						if (value.isJsonArray()) {
+							for (var e : value.getAsJsonArray())
+								nestedTables(e, ids);
+							return;
+						}
+						if (!value.isJsonObject())
+							return;
+						var o = value.getAsJsonObject();
+						if ("minecraft:loot_table".equals(index.str(o, "type"))) {
+							String id = index.str(o, "value");
+							if (id.isEmpty())
+								id = index.str(o, "name");
+							if (!id.isEmpty())
+								ids.add(id);
+						}
+						for (var e : o.entrySet())
+							if (!e.getKey().equals("functions") && !e.getKey().equals("conditions"))
+								nestedTables(e.getValue(), ids);
+					}
+
+					void plants() {
+						catalogDiagnostics.phase("plant diagnostics: planting and block loot");
+						for (var e : itemsById.entrySet())
+							if (e.getValue() instanceof net.minecraft.world.item.BlockItem item) {
+								String block = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(item.getBlock()).toString();
+								index.link(index.seeds, block, e.getKey());
+								index.link(index.plantingEvidence, block, e.getKey() + " | direct_BlockItem_target");
+							}
+						// Collect potential worldgen blocks once, without constructing or placing any feature.
+						for (String feature : index.featureBiomes.keySet()) {
+							var blocks = new java.util.TreeSet<String>();
+							index.placedBlocks(new com.google.gson.JsonPrimitive(feature), blocks, new java.util.HashSet<>(), feature);
+							index.featureBlocksCache.put(feature, blocks);
+						}
+						var generated = new java.util.HashSet<String>();
+						for (var blocks : index.featureBlocksCache.values())
+							generated.addAll(blocks);
+						int count = 0;
+						for (var block : net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
+							String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block).toString();
+							boolean plant = block instanceof net.minecraft.world.level.block.BushBlock || block instanceof net.minecraft.world.level.block.LeavesBlock || block instanceof net.minecraft.world.level.block.GrowingPlantBlock
+									|| block instanceof net.minecraft.world.level.block.SugarCaneBlock || block instanceof net.minecraft.world.level.block.CactusBlock || generated.contains(id);
+							if (!plant)
+								continue;
+							if (++count > MAX_BLOCKS) {
+								index.issue("plants", "plant_block_budget_exceeded");
+								break;
+							}
+							catalogDiagnostics.current = id;
+							try {
+								// Block#asItem uses the registered block-to-item map. It can associate a seed
+								// with mature/rope stages even when BlockItem#getBlock targets the initial stage.
+								var registeredItem = block.asItem();
+								if (registeredItem instanceof net.minecraft.world.item.BlockItem plantingItem) {
+									String itemId = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(registeredItem).toString();
+									if (itemsById.get(itemId) == registeredItem) {
+										index.link(index.seeds, id, itemId);
+										index.link(index.plantingEvidence, id, itemId + (plantingItem.getBlock() == block ? " | direct_BlockItem_target" : " | registered_growth_stage_alias_not_direct_placement"));
+									}
+								}
+								var state = block.defaultBlockState();
+								if (block instanceof net.minecraft.world.level.block.CropBlock crop) {
+									state = crop.getStateForAge(crop.getMaxAge());
+									index.crops.add(id);
+								}
+								var values = new java.util.TreeMap<String, String>();
+								state.getValues().forEach((property, value) -> values.put(property.getName(), String.valueOf(value)));
+								index.states.put(id, values);
+								index.blockTables.put(id, block.getLootTable().location().toString());
+								if (!(block instanceof net.minecraft.world.level.block.CropBlock))
+									index.issue(id, "maturity_not_proven_default_state_only");
+								if (block instanceof net.minecraft.world.level.block.LeavesBlock)
+									index.issue(id, "tree_growth_and_sapling_relationship_not_interpreted");
+								index.issue(id, "custom_getDrops_and_right_click_not_executed");
+							} catch (RuntimeException failure) {
+								index.issue(id, "block_metadata_failed:" + failure.getClass().getSimpleName());
+							}
+						}
+						var pending = new java.util.ArrayDeque<String>(new java.util.TreeSet<>(index.blockTables.values()));
+						var visited = new java.util.HashSet<String>();
+						while (!pending.isEmpty()) {
+							String id = pending.removeFirst();
+							if (!visited.add(id))
+								continue;
+							if (visited.size() > MAX_TABLES) {
+								index.issue("loot_tables", "loot_table_budget_exceeded");
+								break;
+							}
+							catalogDiagnostics.current = id;
+							try {
+								var key = net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, net.minecraft.resources.ResourceLocation.parse(id));
+								var table = level.getServer().reloadableRegistries().getLootTable(key);
+								if (table == net.minecraft.world.level.storage.loot.LootTable.EMPTY) {
+									index.issue(id, "empty_or_missing_live_loot_table");
+									continue;
+								}
+								encoded(index.tables, id, net.minecraft.world.level.storage.loot.LootTable.DIRECT_CODEC, table);
+								var nested = new java.util.TreeSet<String>();
+								nestedTables(index.tables.get(id), nested);
+								pending.addAll(nested);
+							} catch (RuntimeException failure) {
+								index.issue(id, "loot_metadata_failed:" + failure.getClass().getSimpleName());
+							}
+						}
+						int aliases = 0;
+						for (var evidence : index.plantingEvidence.values())
+							for (String value : evidence)
+								if (value.contains("registered_growth_stage_alias"))
+									aliases++;
+						stages.addProperty("planting_stage_aliases", aliases);
+						stages.addProperty("plant_blocks_inspected", index.blockTables.size());
+						stages.addProperty("loot_tables_serialized", index.tables.size());
+					}
+
+					void attach(com.google.gson.JsonObject database) {
+						long started = System.nanoTime();
+						String status = "completed_with_explicit_coverage_limits";
+						for (int stage = 0; stage < 4; stage++)
+							try {
+								if (stage == 0)
+									dimensions();
+								else if (stage == 1)
+									worldgen();
+								else if (stage == 2)
+									plants();
+								else {
+									catalogDiagnostics.phase("plant diagnostics: joining ingredient source evidence");
+									index.visits = 0;
+									index.index();
+								}
+							} catch (RuntimeException failure) {
+								status = "partial_failure";
+								index.issue("diagnostic_stage_" + stage, failure.getClass().getSimpleName());
+								net.mcreator.omnichef.OmnichefMod.LOGGER.warn("Omnichef plant diagnostics stage {} incomplete: {}", stage, failure.toString());
+							}
+						var report = index.report(database);
+						report.addProperty("status", status);
+						report.add("collection", stages);
+						report.addProperty("elapsed_ms", (System.nanoTime() - started) / 1000000L);
+						database.getAsJsonObject("technical").getAsJsonObject("diagnostics").add("plant_source_audit", report);
+						net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef plant diagnostics: {} physical Ingredient items (including discovery variants), {} with plant evidence, {} with potential worldgen; {} ms. Diagnostic only.",
+								report.get("ingredient_count"), report.get("with_plant_evidence"), report.get("with_potential_worldgen"), report.get("elapsed_ms"));
 					}
 				}
 				java.nio.file.Path splitPreviewFile = net.neoforged.fml.loading.FMLPaths.GAMEDIR.get().resolve("config/omnichef/" + net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
@@ -5145,6 +6287,7 @@ public class CreatingFoodListJsonProcedure {
 					FoodCatalogBuilder splitBuilder = new FoodCatalogBuilder();
 					catalogDiagnostics.phase("building split catalog");
 					com.google.gson.JsonObject splitPreview = splitBuilder.build();
+					new PlantSourceDiagnostics().attach(splitPreview);
 					catalogDiagnostics.phase("writing catalog files");
 					java.nio.file.Files.createDirectories(splitPreviewFile.getParent());
 					splitPreviewTemp = java.nio.file.Files.createTempFile(splitPreviewFile.getParent(), "FoodDatabase-", ".tmp");

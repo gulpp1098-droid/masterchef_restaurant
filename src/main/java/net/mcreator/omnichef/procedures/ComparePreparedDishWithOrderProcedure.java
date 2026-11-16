@@ -13,6 +13,8 @@ public class ComparePreparedDishWithOrderProcedure {
 		com.google.gson.JsonArray dishAmountArr = new com.google.gson.JsonArray();
 		com.google.gson.JsonObject database = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject resultObject = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject normalizedDish = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject normalizedOrder = new com.google.gson.JsonObject();
 		String foodID = "";
 		double index = 0;
 		double loopSize = 0;
@@ -39,6 +41,12 @@ public class ComparePreparedDishWithOrderProcedure {
 		database = databaseObject;
 		dishFoodArr = GetPreparedDishFoodArrayProcedure.execute(dishStack);
 		dishAmountArr = GetPreparedDishAmountArrayProcedure.execute(dishStack);
+		normalizedOrder = MergeFoodAmountsByDiscoveryProcedure.execute(orderAmountArr, orderFoodArr, database);
+		normalizedDish = MergeFoodAmountsByDiscoveryProcedure.execute(dishAmountArr, dishFoodArr, database);
+		orderFoodArr = normalizedOrder.get("food").getAsJsonArray();
+		orderAmountArr = normalizedOrder.get("food_amount").getAsJsonArray();
+		dishFoodArr = normalizedDish.get("food").getAsJsonArray();
+		dishAmountArr = normalizedDish.get("food_amount").getAsJsonArray();
 		loopSize = Math.min(orderFoodArr.size(), orderAmountArr.size());
 		for (int _i1 = 0; _i1 < (int) loopSize; _i1++) {
 			foodID = orderFoodArr.get((int) index).getAsString();
