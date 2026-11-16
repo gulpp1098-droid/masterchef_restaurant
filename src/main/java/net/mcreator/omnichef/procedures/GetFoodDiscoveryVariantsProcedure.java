@@ -26,8 +26,8 @@ public class GetFoodDiscoveryVariantsProcedure {
 				for (int _i1 = 0; _i1 < (int) variants.size(); _i1++) {
 					member = variants.get((int) index).getAsJsonObject();
 					result.add(member.get("id").getAsString());
+					index = index + 1;
 				}
-				index = index + 1;
 			}
 		}
 		return result;

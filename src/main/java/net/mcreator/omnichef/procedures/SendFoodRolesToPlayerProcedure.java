@@ -129,6 +129,11 @@ public class SendFoodRolesToPlayerProcedure {
 					}.parse("{}");
 					entry.addProperty("role", food.get("role").getAsString());
 					entry.addProperty("tier", food.get("tier").getAsString());
+					discoveryID = food.get("id").getAsString();
+					variants = GetFoodDiscoveryVariantsProcedure.execute(databaseObject, discoveryID);
+					entry.addProperty("discovery_id", discoveryID);
+					entry.addProperty("can_serve", food.get("can_serve").getAsBoolean());
+					entry.add("variants", variants);
 					batch.add(food.get("id").getAsString(), entry);
 					batchCount = batchCount + 1;
 					if (batchCount >= 100) {
@@ -144,6 +149,41 @@ public class SendFoodRolesToPlayerProcedure {
 							}
 						}.parse("{}");
 						batchCount = 0;
+					}
+					variantEntry = new Object() {
+						public com.google.gson.JsonObject parse(String rawJson) {
+							try {
+								return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
+							} catch (Exception e) {
+								OmnichefMod.LOGGER.error(e);
+								return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+							}
+						}
+					}.parse("{}");
+					variantEntry.addProperty("role", food.get("role").getAsString());
+					variantEntry.addProperty("tier", food.get("tier").getAsString());
+					variantEntry.addProperty("discovery_id", discoveryID);
+					variantEntry.addProperty("can_serve", food.get("can_serve").getAsBoolean());
+					variantIndex = 1;
+					for (int _i3 = 0; _i3 < (int) (variants.size() - 1); _i3++) {
+						variantID = variants.get((int) variantIndex).getAsString();
+						batch.add(variantID, variantEntry);
+						batchCount = batchCount + 1;
+						if (batchCount >= 100) {
+							SendFoodRoleBatchProcedure.execute(world, entity, batch, false);
+							batch = new Object() {
+								public com.google.gson.JsonObject parse(String rawJson) {
+									try {
+										return new com.google.gson.Gson().fromJson(rawJson, com.google.gson.JsonObject.class);
+									} catch (Exception e) {
+										OmnichefMod.LOGGER.error(e);
+										return new com.google.gson.Gson().fromJson("{}", com.google.gson.JsonObject.class);
+									}
+								}
+							}.parse("{}");
+							batchCount = 0;
+						}
+						variantIndex = variantIndex + 1;
 					}
 					foodIndex = foodIndex + 1;
 				}
