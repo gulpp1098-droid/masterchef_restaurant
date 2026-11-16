@@ -11,13 +11,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.client.Minecraft;
 
 import javax.annotation.Nullable;
 
 import java.util.List;
-
-import com.mojang.blaze3d.platform.InputConstants;
 
 @EventBusSubscriber(value = {Dist.CLIENT})
 public class FoodRoleTooltipProcedure {
@@ -65,12 +62,12 @@ public class FoodRoleTooltipProcedure {
 		shiftHeld = net.minecraft.client.gui.screens.Screen.hasShiftDown();
 		if (variantCount > 1) {
 			if (canServe) {
-				tooltip.add(3, Component.literal(("\u00A7bRestaurant substitutes: " + variantCount + " variants")));
+				tooltip.add(Component.literal(("\u00A7bRestaurant substitutes: " + new java.text.DecimalFormat("0").format(variantCount) + " variants")));
 			} else {
-				tooltip.add(3, Component.literal(("\u00A7bShared discovery: " + variantCount + " variants")));
+				tooltip.add(Component.literal(("\u00A7bShared discovery: " + new java.text.DecimalFormat("0").format(variantCount) + " variants")));
 			}
-			if (!InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), InputConstants.KEY_LSHIFT)) {
-				tooltip.add(4, Component.literal("\u00A78Hold Shift to preview variants"));
+			if (!shiftHeld) {
+				tooltip.add(Component.literal("\u00A78Hold Shift to preview variants"));
 			} else {
 				variantIndex = 0;
 				for (int _i1 = 0; _i1 < (int) Math.min(variantCount, 5); _i1++) {
@@ -81,16 +78,16 @@ public class FoodRoleTooltipProcedure {
 					if ((variantName).length() > 60) {
 						variantName = variantName.substring(0, 56) + "...";
 					}
-					tooltip.add(4, Component.literal(("\u00A77" + variantName)));
+					tooltip.add(Component.literal(("\u00A77" + variantName)));
 					variantIndex = variantIndex + 1;
 				}
 				if (variantCount > 5) {
-					tooltip.add(5, Component.literal(("\u00A78And " + (int) (variantCount - 5) + " more")));
+					tooltip.add(Component.literal(("\u00A78And " + new java.text.DecimalFormat("0").format(variantCount - 5) + " more")));
 				}
 				if (canServe) {
-					tooltip.add(6, Component.literal("\u00A78Restaurant use only; recipes may differ"));
+					tooltip.add(Component.literal("\u00A78Restaurant use only; recipes may differ"));
 				} else {
-					tooltip.add(6, Component.literal("\u00A78Shared unlock; recipe requirements may differ"));
+					tooltip.add(Component.literal("\u00A78Shared unlock; recipe requirements may differ"));
 				}
 			}
 		}
