@@ -5656,6 +5656,9 @@ public class CreatingFoodListJsonProcedure {
 					final java.util.Map<String, String> blockTables = new java.util.TreeMap<>();
 					final java.util.Map<String, java.util.Set<String>> plantingEvidence = new java.util.TreeMap<>();
 					final java.util.Set<String> crops = new java.util.TreeSet<>();
+					// v36: growth evidence beyond CropBlock. ageBlocks = blocks with an "age" IntegerProperty (scanned at max age),
+					// spreading = classes that regrow by spreading (sugar cane, cactus, kelp-like, mushrooms), stems = StemBlock instances.
+					final java.util.Set<String> ageBlocks = new java.util.TreeSet<>(), spreading = new java.util.TreeSet<>(), stems = new java.util.TreeSet<>();
 					final java.util.Map<String, java.util.Set<String>> problems = new java.util.TreeMap<>();
 					final java.util.Map<String, java.util.Set<String>> featureBlocksCache = new java.util.HashMap<>();
 					final java.util.Map<String, com.google.gson.JsonArray> locations = new java.util.TreeMap<>(), drops = new java.util.TreeMap<>();
@@ -5900,7 +5903,7 @@ public class CreatingFoodListJsonProcedure {
 								r.addProperty("plant_block", block);
 								r.addProperty("loot_table", table);
 								r.addProperty("mode", "block_break_declared_candidate");
-								r.addProperty("maturity", crops.contains(block) ? "CropBlock_max_age" : "default_state_only");
+								r.addProperty("maturity", crops.contains(block) ? "CropBlock_max_age" : ageBlocks.contains(block) ? "age_property_max_age" : "default_state_only");
 								r.add("state", new com.google.gson.Gson().toJsonTree(states.getOrDefault(block, java.util.Collections.emptyMap())));
 								r.add("selection_context", selection);
 								r.addProperty("root_loot_table", blockTables.getOrDefault(block, table));
@@ -6220,11 +6223,20 @@ public class CreatingFoodListJsonProcedure {
 						var generated = new java.util.HashSet<String>();
 						for (var blocks : index.featureBlocksCache.values())
 							generated.addAll(blocks);
+						// v36: a StemBlock named <x>_stem conventionally grows the fruit block <x>; scan those fruit blocks too.
+						var stemFruits = new java.util.HashSet<String>();
+						for (var stemCandidate : net.minecraft.core.registries.BuiltInRegistries.BLOCK)
+							if (stemCandidate instanceof net.minecraft.world.level.block.StemBlock) {
+								String stemId = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(stemCandidate).toString();
+								index.stems.add(stemId);
+								if (stemId.endsWith("_stem"))
+									stemFruits.add(stemId.substring(0, stemId.length() - 5));
+							}
 						int count = 0;
 						for (var block : net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
 							String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block).toString();
 							boolean plant = block instanceof net.minecraft.world.level.block.BushBlock || block instanceof net.minecraft.world.level.block.LeavesBlock || block instanceof net.minecraft.world.level.block.GrowingPlantBlock
-									|| block instanceof net.minecraft.world.level.block.SugarCaneBlock || block instanceof net.minecraft.world.level.block.CactusBlock || generated.contains(id);
+									|| block instanceof net.minecraft.world.level.block.SugarCaneBlock || block instanceof net.minecraft.world.level.block.CactusBlock || generated.contains(id) || stemFruits.contains(id);
 							if (!plant)
 								continue;
 							if (++count > MAX_BLOCKS) {
@@ -6247,12 +6259,25 @@ public class CreatingFoodListJsonProcedure {
 								if (block instanceof net.minecraft.world.level.block.CropBlock crop) {
 									state = crop.getStateForAge(crop.getMaxAge());
 									index.crops.add(id);
+								} else {
+									for (var stateProperty : state.getProperties())
+										if (stateProperty.getName().equals("age") && stateProperty instanceof net.minecraft.world.level.block.state.properties.IntegerProperty ageProperty) {
+											int maxAge = 0;
+											for (int candidateAge : ageProperty.getPossibleValues())
+												maxAge = Math.max(maxAge, candidateAge);
+											state = state.setValue(ageProperty, maxAge);
+											index.ageBlocks.add(id);
+											break;
+										}
 								}
+								if (block instanceof net.minecraft.world.level.block.SugarCaneBlock || block instanceof net.minecraft.world.level.block.CactusBlock || block instanceof net.minecraft.world.level.block.GrowingPlantBlock
+										|| block instanceof net.minecraft.world.level.block.MushroomBlock)
+									index.spreading.add(id);
 								var values = new java.util.TreeMap<String, String>();
 								state.getValues().forEach((property, value) -> values.put(property.getName(), String.valueOf(value)));
 								index.states.put(id, values);
 								index.blockTables.put(id, block.getLootTable().location().toString());
-								if (!(block instanceof net.minecraft.world.level.block.CropBlock))
+								if (!(block instanceof net.minecraft.world.level.block.CropBlock) && !index.ageBlocks.contains(id))
 									index.issue(id, "maturity_not_proven_default_state_only");
 								if (block instanceof net.minecraft.world.level.block.LeavesBlock)
 									index.issue(id, "tree_growth_and_sapling_relationship_not_interpreted");
@@ -6328,31 +6353,40 @@ public class CreatingFoodListJsonProcedure {
 					}
 				}
 				class RenewabilityAnalysis {
-					// Diagnostic only (v35b). Results never feed tiers, Recipe Discovery cards, menus or orders.
-					// Least fixed point over ALL acquisition routes (not only the cheapest selected one): a node is renewable when ANY route
-					// has every required slot satisfied by at least one renewable alternative. Iteration instead of recursion, so cycles
-					// cannot overflow the stack and results do not depend on traversal order.
-					// Base facts seed the graph: self-replanting crops, bee nodes, saplings and tagged plants.
+					// Diagnostic only (v36). Results never feed tiers, Recipe Discovery cards, menus or orders, and the acquisition
+					// cost graph is NOT modified. Least fixed point over ALL acquisition routes (not only the cheapest one):
+					// a node is renewable when ANY route has every required slot satisfied by at least one renewable alternative.
+					// Ranks: 3 = renewable, 2 = assumed_renewable, 0 = nothing proven. Base facts seed the graph.
 					final int maxPasses = 500;
 					final PlantEvidenceIndex plants;
 					final java.util.Map<String, Integer> value = new java.util.HashMap<>();
 					final java.util.Map<String, String> basis = new java.util.HashMap<>();
-					final java.util.Set<String> limited = new java.util.HashSet<>();
+					final java.util.Set<String> unverified = new java.util.HashSet<>();
+					final java.util.Set<String> allNodeSet = new java.util.HashSet<>();
 					final java.util.List<String> allNodes = new java.util.ArrayList<>();
 					final java.util.List<String> routedNodes = new java.util.ArrayList<>();
+					final java.util.Set<String> structureSpawnEntities = new java.util.TreeSet<>();
+					final java.util.Set<String> raidEntities = new java.util.TreeSet<>();
+					final java.util.Map<String, Integer> notes = new java.util.TreeMap<>();
+					final java.util.Map<String, Integer> growthKinds = new java.util.TreeMap<>();
+					final java.util.Map<String, java.util.Set<String>> rootMemo = new java.util.HashMap<>();
 					final com.google.gson.JsonArray selfReplanting = new com.google.gson.JsonArray();
+					final java.util.List<String> plantTags = java.util.List.of("c:crops", "c:foods/fruit", "c:foods/vegetable", "c:foods/berry", "minecraft:flowers", "minecraft:saplings");
+					final java.util.List<String> livestockTags = java.util.List.of("c:eggs", "c:buckets/milk");
+					// Ores, ingots and similar are finite in principle but treated as unlimited for now (product decision, may change).
+					final java.util.List<String> resourceTags = java.util.List.of("c:ores", "c:raw_materials", "c:ingots", "c:nuggets", "c:gems", "c:dusts", "c:salts");
 					int passes = 0;
+					int mobEntitiesScanned = 0;
 					boolean converged = false;
 
 					RenewabilityAnalysis(PlantEvidenceIndex plants) {
 						this.plants = plants;
-						allNodes.addAll(acquisitionSources.nodes);
-						java.util.Collections.sort(allNodes);
-						routedNodes.addAll(acquisitionSources.routes.keySet());
-						java.util.Collections.sort(routedNodes);
 					}
 
-					// Ranks: 3 = renewable, 2 = assumed_renewable, 0 = nothing proven yet.
+					void note(String key) {
+						notes.merge(key, 1, Integer::sum);
+					}
+
 					boolean raise(String node, int rank, String why) {
 						if (rank <= value.getOrDefault(node, 0))
 							return false;
@@ -6366,33 +6400,205 @@ public class CreatingFoodListJsonProcedure {
 						return array != null && !array.isEmpty();
 					}
 
-					void baseFacts() {
+					boolean anyTag(String id, java.util.List<String> names) {
+						for (String name : names) {
+							var key = net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse(name));
+							if (classificationRules.matchesTags(id, java.util.List.of(key)))
+								return true;
+						}
+						return false;
+					}
+
+					// Drops that need silk touch or shears say nothing about a crop sustaining itself.
+					boolean toolGated(com.google.gson.JsonObject drop) {
+						if (!drop.has("conditions"))
+							return false;
+						String text = drop.get("conditions").toString();
+						return text.contains("silk_touch") || text.contains("shears");
+					}
+
+					// ---------- entity evidence (does not touch AcquisitionSources.mobItem) ----------
+					void indexStructureAndRaidSpawns() {
+						try {
+							var ops = net.minecraft.resources.RegistryOps.create(com.mojang.serialization.JsonOps.INSTANCE, level.registryAccess());
+							for (var structure : level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.STRUCTURE)) {
+								try {
+									var encoded = net.minecraft.world.level.levelgen.structure.Structure.DIRECT_CODEC.encodeStart(ops, structure).result();
+									if (encoded.isEmpty() || !encoded.get().isJsonObject()) {
+										note("structure_encode_failed");
+										continue;
+									}
+									var json = encoded.get().getAsJsonObject();
+									if (!json.has("spawn_overrides") || !json.get("spawn_overrides").isJsonObject())
+										continue;
+									for (var category : json.getAsJsonObject("spawn_overrides").entrySet()) {
+										if (!category.getValue().isJsonObject() || !category.getValue().getAsJsonObject().has("spawns"))
+											continue;
+										for (var spawn : category.getValue().getAsJsonObject().getAsJsonArray("spawns"))
+											if (spawn.isJsonObject() && spawn.getAsJsonObject().has("type"))
+												structureSpawnEntities.add(spawn.getAsJsonObject().get("type").getAsString());
+									}
+								} catch (RuntimeException failure) {
+									note("structure_scan_exception:" + failure.getClass().getSimpleName());
+								}
+							}
+						} catch (RuntimeException failure) {
+							note("structure_registry_unavailable");
+						}
+						try {
+							var raiders = net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.parse("minecraft:raiders"));
+							for (var entity : net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE)
+								if (entity.is(raiders))
+									raidEntities.add(net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entity).toString());
+						} catch (RuntimeException failure) {
+							note("raider_tag_unavailable");
+						}
+					}
+
+					int entityRank(String entity) {
+						if (acquisitionSources.biomeSpawnIndexReady && acquisitionSources.biomeSpawnEntities.contains(entity))
+							return 3;
+						if (structureSpawnEntities.contains(entity))
+							return 3;
+						if (raidEntities.contains(entity))
+							return 2;
+						return 0;
+					}
+
+					String entityClass(String entity) {
+						if (acquisitionSources.biomeSpawnIndexReady && acquisitionSources.biomeSpawnEntities.contains(entity))
+							return "biome_spawn";
+						if (structureSpawnEntities.contains(entity))
+							return "structure_spawn";
+						if (raidEntities.contains(entity))
+							return "raid_member";
+						return "unverified";
+					}
+
+					void collectLootItems(com.google.gson.JsonElement element, java.util.Set<String> items, java.util.Set<String> tables, int depth) {
+						if (element == null || depth > 24)
+							return;
+						if (element.isJsonArray()) {
+							for (var child : element.getAsJsonArray())
+								collectLootItems(child, items, tables, depth + 1);
+							return;
+						}
+						if (!element.isJsonObject())
+							return;
+						var object = element.getAsJsonObject();
+						String type = object.has("type") && object.get("type").isJsonPrimitive() ? object.get("type").getAsString() : "";
+						if ("minecraft:item".equals(type) && object.has("name") && object.get("name").isJsonPrimitive())
+							items.add(object.get("name").getAsString());
+						if ("minecraft:loot_table".equals(type) && object.has("value") && object.get("value").isJsonPrimitive()) {
+							String nested = object.get("value").getAsString();
+							if (tables.add(nested)) {
+								var table = acquisitionSources.lootResource(nested, "loot_table");
+								if (table != null)
+									collectLootItems(table, items, tables, depth + 1);
+							}
+						}
+						for (String key : java.util.List.of("pools", "entries", "children"))
+							if (object.has(key))
+								collectLootItems(object.get(key), items, tables, depth + 1);
+					}
+
+					// Lenient on purpose: any item an entity with repeatable-spawn evidence can drop is repeatable (maybe rare).
+					// Vanilla animals are skipped by AcquisitionSources.mobItem because of furnace_smelt functions; this pass does not alter that graph.
+					void lenientMobDrops() {
+						for (var entity : net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE) {
+							String entityId = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entity).toString();
+							int rank = entityRank(entityId);
+							if (rank == 0)
+								continue;
+							try {
+								String table = entity.getDefaultLootTable().location().toString();
+								var root = acquisitionSources.lootResource(table, "loot_table");
+								if (root == null) {
+									note("entity_loot_table_not_found");
+									continue;
+								}
+								var items = new java.util.TreeSet<String>();
+								collectLootItems(root, items, new java.util.HashSet<>(java.util.List.of(table)), 0);
+								mobEntitiesScanned++;
+								for (String item : items) {
+									String node = "item|" + item;
+									if (allNodeSet.contains(node))
+										raise(node, rank, "base:mob_drop:" + entityId + ":" + entityClass(entityId));
+								}
+							} catch (RuntimeException failure) {
+								note("entity_loot_exception:" + failure.getClass().getSimpleName());
+							}
+						}
+					}
+
+					// A handful of vanilla behaviour products that no loot table expresses (laying, milking, bees).
+					void livestockProducts() {
+						var products = java.util.Map.of("item|minecraft:egg", "minecraft:chicken", "item|minecraft:milk_bucket", "minecraft:cow", "item|minecraft:honey_bottle", "minecraft:bee", "item|minecraft:honeycomb", "minecraft:bee");
+						for (var product : products.entrySet()) {
+							if (!allNodeSet.contains(product.getKey()))
+								continue;
+							raise(product.getKey(), entityRank(product.getValue()) >= 3 ? 3 : 2, "base:vanilla_livestock_product:" + product.getValue());
+						}
+					}
+
+					void baseFacts(com.google.gson.JsonObject database) {
+						var external = new java.util.HashSet<String>();
+						var diagnostics = database.getAsJsonObject("technical").getAsJsonObject("diagnostics");
+						if (diagnostics.has("external_requirements") && diagnostics.get("external_requirements").isJsonArray())
+							for (var element : diagnostics.getAsJsonArray("external_requirements"))
+								external.add("item|" + element.getAsString());
 						for (String node : allNodes) {
 							if (node.startsWith("bee|"))
 								raise(node, 2, "base:bee_node_first_access_unverified");
 							else if (acquisitionSources.treeSaplings.contains(node))
 								raise(node, 2, "base:sapling_first_access_unverified");
-							else if (node.startsWith("item|") && !acquisitionSources.routes.containsKey(node)) {
-								String id = acquisitionSources.nodeItems.get(node);
-								if (id != null && acquisitionSources.naturalPlant(id))
-									raise(node, 2, "base:natural_plant_tag_assumption");
-							}
+							else if (external.contains(node))
+								raise(node, 2, "base:world_resource_assumed_unlimited:external_requirement");
+						}
+						// Tag assumptions apply to every still-unproven item node. v35b wrongly skipped nodes that had any route,
+						// which made minecraft:sugar_cane differ between packs for no real reason.
+						for (String node : allNodes) {
+							if (!node.startsWith("item|") || value.getOrDefault(node, 0) > 0)
+								continue;
+							String id = node.substring(5);
+							if (acquisitionSources.naturalPlant(id))
+								raise(node, 2, "base:natural_plant_tag_assumption");
+							else if (anyTag(id, livestockTags))
+								raise(node, 2, "base:livestock_product_tag_assumption");
+							else if (anyTag(id, resourceTags) || id.substring(id.indexOf(':') + 1).equals("salt"))
+								raise(node, 2, "base:world_resource_assumed_unlimited");
 						}
 					}
 
-					// A CropBlock whose own planting item is also among its harvest drops can sustain itself once the first seed exists.
-					// Direct BlockItem cycles (place a block, break it, get the same item) are excluded because only CropBlocks are checked.
-					void detectSelfReplantingCrops() {
+					// Blocks that can sustain themselves once the first planting item exists:
+					// CropBlock and age-property blocks (scanned at max age), spreading plant classes, and stems (-> fruit by naming convention, assumed only).
+					void detectSelfReplantingGrowth() {
 						var dropsByBlock = new java.util.TreeMap<String, java.util.TreeSet<String>>();
+						int gated = 0;
 						for (var entry : plants.drops.entrySet())
 							for (var element : entry.getValue()) {
 								if (!element.isJsonObject())
 									continue;
 								var drop = element.getAsJsonObject();
-								if (drop.has("plant_block"))
-									dropsByBlock.computeIfAbsent(drop.get("plant_block").getAsString(), k -> new java.util.TreeSet<>()).add(entry.getKey());
+								if (!drop.has("plant_block"))
+									continue;
+								if (toolGated(drop)) {
+									gated++;
+									continue;
+								}
+								dropsByBlock.computeIfAbsent(drop.get("plant_block").getAsString(), k -> new java.util.TreeSet<>()).add(entry.getKey());
 							}
-						for (String block : new java.util.TreeSet<>(plants.crops)) {
+						notes.put("tool_gated_drop_records_ignored", gated);
+						var growth = new java.util.TreeMap<String, String>();
+						for (String block : plants.crops)
+							growth.put(block, "crop_block_max_age");
+						for (String block : plants.ageBlocks)
+							growth.putIfAbsent(block, "age_property_max_age");
+						for (String block : plants.spreading)
+							growth.putIfAbsent(block, "spreading_plant_class");
+						var ranks = new java.util.HashMap<String, Integer>();
+						for (var candidate : growth.entrySet()) {
+							String block = candidate.getKey();
 							var planting = plants.seeds.get(block);
 							var dropped = dropsByBlock.get(block);
 							if (planting == null || dropped == null)
@@ -6415,11 +6621,15 @@ public class CreatingFoodListJsonProcedure {
 									}
 								}
 							int rank = located ? 3 : 2;
-							String why = "base:self_replanting_crop:" + block + (located ? "" : ":first_access_unverified");
+							String why = "base:self_replanting_growth:" + block + ":" + candidate.getValue() + (located ? "" : ":first_access_unverified");
 							for (String item : dropped)
-								raise("item|" + item, rank, why);
+								if (allNodeSet.contains("item|" + item))
+									raise("item|" + item, rank, why);
+							ranks.put(block, rank);
+							growthKinds.merge(candidate.getValue(), 1, Integer::sum);
 							var record = new com.google.gson.JsonObject();
 							record.addProperty("block", block);
+							record.addProperty("growth_kind", candidate.getValue());
 							record.addProperty("first_access", located ? "worldgen_located" : "unverified");
 							var planted = new com.google.gson.JsonArray();
 							for (String seed : cycle)
@@ -6431,13 +6641,28 @@ public class CreatingFoodListJsonProcedure {
 							record.add("harvest_items", produced);
 							selfReplanting.add(record);
 						}
+						for (String stem : plants.stems) {
+							Integer stemRank = ranks.get(stem);
+							if (stemRank == null || !stem.endsWith("_stem"))
+								continue;
+							String fruit = stem.substring(0, stem.length() - 5);
+							var fruitDrops = dropsByBlock.get(fruit);
+							if (fruitDrops == null) {
+								note("stem_fruit_without_recorded_drops");
+								continue;
+							}
+							for (String item : fruitDrops)
+								if (allNodeSet.contains("item|" + item))
+									raise("item|" + item, Math.min(2, stemRank), "base:stem_fruit_naming_convention:" + stem + "->" + fruit);
+							growthKinds.merge("stem_fruit_by_naming_convention", 1, Integer::sum);
+						}
 					}
 
+					// ---------- fixed point ----------
 					int routeValue(AcquisitionSources.SourceRoute route) {
 						if ("omnichef:mob_loot".equals(route.system)) {
 							var evidence = acquisitionSources.mobEvidence.get(route);
-							boolean listed = evidence != null && evidence.has("availability") && "listed_in_registered_biome_spawns".equals(evidence.get("availability").getAsString());
-							return listed ? 3 : 0;
+							return evidence != null && evidence.has("entity") ? entityRank(evidence.get("entity").getAsString()) : 0;
 						}
 						if (route.requirements.isEmpty())
 							return 0;
@@ -6453,13 +6678,13 @@ public class CreatingFoodListJsonProcedure {
 						return worst;
 					}
 
-					boolean routeLimited(AcquisitionSources.SourceRoute route) {
+					boolean routeUnverified(AcquisitionSources.SourceRoute route) {
 						if ("omnichef:mob_loot".equals(route.system))
 							return routeValue(route) == 0;
 						for (var slot : route.requirements) {
 							boolean every = !slot.isEmpty();
 							for (String alternative : slot)
-								if (!limited.contains(alternative)) {
+								if (!unverified.contains(alternative)) {
 									every = false;
 									break;
 								}
@@ -6469,9 +6694,20 @@ public class CreatingFoodListJsonProcedure {
 						return false;
 					}
 
-					void run() {
-						baseFacts();
-						detectSelfReplantingCrops();
+					void run(com.google.gson.JsonObject database) {
+						var nodeSet = new java.util.TreeSet<String>(acquisitionSources.nodes);
+						for (String group : java.util.List.of("ingredients", "foods"))
+							for (var tier : database.getAsJsonObject(group).getAsJsonObject("tiers").entrySet())
+								for (var element : tier.getValue().getAsJsonArray())
+									nodeSet.add("item|" + element.getAsJsonObject().get("id").getAsString());
+						allNodes.addAll(nodeSet);
+						allNodeSet.addAll(nodeSet);
+						routedNodes.addAll(new java.util.TreeSet<>(acquisitionSources.routes.keySet()));
+						indexStructureAndRaidSpawns();
+						baseFacts(database);
+						detectSelfReplantingGrowth();
+						lenientMobDrops();
+						livestockProducts();
 						boolean changed = true;
 						while (changed && passes < maxPasses) {
 							changed = false;
@@ -6486,26 +6722,27 @@ public class CreatingFoodListJsonProcedure {
 							}
 						}
 						converged = !changed;
-						// "limited": every recognized route is blocked by a slot with no non-limited alternative, and nothing renewable was found.
-						boolean limitedChanged = true;
+						// "unverified_source": routes exist, none has repeatability evidence, nothing renewable was found.
+						// This replaces v35b "limited", which claimed more than the evidence supports. "limited" is now reserved for positive evidence (none collected yet).
+						boolean unverifiedChanged = true;
 						int guard = 0;
-						while (limitedChanged && guard++ < maxPasses) {
-							limitedChanged = false;
+						while (unverifiedChanged && guard++ < maxPasses) {
+							unverifiedChanged = false;
 							for (String node : routedNodes) {
-								if (limited.contains(node) || value.getOrDefault(node, 0) > 0)
+								if (unverified.contains(node) || value.getOrDefault(node, 0) > 0)
 									continue;
 								var list = acquisitionSources.routes.get(node);
 								if (list == null || list.isEmpty())
 									continue;
 								boolean every = true;
 								for (var route : list)
-									if (!routeLimited(route)) {
+									if (!routeUnverified(route)) {
 										every = false;
 										break;
 									}
 								if (every) {
-									limited.add(node);
-									limitedChanged = true;
+									unverified.add(node);
+									unverifiedChanged = true;
 								}
 							}
 						}
@@ -6513,12 +6750,70 @@ public class CreatingFoodListJsonProcedure {
 
 					String classify(String node) {
 						int rank = value.getOrDefault(node, 0);
-						return rank >= 3 ? "renewable" : rank == 2 ? "assumed_renewable" : limited.contains(node) ? "limited" : "unknown";
+						return rank >= 3 ? "renewable" : rank == 2 ? "assumed_renewable" : unverified.contains(node) ? "unverified_source" : "unknown";
+					}
+
+					// ---------- blocker analysis: which nodes keep foods from being renewable ----------
+					int bestRank(java.util.List<String> slot) {
+						int best = 0;
+						for (String alternative : slot)
+							best = Math.max(best, value.getOrDefault(alternative, 0));
+						return best;
+					}
+
+					java.util.List<java.util.List<String>> blockingSlots(AcquisitionSources.SourceRoute route) {
+						var blocking = new java.util.ArrayList<java.util.List<String>>();
+						if ("omnichef:mob_loot".equals(route.system) || route.requirements.isEmpty())
+							return blocking;
+						for (var slot : route.requirements)
+							if (bestRank(slot) < 2)
+								blocking.add(slot);
+						return blocking;
+					}
+
+					// Root blockers follow the least-blocked route, depth-capped and memoized; diagnostic approximation only.
+					java.util.Set<String> rootsOf(String node, int depth, java.util.Set<String> visiting) {
+						var cached = rootMemo.get(node);
+						if (cached != null)
+							return cached;
+						var result = new java.util.TreeSet<String>();
+						if (value.getOrDefault(node, 0) >= 2)
+							return result;
+						var list = acquisitionSources.routes.get(node);
+						if (list == null || list.isEmpty() || depth >= 8 || !visiting.add(node)) {
+							result.add(node);
+							return result;
+						}
+						try {
+							java.util.List<java.util.List<String>> chosen = null;
+							boolean leafRoute = false;
+							for (var route : list) {
+								var blocking = blockingSlots(route);
+								if (blocking.isEmpty()) {
+									leafRoute = true;
+									break;
+								}
+								if (chosen == null || blocking.size() < chosen.size())
+									chosen = blocking;
+							}
+							if (leafRoute || chosen == null)
+								result.add(node);
+							else
+								for (var slot : chosen) {
+									java.util.List<String> alternatives = new java.util.ArrayList<>(new java.util.TreeSet<>(slot));
+									for (int i = 0; i < Math.min(3, alternatives.size()); i++)
+										result.addAll(rootsOf(alternatives.get(i), depth + 1, visiting));
+								}
+						} finally {
+							visiting.remove(node);
+						}
+						rootMemo.put(node, result);
+						return result;
 					}
 
 					String countsLine(java.util.Map<String, Integer> counts, String prefix) {
 						StringBuilder line = new StringBuilder();
-						for (String status : java.util.List.of("renewable", "assumed_renewable", "unknown", "limited")) {
+						for (String status : java.util.List.of("renewable", "assumed_renewable", "unknown", "unverified_source", "limited")) {
 							if (line.length() > 0)
 								line.append(", ");
 							line.append(status).append('=').append(counts.getOrDefault(prefix + status, 0));
@@ -6529,13 +6824,15 @@ public class CreatingFoodListJsonProcedure {
 					com.google.gson.JsonObject report(com.google.gson.JsonObject database) {
 						var result = new com.google.gson.JsonObject();
 						result.addProperty("status", converged ? "completed" : "pass_limit_reached");
+						result.addProperty("version", 36);
 						result.addProperty("policy",
-								"Diagnostic only. Does not affect tiers, Recipe Discovery cards, menus or orders. renewable = some route exists whose every required slot has a renewable alternative (any route, not only the cheapest). assumed_renewable = depends on an assumption: unverified first access, bee or sapling nodes, or tagged plants. limited = every recognized route lacks repeatable-source evidence; this is not proof that the item cannot be renewed elsewhere in a modpack. unknown = no usable evidence. Nothing here should block an item until the analyzer is trusted.");
+								"Diagnostic only. Does not affect tiers, Recipe Discovery cards, menus or orders, and does not modify the acquisition cost graph. renewable = some route exists whose every required slot has a renewable alternative (any route, not only the cheapest), or a confirmed base fact such as a mob with biome/structure spawn evidence or a self-replanting growth block with located first access. assumed_renewable = depends on an assumption: unverified first access, bee or sapling nodes, tagged plants, livestock products by tag, raid members, stem fruit by naming convention, or world resources (ores, ingots, salt) assumed unlimited by product decision. unverified_source = routes exist but none has repeatability evidence; this is absence of evidence, not proof of one-shot supply. limited = reserved for positive evidence of one-shot supply; nothing produces it yet. unknown = no usable evidence. Nothing here should block an item until the analyzer is trusted.");
 						result.addProperty("passes", passes);
 						result.addProperty("nodes_with_routes", routedNodes.size());
 						var counts = new java.util.TreeMap<String, Integer>();
 						var unknownByNamespace = new java.util.TreeMap<String, Integer>();
 						var items = new com.google.gson.JsonObject();
+						var servableFoodsBlocked = new java.util.ArrayList<String>();
 						for (String group : java.util.List.of("ingredients", "foods")) {
 							for (var tier : database.getAsJsonObject(group).getAsJsonObject("tiers").entrySet())
 								for (var element : tier.getValue().getAsJsonArray()) {
@@ -6547,27 +6844,119 @@ public class CreatingFoodListJsonProcedure {
 									counts.merge(group + " all " + status, 1, Integer::sum);
 									if (servable)
 										counts.merge(group + " servable " + status, 1, Integer::sum);
-									if (!status.equals("renewable")) {
-										var routeList = acquisitionSources.routes.get(node);
-										var entry = new com.google.gson.JsonObject();
-										entry.addProperty("status", status);
-										entry.addProperty("group", group);
-										entry.addProperty("servable", servable);
-										entry.addProperty("basis", basis.getOrDefault(node, limited.contains(node) ? "all_recognized_routes_limited" : routeList != null ? "routes_without_renewable_inputs" : "no_route_and_no_base_fact"));
-										entry.addProperty("route_count", routeList == null ? 0 : routeList.size());
-										items.add(id, entry);
-										if (status.equals("unknown") && servable) {
-											int colon = id.indexOf(':');
-											unknownByNamespace.merge(colon > 0 ? id.substring(0, colon) : id, 1, Integer::sum);
-										}
+									var routeList = acquisitionSources.routes.get(node);
+									var entry = new com.google.gson.JsonObject();
+									entry.addProperty("status", status);
+									entry.addProperty("group", group);
+									entry.addProperty("servable", servable);
+									entry.addProperty("basis",
+											basis.getOrDefault(node, unverified.contains(node) ? "all_recognized_routes_lack_repeatability_evidence" : routeList != null ? "routes_without_renewable_inputs" : "no_route_and_no_base_fact"));
+									entry.addProperty("route_count", routeList == null ? 0 : routeList.size());
+									if (!status.equals("renewable") && routeList != null) {
+										var systems = new java.util.TreeSet<String>();
+										for (var route : routeList)
+											systems.add(route.system);
+										var systemArray = new com.google.gson.JsonArray();
+										for (String system : systems)
+											systemArray.add(system);
+										entry.add("route_systems", systemArray);
 									}
+									items.add(id, entry);
+									if (status.equals("unknown") && servable) {
+										int colon = id.indexOf(':');
+										unknownByNamespace.merge(colon > 0 ? id.substring(0, colon) : id, 1, Integer::sum);
+									}
+									if (group.equals("foods") && (status.equals("unknown") || status.equals("unverified_source")))
+										servableFoodsBlocked.add(id);
 								}
 						}
+						// Root blockers for foods that are neither renewable nor assumed_renewable.
+						var rootCounts = new java.util.TreeMap<String, Integer>();
+						var rootSamples = new java.util.TreeMap<String, java.util.List<String>>();
+						for (String foodId : servableFoodsBlocked) {
+							for (String root : rootsOf("item|" + foodId, 0, new java.util.HashSet<>())) {
+								rootCounts.merge(root, 1, Integer::sum);
+								var samples = rootSamples.computeIfAbsent(root, k -> new java.util.ArrayList<>());
+								if (samples.size() < 5)
+									samples.add(foodId);
+							}
+						}
+						var rankedRoots = new java.util.ArrayList<>(rootCounts.entrySet());
+						rankedRoots.sort((a, b) -> {
+							int byCount = Integer.compare(b.getValue(), a.getValue());
+							return byCount != 0 ? byCount : a.getKey().compareTo(b.getKey());
+						});
+						var rootArray = new com.google.gson.JsonArray();
+						StringBuilder topRoots = new StringBuilder();
+						for (int i = 0; i < Math.min(40, rankedRoots.size()); i++) {
+							String root = rankedRoots.get(i).getKey();
+							var record = new com.google.gson.JsonObject();
+							record.addProperty("node", root);
+							record.addProperty("foods_blocked", rankedRoots.get(i).getValue());
+							record.addProperty("status", classify(root));
+							record.addProperty("basis", basis.getOrDefault(root, "none"));
+							var routeList = acquisitionSources.routes.get(root);
+							var systems = new java.util.TreeSet<String>();
+							if (routeList != null)
+								for (var route : routeList)
+									systems.add(route.system);
+							var systemArray = new com.google.gson.JsonArray();
+							for (String system : systems)
+								systemArray.add(system);
+							record.add("route_systems", systemArray);
+							var sampleArray = new com.google.gson.JsonArray();
+							for (String sample : rootSamples.get(root))
+								sampleArray.add(sample);
+							record.add("sample_foods", sampleArray);
+							rootArray.add(record);
+							if (i < 12) {
+								if (topRoots.length() > 0)
+									topRoots.append(", ");
+								topRoots.append(root.startsWith("item|") ? root.substring(5) : root).append('=').append(rankedRoots.get(i).getValue());
+							}
+						}
+						// Tier 0 ingredients that sit there only because no evidence existed (assumed_base + confidence assumed).
+						int tier0Total = 0, tier0Assumed = 0, tier0AssumedNotRenewable = 0;
+						var tier0List = new com.google.gson.JsonArray();
+						var ingredientTiers = database.getAsJsonObject("ingredients").getAsJsonObject("tiers");
+						if (ingredientTiers.has("0"))
+							for (var element : ingredientTiers.getAsJsonArray("0")) {
+								var item = element.getAsJsonObject();
+								tier0Total++;
+								if (!item.has("analysis") || !item.get("analysis").isJsonObject() || !item.getAsJsonObject("analysis").has("acquisition"))
+									continue;
+								var acquisition = item.getAsJsonObject("analysis").getAsJsonObject("acquisition");
+								boolean assumed = acquisition.has("status") && "assumed_base".equals(acquisition.get("status").getAsString()) && acquisition.has("confidence") && "assumed".equals(acquisition.get("confidence").getAsString());
+								if (!assumed)
+									continue;
+								tier0Assumed++;
+								String id = item.get("id").getAsString();
+								String status = classify("item|" + id);
+								if (!status.equals("renewable") && !status.equals("assumed_renewable")) {
+									tier0AssumedNotRenewable++;
+									if (tier0List.size() < 60)
+										tier0List.add(id + " [" + status + "]");
+								}
+							}
 						var countsJson = new com.google.gson.JsonObject();
 						for (var entry : counts.entrySet())
 							countsJson.addProperty(entry.getKey(), entry.getValue());
 						result.add("counts", countsJson);
+						var notesJson = new com.google.gson.JsonObject();
+						for (var entry : notes.entrySet())
+							notesJson.addProperty(entry.getKey(), entry.getValue());
+						result.add("notes", notesJson);
+						var mobClasses = new com.google.gson.JsonObject();
+						mobClasses.addProperty("biome_spawn_entities", acquisitionSources.biomeSpawnEntities.size());
+						mobClasses.addProperty("structure_spawn_entities", structureSpawnEntities.size());
+						mobClasses.addProperty("raid_member_entities", raidEntities.size());
+						mobClasses.addProperty("entity_loot_tables_scanned", mobEntitiesScanned);
+						result.add("mob_evidence", mobClasses);
 						result.add("self_replanting_crops", selfReplanting);
+						result.add("root_blockers", rootArray);
+						result.addProperty("tier0_ingredients", tier0Total);
+						result.addProperty("tier0_assumed_base", tier0Assumed);
+						result.add("tier0_without_evidence", tier0List);
 						result.add("items", items);
 						var ranked = new java.util.ArrayList<>(unknownByNamespace.entrySet());
 						ranked.sort((a, b) -> b.getValue() - a.getValue());
@@ -6579,27 +6968,33 @@ public class CreatingFoodListJsonProcedure {
 						}
 						var lines = new com.google.gson.JsonArray();
 						lines.add("");
-						lines.add("ODNAWIALNOSC ZRODEL — diagnostyka, nic nie blokuje (menu, karty i zamowienia bez zmian)");
+						lines.add("ODNAWIALNOSC ZRODEL v36 — diagnostyka, nic nie blokuje (menu, karty, zamowienia i tiery bez zmian)");
 						lines.add("Status analizy: " + result.get("status").getAsString() + "; przebiegi: " + passes + "; wezlow z trasami: " + routedNodes.size());
-						lines.add("Wykryte samopodtrzymujace sie uprawy (CropBlock sadzony wlasnym dropem): " + selfReplanting.size());
+						lines.add("Samopodtrzymujace sie rosliny (wg rodzaju): " + selfReplanting.size() + " " + growthKinds + "; zignorowane dropy tylko z silk touch/shears: " + notes.getOrDefault("tool_gated_drop_records_ignored", 0));
+						lines.add("Moby z dowodem powtarzalnego spawnu: biomy=" + acquisitionSources.biomeSpawnEntities.size() + ", struktury=" + structureSpawnEntities.size() + ", rajdy=" + raidEntities.size() + "; przeskanowane tabele lootu: "
+								+ mobEntitiesScanned);
 						lines.add("Ingredients, wszystkie: " + countsLine(counts, "ingredients all "));
 						lines.add("Ingredients, do podawania: " + countsLine(counts, "ingredients servable "));
 						lines.add("Food, wszystkie: " + countsLine(counts, "foods all "));
 						lines.add("Food, do podawania: " + countsLine(counts, "foods servable "));
+						lines.add("Tier 0 Ingredients: " + tier0Total + "; z zalozenia (assumed_base + confidence assumed): " + tier0Assumed + "; z tego bez potwierdzonej odnawialnosci: " + tier0AssumedNotRenewable
+								+ " (lista: tier0_without_evidence)");
+						lines.add("Glowni blokerzy potraw (korzenie, liczba potraw): " + (topRoots.length() == 0 ? "brak" : topRoots.toString()));
 						lines.add("Pozycje do podawania ze statusem unknown wg moda (top 15): " + (top.length() == 0 ? "brak" : top.toString()));
-						lines.add("limited = brak dowodu na powtarzalne zrodlo, a nie dowod, ze nie da sie go odnowic. unknown = za malo danych. Szczegoly: technical.diagnostics.renewability_audit w FoodDatabase.json.");
+						lines.add(
+								"unverified_source = trasy istnieja, brak dowodu na powtarzalnosc (nie dowod jednorazowosci). limited = zarezerwowane, na razie puste. unknown = za malo danych. Rudy/ingoty/sol traktowane jako nieograniczone (assumed_renewable). Szczegoly i mechanizm dla kazdej pozycji: technical.diagnostics.renewability_audit.items.");
 						result.add("summary_lines", lines);
 						return result;
 					}
 
 					void attach(com.google.gson.JsonObject database) {
 						long started = System.nanoTime();
-						run();
+						run(database);
 						var report = report(database);
 						report.addProperty("elapsed_ms", (System.nanoTime() - started) / 1000000L);
 						database.getAsJsonObject("technical").getAsJsonObject("diagnostics").add("renewability_audit", report);
-						net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef renewability diagnostics: {} passes, status {}, {} self-replanting crops, {} ms. Diagnostic only.", passes, report.get("status").getAsString(), selfReplanting.size(),
-								report.get("elapsed_ms"));
+						net.mcreator.omnichef.OmnichefMod.LOGGER.info("Omnichef renewability diagnostics v36: {} passes, status {}, {} self-replanting growth blocks, {} ms. Diagnostic only.", passes, report.get("status").getAsString(),
+								selfReplanting.size(), report.get("elapsed_ms"));
 					}
 				}
 				java.nio.file.Path splitPreviewFile = net.neoforged.fml.loading.FMLPaths.GAMEDIR.get().resolve("config/omnichef/" + net.mcreator.omnichef.network.OmnichefModVariables.MapVariables.get(world).FoodDatabase_File_Name);
