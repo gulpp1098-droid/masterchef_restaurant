@@ -125,5 +125,6 @@
   "item.omnichef.chefs_set_leggings": "Chef's Leggings",
   "item.omnichef.chefs_set_helmet": "Chef's Hat",
   "item.omnichef.chefs_set_chestplate": "Chef's Apron",
-  "item.omnichef.chefs_set_boots": "Chef's Boots"
+  "item.omnichef.chefs_set_boots": "Chef's Boots",
+  "gui.omnichef.chefs_diary_item_details_gui.label_my_recipes": "My Recipes:"
 }

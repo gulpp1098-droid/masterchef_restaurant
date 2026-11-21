@@ -1,0 +1,820 @@
+{
+  "_fv": 89,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 0,
+    "height": 0,
+    "inventoryOffsetX": 1000,
+    "inventoryOffsetY": 1000,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "chefsdiary2.png",
+          "use1Xscale": false,
+          "x": 36,
+          "y": -5,
+          "locked": true
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_last_page_icon",
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryFoodPreviousPage",
+          "x": 73,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_page_icon",
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "onClick": "ChefsDiaryFoodNextPage",
+          "x": 322,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0",
+          "displayId": 1,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 96,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy",
+          "displayId": 2,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 122,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_2",
+          "displayId": 3,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 148,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_3",
+          "displayId": 4,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 96,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_4",
+          "displayId": 5,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 122,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_5",
+          "displayId": 6,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 148,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_6",
+          "displayId": 7,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 96,
+          "y": 117,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_7",
+          "displayId": 8,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 122,
+          "y": 117,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_8",
+          "displayId": 9,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 148,
+          "y": 117,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 95,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 121,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_2",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 147,
+          "y": 63,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_3",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 95,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_4",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 121,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_5",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 147,
+          "y": 89,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_6",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 95,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_7",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 121,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_8",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 147,
+          "y": 116,
+          "locked": false
+        }
+      },
+      {
+        "type": "component_folder",
+        "data": {
+          "name": "Bookmarks",
+          "members": [
+            "red_bookmark",
+            "yellow_bookmark",
+            "green_bookmark",
+            "gray_bookmark",
+            "blue_bookmark",
+            "chefsdiary",
+            "food",
+            "clients",
+            "applience",
+            "stats"
+          ],
+          "x": -10000,
+          "y": -10000,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_red.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "red_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGUIOpen",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_yellow.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "yellow_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryFood",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 48,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_green.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "green_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryClients",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_gray.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "gray_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryApplience",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 106,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_blue.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "blue_bookmark",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryStats",
+          "width": 35,
+          "height": 26,
+          "x": 354,
+          "y": 135,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "chefsdiary",
+          "image": "base_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 362,
+          "y": 23,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "food",
+          "image": "food_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 52,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "clients",
+          "image": "clients_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 81,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "applience",
+          "image": "appliences_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "stats",
+          "image": "stats_icon.png",
+          "width": 18,
+          "height": 18,
+          "x": 363,
+          "y": 139,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label",
+          "text": "Item name",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 101,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy",
+          "text": "Tier and type",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 101,
+          "y": 28,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_2",
+          "text": "Recipe: 1 / 1",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 81,
+          "height": 10,
+          "x": 108,
+          "y": 180,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_purple.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "red_bookmark_copy",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryGUIOpen",
+          "width": 35,
+          "height": 26,
+          "x": 25,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "chefsdiary_copy",
+          "image": "last_page_icon.png",
+          "width": 15,
+          "height": 15,
+          "x": 37,
+          "y": 24,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_6",
+          "image": "itemslot_icon.png",
+          "width": 24,
+          "height": 24,
+          "x": 73,
+          "y": 21,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_copy",
+          "text": "State",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 101,
+          "y": 37,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_copy_copy",
+          "text": "Requirements",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 73,
+          "y": 47,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_7",
+          "image": "crafting_icon.png",
+          "width": 80,
+          "height": 80,
+          "x": 90,
+          "y": 58,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "small_arrow_right.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_small_arrow_right",
+          "text": "",
+          "isUndecorated": true,
+          "width": 12,
+          "height": 12,
+          "x": 177,
+          "y": 58,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "small_arrow_left.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_small_arrow_right_copy",
+          "text": "",
+          "isUndecorated": true,
+          "width": 12,
+          "height": 12,
+          "x": 72,
+          "y": 58,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_copy_copy_copy",
+          "text": "Cooking ingredient only",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 72,
+          "y": 140,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_copy_copy_copy_copy",
+          "text": "Used in 27 dishes",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 72,
+          "y": 149,
+          "locked": false
+        }
+      },
+      {
+        "type": "multiline_label",
+        "data": {
+          "name": "multiline_label_4_dishes_available_after_unlock",
+          "text": "4 dishes available after unlock",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "alignment": "LEFT",
+          "width": 120,
+          "height": 40,
+          "x": 73,
+          "y": 157,
+          "locked": false
+        }
+      }
+    ],
+    "onOpen": "FillChefsDiaryFoodTier",
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

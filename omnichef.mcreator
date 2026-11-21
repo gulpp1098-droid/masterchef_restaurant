@@ -13408,6 +13408,21 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/System Procedures"
+    },
+    {
+      "name": "ChefsDiaryItemDetailsGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chefs_diary_item_details_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/world/inventory/ChefsDiaryItemDetailsGUIMenu.java",
+          "src/main/java/net/mcreator/omnichef/client/gui/ChefsDiaryItemDetailsGUIScreen.java",
+          "src/main/java/net/mcreator/omnichef/network/ChefsDiaryItemDetailsGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/GUIs/ChefsDiary"
     }
   ],
   "variable_elements": [
@@ -13808,7 +13823,8 @@
       "item.omnichef.chefs_set_leggings": "Chef\u0027s Leggings",
       "item.omnichef.chefs_set_helmet": "Chef\u0027s Hat",
       "item.omnichef.chefs_set_chestplate": "Chef\u0027s Apron",
-      "item.omnichef.chefs_set_boots": "Chef\u0027s Boots"
+      "item.omnichef.chefs_set_boots": "Chef\u0027s Boots",
+      "gui.omnichef.chefs_diary_item_details_gui.label_my_recipes": "My Recipes:"
     }
   },
   "metadata": {
