@@ -591,8 +591,8 @@
           "tooltipWhenTruncated": false,
           "width": 81,
           "height": 10,
-          "x": 108,
-          "y": 180,
+          "x": 92,
+          "y": 139,
           "locked": false
         }
       },
@@ -637,8 +637,8 @@
         "data": {
           "name": "dynamic_image_6",
           "image": "itemslot_icon.png",
-          "width": 24,
-          "height": 24,
+          "width": 26,
+          "height": 26,
           "x": 73,
           "y": 21,
           "locked": false
@@ -761,7 +761,7 @@
           "width": 120,
           "height": 10,
           "x": 72,
-          "y": 140,
+          "y": 151,
           "locked": false
         }
       },
@@ -781,29 +781,474 @@
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
-          "x": 72,
-          "y": 149,
+          "x": 221,
+          "y": 18,
           "locked": false
         }
       },
       {
-        "type": "multiline_label",
+        "type": "item_display",
         "data": {
-          "name": "multiline_label_4_dishes_available_after_unlock",
-          "text": "4 dishes available after unlock",
+          "name": "item_display_9",
+          "displayId": 0,
+          "placeholderItem": {
+            "value": "Items.CARROT"
+          },
+          "maskEnabled": true,
+          "showTooltip": true,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 150,
+          "x": 74,
+          "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_copy_copy_copy_copy_2",
+          "text": "Unlocks 4 new recipes",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "hasShadow": false,
           "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
-          "alignment": "LEFT",
           "width": 120,
-          "height": 40,
-          "x": 73,
-          "y": 157,
+          "height": 10,
+          "x": 72,
+          "y": 162,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_text_label_copy_copy_copy_copy_copy_copy",
+          "text": "Name of filter",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "textProcedure": "ChefsDiaryGroupNameText",
+          "overflowMode": "VISIBLE",
+          "tooltipWhenTruncated": false,
+          "width": 120,
+          "height": 10,
+          "x": 221,
+          "y": 28,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_magenta.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_bookmark_magenta",
+          "text": "",
+          "isUndecorated": true,
+          "width": 21,
+          "height": 21,
+          "x": 226,
+          "y": 206,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_orange.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_bookmark_magenta_copy",
+          "text": "",
+          "isUndecorated": true,
+          "width": 21,
+          "height": 21,
+          "x": 249,
+          "y": 206,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_blood.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_bookmark_magenta_copy_copy",
+          "text": "",
+          "isUndecorated": true,
+          "width": 21,
+          "height": 21,
+          "x": 272,
+          "y": 206,
+          "locked": false
+        }
+      },
+      {
+        "type": "enhanced_image_button",
+        "data": {
+          "image": "bookmark_white.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": true,
+          "fontScale": 100,
+          "togglePressedTexture": false,
+          "name": "enhanced_image_button_bookmark_magenta_copy_copy_copy",
+          "text": "",
+          "isUndecorated": true,
+          "width": 21,
+          "height": 21,
+          "x": 295,
+          "y": 206,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8",
+          "image": "filter_all.png",
+          "width": 13,
+          "height": 13,
+          "x": 230,
+          "y": 208,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8_copy",
+          "image": "filter_unlockable.png",
+          "width": 13,
+          "height": 13,
+          "x": 253,
+          "y": 208,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8_copy_copy",
+          "image": "filter_locked.png",
+          "width": 13,
+          "height": 13,
+          "x": 276,
+          "y": 208,
+          "locked": false
+        }
+      },
+      {
+        "type": "dynamic_image",
+        "data": {
+          "name": "dynamic_image_8_copy_copy_copy",
+          "image": "filter_unlocked.png",
+          "width": 13,
+          "height": 13,
+          "x": 299,
+          "y": 208,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_9",
+          "displayId": 1,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 227,
+          "y": 48,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_3_copy",
+          "displayId": 4,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 227,
+          "y": 74,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_copy",
+          "displayId": 2,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 227,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_4_copy",
+          "displayId": 5,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 227,
+          "y": 125,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_7_copy",
+          "displayId": 8,
+          "maskEnabled": true,
+          "showTooltip": false,
+          "showTooltipWhenMasked": false,
+          "showCount": true,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "maskOpacity": 100,
+          "scale": 100,
+          "x": 227,
+          "y": 151,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_9",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 226,
+          "y": 47,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_3_copy",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 226,
+          "y": 73,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_6_copy",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 226,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_copy",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 226,
+          "y": 124,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_itemslot_icon_copy_4_copy",
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "x": 226,
+          "y": 150,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_need_1_to_unlock",
+          "text": "Need 1 to Unlock",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 250,
+          "y": 51,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_need_1_to_unlock_copy",
+          "text": "Need 1 to Unlock",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 250,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_need_1_to_unlock_copy_copy",
+          "text": "Need 1 to Unlock",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 250,
+          "y": 103,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_need_1_to_unlock_copy_copy_2",
+          "text": "Need 1 to Unlock",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 250,
+          "y": 129,
+          "locked": false
+        }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_need_1_to_unlock_copy_copy_3",
+          "text": "Need 1 to Unlock",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 250,
+          "y": 155,
           "locked": false
         }
       }

@@ -3,6 +3,7 @@ package net.mcreator.omnichef.client.gui;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
@@ -34,6 +35,11 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 	private ImageButton imagebutton_itemslot_icon_copy_6;
 	private ImageButton imagebutton_itemslot_icon_copy_7;
 	private ImageButton imagebutton_itemslot_icon_copy_8;
+	private ImageButton imagebutton_itemslot_icon_copy_9;
+	private ImageButton imagebutton_itemslot_icon_copy_3_copy;
+	private ImageButton imagebutton_itemslot_icon_copy_6_copy;
+	private ImageButton imagebutton_itemslot_icon_copy_copy;
+	private ImageButton imagebutton_itemslot_icon_copy_4_copy;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/chefs_diary_item_details_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 
@@ -58,6 +64,38 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
+		guiTools$sizedTextLabelTooltips : {
+			String guiTools$sizedLabelText9 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock");
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -69 && mouseY < this.topPos + -59 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText9, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText9), mouseX, mouseY);
+			String guiTools$sizedLabelText10 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock");
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -43 && mouseY < this.topPos + -33 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText10, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText10), mouseX, mouseY);
+			String guiTools$sizedLabelText11 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock");
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -17 && mouseY < this.topPos + -7 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText11, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText11), mouseX, mouseY);
+			String guiTools$sizedLabelText12 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock");
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 9 && mouseY < this.topPos + 19 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText12, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText12), mouseX, mouseY);
+			String guiTools$sizedLabelText13 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock");
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 35 && mouseY < this.topPos + 45 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText13, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText13), mouseX, mouseY);
+		}
+		guiTools$itemDisplayTooltips : {
+			guiTools$itemDisplayTooltip9 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip9;
+				if (mouseX < this.leftPos + -140 || mouseX >= this.leftPos + -116 || mouseY < this.topPos + -98 || mouseY >= this.topPos + -74)
+					break guiTools$itemDisplayTooltip9;
+				boolean guiTools$displayMasked9 = !(false);
+				if (guiTools$displayMasked9)
+					break guiTools$itemDisplayTooltip9;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack9 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.CARROT, 1));
+				if (guiTools$tooltipStack9 == null || guiTools$tooltipStack9.isEmpty())
+					break guiTools$itemDisplayTooltip9;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack9, mouseX, mouseY);
+			}
+		}
 	}
 
 	@Override
@@ -428,11 +466,11 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			if (true) {
 				int guiTools$xOffset = 0;
 				int guiTools$yOffset = 0;
-				int guiTools$visibleWidth = 24;
-				int guiTools$visibleHeight = 24;
+				int guiTools$visibleWidth = 26;
+				int guiTools$visibleHeight = 26;
 				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"));
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
-					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -141 + guiTools$xOffset, this.topPos + -99 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 24, 24);
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -141 + guiTools$xOffset, this.topPos + -99 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 26, 26);
 			}
 			if (true) {
 				int guiTools$xOffset = 0;
@@ -465,6 +503,248 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
 				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_small_arrow_right_copy.getX(), enhanced_image_button_small_arrow_right_copy.getY(), 0, 0, 12, 12, 12, 12);
 			}
+			guiTools$itemDisplay9 : {
+				if (!(true))
+					break guiTools$itemDisplay9;
+				net.minecraft.world.item.ItemStack guiTools$displayStack9 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.CARROT, 1));
+				if (guiTools$displayStack9 == null || guiTools$displayStack9.isEmpty())
+					break guiTools$itemDisplay9;
+				boolean guiTools$displayMasked9 = !(false);
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + -140), (1.0F - 1.5f) * (this.topPos + -98), 0.0F);
+					guiGraphics.pose().scale(1.5f, 1.5f, 1.0F);
+					if (guiTools$displayMasked9) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + -140, this.topPos + -98);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + -140, this.topPos + -98);
+					}
+					if (!guiTools$displayMasked9)
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack9, this.leftPos + -140, this.topPos + -98);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			if (enhanced_image_button_bookmark_magenta.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_magenta.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_bookmark_magenta.getX() && mouseY >= enhanced_image_button_bookmark_magenta.getY() && mouseX < enhanced_image_button_bookmark_magenta.getX() + 21
+						&& mouseY < enhanced_image_button_bookmark_magenta.getY() + 21;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_bookmark_magenta.getX(), enhanced_image_button_bookmark_magenta.getY(), 0, 0, 21, 21, 21, 21);
+			}
+			if (enhanced_image_button_bookmark_magenta_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_orange.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_bookmark_magenta_copy.getX() && mouseY >= enhanced_image_button_bookmark_magenta_copy.getY() && mouseX < enhanced_image_button_bookmark_magenta_copy.getX() + 21
+						&& mouseY < enhanced_image_button_bookmark_magenta_copy.getY() + 21;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_bookmark_magenta_copy.getX(), enhanced_image_button_bookmark_magenta_copy.getY(), 0, 0, 21, 21, 21, 21);
+			}
+			if (enhanced_image_button_bookmark_magenta_copy_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blood.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_bookmark_magenta_copy_copy.getX() && mouseY >= enhanced_image_button_bookmark_magenta_copy_copy.getY()
+						&& mouseX < enhanced_image_button_bookmark_magenta_copy_copy.getX() + 21 && mouseY < enhanced_image_button_bookmark_magenta_copy_copy.getY() + 21;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_bookmark_magenta_copy_copy.getX(), enhanced_image_button_bookmark_magenta_copy_copy.getY(), 0, 0, 21, 21, 21, 21);
+			}
+			if (enhanced_image_button_bookmark_magenta_copy_copy_copy.visible) {
+				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_white.png");
+				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_bookmark_magenta_copy_copy_copy.getX() && mouseY >= enhanced_image_button_bookmark_magenta_copy_copy_copy.getY()
+						&& mouseX < enhanced_image_button_bookmark_magenta_copy_copy_copy.getX() + 21 && mouseY < enhanced_image_button_bookmark_magenta_copy_copy_copy.getY() + 21;
+				boolean guiTools$mousePressed = guiTools$mouseOverButton
+						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
+				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_bookmark_magenta_copy_copy_copy.getX(), enhanced_image_button_bookmark_magenta_copy_copy_copy.getY(), 0, 0, 21, 21, 21, 21);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 13;
+				int guiTools$visibleHeight = 13;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/filter_all.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 16 + guiTools$xOffset, this.topPos + 88 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 13, 13);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 13;
+				int guiTools$visibleHeight = 13;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/filter_unlockable.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 39 + guiTools$xOffset, this.topPos + 88 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 13, 13);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 13;
+				int guiTools$visibleHeight = 13;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/filter_locked.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 62 + guiTools$xOffset, this.topPos + 88 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 13, 13);
+			}
+			if (true) {
+				int guiTools$xOffset = 0;
+				int guiTools$yOffset = 0;
+				int guiTools$visibleWidth = 13;
+				int guiTools$visibleHeight = 13;
+				net.minecraft.resources.ResourceLocation guiTools$image = guiTools$dynamicTexture("", net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/filter_unlocked.png"));
+				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
+					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + 85 + guiTools$xOffset, this.topPos + 88 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 13, 13);
+			}
+			guiTools$itemDisplay10 : {
+				if (!(true))
+					break guiTools$itemDisplay10;
+				net.minecraft.world.item.ItemStack guiTools$displayStack10 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack10 == null || guiTools$displayStack10.isEmpty())
+					break guiTools$itemDisplay10;
+				boolean guiTools$displayMasked10 = !(false);
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + -72), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked10) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 13, this.topPos + -72);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 13, this.topPos + -72);
+					}
+					if (!guiTools$displayMasked10)
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack10, this.leftPos + 13, this.topPos + -72);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay11 : {
+				if (!(true))
+					break guiTools$itemDisplay11;
+				net.minecraft.world.item.ItemStack guiTools$displayStack11 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack11 == null || guiTools$displayStack11.isEmpty())
+					break guiTools$itemDisplay11;
+				boolean guiTools$displayMasked11 = !(false);
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + -46), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked11) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 13, this.topPos + -46);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 13, this.topPos + -46);
+					}
+					if (!guiTools$displayMasked11)
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack11, this.leftPos + 13, this.topPos + -46);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay12 : {
+				if (!(true))
+					break guiTools$itemDisplay12;
+				net.minecraft.world.item.ItemStack guiTools$displayStack12 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack12 == null || guiTools$displayStack12.isEmpty())
+					break guiTools$itemDisplay12;
+				boolean guiTools$displayMasked12 = !(false);
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + -20), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked12) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 13, this.topPos + -20);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 13, this.topPos + -20);
+					}
+					if (!guiTools$displayMasked12)
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack12, this.leftPos + 13, this.topPos + -20);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay13 : {
+				if (!(true))
+					break guiTools$itemDisplay13;
+				net.minecraft.world.item.ItemStack guiTools$displayStack13 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack13 == null || guiTools$displayStack13.isEmpty())
+					break guiTools$itemDisplay13;
+				boolean guiTools$displayMasked13 = !(false);
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + 5), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked13) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 13, this.topPos + 5);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 13, this.topPos + 5);
+					}
+					if (!guiTools$displayMasked13)
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack13, this.leftPos + 13, this.topPos + 5);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
+			guiTools$itemDisplay14 : {
+				if (!(true))
+					break guiTools$itemDisplay14;
+				net.minecraft.world.item.ItemStack guiTools$displayStack14 = menu.getMenuState(3, "8", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$displayStack14 == null || guiTools$displayStack14.isEmpty())
+					break guiTools$itemDisplay14;
+				boolean guiTools$displayMasked14 = !(false);
+				guiGraphics.pose().pushPose();
+				try {
+					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + 31), 0.0F);
+					guiGraphics.pose().scale(1.0f, 1.0f, 1.0F);
+					if (guiTools$displayMasked14) {
+						com.mojang.blaze3d.systems.RenderSystem.setShaderColor(0.0f, 0.0f, 0.0f, 1.0f);
+						try {
+							guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 13, this.topPos + 31);
+						} finally {
+							com.mojang.blaze3d.systems.RenderSystem.setShaderColor(1, 1, 1, 1);
+						}
+					} else {
+						guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 13, this.topPos + 31);
+					}
+					if (!guiTools$displayMasked14)
+						guiGraphics.renderItemDecorations(font, guiTools$displayStack14, this.leftPos + 13, this.topPos + 31);
+				} finally {
+					guiGraphics.pose().popPose();
+				}
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -488,7 +768,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					-113, -92, 120, -12829636, false, 1.00F, 0);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")),
-					-106, 60, 81, -12829636, false, 1.00F, 0);
+					-122, 19, 81, -12829636, false, 1.00F, 0);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics,
 					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -113, -83, 120, -12829636, false,
@@ -499,13 +779,30 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					false, 1.00F, 0);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -142, 20, 120, -12829636,
+					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -142, 31, 120, -12829636,
 					false, 1.00F, 0);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -142, 29, 120,
+					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), 7, -102, 120,
 					-12829636, false, 1.00F, 0);
-		this.guiTools$renderMultilineLabel(guiGraphics, menu.getMenuState(0, "gui_tools:multiline:multiline_label_4_dishes_available_after_unlock", "4 dishes available after unlock"), -141, 37, 120, 40, -12829636, false, 1.00F, 0, 0);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics,
+					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -142, 42, 120,
+					-12829636, false, 1.00F, 0);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics,
+					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), 7, -92, 120,
+					-12829636, false, 1.00F, 0);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock"), 36, -69, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock"), 36, -43, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock"), 36, -17, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock"), 36, 9, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock"), 36, 35, 120, -12829636, false, 1.00F, 2);
 	}
 
 	@Override
@@ -622,13 +919,58 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			}
 		};
 		this.addRenderableWidget(imagebutton_itemslot_icon_copy_8);
+		imagebutton_itemslot_icon_copy_9 = new ImageButton(this.leftPos + 12, this.topPos + -73, 18, 18,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_itemslot_icon_copy_9);
+		imagebutton_itemslot_icon_copy_3_copy = new ImageButton(this.leftPos + 12, this.topPos + -47, 18, 18,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_itemslot_icon_copy_3_copy);
+		imagebutton_itemslot_icon_copy_6_copy = new ImageButton(this.leftPos + 12, this.topPos + -21, 18, 18,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_itemslot_icon_copy_6_copy);
+		imagebutton_itemslot_icon_copy_copy = new ImageButton(this.leftPos + 12, this.topPos + 4, 18, 18,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_itemslot_icon_copy_copy);
+		imagebutton_itemslot_icon_copy_4_copy = new ImageButton(this.leftPos + 12, this.topPos + 30, 18, 18,
+				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+			}
+		};
+		this.addRenderableWidget(imagebutton_itemslot_icon_copy_4_copy);
 		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -101, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
 					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
 					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(11, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 11, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(16, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 16, x, y, z);
 					}
 				}) {
 			@Override
@@ -642,8 +984,8 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
 					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(12, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 12, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(17, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 17, x, y, z);
 					}
 				}) {
 			@Override
@@ -657,8 +999,8 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
 					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(13, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 13, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(18, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 18, x, y, z);
 					}
 				}) {
 			@Override
@@ -672,8 +1014,8 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
 					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(14, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 14, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(19, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 19, x, y, z);
 					}
 				}) {
 			@Override
@@ -687,8 +1029,8 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
 					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(15, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 15, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(20, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 20, x, y, z);
 					}
 				}) {
 			@Override
@@ -702,8 +1044,8 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
 					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(16, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 16, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(21, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 21, x, y, z);
 					}
 				}) {
 			@Override
@@ -730,6 +1072,42 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_small_arrow_right_copy);
+		enhanced_image_button_bookmark_magenta = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 12, this.topPos + 86, 21, 21, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_magenta.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_magenta.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				// Rendered manually in the ordered GUI layer block.
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_bookmark_magenta);
+		enhanced_image_button_bookmark_magenta_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 35, this.topPos + 86, 21, 21, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_orange.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_orange.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				// Rendered manually in the ordered GUI layer block.
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_bookmark_magenta_copy);
+		enhanced_image_button_bookmark_magenta_copy_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 58, this.topPos + 86, 21, 21, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blood.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_blood.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				// Rendered manually in the ordered GUI layer block.
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_bookmark_magenta_copy_copy);
+		enhanced_image_button_bookmark_magenta_copy_copy_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 81, this.topPos + 86, 21, 21, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_white.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_white.png")), e -> {
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				// Rendered manually in the ordered GUI layer block.
+			}
+		};
+		this.addRenderableWidget(enhanced_image_button_bookmark_magenta_copy_copy_copy);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -773,76 +1151,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 		return value.substring(0, low).stripTrailing() + ellipsis;
 	}
 
-	private final java.util.Map<String, java.util.List<java.util.List<String>>> guiTools$multilineCache = new java.util.HashMap<>();
-
-	private void guiTools$renderMultilineLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int boxHeight, int color, boolean shadow, float scale, int overflowMode, int alignment) {
-		if (text == null || scale <= 0.0F || boxWidth <= 0 || boxHeight <= 0)
-			return;
-		int wrapWidth = Math.max(1, (int) Math.floor(boxWidth / scale));
-		int lineStep = this.font.lineHeight + 1;
-		String cacheKey = text + "\u0000" + wrapWidth;
-		java.util.List<java.util.List<String>> paragraphs = this.guiTools$multilineCache.computeIfAbsent(cacheKey,
-				key -> java.util.Arrays.stream(text.replace("\r", "").split("\n", -1)).map(paragraph -> this.guiTools$wrapMultilineText(paragraph, wrapWidth)).toList());
-		if (this.guiTools$multilineCache.size() > 64)
-			this.guiTools$multilineCache.clear();
-		boolean clip = overflowMode != 0;
-		if (clip)
-			guiGraphics.enableScissor(this.leftPos + x, this.topPos + y, this.leftPos + x + boxWidth, this.topPos + y + boxHeight);
-		guiGraphics.pose().pushPose();
-		try {
-			guiGraphics.pose().translate(x, y, 0.0F);
-			guiGraphics.pose().scale(scale, scale, 1.0F);
-			int currentY = 0;
-			for (java.util.List<String> lines : paragraphs) {
-				for (int index = 0; index < lines.size(); index++) {
-					String line = lines.get(index);
-					int remaining = wrapWidth - this.font.width(line);
-					if (alignment == 3 && index < lines.size() - 1 && remaining > 0 && line.contains(" ")) {
-						String[] words = line.split(" ");
-						int advance = 0;
-						for (int word = 0; word < words.length; word++) {
-							int currentX = advance + (int) Math.round((double) remaining * word / (words.length - 1));
-							guiGraphics.drawString(this.font, words[word], currentX, currentY, color, shadow);
-							advance += this.font.width(words[word] + " ");
-						}
-					} else {
-						int currentX = alignment == 1 ? remaining : alignment == 2 ? remaining / 2 : 0;
-						guiGraphics.drawString(this.font, line, currentX, currentY, color, shadow);
-					}
-					currentY += lineStep;
-				}
-			}
-		} finally {
-			guiGraphics.pose().popPose();
-			if (clip)
-				guiGraphics.disableScissor();
-		}
-	}
-
-	private java.util.List<String> guiTools$wrapMultilineText(String text, int wrapWidth) {
-		java.util.List<String> lines = new java.util.ArrayList<>();
-		for (String paragraph : text.replace("\r", "").split("\n", -1)) {
-			if (paragraph.isEmpty()) {
-				lines.add("");
-				continue;
-			}
-			StringBuilder line = new StringBuilder();
-			for (String word : paragraph.split("\s+")) {
-				String candidate = line.isEmpty() ? word : line + " " + word;
-				if (!line.isEmpty() && this.font.width(candidate) > wrapWidth) {
-					lines.add(line.toString());
-					line.setLength(0);
-					line.append(word);
-				} else {
-					line.setLength(0);
-					line.append(candidate);
-				}
-			}
-			lines.add(line.toString());
-		}
-		return java.util.List.copyOf(lines);
-	}
-
 	private static final boolean guiTools$enhancedImageButton = true;
 	private net.minecraft.client.gui.components.ImageButton red_bookmark;
 	private net.minecraft.client.gui.components.ImageButton yellow_bookmark;
@@ -852,6 +1160,10 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 	private net.minecraft.client.gui.components.ImageButton red_bookmark_copy;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_small_arrow_right;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_small_arrow_right_copy;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta_copy;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta_copy_copy;
+	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta_copy_copy_copy;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$buttonTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())
