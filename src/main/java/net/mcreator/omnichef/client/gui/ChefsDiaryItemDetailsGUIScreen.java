@@ -80,6 +80,9 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			String guiTools$sizedLabelText13 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 35 && mouseY < this.topPos + 45 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText13, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText13), mouseX, mouseY);
+			String guiTools$sizedLabelText14 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1");
+			if (true && mouseX >= this.leftPos + 30 && mouseX < this.leftPos + 150 && mouseY >= this.topPos + 60 && mouseY < this.topPos + 70 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText14, 120, 1.00F))
+				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText14), mouseX, mouseY);
 		}
 		guiTools$itemDisplayTooltips : {
 			guiTools$itemDisplayTooltip9 : {
@@ -803,6 +806,8 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock"), 36, 9, 120, -12829636, false, 1.00F, 2);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock"), 36, 35, 120, -12829636, false, 1.00F, 2);
+		if (true)
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1"), 30, 60, 120, -12829636, false, 1.00F, 2);
 	}
 
 	@Override

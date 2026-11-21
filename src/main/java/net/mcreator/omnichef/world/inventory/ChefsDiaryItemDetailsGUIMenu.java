@@ -31,7 +31,7 @@ public class ChefsDiaryItemDetailsGUIMenu extends AbstractContainerMenu implemen
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 71)
+			if (!this.containsKey(key) && this.size() >= 72)
 				return null;
 			return super.put(key, value);
 		}

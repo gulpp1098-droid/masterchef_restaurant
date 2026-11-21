@@ -1251,6 +1251,26 @@
           "y": 155,
           "locked": false
         }
+      },
+      {
+        "type": "sized_text_label",
+        "data": {
+          "name": "sized_text_label_page_1_1",
+          "text": "Page 1 / 1",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "hasShadow": false,
+          "fontScale": 100,
+          "overflowMode": "ELLIPSIS",
+          "tooltipWhenTruncated": true,
+          "width": 120,
+          "height": 10,
+          "x": 244,
+          "y": 180,
+          "locked": false
+        }
       }
     ],
     "onOpen": "FillChefsDiaryFoodTier",
