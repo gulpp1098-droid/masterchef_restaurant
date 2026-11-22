@@ -821,17 +821,6 @@
       {
         "type": "imagebutton",
         "data": {
-          "name": "imagebutton_itemslot_icon",
-          "image": "itemslot_icon.png",
-          "hoveredImage": "",
-          "x": 84,
-          "y": 39,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
           "name": "imagebutton_itemslot_icon_copy",
           "image": "itemslot_icon.png",
           "hoveredImage": "",
@@ -2107,6 +2096,47 @@
           "height": 10,
           "x": 132,
           "y": 23,
+          "locked": false
+        }
+      },
+      {
+        "type": "advanced_image",
+        "data": {
+          "image": "itemslot_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "renderMode": "NORMAL",
+          "actsAsButton": true,
+          "togglePressedTexture": false,
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "textureWidth": 18,
+          "textureHeight": 18,
+          "leftSlice": 6,
+          "rightSlice": 12,
+          "topSlice": 6,
+          "bottomSlice": 12,
+          "clickParameters": [
+            {
+              "name": "slotIndex",
+              "type": "NUMBER",
+              "source": "CONSTANT",
+              "constantValue": "0.0",
+              "variableName": "RestaurantID"
+            }
+          ],
+          "name": "button_itemslot_icon1",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiarySelectItem",
+          "width": 18,
+          "height": 18,
+          "x": 84,
+          "y": 39,
           "locked": false
         }
       }

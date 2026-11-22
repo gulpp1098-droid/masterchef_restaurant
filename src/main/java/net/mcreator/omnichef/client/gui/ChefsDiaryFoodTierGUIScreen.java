@@ -27,7 +27,6 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private boolean menuStateUpdateActive = false;
 	private ImageButton imagebutton_last_page_icon;
 	private ImageButton imagebutton_next_page_icon;
-	private ImageButton imagebutton_itemslot_icon;
 	private ImageButton imagebutton_itemslot_icon_copy;
 	private ImageButton imagebutton_itemslot_icon_copy_2;
 	private ImageButton imagebutton_itemslot_icon_copy_3;
@@ -1490,6 +1489,29 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					guiGraphics.pose().popPose();
 				}
 			}
+			guiTools$advancedImage0 : {
+				if (button_itemslot_icon1.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon1.setX(this.leftPos + -130 + guiTools$xOffset);
+					button_itemslot_icon1.setY(this.topPos + -81 + guiTools$yOffset);
+					button_itemslot_icon1.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon1.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon1.getX() && mouseY >= button_itemslot_icon1.getY() && mouseX < button_itemslot_icon1.getX() + button_itemslot_icon1.getWidth()
+							&& mouseY < button_itemslot_icon1.getY() + button_itemslot_icon1.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -130 + guiTools$xOffset, this.topPos + -81 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -1564,15 +1586,6 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
-		imagebutton_itemslot_icon = new ImageButton(this.leftPos + -130, this.topPos + -81, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon);
 		imagebutton_itemslot_icon_copy = new ImageButton(this.leftPos + -88, this.topPos + -81, 18, 18,
 				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
 				}) {
@@ -1731,8 +1744,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(20, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 20, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(19, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 19, x, y, z);
 					}
 				}) {
 			@Override
@@ -1746,8 +1759,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(21, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 21, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(20, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 20, x, y, z);
 					}
 				}) {
 			@Override
@@ -1761,8 +1774,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(22, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 22, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(21, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 21, x, y, z);
 					}
 				}) {
 			@Override
@@ -1776,8 +1789,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(23, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 23, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(22, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 22, x, y, z);
 					}
 				}) {
 			@Override
@@ -1791,8 +1804,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(24, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 24, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(23, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 23, x, y, z);
 					}
 				}) {
 			@Override
@@ -1806,8 +1819,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(25, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 25, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(24, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 24, x, y, z);
 					}
 				}) {
 			@Override
@@ -1821,8 +1834,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(26, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 26, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(25, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 25, x, y, z);
 					}
 				}) {
 			@Override
@@ -1831,6 +1844,20 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_bookmark_cyan_copy);
+		button_itemslot_icon1 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -130, this.topPos + -81, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(26, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 26, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon1);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -1983,6 +2010,28 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 				texture = texture.substring(1);
 			if (texture.startsWith("textures/screens/"))
 				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static final boolean guiTools$advancedButtons = true;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon1;
+
+	private static net.minecraft.resources.ResourceLocation guiTools$advancedTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring(17);
 			if (!texture.endsWith(".png"))
 				texture += ".png";
 			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
