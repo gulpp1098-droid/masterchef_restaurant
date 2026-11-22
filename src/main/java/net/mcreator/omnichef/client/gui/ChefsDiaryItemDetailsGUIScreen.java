@@ -65,22 +65,22 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
 			String guiTools$sizedLabelText9 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock");
-			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -69 && mouseY < this.topPos + -59 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText9, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -66 && mouseY < this.topPos + -56 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText9, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText9), mouseX, mouseY);
 			String guiTools$sizedLabelText10 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock");
-			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -43 && mouseY < this.topPos + -33 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText10, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -41 && mouseY < this.topPos + -31 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText10, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText10), mouseX, mouseY);
 			String guiTools$sizedLabelText11 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock");
-			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -17 && mouseY < this.topPos + -7 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText11, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -15 && mouseY < this.topPos + -5 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText11, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText11), mouseX, mouseY);
 			String guiTools$sizedLabelText12 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock");
-			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 9 && mouseY < this.topPos + 19 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText12, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 10 && mouseY < this.topPos + 20 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText12, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText12), mouseX, mouseY);
 			String guiTools$sizedLabelText13 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 35 && mouseY < this.topPos + 45 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText13, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText13), mouseX, mouseY);
 			String guiTools$sizedLabelText14 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1");
-			if (true && mouseX >= this.leftPos + 30 && mouseX < this.leftPos + 150 && mouseY >= this.topPos + 60 && mouseY < this.topPos + 70 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText14, 120, 1.00F))
+			if (true && mouseX >= this.leftPos + 32 && mouseX < this.leftPos + 152 && mouseY >= this.topPos + 60 && mouseY < this.topPos + 70 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText14, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText14), mouseX, mouseY);
 		}
 		guiTools$itemDisplayTooltips : {
@@ -89,7 +89,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					break guiTools$itemDisplayTooltip9;
 				if (mouseX < this.leftPos + -140 || mouseX >= this.leftPos + -116 || mouseY < this.topPos + -98 || mouseY >= this.topPos + -74)
 					break guiTools$itemDisplayTooltip9;
-				boolean guiTools$displayMasked9 = !(false);
+				boolean guiTools$displayMasked9 = false;
 				if (guiTools$displayMasked9)
 					break guiTools$itemDisplayTooltip9;
 				net.minecraft.world.item.ItemStack guiTools$tooltipStack9 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
@@ -483,27 +483,51 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				if (guiTools$image != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0)
 					guiTools$alphaBlit(guiGraphics, guiTools$image, this.leftPos + -124 + guiTools$xOffset, this.topPos + -62 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 80, 80);
 			}
-			if (enhanced_image_button_small_arrow_right.visible) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_right.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_small_arrow_right.getX() && mouseY >= enhanced_image_button_small_arrow_right.getY() && mouseX < enhanced_image_button_small_arrow_right.getX() + 12
-						&& mouseY < enhanced_image_button_small_arrow_right.getY() + 12;
-				boolean guiTools$mousePressed = guiTools$mouseOverButton
-						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_small_arrow_right.getX(), enhanced_image_button_small_arrow_right.getY(), 0, 0, 12, 12, 12, 12);
+			guiTools$advancedImage0 : {
+				if (button_small_arrow_right.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 12;
+					int guiTools$visibleHeight = 12;
+					button_small_arrow_right.setX(this.leftPos + -37 + guiTools$xOffset);
+					button_small_arrow_right.setY(this.topPos + -62 + guiTools$yOffset);
+					button_small_arrow_right.setWidth(guiTools$visibleWidth);
+					button_small_arrow_right.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_right.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_small_arrow_right.getX() && mouseY >= button_small_arrow_right.getY() && mouseX < button_small_arrow_right.getX() + button_small_arrow_right.getWidth()
+							&& mouseY < button_small_arrow_right.getY() + button_small_arrow_right.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -37 + guiTools$xOffset, this.topPos + -62 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 12, 12);
+					}
+				}
 			}
-			if (enhanced_image_button_small_arrow_right_copy.visible) {
-				net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_left.png");
-				net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
-				net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
-				boolean guiTools$mouseOverButton = mouseX >= enhanced_image_button_small_arrow_right_copy.getX() && mouseY >= enhanced_image_button_small_arrow_right_copy.getY() && mouseX < enhanced_image_button_small_arrow_right_copy.getX() + 12
-						&& mouseY < enhanced_image_button_small_arrow_right_copy.getY() + 12;
-				boolean guiTools$mousePressed = guiTools$mouseOverButton
-						&& org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
-				net.minecraft.resources.ResourceLocation buttonTexture = guiTools$mousePressed ? guiTools$pressedTexture : guiTools$mouseOverButton ? guiTools$hoveredTexture : guiTools$normalTexture;
-				guiTools$alphaBlit(guiGraphics, buttonTexture, enhanced_image_button_small_arrow_right_copy.getX(), enhanced_image_button_small_arrow_right_copy.getY(), 0, 0, 12, 12, 12, 12);
+			guiTools$advancedImage1 : {
+				if (button_small_arrow_left.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 12;
+					int guiTools$visibleHeight = 12;
+					button_small_arrow_left.setX(this.leftPos + -142 + guiTools$xOffset);
+					button_small_arrow_left.setY(this.topPos + -62 + guiTools$yOffset);
+					button_small_arrow_left.setWidth(guiTools$visibleWidth);
+					button_small_arrow_left.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_left.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_small_arrow_left.getX() && mouseY >= button_small_arrow_left.getY() && mouseX < button_small_arrow_left.getX() + button_small_arrow_left.getWidth()
+							&& mouseY < button_small_arrow_left.getY() + button_small_arrow_left.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -142 + guiTools$xOffset, this.topPos + -62 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 12, 12);
+					}
+				}
 			}
 			guiTools$itemDisplay9 : {
 				if (!(true))
@@ -511,7 +535,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.world.item.ItemStack guiTools$displayStack9 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack9 == null || guiTools$displayStack9.isEmpty())
 					break guiTools$itemDisplay9;
-				boolean guiTools$displayMasked9 = !(false);
+				boolean guiTools$displayMasked9 = false;
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.5f) * (this.leftPos + -140), (1.0F - 1.5f) * (this.topPos + -98), 0.0F);
@@ -526,8 +550,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack9, this.leftPos + -140, this.topPos + -98);
 					}
-					if (!guiTools$displayMasked9)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack9, this.leftPos + -140, this.topPos + -98);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -763,48 +785,35 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label", "Item name"), -113, -101, 120, -12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label", "Item name"), -113, -98, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy", "Tier and type"), -113, -92, 120, -12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy", "Tier and type"), -113, -89, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")),
-					-122, 19, 81, -12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_2", "Recipe: 1 / 1"), -122, 21, 81, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -113, -83, 120, -12829636, false,
-					1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy", "State"), -113, -80, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -141, -73, 120, -12829636,
-					false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy", "Requirements"), -141, -70, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -142, 31, 120, -12829636,
-					false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy", "Cooking ingredient only"), -142, 33, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), 7, -102, 120,
-					-12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy", "Used in 27 dishes"), 7, -98, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -142, 42, 120,
-					-12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_2", "Unlocks 4 new recipes"), -142, 43, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics,
-					menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), 7, -92, 120,
-					-12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_copy", "Name of filter"), 7, -88, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock"), 36, -69, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock"), 36, -66, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock"), 36, -43, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock"), 36, -41, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock"), 36, -17, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock"), 36, -15, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock"), 36, 9, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock"), 36, 10, 120, -12829636, false, 1.00F, 2);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock"), 36, 35, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1"), 30, 60, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1"), 32, 60, 120, -12829636, false, 1.00F, 2);
 	}
 
 	@Override
@@ -1056,24 +1065,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			}
 		};
 		this.addRenderableWidget(red_bookmark_copy);
-		enhanced_image_button_small_arrow_right = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -37, this.topPos + -62, 12, 12, new net.minecraft.client.gui.components.WidgetSprites(
-				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_right.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_right.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				// Rendered manually in the ordered GUI layer block.
-			}
-		};
-		this.addRenderableWidget(enhanced_image_button_small_arrow_right);
-		enhanced_image_button_small_arrow_right_copy = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -142, this.topPos + -62, 12, 12, new net.minecraft.client.gui.components.WidgetSprites(
-				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_left.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_left.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(net.minecraft.client.gui.GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				// Rendered manually in the ordered GUI layer block.
-			}
-		};
-		this.addRenderableWidget(enhanced_image_button_small_arrow_right_copy);
 		enhanced_image_button_bookmark_magenta = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 12, this.topPos + 86, 21, 21, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_magenta.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_magenta.png")), e -> {
 				}) {
@@ -1110,6 +1101,34 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			}
 		};
 		this.addRenderableWidget(enhanced_image_button_bookmark_magenta_copy_copy_copy);
+		button_small_arrow_right = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -37, this.topPos + -62, 12, 12, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_right.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_right.png")), e -> {
+					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
+					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(22, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 22, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_small_arrow_right);
+		button_small_arrow_left = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -142, this.topPos + -62, 12, 12, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_left.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/small_arrow_left.png")), e -> {
+					int x = ChefsDiaryItemDetailsGUIScreen.this.x;
+					int y = ChefsDiaryItemDetailsGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage(23, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryItemDetailsGUIButtonMessage.handleButtonAction(entity, 23, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_small_arrow_left);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -1160,8 +1179,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 	private net.minecraft.client.gui.components.ImageButton gray_bookmark;
 	private net.minecraft.client.gui.components.ImageButton blue_bookmark;
 	private net.minecraft.client.gui.components.ImageButton red_bookmark_copy;
-	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_small_arrow_right;
-	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_small_arrow_right_copy;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta_copy;
 	private net.minecraft.client.gui.components.ImageButton enhanced_image_button_bookmark_magenta_copy_copy;
@@ -1197,6 +1214,29 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				texture = texture.substring(1);
 			if (texture.startsWith("textures/screens/"))
 				texture = texture.substring("textures/screens/".length());
+			if (!texture.endsWith(".png"))
+				texture += ".png";
+			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);
+		} catch (RuntimeException ignored) {
+			return fallback;
+		}
+	}
+
+	private static final boolean guiTools$advancedButtons = true;
+	private net.minecraft.client.gui.components.ImageButton button_small_arrow_right;
+	private net.minecraft.client.gui.components.ImageButton button_small_arrow_left;
+
+	private static net.minecraft.resources.ResourceLocation guiTools$advancedTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
+		if (value == null || value.isBlank())
+			return fallback;
+		try {
+			String texture = value.trim().replace('\\', '/');
+			if (texture.indexOf(':') >= 0)
+				return net.minecraft.resources.ResourceLocation.parse(texture);
+			while (texture.startsWith("/"))
+				texture = texture.substring(1);
+			if (texture.startsWith("textures/screens/"))
+				texture = texture.substring(17);
 			if (!texture.endsWith(".png"))
 				texture += ".png";
 			return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("omnichef", "textures/screens/" + texture);

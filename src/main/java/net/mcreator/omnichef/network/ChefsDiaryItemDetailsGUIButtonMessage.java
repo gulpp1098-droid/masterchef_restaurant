@@ -77,6 +77,14 @@ public record ChefsDiaryItemDetailsGUIButtonMessage(int buttonID, int x, int y, 
 				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
 		}
+		guiTools$advancedButtons : {
+			if (buttonID == 22) {
+				net.mcreator.omnichef.procedures.ChefsDiaryChangeRecipeProcedure.execute(world, entity);
+			}
+			if (buttonID == 23) {
+				net.mcreator.omnichef.procedures.ChefsDiaryChangeRecipeProcedure.execute(world, entity);
+			}
+		}
 	}
 
 	@SubscribeEvent

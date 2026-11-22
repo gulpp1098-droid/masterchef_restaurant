@@ -549,7 +549,7 @@
           "width": 120,
           "height": 10,
           "x": 101,
-          "y": 19,
+          "y": 22,
           "locked": false
         }
       },
@@ -569,7 +569,7 @@
           "width": 120,
           "height": 10,
           "x": 101,
-          "y": 28,
+          "y": 31,
           "locked": false
         }
       },
@@ -584,13 +584,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 81,
           "height": 10,
           "x": 92,
-          "y": 139,
+          "y": 141,
           "locked": false
         }
       },
@@ -653,13 +652,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
           "x": 101,
-          "y": 37,
+          "y": 40,
           "locked": false
         }
       },
@@ -674,13 +672,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
           "x": 73,
-          "y": 47,
+          "y": 50,
           "locked": false
         }
       },
@@ -697,21 +694,39 @@
         }
       },
       {
-        "type": "enhanced_image_button",
+        "type": "advanced_image",
         "data": {
           "image": "small_arrow_right.png",
           "hoveredImage": "",
           "pressedImage": "",
+          "renderMode": "NORMAL",
+          "actsAsButton": true,
+          "togglePressedTexture": false,
           "textColor": {
             "value": -1,
             "falpha": 0.0
           },
           "textShadow": true,
           "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_small_arrow_right",
+          "textureWidth": 12,
+          "textureHeight": 12,
+          "leftSlice": 4,
+          "rightSlice": 8,
+          "topSlice": 4,
+          "bottomSlice": 8,
+          "clickParameters": [
+            {
+              "name": "direction",
+              "type": "NUMBER",
+              "source": "CONSTANT",
+              "constantValue": "1.0",
+              "variableName": "RestaurantID"
+            }
+          ],
+          "name": "button_small_arrow_right",
           "text": "",
           "isUndecorated": true,
+          "onClick": "ChefsDiaryChangeRecipe",
           "width": 12,
           "height": 12,
           "x": 177,
@@ -720,21 +735,39 @@
         }
       },
       {
-        "type": "enhanced_image_button",
+        "type": "advanced_image",
         "data": {
           "image": "small_arrow_left.png",
           "hoveredImage": "",
           "pressedImage": "",
+          "renderMode": "NORMAL",
+          "actsAsButton": true,
+          "togglePressedTexture": false,
           "textColor": {
             "value": -1,
             "falpha": 0.0
           },
           "textShadow": true,
           "fontScale": 100,
-          "togglePressedTexture": false,
-          "name": "enhanced_image_button_small_arrow_right_copy",
+          "textureWidth": 12,
+          "textureHeight": 12,
+          "leftSlice": 4,
+          "rightSlice": 8,
+          "topSlice": 4,
+          "bottomSlice": 8,
+          "clickParameters": [
+            {
+              "name": "direction",
+              "type": "NUMBER",
+              "source": "CONSTANT",
+              "constantValue": "-1.0",
+              "variableName": "RestaurantID"
+            }
+          ],
+          "name": "button_small_arrow_left",
           "text": "",
           "isUndecorated": true,
+          "onClick": "ChefsDiaryChangeRecipe",
           "width": 12,
           "height": 12,
           "x": 72,
@@ -753,13 +786,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
           "x": 72,
-          "y": 151,
+          "y": 153,
           "locked": false
         }
       },
@@ -774,13 +806,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
           "x": 221,
-          "y": 18,
+          "y": 22,
           "locked": false
         }
       },
@@ -789,10 +820,10 @@
         "data": {
           "name": "item_display_9",
           "displayId": 0,
-          "maskEnabled": true,
+          "maskEnabled": false,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -816,13 +847,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
           "x": 72,
-          "y": 162,
+          "y": 163,
           "locked": false
         }
       },
@@ -837,13 +867,12 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
           "height": 10,
           "x": 221,
-          "y": 28,
+          "y": 32,
           "locked": false
         }
       },
@@ -1163,7 +1192,7 @@
           "width": 120,
           "height": 10,
           "x": 250,
-          "y": 51,
+          "y": 54,
           "locked": false
         }
       },
@@ -1183,7 +1212,7 @@
           "width": 120,
           "height": 10,
           "x": 250,
-          "y": 77,
+          "y": 79,
           "locked": false
         }
       },
@@ -1203,7 +1232,7 @@
           "width": 120,
           "height": 10,
           "x": 250,
-          "y": 103,
+          "y": 105,
           "locked": false
         }
       },
@@ -1223,7 +1252,7 @@
           "width": 120,
           "height": 10,
           "x": 250,
-          "y": 129,
+          "y": 130,
           "locked": false
         }
       },
@@ -1262,7 +1291,7 @@
           "tooltipWhenTruncated": true,
           "width": 120,
           "height": 10,
-          "x": 244,
+          "x": 246,
           "y": 180,
           "locked": false
         }
