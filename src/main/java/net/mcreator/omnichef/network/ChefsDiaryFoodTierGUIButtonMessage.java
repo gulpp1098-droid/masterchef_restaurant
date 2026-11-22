@@ -58,31 +58,82 @@ public record ChefsDiaryFoodTierGUIButtonMessage(int buttonID, int x, int y, int
 		}
 
 		guiTools$enhancedImageButton : {
-			if (buttonID == 19) {
+			if (buttonID == 2) {
 				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 20) {
+			if (buttonID == 3) {
 				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 21) {
+			if (buttonID == 4) {
 				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 22) {
+			if (buttonID == 5) {
 				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 23) {
+			if (buttonID == 6) {
 				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 24) {
+			if (buttonID == 7) {
 				net.mcreator.omnichef.procedures.ChefsDiaryShowIngredientsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 25) {
+			if (buttonID == 8) {
 				net.mcreator.omnichef.procedures.ChefsDiaryShowFoodsProcedure.execute(world, x, y, z, entity);
 			}
 		}
 		guiTools$advancedButtons : {
-			if (buttonID == 26) {
+			if (buttonID == 9) {
 				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 0.0);
+			}
+			if (buttonID == 10) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 1.0);
+			}
+			if (buttonID == 11) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 2.0);
+			}
+			if (buttonID == 12) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 3.0);
+			}
+			if (buttonID == 13) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 4.0);
+			}
+			if (buttonID == 14) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 5.0);
+			}
+			if (buttonID == 15) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 6.0);
+			}
+			if (buttonID == 16) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 7.0);
+			}
+			if (buttonID == 17) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 8.0);
+			}
+			if (buttonID == 18) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 9.0);
+			}
+			if (buttonID == 19) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 10.0);
+			}
+			if (buttonID == 20) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 11.0);
+			}
+			if (buttonID == 21) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 12.0);
+			}
+			if (buttonID == 22) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 13.0);
+			}
+			if (buttonID == 23) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 14.0);
+			}
+			if (buttonID == 24) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 15.0);
+			}
+			if (buttonID == 25) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 16.0);
+			}
+			if (buttonID == 26) {
+				net.mcreator.omnichef.procedures.ChefsDiarySelectItemProcedure.execute(world, x, y, z, entity, 17.0);
 			}
 		}
 	}

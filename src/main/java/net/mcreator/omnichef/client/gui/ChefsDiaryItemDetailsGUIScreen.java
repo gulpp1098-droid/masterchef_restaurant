@@ -3,7 +3,6 @@ package net.mcreator.omnichef.client.gui;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import net.minecraft.world.level.Level;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
@@ -93,7 +92,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				boolean guiTools$displayMasked9 = !(false);
 				if (guiTools$displayMasked9)
 					break guiTools$itemDisplayTooltip9;
-				net.minecraft.world.item.ItemStack guiTools$tooltipStack9 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.CARROT, 1));
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack9 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$tooltipStack9 == null || guiTools$tooltipStack9.isEmpty())
 					break guiTools$itemDisplayTooltip9;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack9, mouseX, mouseY);
@@ -509,7 +508,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			guiTools$itemDisplay9 : {
 				if (!(true))
 					break guiTools$itemDisplay9;
-				net.minecraft.world.item.ItemStack guiTools$displayStack9 = menu.getMenuState(3, "0", new net.minecraft.world.item.ItemStack(Items.CARROT, 1));
+				net.minecraft.world.item.ItemStack guiTools$displayStack9 = menu.getMenuState(3, "0", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack9 == null || guiTools$displayStack9.isEmpty())
 					break guiTools$itemDisplay9;
 				boolean guiTools$displayMasked9 = !(false);
@@ -764,11 +763,9 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")), -113,
-					-101, 120, -12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label", "Item name"), -113, -101, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")),
-					-113, -92, 120, -12829636, false, 1.00F, 0);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy", "Tier and type"), -113, -92, 120, -12829636, false, 1.00F, 0);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_2", java.util.Objects.toString(net.mcreator.omnichef.procedures.ChefsDiaryGroupNameTextProcedure.execute(entity), "")),
 					-122, 19, 81, -12829636, false, 1.00F, 0);

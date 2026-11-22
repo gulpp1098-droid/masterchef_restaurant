@@ -27,23 +27,6 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 	private boolean menuStateUpdateActive = false;
 	private ImageButton imagebutton_last_page_icon;
 	private ImageButton imagebutton_next_page_icon;
-	private ImageButton imagebutton_itemslot_icon_copy;
-	private ImageButton imagebutton_itemslot_icon_copy_2;
-	private ImageButton imagebutton_itemslot_icon_copy_3;
-	private ImageButton imagebutton_itemslot_icon_copy_4;
-	private ImageButton imagebutton_itemslot_icon_copy_5;
-	private ImageButton imagebutton_itemslot_icon_copy_6;
-	private ImageButton imagebutton_itemslot_icon_copy_7;
-	private ImageButton imagebutton_itemslot_icon_copy_8;
-	private ImageButton imagebutton_itemslot_icon_copy_9;
-	private ImageButton imagebutton_itemslot_icon_copy_10;
-	private ImageButton imagebutton_itemslot_icon_copy_11;
-	private ImageButton imagebutton_itemslot_icon_copy_12;
-	private ImageButton imagebutton_itemslot_icon_copy_13;
-	private ImageButton imagebutton_itemslot_icon_copy_14;
-	private ImageButton imagebutton_itemslot_icon_copy_15;
-	private ImageButton imagebutton_itemslot_icon_copy_16;
-	private ImageButton imagebutton_itemslot_icon_copy_17;
 	private static final ResourceLocation BACKGROUND = ResourceLocation.parse("omnichef:textures/screens/chefs_diary_food_tier_gui.png");
 	private static final ResourceLocation IMAGE_0 = ResourceLocation.parse("omnichef:textures/screens/chefsdiary2.png");
 	private static final ResourceLocation IMAGE_1 = ResourceLocation.parse("omnichef:textures/screens/exp_icon.png");
@@ -1512,6 +1495,397 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					}
 				}
 			}
+			guiTools$advancedImage1 : {
+				if (button_itemslot_icon2.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon2.setX(this.leftPos + -88 + guiTools$xOffset);
+					button_itemslot_icon2.setY(this.topPos + -81 + guiTools$yOffset);
+					button_itemslot_icon2.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon2.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon2.getX() && mouseY >= button_itemslot_icon2.getY() && mouseX < button_itemslot_icon2.getX() + button_itemslot_icon2.getWidth()
+							&& mouseY < button_itemslot_icon2.getY() + button_itemslot_icon2.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -88 + guiTools$xOffset, this.topPos + -81 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage2 : {
+				if (button_itemslot_icon3.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon3.setX(this.leftPos + -46 + guiTools$xOffset);
+					button_itemslot_icon3.setY(this.topPos + -81 + guiTools$yOffset);
+					button_itemslot_icon3.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon3.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon3.getX() && mouseY >= button_itemslot_icon3.getY() && mouseX < button_itemslot_icon3.getX() + button_itemslot_icon3.getWidth()
+							&& mouseY < button_itemslot_icon3.getY() + button_itemslot_icon3.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -46 + guiTools$xOffset, this.topPos + -81 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage3 : {
+				if (button_itemslot_icon4.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon4.setX(this.leftPos + -130 + guiTools$xOffset);
+					button_itemslot_icon4.setY(this.topPos + -36 + guiTools$yOffset);
+					button_itemslot_icon4.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon4.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon4.getX() && mouseY >= button_itemslot_icon4.getY() && mouseX < button_itemslot_icon4.getX() + button_itemslot_icon4.getWidth()
+							&& mouseY < button_itemslot_icon4.getY() + button_itemslot_icon4.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -130 + guiTools$xOffset, this.topPos + -36 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage4 : {
+				if (button_itemslot_icon5.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon5.setX(this.leftPos + -88 + guiTools$xOffset);
+					button_itemslot_icon5.setY(this.topPos + -36 + guiTools$yOffset);
+					button_itemslot_icon5.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon5.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon5.getX() && mouseY >= button_itemslot_icon5.getY() && mouseX < button_itemslot_icon5.getX() + button_itemslot_icon5.getWidth()
+							&& mouseY < button_itemslot_icon5.getY() + button_itemslot_icon5.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -88 + guiTools$xOffset, this.topPos + -36 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage5 : {
+				if (button_itemslot_icon6.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon6.setX(this.leftPos + -46 + guiTools$xOffset);
+					button_itemslot_icon6.setY(this.topPos + -36 + guiTools$yOffset);
+					button_itemslot_icon6.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon6.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon6.getX() && mouseY >= button_itemslot_icon6.getY() && mouseX < button_itemslot_icon6.getX() + button_itemslot_icon6.getWidth()
+							&& mouseY < button_itemslot_icon6.getY() + button_itemslot_icon6.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -46 + guiTools$xOffset, this.topPos + -36 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage6 : {
+				if (button_itemslot_icon7.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon7.setX(this.leftPos + -130 + guiTools$xOffset);
+					button_itemslot_icon7.setY(this.topPos + 9 + guiTools$yOffset);
+					button_itemslot_icon7.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon7.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon7.getX() && mouseY >= button_itemslot_icon7.getY() && mouseX < button_itemslot_icon7.getX() + button_itemslot_icon7.getWidth()
+							&& mouseY < button_itemslot_icon7.getY() + button_itemslot_icon7.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -130 + guiTools$xOffset, this.topPos + 9 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage7 : {
+				if (button_itemslot_icon8.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon8.setX(this.leftPos + -88 + guiTools$xOffset);
+					button_itemslot_icon8.setY(this.topPos + 9 + guiTools$yOffset);
+					button_itemslot_icon8.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon8.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon8.getX() && mouseY >= button_itemslot_icon8.getY() && mouseX < button_itemslot_icon8.getX() + button_itemslot_icon8.getWidth()
+							&& mouseY < button_itemslot_icon8.getY() + button_itemslot_icon8.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -88 + guiTools$xOffset, this.topPos + 9 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage8 : {
+				if (button_itemslot_icon9.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon9.setX(this.leftPos + -46 + guiTools$xOffset);
+					button_itemslot_icon9.setY(this.topPos + 9 + guiTools$yOffset);
+					button_itemslot_icon9.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon9.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon9.getX() && mouseY >= button_itemslot_icon9.getY() && mouseX < button_itemslot_icon9.getX() + button_itemslot_icon9.getWidth()
+							&& mouseY < button_itemslot_icon9.getY() + button_itemslot_icon9.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + -46 + guiTools$xOffset, this.topPos + 9 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage9 : {
+				if (button_itemslot_icon10.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon10.setX(this.leftPos + 15 + guiTools$xOffset);
+					button_itemslot_icon10.setY(this.topPos + -81 + guiTools$yOffset);
+					button_itemslot_icon10.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon10.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon10.getX() && mouseY >= button_itemslot_icon10.getY() && mouseX < button_itemslot_icon10.getX() + button_itemslot_icon10.getWidth()
+							&& mouseY < button_itemslot_icon10.getY() + button_itemslot_icon10.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 15 + guiTools$xOffset, this.topPos + -81 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage10 : {
+				if (button_itemslot_icon11.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon11.setX(this.leftPos + 56 + guiTools$xOffset);
+					button_itemslot_icon11.setY(this.topPos + -81 + guiTools$yOffset);
+					button_itemslot_icon11.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon11.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon11.getX() && mouseY >= button_itemslot_icon11.getY() && mouseX < button_itemslot_icon11.getX() + button_itemslot_icon11.getWidth()
+							&& mouseY < button_itemslot_icon11.getY() + button_itemslot_icon11.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 56 + guiTools$xOffset, this.topPos + -81 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage11 : {
+				if (button_itemslot_icon12.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon12.setX(this.leftPos + 97 + guiTools$xOffset);
+					button_itemslot_icon12.setY(this.topPos + -81 + guiTools$yOffset);
+					button_itemslot_icon12.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon12.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon12.getX() && mouseY >= button_itemslot_icon12.getY() && mouseX < button_itemslot_icon12.getX() + button_itemslot_icon12.getWidth()
+							&& mouseY < button_itemslot_icon12.getY() + button_itemslot_icon12.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 97 + guiTools$xOffset, this.topPos + -81 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage12 : {
+				if (button_itemslot_icon13.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon13.setX(this.leftPos + 15 + guiTools$xOffset);
+					button_itemslot_icon13.setY(this.topPos + -36 + guiTools$yOffset);
+					button_itemslot_icon13.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon13.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon13.getX() && mouseY >= button_itemslot_icon13.getY() && mouseX < button_itemslot_icon13.getX() + button_itemslot_icon13.getWidth()
+							&& mouseY < button_itemslot_icon13.getY() + button_itemslot_icon13.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 15 + guiTools$xOffset, this.topPos + -36 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage13 : {
+				if (button_itemslot_icon14.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon14.setX(this.leftPos + 56 + guiTools$xOffset);
+					button_itemslot_icon14.setY(this.topPos + -36 + guiTools$yOffset);
+					button_itemslot_icon14.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon14.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon14.getX() && mouseY >= button_itemslot_icon14.getY() && mouseX < button_itemslot_icon14.getX() + button_itemslot_icon14.getWidth()
+							&& mouseY < button_itemslot_icon14.getY() + button_itemslot_icon14.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 56 + guiTools$xOffset, this.topPos + -36 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage14 : {
+				if (button_itemslot_icon15.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon15.setX(this.leftPos + 97 + guiTools$xOffset);
+					button_itemslot_icon15.setY(this.topPos + -36 + guiTools$yOffset);
+					button_itemslot_icon15.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon15.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon15.getX() && mouseY >= button_itemslot_icon15.getY() && mouseX < button_itemslot_icon15.getX() + button_itemslot_icon15.getWidth()
+							&& mouseY < button_itemslot_icon15.getY() + button_itemslot_icon15.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 97 + guiTools$xOffset, this.topPos + -36 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage15 : {
+				if (button_itemslot_icon16.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon16.setX(this.leftPos + 15 + guiTools$xOffset);
+					button_itemslot_icon16.setY(this.topPos + 9 + guiTools$yOffset);
+					button_itemslot_icon16.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon16.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon16.getX() && mouseY >= button_itemslot_icon16.getY() && mouseX < button_itemslot_icon16.getX() + button_itemslot_icon16.getWidth()
+							&& mouseY < button_itemslot_icon16.getY() + button_itemslot_icon16.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 15 + guiTools$xOffset, this.topPos + 9 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage16 : {
+				if (button_itemslot_icon17.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon17.setX(this.leftPos + 56 + guiTools$xOffset);
+					button_itemslot_icon17.setY(this.topPos + 9 + guiTools$yOffset);
+					button_itemslot_icon17.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon17.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon17.getX() && mouseY >= button_itemslot_icon17.getY() && mouseX < button_itemslot_icon17.getX() + button_itemslot_icon17.getWidth()
+							&& mouseY < button_itemslot_icon17.getY() + button_itemslot_icon17.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 56 + guiTools$xOffset, this.topPos + 9 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
+			guiTools$advancedImage17 : {
+				if (button_itemslot_icon18.visible) {
+					int guiTools$xOffset = 0;
+					int guiTools$yOffset = 0;
+					int guiTools$visibleWidth = 18;
+					int guiTools$visibleHeight = 18;
+					button_itemslot_icon18.setX(this.leftPos + 97 + guiTools$xOffset);
+					button_itemslot_icon18.setY(this.topPos + 9 + guiTools$yOffset);
+					button_itemslot_icon18.setWidth(guiTools$visibleWidth);
+					button_itemslot_icon18.setHeight(guiTools$visibleHeight);
+					net.minecraft.resources.ResourceLocation guiTools$normalTexture = net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png");
+					net.minecraft.resources.ResourceLocation guiTools$drawTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$hoveredTexture = guiTools$normalTexture;
+					net.minecraft.resources.ResourceLocation guiTools$pressedTexture = guiTools$hoveredTexture;
+					boolean guiTools$over = mouseX >= button_itemslot_icon18.getX() && mouseY >= button_itemslot_icon18.getY() && mouseX < button_itemslot_icon18.getX() + button_itemslot_icon18.getWidth()
+							&& mouseY < button_itemslot_icon18.getY() + button_itemslot_icon18.getHeight();
+					boolean guiTools$down = guiTools$over && org.lwjgl.glfw.GLFW.glfwGetMouseButton(net.minecraft.client.Minecraft.getInstance().getWindow().getWindow(), org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT) == org.lwjgl.glfw.GLFW.GLFW_PRESS;
+					guiTools$drawTexture = guiTools$down ? guiTools$pressedTexture : guiTools$over ? guiTools$hoveredTexture : guiTools$normalTexture;
+					if (guiTools$drawTexture != null && guiTools$visibleWidth > 0 && guiTools$visibleHeight > 0) {
+						guiTools$alphaBlit(guiGraphics, guiTools$drawTexture, this.leftPos + 97 + guiTools$xOffset, this.topPos + 9 + guiTools$yOffset, 0, 0, guiTools$visibleWidth, guiTools$visibleHeight, 18, 18);
+					}
+				}
+			}
 		}
 		RenderSystem.disableBlend();
 	}
@@ -1586,166 +1960,13 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			}
 		};
 		this.addRenderableWidget(imagebutton_next_page_icon);
-		imagebutton_itemslot_icon_copy = new ImageButton(this.leftPos + -88, this.topPos + -81, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy);
-		imagebutton_itemslot_icon_copy_2 = new ImageButton(this.leftPos + -46, this.topPos + -81, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_2);
-		imagebutton_itemslot_icon_copy_3 = new ImageButton(this.leftPos + -130, this.topPos + -36, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_3);
-		imagebutton_itemslot_icon_copy_4 = new ImageButton(this.leftPos + -88, this.topPos + -36, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_4);
-		imagebutton_itemslot_icon_copy_5 = new ImageButton(this.leftPos + -46, this.topPos + -36, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_5);
-		imagebutton_itemslot_icon_copy_6 = new ImageButton(this.leftPos + -130, this.topPos + 9, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_6);
-		imagebutton_itemslot_icon_copy_7 = new ImageButton(this.leftPos + -88, this.topPos + 9, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_7);
-		imagebutton_itemslot_icon_copy_8 = new ImageButton(this.leftPos + -46, this.topPos + 9, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_8);
-		imagebutton_itemslot_icon_copy_9 = new ImageButton(this.leftPos + 15, this.topPos + -81, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_9);
-		imagebutton_itemslot_icon_copy_10 = new ImageButton(this.leftPos + 56, this.topPos + -81, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_10);
-		imagebutton_itemslot_icon_copy_11 = new ImageButton(this.leftPos + 97, this.topPos + -81, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_11);
-		imagebutton_itemslot_icon_copy_12 = new ImageButton(this.leftPos + 15, this.topPos + -36, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_12);
-		imagebutton_itemslot_icon_copy_13 = new ImageButton(this.leftPos + 56, this.topPos + -36, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_13);
-		imagebutton_itemslot_icon_copy_14 = new ImageButton(this.leftPos + 97, this.topPos + -36, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_14);
-		imagebutton_itemslot_icon_copy_15 = new ImageButton(this.leftPos + 15, this.topPos + 9, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_15);
-		imagebutton_itemslot_icon_copy_16 = new ImageButton(this.leftPos + 56, this.topPos + 9, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_16);
-		imagebutton_itemslot_icon_copy_17 = new ImageButton(this.leftPos + 97, this.topPos + 9, 18, 18,
-				new WidgetSprites(ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-				guiTools$alphaBlit(guiGraphics, sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		this.addRenderableWidget(imagebutton_itemslot_icon_copy_17);
 		red_bookmark = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 140, this.topPos + -101, 35, 26, new net.minecraft.client.gui.components.WidgetSprites(
 				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/bookmark_red.png")), e -> {
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(19, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 19, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(2, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {
 			@Override
@@ -1759,8 +1980,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(20, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 20, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(3, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 					}
 				}) {
 			@Override
@@ -1774,8 +1995,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(21, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 21, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(4, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 					}
 				}) {
 			@Override
@@ -1789,8 +2010,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(22, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 22, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(5, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
 					}
 				}) {
 			@Override
@@ -1804,8 +2025,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(23, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 23, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(6, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
 					}
 				}) {
 			@Override
@@ -1819,8 +2040,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(24, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 24, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(7, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
 					}
 				}) {
 			@Override
@@ -1834,8 +2055,8 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
-						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(25, x, y, z));
-						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 25, x, y, z);
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(8, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
 					}
 				}) {
 			@Override
@@ -1849,6 +2070,244 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 					int x = ChefsDiaryFoodTierGUIScreen.this.x;
 					int y = ChefsDiaryFoodTierGUIScreen.this.y;
 					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(9, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 9, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon1);
+		button_itemslot_icon2 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -88, this.topPos + -81, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(10, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 10, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon2);
+		button_itemslot_icon3 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -46, this.topPos + -81, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(11, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 11, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon3);
+		button_itemslot_icon4 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -130, this.topPos + -36, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(12, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 12, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon4);
+		button_itemslot_icon5 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -88, this.topPos + -36, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(13, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 13, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon5);
+		button_itemslot_icon6 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -46, this.topPos + -36, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(14, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 14, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon6);
+		button_itemslot_icon7 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -130, this.topPos + 9, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(15, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 15, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon7);
+		button_itemslot_icon8 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -88, this.topPos + 9, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(16, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 16, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon8);
+		button_itemslot_icon9 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + -46, this.topPos + 9, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(17, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 17, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon9);
+		button_itemslot_icon10 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 15, this.topPos + -81, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(18, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 18, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon10);
+		button_itemslot_icon11 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 56, this.topPos + -81, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(19, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 19, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon11);
+		button_itemslot_icon12 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 97, this.topPos + -81, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(20, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 20, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon12);
+		button_itemslot_icon13 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 15, this.topPos + -36, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(21, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 21, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon13);
+		button_itemslot_icon14 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 56, this.topPos + -36, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(22, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 22, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon14);
+		button_itemslot_icon15 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 97, this.topPos + -36, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(23, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 23, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon15);
+		button_itemslot_icon16 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 15, this.topPos + 9, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(24, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 24, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon16);
+		button_itemslot_icon17 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 56, this.topPos + 9, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
+						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(25, x, y, z));
+						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 25, x, y, z);
+					}
+				}) {
+			@Override
+			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
+			}
+		};
+		this.addRenderableWidget(button_itemslot_icon17);
+		button_itemslot_icon18 = new net.minecraft.client.gui.components.ImageButton(this.leftPos + 97, this.topPos + 9, 18, 18, new net.minecraft.client.gui.components.WidgetSprites(
+				net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png"), net.minecraft.resources.ResourceLocation.parse("omnichef:textures/screens/itemslot_icon.png")), e -> {
+					int x = ChefsDiaryFoodTierGUIScreen.this.x;
+					int y = ChefsDiaryFoodTierGUIScreen.this.y;
+					if (true) {
 						net.neoforged.neoforge.network.PacketDistributor.sendToServer(new net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage(26, x, y, z));
 						net.mcreator.omnichef.network.ChefsDiaryFoodTierGUIButtonMessage.handleButtonAction(entity, 26, x, y, z);
 					}
@@ -1857,7 +2316,7 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 			public void renderWidget(net.minecraft.client.gui.GuiGraphics graphics, int mouseX, int mouseY, float partialTicks) {
 			}
 		};
-		this.addRenderableWidget(button_itemslot_icon1);
+		this.addRenderableWidget(button_itemslot_icon18);
 	}
 
 	private void guiTools$renderSizedTextLabel(GuiGraphics guiGraphics, String text, int x, int y, int boxWidth, int color, boolean shadow, float scale, int overflowMode) {
@@ -2020,6 +2479,23 @@ public class ChefsDiaryFoodTierGUIScreen extends AbstractContainerScreen<ChefsDi
 
 	private static final boolean guiTools$advancedButtons = true;
 	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon1;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon2;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon3;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon4;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon5;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon6;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon7;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon8;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon9;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon10;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon11;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon12;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon13;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon14;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon15;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon16;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon17;
+	private net.minecraft.client.gui.components.ImageButton button_itemslot_icon18;
 
 	private static net.minecraft.resources.ResourceLocation guiTools$advancedTexture(String value, net.minecraft.resources.ResourceLocation fallback) {
 		if (value == null || value.isBlank())

@@ -544,7 +544,6 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
@@ -565,7 +564,6 @@
           },
           "hasShadow": false,
           "fontScale": 100,
-          "textProcedure": "ChefsDiaryGroupNameText",
           "overflowMode": "VISIBLE",
           "tooltipWhenTruncated": false,
           "width": 120,
@@ -791,9 +789,6 @@
         "data": {
           "name": "item_display_9",
           "displayId": 0,
-          "placeholderItem": {
-            "value": "Items.CARROT"
-          },
           "maskEnabled": true,
           "showTooltip": true,
           "showTooltipWhenMasked": false,
@@ -1273,6 +1268,7 @@
         }
       }
     ],
+    "onOpen": "FillChefsDiaryItemDetail",
     "gridSettings": {
       "sx": 18,
       "sy": 18,
