@@ -116,6 +116,7 @@ public class OmnichefModVariables {
 			clone.RestaurantPreviewData = original.RestaurantPreviewData;
 			clone.ShowRestaurantBoundaries = original.ShowRestaurantBoundaries;
 			clone.DiaryFoodGroup = original.DiaryFoodGroup;
+			clone.DiarySelectedItem = original.DiarySelectedItem;
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
@@ -332,6 +333,7 @@ public class OmnichefModVariables {
 		public double MenuPage = 0;
 		public String FoodUnlockGroup = "\"\"";
 		public String DiaryFoodGroup = "ingredients";
+		public String DiarySelectedItem = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -362,6 +364,7 @@ public class OmnichefModVariables {
 			nbt.putDouble("MenuPage", MenuPage);
 			nbt.putString("FoodUnlockGroup", FoodUnlockGroup);
 			nbt.putString("DiaryFoodGroup", DiaryFoodGroup);
+			nbt.putString("DiarySelectedItem", DiarySelectedItem);
 			return nbt;
 		}
 
@@ -393,6 +396,7 @@ public class OmnichefModVariables {
 			MenuPage = nbt.getDouble("MenuPage");
 			FoodUnlockGroup = nbt.getString("FoodUnlockGroup");
 			DiaryFoodGroup = nbt.getString("DiaryFoodGroup");
+			DiarySelectedItem = nbt.getString("DiarySelectedItem");
 		}
 
 		public void markSyncDirty() {

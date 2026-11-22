@@ -996,7 +996,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_0_copy_9",
-          "displayId": 1,
+          "displayId": 10,
           "maskEnabled": true,
           "showTooltip": false,
           "showTooltipWhenMasked": false,
@@ -1017,7 +1017,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_0_copy_3_copy",
-          "displayId": 4,
+          "displayId": 11,
           "maskEnabled": true,
           "showTooltip": false,
           "showTooltipWhenMasked": false,
@@ -1038,7 +1038,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_0_copy_copy",
-          "displayId": 2,
+          "displayId": 12,
           "maskEnabled": true,
           "showTooltip": false,
           "showTooltipWhenMasked": false,
@@ -1059,7 +1059,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_0_copy_4_copy",
-          "displayId": 5,
+          "displayId": 13,
           "maskEnabled": true,
           "showTooltip": false,
           "showTooltipWhenMasked": false,
@@ -1080,7 +1080,7 @@
         "type": "item_display",
         "data": {
           "name": "item_display_0_copy_7_copy",
-          "displayId": 8,
+          "displayId": 14,
           "maskEnabled": true,
           "showTooltip": false,
           "showTooltipWhenMasked": false,

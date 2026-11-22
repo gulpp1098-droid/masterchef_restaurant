@@ -616,7 +616,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			guiTools$itemDisplay10 : {
 				if (!(true))
 					break guiTools$itemDisplay10;
-				net.minecraft.world.item.ItemStack guiTools$displayStack10 = menu.getMenuState(3, "1", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack10 = menu.getMenuState(3, "10", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack10 == null || guiTools$displayStack10.isEmpty())
 					break guiTools$itemDisplay10;
 				boolean guiTools$displayMasked10 = !(false);
@@ -643,7 +643,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			guiTools$itemDisplay11 : {
 				if (!(true))
 					break guiTools$itemDisplay11;
-				net.minecraft.world.item.ItemStack guiTools$displayStack11 = menu.getMenuState(3, "4", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack11 = menu.getMenuState(3, "11", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack11 == null || guiTools$displayStack11.isEmpty())
 					break guiTools$itemDisplay11;
 				boolean guiTools$displayMasked11 = !(false);
@@ -670,7 +670,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			guiTools$itemDisplay12 : {
 				if (!(true))
 					break guiTools$itemDisplay12;
-				net.minecraft.world.item.ItemStack guiTools$displayStack12 = menu.getMenuState(3, "2", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack12 = menu.getMenuState(3, "12", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack12 == null || guiTools$displayStack12.isEmpty())
 					break guiTools$itemDisplay12;
 				boolean guiTools$displayMasked12 = !(false);
@@ -697,7 +697,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			guiTools$itemDisplay13 : {
 				if (!(true))
 					break guiTools$itemDisplay13;
-				net.minecraft.world.item.ItemStack guiTools$displayStack13 = menu.getMenuState(3, "5", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack13 = menu.getMenuState(3, "13", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack13 == null || guiTools$displayStack13.isEmpty())
 					break guiTools$itemDisplay13;
 				boolean guiTools$displayMasked13 = !(false);
@@ -724,7 +724,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 			guiTools$itemDisplay14 : {
 				if (!(true))
 					break guiTools$itemDisplay14;
-				net.minecraft.world.item.ItemStack guiTools$displayStack14 = menu.getMenuState(3, "8", net.minecraft.world.item.ItemStack.EMPTY);
+				net.minecraft.world.item.ItemStack guiTools$displayStack14 = menu.getMenuState(3, "14", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack14 == null || guiTools$displayStack14.isEmpty())
 					break guiTools$itemDisplay14;
 				boolean guiTools$displayMasked14 = !(false);
