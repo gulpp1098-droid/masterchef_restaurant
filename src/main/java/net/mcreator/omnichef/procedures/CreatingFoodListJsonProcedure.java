@@ -3651,6 +3651,7 @@ public class CreatingFoodListJsonProcedure {
 					java.util.Map<String, Integer> repeatAccess = java.util.Collections.emptyMap();
 					java.util.Map<String, java.util.Set<String>> approvedRecipes = java.util.Collections.emptyMap();
 					java.util.Map<String, java.util.Set<String>> harvestPlanting = java.util.Collections.emptyMap();
+					java.util.Set<String> independentIngredientSources = java.util.Collections.emptySet();
 					boolean strictPolicy = false;
 
 					FoodCatalogBuilder() {
@@ -5107,6 +5108,123 @@ public class CreatingFoodListJsonProcedure {
 						return false;
 					}
 
+					// Discovery requirements are exported separately from the physical recipes.
+					// Reversible storage recipes (wheat <-> hay, etc.) never establish a discovery gate.
+					com.google.gson.JsonArray ingredientDiscoveryRecipes(String id) {
+						var result = new com.google.gson.JsonArray();
+						for (var value : recipeData.getOrDefault(id, new com.google.gson.JsonArray())) {
+							var recipe = value.getAsJsonObject();
+							if (recipe.getAsJsonArray("ingredientSlots").isEmpty() || packingOnly(id, recipe))
+								continue;
+							result.add(recipe.deepCopy());
+						}
+						return result;
+					}
+
+					boolean requiresIngredientRecipe(SplitTierPlanner.Node node, boolean starter, com.google.gson.JsonArray recipes) {
+						// Explicit progression rule: sugar is a preparation, not an independent loot discovery.
+						if ("minecraft:sugar".equals(node.id))
+							return true;
+						if (starter || recipes.isEmpty() || seedNameShape(node.id) || plantingSeedName(node.id))
+							return false;
+						if (independentIngredientSources.contains(node.id))
+							return false;
+						for (var alias : aliases.entrySet())
+							if (node.id.equals(alias.getValue()) && independentIngredientSources.contains(alias.getKey()))
+								return false;
+						return strictPolicy || pantryName(node.id) || classificationRules.pantryItems.contains(node.id);
+					}
+
+					// Diagnostic only: simulate eventual discovery with the new rules, without changing tiers or pools.
+					java.util.Set<String> ingredientDiscoveryReachable(com.google.gson.JsonObject graph, int maxTier) {
+						var reachable = new java.util.HashSet<String>();
+						boolean changed;
+						do {
+							changed = false;
+							for (var entry : graph.entrySet()) {
+								String id = entry.getKey();
+								if (reachable.contains(id))
+									continue;
+								var node = entry.getValue().getAsJsonObject();
+								String kind = node.get("kind").getAsString();
+								if ("BLOCKED".equals(kind))
+									continue;
+								if (node.has("tier") && node.get("tier").getAsInt() > maxTier)
+									continue;
+								if ("ALIAS".equals(kind)) {
+									if (reachable.contains(node.get("discovery_id").getAsString()))
+										changed |= reachable.add(id);
+									continue;
+								}
+								if (node.has("unlock_requires_any")) {
+									boolean parentReady = false;
+									for (var parent : node.getAsJsonArray("unlock_requires_any"))
+										if (reachable.contains(parent.getAsString())) {
+											parentReady = true;
+											break;
+										}
+									if (!parentReady)
+										continue;
+								}
+								boolean gate = node.has("unlock_requires_recipe") && node.get("unlock_requires_recipe").getAsBoolean();
+								if ("AUXILIARY".equals(kind) || "EXTERNAL".equals(kind) || "INGREDIENT".equals(kind) && !gate) {
+									changed |= reachable.add(id);
+									continue;
+								}
+								var recipes = node.getAsJsonArray(gate ? "unlock_recipes" : "recipes");
+								if (recipes == null)
+									continue;
+								for (var value : recipes) {
+									var slots = value.getAsJsonObject().getAsJsonArray("ingredientSlots");
+									if (slots.isEmpty())
+										continue;
+									boolean possible = true;
+									for (var slot : slots) {
+										boolean any = false;
+										for (var input : slot.getAsJsonArray())
+											if (reachable.contains(input.getAsString())) {
+												any = true;
+												break;
+											}
+										if (!any) {
+											possible = false;
+											break;
+										}
+									}
+									if (possible) {
+										changed |= reachable.add(id);
+										break;
+									}
+								}
+							}
+						} while (changed);
+						return reachable;
+					}
+
+					com.google.gson.JsonObject ingredientDiscoveryAudit(com.google.gson.JsonObject graph) {
+						var reachable = ingredientDiscoveryReachable(graph, Integer.MAX_VALUE);
+						var tierZeroReachable = ingredientDiscoveryReachable(graph, 0);
+						var gated = new com.google.gson.JsonArray();
+						var unreachable = new com.google.gson.JsonArray();
+						var tierZeroDeferred = new com.google.gson.JsonArray();
+						for (var entry : graph.entrySet()) {
+							var node = entry.getValue().getAsJsonObject();
+							String kind = node.get("kind").getAsString();
+							if (node.has("unlock_requires_recipe") && node.get("unlock_requires_recipe").getAsBoolean())
+								gated.add(entry.getKey());
+							if (("INGREDIENT".equals(kind) || "FOOD".equals(kind)) && !reachable.contains(entry.getKey()))
+								unreachable.add(entry.getKey());
+							if (("INGREDIENT".equals(kind) || "FOOD".equals(kind)) && node.has("tier") && node.get("tier").getAsInt() == 0 && !tierZeroReachable.contains(entry.getKey()))
+								tierZeroDeferred.add(entry.getKey());
+						}
+						var report = new com.google.gson.JsonObject();
+						report.add("recipe_gated_ingredients", gated);
+						report.add("unreachable_discoveries", unreachable);
+						report.add("tier_zero_deferred", tierZeroDeferred);
+						report.addProperty("scope", "eventual_discovery_ignores_tier_and_exp_limits; tier_zero_deferred_uses_both_tier_zero_pools");
+						return report;
+					}
+
 					java.util.Set<String> neededIngredients() {
 						catalogDiagnostics.phase("FoodCatalogBuilder.neededIngredients");
 						java.util.Set<String> visited = new java.util.HashSet<>(), needed = new java.util.HashSet<>();
@@ -5576,6 +5694,10 @@ public class CreatingFoodListJsonProcedure {
 						java.util.List<SplitTierPlanner.Node> ordered = new java.util.ArrayList<>(planner.nodes.values());
 						ordered.sort(java.util.Comparator.comparingInt((SplitTierPlanner.Node n) -> n.tier).thenComparingDouble(n -> n.rank).thenComparing(n -> n.id));
 						for (var node : ordered) {
+							boolean ingredient = "INGREDIENT".equals(node.kind) && planner.isCatalog(node);
+							boolean starterIngredient = ingredient && node.canServe && node.starterEligible && node.tier == 0;
+							var discoveryRecipes = ingredient ? ingredientDiscoveryRecipes(node.id) : new com.google.gson.JsonArray();
+							boolean recipeGate = ingredient && requiresIngredientRecipe(node, starterIngredient, discoveryRecipes);
 							if (planner.isCatalog(node)) {
 								var original = catalog.get(node.id);
 								var entry = new com.google.gson.JsonObject();
@@ -5603,6 +5725,11 @@ public class CreatingFoodListJsonProcedure {
 								if (conditional)
 									conditionalFoods.add(node.id);
 								entry.add("recipes", recipeData.get(node.id));
+								if (ingredient) {
+									entry.addProperty("unlock_requires_recipe", recipeGate);
+									if (recipeGate)
+										entry.add("unlock_recipes", discoveryRecipes.deepCopy());
+								}
 								var analysis = new com.google.gson.JsonObject();
 								analysis.addProperty("ranking_score", node.rank);
 								if (!node.unlockParents.isEmpty()) {
@@ -5679,6 +5806,11 @@ public class CreatingFoodListJsonProcedure {
 								graphNode.add("unlock_requires_any", parents);
 							}
 							graphNode.add("recipes", excludedNode ? new com.google.gson.JsonArray() : recipeData.get(node.id));
+							if (ingredient) {
+								graphNode.addProperty("unlock_requires_recipe", recipeGate);
+								if (recipeGate)
+									graphNode.add("unlock_recipes", discoveryRecipes);
+							}
 							graph.add(node.id, graphNode);
 							if ("EXTERNAL".equals(node.kind))
 								external.add(node.id);
@@ -5834,7 +5966,7 @@ public class CreatingFoodListJsonProcedure {
 						diagnostics.addProperty("graph_boundary_policy",
 								"Explicit ingredient overrides, vanilla ingredient profiles, pantry profiles and ingredient tags retain discovery priority. Other supported non-edible processing routes used by culinary recipes are expanded from known culinary anchors, retaining every mandatory slot. Unknown inputs are BLOCKED. Verified non-culinary remainders from eating or crafting with culinary items are empty serving supplies. Recognized technical materials stop expansion before their crafting/recycling recipes. Referenced flower-tagged kitchen inputs retain ingredient discoveries; raw_materials/dyes never establishes an external material by itself. Other raw materials require no competing culinary declaration. Nutritional foods and explicit culinary profiles retain discovery priority over generic material tags. Only no-nutrition technical exclusions may become EXTERNAL; explicit exclusions remain blocked. Unknown removed discoveries never become free EXTERNAL inputs.");
 						diagnostics.addProperty("ranking_policy",
-								"Ingredients: source effort, yield-independent preparation difficulty/depth, earliest Food usefulness and easiest complete input-route rank floor. Early pantry priority covers basic flour/dough/salt/sugar/pasta and recognized simple one-step pantry preparations with zero source floor. Basic vanilla supplies include eggs, milk and sugar cane. Ingredient input floors affect ordering, not a new requirement to discover upstream ingredients. Food tiers use distinct-input preparation difficulty and processing depth without division by output yield. Production cost per portion remains separate; ingredient usefulness follows yield-independent Food difficulty. Per-portion production cost remains a separate production metric.");
+								"Ingredients: source effort, yield-independent preparation difficulty/depth, earliest Food usefulness and easiest complete input-route rank floor. Early pantry priority covers basic flour/dough/salt/sugar/pasta and recognized simple one-step pantry preparations with zero source floor. Basic vanilla supplies include eggs, milk and sugar cane. Ingredient input floors affect ordering; discovery gates are exported separately. Food tiers use distinct-input preparation difficulty and processing depth without division by output yield. Production cost per portion remains separate; ingredient usefulness follows yield-independent Food difficulty. Per-portion production cost remains a separate production metric.");
 						diagnostics.addProperty("variant_policy",
 								"Known cosmetic variants, exact unambiguous semantic crop families, and non-edible raw leaves with equivalent culinary functions on anchored complete paths to servable products share discoveries. Broad food/seed tags, name resemblance, ambiguous families, processed ingredients and explicit overrides never establish a new group. Physical recipe IDs and per-variant source evidence are preserved. Tiers count discoveries, not variant IDs.");
 						var grouping = new com.google.gson.JsonObject();
@@ -5851,6 +5983,9 @@ public class CreatingFoodListJsonProcedure {
 						diagnostics.addProperty("requirements_policy",
 								"Every item and supported fluid slot needs one usable alternative. Missing tags, placeholder barriers and unrepresented fluids retain BLOCKED mandatory requirements. FOOD intermediates are expanded; ingredient nodes require discovery. Unanchored cycles remain unresolved.");
 						diagnostics.addProperty("live_catalog", true);
+						diagnostics.add("ingredient_discovery_audit", ingredientDiscoveryAudit(graph));
+						diagnostics.addProperty("ingredient_discovery_policy",
+								"Recipe-only Ingredient preparations require one complete non-packing recipe. Independent renewable sources, planting seeds and existing starter choices stay independent of crafting. Sugar explicitly requires a recipe. Existing harvest parent requirements remain separate.");
 						com.google.gson.JsonObject technical = new com.google.gson.JsonObject();
 						technical.add("diagnostics", diagnostics);
 						technical.add("recipe_nodes", graph);
@@ -5859,7 +5994,8 @@ public class CreatingFoodListJsonProcedure {
 					}
 
 					String summary(com.google.gson.JsonObject database) {
-						StringBuilder text = new StringBuilder("OMNICHEF — KATALOG INGREDIENTS / FOOD v37.2\nTiery ponizej oraz indeksy w JSON zaczynaja sie od 0.\n\n");
+						StringBuilder text = new StringBuilder("OMNICHEF — KATALOG INGREDIENTS / FOOD v37.3\nTiery ponizej oraz indeksy w JSON zaczynaja sie od 0.\n\n");
+						text.append("Ingredient discovery audit: ").append(database.getAsJsonObject("technical").getAsJsonObject("diagnostics").get("ingredient_discovery_audit")).append('\n');
 						text.append("Ingredients: ").append(database.get("ingredient_count")).append(" / tiery: ").append(database.get("ingredient_tier_count")).append('\n');
 						text.append("Food: ").append(database.get("food_count")).append(" / tiery: ").append(database.get("food_tier_count")).append("\n\n");
 						text.append("Warianty wspolnych odkryc: ").append(database.get("variant_count")).append("\n\n");
@@ -10643,6 +10779,27 @@ public class CreatingFoodListJsonProcedure {
 						}
 						return result;
 					}
+
+					java.util.Set<String> independentIngredientSourceIndex() {
+						var result = new java.util.HashSet<String>();
+						for (String node : directRepeatAccess.keySet())
+							if (node.startsWith("item|") && eligible(node))
+								result.add(node.substring(5));
+						var independentMethods = java.util.Set.of("omnichef:mob_drop", "omnichef:fishing", "omnichef:livestock", "omnichef:natural_harvest", "omnichef:minecolonies_regrowth", "omnichef:croptopia_regrowth",
+								"productivetrees:grown_leaves", "productivetrees:sapling_return");
+						for (var entry : renewRoutes.entrySet()) {
+							String node = entry.getKey();
+							if (!node.startsWith("item|") || !eligible(node))
+								continue;
+							for (var route : entry.getValue()) {
+								if (independentMethods.contains(route.system) && routeValue(route) >= 2 && routeAccess(route, repeatAccess, true) < 99) {
+									result.add(node.substring(5));
+									break;
+								}
+							}
+						}
+						return result;
+					}
 				}
 				// The exclusion candidate is deliberately written to a separate file until gameplay/save migration tests pass.
 				// No diagnostic-only run changes any catalog entry, score, tier, or discovery ID.
@@ -10688,6 +10845,7 @@ public class CreatingFoodListJsonProcedure {
 						var denied = audit.exclusionCandidates(baseline);
 						com.google.gson.JsonObject filtered = null;
 						var approved = audit.approvedRecipeIndex();
+						var independentSources = audit.independentIngredientSourceIndex();
 						for (int pass = 0; pass < 8; pass++) {
 							var builder = new FoodCatalogBuilder(denied);
 							builder.strictPolicy = true;
@@ -10695,6 +10853,7 @@ public class CreatingFoodListJsonProcedure {
 							builder.repeatAccess = audit.repeatAccess;
 							builder.approvedRecipes = approved;
 							builder.harvestPlanting = audit.harvestPlanting;
+							builder.independentIngredientSources = independentSources;
 							filtered = builder.build();
 							var unresolved = filtered.getAsJsonObject("technical").getAsJsonObject("diagnostics").getAsJsonArray("unresolved_foods");
 							boolean changed = false;

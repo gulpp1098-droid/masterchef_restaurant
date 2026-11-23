@@ -35,7 +35,9 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 			}
 		} else {
 			if ((GetFoodRoleByIDProcedure.execute(databaseObject, foodID)).equals("INGREDIENT")) {
-				return true;
+				if (!foodData.get("unlock_requires_recipe").getAsBoolean()) {
+					return true;
+				}
 			}
 		}
 		unlockedFoodsArray = unlockedFoods;
