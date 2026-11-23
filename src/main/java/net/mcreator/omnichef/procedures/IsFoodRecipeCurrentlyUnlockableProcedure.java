@@ -8,23 +8,29 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 		com.google.gson.JsonObject recipeData = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject recipeNodes = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject alternativeData = new com.google.gson.JsonObject();
+		com.google.gson.JsonObject graphNode = new com.google.gson.JsonObject();
 		com.google.gson.JsonArray recipes = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray ingredientSlots = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray alternatives = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray unlockedFoodsArray = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray parents = new com.google.gson.JsonArray();
 		String alternativeID = "";
 		String alternativeKind = "";
+		String parentID = "";
 		double recipeIndex = 0;
 		double slotIndex = 0;
 		double alternativeIndex = 0;
 		double unlockedIndex = 0;
+		double parentIndex = 0;
 		boolean foundPossibleRecipe = false;
 		boolean recipePossible = false;
 		boolean slotPossible = false;
+		boolean parentFound = false;
 		recipeNodes = databaseObject;
 		recipeNodes = recipeNodes.get("technical").getAsJsonObject();
 		recipeNodes = recipeNodes.get("recipe_nodes").getAsJsonObject();
 		foodData = GetFoodDataFromIDProcedure.execute(databaseObject, foodID);
+		unlockedFoodsArray = unlockedFoods;
 		if (!IsFoodInDatabaseProcedure.execute(databaseObject, foodID)) {
 			if (!recipeNodes.has(foodID)) {
 				return false;
@@ -35,15 +41,36 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 			}
 		} else {
 			if ((GetFoodRoleByIDProcedure.execute(databaseObject, foodID)).equals("INGREDIENT")) {
+				graphNode = recipeNodes.get(foodData.get("id").getAsString()).getAsJsonObject();
+				if (graphNode.has("unlock_requires_any")) {
+					parents = graphNode.get("\"unlock_requires_any").getAsJsonArray();
+					for (int _i1 = 0; _i1 < (int) parents.size(); _i1++) {
+						parentID = recipes.get((int) parentIndex).getAsString();
+						unlockedIndex = 0;
+						for (int _i2 = 0; _i2 < (int) unlockedFoodsArray.size(); _i2++) {
+							if ((GetFoodDiscoveryIDProcedure.execute(databaseObject, unlockedFoodsArray.get((int) unlockedIndex).getAsString())).equals(parentID)) {
+								parentFound = true;
+							}
+							unlockedIndex = unlockedIndex + 1;
+						}
+						parentIndex = parentIndex + 1;
+					}
+					if (!parentFound) {
+						return false;
+					}
+				}
 				if (!foodData.get("unlock_requires_recipe").getAsBoolean()) {
 					return true;
 				}
 			}
 		}
-		unlockedFoodsArray = unlockedFoods;
-		recipes = foodData.get("recipes").getAsJsonArray();
+		if (foodData.has("unlock_recipes")) {
+			recipes = foodData.get("unlock_recipes").getAsJsonArray();
+		} else {
+			recipes = foodData.get("recipes").getAsJsonArray();
+		}
 		for (int _i1 = 0; _i1 < (int) recipes.size(); _i1++) {
-			recipeData = GetFoodRecipeFromDataProcedure.execute(foodData, recipeIndex);
+			recipeData = recipes.get((int) recipeIndex).getAsJsonObject();
 			ingredientSlots = GetRecipeIngredientSlotsProcedure.execute(recipeData);
 			recipePossible = true;
 			slotIndex = 0;
