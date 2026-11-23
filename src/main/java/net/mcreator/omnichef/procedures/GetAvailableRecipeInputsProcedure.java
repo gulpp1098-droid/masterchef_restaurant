@@ -18,6 +18,11 @@ public class GetAvailableRecipeInputsProcedure {
 		diagnostics = technical.get("diagnostics").getAsJsonObject();
 		intermediateCandidates = diagnostics.get("preparation_intermediates").getAsJsonArray();
 		availableIntermediates = FilterCurrentlyUnlockableFoodOptionsProcedure.execute(intermediateCandidates, discovered, database);
+		for (int _i1 = 0; _i1 < (int) discovered.size(); _i1++) {
+			result.add(discovered.get((int) index).getAsString());
+			index = index + 1;
+		}
+		index = 0;
 		for (int _i1 = 0; _i1 < (int) availableIntermediates.size(); _i1++) {
 			result.add(availableIntermediates.get((int) index).getAsString());
 			index = index + 1;
