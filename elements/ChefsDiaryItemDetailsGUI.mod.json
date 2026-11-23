@@ -1295,6 +1295,195 @@
           "y": 180,
           "locked": false
         }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_10",
+          "displayId": 15,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 96,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_11",
+          "displayId": 16,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 122,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_12",
+          "displayId": 17,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 148,
+          "y": 64,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_13",
+          "displayId": 18,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 96,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_14",
+          "displayId": 19,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 122,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_15",
+          "displayId": 20,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 148,
+          "y": 90,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_16",
+          "displayId": 21,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 96,
+          "y": 117,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_17",
+          "displayId": 22,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 122,
+          "y": 117,
+          "locked": false
+        }
+      },
+      {
+        "type": "item_display",
+        "data": {
+          "name": "item_display_0_copy_18",
+          "displayId": 23,
+          "maskEnabled": false,
+          "showTooltip": true,
+          "showTooltipWhenMasked": true,
+          "showCount": false,
+          "showCountWhenMasked": false,
+          "maskColor": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "maskOpacity": 50,
+          "scale": 100,
+          "x": 148,
+          "y": 117,
+          "locked": false
+        }
       }
     ],
     "onOpen": "FillChefsDiaryItemDetail",

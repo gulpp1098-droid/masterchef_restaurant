@@ -22,16 +22,21 @@ public class FillChefsDiaryItemDetailProcedure {
 		String role = "";
 		String unlockedKey = "";
 		String ingredientID = "";
+		String candidateID = "";
 		ItemStack displayStack = ItemStack.EMPTY;
 		double tier = 0;
 		double restaurantIndex = 0;
 		double index = 0;
 		double slotIndex = 0;
+		double alternativeIndex = 0;
 		com.google.gson.JsonArray unlockedArray = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray recipes = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray ingredientSlots = new com.google.gson.JsonArray();
 		com.google.gson.JsonArray alternatives = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray availableInputs = new com.google.gson.JsonArray();
+		com.google.gson.JsonArray discoveredItems = new com.google.gson.JsonArray();
 		boolean isUnlocked = false;
+		boolean slotAvailable = false;
 		if (!world.isClientSide()) {
 			foodID = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiarySelectedItem;
 			databaseObject = ReadFoodDatabaseProcedure.execute(world);
@@ -95,31 +100,53 @@ public class FillChefsDiaryItemDetailProcedure {
 					if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
 						ItemStack _displayStack19 = new ItemStack(Blocks.AIR).copy();
 						_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) slotIndex), _displayStack19, true);
+						ItemStack _displayStack20 = new ItemStack(Blocks.AIR).copy();
+						_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 14)), _displayStack20, true);
 					}
 					slotIndex = slotIndex + 1;
 				}
 				if (recipes.size() > 0) {
 					recipeObject = GetFoodRecipeFromDataProcedure.execute(foodObject, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryRecipeIndex);
 					ingredientSlots = GetRecipeIngredientSlotsProcedure.execute(recipeObject);
+					discoveredItems = GetDiscoveredItemsProcedure.execute(world, entity);
+					availableInputs = GetAvailableRecipeInputsProcedure.execute(discoveredItems, databaseObject);
 					slotIndex = 0;
 					for (int _i1 = 0; _i1 < (int) Math.min(ingredientSlots.size(), 9); _i1++) {
 						alternatives = GetIngredientsAlternativesFromSlotProcedure.execute(ingredientSlots, slotIndex);
 						if (alternatives.size() > 0) {
-							ingredientID = alternatives.get((int) 0).getAsString();
-							if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-								ItemStack _displayStack25 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((ingredientID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
-								_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack25, true);
+							slotAvailable = false;
+							alternativeIndex = 0;
+							for (int _i2 = 0; _i2 < (int) alternatives.size(); _i2++) {
+								candidateID = alternatives.get((int) alternativeIndex).getAsString();
+								if (!slotAvailable) {
+									if (IsRecipeInputAvailableProcedure.execute(availableInputs, databaseObject, candidateID)) {
+										slotAvailable = true;
+										ingredientID = candidateID;
+									}
+								}
+								alternativeIndex = alternativeIndex + 1;
+							}
+							if (slotAvailable) {
+								if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+									ItemStack _displayStack27 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((ingredientID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+									_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 15)), _displayStack27, true);
+								}
+							} else {
+								if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
+									ItemStack _displayStack29 = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((ingredientID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
+									_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (slotIndex + 1)), _displayStack29, true);
+								}
 							}
 						}
 						slotIndex = slotIndex + 1;
 					}
-					if (entity instanceof Player _guiToolsLabelPlayer29 && _guiToolsLabelPlayer29.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu29) {
-						_guiToolsLabelMenu29.sendMenuStateUpdate(_guiToolsLabelPlayer29, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_2", ""),
+					if (entity instanceof Player _guiToolsLabelPlayer33 && _guiToolsLabelPlayer33.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu33) {
+						_guiToolsLabelMenu33.sendMenuStateUpdate(_guiToolsLabelPlayer33, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_2", ""),
 								java.util.Objects.toString(("Recipe: " + (int) (entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryRecipeIndex + 1) + " / " + (int) recipes.size()), ""), true);
 					}
 				} else {
-					if (entity instanceof Player _guiToolsLabelPlayer30 && _guiToolsLabelPlayer30.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu30) {
-						_guiToolsLabelMenu30.sendMenuStateUpdate(_guiToolsLabelPlayer30, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_2", ""), java.util.Objects.toString("No recipe required", ""), true);
+					if (entity instanceof Player _guiToolsLabelPlayer34 && _guiToolsLabelPlayer34.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu34) {
+						_guiToolsLabelMenu34.sendMenuStateUpdate(_guiToolsLabelPlayer34, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_2", ""), java.util.Objects.toString("No recipe required", ""), true);
 					}
 				}
 			}
