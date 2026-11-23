@@ -49,10 +49,10 @@
         "data": {
           "name": "item_display_0",
           "displayId": 1,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -70,10 +70,10 @@
         "data": {
           "name": "item_display_0_copy",
           "displayId": 2,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -91,10 +91,10 @@
         "data": {
           "name": "item_display_0_copy_2",
           "displayId": 3,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -112,10 +112,10 @@
         "data": {
           "name": "item_display_0_copy_3",
           "displayId": 4,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -133,10 +133,10 @@
         "data": {
           "name": "item_display_0_copy_4",
           "displayId": 5,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -154,10 +154,10 @@
         "data": {
           "name": "item_display_0_copy_5",
           "displayId": 6,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -175,10 +175,10 @@
         "data": {
           "name": "item_display_0_copy_6",
           "displayId": 7,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -196,10 +196,10 @@
         "data": {
           "name": "item_display_0_copy_7",
           "displayId": 8,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -217,10 +217,10 @@
         "data": {
           "name": "item_display_0_copy_8",
           "displayId": 9,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,

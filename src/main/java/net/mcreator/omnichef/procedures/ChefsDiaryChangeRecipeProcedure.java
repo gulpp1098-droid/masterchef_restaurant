@@ -6,10 +6,9 @@ import net.minecraft.world.entity.Entity;
 import net.mcreator.omnichef.network.OmnichefModVariables;
 
 public class ChefsDiaryChangeRecipeProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(LevelAccessor world, Entity entity, double direction) {
 		if (entity == null)
 			return;
-		double direction = 0;
 		double newIndex = 0;
 		com.google.gson.JsonObject databaseObject = new com.google.gson.JsonObject();
 		com.google.gson.JsonObject foodObject = new com.google.gson.JsonObject();
