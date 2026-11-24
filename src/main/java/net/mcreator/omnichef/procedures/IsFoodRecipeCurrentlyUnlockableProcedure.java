@@ -43,9 +43,9 @@ public class IsFoodRecipeCurrentlyUnlockableProcedure {
 			if ((GetFoodRoleByIDProcedure.execute(databaseObject, foodID)).equals("INGREDIENT")) {
 				graphNode = recipeNodes.get(foodData.get("id").getAsString()).getAsJsonObject();
 				if (graphNode.has("unlock_requires_any")) {
-					parents = graphNode.get("\"unlock_requires_any").getAsJsonArray();
+					parents = graphNode.get("unlock_requires_any").getAsJsonArray();
 					for (int _i1 = 0; _i1 < (int) parents.size(); _i1++) {
-						parentID = recipes.get((int) parentIndex).getAsString();
+						parentID = parents.get((int) parentIndex).getAsString();
 						unlockedIndex = 0;
 						for (int _i2 = 0; _i2 < (int) unlockedFoodsArray.size(); _i2++) {
 							if ((GetFoodDiscoveryIDProcedure.execute(databaseObject, unlockedFoodsArray.get((int) unlockedIndex).getAsString())).equals(parentID)) {

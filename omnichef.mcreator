@@ -13588,6 +13588,58 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "DoesItemDependOn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "does_item_depend_on",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "dependencyID",
+            "type": "string"
+          },
+          {
+            "name": "targetID",
+            "type": "string"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/DoesItemDependOnProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "GetDiaryDependentItems",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_diary_dependent_items",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "databaseObject",
+            "type": "jsonobject"
+          },
+          {
+            "name": "selectedID",
+            "type": "string"
+          }
+        ],
+        "return_type": "jsonarray",
+        "files": [
+          "src/main/java/net/mcreator/omnichef/procedures/GetDiaryDependentItemsProcedure.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
     }
   ],
   "variable_elements": [
