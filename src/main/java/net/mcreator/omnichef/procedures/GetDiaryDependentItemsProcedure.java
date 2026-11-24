@@ -66,7 +66,7 @@ public class GetDiaryDependentItemsProcedure {
 			tiersObject = groupObject.get("tiers").getAsJsonObject();
 			tierIndex = 0;
 			for (int _i2 = 0; _i2 < (int) groupObject.get("tier_count").getAsDouble(); _i2++) {
-				tierItems = databaseObj.get((new java.text.DecimalFormat("0").format(tierIndex))).getAsJsonArray();
+				tierItems = tiersObject.get((new java.text.DecimalFormat("0").format(tierIndex))).getAsJsonArray();
 				itemIndex = 0;
 				for (int _i3 = 0; _i3 < (int) tierItems.size(); _i3++) {
 					candidateData = tierItems.get((int) itemIndex).getAsJsonObject();

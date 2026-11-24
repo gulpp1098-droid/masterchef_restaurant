@@ -1021,10 +1021,10 @@
         "data": {
           "name": "item_display_0_copy_9",
           "displayId": 10,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -1042,10 +1042,10 @@
         "data": {
           "name": "item_display_0_copy_3_copy",
           "displayId": 11,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -1063,10 +1063,10 @@
         "data": {
           "name": "item_display_0_copy_copy",
           "displayId": 12,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -1084,10 +1084,10 @@
         "data": {
           "name": "item_display_0_copy_4_copy",
           "displayId": 13,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -1105,10 +1105,10 @@
         "data": {
           "name": "item_display_0_copy_7_copy",
           "displayId": 14,
-          "maskEnabled": true,
-          "showTooltip": false,
+          "maskEnabled": false,
+          "showTooltip": true,
           "showTooltipWhenMasked": false,
-          "showCount": true,
+          "showCount": false,
           "showCountWhenMasked": false,
           "maskColor": {
             "value": -16777216,
@@ -1179,7 +1179,7 @@
       {
         "type": "sized_text_label",
         "data": {
-          "name": "sized_text_label_need_1_to_unlock",
+          "name": "dependent_row_0",
           "text": "Need 1 to Unlock",
           "color": {
             "value": -12829636,
@@ -1199,7 +1199,7 @@
       {
         "type": "sized_text_label",
         "data": {
-          "name": "sized_text_label_need_1_to_unlock_copy",
+          "name": "dependent_row_1",
           "text": "Need 1 to Unlock",
           "color": {
             "value": -12829636,
@@ -1219,7 +1219,7 @@
       {
         "type": "sized_text_label",
         "data": {
-          "name": "sized_text_label_need_1_to_unlock_copy_copy",
+          "name": "dependent_row_2",
           "text": "Need 1 to Unlock",
           "color": {
             "value": -12829636,
@@ -1239,7 +1239,7 @@
       {
         "type": "sized_text_label",
         "data": {
-          "name": "sized_text_label_need_1_to_unlock_copy_copy_2",
+          "name": "dependent_row_3",
           "text": "Need 1 to Unlock",
           "color": {
             "value": -12829636,
@@ -1259,7 +1259,7 @@
       {
         "type": "sized_text_label",
         "data": {
-          "name": "sized_text_label_need_1_to_unlock_copy_copy_3",
+          "name": "dependent_row_4",
           "text": "Need 1 to Unlock",
           "color": {
             "value": -12829636,

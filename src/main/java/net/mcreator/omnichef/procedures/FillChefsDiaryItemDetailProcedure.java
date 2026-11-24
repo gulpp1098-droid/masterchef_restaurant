@@ -150,6 +150,7 @@ public class FillChefsDiaryItemDetailProcedure {
 						_guiToolsLabelMenu35.sendMenuStateUpdate(_guiToolsLabelPlayer35, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_2", ""), java.util.Objects.toString("No recipe required", ""), true);
 					}
 				}
+				FillChefsDiaryDependentsProcedure.execute(entity, databaseObject);
 			}
 		}
 	}

@@ -32,6 +32,7 @@ public class ChefsDiarySelectItemProcedure {
 					OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 					_vars.DiarySelectedItem = foodObject.get("id").getAsString();
 					_vars.DiaryRecipeIndex = 0;
+					_vars.DiaryDependentPage = 0;
 					_vars.markSyncDirty();
 				}
 				if (entity instanceof ServerPlayer _ent) {

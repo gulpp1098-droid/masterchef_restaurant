@@ -64,19 +64,19 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		guiTools$sizedTextLabelTooltips : {
-			String guiTools$sizedLabelText9 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock");
+			String guiTools$sizedLabelText9 = menu.getMenuState(0, "gui_tools:sized:dependent_row_0", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -66 && mouseY < this.topPos + -56 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText9, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText9), mouseX, mouseY);
-			String guiTools$sizedLabelText10 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock");
+			String guiTools$sizedLabelText10 = menu.getMenuState(0, "gui_tools:sized:dependent_row_1", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -41 && mouseY < this.topPos + -31 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText10, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText10), mouseX, mouseY);
-			String guiTools$sizedLabelText11 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock");
+			String guiTools$sizedLabelText11 = menu.getMenuState(0, "gui_tools:sized:dependent_row_2", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + -15 && mouseY < this.topPos + -5 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText11, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText11), mouseX, mouseY);
-			String guiTools$sizedLabelText12 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock");
+			String guiTools$sizedLabelText12 = menu.getMenuState(0, "gui_tools:sized:dependent_row_3", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 10 && mouseY < this.topPos + 20 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText12, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText12), mouseX, mouseY);
-			String guiTools$sizedLabelText13 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock");
+			String guiTools$sizedLabelText13 = menu.getMenuState(0, "gui_tools:sized:dependent_row_4", "Need 1 to Unlock");
 			if (true && mouseX >= this.leftPos + 36 && mouseX < this.leftPos + 156 && mouseY >= this.topPos + 35 && mouseY < this.topPos + 45 && this.guiTools$isSizedTextTruncated(guiTools$sizedLabelText13, 120, 1.00F))
 				guiGraphics.renderTooltip(font, net.minecraft.network.chat.Component.literal(guiTools$sizedLabelText13), mouseX, mouseY);
 			String guiTools$sizedLabelText14 = menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1");
@@ -195,6 +195,71 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				if (guiTools$tooltipStack9 == null || guiTools$tooltipStack9.isEmpty())
 					break guiTools$itemDisplayTooltip9;
 				guiGraphics.renderTooltip(font, guiTools$tooltipStack9, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip10 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip10;
+				if (mouseX < this.leftPos + 13 || mouseX >= this.leftPos + 29 || mouseY < this.topPos + -72 || mouseY >= this.topPos + -56)
+					break guiTools$itemDisplayTooltip10;
+				boolean guiTools$displayMasked10 = false;
+				if (guiTools$displayMasked10)
+					break guiTools$itemDisplayTooltip10;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack10 = menu.getMenuState(3, "10", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack10 == null || guiTools$tooltipStack10.isEmpty())
+					break guiTools$itemDisplayTooltip10;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack10, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip11 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip11;
+				if (mouseX < this.leftPos + 13 || mouseX >= this.leftPos + 29 || mouseY < this.topPos + -46 || mouseY >= this.topPos + -30)
+					break guiTools$itemDisplayTooltip11;
+				boolean guiTools$displayMasked11 = false;
+				if (guiTools$displayMasked11)
+					break guiTools$itemDisplayTooltip11;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack11 = menu.getMenuState(3, "11", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack11 == null || guiTools$tooltipStack11.isEmpty())
+					break guiTools$itemDisplayTooltip11;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack11, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip12 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip12;
+				if (mouseX < this.leftPos + 13 || mouseX >= this.leftPos + 29 || mouseY < this.topPos + -20 || mouseY >= this.topPos + -4)
+					break guiTools$itemDisplayTooltip12;
+				boolean guiTools$displayMasked12 = false;
+				if (guiTools$displayMasked12)
+					break guiTools$itemDisplayTooltip12;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack12 = menu.getMenuState(3, "12", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack12 == null || guiTools$tooltipStack12.isEmpty())
+					break guiTools$itemDisplayTooltip12;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack12, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip13 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip13;
+				if (mouseX < this.leftPos + 13 || mouseX >= this.leftPos + 29 || mouseY < this.topPos + 5 || mouseY >= this.topPos + 21)
+					break guiTools$itemDisplayTooltip13;
+				boolean guiTools$displayMasked13 = false;
+				if (guiTools$displayMasked13)
+					break guiTools$itemDisplayTooltip13;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack13 = menu.getMenuState(3, "13", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack13 == null || guiTools$tooltipStack13.isEmpty())
+					break guiTools$itemDisplayTooltip13;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack13, mouseX, mouseY);
+			}
+			guiTools$itemDisplayTooltip14 : {
+				if (!(true))
+					break guiTools$itemDisplayTooltip14;
+				if (mouseX < this.leftPos + 13 || mouseX >= this.leftPos + 29 || mouseY < this.topPos + 31 || mouseY >= this.topPos + 47)
+					break guiTools$itemDisplayTooltip14;
+				boolean guiTools$displayMasked14 = false;
+				if (guiTools$displayMasked14)
+					break guiTools$itemDisplayTooltip14;
+				net.minecraft.world.item.ItemStack guiTools$tooltipStack14 = menu.getMenuState(3, "14", net.minecraft.world.item.ItemStack.EMPTY);
+				if (guiTools$tooltipStack14 == null || guiTools$tooltipStack14.isEmpty())
+					break guiTools$itemDisplayTooltip14;
+				guiGraphics.renderTooltip(font, guiTools$tooltipStack14, mouseX, mouseY);
 			}
 			guiTools$itemDisplayTooltip15 : {
 				if (!(true))
@@ -820,7 +885,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.world.item.ItemStack guiTools$displayStack10 = menu.getMenuState(3, "10", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack10 == null || guiTools$displayStack10.isEmpty())
 					break guiTools$itemDisplay10;
-				boolean guiTools$displayMasked10 = !(false);
+				boolean guiTools$displayMasked10 = false;
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + -72), 0.0F);
@@ -835,8 +900,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack10, this.leftPos + 13, this.topPos + -72);
 					}
-					if (!guiTools$displayMasked10)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack10, this.leftPos + 13, this.topPos + -72);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -847,7 +910,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.world.item.ItemStack guiTools$displayStack11 = menu.getMenuState(3, "11", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack11 == null || guiTools$displayStack11.isEmpty())
 					break guiTools$itemDisplay11;
-				boolean guiTools$displayMasked11 = !(false);
+				boolean guiTools$displayMasked11 = false;
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + -46), 0.0F);
@@ -862,8 +925,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack11, this.leftPos + 13, this.topPos + -46);
 					}
-					if (!guiTools$displayMasked11)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack11, this.leftPos + 13, this.topPos + -46);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -874,7 +935,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.world.item.ItemStack guiTools$displayStack12 = menu.getMenuState(3, "12", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack12 == null || guiTools$displayStack12.isEmpty())
 					break guiTools$itemDisplay12;
-				boolean guiTools$displayMasked12 = !(false);
+				boolean guiTools$displayMasked12 = false;
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + -20), 0.0F);
@@ -889,8 +950,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack12, this.leftPos + 13, this.topPos + -20);
 					}
-					if (!guiTools$displayMasked12)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack12, this.leftPos + 13, this.topPos + -20);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -901,7 +960,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.world.item.ItemStack guiTools$displayStack13 = menu.getMenuState(3, "13", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack13 == null || guiTools$displayStack13.isEmpty())
 					break guiTools$itemDisplay13;
-				boolean guiTools$displayMasked13 = !(false);
+				boolean guiTools$displayMasked13 = false;
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + 5), 0.0F);
@@ -916,8 +975,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack13, this.leftPos + 13, this.topPos + 5);
 					}
-					if (!guiTools$displayMasked13)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack13, this.leftPos + 13, this.topPos + 5);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -928,7 +985,7 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 				net.minecraft.world.item.ItemStack guiTools$displayStack14 = menu.getMenuState(3, "14", net.minecraft.world.item.ItemStack.EMPTY);
 				if (guiTools$displayStack14 == null || guiTools$displayStack14.isEmpty())
 					break guiTools$itemDisplay14;
-				boolean guiTools$displayMasked14 = !(false);
+				boolean guiTools$displayMasked14 = false;
 				guiGraphics.pose().pushPose();
 				try {
 					guiGraphics.pose().translate((1.0F - 1.0f) * (this.leftPos + 13), (1.0F - 1.0f) * (this.topPos + 31), 0.0F);
@@ -943,8 +1000,6 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 					} else {
 						guiGraphics.renderFakeItem(guiTools$displayStack14, this.leftPos + 13, this.topPos + 31);
 					}
-					if (!guiTools$displayMasked14)
-						guiGraphics.renderItemDecorations(font, guiTools$displayStack14, this.leftPos + 13, this.topPos + 31);
 				} finally {
 					guiGraphics.pose().popPose();
 				}
@@ -1208,15 +1263,15 @@ public class ChefsDiaryItemDetailsGUIScreen extends AbstractContainerScreen<Chef
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_text_label_copy_copy_copy_copy_copy_copy", "Name of filter"), 7, -88, 120, -12829636, false, 1.00F, 0);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock", "Need 1 to Unlock"), 36, -66, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:dependent_row_0", "Need 1 to Unlock"), 36, -66, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy", "Need 1 to Unlock"), 36, -41, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:dependent_row_1", "Need 1 to Unlock"), 36, -41, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy", "Need 1 to Unlock"), 36, -15, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:dependent_row_2", "Need 1 to Unlock"), 36, -15, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_2", "Need 1 to Unlock"), 36, 10, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:dependent_row_3", "Need 1 to Unlock"), 36, 10, 120, -12829636, false, 1.00F, 2);
 		if (true)
-			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_need_1_to_unlock_copy_copy_3", "Need 1 to Unlock"), 36, 35, 120, -12829636, false, 1.00F, 2);
+			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:dependent_row_4", "Need 1 to Unlock"), 36, 35, 120, -12829636, false, 1.00F, 2);
 		if (true)
 			this.guiTools$renderSizedTextLabel(guiGraphics, menu.getMenuState(0, "gui_tools:sized:sized_text_label_page_1_1", "Page 1 / 1"), 32, 60, 120, -12829636, false, 1.00F, 2);
 	}

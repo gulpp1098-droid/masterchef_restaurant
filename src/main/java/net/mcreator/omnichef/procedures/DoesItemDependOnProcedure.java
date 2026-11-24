@@ -21,7 +21,7 @@ public class DoesItemDependOnProcedure {
 		databaseObj = databaseObject;
 		recipeNodes = databaseObj.get("technical").getAsJsonObject();
 		recipeNodes = recipeNodes.get("recipe_nodes").getAsJsonObject();
-		if (!databaseObj.has(targetID)) {
+		if (!recipeNodes.has(targetID)) {
 			return false;
 		}
 		targetNode = recipeNodes.get(targetID).getAsJsonObject();
@@ -30,7 +30,7 @@ public class DoesItemDependOnProcedure {
 		if ((targetID).equals(selectedID)) {
 			return false;
 		}
-		if (databaseObj.has("unlock_requires_any")) {
+		if (targetNode.has("unlock_requires_any")) {
 			parents = targetNode.get("unlock_requires_any").getAsJsonArray();
 			for (int _i1 = 0; _i1 < (int) parents.size(); _i1++) {
 				if ((parents.get((int) parentIndex).getAsString()).equals(selectedID)) {
@@ -40,7 +40,7 @@ public class DoesItemDependOnProcedure {
 			}
 		}
 		if ((kind).equals("INGREDIENT")) {
-			if (!targetNode.has("unlock_requires_recipe")) {
+			if (!targetNode.get("unlock_requires_recipe").getAsBoolean()) {
 				return false;
 			}
 			recipes = targetNode.get("unlock_recipes").getAsJsonArray();
@@ -57,7 +57,7 @@ public class DoesItemDependOnProcedure {
 				alternatives = GetIngredientsAlternativesFromSlotProcedure.execute(ingredientSlots, slotIndex);
 				alternativeIndex = 0;
 				for (int _i3 = 0; _i3 < (int) alternatives.size(); _i3++) {
-					if ((selectedID).equals(GetFoodDiscoveryIDProcedure.execute(databaseObj, recipes.get((int) alternativeIndex).getAsString()))) {
+					if ((selectedID).equals(GetFoodDiscoveryIDProcedure.execute(databaseObj, alternatives.get((int) alternativeIndex).getAsString()))) {
 						return true;
 					}
 					alternativeIndex = alternativeIndex + 1;
