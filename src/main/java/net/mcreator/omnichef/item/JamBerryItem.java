@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class JamBerryItem extends Item {
 	public JamBerryItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3f).build()));
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class IceCreamChocoItem extends Item {
 	public IceCreamChocoItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.4f).build()));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class HummusbeetrootItem extends Item {
 	public HummusbeetrootItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.5f).build()));
 	}
 
 	@Override

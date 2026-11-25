@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class MuffinChorusItem extends Item {
 	public MuffinChorusItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3f).build()));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class CandyHoneycombItem extends Item {
 	public CandyHoneycombItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationModifier(0.2f).build()));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

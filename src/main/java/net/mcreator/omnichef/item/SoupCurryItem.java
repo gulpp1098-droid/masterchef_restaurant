@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class SoupCurryItem extends Item {
 	public SoupCurryItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(10).saturationModifier(0.8f).build()));
 	}
 
 	@Override

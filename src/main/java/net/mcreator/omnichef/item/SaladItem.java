@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class SaladItem extends Item {
 	public SaladItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(5).saturationModifier(0.4f).build()));
 	}
 
 	@Override

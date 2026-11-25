@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class StuffedMushroomItem extends Item {
 	public StuffedMushroomItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(10).saturationModifier(0.8f).build()));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

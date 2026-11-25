@@ -12,7 +12,7 @@ import net.mcreator.omnichef.init.OmnichefModItems;
 
 public class JuiceAppleItem extends Item {
 	public JuiceAppleItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(1).saturationModifier(0.3f).alwaysEdible().build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(3).saturationModifier(0.3f).alwaysEdible().build()));
 	}
 
 	@Override

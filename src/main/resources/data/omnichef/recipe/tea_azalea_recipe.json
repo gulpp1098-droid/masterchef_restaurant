@@ -19,6 +19,9 @@
     },
     {
       "item": "minecraft:flowering_azalea_leaves"
+    },
+    {
+      "tag": "minecraft:leaves"
     }
   ],
   "result": {

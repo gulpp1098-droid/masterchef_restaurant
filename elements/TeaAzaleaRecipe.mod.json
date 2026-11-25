@@ -22,7 +22,7 @@
       "TAG:minecraft:leaves",
       "Blocks.FLOWERING_AZALEA_LEAVES",
       "",
-      "",
+      "TAG:minecraft:leaves",
       ""
     ],
     "recipeReturnStack": "CUSTOM:TeaAzalea",

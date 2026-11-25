@@ -3,20 +3,23 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "omnichef:sauce_mayo"
+      "item": "omnichef:sauce_mushroom"
     },
     {
-      "item": "minecraft:cooked_chicken"
+      "tag": "c:foods/cooked_fishes"
     },
     {
-      "item": "omnichef:dough"
+      "item": "minecraft:kelp"
     },
     {
       "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:sea_pickle"
     }
   ],
   "result": {
-    "id": "omnichef:wrap",
+    "id": "omnichef:wrap_algea",
     "count": 1
   }
 }

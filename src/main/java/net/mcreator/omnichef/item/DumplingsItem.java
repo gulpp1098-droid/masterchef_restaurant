@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class DumplingsItem extends Item {
 	public DumplingsItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(5).saturationModifier(0.6f).build()));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

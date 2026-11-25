@@ -19,6 +19,9 @@
     },
     {
       "item": "minecraft:cherry_leaves"
+    },
+    {
+      "tag": "minecraft:leaves"
     }
   ],
   "result": {

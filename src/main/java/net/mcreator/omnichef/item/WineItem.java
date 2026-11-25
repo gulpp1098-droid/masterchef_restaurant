@@ -12,7 +12,7 @@ import net.mcreator.omnichef.init.OmnichefModItems;
 
 public class WineItem extends Item {
 	public WineItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(1).saturationModifier(0.3f).alwaysEdible().build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(2).saturationModifier(0.2f).alwaysEdible().build()));
 	}
 
 	@Override

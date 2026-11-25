@@ -16601,20 +16601,6 @@
       "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
-      "name": "WrapRecipe",
-      "type": "recipe",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "wrap_recipe",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/omnichef/recipe/wrap_recipe.json",
-          "src/main/resources/data/omnichef/advancement/recipes/wrap_recipe.json"
-        ]
-      },
-      "path": "~/Restaurant Functioning/Recipes/Foods"
-    },
-    {
       "name": "WrapAlgeaRecipe",
       "type": "recipe",
       "compiles": true,
@@ -16624,6 +16610,20 @@
         "files": [
           "src/main/resources/data/omnichef/recipe/wrap_algea_recipe.json",
           "src/main/resources/data/omnichef/advancement/recipes/wrap_algea_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "WrapRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wrap_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/wrap_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/wrap_recipe.json"
         ]
       },
       "path": "~/Restaurant Functioning/Recipes/Foods"
@@ -16919,12 +16919,12 @@
       "~SkewerTropicalFish@CUSTOM:SkewerTropicalFish",
       "~SkewerRabbit@CUSTOM:SkewerRabbit",
       "~Skewer@CUSTOM:Skewer",
-      "~ChickenNuggets@CUSTOM:ChickenNuggets",
+      "~GlazedChicken@CUSTOM:GlazedChicken",
       "~Meatballs@CUSTOM:Meatballs",
+      "~ChickenNuggets@CUSTOM:ChickenNuggets",
       "~Kebab@CUSTOM:Kebab",
-      "~Jerky@CUSTOM:Jerky",
       "~Hotdog@CUSTOM:Hotdog",
-      "~GlazedChicken@CUSTOM:GlazedChicken"
+      "~Jerky@CUSTOM:Jerky"
     ]
   },
   "tab_element_order": {},

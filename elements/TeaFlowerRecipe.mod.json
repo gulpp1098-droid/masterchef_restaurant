@@ -21,7 +21,7 @@
       "TAG:minecraft:leaves",
       "Blocks.CHERRY_LEAVES",
       "",
-      "",
+      "TAG:minecraft:leaves",
       ""
     ],
     "recipeReturnStack": "CUSTOM:TeaFlower",

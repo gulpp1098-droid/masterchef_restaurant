@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "omnichef:sauce_mushroom"
+            "items": "omnichef:dough"
           }
         ]
       },
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:kelp"
+            "items": "minecraft:carrot"
           }
         ]
       },
@@ -31,7 +31,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:sea_pickle"
+            "items": "omnichef:sauce_mayo"
           }
         ]
       },
@@ -41,17 +41,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:carrot"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_ingredient_4": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#c:foods/cooked_fishes"
+            "items": "minecraft:cooked_chicken"
           }
         ]
       },
@@ -64,8 +54,7 @@
       "has_ingredient_0",
       "has_ingredient_1",
       "has_ingredient_2",
-      "has_ingredient_3",
-      "has_ingredient_4"
+      "has_ingredient_3"
     ]
   ],
   "rewards": {

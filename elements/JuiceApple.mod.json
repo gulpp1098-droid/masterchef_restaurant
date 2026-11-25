@@ -46,7 +46,7 @@
     "projectile": "Arrow",
     "projectileDisableAmmoCheck": false,
     "isFood": true,
-    "nutritionalValue": 1,
+    "nutritionalValue": 3,
     "saturation": 0.3,
     "eatResultItem": "CUSTOM:Mug",
     "isMeat": false,

@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class TempuraSeaPickleItem extends Item {
 	public TempuraSeaPickleItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(5).saturationModifier(0.5f).build()));
 	}
 
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

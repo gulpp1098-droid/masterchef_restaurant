@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class SoupTropicalFishItem extends Item {
 	public SoupTropicalFishItem() {
-		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(4).saturationModifier(0.1f).build()));
+		super(new Item.Properties().food((new FoodProperties.Builder()).nutrition(8).saturationModifier(0.7f).build()));
 	}
 
 	@Override

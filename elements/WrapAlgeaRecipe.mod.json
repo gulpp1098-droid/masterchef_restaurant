@@ -6,10 +6,11 @@
     "recipeRetstackSize": 1,
     "group": "",
     "unlockingItems": [
-      "CUSTOM:Dough",
+      "CUSTOM:SauceMushroom",
+      "Blocks.KELP",
+      "Blocks.SEA_PICKLE",
       "Items.CARROT",
-      "CUSTOM:SauceMayo",
-      "Items.COOKED_CHICKEN"
+      "TAG:c:foods/cooked_fishes"
     ],
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
@@ -18,16 +19,16 @@
     "recipeShapeless": true,
     "recipeSlots": [
       "",
-      "CUSTOM:SauceMayo",
+      "CUSTOM:SauceMushroom",
       "",
-      "Items.COOKED_CHICKEN",
-      "CUSTOM:Dough",
+      "TAG:c:foods/cooked_fishes",
+      "Blocks.KELP",
       "Items.CARROT",
       "",
-      "",
+      "Blocks.SEA_PICKLE",
       ""
     ],
-    "recipeReturnStack": "CUSTOM:Wrap",
+    "recipeReturnStack": "CUSTOM:WrapAlgea",
     "name": "wrap_algea_recipe",
     "namespace": "mod"
   }
