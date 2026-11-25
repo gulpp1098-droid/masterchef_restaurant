@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "CUSTOM:Milkbottle",
+      "Items.SNOWBALL",
+      "Items.DYE#3"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Milkbottle",
+      "",
+      "Items.DYE#3",
+      "Items.SUGAR",
+      "Items.SNOWBALL",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:IceCreamChoco",
+    "name": "ice_cream_choco_recipe",
+    "namespace": "mod"
+  }
+}

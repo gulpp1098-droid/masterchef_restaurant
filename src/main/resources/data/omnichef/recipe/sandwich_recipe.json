@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:toast"
+    },
+    {
+      "item": "omnichef:cheese"
+    },
+    {
+      "item": "omnichef:fried_egg"
+    },
+    {
+      "item": "omnichef:sauce_mayo"
+    },
+    {
+      "item": "omnichef:toast"
+    }
+  ],
+  "result": {
+    "id": "omnichef:sandwich",
+    "count": 1
+  }
+}

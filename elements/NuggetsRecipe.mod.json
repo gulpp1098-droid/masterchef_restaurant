@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:OilSunflower",
+      "Items.CHICKEN",
+      "CUSTOM:Flour",
+      "Items.EGG"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Flour",
+      "",
+      "CUSTOM:OilSunflower",
+      "Items.CHICKEN",
+      "Items.EGG",
+      "",
+      "CUSTOM:Knife",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:ChickenNuggets",
+    "name": "nuggets_recipe",
+    "namespace": "mod"
+  }
+}

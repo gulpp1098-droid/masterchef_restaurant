@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:mug"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "id": "omnichef:hot_choco",
+    "count": 1
+  }
+}

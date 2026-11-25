@@ -1,0 +1,35 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.COOKED_BEEF",
+      "CUSTOM:Dough",
+      "Items.CARROT",
+      "CUSTOM:SauceRed",
+      "Blocks.SEA_PICKLE"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Blocks.SEA_PICKLE",
+      "CUSTOM:SauceRed",
+      "Items.COOKED_BEEF",
+      "CUSTOM:Dough",
+      "Items.CARROT",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Taco",
+    "name": "taco_recipe",
+    "namespace": "mod"
+  }
+}

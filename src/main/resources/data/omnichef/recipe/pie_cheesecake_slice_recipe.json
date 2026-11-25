@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:cheesecake"
+    },
+    {
+      "item": "omnichef:knife"
+    }
+  ],
+  "result": {
+    "id": "omnichef:cheesecake_slice",
+    "count": 8
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 2,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "CUSTOM:Batter",
+      "Items.GLOW_BERRIES"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.SUGAR",
+      "CUSTOM:Batter",
+      "Items.GLOW_BERRIES",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:MuffinGlowBerry",
+    "name": "muffin_glowberry_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 8,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Pieapple"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "CUSTOM:Pieapple",
+      "CUSTOM:Knife",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieAppleSlice",
+    "name": "pie_apple_slice_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:coffee"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:pumpkin"
+    }
+  ],
+  "result": {
+    "id": "omnichef:coffee_latte_pumpkin_spice",
+    "count": 1
+  }
+}

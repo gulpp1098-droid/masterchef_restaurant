@@ -15366,7 +15366,7 @@
           "src/main/resources/data/omnichef/recipe/beer_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "BreadPumpkinRecipe",
@@ -15380,7 +15380,7 @@
           "src/main/resources/data/omnichef/advancement/recipes/bread_pumpkin_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "BreadRecipe",
@@ -15394,7 +15394,7 @@
           "src/main/resources/data/omnichef/advancement/recipes/bread_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "BurgerRecipe",
@@ -15408,7 +15408,7 @@
           "src/main/resources/data/omnichef/recipe/burger_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "CheeseBurgerRecipe",
@@ -15422,7 +15422,7 @@
           "src/main/resources/data/omnichef/recipe/cheese_burger_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "BurgerDeluxeRecipe",
@@ -15436,7 +15436,7 @@
           "src/main/resources/data/omnichef/recipe/burger_deluxe_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "CandyChorusRecipe",
@@ -15450,7 +15450,7 @@
           "src/main/resources/data/omnichef/advancement/recipes/candy_chorus_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "CandyHoneycombRecipe",
@@ -15464,7 +15464,7 @@
           "src/main/resources/data/omnichef/recipe/candy_honeycomb_recipe.json"
         ]
       },
-      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     },
     {
       "name": "CoffeeRecipe",
@@ -15478,7 +15478,1155 @@
           "src/main/resources/data/omnichef/recipe/coffee_recipe.json"
         ]
       },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "CoffeeLatteRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffee_latte_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/coffee_latte_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/coffee_latte_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "CoffeeLattePumpkinSpiceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffee_latte_pumpkin_spice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/coffee_latte_pumpkin_spice_recipe.json",
+          "src/main/resources/data/omnichef/recipe/coffee_latte_pumpkin_spice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "CookieHoneyRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cookie_honey_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/cookie_honey_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/cookie_honey_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "CrispySeaweedRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crispy_seaweed_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/crispy_seaweed_recipe.json",
+          "src/main/resources/data/omnichef/recipe/crispy_seaweed_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupCurryRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_curry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/soup_curry_recipe.json",
+          "src/main/resources/data/omnichef/recipe/soup_curry_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "Batter",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "batter",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/batter.json",
+          "src/main/java/net/mcreator/omnichef/item/BatterItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "BatterRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "batter_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/batter_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/batter_recipe.json"
+        ]
+      },
       "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "DonutRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "donut_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/donut_recipe.json",
+          "src/main/resources/data/omnichef/recipe/donut_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "DumplingsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dumplings_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/dumplings_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/dumplings_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "FriedEggRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fried_egg_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/fried_egg_recipe.json",
+          "src/main/resources/data/omnichef/recipe/fried_egg_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "FriesRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fries_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/fries_recipe.json",
+          "src/main/resources/data/omnichef/recipe/fries_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "GlazedChickenRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "glazed_chicken_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/glazed_chicken_recipe.json",
+          "src/main/resources/data/omnichef/recipe/glazed_chicken_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "HotChocoRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hot_choco_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/hot_choco_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/hot_choco_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "HotdogRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hotdog_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/hotdog_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/hotdog_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "IceCreamBerryRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_berry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/ice_cream_berry_recipe.json",
+          "src/main/resources/data/omnichef/recipe/ice_cream_berry_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "IceCreamChocoRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_choco_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/ice_cream_choco_recipe.json",
+          "src/main/resources/data/omnichef/recipe/ice_cream_choco_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "IceCreamChorusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_chorus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/ice_cream_chorus_recipe.json",
+          "src/main/resources/data/omnichef/recipe/ice_cream_chorus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "IceCreamMelonRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_melon_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/ice_cream_melon_recipe.json",
+          "src/main/resources/data/omnichef/recipe/ice_cream_melon_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "JellyChorusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_chorus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/jelly_chorus_recipe.json",
+          "src/main/resources/data/omnichef/recipe/jelly_chorus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "JerkyRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jerky_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/jerky_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/jerky_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "JuiceAppleRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "juice_apple_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/juice_apple_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/juice_apple_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "JuiceCactusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "juice_cactus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/juice_cactus_recipe.json",
+          "src/main/resources/data/omnichef/recipe/juice_cactus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "JuiceCarrotRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "juice_carrot_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/juice_carrot_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/juice_carrot_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "KebabRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kebab_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/kebab_recipe.json",
+          "src/main/resources/data/omnichef/recipe/kebab_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "MeatballsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "meatballs_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/meatballs_recipe.json",
+          "src/main/resources/data/omnichef/recipe/meatballs_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "MuffinRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muffin_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/muffin_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/muffin_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "MuffinChorusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muffin_chorus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/muffin_chorus_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/muffin_chorus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "MuffinGlowberryRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muffin_glowberry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/muffin_glowberry_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/muffin_glowberry_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "NuggetsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nuggets_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/nuggets_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/nuggets_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "OmeletteRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omelette_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/omelette_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/omelette_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "OmeletteMushroomRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omelette_mushroom_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/omelette_mushroom_recipe.json",
+          "src/main/resources/data/omnichef/recipe/omelette_mushroom_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "OmeletteWarpedRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omelette_warped_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/omelette_warped_recipe.json",
+          "src/main/resources/data/omnichef/recipe/omelette_warped_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PancakeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pancake_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/pancake_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/pancake_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PastaMushroomRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pasta_mushroom_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pasta_mushroom_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pasta_mushroom_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieAppleRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_apple_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_apple_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_apple_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieAppleSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_apple_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/pie_apple_slice_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/pie_apple_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieBerryRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_berry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_berry_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_berry_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieCheesecakeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_cheesecake_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_cheesecake_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_cheesecake_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieChorusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_chorus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/pie_chorus_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/pie_chorus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PiefloralRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "piefloral_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/piefloral_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/piefloral_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieMushroomRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_mushroom_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_mushroom_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_mushroom_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieNetherRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_nether_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/pie_nether_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/pie_nether_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieBerrySliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_berry_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_berry_slice_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_berry_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieCheesecakeSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_cheesecake_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_cheesecake_slice_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_cheesecake_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieChorusSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_chorus_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_chorus_slice_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_chorus_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieFloralSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_floral_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_floral_slice_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_floral_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieMushroomSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_mushroom_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pie_mushroom_slice_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pie_mushroom_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PieNetherSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_nether_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/pie_nether_slice_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/pie_nether_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PizzaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pizza_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/pizza_recipe.json",
+          "src/main/resources/data/omnichef/recipe/pizza_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PizzaSliceRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pizza_slice_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/pizza_slice_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/pizza_slice_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "PreparedPufferfishRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prepared_pufferfish_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/prepared_pufferfish_recipe.json",
+          "src/main/resources/data/omnichef/recipe/prepared_pufferfish_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SaladRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/salad_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/salad_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SaladAlgeaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_algea_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/salad_algea_recipe.json",
+          "src/main/resources/data/omnichef/recipe/salad_algea_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SaladChickenRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_chicken_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/salad_chicken_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/salad_chicken_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SaladFlowerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_flower_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/salad_flower_recipe.json",
+          "src/main/resources/data/omnichef/recipe/salad_flower_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SaladOceanRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_ocean_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/salad_ocean_recipe.json",
+          "src/main/resources/data/omnichef/recipe/salad_ocean_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SandwichRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sandwich_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/sandwich_recipe.json",
+          "src/main/resources/data/omnichef/recipe/sandwich_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "ShakeBerryRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shake_berry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/shake_berry_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/shake_berry_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SkewerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skewer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/skewer_recipe.json",
+          "src/main/resources/data/omnichef/recipe/skewer_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SkewerRabbitRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skewer_rabbit_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/skewer_rabbit_recipe.json",
+          "src/main/resources/data/omnichef/recipe/skewer_rabbit_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SkewerTropicalFishRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skewer_tropical_fish_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/skewer_tropical_fish_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/skewer_tropical_fish_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupBambooShootsRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_bamboo_shoots_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/soup_bamboo_shoots_recipe.json",
+          "src/main/resources/data/omnichef/recipe/soup_bamboo_shoots_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupChickenRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_chicken_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/soup_chicken_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/soup_chicken_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupNetherRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_nether_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/soup_nether_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/soup_nether_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupRamenRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_ramen_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/soup_ramen_recipe.json",
+          "src/main/resources/data/omnichef/recipe/soup_ramen_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupTropicalFishRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_tropical_fish_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/soup_tropical_fish_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/soup_tropical_fish_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SoupPufferfishRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_pufferfish_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/soup_pufferfish_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/soup_pufferfish_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "StuffedMushroomRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuffed_mushroom_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/stuffed_mushroom_recipe.json",
+          "src/main/resources/data/omnichef/recipe/stuffed_mushroom_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "StuffedNautilusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuffed_nautilus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/stuffed_nautilus_recipe.json",
+          "src/main/resources/data/omnichef/recipe/stuffed_nautilus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "StuffedPumpkinRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuffed_pumpkin_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/stuffed_pumpkin_recipe.json",
+          "src/main/resources/data/omnichef/recipe/stuffed_pumpkin_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "SushiRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sushi_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/sushi_recipe.json",
+          "src/main/resources/data/omnichef/recipe/sushi_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "TacoRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "taco_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/taco_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/taco_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "TeaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tea_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/tea_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/tea_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "TeaAzaleaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tea_azalea_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/tea_azalea_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/tea_azalea_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "TeaFlowerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tea_flower_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/tea_flower_recipe.json",
+          "src/main/resources/data/omnichef/recipe/tea_flower_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "TempuraSeaPickleRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tempura_sea_pickle_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/tempura_sea_pickle_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/tempura_sea_pickle_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "ToastRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toast_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/toast_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/toast_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "VodkaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vodka_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/vodka_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/vodka_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "WineRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wine_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/wine_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/wine_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "WaffleRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waffle_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/waffle_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/waffle_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "WrapRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wrap_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/wrap_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/wrap_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
+    },
+    {
+      "name": "WrapAlgeaRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wrap_algea_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/wrap_algea_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/wrap_algea_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Foods"
     }
   ],
   "variable_elements": [
@@ -16014,7 +17162,8 @@
       "item.omnichef.waffle": "Waffle",
       "item.omnichef.wine": "Wine",
       "item.omnichef.wrap": "Warp",
-      "item.omnichef.wrap_algea": "Algea Warp"
+      "item.omnichef.wrap_algea": "Algea Warp",
+      "item.omnichef.batter": "Batter"
     }
   },
   "metadata": {

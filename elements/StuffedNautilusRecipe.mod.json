@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.NAUTILUS_SHELL",
+      "Items.FISH#2",
+      "CUSTOM:TempuraSeaPickle",
+      "Blocks.KELP"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Blocks.KELP",
+      "CUSTOM:TempuraSeaPickle",
+      "",
+      "",
+      "Items.FISH#2",
+      "",
+      "",
+      "Items.NAUTILUS_SHELL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:StuffedNautilus",
+    "name": "stuffed_nautilus_recipe",
+    "namespace": "mod"
+  }
+}

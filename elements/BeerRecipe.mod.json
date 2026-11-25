@@ -17,7 +17,7 @@
     "recipeShapeless": true,
     "recipeSlots": [
       "",
-      "",
+      "Items.POTION_OF_WATER",
       "",
       "CUSTOM:Mug",
       "Items.WHEAT",

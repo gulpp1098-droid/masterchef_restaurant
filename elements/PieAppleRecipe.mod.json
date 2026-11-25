@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Dough",
+      "Items.EGG",
+      "CUSTOM:Milkbottle",
+      "Items.APPLE"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Items.APPLE",
+      "Items.APPLE",
+      "",
+      "Items.EGG",
+      "CUSTOM:Dough",
+      "CUSTOM:Milkbottle",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Pieapple",
+    "name": "pie_apple_recipe",
+    "namespace": "mod"
+  }
+}

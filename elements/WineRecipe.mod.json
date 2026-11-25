@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SWEET_BERRIES",
+      "Items.SUGAR",
+      "Items.SPIDER_EYE"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.POTION_OF_WATER",
+      "",
+      "CUSTOM:Mug",
+      "Items.SWEET_BERRIES",
+      "Items.SPIDER_EYE",
+      "",
+      "Items.SUGAR",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Wine",
+    "name": "wine_recipe",
+    "namespace": "mod"
+  }
+}

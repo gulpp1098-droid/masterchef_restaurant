@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SWEET_BERRIES",
+      "Items.SUGAR",
+      "CUSTOM:Milkbottle",
+      "Items.SNOWBALL"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Milkbottle",
+      "",
+      "Items.SWEET_BERRIES",
+      "Items.SUGAR",
+      "Items.SNOWBALL",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:IceCreamBerry",
+    "name": "ice_cream_berry_recipe",
+    "namespace": "mod"
+  }
+}

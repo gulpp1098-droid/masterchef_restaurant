@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:flour"
+    },
+    {
+      "item": "omnichef:oil_sunflower"
+    },
+    {
+      "item": "minecraft:chicken"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:knife"
+    }
+  ],
+  "result": {
+    "id": "omnichef:chicken_nuggets",
+    "count": 1
+  }
+}

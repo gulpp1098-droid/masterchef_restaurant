@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:crimson_fungus"
+    },
+    {
+      "item": "minecraft:warped_fungus"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_nether",
+    "count": 1
+  }
+}

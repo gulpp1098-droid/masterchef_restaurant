@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "TAG:c:foods/raw_fish",
+      "CUSTOM:Noodles",
+      "Items.EGG",
+      "Items.DRIED_KELP"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.POTION_OF_WATER",
+      "Items.DRIED_KELP",
+      "Items.EGG",
+      "CUSTOM:Noodles",
+      "TAG:c:foods/raw_fish",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SoupRamen",
+    "name": "soup_ramen_recipe",
+    "namespace": "mod"
+  }
+}

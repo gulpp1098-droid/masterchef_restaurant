@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SPIDER_EYE",
+      "Items.POTATO"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.POTION_OF_WATER",
+      "",
+      "Items.GLASS_BOTTLE",
+      "Items.POTATO",
+      "Items.SPIDER_EYE",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Vodka",
+    "name": "vodka_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_apple",
+    "count": 1
+  }
+}

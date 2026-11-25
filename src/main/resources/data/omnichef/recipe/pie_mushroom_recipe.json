@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_mushroom",
+    "count": 1
+  }
+}

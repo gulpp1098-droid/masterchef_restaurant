@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:fried_mushrooms"
+    },
+    {
+      "item": "omnichef:noodles"
+    },
+    {
+      "item": "omnichef:sauce_mushroom"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pasta_mushroom",
+    "count": 1
+  }
+}

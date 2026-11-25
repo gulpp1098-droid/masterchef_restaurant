@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "CUSTOM:Milkbottle",
+      "Items.SNOWBALL",
+      "Items.CHORUS_FRUIT"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Milkbottle",
+      "",
+      "Items.CHORUS_FRUIT",
+      "Items.SUGAR",
+      "Items.SNOWBALL",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:IceCreamChorus",
+    "name": "ice_cream_chorus_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Toast",
+      "CUSTOM:FriedEgg",
+      "CUSTOM:Cheese"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Toast",
+      "",
+      "CUSTOM:Cheese",
+      "CUSTOM:FriedEgg",
+      "CUSTOM:SauceMayo",
+      "",
+      "CUSTOM:Toast",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Sandwich",
+    "name": "sandwich_recipe",
+    "namespace": "mod"
+  }
+}

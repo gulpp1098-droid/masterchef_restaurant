@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 2,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "CUSTOM:Batter",
+      "Items.CHORUS_FRUIT_POPPED"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.SUGAR",
+      "CUSTOM:Batter",
+      "Items.CHORUS_FRUIT_POPPED",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:MuffinChorus",
+    "name": "muffin_chorus_recipe",
+    "namespace": "mod"
+  }
+}

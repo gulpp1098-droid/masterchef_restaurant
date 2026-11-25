@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.EGG",
+      "CUSTOM:Cheese",
+      "Blocks.WARPED_FUNGUS"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.EGG",
+      "Items.EGG",
+      "CUSTOM:Cheese",
+      "",
+      "Blocks.WARPED_FUNGUS",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:OmeletteWarped",
+    "name": "omelette_warped_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Coffee",
+      "CUSTOM:Milkbottle",
+      "Blocks.PUMPKIN",
+      "Items.SUGAR"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "CUSTOM:Coffee",
+      "CUSTOM:Milkbottle",
+      "Items.SUGAR",
+      "",
+      "Blocks.PUMPKIN",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:CoffeeLattePumpkinSpice",
+    "name": "coffee_latte_pumpkin_spice_recipe",
+    "namespace": "mod"
+  }
+}

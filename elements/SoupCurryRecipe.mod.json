@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.CARROT",
+      "Items.COOKED_CHICKEN",
+      "Items.POTATO"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.POTION_OF_WATER",
+      "",
+      "Items.CARROT",
+      "Items.COOKED_CHICKEN",
+      "Items.POTATO",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SoupCurry",
+    "name": "soup_curry_recipe",
+    "namespace": "mod"
+  }
+}

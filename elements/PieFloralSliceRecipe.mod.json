@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 8,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:PieFloral"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "CUSTOM:PieFloral",
+      "CUSTOM:Knife",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieFloralSlice",
+    "name": "pie_floral_slice_recipe",
+    "namespace": "mod"
+  }
+}

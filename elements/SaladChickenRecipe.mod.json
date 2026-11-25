@@ -1,0 +1,35 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.CARROT",
+      "Items.BEETROOT",
+      "Items.WHEAT_SEEDS",
+      "CUSTOM:SauceMayo",
+      "Items.COOKED_CHICKEN"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "CUSTOM:SauceMayo",
+      "Items.COOKED_CHICKEN",
+      "",
+      "Items.WHEAT_SEEDS",
+      "Items.CARROT",
+      "Items.BEETROOT",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SaladChicken",
+    "name": "salad_chicken_recipe",
+    "namespace": "mod"
+  }
+}

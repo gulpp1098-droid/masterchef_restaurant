@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "CUSTOM:Milkbottle",
+      "Items.SNOWBALL",
+      "Items.MELON"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Milkbottle",
+      "",
+      "Items.MELON",
+      "Items.SUGAR",
+      "Items.SNOWBALL",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:IceCreamMelon",
+    "name": "ice_cream_melon_recipe",
+    "namespace": "mod"
+  }
+}

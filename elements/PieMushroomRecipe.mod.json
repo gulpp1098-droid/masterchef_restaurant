@@ -1,0 +1,35 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Dough",
+      "Items.EGG",
+      "CUSTOM:Milkbottle",
+      "Blocks.RED_MUSHROOM",
+      "Blocks.BROWN_MUSHROOM"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Blocks.RED_MUSHROOM",
+      "Blocks.BROWN_MUSHROOM",
+      "",
+      "Items.EGG",
+      "CUSTOM:Dough",
+      "CUSTOM:Milkbottle",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieMushroom",
+    "name": "pie_mushroom_recipe",
+    "namespace": "mod"
+  }
+}

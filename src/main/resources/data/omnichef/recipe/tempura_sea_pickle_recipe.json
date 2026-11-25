@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:oil_sunflower"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    },
+    {
+      "item": "omnichef:batter"
+    }
+  ],
+  "result": {
+    "id": "omnichef:tempura_sea_pickle",
+    "count": 1
+  }
+}

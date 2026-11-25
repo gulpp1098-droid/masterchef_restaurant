@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "omnichef:mug"
+    }
+  ],
+  "result": {
+    "id": "omnichef:shake_berry",
+    "count": 1
+  }
+}

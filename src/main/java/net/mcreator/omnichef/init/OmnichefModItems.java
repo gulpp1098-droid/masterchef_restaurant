@@ -151,6 +151,7 @@ public class OmnichefModItems {
 	public static final DeferredItem<Item> WINE;
 	public static final DeferredItem<Item> WRAP;
 	public static final DeferredItem<Item> WRAP_ALGEA;
+	public static final DeferredItem<Item> BATTER;
 	static {
 		SPATULA_GOLDEN = REGISTRY.register("spatula_golden", SpatulaGoldenItem::new);
 		SERVICE_TABLE = block(OmnichefModBlocks.SERVICE_TABLE);
@@ -280,6 +281,7 @@ public class OmnichefModItems {
 		WINE = REGISTRY.register("wine", WineItem::new);
 		WRAP = REGISTRY.register("wrap", WrapItem::new);
 		WRAP_ALGEA = REGISTRY.register("wrap_algea", WrapAlgeaItem::new);
+		BATTER = REGISTRY.register("batter", BatterItem::new);
 	}
 
 	// Start of user code block custom items

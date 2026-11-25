@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "omnichef:fries"
+    },
+    {
+      "item": "minecraft:cooked_mutton"
+    },
+    {
+      "item": "omnichef:salad"
+    },
+    {
+      "item": "omnichef:sauce_red"
+    }
+  ],
+  "result": {
+    "id": "omnichef:kebab",
+    "count": 1
+  }
+}

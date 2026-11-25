@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 8,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:PieChorus"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "CUSTOM:PieChorus",
+      "CUSTOM:Knife",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieChorusSlice",
+    "name": "pie_chorus_slice_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:sauce_mayo"
+    },
+    {
+      "item": "minecraft:cooked_chicken"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "id": "omnichef:wrap",
+    "count": 1
+  }
+}

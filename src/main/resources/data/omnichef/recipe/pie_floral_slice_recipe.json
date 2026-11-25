@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:pie_floral"
+    },
+    {
+      "item": "omnichef:knife"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_floral_slice",
+    "count": 8
+  }
+}

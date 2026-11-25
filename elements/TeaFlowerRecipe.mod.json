@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "TAG:minecraft:leaves"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.POTION_OF_WATER",
+      "",
+      "CUSTOM:Mug",
+      "TAG:minecraft:leaves",
+      "Blocks.CHERRY_LEAVES",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:TeaFlower",
+    "name": "tea_flower_recipe",
+    "namespace": "mod"
+  }
+}

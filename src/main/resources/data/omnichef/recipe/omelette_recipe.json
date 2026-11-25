@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:cheese"
+    }
+  ],
+  "result": {
+    "id": "omnichef:omelette",
+    "count": 1
+  }
+}

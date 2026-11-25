@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "Items.HONEY_BOTTLE",
+      "CUSTOM:Dough"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.SUGAR",
+      "",
+      "",
+      "CUSTOM:Dough",
+      "",
+      "",
+      "Items.HONEY_BOTTLE",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:CookieHoney",
+    "name": "cookie_honey_recipe",
+    "namespace": "mod"
+  }
+}

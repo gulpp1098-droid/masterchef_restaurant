@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.BREAD",
+      "Items.COOKED_PORKCHOP",
+      "CUSTOM:SauceMayo",
+      "CUSTOM:SauceRed"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.BREAD",
+      "",
+      "",
+      "Items.COOKED_PORKCHOP",
+      "CUSTOM:SauceRed",
+      "",
+      "CUSTOM:SauceMayo",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Hotdog",
+    "name": "hotdog_recipe",
+    "namespace": "mod"
+  }
+}

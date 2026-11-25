@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.COOKED_CHICKEN",
+      "Items.HONEY_BOTTLE"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "Items.COOKED_CHICKEN",
+      "Items.HONEY_BOTTLE",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:GlazedChicken",
+    "name": "glazed_chicken_recipe",
+    "namespace": "mod"
+  }
+}

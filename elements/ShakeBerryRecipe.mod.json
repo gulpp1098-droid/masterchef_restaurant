@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SWEET_BERRIES",
+      "CUSTOM:Milkbottle",
+      "Items.SUGAR"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.SUGAR",
+      "CUSTOM:Milkbottle",
+      "Items.SWEET_BERRIES",
+      "",
+      "CUSTOM:Mug",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:ShakeBerry",
+    "name": "shake_berry_recipe",
+    "namespace": "mod"
+  }
+}

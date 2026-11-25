@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:cheese"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "omnichef:sauce_mushroom"
+    }
+  ],
+  "result": {
+    "id": "omnichef:omelette_mushroom",
+    "count": 1
+  }
+}

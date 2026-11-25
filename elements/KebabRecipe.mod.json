@@ -1,0 +1,35 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.BREAD",
+      "Items.COOKED_MUTTON",
+      "CUSTOM:Fries",
+      "CUSTOM:Salad",
+      "CUSTOM:SauceRed"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.BREAD",
+      "",
+      "CUSTOM:Fries",
+      "Items.COOKED_MUTTON",
+      "CUSTOM:Salad",
+      "",
+      "CUSTOM:SauceRed",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Kebab",
+    "name": "kebab_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sea_pickle"
+    },
+    {
+      "item": "omnichef:sauce_red"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "id": "omnichef:taco",
+    "count": 1
+  }
+}

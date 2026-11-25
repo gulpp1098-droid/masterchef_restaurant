@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:pink_petals"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_floral",
+    "count": 1
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.EGG",
+      "CUSTOM:Cheese",
+      "CUSTOM:SauceMushroom",
+      "Blocks.BROWN_MUSHROOM"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.EGG",
+      "Items.EGG",
+      "CUSTOM:Cheese",
+      "",
+      "Blocks.BROWN_MUSHROOM",
+      "CUSTOM:SauceMushroom"
+    ],
+    "recipeReturnStack": "CUSTOM:OmeletteMushroom",
+    "name": "omelette_mushroom_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "item": "omnichef:milkbottle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_chorus",
+    "count": 1
+  }
+}

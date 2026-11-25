@@ -1,0 +1,35 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Blocks.SEA_PICKLE",
+      "Items.CARROT",
+      "Items.BEETROOT",
+      "Items.DRIED_KELP",
+      "Items.FISH#2"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Items.FISH#2",
+      "Items.DRIED_KELP",
+      "",
+      "Blocks.SEA_PICKLE",
+      "Items.CARROT",
+      "Items.BEETROOT",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SaladOcean",
+    "name": "salad_ocean_recipe",
+    "namespace": "mod"
+  }
+}

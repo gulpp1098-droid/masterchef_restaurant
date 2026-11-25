@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:cheese"
+    },
+    {
+      "item": "omnichef:sauce_red"
+    },
+    {
+      "item": "omnichef:dough"
+    },
+    {
+      "tag": "c:foods/cooked_meat"
+    },
+    {
+      "item": "omnichef:fried_mushrooms"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pizza",
+    "count": 1
+  }
+}

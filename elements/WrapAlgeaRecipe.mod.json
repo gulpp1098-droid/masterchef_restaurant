@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Dough",
+      "Items.CARROT",
+      "CUSTOM:SauceMayo",
+      "Items.COOKED_CHICKEN"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:SauceMayo",
+      "",
+      "Items.COOKED_CHICKEN",
+      "CUSTOM:Dough",
+      "Items.CARROT",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Wrap",
+    "name": "wrap_algea_recipe",
+    "namespace": "mod"
+  }
+}

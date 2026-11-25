@@ -1,0 +1,35 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:SauceMushroom",
+      "Blocks.KELP",
+      "Blocks.SEA_PICKLE",
+      "Items.CARROT",
+      "TAG:c:foods/cooked_fishes"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:SauceMushroom",
+      "",
+      "TAG:c:foods/cooked_fishes",
+      "Blocks.KELP",
+      "Items.CARROT",
+      "",
+      "Blocks.SEA_PICKLE",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:WrapAlgea",
+    "name": "wrap_recipe",
+    "namespace": "mod"
+  }
+}

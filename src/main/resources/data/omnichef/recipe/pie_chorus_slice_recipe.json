@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:pie_chorus"
+    },
+    {
+      "item": "omnichef:knife"
+    }
+  ],
+  "result": {
+    "id": "omnichef:pie_chorus_slice",
+    "count": 8
+  }
+}

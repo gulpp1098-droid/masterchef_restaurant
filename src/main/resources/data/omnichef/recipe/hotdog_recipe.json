@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "minecraft:cooked_porkchop"
+    },
+    {
+      "item": "omnichef:sauce_red"
+    },
+    {
+      "item": "omnichef:sauce_mayo"
+    }
+  ],
+  "result": {
+    "id": "omnichef:hotdog",
+    "count": 1
+  }
+}

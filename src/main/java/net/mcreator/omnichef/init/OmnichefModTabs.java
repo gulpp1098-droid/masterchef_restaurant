@@ -146,6 +146,7 @@ public class OmnichefModTabs {
 				tabData.accept(OmnichefModItems.WINE.get());
 				tabData.accept(OmnichefModItems.WRAP.get());
 				tabData.accept(OmnichefModItems.WRAP_ALGEA.get());
+				tabData.accept(OmnichefModItems.BATTER.get());
 			}).withSearchBar().withTabsBefore(MASTER_CHEF.getId()).build());
 
 	@SubscribeEvent

@@ -1,0 +1,34 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Dough",
+      "Items.EGG",
+      "CUSTOM:Milkbottle",
+      "CUSTOM:Cheese"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "CUSTOM:Cheese",
+      "",
+      "Items.EGG",
+      "CUSTOM:Dough",
+      "CUSTOM:Milkbottle",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Cheesecake",
+    "name": "pie_cheesecake_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Dough",
+      "Items.EGG",
+      "CUSTOM:Milkbottle",
+      "Blocks.WARPED_FUNGUS",
+      "Blocks.CRIMSON_FUNGUS",
+      "Items.NETHER_WART"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Blocks.CRIMSON_FUNGUS",
+      "Blocks.WARPED_FUNGUS",
+      "Items.NETHER_WART",
+      "Items.EGG",
+      "CUSTOM:Dough",
+      "CUSTOM:Milkbottle",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieNether",
+    "name": "pie_nether_recipe",
+    "namespace": "mod"
+  }
+}

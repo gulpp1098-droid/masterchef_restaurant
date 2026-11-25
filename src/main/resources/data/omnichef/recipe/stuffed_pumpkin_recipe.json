@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_mutton"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "omnichef:sauce_mushroom"
+    },
+    {
+      "item": "minecraft:pumpkin"
+    }
+  ],
+  "result": {
+    "id": "omnichef:stuffed_pumpkin",
+    "count": 1
+  }
+}

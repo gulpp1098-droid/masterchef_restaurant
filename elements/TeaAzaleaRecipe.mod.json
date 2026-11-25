@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "TAG:minecraft:leaves",
+      "Blocks.FLOWERING_AZALEA_LEAVES"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.POTION_OF_WATER",
+      "",
+      "CUSTOM:Mug",
+      "TAG:minecraft:leaves",
+      "Blocks.FLOWERING_AZALEA_LEAVES",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:TeaAzalea",
+    "name": "tea_azalea_recipe",
+    "namespace": "mod"
+  }
+}

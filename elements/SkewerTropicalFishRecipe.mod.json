@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.FISH#2",
+      "Blocks.KELP",
+      "Blocks.BAMBOO"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Blocks.KELP",
+      "",
+      "",
+      "Items.FISH#2",
+      "",
+      "",
+      "Blocks.BAMBOO",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SkewerTropicalFish",
+    "name": "skewer_tropical_fish_recipe",
+    "namespace": "mod"
+  }
+}

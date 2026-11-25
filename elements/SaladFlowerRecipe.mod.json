@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.CARROT",
+      "Items.BEETROOT",
+      "TAG:minecraft:small_flowers"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "TAG:minecraft:small_flowers",
+      "",
+      "",
+      "TAG:minecraft:small_flowers",
+      "Items.CARROT",
+      "Items.BEETROOT",
+      "",
+      "Items.BOWL",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SaladFlower",
+    "name": "salad_flower_recipe",
+    "namespace": "mod"
+  }
+}

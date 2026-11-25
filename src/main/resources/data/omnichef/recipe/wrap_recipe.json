@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omnichef:sauce_mushroom"
+    },
+    {
+      "tag": "c:foods/cooked_fishes"
+    },
+    {
+      "item": "minecraft:kelp"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:wrap_algea",
+    "count": 1
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.DYE#3",
+      "CUSTOM:Milkbottle",
+      "Items.SUGAR"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "CUSTOM:Mug",
+      "Items.DYE#3",
+      "CUSTOM:Milkbottle",
+      "",
+      "Items.SUGAR",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:HotChoco",
+    "name": "hot_choco_recipe",
+    "namespace": "mod"
+  }
+}

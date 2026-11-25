@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 8,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:PieBerry"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "CUSTOM:PieBerry",
+      "CUSTOM:Knife",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieBerrySlice",
+    "name": "pie_berry_slice_recipe",
+    "namespace": "mod"
+  }
+}

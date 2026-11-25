@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 8,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:PieMushroom"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "CUSTOM:PieMushroom",
+      "CUSTOM:Knife",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:PieMushroomSlice",
+    "name": "pie_mushroom_slice_recipe",
+    "namespace": "mod"
+  }
+}

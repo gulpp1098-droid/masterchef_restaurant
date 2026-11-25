@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:Batter",
+      "Items.SUGAR"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "",
+      "CUSTOM:Batter",
+      "Items.SUGAR",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Donut",
+    "name": "donut_recipe",
+    "namespace": "mod"
+  }
+}
