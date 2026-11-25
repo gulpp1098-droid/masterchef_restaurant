@@ -21,7 +21,7 @@ public class FillChefsDiaryDependentsProcedure {
 		double itemIndex = 0;
 		double pageCount = 0;
 		dependentItems = GetDiaryDependentItemsProcedure.execute(databaseObject, entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiarySelectedItem);
-		pageCount = Math.max(1, Math.ceil(dependentItems.size() / 5));
+		pageCount = Math.max(1, Math.ceil(dependentItems.size() / (int) 5));
 		{
 			OmnichefModVariables.PlayerVariables _vars = entity.getData(OmnichefModVariables.PLAYER_VARIABLES);
 			_vars.DiaryDependentPage = Math.max(0, Math.min(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryDependentPage, pageCount - 1));
@@ -29,33 +29,33 @@ public class FillChefsDiaryDependentsProcedure {
 		}
 		for (int _i1 = 0; _i1 < 5; _i1++) {
 			if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-				ItemStack _displayStack1 = new ItemStack(Blocks.AIR).copy();
-				_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (rowIndex + 10)), _displayStack1, true);
+				ItemStack _displayStack2 = new ItemStack(Blocks.AIR).copy();
+				_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (rowIndex + 10)), _displayStack2, true);
 			}
-			if (entity instanceof Player _guiToolsLabelPlayer2 && _guiToolsLabelPlayer2.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu2) {
-				_guiToolsLabelMenu2.sendMenuStateUpdate(_guiToolsLabelPlayer2, 0, "gui_tools:sized:" + java.util.Objects.toString(("dependent_row_" + new java.text.DecimalFormat("0").format(rowIndex)), ""), java.util.Objects.toString("", ""), true);
+			if (entity instanceof Player _guiToolsLabelPlayer3 && _guiToolsLabelPlayer3.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu3) {
+				_guiToolsLabelMenu3.sendMenuStateUpdate(_guiToolsLabelPlayer3, 0, "gui_tools:sized:" + java.util.Objects.toString(("dependent_row_" + new java.text.DecimalFormat("0").format(rowIndex)), ""), java.util.Objects.toString("", ""), true);
 			}
 			itemIndex = entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryDependentPage * 5 + rowIndex;
-			if (itemIndex == dependentItems.size()) {
+			if (itemIndex < dependentItems.size()) {
 				candidateID = dependentItems.get((int) itemIndex).getAsString();
 				displayStack = new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse((candidateID).toLowerCase(java.util.Locale.ENGLISH)))).copy();
 				if (entity instanceof Player _player && _player.containerMenu instanceof OmnichefModMenus.MenuAccessor _menu) {
-					ItemStack _displayStack6 = displayStack.copy();
-					_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (rowIndex + 10)), _displayStack6, true);
+					ItemStack _displayStack7 = displayStack.copy();
+					_menu.sendMenuStateUpdate(_player, 3, Integer.toString((int) (rowIndex + 10)), _displayStack7, true);
 				}
-				if (entity instanceof Player _guiToolsLabelPlayer9 && _guiToolsLabelPlayer9.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu9) {
-					_guiToolsLabelMenu9.sendMenuStateUpdate(_guiToolsLabelPlayer9, 0, "gui_tools:sized:" + java.util.Objects.toString(("dependent_row_" + new java.text.DecimalFormat("0").format(rowIndex)), ""), java.util.Objects
+				if (entity instanceof Player _guiToolsLabelPlayer10 && _guiToolsLabelPlayer10.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu10) {
+					_guiToolsLabelMenu10.sendMenuStateUpdate(_guiToolsLabelPlayer10, 0, "gui_tools:sized:" + java.util.Objects.toString(("dependent_row_" + new java.text.DecimalFormat("0").format(rowIndex)), ""), java.util.Objects
 							.toString(((displayStack.getDisplayName().getString()).substring((int) (displayStack.getDisplayName().getString()).indexOf("[") + "[".length(), (int) (displayStack.getDisplayName().getString()).indexOf("]"))), ""), true);
 				}
 			}
 			rowIndex = rowIndex + 1;
 		}
-		if (entity instanceof Player _guiToolsLabelPlayer11 && _guiToolsLabelPlayer11.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu11) {
-			_guiToolsLabelMenu11.sendMenuStateUpdate(_guiToolsLabelPlayer11, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_copy_copy_copy_copy", ""),
+		if (entity instanceof Player _guiToolsLabelPlayer12 && _guiToolsLabelPlayer12.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu12) {
+			_guiToolsLabelMenu12.sendMenuStateUpdate(_guiToolsLabelPlayer12, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_text_label_copy_copy_copy_copy_copy", ""),
 					java.util.Objects.toString(("Related recipes: " + new java.text.DecimalFormat("0").format(dependentItems.size())), ""), true);
 		}
-		if (entity instanceof Player _guiToolsLabelPlayer12 && _guiToolsLabelPlayer12.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu12) {
-			_guiToolsLabelMenu12.sendMenuStateUpdate(_guiToolsLabelPlayer12, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_page_1_", ""),
+		if (entity instanceof Player _guiToolsLabelPlayer13 && _guiToolsLabelPlayer13.containerMenu instanceof OmnichefModMenus.MenuAccessor _guiToolsLabelMenu13) {
+			_guiToolsLabelMenu13.sendMenuStateUpdate(_guiToolsLabelPlayer13, 0, "gui_tools:sized:" + java.util.Objects.toString("sized_text_label_page_1_1", ""),
 					java.util.Objects.toString(("Page " + new java.text.DecimalFormat("0").format(entity.getData(OmnichefModVariables.PLAYER_VARIABLES).DiaryDependentPage + 1) + " / " + new java.text.DecimalFormat("0").format(pageCount)), ""), true);
 		}
 	}

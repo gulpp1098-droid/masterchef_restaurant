@@ -15,8 +15,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.SectionPos;
 
-import net.mcreator.omnichef.procedures.ChefsDiaryFoodPreviousPageProcedure;
-import net.mcreator.omnichef.procedures.ChefsDiaryFoodNextPageProcedure;
 import net.mcreator.omnichef.OmnichefMod;
 
 @EventBusSubscriber
@@ -48,41 +46,39 @@ public record ChefsDiaryItemDetailsGUIButtonMessage(int buttonID, int x, int y, 
 		// security measure to prevent arbitrary chunk generation
 		if (!world.getChunkSource().hasChunk(SectionPos.blockToSectionCoord(x), SectionPos.blockToSectionCoord(z)))
 			return;
-		if (buttonID == 0) {
-
-			ChefsDiaryFoodPreviousPageProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 1) {
-
-			ChefsDiaryFoodNextPageProcedure.execute(world, x, y, z, entity);
-		}
 
 		guiTools$enhancedImageButton : {
-			if (buttonID == 16) {
+			if (buttonID == 14) {
 				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 17) {
+			if (buttonID == 15) {
 				net.mcreator.omnichef.procedures.ChefsDiaryFoodProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 18) {
+			if (buttonID == 16) {
 				net.mcreator.omnichef.procedures.ChefsDiaryClientsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 19) {
+			if (buttonID == 17) {
 				net.mcreator.omnichef.procedures.ChefsDiaryApplienceProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 20) {
+			if (buttonID == 18) {
 				net.mcreator.omnichef.procedures.ChefsDiaryStatsProcedure.execute(world, x, y, z, entity);
 			}
-			if (buttonID == 21) {
+			if (buttonID == 19) {
 				net.mcreator.omnichef.procedures.ChefsDiaryGUIOpenProcedure.execute(world, x, y, z, entity);
 			}
 		}
 		guiTools$advancedButtons : {
-			if (buttonID == 22) {
+			if (buttonID == 20) {
 				net.mcreator.omnichef.procedures.ChefsDiaryChangeRecipeProcedure.execute(world, entity, 1.0);
 			}
-			if (buttonID == 23) {
+			if (buttonID == 21) {
 				net.mcreator.omnichef.procedures.ChefsDiaryChangeRecipeProcedure.execute(world, entity, -1.0);
+			}
+			if (buttonID == 26) {
+				net.mcreator.omnichef.procedures.ChefsDiaryChangeDependentPageProcedure.execute(world, entity, 1.0);
+			}
+			if (buttonID == 27) {
+				net.mcreator.omnichef.procedures.ChefsDiaryChangeDependentPageProcedure.execute(world, entity, -1.0);
 			}
 		}
 	}

@@ -21,30 +21,6 @@
         }
       },
       {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_last_page_icon",
-          "image": "last_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryFoodPreviousPage",
-          "x": 73,
-          "y": 177,
-          "locked": false
-        }
-      },
-      {
-        "type": "imagebutton",
-        "data": {
-          "name": "imagebutton_next_page_icon",
-          "image": "next_page_icon.png",
-          "hoveredImage": "",
-          "onClick": "ChefsDiaryFoodNextPage",
-          "x": 322,
-          "y": 177,
-          "locked": false
-        }
-      },
-      {
         "type": "item_display",
         "data": {
           "name": "item_display_0",
@@ -1289,7 +1265,7 @@
           "fontScale": 100,
           "overflowMode": "ELLIPSIS",
           "tooltipWhenTruncated": true,
-          "width": 120,
+          "width": 68,
           "height": 10,
           "x": 246,
           "y": 180,
@@ -1482,6 +1458,88 @@
           "scale": 100,
           "x": 148,
           "y": 117,
+          "locked": false
+        }
+      },
+      {
+        "type": "advanced_image",
+        "data": {
+          "image": "next_page_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "renderMode": "NORMAL",
+          "actsAsButton": true,
+          "togglePressedTexture": false,
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "textureWidth": 15,
+          "textureHeight": 15,
+          "leftSlice": 5,
+          "rightSlice": 10,
+          "topSlice": 5,
+          "bottomSlice": 10,
+          "clickParameters": [
+            {
+              "name": "direction",
+              "type": "NUMBER",
+              "source": "CONSTANT",
+              "constantValue": "1.0",
+              "variableName": "RestaurantID"
+            }
+          ],
+          "name": "button_next_page_icon_chefsdiarychangedependen",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryChangeDependentPage",
+          "width": 15,
+          "height": 15,
+          "x": 322,
+          "y": 177,
+          "locked": false
+        }
+      },
+      {
+        "type": "advanced_image",
+        "data": {
+          "image": "last_page_icon.png",
+          "hoveredImage": "",
+          "pressedImage": "",
+          "renderMode": "NORMAL",
+          "actsAsButton": true,
+          "togglePressedTexture": false,
+          "textColor": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "textShadow": false,
+          "fontScale": 100,
+          "textureWidth": 15,
+          "textureHeight": 15,
+          "leftSlice": 5,
+          "rightSlice": 10,
+          "topSlice": 5,
+          "bottomSlice": 10,
+          "clickParameters": [
+            {
+              "name": "direction",
+              "type": "NUMBER",
+              "source": "CONSTANT",
+              "constantValue": "-1.0",
+              "variableName": "RestaurantID"
+            }
+          ],
+          "name": "button_next_page_icon_chefsdiarychangedependen_copy",
+          "text": "",
+          "isUndecorated": true,
+          "onClick": "ChefsDiaryChangeDependentPage",
+          "width": 15,
+          "height": 15,
+          "x": 221,
+          "y": 177,
           "locked": false
         }
       }
