@@ -13690,6 +13690,1795 @@
         ]
       },
       "path": "~/Restaurant Functioning/Procedures/GUI Procedures/ChefsDiary"
+    },
+    {
+      "name": "Knife",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "knife",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/KnifeItem.java",
+          "src/main/resources/assets/omnichef/models/item/knife.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items"
+    },
+    {
+      "name": "Mug",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mug",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/mug.json",
+          "src/main/java/net/mcreator/omnichef/item/MugItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items"
+    },
+    {
+      "name": "Butter",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "butter",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/butter.json",
+          "src/main/java/net/mcreator/omnichef/item/ButterItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Cheese",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cheese",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/CheeseItem.java",
+          "src/main/resources/assets/omnichef/models/item/cheese.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Dough",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dough",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/DoughItem.java",
+          "src/main/resources/assets/omnichef/models/item/dough.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Flour",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flour",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/FlourItem.java",
+          "src/main/resources/assets/omnichef/models/item/flour.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Friedmushrooms",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fried_mushrooms",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/FriedmushroomsItem.java",
+          "src/main/resources/assets/omnichef/models/item/fried_mushrooms.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Omnicheffood",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omnicheffood",
+      "metadata": {
+        "files": []
+      },
+      "path": "~/Restaurant Functioning/Creative Tab"
+    },
+    {
+      "name": "Milkbottle",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "milkbottle",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/milkbottle.json",
+          "src/main/java/net/mcreator/omnichef/item/MilkbottleItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Noodles",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "noodles",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/NoodlesItem.java",
+          "src/main/resources/assets/omnichef/models/item/noodles.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SauceMayo",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sauce_mayo",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/sauce_mayo.json",
+          "src/main/java/net/mcreator/omnichef/item/SauceMayoItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SauceMushroom",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sauce_mushroom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SauceMushroomItem.java",
+          "src/main/resources/assets/omnichef/models/item/sauce_mushroom.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SauceRed",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sauce_red",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/sauce_red.json",
+          "src/main/java/net/mcreator/omnichef/item/SauceRedItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Beer",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beer",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/beer.json",
+          "src/main/java/net/mcreator/omnichef/item/BeerItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "BreadPumpkin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bread_pumpkin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/bread_pumpkin.json",
+          "src/main/java/net/mcreator/omnichef/item/BreadPumpkinItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Burger",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "burger",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/burger.json",
+          "src/main/java/net/mcreator/omnichef/item/BurgerItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Cheeseburger",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cheeseburger",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/CheeseburgerItem.java",
+          "src/main/resources/assets/omnichef/models/item/cheeseburger.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Burgerdeluxe",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "burger_deluxe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/BurgerdeluxeItem.java",
+          "src/main/resources/assets/omnichef/models/item/burger_deluxe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Candychorus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_chorus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/CandychorusItem.java",
+          "src/main/resources/assets/omnichef/models/item/candy_chorus.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "CandyHoneycomb",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_honeycomb",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/CandyHoneycombItem.java",
+          "src/main/resources/assets/omnichef/models/item/candy_honeycomb.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Coffee",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffee",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/coffee.json",
+          "src/main/java/net/mcreator/omnichef/item/CoffeeItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Coffeelatte",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffee_latte",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/coffee_latte.json",
+          "src/main/java/net/mcreator/omnichef/item/CoffeelatteItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "CoffeeLattePumpkinSpice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffee_latte_pumpkin_spice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/CoffeeLattePumpkinSpiceItem.java",
+          "src/main/resources/assets/omnichef/models/item/coffee_latte_pumpkin_spice.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "CookieHoney",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cookie_honey",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/cookie_honey.json",
+          "src/main/java/net/mcreator/omnichef/item/CookieHoneyItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "CrispySeaweed",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crispy_seaweed",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/crispy_seaweed.json",
+          "src/main/java/net/mcreator/omnichef/item/CrispySeaweedItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupCurry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_curry",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/soup_curry.json",
+          "src/main/java/net/mcreator/omnichef/item/SoupCurryItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Donut",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "donut",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/donut.json",
+          "src/main/java/net/mcreator/omnichef/item/DonutItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Dumplings",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dumplings",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/DumplingsItem.java",
+          "src/main/resources/assets/omnichef/models/item/dumplings.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "FriedEgg",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fried_egg",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/FriedEggItem.java",
+          "src/main/resources/assets/omnichef/models/item/fried_egg.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Fries",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fries",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/FriesItem.java",
+          "src/main/resources/assets/omnichef/models/item/fries.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "GlazedChicken",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "glazed_chicken",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/glazed_chicken.json",
+          "src/main/java/net/mcreator/omnichef/item/GlazedChickenItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "HotChoco",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hot_choco",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/HotChocoItem.java",
+          "src/main/resources/assets/omnichef/models/item/hot_choco.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Hotdog",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hotdog",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/hotdog.json",
+          "src/main/java/net/mcreator/omnichef/item/HotdogItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Hummusbeetroot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hummus_beetroot",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/hummus_beetroot.json",
+          "src/main/java/net/mcreator/omnichef/item/HummusbeetrootItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "IceCreamBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_berry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/IceCreamBerryItem.java",
+          "src/main/resources/assets/omnichef/models/item/ice_cream_berry.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "IceCreamChoco",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_choco",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/IceCreamChocoItem.java",
+          "src/main/resources/assets/omnichef/models/item/ice_cream_choco.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "IceCreamChorus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_chorus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/IceCreamChorusItem.java",
+          "src/main/resources/assets/omnichef/models/item/ice_cream_chorus.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "IceCreamMelon",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ice_cream_melon",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/ice_cream_melon.json",
+          "src/main/java/net/mcreator/omnichef/item/IceCreamMelonItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "JamBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jam_berry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/JamBerryItem.java",
+          "src/main/resources/assets/omnichef/models/item/jam_berry.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "JellyChorus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly_chorus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/JellyChorusItem.java",
+          "src/main/resources/assets/omnichef/models/item/jelly_chorus.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Jerky",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jerky",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/JerkyItem.java",
+          "src/main/resources/assets/omnichef/models/item/jerky.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "JuiceApple",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "juice_apple",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/juice_apple.json",
+          "src/main/java/net/mcreator/omnichef/item/JuiceAppleItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "JuiceCactus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "juice_cactus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/JuiceCactusItem.java",
+          "src/main/resources/assets/omnichef/models/item/juice_cactus.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "JuiceCarrot",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "juice_carrot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/JuiceCarrotItem.java",
+          "src/main/resources/assets/omnichef/models/item/juice_carrot.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Kebab",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kebab",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/kebab.json",
+          "src/main/java/net/mcreator/omnichef/item/KebabItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Meatballs",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "meatballs",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/MeatballsItem.java",
+          "src/main/resources/assets/omnichef/models/item/meatballs.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Muffin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muffin",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/MuffinItem.java",
+          "src/main/resources/assets/omnichef/models/item/muffin.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "MuffinChorus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muffin_chorus",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/muffin_chorus.json",
+          "src/main/java/net/mcreator/omnichef/item/MuffinChorusItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "MuffinGlowBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "muffin_glow_berry",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/muffin_glow_berry.json",
+          "src/main/java/net/mcreator/omnichef/item/MuffinGlowBerryItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "ChickenNuggets",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chicken_nuggets",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/chicken_nuggets.json",
+          "src/main/java/net/mcreator/omnichef/item/ChickenNuggetsItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "OilSunflower",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oil_sunflower",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/OilSunflowerItem.java",
+          "src/main/resources/assets/omnichef/models/item/oil_sunflower.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Omelette",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omelette",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/omelette.json",
+          "src/main/java/net/mcreator/omnichef/item/OmeletteItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "OmeletteMushroom",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omelette_mushroom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/omelette_mushroom.json",
+          "src/main/java/net/mcreator/omnichef/item/OmeletteMushroomItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "OmeletteWarped",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "omelette_warped",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/omelette_warped.json",
+          "src/main/java/net/mcreator/omnichef/item/OmeletteWarpedItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Pancakes",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pancakes",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pancakes.json",
+          "src/main/java/net/mcreator/omnichef/item/PancakesItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PastaMushroom",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pasta_mushroom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pasta_mushroom.json",
+          "src/main/java/net/mcreator/omnichef/item/PastaMushroomItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Pieapple",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_apple",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pie_apple.json",
+          "src/main/java/net/mcreator/omnichef/item/PieappleItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieAppleSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_apple_slice",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pie_apple_slice.json",
+          "src/main/java/net/mcreator/omnichef/item/PieAppleSliceItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_berry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieBerryItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_berry.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Cheesecake",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cheesecake",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/cheesecake.json",
+          "src/main/java/net/mcreator/omnichef/item/CheesecakeItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieChorus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_chorus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieChorusItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_chorus.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieFloral",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_floral",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieFloralItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_floral.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieMushroom",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_mushroom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pie_mushroom.json",
+          "src/main/java/net/mcreator/omnichef/item/PieMushroomItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieBerrySlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_berry_slice",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pie_berry_slice.json",
+          "src/main/java/net/mcreator/omnichef/item/PieBerrySliceItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "CheesecakeSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cheesecake_slice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/CheesecakeSliceItem.java",
+          "src/main/resources/assets/omnichef/models/item/cheesecake_slice.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieChorusSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_chorus_slice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieChorusSliceItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_chorus_slice.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieFloralSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_floral_slice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieFloralSliceItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_floral_slice.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieMushroomSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_mushroom_slice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieMushroomSliceItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_mushroom_slice.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieNether",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_nether",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pie_nether.json",
+          "src/main/java/net/mcreator/omnichef/item/PieNetherItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PieNetherSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pie_nether_slice",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PieNetherSliceItem.java",
+          "src/main/resources/assets/omnichef/models/item/pie_nether_slice.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Pizza",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pizza",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/PizzaItem.java",
+          "src/main/resources/assets/omnichef/models/item/pizza.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PizzaSlice",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "pizza_slice",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/pizza_slice.json",
+          "src/main/java/net/mcreator/omnichef/item/PizzaSliceItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "PreparedPufferfish",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "prepared_pufferfish",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/prepared_pufferfish.json",
+          "src/main/java/net/mcreator/omnichef/item/PreparedPufferfishItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Salad",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/salad.json",
+          "src/main/java/net/mcreator/omnichef/item/SaladItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SaladAlgea",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_algea",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SaladAlgeaItem.java",
+          "src/main/resources/assets/omnichef/models/item/salad_algea.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SaladChicken",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_chicken",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/salad_chicken.json",
+          "src/main/java/net/mcreator/omnichef/item/SaladChickenItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SaladFlower",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_flower",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SaladFlowerItem.java",
+          "src/main/resources/assets/omnichef/models/item/salad_flower.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SaladOcean",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "salad_ocean",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SaladOceanItem.java",
+          "src/main/resources/assets/omnichef/models/item/salad_ocean.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Sandwich",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sandwich",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/sandwich.json",
+          "src/main/java/net/mcreator/omnichef/item/SandwichItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "ShakeBerry",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shake_berry",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/ShakeBerryItem.java",
+          "src/main/resources/assets/omnichef/models/item/shake_berry.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Skewer",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skewer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SkewerItem.java",
+          "src/main/resources/assets/omnichef/models/item/skewer.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SkewerRabbit",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skewer_rabbit",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SkewerRabbitItem.java",
+          "src/main/resources/assets/omnichef/models/item/skewer_rabbit.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SkewerTropicalFish",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skewer_tropical_fish",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/skewer_tropical_fish.json",
+          "src/main/java/net/mcreator/omnichef/item/SkewerTropicalFishItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupBambooShoots",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_bamboo_shoots",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SoupBambooShootsItem.java",
+          "src/main/resources/assets/omnichef/models/item/soup_bamboo_shoots.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupChicken",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_chicken",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/soup_chicken.json",
+          "src/main/java/net/mcreator/omnichef/item/SoupChickenItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupNether",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_nether",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/soup_nether.json",
+          "src/main/java/net/mcreator/omnichef/item/SoupNetherItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupRamen",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_ramen",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SoupRamenItem.java",
+          "src/main/resources/assets/omnichef/models/item/soup_ramen.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupTropicalFish",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_tropical_fish",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/soup_tropical_fish.json",
+          "src/main/java/net/mcreator/omnichef/item/SoupTropicalFishItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "SoupPufferfish",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "soup_pufferfish",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/soup_pufferfish.json",
+          "src/main/java/net/mcreator/omnichef/item/SoupPufferfishItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "StuffedMushroom",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuffed_mushroom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/StuffedMushroomItem.java",
+          "src/main/resources/assets/omnichef/models/item/stuffed_mushroom.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "StuffedNautilus",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuffed_nautilus",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/StuffedNautilusItem.java",
+          "src/main/resources/assets/omnichef/models/item/stuffed_nautilus.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "StuffedPumpkin",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stuffed_pumpkin",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/stuffed_pumpkin.json",
+          "src/main/java/net/mcreator/omnichef/item/StuffedPumpkinItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Sushi",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sushi",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/SushiItem.java",
+          "src/main/resources/assets/omnichef/models/item/sushi.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Taco",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "taco",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/taco.json",
+          "src/main/java/net/mcreator/omnichef/item/TacoItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Tea",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tea",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/TeaItem.java",
+          "src/main/resources/assets/omnichef/models/item/tea.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "TeaAzalea",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tea_azalea",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/TeaAzaleaItem.java",
+          "src/main/resources/assets/omnichef/models/item/tea_azalea.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "TeaFlower",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tea_flower",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/TeaFlowerItem.java",
+          "src/main/resources/assets/omnichef/models/item/tea_flower.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Toast",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "toast",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/ToastItem.java",
+          "src/main/resources/assets/omnichef/models/item/toast.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "TempuraSeaPickle",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tempura_sea_pickle",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/tempura_sea_pickle.json",
+          "src/main/java/net/mcreator/omnichef/item/TempuraSeaPickleItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Vodka",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vodka",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/VodkaItem.java",
+          "src/main/resources/assets/omnichef/models/item/vodka.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Waffle",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "waffle",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/waffle.json",
+          "src/main/java/net/mcreator/omnichef/item/WaffleItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Wine",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wine",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/WineItem.java",
+          "src/main/resources/assets/omnichef/models/item/wine.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "Wrap",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wrap",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/omnichef/item/WrapItem.java",
+          "src/main/resources/assets/omnichef/models/item/wrap.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "WrapAlgea",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wrap_algea",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/omnichef/models/item/wrap_algea.json",
+          "src/main/java/net/mcreator/omnichef/item/WrapAlgeaItem.java"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Items/Food"
+    },
+    {
+      "name": "ButterRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "butter_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/butter_recipe.json",
+          "src/main/resources/data/omnichef/recipe/butter_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "CheeseRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cheese_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/cheese_recipe.json",
+          "src/main/resources/data/omnichef/recipe/cheese_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "DoughRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dough_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/dough_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/dough_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "FlourRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flour_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/flour_recipe.json",
+          "src/main/resources/data/omnichef/recipe/flour_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "FriedMushroomRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fried_mushroom_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/fried_mushroom_recipe.json",
+          "src/main/resources/data/omnichef/recipe/fried_mushroom_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "HummusBeetrootRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hummus_beetroot_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/hummus_beetroot_recipe.json",
+          "src/main/resources/data/omnichef/recipe/hummus_beetroot_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "KnifeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "knife_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/knife_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/knife_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "MilkBottleRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "milk_bottle_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/milk_bottle_recipe.json",
+          "src/main/resources/data/omnichef/recipe/milk_bottle_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "MugRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mug_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/mug_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/mug_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "NoodlesRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "noodles_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/noodles_recipe.json",
+          "src/main/resources/data/omnichef/recipe/noodles_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "OilSunflowerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oil_sunflower_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/oil_sunflower_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/oil_sunflower_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "SauceMayoRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sauce_mayo_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/sauce_mayo_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/sauce_mayo_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "SauceMushroomRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sauce_mushroom_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/sauce_mushroom_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/sauce_mushroom_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "SauceRedRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sauce_red_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/sauce_red_recipe.json",
+          "src/main/resources/data/omnichef/recipe/sauce_red_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "JamBerryRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jam_berry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/jam_berry_recipe.json",
+          "src/main/resources/data/omnichef/recipe/jam_berry_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "BeerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "beer_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/beer_recipe.json",
+          "src/main/resources/data/omnichef/recipe/beer_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "BreadPumpkinRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bread_pumpkin_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/bread_pumpkin_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/bread_pumpkin_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "BreadRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bread_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/bread_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/bread_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "BurgerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "burger_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/burger_recipe.json",
+          "src/main/resources/data/omnichef/recipe/burger_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "CheeseBurgerRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cheese_burger_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/cheese_burger_recipe.json",
+          "src/main/resources/data/omnichef/recipe/cheese_burger_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "BurgerDeluxeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "burger_deluxe_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/burger_deluxe_recipe.json",
+          "src/main/resources/data/omnichef/recipe/burger_deluxe_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "CandyChorusRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_chorus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/recipe/candy_chorus_recipe.json",
+          "src/main/resources/data/omnichef/advancement/recipes/candy_chorus_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "CandyHoneycombRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_honeycomb_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/candy_honeycomb_recipe.json",
+          "src/main/resources/data/omnichef/recipe/candy_honeycomb_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
+    },
+    {
+      "name": "CoffeeRecipe",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coffee_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/omnichef/advancement/recipes/coffee_recipe.json",
+          "src/main/resources/data/omnichef/recipe/coffee_recipe.json"
+        ]
+      },
+      "path": "~/Restaurant Functioning/Recipes/Ingredients"
     }
   ],
   "variable_elements": [
@@ -13977,6 +15766,17 @@
     ],
     "ITEMS:minecraft:foot_armor": [
       "~ChefsSet@CUSTOM:ChefsSet.boots"
+    ],
+    "ITEMS:minecraft:meat": [
+      "~SkewerTropicalFish@CUSTOM:SkewerTropicalFish",
+      "~SkewerRabbit@CUSTOM:SkewerRabbit",
+      "~Skewer@CUSTOM:Skewer",
+      "~ChickenNuggets@CUSTOM:ChickenNuggets",
+      "~Meatballs@CUSTOM:Meatballs",
+      "~Kebab@CUSTOM:Kebab",
+      "~Jerky@CUSTOM:Jerky",
+      "~Hotdog@CUSTOM:Hotdog",
+      "~GlazedChicken@CUSTOM:GlazedChicken"
     ]
   },
   "tab_element_order": {},
@@ -14109,7 +15909,112 @@
       "item.omnichef.chefs_set_helmet": "Chef\u0027s Hat",
       "item.omnichef.chefs_set_chestplate": "Chef\u0027s Apron",
       "item.omnichef.chefs_set_boots": "Chef\u0027s Boots",
-      "gui.omnichef.chefs_diary_item_details_gui.label_my_recipes": "My Recipes:"
+      "gui.omnichef.chefs_diary_item_details_gui.label_my_recipes": "My Recipes:",
+      "item.omnichef.knife.description_0": "Do not cut your finger!",
+      "item.omnichef.knife": "Knife",
+      "item.omnichef.mug": "Mug",
+      "item.omnichef.butter": "Butter",
+      "item.omnichef.cheese": "Cheese",
+      "item.omnichef.dough": "Dough",
+      "item.omnichef.flour": "Flour",
+      "item_group.omnichef.omnicheffood": "Omnicheffood",
+      "item.omnichef.milkbottle": "Milk Bottle",
+      "item.omnichef.noodles": "Noodles",
+      "item.omnichef.fried_mushrooms": "Fried Mushrooms",
+      "item.omnichef.sauce_mayo": "Mayo",
+      "item.omnichef.sauce_mushroom": "Mushroom Sauce",
+      "item.omnichef.sauce_red": "Sauce",
+      "item.omnichef.beer": "Beer",
+      "item.omnichef.bread_pumpkin": "Pumpkin Bread",
+      "item.omnichef.burger": "Burger",
+      "item.omnichef.cheeseburger": "Cheeseburger",
+      "item.omnichef.burger_deluxe": "Burger",
+      "item.omnichef.candy_chorus": "Chorus Candies",
+      "item.omnichef.candy_honeycomb": "Honeycomb Candies",
+      "item.omnichef.coffee": "Coffee",
+      "item.omnichef.coffee_latte": "Latte",
+      "item.omnichef.coffee_latte_pumpkin_spice": "Pumpkin Spice Latte",
+      "item.omnichef.cookie_honey": "Honey cookie",
+      "item.omnichef.crispy_seaweed": "Crispy Seaweed",
+      "item.omnichef.soup_curry": "Curry",
+      "item.omnichef.donut": "Donut",
+      "item.omnichef.dumplings": "Dumplings",
+      "item.omnichef.fried_egg": "Fried Egg",
+      "item.omnichef.fries": "Fries",
+      "item.omnichef.glazed_chicken": "Glazed Chicken",
+      "item.omnichef.hot_choco": "Hot Choco",
+      "item.omnichef.hotdog": "Hotdog",
+      "item.omnichef.hummus_beetroot": "Beetroot Hummus",
+      "item.omnichef.ice_cream_berry": "Berry Ice Cream",
+      "item.omnichef.ice_cream_choco": "Choco Ice Cream",
+      "item.omnichef.ice_cream_chorus": "Chorus Ice Cream",
+      "item.omnichef.ice_cream_melon": "Melon Ice Cream",
+      "item.omnichef.jam_berry": "Berry Jam",
+      "item.omnichef.jelly_chorus": "Chorus Jelly",
+      "item.omnichef.jerky": "Jerky",
+      "item.omnichef.juice_apple": "Apple Juice",
+      "item.omnichef.juice_cactus": "Cactus Juice",
+      "item.omnichef.juice_carrot": "Carrot Juice",
+      "item.omnichef.kebab": "Kebab",
+      "item.omnichef.meatballs": "Meatballs",
+      "item.omnichef.muffin": "Muffin",
+      "item.omnichef.muffin_chorus": "Chorus Muffin",
+      "item.omnichef.muffin_glow_berry": "Glowberry Muffin",
+      "item.omnichef.chicken_nuggets": "Chicken Nuggets",
+      "item.omnichef.oil_sunflower": "Sunflower Oil",
+      "item.omnichef.omelette": "Omelette",
+      "item.omnichef.omelette_mushroom": "Mushroom Omelette",
+      "item.omnichef.omelette_warped": "Warped Omelette",
+      "item.omnichef.pancakes": "Pancakes",
+      "item.omnichef.pasta_mushroom": "Mushroom Pasta",
+      "item.omnichef.pie_apple_slice": "Apple Pie Slice",
+      "item.omnichef.pie_apple": "Apple Pie",
+      "item.omnichef.pie_berry": "Berry Pie",
+      "item.omnichef.cheesecake": "Cheesecake",
+      "item.omnichef.pie_chorus": "Chorus Pie",
+      "item.omnichef.pie_floral": "Floral Pie",
+      "item.omnichef.pie_mushroom": "Mushroom Pie",
+      "item.omnichef.pie_berry_slice": "Berry Pie Slice",
+      "item.omnichef.cheesecake_slice": "Cheesecake Slice",
+      "item.omnichef.pie_chorus_slice": "Chorus Pie Slice",
+      "item.omnichef.pie_floral_slice": "Floral Pie Slice",
+      "item.omnichef.pie_mushroom_slice": "Mushroom Pie Slice",
+      "item.omnichef.pie_nether": "Nether Pie",
+      "item.omnichef.pie_nether_slice": "Nether Pie Slice",
+      "item.omnichef.pizza": "Pizza",
+      "item.omnichef.pizza_slice": "Pizza Slice",
+      "item.omnichef.prepared_pufferfish": "Prepared Pufferfish",
+      "item.omnichef.salad": "Salad",
+      "item.omnichef.salad_algea": "Algea Salad",
+      "item.omnichef.salad_chicken": "Chicken Salad",
+      "item.omnichef.salad_flower": "Flower Salad",
+      "item.omnichef.salad_ocean": "Ocean Salad",
+      "item.omnichef.sandwich": "Sandwich",
+      "item.omnichef.shake_berry": "Berry Shake",
+      "item.omnichef.skewer": "Skewer",
+      "item.omnichef.skewer_rabbit": "Rabbit Skewer",
+      "item.omnichef.skewer_tropical_fish": "Tropical Skewer",
+      "item.omnichef.soup_bamboo_shoots": "Bamboo Shoots Soup",
+      "item.omnichef.soup_chicken": "Chicken Soup",
+      "item.omnichef.soup_nether": "Nether Soup",
+      "item.omnichef.soup_ramen": "Ramen",
+      "item.omnichef.soup_tropical_fish": "Tropical Soup",
+      "item.omnichef.soup_pufferfish": "Pufferfish Stew",
+      "item.omnichef.stuffed_mushroom": "Stuffed Mushroom",
+      "item.omnichef.stuffed_nautilus": "Stuffed Nautilus",
+      "item.omnichef.stuffed_pumpkin": "Stuffed Pumpkin",
+      "item.omnichef.sushi": "Sushi",
+      "item.omnichef.taco": "Taco",
+      "item.omnichef.tea": "Tea",
+      "item.omnichef.tea_azalea": "Azalea Tea",
+      "item.omnichef.tea_flower": "Flower Tea",
+      "item.omnichef.toast": "Toast",
+      "item.omnichef.tempura_sea_pickle": "Sea Pickle Tempura",
+      "item.omnichef.vodka": "Vodka",
+      "item.omnichef.waffle": "Waffle",
+      "item.omnichef.wine": "Wine",
+      "item.omnichef.wrap": "Warp",
+      "item.omnichef.wrap_algea": "Algea Warp"
     }
   },
   "metadata": {
@@ -14206,6 +16111,10 @@
             "children": [
               {
                 "name": "DisplayItems",
+                "children": []
+              },
+              {
+                "name": "Food",
                 "children": []
               }
             ]
@@ -14407,7 +16316,16 @@
           },
           {
             "name": "Recipes",
-            "children": []
+            "children": [
+              {
+                "name": "Foods",
+                "children": []
+              },
+              {
+                "name": "Ingredients",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Advancments",

@@ -1,0 +1,38 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.BREAD",
+      "Items.COOKED_BEEF",
+      "CUSTOM:Cheese",
+      "Blocks.SEA_PICKLE",
+      "CUSTOM:SauceMayo",
+      "CUSTOM:SauceRed",
+      "Items.BEETROOT",
+      "Items.CARROT"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "Items.CARROT",
+      "Items.BREAD",
+      "Items.BREAD",
+      "Items.BEETROOT",
+      "Items.COOKED_BEEF",
+      "CUSTOM:Cheese",
+      "CUSTOM:SauceRed",
+      "CUSTOM:SauceMayo",
+      "Blocks.SEA_PICKLE"
+    ],
+    "recipeReturnStack": "CUSTOM:Burgerdeluxe",
+    "name": "burger_deluxe_recipe",
+    "namespace": "mod"
+  }
+}

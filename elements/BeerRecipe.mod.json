@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.WHEAT",
+      "Items.SUGAR",
+      "Items.SPIDER_EYE"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "CUSTOM:Mug",
+      "Items.WHEAT",
+      "Items.SPIDER_EYE",
+      "",
+      "Items.SUGAR",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Beer",
+    "name": "beer_recipe",
+    "namespace": "mod"
+  }
+}

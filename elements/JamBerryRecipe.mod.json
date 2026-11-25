@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SWEET_BERRIES",
+      "Items.SUGAR"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.GLASS_BOTTLE",
+      "Items.SWEET_BERRIES",
+      "Items.SUGAR",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:JamBerry",
+    "name": "jam_berry_recipe",
+    "namespace": "mod"
+  }
+}

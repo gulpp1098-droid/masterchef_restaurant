@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "omnichef:cheese"
+    }
+  ],
+  "result": {
+    "id": "omnichef:cheeseburger",
+    "count": 1
+  }
+}

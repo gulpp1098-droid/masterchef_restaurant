@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "omnichef:oil_sunflower"
+    }
+  ],
+  "result": {
+    "id": "omnichef:sauce_mayo",
+    "count": 1
+  }
+}

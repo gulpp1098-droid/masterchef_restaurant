@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 8,
+    "group": "",
+    "unlockingItems": [
+      "Blocks.GLASS",
+      "Items.CLAY_BALL"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Blocks.GLASS",
+      "Blocks.GLASS",
+      "Items.CLAY_BALL",
+      "Blocks.GLASS",
+      "Blocks.GLASS",
+      "Items.CLAY_BALL"
+    ],
+    "recipeReturnStack": "CUSTOM:Mug",
+    "name": "mug_recipe",
+    "namespace": "mod"
+  }
+}

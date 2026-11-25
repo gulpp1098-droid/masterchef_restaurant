@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "CUSTOM:Dough",
+      "Blocks.PUMPKIN"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.SUGAR",
+      "CUSTOM:Dough",
+      "Blocks.PUMPKIN",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:BreadPumpkin",
+    "name": "bread_pumpkin_recipe",
+    "namespace": "mod"
+  }
+}

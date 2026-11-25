@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "Items.HONEY_BOTTLE",
+      "Items.HONEYCOMB"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.SUGAR",
+      "",
+      "",
+      "Items.HONEYCOMB",
+      "",
+      "",
+      "Items.HONEY_BOTTLE",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:CandyHoneycomb",
+    "name": "candy_honeycomb_recipe",
+    "namespace": "mod"
+  }
+}

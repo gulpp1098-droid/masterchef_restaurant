@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.SUGAR",
+      "Items.CHORUS_FRUIT_POPPED",
+      "Items.HONEY_BOTTLE"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.SUGAR",
+      "",
+      "",
+      "Items.CHORUS_FRUIT_POPPED",
+      "",
+      "",
+      "Items.HONEY_BOTTLE",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Candychorus",
+    "name": "candy_chorus_recipe",
+    "namespace": "mod"
+  }
+}

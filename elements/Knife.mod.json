@@ -1,0 +1,72 @@
+{
+  "_fv": 89,
+  "_type": "item",
+  "definition": {
+    "renderType": 0,
+    "texture": "knife",
+    "customModelName": "Normal",
+    "guiTexture": "",
+    "customProperties": {},
+    "states": [],
+    "animations": [],
+    "name": "Knife",
+    "rarity": "COMMON",
+    "creativeTabs": [
+      "CUSTOM:MasterChef"
+    ],
+    "stackSize": 1,
+    "enchantability": 5,
+    "useDuration": 0,
+    "toolType": 1.0,
+    "damageCount": 0,
+    "recipeRemainder": "",
+    "destroyAnyBlock": false,
+    "immuneToFire": false,
+    "isPiglinCurrency": false,
+    "repairItems": [],
+    "stayInGridWhenCrafting": true,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": true,
+    "damageVsEntity": 4.0,
+    "attackSpeed": 1.2,
+    "specialInformation": {
+      "fixedValue": [
+        "Do not cut your finger!"
+      ]
+    },
+    "glowCondition": {
+      "fixedValue": false
+    },
+    "openGUIOnRightClick": {
+      "fixedValue": false
+    },
+    "inventorySize": 9,
+    "inventoryStackSize": 99,
+    "enableRanged": false,
+    "shootConstantly": false,
+    "rangedItemChargesPower": false,
+    "projectile": "Arrow",
+    "projectileDisableAmmoCheck": false,
+    "isFood": false,
+    "nutritionalValue": 4,
+    "saturation": 0.3,
+    "eatResultItem": "",
+    "isMeat": false,
+    "isAlwaysEdible": false,
+    "animation": "none",
+    "isMusicDisc": false,
+    "musicDiscMusic": "",
+    "musicDiscDescription": "",
+    "musicDiscLengthInTicks": 100,
+    "musicDiscAnalogOutput": 0,
+    "providedBannerPatterns": [],
+    "attributeModifiers": [
+      {
+        "equipmentSlot": "mainhand",
+        "attribute": "LUCK",
+        "amount": 1.0,
+        "operation": "ADD_VALUE"
+      }
+    ]
+  }
+}

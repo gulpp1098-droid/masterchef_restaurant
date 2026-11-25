@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aab",
+    "aab"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:glass"
+    },
+    "b": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "id": "omnichef:mug",
+    "count": 8
+  }
+}

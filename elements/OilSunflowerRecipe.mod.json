@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Blocks.DOUBLE_PLANT#0"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.GLASS_BOTTLE",
+      "Blocks.DOUBLE_PLANT#0",
+      "Blocks.DOUBLE_PLANT#0",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:OilSunflower",
+    "name": "oil_sunflower_recipe",
+    "namespace": "mod"
+  }
+}

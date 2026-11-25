@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "omnichef:skewer_rabbit",
+    "omnichef:glazed_chicken",
+    "omnichef:chicken_nuggets",
+    "omnichef:jerky",
+    "omnichef:kebab",
+    "omnichef:meatballs",
+    "omnichef:skewer",
+    "omnichef:skewer_tropical_fish",
+    "omnichef:hotdog"
+  ]
+}

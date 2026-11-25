@@ -1,0 +1,31 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.BEETROOT"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.GLASS_BOTTLE",
+      "Items.BEETROOT",
+      "Items.BEETROOT",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SauceRed",
+    "name": "sauce_red_recipe",
+    "namespace": "mod"
+  }
+}

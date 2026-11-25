@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "omnichef:cheese"
+    },
+    {
+      "item": "omnichef:sauce_red"
+    },
+    {
+      "item": "omnichef:sauce_mayo"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    }
+  ],
+  "result": {
+    "id": "omnichef:burger_deluxe",
+    "count": 1
+  }
+}

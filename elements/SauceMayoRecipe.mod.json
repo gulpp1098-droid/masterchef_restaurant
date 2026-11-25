@@ -1,0 +1,32 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "CUSTOM:OilSunflower",
+      "Items.EGG"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "",
+      "",
+      "Items.GLASS_BOTTLE",
+      "Items.EGG",
+      "CUSTOM:OilSunflower",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:SauceMayo",
+    "name": "sauce_mayo_recipe",
+    "namespace": "mod"
+  }
+}

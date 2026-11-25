@@ -1,0 +1,33 @@
+{
+  "_fv": 89,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "recipeRetstackSize": 1,
+    "group": "",
+    "unlockingItems": [
+      "Items.BREAD",
+      "Items.COOKED_BEEF",
+      "CUSTOM:Cheese"
+    ],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      "",
+      "Items.BREAD",
+      "Items.BREAD",
+      "",
+      "Items.COOKED_BEEF",
+      "CUSTOM:Cheese",
+      "",
+      "",
+      ""
+    ],
+    "recipeReturnStack": "CUSTOM:Cheeseburger",
+    "name": "cheese_burger_recipe",
+    "namespace": "mod"
+  }
+}
